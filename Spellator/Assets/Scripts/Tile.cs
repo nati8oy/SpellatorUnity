@@ -10,7 +10,7 @@ public class Tile : MonoBehaviour
     public Text points;
     private Color newColor = Color.red;
     private ColorBlock cb;
-    private bool selected = false;
+    //private bool selected = false;
     private string currentWord;
     public List<string> letters = new List<string>() { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
 
@@ -51,30 +51,36 @@ public class Tile : MonoBehaviour
         pointsDictionary.Add("Y", 4);
         pointsDictionary.Add("Z", 10);
 
-        buttonComponent.onClick.AddListener(HandleClick);
 
-        letter.text = "A";
+        letter.text = letters[Random.Range(0,25)];
         points.text = pointsDictionary[letter.text].ToString();
 
+        //buttonComponent.onClick.AddListener(HandleClick);
+
+
 
     }
 
-    private void Update()
-    {
-
-    }
 
 
     public void HandleClick()
+
+
     {
         //check is the tile is selected or not. If it's not tagged as "selected" then add it to the word being made.
         if(gameObject.tag != "Selected")
         {
 
-            GameManager.instance.CreateWord(letter.text, points.text);
+            GameManager.Instance.CreateWord(letter.text);
+
+            if(GameManager.Instance.WordBeingMade.Length >= 3)
+            {
+                GameManager.Instance.CheckWord();
+            }
+
             gameObject.tag = "Selected";
 
-         
+
         }
 
 

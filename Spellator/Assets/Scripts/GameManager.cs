@@ -1,108 +1,79 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
-
-
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
-    //sets up an instance of the GameManager - a singleton
-    public static GameManager instance = new GameManager();
-    
-    //a list to store all of the values from the text file in
-    private List<string> dictionaryList = new List<string>();
+    //Game Manager Code
+    //sets up an instance of the GameManager
+    public static GameManager Instance;
 
-    //the object type needed to remove everything once the 
-    [SerializeField] private GameObject tile;
-
-
-    //this sets up the field for which to add the external dictionary file
-    [SerializeField] private TextAsset dictionaryTxtFile;
-
-    //this is the string to which the full dictionary is assigned before being split up by the Split method
-    private string fullDictionary; 
+    //this sets up the field for which to add the external dictionary txt file
+    [SerializeField]
+    private TextAsset dictionaryTxtFile;
 
     //this is the textbox that displays the current word being made
-    [SerializeField] private Text inputText;
+    [SerializeField]
+    private Text inputText;
 
-    //this is the word being made as the letter tiles are clicked
-    private string wordBeingMade = "A";
-
-    //this is the array for the selected tiles.
-    public GameObject[] selectedTiles;
-    //this array is for the tiles to untag once the "clear" button is pressed.
-    public GameObject[] tilesToUntag;
-
-
-    [SerializeField] Transform[] positionArray;
+    //a list to store all of the values from the text file in
+    private List<string> dictionaryList = new List<string>();
+   
+     private GameObject[] selectedTiles;
+    private GameObject[] tilesToUntag;
 
 
-    Dictionary<string, int> dictionary = new Dictionary<string, int>();
+    //this is the string to which the full dictionary is assigned before being split up by the Split method
+    private string fullDictionary;
 
+    //create the dictionary to store all of the words in
+    private Dictionary<string, int> dictionary = new Dictionary<string, int>();
 
+    private string wordBeingMade;
 
-    // Start is called before the first frame update
-    void Start()
+    public string WordBeingMade
     {
-        //wordBeingMade = "FUCK";
-        fullDictionary = dictionaryTxtFile.ToString();
-
-        
-
-        //get the dictionary list of words and split them on every space
-
-       dictionaryList = new List<string>(fullDictionary.Split(','));
-        //dictionaryArray = fullDictionary.Split(',');
-       
-        //Debug.Log("Dictionary Array length: " + dictionaryArray.Length);
-
-
-
-        //add each of the split words into an array 
-        for (int i = 0; i < dictionaryList.Count; i++)
+        get { return wordBeingMade; }
+        set
         {
+            Debug.LogFormat("WordBeingMade will change to '{0}'", value);
+            wordBeingMade = value;
+            inputText.text = wordBeingMade;
+        }
+    }
 
-            dictionary.Add(dictionaryList[i], 1);
-            //Debug.Log("Dictionary Array content: " + dictionaryArray[i]);
-
-
-            //Debug.Log(dictionaryArray[i]);
-            // Debug.Log(dictionary.Count);
-
+    void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
         }
 
-        Debug.Log("Check for specific dictionary key: " + dictionary.ContainsKey("FUCK"));
-
-        // Debug.Log(dictionaryArray.Length);
-        Debug.Log("Dictionary size: "+dictionary.Count);
-        Debug.Log("Dictionary List length: " + dictionaryList.Count);
-
-
-
-
-
+        Instance = this;
     }
 
-     void Update()
+    void Start()
     {
+        //add the list of words from an external txt file via the inspector
+        fullDictionary = dictionaryTxtFile.text;
 
-        //inputText.text = wordBeingMade;
+        //get the dictionary list of words and split them on every comma
+        dictionaryList = new List<string>(fullDictionary.Split(','));
 
+        //add each of the words within dictionaryList to the actual dictionary itself
+        for (int i = 0; i < dictionaryList.Count; i++)
+        {
+           // Debug.Log(dictionaryList[i]);
+            dictionary.Add(dictionaryList[i], 1);
+        }
     }
-
 
     public void CheckWord()
     {
-        // Debug.Log("wordBeingMade from CheckWord Method: " + wordBeingMade.Length);
-
-
-
-
-        //check to see if the word is in the dictionary. If it is then clear the word being makde and add points, etc. 
-        if (dictionary.ContainsKey(wordBeingMade))
+        //check to see if the word is in the dictionary. If it is then clear the word being made and add points, etc. 
+        if (dictionary.ContainsKey(WordBeingMade))
         {
-
             //add all the tiles with the tag "Selected" to an array
             selectedTiles = GameObject.FindGameObjectsWithTag("Selected");
 
@@ -113,42 +84,21 @@ public class GameManager : MonoBehaviour
 
                 Destroy(tile.gameObject);
             }
-
-            Debug.Log(wordBeingMade +  " is a word");
-
-
+            Debug.Log(WordBeingMade + " is a word");
         }
         else
         {
-            Debug.Log(wordBeingMade + " isn't a word");
-
+            Debug.Log(WordBeingMade + " isn't a word");
         }
-
-        if (wordBeingMade == "A")
-        {
-            Debug.Log("working A");
-        }
-
-        if (wordBeingMade == "AA")
-        {
-            Debug.Log("working AA");
-        }
-
-
     }
 
-
-
-
-    public void CreateWord(string theLetter, string thePoints)
+    //this handles the incoming letter from the tile which is concatenated to the current "wordBeingMade"
+    public void CreateWord(string theLetter)
     {
-        wordBeingMade = string.Concat(wordBeingMade, theLetter);
-        Debug.Log("word being made is: " + wordBeingMade);
-
-        //inputText.text = wordBeingMade;
-
-
+        WordBeingMade = string.Concat(WordBeingMade, theLetter);
     }
+
+
 
     public void ClearWord()
     {
@@ -161,10 +111,19 @@ public class GameManager : MonoBehaviour
         //loop through the array and delete each of the gameObjects in it
         foreach (GameObject tile in tilesToUntag)
         {
-
             tile.tag = "Untagged";
         }
 
+        WordBeingMade = "";
+
     }
+
 }
+
+
+
+
+
+
+
 

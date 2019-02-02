@@ -253,12 +253,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 112081156}
   m_CullTransparentMesh: 0
---- !u!1 &166922421 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5976778401099106082, guid: 62493d6093b174721b8a10a5964d4855,
-    type: 3}
-  m_PrefabInstance: {fileID: 5976778400974393239}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &166922422 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5976778401099106081, guid: 62493d6093b174721b8a10a5964d4855,
@@ -1157,18 +1151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f79f7b51d295e4cb19eb237343666dc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tile: {fileID: 166922421}
   dictionaryTxtFile: {fileID: 4900000, guid: 7c382be831dd04dd5832d2f7e1219647, type: 3}
   inputText: {fileID: 239742372}
-  selectedTiles: []
-  tilesToUntag: []
-  positionArray:
-  - {fileID: 1338438140}
-  - {fileID: 1140780442}
-  - {fileID: 1741205861}
-  - {fileID: 1851239271}
-  - {fileID: 2144500811}
-  - {fileID: 1342849940}
 --- !u!1 &1338438139
 GameObject:
   m_ObjectHideFlags: 0
