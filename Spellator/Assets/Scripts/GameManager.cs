@@ -69,21 +69,30 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void CheckWord()
+    public void CheckAndDeleteTiles()
     {
-        //check to see if the word is in the dictionary. If it is then clear the word being made and add points, etc. 
+
         if (dictionary.ContainsKey(WordBeingMade))
         {
-            //add all the tiles with the tag "Selected" to an array
-            selectedTiles = GameObject.FindGameObjectsWithTag("Selected");
-
-
             //loop through the array and delete each of the gameObjects in it
+            selectedTiles = GameObject.FindGameObjectsWithTag("Selected");
             foreach (GameObject tile in selectedTiles)
             {
 
                 Destroy(tile.gameObject);
             }
+
+            Debug.Log("------Deleting Tiles------");
+            WordBeingMade = "";
+        }
+       
+    }
+
+    public void CheckWord()
+    {
+        //check to see if the word is in the dictionary. If it is then clear the word being made and add points, etc. 
+        if (dictionary.ContainsKey(WordBeingMade))
+        {
             Debug.Log(WordBeingMade + " is a word");
         }
         else

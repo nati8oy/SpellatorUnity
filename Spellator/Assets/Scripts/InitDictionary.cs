@@ -5,39 +5,38 @@ using UnityEngine;
 public class InitDictionary : MonoBehaviour
 {
 
-    public static InitDictionary instance = new InitDictionary();
+    public static InitDictionary Instance;
 
-    public Dictionary<string, int> points = new Dictionary<string, int>();
+    public Dictionary<string, int> pointsDictionary = new Dictionary<string, int>();
 
     void Start()
     {
-        points.Add("A", 1);
-        points.Add("B", 3);
-        points.Add("C", 3);
-        points.Add("D", 2);
-        points.Add("E", 1);
-        points.Add("F", 4);
-        points.Add("G", 2);
-        points.Add("H", 4);
-        points.Add("I", 1);
-        points.Add("J", 8);
-        points.Add("K", 5);
-        points.Add("L", 1);
-        points.Add("M", 3);
-        points.Add("N", 1);
-        points.Add("O", 1);
-        points.Add("P", 3);
-        points.Add("Q", 10);
-        points.Add("R", 1);
-        points.Add("S", 1);
-        points.Add("T", 1);
-        points.Add("U", 1);
-        points.Add("V", 4);
-        points.Add("W", 4);
-        points.Add("X", 8);
-        points.Add("Y", 4);
-        points.Add("Z", 10);
-
+        pointsDictionary.Add("A", 1);
+        pointsDictionary.Add("B", 3);
+        pointsDictionary.Add("C", 3);
+        pointsDictionary.Add("D", 2);
+        pointsDictionary.Add("E", 1);
+        pointsDictionary.Add("F", 4);
+        pointsDictionary.Add("G", 2);
+        pointsDictionary.Add("H", 4);
+        pointsDictionary.Add("I", 1);
+        pointsDictionary.Add("J", 8);
+        pointsDictionary.Add("K", 5);
+        pointsDictionary.Add("L", 1);
+        pointsDictionary.Add("M", 3);
+        pointsDictionary.Add("N", 1);
+        pointsDictionary.Add("O", 1);
+        pointsDictionary.Add("P", 3);
+        pointsDictionary.Add("Q", 10);
+        pointsDictionary.Add("R", 1);
+        pointsDictionary.Add("S", 1);
+        pointsDictionary.Add("T", 1);
+        pointsDictionary.Add("U", 1);
+        pointsDictionary.Add("V", 4);
+        pointsDictionary.Add("W", 4);
+        pointsDictionary.Add("X", 8);
+        pointsDictionary.Add("Y", 4);
+        pointsDictionary.Add("Z", 10);
 
 
 

@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class TileSpawner : MonoBehaviour
 {
-    [SerializeField] GameObject Tile;
+    [SerializeField] private GameObject Tile;
+    [SerializeField] private GameObject[] tilePositions;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,9 +16,11 @@ public class TileSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Tile = null)
+        for (int i = 0; i<tilePositions.Length; i++)
         {
-            Instantiate(Tile, new Vector3(transform.position.x, transform.position.y), Quaternion.identity);
+            Instantiate(Tile, new Vector3(tilePositions[i].transform.position.x, tilePositions[i].transform.position.y), Quaternion.identity);
         }
+
+
     }
 }
