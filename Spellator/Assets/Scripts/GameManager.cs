@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     //a list to store all of the values from the text file in
     private List<string> dictionaryList = new List<string>();
    
-     private GameObject[] selectedTiles;
+    public GameObject[] selectedTiles;
     private GameObject[] tilesToUntag;
 
 
@@ -92,12 +92,7 @@ public class GameManager : MonoBehaviour
 
             }
 
-            for(int i=0; i<selectedTiles.Length; i++)
-            {
-               tileHolder = Instantiate(tile, new Vector3(0, 0), Quaternion.identity);
-               tileHolder.transform.parent = tileUI.transform;
-            }
-           
+            TileManager.Instance.ReplenishTiles();
 
             Debug.Log("------Deleting Tiles------");
             WordBeingMade = "";

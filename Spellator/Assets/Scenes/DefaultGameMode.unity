@@ -1959,7 +1959,7 @@ PrefabInstance:
         type: 3}
       propertyPath: tileUI
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 53077371}
     - target: {fileID: 7349431635441859144, guid: cf2cb441bcdc54fbba9fdd62fba05c37,
         type: 3}
       propertyPath: tile

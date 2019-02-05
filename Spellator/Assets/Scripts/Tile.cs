@@ -8,17 +8,18 @@ public class Tile : MonoBehaviour
     public Button buttonComponent;
     public Text letter;
     public Text points;
-    private Color newColor = Color.red;
-    private ColorBlock cb;
-    //private bool selected = false;
-    private string currentWord;
-
-    private Vector3 newRandomPositon;
-    private float moveSpeed = 20;
 
 
+
+    //for the coroutine
     public float smoothing = 5f;
     private Transform target;
+
+    public Transform startPosition;
+
+    private int nextPlayPosition;
+
+   
 
     public List<string> letters = new List<string>() { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
 
@@ -32,7 +33,11 @@ public class Tile : MonoBehaviour
     void Start()
     {
 
-        target = GameManager.Instance.movePos;
+        //set the first target positon to move to
+        target = TileManager.Instance.playPositions[nextPlayPosition];
+        //startPosition.position = transform.position;
+
+        // target = GameManager.Instance.movePos;
 
         pointsDictionary.Add("A", 1);
         pointsDictionary.Add("B", 3);
@@ -64,9 +69,7 @@ public class Tile : MonoBehaviour
 
         letter.text = letters[Random.Range(0,25)];
         points.text = pointsDictionary[letter.text].ToString();
-
-        //buttonComponent.onClick.AddListener(HandleClick);
-
+        
 
 
     }
@@ -76,13 +79,19 @@ public class Tile : MonoBehaviour
 
 
     {
-        StartCoroutine(MyCoroutine(target));
+        TileManager.Instance.MoveTiles();
+        StartCoroutine(PlayTile(target));
 
-        //transform.position = Vector3.Lerp(transform.position, newRandomPositon, Time.deltaTime * moveSpeed);
+
+        Debug.Log(nextPlayPosition);
+
+        nextPlayPosition += 1;
 
         //check is the tile is selected or not. If it's not tagged as "selected" then add it to the word being made.
         if (gameObject.tag != "TileSelected")
         {
+
+            target = TileManager.Instance.playPositions[nextPlayPosition];
 
             GameManager.Instance.CreateWord(letter.text);
 
@@ -100,7 +109,8 @@ public class Tile : MonoBehaviour
 
     }
 
-    IEnumerator MyCoroutine(Transform target)
+
+    IEnumerator PlayTile(Transform target)
     {
         while (Vector3.Distance(transform.position, target.position) > 0.05f)
         {
@@ -115,6 +125,8 @@ public class Tile : MonoBehaviour
 
         print("MyCoroutine is now finished.");
     }
+
+
 
 
 }

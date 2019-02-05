@@ -5,45 +5,51 @@ using UnityEngine.UI;
 
 public class TileManager : MonoBehaviour
 {
+    //sets up an instance of the GameManager
+    public static TileManager Instance;
 
     //private GameObject[] currentTileCount;
     //[SerializeField] private Canvas tileUI;
     //[SerializeField] private GameObject tile;
     //private GameObject tileHolder;
 
+
     [SerializeField] private Transform[] rackPositions;
-    [SerializeField] private Transform[] playPositions;
+    [SerializeField] public Transform[] playPositions;
     [SerializeField] private GameObject tile;
 
+    private int nextFreeSlot = 9;
+
+
     private GameObject tileHolder;
-   // private Vector3 pos;
+    // private Vector3 pos;
     //private int numberOfTilesToAdd;
 
 
+    //Singleton code
+    void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
 
-   
+        Instance = this;
+    }
+
+
 
     void Start()
     {
-
         for (int i = 0; i<rackPositions.Length; i++)
         {
+            
             tileHolder = Instantiate(tile, rackPositions[i]);
             tileHolder.transform.parent = rackPositions[i];
-
-           // tileHolder.transform.parent = tileUI.transform;
-
+            nextFreeSlot = nextFreeSlot +i;
         }
-        /*
-        foreach(Transform in rackPositions)
-        {
-            tileHolder = Instantiate(Tile,)
-        }*/
-
-
-        /*
-        currentTileCount = GameObject.FindGameObjectsWithTag("Tile");
-        Debug.Log(currentTileCount.Length);*/
+      
     }
 
 
@@ -51,56 +57,30 @@ public class TileManager : MonoBehaviour
     void Update()
 
     {
-        /*
-      currentTileCount = GameObject.FindGameObjectsWithTag("Tile");
-
-        for (int i = 0;  i < currentTileCount.Length; i++)
-        {
-            tileHolder = Instantiate(tile, pos, Quaternion.identity);
-            tileHolder.transform.parent = tileUI.transform;
-        }*/
-    }
-
-
-
-    IEnumerator CheckForTiles()
-    {
        
-
-
-        yield return null;
-        yield return new WaitForSeconds(2f);
-
     }
 
-    /*
-    IEnumerator CheckForTiles()
+
+
+    public void MoveTiles()
     {
 
-        Debug.Log("Number of tiles to add: " + currentTileCount.Length);
+    }
+    //Lerps the tile to their play ares positions
 
-        numberOfTilesToAdd = (9 - currentTileCount.Length);
-        Debug.Log("Number of tiles to add: " + numberOfTilesToAdd);
 
-        if (currentTileCount.Length < 9)
+
+    public void ReplenishTiles()
+    {
+        for (int i = 0; i < GameManager.Instance.selectedTiles.Length; i++)
         {
-
-            foreach (GameObject tile in currentTileCount)
-            {
-
-                Instantiate(tile, pos, Quaternion.identity);
-                tile.transform.parent = tileUI.transform;
-                Debug.Log("New Tile");
-            }
-
-            yield return null;
+            tileHolder = Instantiate(tile, rackPositions[i]);
+            tileHolder.transform.parent = rackPositions[i];
         }
 
+    }
 
-        yield return new WaitForSeconds(1f);
+    //moves the tiles when played
 
 
-        StartCoroutine(CheckForTiles());
-
-    }*/
 }
