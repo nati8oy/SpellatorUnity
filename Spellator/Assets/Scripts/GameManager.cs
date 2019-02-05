@@ -12,6 +12,12 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private TextAsset dictionaryTxtFile;
 
+    [SerializeField] private Canvas tileUI;
+    [SerializeField] private GameObject tile;
+
+
+    [SerializeField] public Transform movePos;
+
     //this is the textbox that displays the current word being made
     [SerializeField]
     private Text inputText;
@@ -28,6 +34,9 @@ public class GameManager : MonoBehaviour
 
     //create the dictionary to store all of the words in
     private Dictionary<string, int> dictionary = new Dictionary<string, int>();
+
+    private GameObject tileHolder;
+
 
     private string wordBeingMade;
 
@@ -75,12 +84,20 @@ public class GameManager : MonoBehaviour
         if (dictionary.ContainsKey(WordBeingMade))
         {
             //loop through the array and delete each of the gameObjects in it
-            selectedTiles = GameObject.FindGameObjectsWithTag("Selected");
+            selectedTiles = GameObject.FindGameObjectsWithTag("TileSelected");
             foreach (GameObject tile in selectedTiles)
             {
-
+                //destroy the tiles
                 Destroy(tile.gameObject);
+
             }
+
+            for(int i=0; i<selectedTiles.Length; i++)
+            {
+               tileHolder = Instantiate(tile, new Vector3(0, 0), Quaternion.identity);
+               tileHolder.transform.parent = tileUI.transform;
+            }
+           
 
             Debug.Log("------Deleting Tiles------");
             WordBeingMade = "";
@@ -114,18 +131,20 @@ public class GameManager : MonoBehaviour
 
 
         //add all the tiles with the tag "Selected" to an array
-        tilesToUntag = GameObject.FindGameObjectsWithTag("Selected");
+        tilesToUntag = GameObject.FindGameObjectsWithTag("TileSelected");
 
 
         //loop through the array and delete each of the gameObjects in it
         foreach (GameObject tile in tilesToUntag)
         {
-            tile.tag = "Untagged";
+            tile.tag = "Tile";
         }
 
         WordBeingMade = "";
 
     }
+
+   
 
 }
 

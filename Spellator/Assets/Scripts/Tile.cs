@@ -12,6 +12,14 @@ public class Tile : MonoBehaviour
     private ColorBlock cb;
     //private bool selected = false;
     private string currentWord;
+
+    private Vector3 newRandomPositon;
+    private float moveSpeed = 20;
+
+
+    public float smoothing = 5f;
+    private Transform target;
+
     public List<string> letters = new List<string>() { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
 
 
@@ -23,6 +31,8 @@ public class Tile : MonoBehaviour
 
     void Start()
     {
+
+        target = GameManager.Instance.movePos;
 
         pointsDictionary.Add("A", 1);
         pointsDictionary.Add("B", 3);
@@ -62,13 +72,16 @@ public class Tile : MonoBehaviour
     }
 
 
-
     public void HandleClick()
 
 
     {
+        StartCoroutine(MyCoroutine(target));
+
+        //transform.position = Vector3.Lerp(transform.position, newRandomPositon, Time.deltaTime * moveSpeed);
+
         //check is the tile is selected or not. If it's not tagged as "selected" then add it to the word being made.
-        if(gameObject.tag != "Selected")
+        if (gameObject.tag != "TileSelected")
         {
 
             GameManager.Instance.CreateWord(letter.text);
@@ -78,13 +91,29 @@ public class Tile : MonoBehaviour
                 GameManager.Instance.CheckWord();
             }
 
-            gameObject.tag = "Selected";
+            gameObject.tag = "TileSelected";
 
 
         }
 
 
 
+    }
+
+    IEnumerator MyCoroutine(Transform target)
+    {
+        while (Vector3.Distance(transform.position, target.position) > 0.05f)
+        {
+            transform.position = Vector3.Lerp(transform.position, target.position, smoothing * Time.deltaTime);
+
+            yield return null;
+        }
+
+        print("Reached the target.");
+
+        yield return new WaitForSeconds(1f);
+
+        print("MyCoroutine is now finished.");
     }
 
 

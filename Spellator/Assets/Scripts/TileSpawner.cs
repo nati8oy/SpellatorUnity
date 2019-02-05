@@ -4,23 +4,31 @@ using UnityEngine;
 
 public class TileSpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject Tile;
-    [SerializeField] private GameObject[] tilePositions;
+    [SerializeField] private GameObject tile;
+    private GameObject tileHolder;
+
+    [SerializeField] private Transform posInGrid;
+    //[SerializeField] private GameObject[] tilePositions;
 
     // Start is called before the first frame update
     void Start()
     {
-       
+        Instantiate(tile, new Vector3(transform.position.x, transform.position.y), Quaternion.identity);
+
+        tileHolder.transform.parent = posInGrid.transform;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        for (int i = 0; i<tilePositions.Length; i++)
+
+        if (tile == null)
         {
-            Instantiate(Tile, new Vector3(tilePositions[i].transform.position.x, tilePositions[i].transform.position.y), Quaternion.identity);
+            Instantiate(tile, new Vector3(0,0), Quaternion.identity);
+
         }
 
-
     }
+
 }
