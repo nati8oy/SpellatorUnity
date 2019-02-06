@@ -10,7 +10,6 @@ public class Tile : MonoBehaviour
     public Text points;
 
 
-
     //for the coroutine
     public float smoothing = 5f;
     private Transform target;
@@ -34,11 +33,8 @@ public class Tile : MonoBehaviour
     {
 
         //set the first target positon to move to
-        target = TileManager.Instance.playPositions[nextPlayPosition];
-        //startPosition.position = transform.position;
-
-        // target = GameManager.Instance.movePos;
-
+        target = TileManager.Instance.nextFreePos;
+        
         pointsDictionary.Add("A", 1);
         pointsDictionary.Add("B", 3);
         pointsDictionary.Add("C", 3);
@@ -79,19 +75,14 @@ public class Tile : MonoBehaviour
 
 
     {
-        TileManager.Instance.MoveTiles();
         StartCoroutine(PlayTile(target));
 
-
-        Debug.Log(nextPlayPosition);
-
-        nextPlayPosition += 1;
 
         //check is the tile is selected or not. If it's not tagged as "selected" then add it to the word being made.
         if (gameObject.tag != "TileSelected")
         {
 
-            target = TileManager.Instance.playPositions[nextPlayPosition];
+
 
             GameManager.Instance.CreateWord(letter.text);
 
@@ -106,24 +97,27 @@ public class Tile : MonoBehaviour
         }
 
 
+        TileManager.Instance.PlayTiles();
+
+        Debug.Log("target =" + target);
+
+
+
+
 
     }
 
 
     IEnumerator PlayTile(Transform target)
     {
+        target = TileManager.Instance.nextFreePos;
         while (Vector3.Distance(transform.position, target.position) > 0.05f)
         {
             transform.position = Vector3.Lerp(transform.position, target.position, smoothing * Time.deltaTime);
 
             yield return null;
         }
-
-        print("Reached the target.");
-
-        yield return new WaitForSeconds(1f);
-
-        print("MyCoroutine is now finished.");
+      
     }
 
 

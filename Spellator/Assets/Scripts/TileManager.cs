@@ -8,22 +8,26 @@ public class TileManager : MonoBehaviour
     //sets up an instance of the GameManager
     public static TileManager Instance;
 
-    //private GameObject[] currentTileCount;
-    //[SerializeField] private Canvas tileUI;
-    //[SerializeField] private GameObject tile;
-    //private GameObject tileHolder;
-
-
+    //array of rack positions
     [SerializeField] private Transform[] rackPositions;
+    //array of play positions
     [SerializeField] public Transform[] playPositions;
+    //tile prefab
     [SerializeField] private GameObject tile;
 
-    private int nextFreeSlot = 9;
+    //mumber showing the int
+    public int nextFreeSlot;
+    public Transform nextFreePos;
+    private int nextPlayPosition;
+
+    public int  NextPlayPosition
+    {
+        get { return nextPlayPosition; }
+        set { NextPlayPosition = value; }
+    }
 
 
     private GameObject tileHolder;
-    // private Vector3 pos;
-    //private int numberOfTilesToAdd;
 
 
     //Singleton code
@@ -42,31 +46,30 @@ public class TileManager : MonoBehaviour
 
     void Start()
     {
+
+        nextFreePos = playPositions[nextFreeSlot];
+
+
+
+        //set up the rack positions
         for (int i = 0; i<rackPositions.Length; i++)
-        {
-            
+        { 
             tileHolder = Instantiate(tile, rackPositions[i]);
             tileHolder.transform.parent = rackPositions[i];
-            nextFreeSlot = nextFreeSlot +i;
+            //nextFreeSlot = nextFreeSlot +i;
         }
       
     }
 
 
-
-    void Update()
-
-    {
-       
-    }
-
-
-
-    public void MoveTiles()
+    public void PlayTiles()
     {
 
+        nextFreeSlot += 1;
+        nextFreePos = playPositions[nextFreeSlot];
+      
     }
-    //Lerps the tile to their play ares positions
+
 
 
 

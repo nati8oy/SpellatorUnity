@@ -16,8 +16,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject tile;
 
 
-    [SerializeField] public Transform movePos;
-
     //this is the textbox that displays the current word being made
     [SerializeField]
     private Text inputText;
@@ -45,7 +43,7 @@ public class GameManager : MonoBehaviour
         get { return wordBeingMade; }
         set
         {
-            Debug.LogFormat("WordBeingMade will change to '{0}'", value);
+            //Debug.LogFormat("WordBeingMade will change to '{0}'", value);
             wordBeingMade = value;
             inputText.text = wordBeingMade;
         }
@@ -106,10 +104,6 @@ public class GameManager : MonoBehaviour
         if (dictionary.ContainsKey(WordBeingMade))
         {
             Debug.Log(WordBeingMade + " is a word");
-        }
-        else
-        {
-            Debug.Log(WordBeingMade + " isn't a word");
         }
     }
 
