@@ -120,7 +120,15 @@ public class TileManager : MonoBehaviour
             tileHolder = Instantiate(tile, rackPositions[i]);
 
 
-            tileHolder.transform.parent = rackPositions[i];
+            //for each of the transforms in the  in the selectedTiles list add a new tile
+            foreach (Transform parent in selectedTiles)
+            {
+                tileHolder = Instantiate(tile, selectedTiles[i]);
+                tileHolder.transform.parent = rackPositions[i];
+
+                Debug.Log("-----adding new tile-----");
+            }
+
 
         }
 
