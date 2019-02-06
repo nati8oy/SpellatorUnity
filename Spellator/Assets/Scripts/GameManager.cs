@@ -24,7 +24,6 @@ public class GameManager : MonoBehaviour
     private List<string> dictionaryList = new List<string>();
    
     public GameObject[] selectedTiles;
-    private GameObject[] tilesToUntag;
 
 
     //this is the string to which the full dictionary is assigned before being split up by the Split method
@@ -115,23 +114,7 @@ public class GameManager : MonoBehaviour
 
 
 
-    public void ClearWord()
-    {
 
-
-        //add all the tiles with the tag "Selected" to an array
-        tilesToUntag = GameObject.FindGameObjectsWithTag("TileSelected");
-
-
-        //loop through the array and delete each of the gameObjects in it
-        foreach (GameObject tile in tilesToUntag)
-        {
-            tile.tag = "Tile";
-        }
-
-        WordBeingMade = "";
-
-    }
 
    
 

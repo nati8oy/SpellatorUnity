@@ -10,11 +10,20 @@ public class Tile : MonoBehaviour
     public Text points;
 
 
+
     //for the coroutine
-    public float smoothing = 5f;
+    private float smoothing = 5f;
     private Transform target;
 
     public Transform startPosition;
+
+    private int positionInRack;
+
+    public int PositionInRack
+    {
+        get { return positionInRack; }
+        set { PositionInRack = value; }
+    }
 
     private int nextPlayPosition;
 
@@ -75,6 +84,14 @@ public class Tile : MonoBehaviour
 
 
     {
+
+
+
+
+
+
+
+        //TileManager.Instance.MoveTiles();
         StartCoroutine(PlayTile(target));
 
 
@@ -82,6 +99,10 @@ public class Tile : MonoBehaviour
         if (gameObject.tag != "TileSelected")
         {
 
+
+            //add this tile's Pos to the SelectedTiles list in TileManager
+            TileManager.Instance.SelectedTiles.Add(transform.parent);
+            Debug.Log(TileManager.Instance.SelectedTiles.Count);
 
 
             GameManager.Instance.CreateWord(letter.text);
@@ -98,8 +119,7 @@ public class Tile : MonoBehaviour
 
 
         TileManager.Instance.PlayTiles();
-
-        Debug.Log("target =" + target);
+       // Debug.Log("target =" + target);
 
 
 
@@ -111,6 +131,7 @@ public class Tile : MonoBehaviour
     IEnumerator PlayTile(Transform target)
     {
         target = TileManager.Instance.nextFreePos;
+
         while (Vector3.Distance(transform.position, target.position) > 0.05f)
         {
             transform.position = Vector3.Lerp(transform.position, target.position, smoothing * Time.deltaTime);
@@ -119,7 +140,6 @@ public class Tile : MonoBehaviour
         }
       
     }
-
 
 
 
