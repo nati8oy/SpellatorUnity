@@ -84,14 +84,6 @@ public class Tile : MonoBehaviour
 
 
     {
-
-
-
-
-
-
-
-        //TileManager.Instance.MoveTiles();
         StartCoroutine(PlayTile(target));
 
 
@@ -102,7 +94,7 @@ public class Tile : MonoBehaviour
 
             //add this tile's Pos to the SelectedTiles list in TileManager
             TileManager.Instance.SelectedTiles.Add(transform.parent);
-            Debug.Log(TileManager.Instance.SelectedTiles.Count);
+            Debug.Log("The number of tiles selected is: " + TileManager.Instance.SelectedTiles.Count);
 
 
             GameManager.Instance.CreateWord(letter.text);

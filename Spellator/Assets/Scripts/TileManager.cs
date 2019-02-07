@@ -104,9 +104,11 @@ public class TileManager : MonoBehaviour
 
     public void PlayTiles()
     {
-        if (nextFreeSlot < 9) {
+        if (nextFreeSlot != 9) {
             nextFreeSlot += 1;
             nextFreePos = playPositions[nextFreeSlot];
+            //int remaining = 9 - nextFreeSlot;
+           // Debug.Log("The number or remaining board slots is: " + remaining);
         }
       
     }
@@ -115,22 +117,23 @@ public class TileManager : MonoBehaviour
 
     public void ReplenishTiles()
     {
-        for (int i = 0; i < GameManager.Instance.selectedTiles.Length; i++)
+        for (int i = 0; i < GameManager.Instance.selectedTilesArray.Length; i++)
         {
-            tileHolder = Instantiate(tile, rackPositions[i]);
+            //create new tiles for the spots that have just beend used
+            tileHolder = Instantiate(tile, selectedTiles[i]);
 
-
-            //for each of the transforms in the  in the selectedTiles list add a new tile
+            //for each of the transforms in the selectedTiles list add a new tile
             foreach (Transform parent in selectedTiles)
             {
-                tileHolder = Instantiate(tile, selectedTiles[i]);
+               //set the tile parent to be that of the rackPositions transforms
                 tileHolder.transform.parent = rackPositions[i];
 
                 Debug.Log("-----adding new tile-----");
             }
 
-
         }
+        //clear the selectedTiles list so that it puts the new tiles in the right positions
+        selectedTiles.Clear();
 
     }
 
@@ -139,14 +142,14 @@ public class TileManager : MonoBehaviour
         //add all the tiles with the tag "Selected" to an array
         tilesToUntag = GameObject.FindGameObjectsWithTag("TileSelected");
 
-
         //loop through the array and delete each of the gameObjects in it
         foreach (GameObject tile in tilesToUntag)
         {
             tile.tag = "Tile";
+           
         }
 
-       GameManager.Instance.WordBeingMade = "";
+        GameManager.Instance.WordBeingMade = "";
        //clear the list of transforms for the tile positions
        selectedTiles.Clear();
 

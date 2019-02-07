@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     //a list to store all of the values from the text file in
     private List<string> dictionaryList = new List<string>();
    
-    public GameObject[] selectedTiles;
+    public GameObject[] selectedTilesArray;
 
 
     //this is the string to which the full dictionary is assigned before being split up by the Split method
@@ -81,8 +81,8 @@ public class GameManager : MonoBehaviour
         if (dictionary.ContainsKey(WordBeingMade))
         {
             //loop through the array and delete each of the gameObjects in it
-            selectedTiles = GameObject.FindGameObjectsWithTag("TileSelected");
-            foreach (GameObject tile in selectedTiles)
+            selectedTilesArray = GameObject.FindGameObjectsWithTag("TileSelected");
+            foreach (GameObject tile in selectedTilesArray)
             {
                 //destroy the tiles
                 Destroy(tile.gameObject);
@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
 
             TileManager.Instance.ReplenishTiles();
 
-            Debug.Log("------Deleting Tiles------");
+            //Debug.Log("------Deleting Tiles------");
             WordBeingMade = "";
         }
        
