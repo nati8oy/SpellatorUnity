@@ -9,7 +9,7 @@ public class Tile : MonoBehaviour
     public Text letter;
     public Text points;
 
-
+    private Color wordCorrectColour;
 
     //for the coroutine
     private float smoothing = 5f;
@@ -27,14 +27,6 @@ public class Tile : MonoBehaviour
 
     private int nextPlayPosition;
 
-   
-
-    public List<string> letters = new List<string>() { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
-
-
-    public Dictionary<string, int> pointsDictionary = new Dictionary<string, int>();
-
-
 
     //create the list of letters which this could be.
 
@@ -43,37 +35,10 @@ public class Tile : MonoBehaviour
 
         //set the first target positon to move to
         target = TileManager.Instance.nextFreePos;
-        
-        pointsDictionary.Add("A", 1);
-        pointsDictionary.Add("B", 3);
-        pointsDictionary.Add("C", 3);
-        pointsDictionary.Add("D", 2);
-        pointsDictionary.Add("E", 1);
-        pointsDictionary.Add("F", 4);
-        pointsDictionary.Add("G", 2);
-        pointsDictionary.Add("H", 4);
-        pointsDictionary.Add("I", 1);
-        pointsDictionary.Add("J", 8);
-        pointsDictionary.Add("K", 5);
-        pointsDictionary.Add("L", 1);
-        pointsDictionary.Add("M", 3);
-        pointsDictionary.Add("N", 1);
-        pointsDictionary.Add("O", 1);
-        pointsDictionary.Add("P", 3);
-        pointsDictionary.Add("Q", 10);
-        pointsDictionary.Add("R", 1);
-        pointsDictionary.Add("S", 1);
-        pointsDictionary.Add("T", 1);
-        pointsDictionary.Add("U", 1);
-        pointsDictionary.Add("V", 4);
-        pointsDictionary.Add("W", 4);
-        pointsDictionary.Add("X", 8);
-        pointsDictionary.Add("Y", 4);
-        pointsDictionary.Add("Z", 10);
 
 
-        letter.text = letters[Random.Range(0,25)];
-        points.text = pointsDictionary[letter.text].ToString();
+        letter.text = InitDictionary.Instance.bag[Random.Range(0,95)];
+        points.text = InitDictionary.Instance.pointsDictionary[letter.text].ToString();
         
 
 
@@ -94,7 +59,7 @@ public class Tile : MonoBehaviour
 
             //add this tile's Pos to the SelectedTiles list in TileManager
             TileManager.Instance.SelectedTiles.Add(transform.parent);
-            Debug.Log("The number of tiles selected is: " + TileManager.Instance.SelectedTiles.Count);
+            //Debug.Log("The number of tiles selected is: " + TileManager.Instance.SelectedTiles.Count);
 
 
             GameManager.Instance.CreateWord(letter.text);
@@ -109,20 +74,17 @@ public class Tile : MonoBehaviour
 
         }
 
-
         TileManager.Instance.PlayTiles();
-       // Debug.Log("target =" + target);
-
-
 
 
 
     }
 
-
+    //moves the tile to the correct position on the playing board
     IEnumerator PlayTile(Transform target)
     {
         target = TileManager.Instance.nextFreePos;
+        
 
         while (Vector3.Distance(transform.position, target.position) > 0.05f)
         {

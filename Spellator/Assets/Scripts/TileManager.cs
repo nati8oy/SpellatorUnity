@@ -44,7 +44,7 @@ public class TileManager : MonoBehaviour
     [SerializeField] private bool[] rackSpacesAvailable;
 
 
-    //number showing the int
+    //number showing the next available slot on the game board
     private int nextFreeSlot;
 
     public int NextFreeSlot
@@ -56,13 +56,7 @@ public class TileManager : MonoBehaviour
 
 
     public Transform nextFreePos;
-    private int nextPlayPosition;
-
-    public int  NextPlayPosition
-    {
-        get { return nextPlayPosition; }
-        set { NextPlayPosition = value; }
-    }
+  
 
 
     private GameObject tileHolder;
@@ -104,9 +98,12 @@ public class TileManager : MonoBehaviour
 
     public void PlayTiles()
     {
+        //keeps track of the next available board slot
         if (nextFreeSlot != 9) {
             nextFreeSlot += 1;
             nextFreePos = playPositions[nextFreeSlot];
+
+            Debug.Log("it's working!");
             //int remaining = 9 - nextFreeSlot;
            // Debug.Log("The number or remaining board slots is: " + remaining);
         }
@@ -117,6 +114,9 @@ public class TileManager : MonoBehaviour
 
     public void ReplenishTiles()
     {
+
+
+
         for (int i = 0; i < GameManager.Instance.selectedTilesArray.Length; i++)
         {
             //create new tiles for the spots that have just beend used
@@ -128,13 +128,14 @@ public class TileManager : MonoBehaviour
                //set the tile parent to be that of the rackPositions transforms
                 tileHolder.transform.parent = rackPositions[i];
 
-                Debug.Log("-----adding new tile-----");
+                //Debug.Log("-----adding new tile-----");
             }
 
         }
         //clear the selectedTiles list so that it puts the new tiles in the right positions
         selectedTiles.Clear();
 
+       
     }
 
     public void ClearWord()

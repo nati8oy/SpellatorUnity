@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private TextAsset dictionaryTxtFile;
 
+
     [SerializeField] private Canvas tileUI;
     [SerializeField] private GameObject tile;
 
@@ -20,9 +21,14 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Text inputText;
 
-    //a list to store all of the values from the text file in
+    //a list to store all of the values from the dictionary text file in
     private List<string> dictionaryList = new List<string>();
-   
+
+
+    //a list to store all of the values from the bag text file in
+
+    private List<string> bagList = new List<string>();
+
     public GameObject[] selectedTilesArray;
 
 
@@ -48,6 +54,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
+    //this is the singleton code to ensure there's not more than one instance running
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -93,6 +101,9 @@ public class GameManager : MonoBehaviour
 
             //Debug.Log("------Deleting Tiles------");
             WordBeingMade = "";
+
+
+           // Debug.Log("the next play slot is: " + TileManager.Instance.NextFreeSlot);
         }
        
     }
