@@ -82,6 +82,8 @@ public class TileManager : MonoBehaviour
         nextFreePos = playPositions[nextFreeSlot];
                
         //set up the rack positions
+
+        /*
         for (int i = 0; i<rackPositions.Length; i++)
         { 
             tileHolder = Instantiate(tile, rackPositions[i]);
@@ -89,7 +91,7 @@ public class TileManager : MonoBehaviour
             rackSpacesAvailable[i] = false;
             //Debug.Log("Rackspace " + i + " is " + rackSpacesAvailable[i]);
 
-        }
+        }*/
 
 
     }
@@ -103,7 +105,7 @@ public class TileManager : MonoBehaviour
             nextFreeSlot += 1;
             nextFreePos = playPositions[nextFreeSlot];
 
-            Debug.Log("it's working!");
+            //Debug.Log("it's working!");
             //int remaining = 9 - nextFreeSlot;
            // Debug.Log("The number or remaining board slots is: " + remaining);
         }
@@ -115,8 +117,6 @@ public class TileManager : MonoBehaviour
     public void ReplenishTiles()
     {
 
-
-
         for (int i = 0; i < GameManager.Instance.selectedTilesArray.Length; i++)
         {
             //create new tiles for the spots that have just beend used
@@ -126,14 +126,15 @@ public class TileManager : MonoBehaviour
             foreach (Transform parent in selectedTiles)
             {
                //set the tile parent to be that of the rackPositions transforms
-                tileHolder.transform.parent = rackPositions[i];
+                tileHolder.transform.parent = selectedTiles[i];
 
-                //Debug.Log("-----adding new tile-----");
+                Debug.Log("Rack position being refilled: " + rackPositions[i]);
             }
 
         }
         //clear the selectedTiles list so that it puts the new tiles in the right positions
         selectedTiles.Clear();
+        //Debug.Log(selectedTiles.ToString());
 
        
     }
@@ -144,11 +145,28 @@ public class TileManager : MonoBehaviour
         tilesToUntag = GameObject.FindGameObjectsWithTag("TileSelected");
 
         //loop through the array and delete each of the gameObjects in it
+
+
+        for(int i = 0; i< selectedTiles.Count; i++)
+        {
+
+            foreach (Transform parent in selectedTiles)
+            {
+                //set the tile parent to be that of the rackPositions transforms
+               parent.transform.position = rackPositions[i].position; 
+               tile.tag = "Tile";
+
+            }
+
+        }
+        /*
+
         foreach (GameObject tile in tilesToUntag)
         {
             tile.tag = "Tile";
            
         }
+        */
 
         GameManager.Instance.WordBeingMade = "";
        //clear the list of transforms for the tile positions

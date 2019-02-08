@@ -81,7 +81,7 @@ GameObject:
   - component: {fileID: 5976778401099106080}
   m_Layer: 5
   m_Name: Tile
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -214,33 +214,6 @@ MonoBehaviour:
   letter: {fileID: 5976778401849919047}
   points: {fileID: 5976778401881998141}
   startPosition: {fileID: 0}
-  letters:
-  - A
-  - B
-  - C
-  - D
-  - E
-  - F
-  - G
-  - H
-  - I
-  - J
-  - K
-  - L
-  - M
-  - N
-  - O
-  - P
-  - Q
-  - R
-  - S
-  - T
-  - U
-  - V
-  - W
-  - X
-  - Y
-  - Z
 --- !u!1 &5976778401849919065
 GameObject:
   m_ObjectHideFlags: 0

@@ -59,11 +59,16 @@ public class Tile : MonoBehaviour
 
             //add this tile's Pos to the SelectedTiles list in TileManager
             TileManager.Instance.SelectedTiles.Add(transform.parent);
+            Debug.Log(transform.parent.ToString());
+
+
             //Debug.Log("The number of tiles selected is: " + TileManager.Instance.SelectedTiles.Count);
 
 
+            //start spelling the word using the letter from this tile
             GameManager.Instance.CreateWord(letter.text);
 
+            //if the word is longer than 3 letters, check if it's in the dictionary
             if(GameManager.Instance.WordBeingMade.Length >= 3)
             {
                 GameManager.Instance.CheckWord();
@@ -84,7 +89,7 @@ public class Tile : MonoBehaviour
     IEnumerator PlayTile(Transform target)
     {
         target = TileManager.Instance.nextFreePos;
-        
+
 
         while (Vector3.Distance(transform.position, target.position) > 0.05f)
         {

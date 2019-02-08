@@ -18,8 +18,7 @@ public class GameManager : MonoBehaviour
 
 
     //this is the textbox that displays the current word being made
-    [SerializeField]
-    private Text inputText;
+    [SerializeField]private Text inputText;
 
     //a list to store all of the values from the dictionary text file in
     private List<string> dictionaryList = new List<string>();
@@ -50,7 +49,7 @@ public class GameManager : MonoBehaviour
         {
             //Debug.LogFormat("WordBeingMade will change to '{0}'", value);
             wordBeingMade = value;
-            inputText.text = wordBeingMade;
+            //inputText.text = wordBeingMade;
         }
     }
 
@@ -114,7 +113,14 @@ public class GameManager : MonoBehaviour
         if (dictionary.ContainsKey(WordBeingMade))
         {
             Debug.Log(WordBeingMade + " is a word");
+            inputText.text = "Word! :)";
+
         }
+        else
+        {
+            inputText.text = "Not a word :(";
+        }
+
     }
 
     //this handles the incoming letter from the tile which is concatenated to the current "wordBeingMade"
