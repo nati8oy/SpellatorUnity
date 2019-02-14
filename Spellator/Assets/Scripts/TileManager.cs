@@ -147,26 +147,12 @@ public class TileManager : MonoBehaviour
         //loop through the array and delete each of the gameObjects in it
 
 
-        for(int i = 0; i< selectedTiles.Count; i++)
-        {
-
-            foreach (Transform parent in selectedTiles)
-            {
-                //set the tile parent to be that of the rackPositions transforms
-               parent.transform.position = rackPositions[i].position; 
-               tile.tag = "Tile";
-
-            }
-
-        }
-        /*
-
         foreach (GameObject tile in tilesToUntag)
         {
             tile.tag = "Tile";
            
         }
-        */
+
 
         GameManager.Instance.WordBeingMade = "";
        //clear the list of transforms for the tile positions
