@@ -7,19 +7,8 @@ public class InitDictionary : MonoBehaviour
 
     public static InitDictionary Instance;
 
-    /*
-
-    //set up the bag
-    [SerializeField]  private TextAsset bagTxtFile;
-    public List<string> bagList = new List<string>();
-    //public List<string> playBag = new List<string>();
-
-    public Dictionary<string, int> playBag = new Dictionary<string, int>();
-    */
-
     private string lettersToSplit;
 
-    //public List<string> bag = new List<string>() { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
     public List<string> bag = new List<string>() { "A", "A", "A", "A", "A", "A", "A", "A", "A", "B", "B", "C", "C", "D", "D", "D", "D", "E", "E", "E", "E", "E", "E", "E", "E", "E", "E", "E", "E", "F", "F", "G", "G", "G", "H", "H", "I", "I", "I", "I", "I", "I", "I", "I", "I", "J", "K", "L", "L", "L", "L", "N", "N", "N", "N", "N", "N", "O", "O", "O", "O", "O", "O", "O", "O", "P", "P", "Q", "R", "R", "R", "R", "R", "R", "S", "S", "S", " S", "T", "T", "T", "T", "T", "T", "U", "U", "U", "U", "V", "V", "W", "W", "X", "Y", "Y", "Z" };
 
     public Dictionary<string, int> pointsDictionary = new Dictionary<string, int>();
@@ -53,24 +42,6 @@ public class InitDictionary : MonoBehaviour
         pointsDictionary.Add("Y", 4);
         pointsDictionary.Add("Z", 10);
 
-
-        /*
-        //add the list of words from an external txt file via the inspector
-        lettersToSplit = bagTxtFile.text;
-
-        //get the dictionary list of words and split them on every comma
-        bagList = new List<string>(lettersToSplit.Split(','));
-
-        //add each of the words within dictionaryList to the actual dictionary itself
-        for (int i = 0; i < bagList.Count; i++)
-        {
-            // Debug.Log(dictionaryList[i]);
-          // playBag.Add(bagList[i]);
-            playBag.Add(bagList[i],Random.Range(0,100));
-
-        }
-        Debug.Log(playBag.Count);
-        */
 
     }
 

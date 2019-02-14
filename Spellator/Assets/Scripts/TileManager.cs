@@ -10,7 +10,6 @@ public class TileManager : MonoBehaviour
 
     private float smoothing = 5f;
 
-
     //array of rack positions
     [SerializeField] public Transform[] rackPositions;
     //array of play positions
@@ -31,7 +30,7 @@ public class TileManager : MonoBehaviour
     */
 
     //this is the list to add the tile positions to
-    private List <Transform> selectedTiles = new List<Transform>();
+    private List<Transform> selectedTiles = new List<Transform>();
 
     public List<Transform> SelectedTiles
 
@@ -54,12 +53,13 @@ public class TileManager : MonoBehaviour
     }
 
 
-
+    //this indicates the next free position to spawn a tile to
     public Transform nextFreePos;
-  
 
 
+    //this is the game object that other tiles are parented to
     private GameObject tileHolder;
+
 
 
     //Singleton code
@@ -80,18 +80,6 @@ public class TileManager : MonoBehaviour
     {
 
         nextFreePos = playPositions[nextFreeSlot];
-               
-        //set up the rack positions
-
-        /*
-        for (int i = 0; i<rackPositions.Length; i++)
-        { 
-            tileHolder = Instantiate(tile, rackPositions[i]);
-            tileHolder.transform.parent = rackPositions[i];
-            rackSpacesAvailable[i] = false;
-            //Debug.Log("Rackspace " + i + " is " + rackSpacesAvailable[i]);
-
-        }*/
 
 
     }
@@ -100,16 +88,17 @@ public class TileManager : MonoBehaviour
 
     public void PlayTiles()
     {
+
         //keeps track of the next available board slot
-        if (nextFreeSlot != 9) {
+        if (nextFreeSlot != 9)
+        {
             nextFreeSlot += 1;
             nextFreePos = playPositions[nextFreeSlot];
-
             //Debug.Log("it's working!");
             //int remaining = 9 - nextFreeSlot;
-           // Debug.Log("The number or remaining board slots is: " + remaining);
+            // Debug.Log("The number or remaining board slots is: " + remaining);
         }
-      
+
     }
 
 
@@ -125,10 +114,10 @@ public class TileManager : MonoBehaviour
             //for each of the transforms in the selectedTiles list add a new tile
             foreach (Transform parent in selectedTiles)
             {
-               //set the tile parent to be that of the rackPositions transforms
+                //set the tile parent to be that of the rackPositions transforms
                 tileHolder.transform.parent = selectedTiles[i];
 
-                Debug.Log("Rack position being refilled: " + rackPositions[i]);
+                //Debug.Log("Rack position being refilled: " + rackPositions[i]);
             }
 
         }
@@ -136,65 +125,33 @@ public class TileManager : MonoBehaviour
         selectedTiles.Clear();
         //Debug.Log(selectedTiles.ToString());
 
-       
-    }
-
-    public void ClearWord()
-    {
-        //add all the tiles with the tag "Selected" to an array
-        tilesToUntag = GameObject.FindGameObjectsWithTag("TileSelected");
-
-        //loop through the array and delete each of the gameObjects in it
-
-
-        for(int i = 0; i< selectedTiles.Count; i++)
-        {
-
-            foreach (Transform parent in selectedTiles)
-            {
-                //set the tile parent to be that of the rackPositions transforms
-               parent.transform.position = rackPositions[i].position; 
-               tile.tag = "Tile";
-
-            }
-
-        }
-        /*
-
-        foreach (GameObject tile in tilesToUntag)
-        {
-            tile.tag = "Tile";
-           
-        }
-        */
-
-        GameManager.Instance.WordBeingMade = "";
-       //clear the list of transforms for the tile positions
-       selectedTiles.Clear();
 
     }
+    /*
 
 
 
-
-    public IEnumerator ReturnTiles(Transform returnPos)
+    public IEnumerator ReturnTiles()
     {
 
-        //foreach(Transform returnPos in selectedTiles)
-        //{
-            while (Vector3.Distance(transform.position, returnPos.position) > 0.05f)
+        // GameManager.Instance.selectedTilesArray = GameObject.FindGameObjectsWithTag("TileSelected");
+
+        //for each of the tile objects in the selected tiles array,
+        //go through and get the parent transform (which is the position game object)
+        //then reset the position to that 
+
+        foreach(Transform tile in selectedTiles)
+        {
+
+        } while (Vector3.Distance(tile.transform.position, tile.transform.parent.position) > 0.05f)
             {
-                transform.position = Vector3.Lerp(transform.position, returnPos.position, smoothing * Time.deltaTime);
+                tile.transform.position = Vector3.Lerp(tile.transform.position, tile.transform.parent.position, smoothing * Time.deltaTime);
 
                 yield return null;
             }
 
-        //}
 
-        selectedTiles.Clear();
-
-    }
-
+        }*/
 
 
 }
