@@ -204,6 +204,7 @@ RectTransform:
   m_Children:
   - {fileID: 545275971}
   - {fileID: 62966391}
+  - {fileID: 2066190562}
   - {fileID: 683827935}
   - {fileID: 277859074}
   - {fileID: 112081157}
@@ -307,7 +308,6 @@ GameObject:
   - component: {fileID: 112081160}
   - component: {fileID: 112081159}
   - component: {fileID: 112081158}
-  - component: {fileID: 112081161}
   m_Layer: 5
   m_Name: Send Button
   m_TagString: Untagged
@@ -328,7 +328,7 @@ RectTransform:
   m_Children:
   - {fileID: 1979099064}
   m_Father: {fileID: 53077372}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -425,18 +425,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 112081156}
   m_CullTransparentMesh: 0
---- !u!114 &112081161
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 112081156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01cfb4da3b7ff4861be8cf900baf9e60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &122265212
 GameObject:
   m_ObjectHideFlags: 0
@@ -589,7 +577,7 @@ RectTransform:
   - {fileID: 1858857313}
   - {fileID: 1453066703}
   m_Father: {fileID: 53077372}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.09616668, y: 0.43525004}
   m_AnchorMax: {x: 0.90422237, y: 0.5623438}
@@ -944,7 +932,7 @@ RectTransform:
   - {fileID: 892545335}
   - {fileID: 1595087528}
   m_Father: {fileID: 53077372}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.09616668, y: 0.1254375}
   m_AnchorMax: {x: 0.90422237, y: 0.24675003}
@@ -1611,7 +1599,7 @@ RectTransform:
   m_Children:
   - {fileID: 364018176}
   m_Father: {fileID: 53077372}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -2061,6 +2049,87 @@ RectTransform:
   m_AnchoredPosition: {x: 190, y: 10}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &2066190559
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2066190562}
+  - component: {fileID: 2066190561}
+  - component: {fileID: 2066190560}
+  m_Layer: 5
+  m_Name: Live Score
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2066190560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066190559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 4d7177c981e2b45e18ee620600777c32, type: 3}
+    m_FontSize: 36
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 72
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Live Score
+
+'
+--- !u!222 &2066190561
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066190559}
+  m_CullTransparentMesh: 0
+--- !u!224 &2066190562
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066190559}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 53077372}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.09616668, y: 0.77800006}
+  m_AnchorMax: {x: 0.90422237, y: 0.84365624}
+  m_AnchoredPosition: {x: -21, y: -78}
+  m_SizeDelta: {x: -248.8, y: -11}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &3028265819138641364
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2288,6 +2357,11 @@ PrefabInstance:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 62966392}
+    - target: {fileID: 7349431635441859144, guid: cf2cb441bcdc54fbba9fdd62fba05c37,
+        type: 3}
+      propertyPath: liveScoreText
+      value: 
+      objectReference: {fileID: 2066190560}
     - target: {fileID: 7349431635441859143, guid: cf2cb441bcdc54fbba9fdd62fba05c37,
         type: 3}
       propertyPath: m_LocalPosition.x

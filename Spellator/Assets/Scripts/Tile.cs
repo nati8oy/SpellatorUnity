@@ -55,7 +55,7 @@ public class Tile : MonoBehaviour
 
         tilePointValue = InitDictionary.Instance.pointsDictionary[letter.text];
 
-        Debug.Log("this tile value is:" + tilePointValue);
+       // Debug.Log("this tile value is:" + tilePointValue);
 
 
 
@@ -105,9 +105,10 @@ public class Tile : MonoBehaviour
         TileManager.Instance.PlayTiles();
 
         //add the score
-        GameManager.Instance.Score = GameManager.Instance.Score + tilePointValue;
-        // int tempScore = 
-       // Debug.Log(GameManager.Instance.Score);
+
+        GameManager.Instance.LiveScore = GameManager.Instance.LiveScore + tilePointValue;
+        GameManager.Instance.LiveScoreText.text = GameManager.Instance.LiveScore.ToString();
+
 
 
     }

@@ -19,28 +19,34 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject tile;
 
 
-    private int score;
-    public int Score
+    private int liveScore;
+    public int LiveScore
     {
-        get { return score; }
+        get { return liveScore; }
         set
         {
-            score = value;
+            liveScore = value;
         }
     }
 
-    [SerializeField] private Text scoreText;
 
-    public Text ScoreText
+    [SerializeField] private Text liveScoreText;
+
+    public Text LiveScoreText
     {
-        get { return scoreText; }
+        get { return liveScoreText; }
         set
         {
             //Debug.LogFormat("WordBeingMade will change to '{0}'", value);
             //scoreText = value;
-            scoreText = value;
+            liveScoreText = value;
         }
     }
+
+
+    private int totalScore;
+
+    [SerializeField] private Text scoreText;
 
 
     //this is the textbox that displays the current word being made
@@ -133,8 +139,9 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        scoreText.text = Score.ToString();
     }
+
+
 
     public void CheckAndDeleteTiles()
     {
@@ -159,8 +166,16 @@ public class GameManager : MonoBehaviour
 
             sendButton.interactable = false;
             // Debug.Log("the next play slot is: " + TileManager.Instance.NextFreeSlot);
+
+            //add the scores to the screen after adding the ints together
+            totalScore = totalScore + liveScore;
+            scoreText.text = totalScore.ToString();
+
+            //reset the scores
+            ResetScores();
         }
 
+      
 
     }
 
@@ -252,8 +267,13 @@ public class GameManager : MonoBehaviour
 
         }
 
-
+        //reset the word being made
         WordBeingMade = "";
+
+        //reset the score and live score
+       ResetScores();
+
+        //reset the positions of the slots
         TileManager.Instance.ResetSlots();
 
         //set the next free slot on the playing board
@@ -262,12 +282,11 @@ public class GameManager : MonoBehaviour
     }
 
 
-    private void CalculateScore()
+    private void ResetScores()
     {
-
-
+        //reset the score and live score
+        LiveScoreText.text = "";
+        liveScore = 0;
     }
-
-
 
 }
