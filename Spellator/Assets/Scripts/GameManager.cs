@@ -13,7 +13,9 @@ public class GameManager : MonoBehaviour
     private TextAsset dictionaryTxtFile;
 
 
-
+    //for the coroutine
+    private float smoothing = 10f;
+    private Transform target;
 
     [SerializeField] private Canvas tileUI;
     [SerializeField] private GameObject tile;
@@ -50,7 +52,7 @@ public class GameManager : MonoBehaviour
 
 
     //this is the textbox that displays the current word being made
-    [SerializeField] private Text inputText;
+    [SerializeField] private Text messageText;
 
     //a list to store all of the values from the dictionary text file in
     private List<string> dictionaryList = new List<string>();
@@ -118,7 +120,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
 
-
+        liveScoreText.text = "";
+        scoreText.text = "";
         sendButton.interactable = false;
 
         //add the list of words from an external txt file via the inspector
@@ -187,13 +190,13 @@ public class GameManager : MonoBehaviour
         if (dictionary.ContainsKey(WordBeingMade))
         {
             Debug.Log(WordBeingMade + " is a word");
-            inputText.text = "Word! :)";
+            //inputText.text = "Word! :)";
             sendButton.interactable = true;
 
         }
         else
         {
-            inputText.text = "Not a word :(";
+            //inputText.text = "Not a word :(";
             sendButton.interactable = false;
         }
 
@@ -288,5 +291,7 @@ public class GameManager : MonoBehaviour
         LiveScoreText.text = "";
         liveScore = 0;
     }
+
+
 
 }
