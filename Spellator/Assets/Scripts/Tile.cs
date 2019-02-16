@@ -27,6 +27,13 @@ public class Tile : MonoBehaviour
         set { PositionInRack = value; }
     }
 
+    private int tilePointValue;
+
+    public int TilePointValue
+    {
+        get { return tilePointValue; }
+    }
+
     private int nextPlayPosition;
 
 
@@ -46,8 +53,13 @@ public class Tile : MonoBehaviour
         letter.text = InitDictionary.Instance.bag[Random.Range(0, 95)];
         points.text = InitDictionary.Instance.pointsDictionary[letter.text].ToString();
 
+        tilePointValue = InitDictionary.Instance.pointsDictionary[letter.text];
 
-        
+        Debug.Log("this tile value is:" + tilePointValue);
+
+
+
+
     }
 
     public void ReturnTheTiles()
@@ -89,8 +101,13 @@ public class Tile : MonoBehaviour
 
         }
 
+        //this sets the next tile to be placed
         TileManager.Instance.PlayTiles();
 
+        //add the score
+        GameManager.Instance.Score = GameManager.Instance.Score + tilePointValue;
+        // int tempScore = 
+       // Debug.Log(GameManager.Instance.Score);
 
 
     }

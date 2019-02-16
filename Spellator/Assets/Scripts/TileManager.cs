@@ -88,12 +88,24 @@ public class TileManager : MonoBehaviour
 
     public void PlayTiles()
     {
-
+       
+        /*
+          if(playPositions[0].childCount == 0)
+        {
+            nextFreeSlot = 0;
+        }
         //keeps track of the next available board slot
+
+        */
+
         if (nextFreeSlot != 9)
         {
-            nextFreeSlot += 1;
             nextFreePos = playPositions[nextFreeSlot];
+            nextFreeSlot += 1;
+
+
+            ///nextFreePos = playPositions[nextFreeSlot];
+
             //Debug.Log("it's working!");
             //int remaining = 9 - nextFreeSlot;
             // Debug.Log("The number or remaining board slots is: " + remaining);
@@ -153,5 +165,8 @@ public class TileManager : MonoBehaviour
 
         }*/
 
-
+    public void ResetSlots()
+    {
+        nextFreeSlot = 0;
+    }
 }

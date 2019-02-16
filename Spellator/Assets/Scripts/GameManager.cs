@@ -37,8 +37,8 @@ public class GameManager : MonoBehaviour
         set
         {
             //Debug.LogFormat("WordBeingMade will change to '{0}'", value);
+            //scoreText = value;
             scoreText = value;
-           // Score.text = score;
         }
     }
 
@@ -112,6 +112,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
 
+
         sendButton.interactable = false;
 
         //add the list of words from an external txt file via the inspector
@@ -128,6 +129,11 @@ public class GameManager : MonoBehaviour
         }
 
 
+    }
+
+    private void Update()
+    {
+        scoreText.text = Score.ToString();
     }
 
     public void CheckAndDeleteTiles()
@@ -210,12 +216,14 @@ public class GameManager : MonoBehaviour
             foreach (GameObject tile in allTilesArray)
             {
                 //destroy the tiles
-                Destroy(tile.gameObject,Random.Range(0.1f,0.7f));
+                Destroy(tile.gameObject);
 
             }
 
-            //refill the tiles
-           // TileManager.Instance.TileSpawner.TileSetup();
+            //set the tiles ups again from the TileSpawner code
+
+            TileSpawner.Instance.TileSetup();
+          
 
 
         }
@@ -246,6 +254,7 @@ public class GameManager : MonoBehaviour
 
 
         WordBeingMade = "";
+        TileManager.Instance.ResetSlots();
 
         //set the next free slot on the playing board
         //nextFreeSlot = 0;
@@ -255,19 +264,6 @@ public class GameManager : MonoBehaviour
 
     private void CalculateScore()
     {
-
-        //add the list of words from an external txt file via the inspector
-        fullDictionary = dictionaryTxtFile.text;
-
-        //get the dictionary list of words and split them on every comma
-        dictionaryList = new List<string>(fullDictionary.Split(','));
-
-        //add each of the words within dictionaryList to the actual dictionary itself
-        for (int i = 0; i < dictionaryList.Count; i++)
-        {
-            // Debug.Log(dictionaryList[i]);
-            dictionary.Add(dictionaryList[i], 1);
-        }
 
 
     }

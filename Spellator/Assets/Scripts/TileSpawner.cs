@@ -9,6 +9,8 @@ public class TileSpawner : MonoBehaviour
     [SerializeField] private GameObject tile;
     private GameObject tileHolder;
 
+    public static TileSpawner Instance;
+
 
     private GameObject tilePos;
 
@@ -18,8 +20,27 @@ public class TileSpawner : MonoBehaviour
 
     [SerializeField] private Transform rack;
 
+    //this is the singleton code to ensure there's not more than one instance running
+    void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+    }
+
+
     // Start is called before the first frame update
     void Start()
+    {
+        TileSetup();
+    }
+
+
+    public void TileSetup()
     {
 
         for (int i = 0; i < rackPositions.Count; i++)
@@ -29,9 +50,6 @@ public class TileSpawner : MonoBehaviour
         }
 
     }
-
-
-
 
 
 }
