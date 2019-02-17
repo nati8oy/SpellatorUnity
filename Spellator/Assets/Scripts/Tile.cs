@@ -33,7 +33,6 @@ public class Tile : MonoBehaviour
         get { return tilePointValue; }
     }
 
-    private int nextPlayPosition;
 
 
     //create the list of letters which this could be.
@@ -46,7 +45,7 @@ public class Tile : MonoBehaviour
 
 
         //set the first target positon to move to
-        target = TileManager.Instance.nextFreePos;
+        target = TileManager.Instance.NextFreePos;
 
         //sets the letter and point text of each tile
         letter.text = InitDictionary.Instance.bag[Random.Range(0, 95)];
@@ -71,7 +70,7 @@ public class Tile : MonoBehaviour
 
 
     {
-        StartCoroutine(PlayTile(target));
+
 
         //check is the tile is selected or not. If it's not tagged as "selected" then add it to the word being made.
         if (gameObject.tag != "TileSelected")
@@ -96,18 +95,18 @@ public class Tile : MonoBehaviour
             }
 
             gameObject.tag = "TileSelected";
+            //this sets the next tile to be placed
+            StartCoroutine(PlayTile(target));
 
 
+            TileManager.Instance.PlayTiles();
+
+
+            //add the score
+
+            GameManager.Instance.LiveScore = GameManager.Instance.LiveScore + tilePointValue;
+            GameManager.Instance.LiveScoreText.text = GameManager.Instance.LiveScore.ToString();
         }
-
-        //this sets the next tile to be placed
-        TileManager.Instance.PlayTiles();
-
-        //add the score
-
-        GameManager.Instance.LiveScore = GameManager.Instance.LiveScore + tilePointValue;
-        GameManager.Instance.LiveScoreText.text = GameManager.Instance.LiveScore.ToString();
-
 
 
     }
@@ -115,8 +114,8 @@ public class Tile : MonoBehaviour
     //moves the tile to the correct position on the playing board
     IEnumerator PlayTile(Transform target)
     {
-        target = TileManager.Instance.nextFreePos;
-
+        target = TileManager.Instance.NextFreePos;
+       // Debug.Log(target);
 
         while (Vector3.Distance(transform.position, target.position) > 0.05f)
         {

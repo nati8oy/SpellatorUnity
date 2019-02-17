@@ -15,6 +15,7 @@ public class TileManager : MonoBehaviour
     //tile prefab
     [SerializeField] private GameObject tile;
 
+
     private Transform returnPos;
     private GameObject[] tilesToUntag;
 
@@ -52,8 +53,13 @@ public class TileManager : MonoBehaviour
 
 
     //this indicates the next free position to spawn a tile to
-    public Transform nextFreePos;
+    private Transform nextFreePos;
 
+    public Transform NextFreePos
+    {
+        get { return nextFreePos; }
+        set { NextFreePos = value; }
+    }
 
     //this is the game object that other tiles are parented to
     private GameObject tileHolder;
@@ -77,37 +83,16 @@ public class TileManager : MonoBehaviour
     void Start()
     {
 
-        nextFreePos = playPositions[nextFreeSlot];
-
+        nextFreePos = playPositions[selectedTiles.Count];
+        Debug.Log("the NextFreePos starts as: " + nextFreePos);
 
     }
 
-
-
     public void PlayTiles()
     {
-       
-        /*
-          if(playPositions[0].childCount == 0)
-        {
-            nextFreeSlot = 0;
-        }
-        //keeps track of the next available board slot
+        nextFreePos = playPositions[selectedTiles.Count];
+        Debug.Log("next tile will move to " + nextFreePos);
 
-        */
-
-        if (nextFreeSlot != 9)
-        {
-            nextFreePos = playPositions[nextFreeSlot];
-            nextFreeSlot += 1;
-
-
-            ///nextFreePos = playPositions[nextFreeSlot];
-
-            //Debug.Log("it's working!");
-            //int remaining = 9 - nextFreeSlot;
-            // Debug.Log("The number or remaining board slots is: " + remaining);
-        }
 
     }
 
@@ -131,9 +116,7 @@ public class TileManager : MonoBehaviour
             }
 
         }
-        //clear the selectedTiles list so that it puts the new tiles in the right positions
-        selectedTiles.Clear();
-        //Debug.Log(selectedTiles.ToString());
+      
 
 
     }
@@ -163,8 +146,11 @@ public class TileManager : MonoBehaviour
 
         }*/
 
-    public void ResetSlots()
+    public void ResetWordStartPoint()
     {
-        nextFreeSlot = 0;
+        selectedTiles.Clear();
+       // Debug.Log("After replenishing the tiles the selectedTiles List is this long: " + selectedTiles.Count);
+        nextFreePos = playPositions[selectedTiles.Count];
     }
+
 }

@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     private float smoothing = 10f;
     private Transform target;
 
+
+
     [SerializeField] private Canvas tileUI;
     [SerializeField] private GameObject tile;
 
@@ -46,7 +48,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-    private int totalScore;
+    private int totalScore = 0;
 
     [SerializeField] private Text scoreText;
 
@@ -176,6 +178,9 @@ public class GameManager : MonoBehaviour
 
             //reset the scores
             ResetScores();
+
+            //clear the selectedTiles list so that it puts the new tiles in the right positions
+           TileManager.Instance.ResetWordStartPoint();
         }
 
       
@@ -276,13 +281,13 @@ public class GameManager : MonoBehaviour
         //reset the score and live score
        ResetScores();
 
-        //reset the positions of the slots
-        TileManager.Instance.ResetSlots();
+        //reset the tile start positions when spelling a word
+        TileManager.Instance.ResetWordStartPoint();
 
-        //set the next free slot on the playing board
-        //nextFreeSlot = 0;
 
     }
+
+
 
 
     private void ResetScores()
@@ -291,7 +296,6 @@ public class GameManager : MonoBehaviour
         LiveScoreText.text = "";
         liveScore = 0;
     }
-
 
 
 }
