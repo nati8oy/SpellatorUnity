@@ -89,12 +89,12 @@ public class Tile : MonoBehaviour
 
 
             //start spelling the word using the letter from this tile
-            GameManager.Instance.CreateWord(letter.text);
+            DictionaryManager.Instance.CreateWord(letter.text);
 
             //if the word is longer than 3 letters, check if it's in the dictionary
-            if (GameManager.Instance.WordBeingMade.Length >= 3)
+            if (DictionaryManager.Instance.WordBeingMade.Length >= 3)
             {
-                GameManager.Instance.CheckWord();
+                DictionaryManager.Instance.CheckWord();
             }
 
             gameObject.tag = "TileSelected";

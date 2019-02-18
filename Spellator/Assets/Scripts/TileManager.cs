@@ -105,7 +105,7 @@ public class TileManager : MonoBehaviour
     public void ReplenishTiles()
     {
 
-        for (int i = 0; i < GameManager.Instance.selectedTilesArray.Length; i++)
+        for (int i = 0; i < DictionaryManager.Instance.selectedTilesArray.Length; i++)
         {
             //create new tiles for the spots that have just beend used
             tileHolder = Instantiate(tile, selectedTiles[i]);
