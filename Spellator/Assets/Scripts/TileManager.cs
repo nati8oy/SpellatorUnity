@@ -84,18 +84,22 @@ public class TileManager : MonoBehaviour
     {
 
         nextFreePos = playPositions[selectedTiles.Count];
-        Debug.Log("the NextFreePos starts as: " + nextFreePos);
+        //Debug.Log("the NextFreePos starts as: " + nextFreePos);
 
     }
 
     public void PlayTiles()
     {
         nextFreePos = playPositions[selectedTiles.Count];
-        Debug.Log("next tile will move to " + nextFreePos);
+       // Debug.Log("next tile will move to " + nextFreePos);
 
 
     }
 
+    private void Update()
+    {
+
+    }
 
 
     public void ReplenishTiles()
@@ -152,5 +156,7 @@ public class TileManager : MonoBehaviour
        // Debug.Log("After replenishing the tiles the selectedTiles List is this long: " + selectedTiles.Count);
         nextFreePos = playPositions[selectedTiles.Count];
     }
+
+
 
 }

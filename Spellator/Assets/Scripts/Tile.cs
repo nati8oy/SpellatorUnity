@@ -19,6 +19,8 @@ public class Tile : MonoBehaviour
     private int positionInRack;
     private Vector3 returnPos;
 
+    private float moveSpeed;
+    public float speed = 1.0F;
     public int PositionInRack
 
     {
@@ -53,12 +55,13 @@ public class Tile : MonoBehaviour
 
         tilePointValue = InitDictionary.Instance.pointsDictionary[letter.text];
 
-       // Debug.Log("this tile value is:" + tilePointValue);
+        // Debug.Log("this tile value is:" + tilePointValue);
 
 
-
+        moveSpeed = Time.deltaTime * speed;
 
     }
+
 
     public void ReturnTheTiles()
     {
@@ -125,5 +128,7 @@ public class Tile : MonoBehaviour
         }
 
     }
+
+
 
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
@@ -89,9 +90,7 @@ public class GameManager : MonoBehaviour
 
     //create the dictionary to store all of the words in
     private Dictionary<string, int> dictionary = new Dictionary<string, int>();
-
-    private GameObject tileHolder;
-
+    
 
     private string wordBeingMade;
 
@@ -140,6 +139,9 @@ public class GameManager : MonoBehaviour
         }
 
 
+
+        //this is the target position to return the tiles to when they are 
+        target = scoreText.transform;
     }
 
     private void Update()
@@ -153,16 +155,18 @@ public class GameManager : MonoBehaviour
 
         if (dictionary.ContainsKey(WordBeingMade))
         {
+            //StartCoroutine(DiscardTiles(target));
+
             //loop through the array and delete each of the gameObjects in it
             selectedTilesArray = GameObject.FindGameObjectsWithTag("TileSelected");
 
             foreach (GameObject tile in selectedTilesArray)
             {
+               // tile.tag = "DiscardedTile";
                 //destroy the tiles
-                Destroy(tile.gameObject);
+                Destroy(tile.gameObject, Random.Range(0.1f,0.4f));
 
                 //Debug.Log(tile.transform.parent.name);
-
             }
 
             TileManager.Instance.ReplenishTiles();
@@ -181,6 +185,7 @@ public class GameManager : MonoBehaviour
 
             //clear the selectedTiles list so that it puts the new tiles in the right positions
            TileManager.Instance.ResetWordStartPoint();
+
         }
 
       
@@ -253,8 +258,6 @@ public class GameManager : MonoBehaviour
 
         else if (resetBool == false)
         {
-            //selectedTilesArray = null;
-
             //add all the tiles with the tag "Selected" to an array
 
             selectedTilesArray = GameObject.FindGameObjectsWithTag("TileSelected");
@@ -270,8 +273,6 @@ public class GameManager : MonoBehaviour
                 tile.tag = "Tile";
 
             }
-
-            //StartCoroutine(TileManager.Instance.ReturnTiles());
 
         }
 
@@ -295,6 +296,39 @@ public class GameManager : MonoBehaviour
         //reset the score and live score
         LiveScoreText.text = "";
         liveScore = 0;
+    }
+
+
+
+
+
+    IEnumerator DiscardTiles(Transform target)
+    {
+        target = scoreText.transform;
+
+        //loop through the array and delete each of the gameObjects in it
+        //selectedTilesArray = GameObject.FindGameObjectsWithTag("TileSelected");
+
+
+        foreach (GameObject tile in selectedTilesArray)
+        {
+
+            while (tile.transform.position != Vector3.zero)
+            {
+
+                tile.transform.position = Vector3.Lerp(tile.transform.position, Vector3.zero, smoothing * Time.deltaTime);
+
+
+
+                yield return null;
+            }
+
+        }
+
+
+
+
+
     }
 
 
