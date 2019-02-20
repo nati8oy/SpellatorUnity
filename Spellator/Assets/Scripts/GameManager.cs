@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Text finalScore;
     [SerializeField] private Text finalWordTally;
 
-    private int setTimerTo = 20;
+    private int setTimerTo = 60;
 
     public int SetTimerTo
     {
@@ -136,10 +136,11 @@ public class GameManager : MonoBehaviour
     public void ResetGame()
     {
         ResetScores();
-        DictionaryManager.Instance.TotalWordsMade = 0;
+        setTimerTo = 60;
+        //DictionaryManager.Instance.TotalWordsMade = 0;
         gameOverPanel.gameObject.SetActive(false);
+        DictionaryManager.Instance.ClearWord();
         DictionaryManager.Instance.WordBeingMade = "";
-
 
     }
 }

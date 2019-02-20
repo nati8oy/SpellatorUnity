@@ -5,7 +5,10 @@ using UnityEngine.UI;
 using System.Threading;
 public class CountDown : MonoBehaviour
 {
-    public int timeLeft = 60; //Seconds Overall
+    private int timeLeft; //Seconds Overall
+
+    //the timer number of seconds is controlled using GameManager.Instance.SetTimerTo;
+
     public Text countdown; //UI Text Object
     void Start()
     {
@@ -37,4 +40,5 @@ public class CountDown : MonoBehaviour
 
        
     }
+ 
 }
