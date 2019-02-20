@@ -9,6 +9,14 @@ public class GameManager : MonoBehaviour
     //sets up an instance of the GameManager
     public static GameManager Instance;
 
+    [SerializeField] private RectTransform gameOverPanel;
+
+    public RectTransform GameOverPanel
+    {
+        get { return gameOverPanel; }
+        set { GameOverPanel = value; }
+    }
+
     private bool gameOver;
 
     public bool GameOver
@@ -55,6 +63,18 @@ public class GameManager : MonoBehaviour
   
 
 
+    //content for game over variables
+    [SerializeField] private Text finalScore;
+    [SerializeField] private Text finalWordTally;
+
+    private int setTimerTo = 20;
+
+    public int SetTimerTo
+    {
+        get { return setTimerTo; }
+    }
+
+
     //this is the singleton code to ensure there's not more than one instance running
     void Awake()
     {
@@ -69,6 +89,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+
+        //setTimerTo = 20;
         //set scores to blank
         liveScoreText.text = "";
         scoreText.text = "";
@@ -81,7 +103,7 @@ public class GameManager : MonoBehaviour
     {
         if (gameOver)
         {
-            Debug.Log("Game over man! Game over!");
+          //  Debug.Log("Game over man! Game over!");
         }
     }
 
@@ -100,4 +122,24 @@ public class GameManager : MonoBehaviour
     }
 
 
+
+
+    public void GameOverMethod()
+    {
+
+       gameOverPanel.gameObject.SetActive(true);
+       finalScore.text = totalScore.ToString();
+        finalWordTally.text = DictionaryManager.Instance.TotalWordsMade.ToString();
+
+    }
+
+    public void ResetGame()
+    {
+        ResetScores();
+        DictionaryManager.Instance.TotalWordsMade = 0;
+        gameOverPanel.gameObject.SetActive(false);
+        DictionaryManager.Instance.WordBeingMade = "";
+
+
+    }
 }

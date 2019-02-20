@@ -40,6 +40,15 @@ public class DictionaryManager : MonoBehaviour
     //create the dictionary to store all of the words in
     private Dictionary<string, int> dictionary = new Dictionary<string, int>();
 
+    //used for resetting the game
+    private int totalWordsMade;
+
+    public int TotalWordsMade
+    {
+        get { return totalWordsMade; }
+        set { TotalWordsMade = value; }
+    }
+
 
     private string wordBeingMade;
 
@@ -131,6 +140,9 @@ public class DictionaryManager : MonoBehaviour
             TileManager.Instance.ResetWordStartPoint();
 
         }
+
+        //add to the total words number
+        totalWordsMade += 1;
 
 
 

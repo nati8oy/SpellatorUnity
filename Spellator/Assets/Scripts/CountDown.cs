@@ -11,6 +11,8 @@ public class CountDown : MonoBehaviour
     {
         StartCoroutine("LoseTime");
         Time.timeScale = 1; //Just making sure that the timeScale is right
+
+        timeLeft = GameManager.Instance.SetTimerTo;
     }
     void Update()
     {
@@ -27,7 +29,9 @@ public class CountDown : MonoBehaviour
             if (timeLeft == 0)
             {
                 StopCoroutine("LoseTime");
-                Debug.Log("Game over man! Game over!");
+
+                GameManager.Instance.GameOverMethod();
+                //Debug.Log("Game over man! Game over!");
                  }
         }
 

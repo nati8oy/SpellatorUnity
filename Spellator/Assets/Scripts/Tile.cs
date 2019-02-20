@@ -111,6 +111,7 @@ public class Tile : MonoBehaviour
             GameManager.Instance.LiveScoreText.text = GameManager.Instance.LiveScore.ToString();
         }
 
+        //AudioManager.Instance.audioSource.PlayOneShot(AudioManager.Instance.tileClick);
 
     }
 

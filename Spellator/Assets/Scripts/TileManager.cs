@@ -16,17 +16,11 @@ public class TileManager : MonoBehaviour
     [SerializeField] private GameObject tile;
 
 
+
+
     private Transform returnPos;
     private GameObject[] tilesToUntag;
 
-
-    /*
-    public Transform ReturnPos
-    {
-        get { return returnPos; }
-        set { ReturnPos = value; }
-    }
-    */
 
     //this is the list to add the tile positions to
     private List<Transform> selectedTiles = new List<Transform>();
@@ -38,7 +32,6 @@ public class TileManager : MonoBehaviour
         set { SelectedTiles = value; }
     }
 
-    //private List<bool> rackSpacesAvailable = new List<bool>(); 
     [SerializeField] private bool[] rackSpacesAvailable;
 
 
@@ -124,31 +117,7 @@ public class TileManager : MonoBehaviour
 
 
     }
-    /*
-
-
-
-    public IEnumerator ReturnTiles()
-    {
-
-        // GameManager.Instance.selectedTilesArray = GameObject.FindGameObjectsWithTag("TileSelected");
-
-        //for each of the tile objects in the selected tiles array,
-        //go through and get the parent transform (which is the position game object)
-        //then reset the position to that 
-
-        foreach(Transform tile in selectedTiles)
-        {
-
-        } while (Vector3.Distance(tile.transform.position, tile.transform.parent.position) > 0.05f)
-            {
-                tile.transform.position = Vector3.Lerp(tile.transform.position, tile.transform.parent.position, smoothing * Time.deltaTime);
-
-                yield return null;
-            }
-
-
-        }*/
+  
 
     public void ResetWordStartPoint()
     {
@@ -156,6 +125,8 @@ public class TileManager : MonoBehaviour
        // Debug.Log("After replenishing the tiles the selectedTiles List is this long: " + selectedTiles.Count);
         nextFreePos = playPositions[selectedTiles.Count];
     }
+
+
 
 
 
