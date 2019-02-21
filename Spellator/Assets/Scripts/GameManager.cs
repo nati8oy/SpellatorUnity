@@ -9,6 +9,10 @@ public class GameManager : MonoBehaviour
     //sets up an instance of the GameManager
     public static GameManager Instance;
 
+    //[SerializeField] private AudioClip bgMusic;
+    //public float audioTrackSelection;
+    private AudioSource gameManagerAudioSource;
+
     [SerializeField] private RectTransform gameOverPanel;
 
     public RectTransform GameOverPanel
@@ -90,8 +94,13 @@ public class GameManager : MonoBehaviour
     void Start()
     {
 
-        //setTimerTo = 20;
-        //set scores to blank
+        gameManagerAudioSource = GetComponent<AudioSource>();
+
+        gameManagerAudioSource.loop = true;
+
+
+            //setTimerTo = 20;
+            //set scores to blank
         liveScoreText.text = "";
         scoreText.text = "";
 

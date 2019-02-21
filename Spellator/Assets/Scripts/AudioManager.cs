@@ -6,9 +6,20 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
 
-    private AudioSource audioSource;
-    public AudioClip tileClick;
+    private AudioSource mainAudioSource;
+    public AudioSource MainAudioSource
+    {
+        get { return mainAudioSource; }
+    }
 
+    [SerializeField] private AudioClip tileClick; 
+
+    /*
+    public AudioClip TileClick
+    {
+        get { return tileClick; }
+    }
+    */
 
 
     //this is the singleton code to ensure there's not more than one instance running
@@ -27,12 +38,17 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        mainAudioSource =  GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void PlayAudio(AudioClip targetAudio)
+    {
+        mainAudioSource.PlayOneShot(targetAudio);
     }
 }

@@ -8,6 +8,9 @@ public class DictionaryManager : MonoBehaviour
 
     public static DictionaryManager Instance;
 
+    [SerializeField] private AudioClip correctWord;
+    [SerializeField] private AudioClip clearWordSound;
+
 
     //a list to store all of the values from the dictionary text file in
     private List<string> dictionaryList = new List<string>();
@@ -158,6 +161,8 @@ public class DictionaryManager : MonoBehaviour
             Debug.Log(WordBeingMade + " is a word");
             //inputText.text = "Word! :)";
             sendButton.interactable = true;
+            AudioManager.Instance.PlayAudio(correctWord);
+
 
         }
         else
@@ -179,6 +184,7 @@ public class DictionaryManager : MonoBehaviour
 
     public void ClearWord()
     {
+        AudioManager.Instance.PlayAudio(clearWordSound);
 
         TileManager.Instance.SelectedTiles.Clear();
         //check if the reset bool is true. If it is, delete all the tiles in the rack
@@ -188,7 +194,6 @@ public class DictionaryManager : MonoBehaviour
         }
         else resetBool = false;
 
-        // Debug.Log("Reset Bool is: " + resetBool);
 
         if (resetBool == true)
         {

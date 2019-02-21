@@ -213,6 +213,7 @@ MonoBehaviour:
   buttonComponent: {fileID: 5976778401099106095}
   letter: {fileID: 5976778401849919047}
   points: {fileID: 5976778401881998141}
+  tileClick: {fileID: 8300000, guid: be0bebc2341164f3baa2f1b634d10fee, type: 3}
   startPosition: {x: 0, y: 0, z: 0}
   speed: 1
 --- !u!1 &5976778401849919065

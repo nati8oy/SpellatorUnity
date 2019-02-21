@@ -10,6 +10,8 @@ public class Tile : MonoBehaviour
 
     private Color wordCorrectColour;
 
+    [SerializeField] private AudioClip tileClick;
+
     //for the coroutine
     private float smoothing = 10f;
     private Transform target;
@@ -73,7 +75,7 @@ public class Tile : MonoBehaviour
 
 
     {
-
+        AudioManager.Instance.PlayAudio(tileClick);
 
         //check is the tile is selected or not. If it's not tagged as "selected" then add it to the word being made.
         if (gameObject.tag != "TileSelected")
