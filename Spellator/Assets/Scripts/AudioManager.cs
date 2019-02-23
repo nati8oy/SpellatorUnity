@@ -6,6 +6,7 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
 
+
     private AudioSource mainAudioSource;
     public AudioSource MainAudioSource
     {
@@ -39,6 +40,7 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         mainAudioSource =  GetComponent<AudioSource>();
+        
     }
 
     // Update is called once per frame

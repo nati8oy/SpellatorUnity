@@ -44,6 +44,10 @@ public class Tile : MonoBehaviour
     void Start()
     {
 
+        wordCorrectColour = Color.red;
+
+        //letter.color = wordCorrectColour;
+
 
         startPosition = gameObject.transform.position;
 

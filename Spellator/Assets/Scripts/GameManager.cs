@@ -126,7 +126,17 @@ public class GameManager : MonoBehaviour
 
     public void CalculateScores()
     {
-        totalScore = totalScore + liveScore;
+
+        //check to see if there's a multiplier
+        if( DictionaryManager.Instance.Multiplier >= 3)
+        {
+            totalScore = totalScore + (liveScore* DictionaryManager.Instance.Multiplier);
+        }
+
+        //otherwise just do the standard score adding.
+        else
+            totalScore = totalScore + liveScore;
+
         scoreText.text = totalScore.ToString();
     }
 
@@ -146,6 +156,7 @@ public class GameManager : MonoBehaviour
     {
         ResetScores();
         setTimerTo = 60;
+        totalScore = 0;
         //DictionaryManager.Instance.TotalWordsMade = 0;
         gameOverPanel.gameObject.SetActive(false);
         DictionaryManager.Instance.ClearWord();

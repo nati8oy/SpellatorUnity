@@ -11,11 +11,21 @@ public class DictionaryManager : MonoBehaviour
     [SerializeField] private AudioClip correctWord;
     [SerializeField] private AudioClip clearWordSound;
 
+    [SerializeField] private Text multiplierText;
+
+
+    private int multiplier;
+    public int Multiplier
+    {
+        get { return multiplier; }
+    }
 
     //a list to store all of the values from the dictionary text file in
     private List<string> dictionaryList = new List<string>();
 
 
+
+    private Text tileText;
 
     //this sets up the field for which to add the external dictionary txt file
     [SerializeField]
@@ -83,6 +93,7 @@ public class DictionaryManager : MonoBehaviour
     void Start()
     {
 
+      
 
         //add the list of words from an external txt file via the inspector
         fullDictionary = dictionaryTxtFile.text;
@@ -103,7 +114,16 @@ public class DictionaryManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+
+        if (multiplier >= 3)
+        {
+            //set the multiplier text 
+            multiplierText.text = multiplier.ToString();
+
+        }
+
+
     }
 
 
@@ -112,16 +132,32 @@ public class DictionaryManager : MonoBehaviour
 
         if (dictionary.ContainsKey(WordBeingMade))
         {
-            //StartCoroutine(DiscardTiles(target));
+
+
+            //add to the multiplier
+            if(WordBeingMade.Length >= 4)
+            {
+                multiplier += 1;
+            }
+
+            else if (WordBeingMade.Length <= 3)
+            {
+                multiplier =0;
+                multiplierText.text = multiplier.ToString();
+            }
 
             //loop through the array and delete each of the gameObjects in it
             selectedTilesArray = GameObject.FindGameObjectsWithTag("TileSelected");
+
+
 
             foreach (GameObject tile in selectedTilesArray)
             {
                 // tile.tag = "DiscardedTile";
                 //destroy the tiles
+
                 Destroy(tile.gameObject, Random.Range(0.1f, 0.4f));
+
 
                 //Debug.Log(tile.transform.parent.name);
             }
@@ -159,15 +195,14 @@ public class DictionaryManager : MonoBehaviour
         if (dictionary.ContainsKey(WordBeingMade))
         {
             Debug.Log(WordBeingMade + " is a word");
-            //inputText.text = "Word! :)";
             sendButton.interactable = true;
             AudioManager.Instance.PlayAudio(correctWord);
 
+           
 
         }
         else
         {
-            //inputText.text = "Not a word :(";
             sendButton.interactable = false;
         }
 
@@ -213,7 +248,9 @@ public class DictionaryManager : MonoBehaviour
 
             TileSpawner.Instance.TileSetup();
 
-
+            //remove multiplier
+            multiplier = 0;
+            multiplierText.text = multiplier.ToString();
 
         }
 
