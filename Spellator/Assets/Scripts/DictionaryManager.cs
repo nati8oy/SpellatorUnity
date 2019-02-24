@@ -134,9 +134,14 @@ public class DictionaryManager : MonoBehaviour
         if (dictionary.ContainsKey(WordBeingMade))
         {
 
+            //check if the multiplier is gonig to be broken with a 3 letter word. If so, play the sound.
+            if ((multiplier >= 3) && (WordBeingMade.Length <= 3))
+            {
+                AudioManager.Instance.PlayAudio(loseMultiplier);
+            }
 
             //add to the multiplier
-            if(WordBeingMade.Length >= 4)
+            if (WordBeingMade.Length >= 4)
             {
                 multiplier += 1;
             }
@@ -146,6 +151,7 @@ public class DictionaryManager : MonoBehaviour
                 multiplier =0;
                 multiplierText.text = multiplier.ToString();
             }
+
 
             //loop through the array and delete each of the gameObjects in it
             selectedTilesArray = GameObject.FindGameObjectsWithTag("TileSelected");
