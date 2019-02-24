@@ -10,6 +10,7 @@ public class DictionaryManager : MonoBehaviour
 
     [SerializeField] private AudioClip correctWord;
     [SerializeField] private AudioClip clearWordSound;
+    [SerializeField] private AudioClip loseMultiplier;
 
     [SerializeField] private Text multiplierText;
 
@@ -221,6 +222,7 @@ public class DictionaryManager : MonoBehaviour
     {
         AudioManager.Instance.PlayAudio(clearWordSound);
 
+
         TileManager.Instance.SelectedTiles.Clear();
         //check if the reset bool is true. If it is, delete all the tiles in the rack
         if (wordBeingMade == "")
@@ -249,8 +251,14 @@ public class DictionaryManager : MonoBehaviour
             TileSpawner.Instance.TileSetup();
 
             //remove multiplier
+            if (multiplier >=3)
+            {
+                AudioManager.Instance.PlayAudio(loseMultiplier);
+            }
             multiplier = 0;
             multiplierText.text = multiplier.ToString();
+
+
 
         }
 
@@ -271,6 +279,7 @@ public class DictionaryManager : MonoBehaviour
                 tile.tag = "Tile";
 
             }
+
 
         }
 

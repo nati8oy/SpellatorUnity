@@ -1711,6 +1711,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   correctWord: {fileID: 8300000, guid: a5992ba9e416945ceb9a5f6384a97f7f, type: 3}
   clearWordSound: {fileID: 8300000, guid: fa9101c28edb646048855477a519f6a9, type: 3}
+  loseMultiplier: {fileID: 8300000, guid: fd99d07e81ffd474bba1f756298fcc07, type: 3}
   multiplierText: {fileID: 1762211998}
   dictionaryTxtFile: {fileID: 4900000, guid: 7c382be831dd04dd5832d2f7e1219647, type: 3}
   selectedTilesArray: []
@@ -3378,7 +3379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.972549, g: 0.90588236, b: 0.10980392, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
