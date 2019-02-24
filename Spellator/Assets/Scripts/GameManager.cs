@@ -29,9 +29,6 @@ public class GameManager : MonoBehaviour
         set { GameOver = value; }
     }
 
-    [SerializeField] private Canvas tileUI;
-    [SerializeField] private GameObject tile;
-
 
     private int liveScore;
     public int LiveScore
@@ -43,6 +40,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //holds the data for the most recent score the points text can access it
+    public int mostRecentScore;
 
     [SerializeField] private Text liveScoreText;
 
@@ -94,6 +93,10 @@ public class GameManager : MonoBehaviour
     void Start()
     {
 
+       
+        //Debug.Log(messageHolder.transform.position);
+        
+
         gameManagerAudioSource = GetComponent<AudioSource>();
 
         gameManagerAudioSource.loop = true;
@@ -131,11 +134,17 @@ public class GameManager : MonoBehaviour
         if( DictionaryManager.Instance.Multiplier >= 3)
         {
             totalScore = totalScore + (liveScore* DictionaryManager.Instance.Multiplier);
+            mostRecentScore = liveScore * DictionaryManager.Instance.Multiplier;
         }
 
         //otherwise just do the standard score adding.
         else
+        {
             totalScore = totalScore + liveScore;
+            mostRecentScore = LiveScore;
+        }
+       
+
 
         scoreText.text = totalScore.ToString();
     }

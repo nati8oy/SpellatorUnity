@@ -14,6 +14,11 @@ public class DictionaryManager : MonoBehaviour
 
     [SerializeField] private Text multiplierText;
 
+    private GameObject pointsHolder;
+    [SerializeField] private GameObject pointsText;
+
+    [SerializeField] private GameObject message;
+
 
     private int multiplier;
     public int Multiplier
@@ -191,6 +196,9 @@ public class DictionaryManager : MonoBehaviour
         totalWordsMade += 1;
 
 
+        //spawn the points to add
+        PointsSpawner();
+
 
     }
 
@@ -301,6 +309,10 @@ public class DictionaryManager : MonoBehaviour
 
     }
 
-
+    private void PointsSpawner()
+    {
+        pointsHolder = Instantiate(pointsText, new Vector3(766, 1151, 1), Quaternion.identity);
+        pointsHolder.transform.parent = GameObject.Find("Word Being Spelled").transform;
+    }
 
 }

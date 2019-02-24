@@ -5,12 +5,10 @@ using UnityEngine;
 public class Encouragement : Messages
 {
 
-    //private GameObject endPos;
     private List<string> encouragmentMessages = new List<string>();
     // Start is called before the first frame update
     void Start()
     {
-        //endPos = GameObject.Find("Score");
         base.Start();
 
         encouragmentMessages.Add("Wow!");
@@ -27,9 +25,4 @@ public class Encouragement : Messages
         StartCoroutine(Move(endPos.transform.position));
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
