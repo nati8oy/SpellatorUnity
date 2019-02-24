@@ -24,6 +24,6 @@ public class SpellAreaController : MonoBehaviour
 
     private void LateUpdate()
     {
-        transform.position = cameraPosition + Vector3.forward * -10;
+        //transform.position = cameraPosition + Vector3.forward * -10;
     }
 }

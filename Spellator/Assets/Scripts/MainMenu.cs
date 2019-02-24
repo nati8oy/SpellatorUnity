@@ -27,6 +27,5 @@ public class MainMenu : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene("DefaultGameMode", LoadSceneMode.Single);
-        Debug.Log("just ran this script");
     }
 }
