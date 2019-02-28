@@ -104,6 +104,11 @@ public class Tile : MonoBehaviour
             }
 
             gameObject.tag = "TileSelected";
+
+            //////////////////
+            ///THIS IS THE SECTION WHERE THE TILE PARENT IS 
+            /////////////////
+            //gameObject.transform.parent = TileManager.Instance.ActiveWordPosition;
             //this sets the next tile to be placed
             StartCoroutine(PlayTile(target));
 
@@ -125,7 +130,9 @@ public class Tile : MonoBehaviour
     IEnumerator PlayTile(Transform target)
     {
         target = TileManager.Instance.NextFreePos;
-       // Debug.Log(target);
+       // target.transform.parent = TileManager.Instance.NextFreePos;
+
+        // Debug.Log(target);
 
         while (Vector3.Distance(transform.position, target.position) > 0.05f)
         {

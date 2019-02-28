@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
     //public float audioTrackSelection;
     private AudioSource gameManagerAudioSource;
 
+    [SerializeField] private AudioClip gameOverAudio;
+    [SerializeField] private AudioClip bigScore;
+
     [SerializeField] private RectTransform gameOverPanel;
 
     public RectTransform GameOverPanel
@@ -143,7 +146,13 @@ public class GameManager : MonoBehaviour
             totalScore = totalScore + liveScore;
             mostRecentScore = LiveScore;
         }
-       
+
+
+        //add audio if the score of the last word was bigger than 50 points
+        if (mostRecentScore >= 50)
+        {
+            AudioManager.Instance.PlayAudio(bigScore);
+        }
 
 
         scoreText.text = totalScore.ToString();
@@ -158,6 +167,7 @@ public class GameManager : MonoBehaviour
        gameOverPanel.gameObject.SetActive(true);
        finalScore.text = totalScore.ToString();
         finalWordTally.text = DictionaryManager.Instance.TotalWordsMade.ToString();
+        AudioManager.Instance.PlayAudio(gameOverAudio);
 
     }
 

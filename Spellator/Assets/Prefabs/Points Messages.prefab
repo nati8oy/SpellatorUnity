@@ -92,5 +92,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dd51cf69af70403a90e1463ce157fde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  endPos: {fileID: 0}
   messageText: {fileID: 1152897863452199090}

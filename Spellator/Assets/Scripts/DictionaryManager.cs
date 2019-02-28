@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class DictionaryManager : MonoBehaviour
 {
 
+
     public static DictionaryManager Instance;
 
     [SerializeField] private AudioClip correctWord;
@@ -99,7 +100,7 @@ public class DictionaryManager : MonoBehaviour
     void Start()
     {
 
-      
+        multiplierText.text = "";
 
         //add the list of words from an external txt file via the inspector
         fullDictionary = dictionaryTxtFile.text;
@@ -125,7 +126,7 @@ public class DictionaryManager : MonoBehaviour
         if (multiplier >= 3)
         {
             //set the multiplier text 
-            multiplierText.text = multiplier.ToString();
+            multiplierText.text = "x" + multiplier.ToString();
 
         }
 
@@ -154,7 +155,7 @@ public class DictionaryManager : MonoBehaviour
             else if (WordBeingMade.Length <= 3)
             {
                 multiplier =0;
-                multiplierText.text = multiplier.ToString();
+                multiplierText.text = "";
             }
 
 
@@ -314,5 +315,6 @@ public class DictionaryManager : MonoBehaviour
         pointsHolder = Instantiate(pointsText, new Vector3(766, 1151, 1), Quaternion.identity);
         pointsHolder.transform.parent = GameObject.Find("Word Being Spelled").transform;
     }
+
 
 }

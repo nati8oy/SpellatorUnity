@@ -6,14 +6,18 @@ using UnityEngine.UI;
 public class Messages : MonoBehaviour
 {
 
+
+    public Color red;
     //[SerializeField] public Transform target;
     public Transform endPos;
     [SerializeField] public Text messageText;
     float smoothTime = 0.3f;
     float yVelocity = 0.0f;
 
+
     public virtual void Start()
     {
+        red = Color.red;
         Destroy(gameObject, 1.2f);
         endPos = GameObject.Find("Score").transform;
 

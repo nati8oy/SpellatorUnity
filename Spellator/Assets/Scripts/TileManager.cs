@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TileManager : MonoBehaviour
 {
@@ -16,6 +17,12 @@ public class TileManager : MonoBehaviour
     [SerializeField] private GameObject tile;
 
 
+    [SerializeField] private Transform activeWordPosition;
+
+    public Transform ActiveWordPosition
+    {
+        get { return activeWordPosition; }
+    }
 
 
     private Transform returnPos;
@@ -69,6 +76,8 @@ public class TileManager : MonoBehaviour
         }
 
         Instance = this;
+
+        //activeWordPosition.transform.position = transform.position;
     }
 
 
@@ -83,24 +92,18 @@ public class TileManager : MonoBehaviour
 
     public void PlayTiles()
     {
+        //sets the next free position to the selectedTiles length
         nextFreePos = playPositions[selectedTiles.Count];
-       // Debug.Log("next tile will move to " + nextFreePos);
 
 
     }
-
-    private void Update()
-    {
-
-    }
-
 
     public void ReplenishTiles()
     {
 
         for (int i = 0; i < DictionaryManager.Instance.selectedTilesArray.Length; i++)
         {
-            //create new tiles for the spots that have just beend used
+            //create new tiles for the spots that have just been used
             tileHolder = Instantiate(tile, selectedTiles[i]);
 
             //for each of the transforms in the selectedTiles list add a new tile
@@ -122,12 +125,8 @@ public class TileManager : MonoBehaviour
     public void ResetWordStartPoint()
     {
         selectedTiles.Clear();
-       // Debug.Log("After replenishing the tiles the selectedTiles List is this long: " + selectedTiles.Count);
         nextFreePos = playPositions[selectedTiles.Count];
     }
-
-
-
 
 
 }
