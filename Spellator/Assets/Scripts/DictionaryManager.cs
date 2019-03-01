@@ -21,6 +21,10 @@ public class DictionaryManager : MonoBehaviour
     [SerializeField] private GameObject message;
 
 
+    private float smoothing;
+    private Vector3 target;
+
+
     private int multiplier;
     public int Multiplier
     {
@@ -43,6 +47,7 @@ public class DictionaryManager : MonoBehaviour
     private List<string> bagList = new List<string>();
 
     public GameObject[] selectedTilesArray;
+
     public GameObject[] allTilesArray;
 
     //bool to check if all tiles can be replaced
@@ -161,6 +166,7 @@ public class DictionaryManager : MonoBehaviour
 
             //loop through the array and delete each of the gameObjects in it
             selectedTilesArray = GameObject.FindGameObjectsWithTag("TileSelected");
+
 
 
 
@@ -290,8 +296,10 @@ public class DictionaryManager : MonoBehaviour
             foreach (GameObject tile in selectedTilesArray)
 
             {
+                //Debug.Log("tile instance ID is: " + tile.GetInstanceID());
                 tile.transform.position = tile.transform.parent.position;
                 tile.tag = "Tile";
+                //StartCoroutine(ReturnTiles(target, tile));
 
             }
 
@@ -307,8 +315,23 @@ public class DictionaryManager : MonoBehaviour
         //reset the tile start positions when spelling a word
         TileManager.Instance.ResetWordStartPoint();
 
-
     }
+    /*
+
+    IEnumerator ReturnTiles(Vector3 target, GameObject tile)
+    {
+
+        target = TileManager.Instance.playPositions[0].transform.position;
+
+        while (Vector3.Distance(tile.transform.position, target) > 0.05f)
+        {
+            tile.transform.position = Vector3.Lerp(tile.transform.position, target, smoothing * Time.deltaTime);
+
+            yield return null;
+        }
+
+
+    }*/
 
     private void PointsSpawner()
     {

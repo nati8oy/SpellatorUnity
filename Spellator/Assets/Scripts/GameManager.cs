@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private RectTransform gameOverPanel;
 
+    //[SerializeField] private GameObject ActiveWordPosition;
+
     public RectTransform GameOverPanel
     {
         get { return gameOverPanel; }

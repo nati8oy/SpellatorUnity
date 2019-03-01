@@ -8,7 +8,7 @@ public class SpellAreaController : MonoBehaviour
     public Vector3 cameraPosition = Vector3.zero;
     public Transform target;
     private float moveSpeed = 0.3f;
-
+   
 
 
     // Start is called before the first frame update
@@ -25,5 +25,7 @@ public class SpellAreaController : MonoBehaviour
     private void LateUpdate()
     {
         //transform.position = cameraPosition + Vector3.forward * -10;
-    }
+    } 
+
+   
 }

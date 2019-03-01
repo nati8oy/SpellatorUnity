@@ -16,6 +16,7 @@ public class TileManager : MonoBehaviour
     //tile prefab
     [SerializeField] private GameObject tile;
 
+    private GameObject[] moveTilesArray;
 
     [SerializeField] private Transform activeWordPosition;
 
@@ -128,5 +129,20 @@ public class TileManager : MonoBehaviour
         nextFreePos = playPositions[selectedTiles.Count];
     }
 
+    public void MoveTiles()
+    {
+        moveTilesArray = GameObject.FindGameObjectsWithTag("TileSelected");
+
+        foreach(Transform child in transform)
+        {
+            tile.transform.position = new Vector3(tile.transform.position.x - 150, tile.transform.position.y);
+            //Debug.Log("tile moved!");
+        }
+    }
+
+    public void TilePositionHolder(Transform tilePos)
+    {
+       selectedTiles.Add(tilePos);
+    }
 
 }

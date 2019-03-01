@@ -10,6 +10,11 @@ public class Tile : MonoBehaviour
 
     private Color wordCorrectColour;
 
+    private string tileColour;
+
+    [SerializeField] private Image blueDot;
+    [SerializeField] private Image redDot;
+
     [SerializeField] private AudioClip tileClick;
 
     //for the coroutine
@@ -17,6 +22,8 @@ public class Tile : MonoBehaviour
     private Transform target;
 
     public Vector3 startPosition;
+
+    private int chooseColour;
 
     private int positionInRack;
     private Vector3 returnPos;
@@ -43,6 +50,24 @@ public class Tile : MonoBehaviour
 
     void Start()
     {
+
+        //select a random colour of red or blue for the tiles
+        chooseColour = Random.Range(1, 3);
+
+        if (chooseColour == 1)
+        {
+            tileColour = "blue";
+            blueDot.gameObject.SetActive(true);
+
+        } else if (chooseColour == 2)   
+        {
+            tileColour = "red";
+            redDot.gameObject.SetActive(true);
+        }
+
+
+
+        Debug.Log(chooseColour);
 
         wordCorrectColour = Color.red;
 
@@ -105,13 +130,15 @@ public class Tile : MonoBehaviour
 
             gameObject.tag = "TileSelected";
 
+
             //////////////////
-            ///THIS IS THE SECTION WHERE THE TILE PARENT IS 
+            ///THIS IS THE SECTION WHERE THE TILE PARENT is changed to be the main 
             /////////////////
-            //gameObject.transform.parent = TileManager.Instance.ActiveWordPosition;
+           // gameObject.transform.parent = TileManager.Instance.ActiveWordPosition;
             //this sets the next tile to be placed
             StartCoroutine(PlayTile(target));
 
+            //sets the next free position to the TileManage.Instance.selectedTiles length
 
             TileManager.Instance.PlayTiles();
 
@@ -141,8 +168,13 @@ public class Tile : MonoBehaviour
             yield return null;
         }
 
-    }
-
+        /*
+        if(DictionaryManager.Instance.WordBeingMade.Length > 7)
+        {
+            yield return new WaitForSeconds(0.5f);
+            TileManager.Instance.MoveTiles();
+        }*/
+     }
 
 
 }
