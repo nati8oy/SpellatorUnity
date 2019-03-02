@@ -46,6 +46,10 @@ public class TileSpawner : MonoBehaviour
         {
             newTile = Instantiate(tile, rack.GetChild(i).transform);
             newTile.transform.parent = rackPositions[i].transform;
+            var TileScript = newTile.GetComponent<Tile>();
+
+            //Debug.Log(TileScript.startPosition); 
+
         }
 
     }

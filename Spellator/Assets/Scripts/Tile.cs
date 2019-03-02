@@ -4,6 +4,21 @@ using UnityEngine.UI;
 
 public class Tile : MonoBehaviour
 {
+
+    public class TileAttributes
+    {
+
+        public int testValue;
+
+        public TileAttributes(int subTest)
+        {
+            testValue = subTest;
+        }
+    }
+
+    public TileAttributes tileData = new TileAttributes(20);
+
+
     public Button buttonComponent;
     public Text letter;
     public Text points;
@@ -11,6 +26,11 @@ public class Tile : MonoBehaviour
     private Color wordCorrectColour;
 
     private string tileColour;
+
+    public string TileColour
+    {
+        get { return tileColour; }
+    }
 
     [SerializeField] private Image blueDot;
     [SerializeField] private Image redDot;
@@ -51,6 +71,7 @@ public class Tile : MonoBehaviour
     void Start()
     {
 
+
         //select a random colour of red or blue for the tiles
         chooseColour = Random.Range(1, 3);
 
@@ -67,7 +88,7 @@ public class Tile : MonoBehaviour
 
 
 
-        Debug.Log(chooseColour);
+        //Debug.Log(chooseColour);
 
         wordCorrectColour = Color.red;
 

@@ -7,6 +7,8 @@ public class CountDown : MonoBehaviour
 {
     private int timeLeft; //Seconds Overall
 
+    public static CountDown Instance;
+
     //the timer number of seconds is controlled using GameManager.Instance.SetTimerTo;
 
     public Text countdown; //UI Text Object
@@ -20,6 +22,7 @@ public class CountDown : MonoBehaviour
     void Update()
     {
         countdown.text = ("" + timeLeft); //Showing the Score on the Canvas
+       
     }
     //Simple Coroutine
     IEnumerator LoseTime()
@@ -40,5 +43,6 @@ public class CountDown : MonoBehaviour
 
        
     }
+
  
 }

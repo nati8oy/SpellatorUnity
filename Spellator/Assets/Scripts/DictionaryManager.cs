@@ -167,13 +167,26 @@ public class DictionaryManager : MonoBehaviour
             //loop through the array and delete each of the gameObjects in it
             selectedTilesArray = GameObject.FindGameObjectsWithTag("TileSelected");
 
-
-
-
             foreach (GameObject tile in selectedTilesArray)
             {
                 // tile.tag = "DiscardedTile";
                 //destroy the tiles
+
+
+                //access the tile script on each of the tiles and get out the colour var
+                //TileScript is just a temp var which is used to hold the reference
+                var TileScript = tile.GetComponent<Tile>();
+
+                //add the blue or red scores
+                if (TileScript.TileColour == "red")
+                {
+                    GameManager.Instance.TallyColours("red");
+                }
+
+                if (TileScript.TileColour == "blue")
+                {
+                    GameManager.Instance.TallyColours("blue");
+                }
 
                 Destroy(tile.gameObject, Random.Range(0.1f, 0.4f));
 

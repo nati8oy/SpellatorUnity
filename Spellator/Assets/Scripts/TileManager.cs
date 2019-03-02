@@ -140,6 +140,7 @@ public class TileManager : MonoBehaviour
         }
     }
 
+    // temp function. Only needed if you decide you want to do the whole changing of parent thing for the word being spelled
     public void TilePositionHolder(Transform tilePos)
     {
        selectedTiles.Add(tilePos);

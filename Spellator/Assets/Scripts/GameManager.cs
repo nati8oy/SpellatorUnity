@@ -16,9 +16,31 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioClip gameOverAudio;
     [SerializeField] private AudioClip bigScore;
 
+    [SerializeField] private Text blueTotalScore;
+    [SerializeField] private Text redTotalScore;
+
     [SerializeField] private RectTransform gameOverPanel;
 
     //[SerializeField] private GameObject ActiveWordPosition;
+
+
+    private int blueTotal;
+    private int redTotal;
+
+    public int BlueTotal
+    {
+        get { return blueTotal; }
+        set { BlueTotal = value; }
+    }
+
+    public int RedTotal
+    {
+        get { return redTotal; }
+        set { RedTotal = value; }
+    }
+
+
+
 
     public RectTransform GameOverPanel
     {
@@ -111,6 +133,8 @@ public class GameManager : MonoBehaviour
             //set scores to blank
         liveScoreText.text = "";
         scoreText.text = "";
+        blueTotalScore.text = "0";
+        redTotalScore.text = "0";
 
         //make the send button inactive on start up
         DictionaryManager.Instance.sendButton.interactable = false;
@@ -118,10 +142,10 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (gameOver)
-        {
-          //  Debug.Log("Game over man! Game over!");
-        }
+      
+
+        blueTotalScore.text = blueTotal.ToString();
+        redTotalScore.text = redTotal.ToString();
     }
 
 
@@ -158,10 +182,22 @@ public class GameManager : MonoBehaviour
 
 
         scoreText.text = totalScore.ToString();
+
+
     }
 
 
-
+    public void TallyColours(string colour)
+    {
+        if(colour == "blue")
+        {
+            blueTotal += 1;
+        }
+         else if(colour == "red")
+        {
+            redTotal += 1;
+        }
+    }
 
     public void GameOverMethod()
     {
@@ -177,6 +213,7 @@ public class GameManager : MonoBehaviour
     {
         ResetScores();
         setTimerTo = 60;
+       // CountDown.Instance.StartCoroutine("LoseTime");
         totalScore = 0;
         //DictionaryManager.Instance.TotalWordsMade = 0;
         gameOverPanel.gameObject.SetActive(false);
