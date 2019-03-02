@@ -90,12 +90,6 @@ public class GameManager : MonoBehaviour
     }
 
     [SerializeField] private Text scoreText;
-  
-
-
-    //content for game over variables
-    [SerializeField] private Text finalScore;
-    [SerializeField] private Text finalWordTally;
 
     private int setTimerTo = 60;
 
@@ -143,7 +137,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
       
-
+        //set the blue and red totals
         blueTotalScore.text = blueTotal.ToString();
         redTotalScore.text = redTotal.ToString();
     }
@@ -203,8 +197,6 @@ public class GameManager : MonoBehaviour
     {
 
        gameOverPanel.gameObject.SetActive(true);
-       finalScore.text = totalScore.ToString();
-        finalWordTally.text = DictionaryManager.Instance.TotalWordsMade.ToString();
         AudioManager.Instance.PlayAudio(gameOverAudio);
 
     }
@@ -213,6 +205,8 @@ public class GameManager : MonoBehaviour
     {
         ResetScores();
         setTimerTo = 60;
+        blueTotal = 0;
+        redTotal = 0;
        // CountDown.Instance.StartCoroutine("LoseTime");
         totalScore = 0;
         //DictionaryManager.Instance.TotalWordsMade = 0;
