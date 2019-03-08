@@ -20,6 +20,16 @@ public class DictionaryManager : MonoBehaviour
 
     [SerializeField] private GameObject message;
 
+    public bool firstLetterOfWord;
+
+
+    private string mostRecentWord;
+    private string startLetter = "S";
+
+    public string StartLetter
+    {
+        get { return startLetter; }
+    }
 
     private float smoothing;
     private Vector3 target;
@@ -194,6 +204,31 @@ public class DictionaryManager : MonoBehaviour
                 //Debug.Log(tile.transform.parent.name);
             }
 
+
+
+            //keep track of the most recently made word
+            mostRecentWord = WordBeingMade;
+            Debug.Log("The last word you made was: " + mostRecentWord);
+
+
+
+            //split the lettters in the mostRecentWord string and grab the last one
+            //
+            string[] characters = new string[mostRecentWord.Length];
+            for (int i = 0; i < mostRecentWord.Length; i++)
+            {
+
+                characters[i] = System.Convert.ToString(mostRecentWord[i]);
+
+                startLetter = characters[i];
+
+            }
+
+            Debug.Log("The next word must start with: " + startLetter);
+
+
+
+
             TileManager.Instance.ReplenishTiles();
 
             WordBeingMade = "";
@@ -275,6 +310,8 @@ public class DictionaryManager : MonoBehaviour
 
             foreach (GameObject tile in allTilesArray)
             {
+
+
                 //destroy the tiles
                 Destroy(tile.gameObject);
 
@@ -309,10 +346,18 @@ public class DictionaryManager : MonoBehaviour
             foreach (GameObject tile in selectedTilesArray)
 
             {
+
+
+                var connectToTileScript = tile.GetComponent<Tile>();
+
+                //connect to the script of each tile, locate the parent of that tile and then get that parent position and move the tile back there. Phew!
+                connectToTileScript.StartCoroutine(connectToTileScript.PlayTile(connectToTileScript.transform.parent));
+
+
                 //Debug.Log("tile instance ID is: " + tile.GetInstanceID());
-                tile.transform.position = tile.transform.parent.position;
+                //tile.transform.position = tile.transform.parent.position;
+
                 tile.tag = "Tile";
-                //StartCoroutine(ReturnTiles(target, tile));
 
             }
 

@@ -41,7 +41,7 @@ public class Tile : MonoBehaviour
     private float smoothing = 10f;
     private Transform target;
 
-    public Vector3 startPosition;
+    public Transform startPosition;
 
     private int chooseColour;
 
@@ -72,6 +72,8 @@ public class Tile : MonoBehaviour
     {
 
 
+
+        /*
         //select a random colour of red or blue for the tiles
         chooseColour = Random.Range(1, 3);
 
@@ -86,7 +88,7 @@ public class Tile : MonoBehaviour
             redDot.gameObject.SetActive(true);
         }
 
-
+        */
 
         //Debug.Log(chooseColour);
 
@@ -95,11 +97,14 @@ public class Tile : MonoBehaviour
         //letter.color = wordCorrectColour;
 
 
-        startPosition = gameObject.transform.position;
+        startPosition = gameObject.transform;
+       // Debug.Log("start positon of this tile is: " + startPosition.position);
 
 
         //set the first target positon to move to
         target = TileManager.Instance.NextFreePos;
+
+
 
         //sets the letter and point text of each tile
         letter.text = InitDictionary.Instance.bag[Random.Range(0, 95)];
@@ -114,17 +119,24 @@ public class Tile : MonoBehaviour
 
     }
 
-
-    public void ReturnTheTiles()
-    {
-       //
-         //StartCoroutine(ReturnTile(startPosition));
-    }
-
     public void HandleClick()
 
 
     {
+
+
+
+
+        if (letter.text == DictionaryManager.Instance.StartLetter)
+        {
+
+
+        }
+        else
+            Debug.Log("Wrong letter!");
+
+
+
         AudioManager.Instance.PlayAudio(tileClick);
 
         //check is the tile is selected or not. If it's not tagged as "selected" then add it to the word being made.
@@ -155,9 +167,9 @@ public class Tile : MonoBehaviour
             //////////////////
             ///THIS IS THE SECTION WHERE THE TILE PARENT is changed to be the main 
             /////////////////
-           // gameObject.transform.parent = TileManager.Instance.ActiveWordPosition;
+            // gameObject.transform.parent = TileManager.Instance.ActiveWordPosition;
             //this sets the next tile to be placed
-            StartCoroutine(PlayTile(target));
+            StartCoroutine(PlayTile(TileManager.Instance.NextFreePos));
 
             //sets the next free position to the TileManage.Instance.selectedTiles length
 
@@ -168,34 +180,31 @@ public class Tile : MonoBehaviour
 
             GameManager.Instance.LiveScore = GameManager.Instance.LiveScore + tilePointValue;
             GameManager.Instance.LiveScoreText.text = GameManager.Instance.LiveScore.ToString();
+
+
+            //AudioManager.Instance.audioSource.PlayOneShot(AudioManager.Instance.tileClick);
+
         }
 
-        //AudioManager.Instance.audioSource.PlayOneShot(AudioManager.Instance.tileClick);
+     
+
 
     }
 
+  
+
     //moves the tile to the correct position on the playing board
-    IEnumerator PlayTile(Transform target)
+    public IEnumerator PlayTile(Transform target)
     {
-        target = TileManager.Instance.NextFreePos;
-       // target.transform.parent = TileManager.Instance.NextFreePos;
-
-        // Debug.Log(target);
-
+        Debug.Log("coroutine started");
         while (Vector3.Distance(transform.position, target.position) > 0.05f)
         {
             transform.position = Vector3.Lerp(transform.position, target.position, smoothing * Time.deltaTime);
 
+            Debug.Log(Vector3.Distance(transform.position, target.position));
             yield return null;
         }
 
-        /*
-        if(DictionaryManager.Instance.WordBeingMade.Length > 7)
-        {
-            yield return new WaitForSeconds(0.5f);
-            TileManager.Instance.MoveTiles();
-        }*/
-     }
-
+    }
 
 }
