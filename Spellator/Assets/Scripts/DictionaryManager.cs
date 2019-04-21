@@ -250,6 +250,7 @@ public class DictionaryManager : MonoBehaviour
 
                 characters[i] = System.Convert.ToString(mostRecentWord[i]);
 
+                //gets the start letter of the next word from the most recent word
                 startLetter = characters[i];
 
             }
@@ -264,8 +265,9 @@ public class DictionaryManager : MonoBehaviour
 
             TileManager.Instance.ReplenishTiles();
 
+            //Clear the WordBeingMade first before setting it to be the startLetter of the next word
             WordBeingMade = "";
-            //WordBeingMade = startLetter;
+            WordBeingMade = startLetter;
 
             //Debug.Log("The word being made contains the start letter: " + startLetter);
 
@@ -347,12 +349,11 @@ public class DictionaryManager : MonoBehaviour
         AudioManager.Instance.PlayAudio(clearWordSound);
 
 
-
-
-
         TileManager.Instance.SelectedTiles.Clear();
         //check if the reset bool is true. If it is, delete all the tiles in the rack
-        if (wordBeingMade == "")
+
+        if (wordBeingMade == startLetter)
+            //if (wordBeingMade == "")
         {
             resetBool = true;
         }
@@ -423,7 +424,10 @@ public class DictionaryManager : MonoBehaviour
         }
 
         //reset the word being made
-        WordBeingMade = "";
+        //WordBeingMade = "";
+
+        //reset the word being made to be the startLetter
+        WordBeingMade = startLetter;
 
         //reset the score and live score
         GameManager.Instance.ResetScores();

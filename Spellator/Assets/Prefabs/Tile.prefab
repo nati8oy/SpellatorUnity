@@ -318,7 +318,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0.9490691, g: 0.9528302, b: 0.85844606, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.9716981, g: 0.86140203, b: 0.16042183, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -366,7 +366,7 @@ MonoBehaviour:
   blueDot: {fileID: 661652086184475616}
   redDot: {fileID: 8184335598985660771}
   tileClick: {fileID: 8300000, guid: be0bebc2341164f3baa2f1b634d10fee, type: 3}
-  startPosition: {x: 0, y: 0, z: 0}
+  startPosition: {fileID: 0}
   speed: 1
 --- !u!1 &5976778401849919065
 GameObject:

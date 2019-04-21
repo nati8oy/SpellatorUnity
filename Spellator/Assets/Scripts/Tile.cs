@@ -124,13 +124,11 @@ public class Tile : MonoBehaviour
 
     {
 
-       // if(DictionaryManager.Instance.StartLetter == )
+        // if(DictionaryManager.Instance.StartLetter == )
 
 
 
-
-
-            AudioManager.Instance.PlayAudio(tileClick);
+        AudioManager.Instance.PlayAudio(tileClick);
 
             //check is the tile is selected or not. If it's not tagged as "selected" then add it to the word being made.
             if (gameObject.tag != "TileSelected")
@@ -191,7 +189,7 @@ public class Tile : MonoBehaviour
     //moves the tile to the correct position on the playing board
     public IEnumerator PlayTile(Transform target)
     {
-        Debug.Log("coroutine started");
+       // Debug.Log("coroutine started");
         while (Vector3.Distance(transform.position, target.position) > 0.05f)
         {
             transform.position = Vector3.Lerp(transform.position, target.position, smoothing * Time.deltaTime);

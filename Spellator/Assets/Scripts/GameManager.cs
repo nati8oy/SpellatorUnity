@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -203,6 +204,9 @@ public class GameManager : MonoBehaviour
 
     public void ResetGame()
     {
+
+        Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
+
         ResetScores();
         setTimerTo = 60;
         blueTotal = 0;
