@@ -124,69 +124,64 @@ public class Tile : MonoBehaviour
 
     {
 
+       // if(DictionaryManager.Instance.StartLetter == )
 
 
 
-        if (letter.text == DictionaryManager.Instance.StartLetter)
-        {
 
 
-        }
-        else
-            Debug.Log("Wrong letter!");
+            AudioManager.Instance.PlayAudio(tileClick);
 
-
-
-        AudioManager.Instance.PlayAudio(tileClick);
-
-        //check is the tile is selected or not. If it's not tagged as "selected" then add it to the word being made.
-        if (gameObject.tag != "TileSelected")
-        {
-
-
-            //add this tile's Pos to the SelectedTiles list in TileManager
-            TileManager.Instance.SelectedTiles.Add(transform.parent);
-            //Debug.Log(transform.parent.ToString());
-
-
-            //Debug.Log("The number of tiles selected is: " + TileManager.Instance.SelectedTiles.Count);
-
-
-            //start spelling the word using the letter from this tile
-            DictionaryManager.Instance.CreateWord(letter.text);
-
-            //if the word is longer than 3 letters, check if it's in the dictionary
-            if (DictionaryManager.Instance.WordBeingMade.Length >= 3)
+            //check is the tile is selected or not. If it's not tagged as "selected" then add it to the word being made.
+            if (gameObject.tag != "TileSelected")
             {
-                DictionaryManager.Instance.CheckWord();
-            }
-
-            gameObject.tag = "TileSelected";
 
 
-            //////////////////
-            ///THIS IS THE SECTION WHERE THE TILE PARENT is changed to be the main 
-            /////////////////
-            // gameObject.transform.parent = TileManager.Instance.ActiveWordPosition;
-            //this sets the next tile to be placed
-            StartCoroutine(PlayTile(TileManager.Instance.NextFreePos));
-
-            //sets the next free position to the TileManage.Instance.selectedTiles length
-
-            TileManager.Instance.PlayTiles();
+                //add this tile's Pos to the SelectedTiles list in TileManager
+                TileManager.Instance.SelectedTiles.Add(transform.parent);
+                //Debug.Log(transform.parent.ToString());
 
 
-            //add the score
-
-            GameManager.Instance.LiveScore = GameManager.Instance.LiveScore + tilePointValue;
-            GameManager.Instance.LiveScoreText.text = GameManager.Instance.LiveScore.ToString();
+                //Debug.Log("The number of tiles selected is: " + TileManager.Instance.SelectedTiles.Count);
 
 
-            //AudioManager.Instance.audioSource.PlayOneShot(AudioManager.Instance.tileClick);
+                //start spelling the word using the letter from this tile
+                DictionaryManager.Instance.CreateWord(letter.text);
+
+                //if the word is longer than 3 letters, check if it's in the dictionary
+                if (DictionaryManager.Instance.WordBeingMade.Length >= 3)
+                {
+                    DictionaryManager.Instance.CheckWord();
+                }
+
+                gameObject.tag = "TileSelected";
+
+
+                //////////////////
+                ///THIS IS THE SECTION WHERE THE TILE PARENT is changed to be the main 
+                /////////////////
+                //gameObject.transform.parent = TileManager.Instance.ActiveWordPosition;
+                //this sets the next tile to be placed
+                StartCoroutine(PlayTile(TileManager.Instance.NextFreePos));
+
+                //sets the next free position to the TileManage.Instance.selectedTiles length
+
+                TileManager.Instance.PlayTiles();
+                
+
+                //add the score
+
+                GameManager.Instance.LiveScore = GameManager.Instance.LiveScore + tilePointValue;
+                GameManager.Instance.LiveScoreText.text = GameManager.Instance.LiveScore.ToString();
+
+
+
+
+                //AudioManager.Instance.audioSource.PlayOneShot(AudioManager.Instance.tileClick);
+
+
 
         }
-
-     
 
 
     }
@@ -201,7 +196,7 @@ public class Tile : MonoBehaviour
         {
             transform.position = Vector3.Lerp(transform.position, target.position, smoothing * Time.deltaTime);
 
-            Debug.Log(Vector3.Distance(transform.position, target.position));
+            /*Debug.Log(Vector3.Distance(transform.position, target.position));*/
             yield return null;
         }
 

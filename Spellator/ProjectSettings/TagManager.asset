@@ -8,6 +8,7 @@ TagManager:
   - Tile
   - LetterSpawn
   - DiscardedTile
+  - UsedTile
   layers:
   - Default
   - TransparentFX

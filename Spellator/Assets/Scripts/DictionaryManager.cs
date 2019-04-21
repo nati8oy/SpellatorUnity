@@ -9,6 +9,8 @@ public class DictionaryManager : MonoBehaviour
 
     public static DictionaryManager Instance;
 
+    [SerializeField] private GameObject BoardHolder;
+
     [SerializeField] private AudioClip correctWord;
     [SerializeField] private AudioClip clearWordSound;
     [SerializeField] private AudioClip loseMultiplier;
@@ -22,6 +24,7 @@ public class DictionaryManager : MonoBehaviour
 
     public bool firstLetterOfWord;
 
+    public bool chainFlag;
 
     private string mostRecentWord;
     private string startLetter = "S";
@@ -115,6 +118,9 @@ public class DictionaryManager : MonoBehaviour
     void Start()
     {
 
+              // Instantiate(BoardHolder, new Vector3(200, 200), Quaternion.identity);
+
+
         multiplierText.text = "";
 
         //add the list of words from an external txt file via the inspector
@@ -179,10 +185,16 @@ public class DictionaryManager : MonoBehaviour
 
             foreach (GameObject tile in selectedTilesArray)
             {
+                
                 // tile.tag = "DiscardedTile";
                 //destroy the tiles
 
 
+
+                ////////////////////
+                /// IMPORTANT!!!
+                /// THIS IS HOW TO SELECT THE SCRIPT OF A SINGLE PREFAB AND ACCESS ITS VARIABLES
+                ///////////////
                 //access the tile script on each of the tiles and get out the colour var
                 //TileScript is just a temp var which is used to hold the reference
                 var TileScript = tile.GetComponent<Tile>();
@@ -198,11 +210,29 @@ public class DictionaryManager : MonoBehaviour
                     GameManager.Instance.TallyColours("blue");
                 }
 
-                Destroy(tile.gameObject, Random.Range(0.1f, 0.4f));
+
+
+                //tile.gameObject.transform.parent = TileManager.Instance.ActiveWordPosition.transform;
+                //var otherPos =  tile.gameObject.transform.position.y+200;
+
+                // tile.gameObject.transform.position = new Vector3(tile.gameObject.transform.position.x, otherPos);
+                //make the parent of the used tiles the same as the active word
+
+                tile.gameObject.transform.parent = BoardHolder.transform;
+                tile.gameObject.GetComponent<Button>().interactable = false;
+                tile.gameObject.tag = "UsedTile";
+
+
+
+
+                /*Destroy(tile.gameObject, Random.Range(0.1f, 0.4f));*/
 
 
                 //Debug.Log(tile.transform.parent.name);
             }
+
+
+
 
 
 
@@ -224,14 +254,21 @@ public class DictionaryManager : MonoBehaviour
 
             }
 
-            Debug.Log("The next word must start with: " + startLetter);
 
+
+            /*Debug.Log("The next word must start with: " + startLetter);*/
+
+            //TileSpawner.Instance.AddStartLetter();
 
 
 
             TileManager.Instance.ReplenishTiles();
 
             WordBeingMade = "";
+            //WordBeingMade = startLetter;
+
+            //Debug.Log("The word being made contains the start letter: " + startLetter);
+
 
             sendButton.interactable = false;
             // Debug.Log("the next play slot is: " + TileManager.Instance.NextFreeSlot);
@@ -245,7 +282,26 @@ public class DictionaryManager : MonoBehaviour
             //clear the selectedTiles list so that it puts the new tiles in the right positions
             TileManager.Instance.ResetWordStartPoint();
 
+            
+            //set the chain flag to true so that chain mode can continue
+            chainFlag = true;
+
         }
+
+
+
+
+        //var totalWordsMade = 1;
+        //var parentPos = BoardHolder.transform.position.y;
+        //var newPos = TileManager.Instance.ActiveWordPosition.transform.position.y + 200;
+
+        BoardHolder.transform.position = new Vector3(BoardHolder.transform.position.x, BoardHolder.transform.position.y+200);
+        //parentPos += 200;
+        //totalWordsMade+=1;
+
+        //Debug.Log("parentPos is now: " + parentPos); 
+
+        //TileManager.Instance.ActiveWordPosition.position = new Vector3(TileManager.Instance.ActiveWordPosition.transform.position.x, parentPos);
 
         //add to the total words number
         totalWordsMade += 1;
@@ -268,7 +324,6 @@ public class DictionaryManager : MonoBehaviour
             sendButton.interactable = true;
             AudioManager.Instance.PlayAudio(correctWord);
 
-           
 
         }
         else
@@ -290,6 +345,9 @@ public class DictionaryManager : MonoBehaviour
     public void ClearWord()
     {
         AudioManager.Instance.PlayAudio(clearWordSound);
+
+
+
 
 
         TileManager.Instance.SelectedTiles.Clear();
