@@ -584,8 +584,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -24, y: 108.9}
-  m_SizeDelta: {x: 1002, y: 405.6}
+  m_AnchoredPosition: {x: 14.807, y: 37.825}
+  m_SizeDelta: {x: 1318, y: 547.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1346521856
 MonoBehaviour:
@@ -620,8 +620,12 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Tap on the letters to make as many words as you can before the timer runs
-    out. You have 60 seconds. \n\nGood luck!"
+  m_Text: 'Tap on the letters to make words. Each word must start with the last letter
+    of the previous word. For example, if you spell the word "dog" then the next word
+    you make must start with the letter "G".
+
+
+    Good luck!'
 --- !u!222 &1346521857
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -666,7 +670,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0, y: -311}
+  m_AnchoredPosition: {x: -0, y: -412}
   m_SizeDelta: {x: 400, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1451482179

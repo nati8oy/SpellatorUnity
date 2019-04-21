@@ -17,7 +17,7 @@ public class CountDown : MonoBehaviour
     {
         StartCoroutine("LoseTime");
         Time.timeScale = 1; //Just making sure that the timeScale is right
-        timeLeft = 30;
+        timeLeft = 120;
        // timeLeft = GameManager.Instance.SetTimerTo;
     }
     void Update()
