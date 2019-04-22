@@ -8,20 +8,32 @@ public class Tile : MonoBehaviour
     public class TileAttributes
     {
 
-        public int testValue;
+        public string tileType;
 
-        public TileAttributes(int subTest)
+        public TileAttributes(string tt)
         {
-            testValue = subTest;
+
+            tileType = tt;
         }
     }
 
-    public TileAttributes tileData = new TileAttributes(20);
-
+    public TileAttributes tileData = new TileAttributes("normal");
 
     public Button buttonComponent;
     public Text letter;
     public Text points;
+
+    public bool firstLetterTile;
+
+
+    /*
+    public bool firstLetterTile;
+    
+    {
+        get { return firstLetterTile; }
+        set { FirstLetterTile = value; }
+
+    }*/
 
     private Color wordCorrectColour;
 
@@ -72,7 +84,7 @@ public class Tile : MonoBehaviour
     {
 
 
-
+        Debug.Log(tileData.tileType);
         /*
         //select a random colour of red or blue for the tiles
         chooseColour = Random.Range(1, 3);
@@ -105,14 +117,17 @@ public class Tile : MonoBehaviour
         target = TileManager.Instance.NextFreePos;
 
 
+        //check to see if the tile is the first tile for chain mode words
+        if (firstLetterTile == false)
+        {
+            //sets the letter and point text of each tile
+            letter.text = InitDictionary.Instance.bag[Random.Range(0, 95)];
+            points.text = InitDictionary.Instance.pointsDictionary[letter.text].ToString();
 
-        //sets the letter and point text of each tile
-        letter.text = InitDictionary.Instance.bag[Random.Range(0, 95)];
-        points.text = InitDictionary.Instance.pointsDictionary[letter.text].ToString();
+            tilePointValue = InitDictionary.Instance.pointsDictionary[letter.text];
 
-        tilePointValue = InitDictionary.Instance.pointsDictionary[letter.text];
+        }
 
-        // Debug.Log("this tile value is:" + tilePointValue);
 
 
         moveSpeed = Time.deltaTime * speed;

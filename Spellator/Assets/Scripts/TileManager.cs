@@ -18,12 +18,17 @@ public class TileManager : MonoBehaviour
 
     private GameObject[] moveTilesArray;
 
+    private GameObject startTile;
+
     [SerializeField] private Transform activeWordPosition;
 
     public Transform ActiveWordPosition
     {
         get { return activeWordPosition; }
     }
+
+
+
 
 
     private Transform returnPos;
@@ -86,7 +91,9 @@ public class TileManager : MonoBehaviour
     void Start()
     {
 
-        nextFreePos = playPositions[selectedTiles.Count];
+        var firstLetterPositon = GameObject.Find("Pos 1");
+       
+    nextFreePos = playPositions[selectedTiles.Count];
         //Debug.Log("the NextFreePos starts as: " + nextFreePos);
 
     }
@@ -117,11 +124,11 @@ public class TileManager : MonoBehaviour
             }
 
         }
-      
+
 
 
     }
-  
+
 
     public void ResetWordStartPoint()
     {
@@ -133,17 +140,22 @@ public class TileManager : MonoBehaviour
     {
         moveTilesArray = GameObject.FindGameObjectsWithTag("TileSelected");
 
-        foreach(Transform child in transform)
+        foreach (Transform child in transform)
         {
             tile.transform.position = new Vector3(tile.transform.position.x - 150, tile.transform.position.y);
             //Debug.Log("tile moved!");
         }
     }
 
-    // temp function. Only needed if you decide you want to do the whole changing of parent thing for the word being spelled
-    public void TilePositionHolder(Transform tilePos)
+    public void SetStartTile(string firstLetter)
     {
-       selectedTiles.Add(tilePos);
-    }
 
+        startTile = Instantiate(tile, ActiveWordPosition.transform);
+        var tileScript = startTile.GetComponent<Tile>();
+        tileScript.letter.text = firstLetter;
+        tileScript.firstLetterTile = true;
+        Debug.Log("this is the first letter: " + tileScript.letter.text);
+        tileScript.points.text = InitDictionary.Instance.pointsDictionary[tileScript.letter.text].ToString();
+
+    }
 }

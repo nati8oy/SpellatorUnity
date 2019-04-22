@@ -212,23 +212,14 @@ public class DictionaryManager : MonoBehaviour
 
 
 
-                //tile.gameObject.transform.parent = TileManager.Instance.ActiveWordPosition.transform;
-                //var otherPos =  tile.gameObject.transform.position.y+200;
-
-                // tile.gameObject.transform.position = new Vector3(tile.gameObject.transform.position.x, otherPos);
-                //make the parent of the used tiles the same as the active word
-
                 tile.gameObject.transform.parent = BoardHolder.transform;
                 tile.gameObject.GetComponent<Button>().interactable = false;
                 tile.gameObject.tag = "UsedTile";
 
 
-
-
                 /*Destroy(tile.gameObject, Random.Range(0.1f, 0.4f));*/
 
 
-                //Debug.Log(tile.transform.parent.name);
             }
 
 
@@ -269,6 +260,9 @@ public class DictionaryManager : MonoBehaviour
             WordBeingMade = "";
             WordBeingMade = startLetter;
 
+            TileManager.Instance.SetStartTile(startLetter);
+
+
             //Debug.Log("The word being made contains the start letter: " + startLetter);
 
 
@@ -291,22 +285,9 @@ public class DictionaryManager : MonoBehaviour
         }
 
 
-
-
-        //var totalWordsMade = 1;
-        //var parentPos = BoardHolder.transform.position.y;
-        //var newPos = TileManager.Instance.ActiveWordPosition.transform.position.y + 200;
-
+        //set the board holder position to be + 200 each time
         BoardHolder.transform.position = new Vector3(BoardHolder.transform.position.x, BoardHolder.transform.position.y+200);
-        //parentPos += 200;
-        //totalWordsMade+=1;
-
-        //Debug.Log("parentPos is now: " + parentPos); 
-
-        //TileManager.Instance.ActiveWordPosition.position = new Vector3(TileManager.Instance.ActiveWordPosition.transform.position.x, parentPos);
-
-        //add to the total words number
-        totalWordsMade += 1;
+    
 
 
         //spawn the points to add
