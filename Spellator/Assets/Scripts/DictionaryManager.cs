@@ -233,15 +233,15 @@ public class DictionaryManager : MonoBehaviour
 
 
 
+                //this is for adding the tiles to the boardholder. It keeps them on screen when inactive so the player can see what they have played.
+                /*
                 tile.gameObject.transform.parent = BoardHolder.transform;
                 tile.gameObject.GetComponent<Button>().interactable = false;
                 tile.gameObject.tag = "UsedTile";
+                */
 
 
-
-
-
-                /*Destroy(tile.gameObject, Random.Range(0.1f, 0.4f));*/
+                Destroy(tile.gameObject, Random.Range(0.1f, 0.4f));
 
 
             }
