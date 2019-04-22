@@ -22,12 +22,14 @@ public class TileManager : MonoBehaviour
 
     [SerializeField] private Transform activeWordPosition;
 
+    [SerializeField] private Transform primaryTile;
+
     public Transform ActiveWordPosition
     {
         get { return activeWordPosition; }
     }
 
-
+    private Transform firstLetterPosition;
 
 
 
@@ -91,10 +93,11 @@ public class TileManager : MonoBehaviour
     void Start()
     {
 
-        var firstLetterPositon = GameObject.Find("Pos 1");
-       
-    nextFreePos = playPositions[selectedTiles.Count];
-        //Debug.Log("the NextFreePos starts as: " + nextFreePos);
+        firstLetterPosition = GameObject.Find("Pos 1").transform;
+
+
+        nextFreePos = playPositions[selectedTiles.Count];
+
 
     }
 
@@ -150,11 +153,15 @@ public class TileManager : MonoBehaviour
     public void SetStartTile(string firstLetter)
     {
 
-        startTile = Instantiate(tile, ActiveWordPosition.transform);
+        startTile = Instantiate(tile, primaryTile.transform);
         var tileScript = startTile.GetComponent<Tile>();
         tileScript.letter.text = firstLetter;
         tileScript.firstLetterTile = true;
-        Debug.Log("this is the first letter: " + tileScript.letter.text);
+
+        
+        startTile.tag = "PrimaryTile";
+//        startTile.name = "PrimaryTile";
+
         tileScript.points.text = InitDictionary.Instance.pointsDictionary[tileScript.letter.text].ToString();
 
     }

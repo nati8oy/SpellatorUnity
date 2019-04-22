@@ -22,6 +22,8 @@ public class DictionaryManager : MonoBehaviour
 
     [SerializeField] private GameObject message;
 
+    private bool initialBoardMove;
+
     public bool firstLetterOfWord;
 
     public bool chainFlag;
@@ -158,6 +160,25 @@ public class DictionaryManager : MonoBehaviour
     public void CheckAndDeleteTiles()
     {
 
+        /*
+        //set a bool to move the parent over to the right by 200px
+
+        if(initialBoardMove == false)
+        {
+
+
+            //var boardPos = BoardHolder.transform.position.x;
+            var boardPos = TileManager.Instance.ActiveWordPosition.transform.position.x;
+
+            boardPos += 200;
+
+            TileManager.Instance.ActiveWordPosition.transform.position = new Vector3(boardPos, TileManager.Instance.ActiveWordPosition.transform.position.y);
+
+            initialBoardMove = true;
+            Debug.Log("this is the board x pos: " + boardPos);
+        }
+        */
+
         if (dictionary.ContainsKey(WordBeingMade))
         {
 
@@ -215,6 +236,9 @@ public class DictionaryManager : MonoBehaviour
                 tile.gameObject.transform.parent = BoardHolder.transform;
                 tile.gameObject.GetComponent<Button>().interactable = false;
                 tile.gameObject.tag = "UsedTile";
+
+
+
 
 
                 /*Destroy(tile.gameObject, Random.Range(0.1f, 0.4f));*/

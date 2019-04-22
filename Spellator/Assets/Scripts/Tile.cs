@@ -84,7 +84,7 @@ public class Tile : MonoBehaviour
     {
 
 
-        Debug.Log(tileData.tileType);
+        //Debug.Log(tileData.tileType);
         /*
         //select a random colour of red or blue for the tiles
         chooseColour = Random.Range(1, 3);
