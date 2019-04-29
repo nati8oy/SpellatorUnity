@@ -11,6 +11,8 @@ public class EnergyBar : MonoBehaviour
     private float percentRemaining;
     public int bonusPoints = 500;
     private int bonusAwarded;
+    private bool bonusReset;
+
 
     [SerializeField] private Image bar;
 
@@ -28,46 +30,39 @@ public class EnergyBar : MonoBehaviour
     }
     void Update()
     {
-        //countdown.text = ("" + timeLeft); //Showing the Score on the Canvas
 
 
     }
-    //Simple Coroutine
     IEnumerator LoseTime(float timeRemaining)
     {
-        while (true)
+        while (timeRemaining>0)
         {
             yield return new WaitForSeconds(0.1f);
             timeRemaining--;
             percentRemaining = timeRemaining / 60;
-            Debug.Log("Percent Remaining: "+percentRemaining);
+            //Debug.Log("Percent Remaining: "+percentRemaining);
             bar.transform.localScale = new Vector3(percentRemaining, bar.transform.localScale.y);
 
 
             bonusAwarded = Mathf.RoundToInt(bonusPoints * percentRemaining);
-            Debug.Log("Bonus Remaining: "+ bonusAwarded);
+            Debug.Log("Bonus Remaining: " + bonusAwarded);
 
 
 
-            if (timeRemaining <= 0)
-            {
-                StopCoroutine("LoseTime");
 
-                GameManager.Instance.GameOverMethod();
-                //Debug.Log("Game over man! Game over!");
-                 }
+
         }
 
-       
+
     }
 
     public void ResetBonus()
     {
-      
-        StopCoroutine("LoseTime");
-        bonusPoints = 500;
-        timeLeft = 60;
-        StartCoroutine(LoseTime(timeLeft));
+
+       StopCoroutine("LoseTime");
+    //  bonusPoints = 500;
+      // timeLeft = 60;
+      // StartCoroutine(LoseTime(timeLeft));
 
        
     }

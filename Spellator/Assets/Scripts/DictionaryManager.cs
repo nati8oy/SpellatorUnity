@@ -248,7 +248,8 @@ public class DictionaryManager : MonoBehaviour
 
 
 
-
+            //add the to total words made
+            totalWordsMade += 1;
 
 
             //keep track of the most recently made word
