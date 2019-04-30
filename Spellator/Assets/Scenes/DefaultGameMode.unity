@@ -451,6 +451,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 62966390}
   m_CullTransparentMesh: 0
+--- !u!1 &76296575 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1779147373140741471, guid: 7598af410261e48fd94800ba4d82fa42,
+    type: 3}
+  m_PrefabInstance: {fileID: 578521932}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &80493027
 GameObject:
   m_ObjectHideFlags: 0
@@ -1427,7 +1433,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 578521932}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 76296575}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07dd2065e202f4e8088e6dacf0a29377, type: 3}
@@ -2001,7 +2007,7 @@ PrefabInstance:
     - target: {fileID: 1779147373140741471, guid: 7598af410261e48fd94800ba4d82fa42,
         type: 3}
       propertyPath: m_Name
-      value: Energy Bar
+      value: Bonus Bar
       objectReference: {fileID: 0}
     - target: {fileID: 1779147373140741470, guid: 7598af410261e48fd94800ba4d82fa42,
         type: 3}
@@ -2107,32 +2113,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1779147373140741470, guid: 7598af410261e48fd94800ba4d82fa42,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5208334
-      objectReference: {fileID: 0}
-    - target: {fileID: 1779147373140741470, guid: 7598af410261e48fd94800ba4d82fa42,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5208334
-      objectReference: {fileID: 0}
-    - target: {fileID: 1779147373140741470, guid: 7598af410261e48fd94800ba4d82fa42,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5208334
-      objectReference: {fileID: 0}
-    - target: {fileID: 1779147374012780935, guid: 7598af410261e48fd94800ba4d82fa42,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 519dc82484b6c4b11a7caa87840a12d3,
-        type: 3}
-    - target: {fileID: 1779147374012780984, guid: 7598af410261e48fd94800ba4d82fa42,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 943.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7598af410261e48fd94800ba4d82fa42, type: 3}
@@ -5472,6 +5452,11 @@ PrefabInstance:
       propertyPath: redTotalScore
       value: 
       objectReference: {fileID: 717548712}
+    - target: {fileID: 7349431635441859144, guid: cf2cb441bcdc54fbba9fdd62fba05c37,
+        type: 3}
+      propertyPath: bonusBar
+      value: 
+      objectReference: {fileID: 76296575}
     - target: {fileID: 7349431635441859143, guid: cf2cb441bcdc54fbba9fdd62fba05c37,
         type: 3}
       propertyPath: m_LocalPosition.x

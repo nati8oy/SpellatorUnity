@@ -164,8 +164,12 @@ public class GameManager : MonoBehaviour
         //otherwise just do the standard score adding.
         else
         {
-            totalScore = totalScore + liveScore;
-            mostRecentScore = LiveScore;
+
+            var bonusReference = GameObject.Find("Bonus Bar").GetComponent<BonusBar>();
+
+            var additionalPoints = bonusReference.BonusAwarded;
+            totalScore = totalScore + liveScore + additionalPoints;
+            mostRecentScore = LiveScore + additionalPoints;
         }
 
 

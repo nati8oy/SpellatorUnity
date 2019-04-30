@@ -17,7 +17,7 @@ public class Messages : MonoBehaviour
 
     public virtual void Start()
     {
-        red = Color.red;
+        red = Color.white;
         Destroy(gameObject, 1.2f);
         endPos = GameObject.Find("Score").transform;
 
