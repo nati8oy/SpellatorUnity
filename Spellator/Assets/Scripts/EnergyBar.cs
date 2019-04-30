@@ -23,7 +23,7 @@ public class EnergyBar : MonoBehaviour
     void Start()
     {
         timeLeft = 60;
-        StartCoroutine(LoseTime(timeLeft));
+        StartCoroutine("LoseTime", timeLeft);
         Time.timeScale = 1; //Just making sure that the timeScale is right
 
        
@@ -35,7 +35,9 @@ public class EnergyBar : MonoBehaviour
     }
     IEnumerator LoseTime(float timeRemaining)
     {
-        while (timeRemaining>0)
+
+       
+        while (timeRemaining > 0)
         {
             yield return new WaitForSeconds(0.1f);
             timeRemaining--;
@@ -43,28 +45,34 @@ public class EnergyBar : MonoBehaviour
             //Debug.Log("Percent Remaining: "+percentRemaining);
             bar.transform.localScale = new Vector3(percentRemaining, bar.transform.localScale.y);
 
-
             bonusAwarded = Mathf.RoundToInt(bonusPoints * percentRemaining);
-            Debug.Log("Bonus Remaining: " + bonusAwarded);
-
-
-
-
+            // Debug.Log("Bonus Remaining: " + bonusAwarded);
 
         }
+        
+
+        StopCoroutine("LoseTime");
+        //ResetBonus();
+       
+        Debug.Log("Coroutine stopped");
+      //  StartCoroutine(LoseTime(timeLeft));
 
 
     }
 
     public void ResetBonus()
     {
-
-       StopCoroutine("LoseTime");
-    //  bonusPoints = 500;
-      // timeLeft = 60;
-      // StartCoroutine(LoseTime(timeLeft));
-
        
+        StopCoroutine("LoseTime");
+        //Debug.Log("this ran");
+
+        bonusPoints = 500;
+        timeLeft = 60;
+        StartCoroutine("LoseTime", timeLeft);
+
+
+
+
     }
 
 }
