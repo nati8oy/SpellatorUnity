@@ -206,41 +206,17 @@ public class DictionaryManager : MonoBehaviour
 
             foreach (GameObject tile in selectedTilesArray)
             {
-                
-                // tile.tag = "DiscardedTile";
-                //destroy the tiles
-
-
-
+             
                 ////////////////////
                 /// IMPORTANT!!!
                 /// THIS IS HOW TO SELECT THE SCRIPT OF A SINGLE PREFAB AND ACCESS ITS VARIABLES
                 ///////////////
-                //access the tile script on each of the tiles and get out the colour var
-                //TileScript is just a temp var which is used to hold the reference
-                var TileScript = tile.GetComponent<Tile>();
+       
+                //access the script on each of the tile creators/spawners
+                var tileStatusUpdate = tile.transform.parent.GetComponent<TileCreator>();
 
-                //add the blue or red scores
-                if (TileScript.TileColour == "red")
-                {
-                    GameManager.Instance.TallyColours("red");
-                }
-
-                if (TileScript.TileColour == "blue")
-                {
-                    GameManager.Instance.TallyColours("blue");
-                }
-
-
-
-                //this is for adding the tiles to the boardholder. It keeps them on screen when inactive so the player can see what they have played.
-                /*
-                tile.gameObject.transform.parent = BoardHolder.transform;
-                tile.gameObject.GetComponent<Button>().interactable = false;
-                tile.gameObject.tag = "UsedTile";
-                */
-
-
+                //set the status of the position within the board as available so that a new tile will be spawned there
+                tileStatusUpdate.CheckTileStatus("Available");
                 Destroy(tile.gameObject, Random.Range(0.1f, 0.4f));
 
 
@@ -254,7 +230,7 @@ public class DictionaryManager : MonoBehaviour
 
             //keep track of the most recently made word
             mostRecentWord = WordBeingMade;
-            Debug.Log("The last word you made was: " + mostRecentWord);
+           // Debug.Log("The last word you made was: " + mostRecentWord);
 
 
 
@@ -274,7 +250,6 @@ public class DictionaryManager : MonoBehaviour
 
 
 
-            TileManager.Instance.ReplenishTiles();
 
             //Clear the WordBeingMade first before setting it to be the startLetter of the next word
             WordBeingMade = "";
@@ -371,14 +346,15 @@ public class DictionaryManager : MonoBehaviour
             {
 
 
+                //access the tile's scripts and make them "Available"
+                var setTileStatus = tile.transform.parent.GetComponent<TileCreator>();
+                setTileStatus.CheckTileStatus("Available");
+
                 //destroy the tiles
                 Destroy(tile.gameObject);
 
             }
 
-            //set the tiles ups again from the TileSpawner code
-
-            TileSpawner.Instance.TileSetup();
 
             //remove multiplier
             if (multiplier >=3)
@@ -408,14 +384,14 @@ public class DictionaryManager : MonoBehaviour
 
 
                 var connectToTileScript = tile.GetComponent<Tile>();
-
-                //connect to the script of each tile, locate the parent of that tile and then get that parent position and move the tile back there. Phew!
-                connectToTileScript.StartCoroutine(connectToTileScript.PlayTile(connectToTileScript.transform.parent));
+                var getStartPos = tile.transform.parent.GetComponent<TileCreator>();
 
 
-                //Debug.Log("tile instance ID is: " + tile.GetInstanceID());
-                //tile.transform.position = tile.transform.parent.position;
+                //connect to the script of each tile, get the startPos from there (which is the starting transform of each Pos holder)
+                //then run the Coroutine from the tile game object. Phew!
+                connectToTileScript.StartCoroutine(connectToTileScript.PlayTile(getStartPos.startPos));
 
+                //reset the tile tage to "Tile" so it's not "Selected" anymore.
                 tile.tag = "Tile";
 
             }

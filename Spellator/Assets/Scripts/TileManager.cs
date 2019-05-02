@@ -109,46 +109,16 @@ public class TileManager : MonoBehaviour
 
     }
 
-    public void ReplenishTiles()
-    {
-
-        for (int i = 0; i < DictionaryManager.Instance.selectedTilesArray.Length; i++)
-        {
-            //create new tiles for the spots that have just been used
-            tileHolder = Instantiate(tile, selectedTiles[i]);
-
-            //for each of the transforms in the selectedTiles list add a new tile
-            foreach (Transform parent in selectedTiles)
-            {
-                //set the tile parent to be that of the rackPositions transforms
-                tileHolder.transform.parent = selectedTiles[i];
-
-                //Debug.Log("Rack position being refilled: " + rackPositions[i]);
-            }
-
-        }
-
-
-
-    }
-
 
     public void ResetWordStartPoint()
     {
+
+
         selectedTiles.Clear();
         nextFreePos = playPositions[selectedTiles.Count];
     }
 
-    public void MoveTiles()
-    {
-        moveTilesArray = GameObject.FindGameObjectsWithTag("TileSelected");
-
-        foreach (Transform child in transform)
-        {
-            tile.transform.position = new Vector3(tile.transform.position.x - 150, tile.transform.position.y);
-            //Debug.Log("tile moved!");
-        }
-    }
+  
 
     public void SetStartTile(string firstLetter)
     {

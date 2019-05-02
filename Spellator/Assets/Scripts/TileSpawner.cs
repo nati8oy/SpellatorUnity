@@ -35,7 +35,12 @@ public class TileSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        TileSetup();
+
+
+
+       // TileSetup();
+
+
     }
 
 
