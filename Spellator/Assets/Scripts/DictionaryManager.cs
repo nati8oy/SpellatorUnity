@@ -273,11 +273,6 @@ public class DictionaryManager : MonoBehaviour
 
 
 
-            /*Debug.Log("The next word must start with: " + startLetter);*/
-
-            //TileSpawner.Instance.AddStartLetter();
-
-
 
             TileManager.Instance.ReplenishTiles();
 
@@ -359,7 +354,6 @@ public class DictionaryManager : MonoBehaviour
         //check if the reset bool is true. If it is, delete all the tiles in the rack
 
         if (wordBeingMade == startLetter)
-            //if (wordBeingMade == "")
         {
             resetBool = true;
         }
@@ -442,23 +436,9 @@ public class DictionaryManager : MonoBehaviour
         TileManager.Instance.ResetWordStartPoint();
 
     }
-    /*
+   
 
-    IEnumerator ReturnTiles(Vector3 target, GameObject tile)
-    {
-
-        target = TileManager.Instance.playPositions[0].transform.position;
-
-        while (Vector3.Distance(tile.transform.position, target) > 0.05f)
-        {
-            tile.transform.position = Vector3.Lerp(tile.transform.position, target, smoothing * Time.deltaTime);
-
-            yield return null;
-        }
-
-
-    }*/
-
+    //spawns the points text so that they display when a word is made
     private void PointsSpawner()
     {
         pointsHolder = Instantiate(pointsText, new Vector3(766, 1151, 1), Quaternion.identity);

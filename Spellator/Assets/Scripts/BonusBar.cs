@@ -14,6 +14,7 @@ public class BonusBar : MonoBehaviour
 
     public int remainingBonusPoints;
 
+    //total points awarded after making the word
     private int bonusAwarded;
 
     public int BonusAwarded
@@ -21,12 +22,9 @@ public class BonusBar : MonoBehaviour
         get {return bonusAwarded; }
     }
 
-    public int bonusPoints = 500;
+    //total bonus points to start counting down from
+    public int bonusPoints = 100;
 
-    public int BonusPoints
-    {
-        get { return bonusPoints; }
-    }
     private bool bonusReset;
 
 
@@ -84,7 +82,7 @@ public class BonusBar : MonoBehaviour
         StopCoroutine("LoseTime");
         //Debug.Log("this ran");
 
-        //bonusPoints = 500;
+        bonusPoints = 100;
         timeLeft = 60;
         StartCoroutine("LoseTime", timeLeft);
 

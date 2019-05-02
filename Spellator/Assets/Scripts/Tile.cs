@@ -25,16 +25,6 @@ public class Tile : MonoBehaviour
 
     public bool firstLetterTile;
 
-
-    /*
-    public bool firstLetterTile;
-    
-    {
-        get { return firstLetterTile; }
-        set { FirstLetterTile = value; }
-
-    }*/
-
     private Color wordCorrectColour;
 
     private string tileColour;
@@ -43,6 +33,8 @@ public class Tile : MonoBehaviour
     {
         get { return tileColour; }
     }
+
+
 
     [SerializeField] private Image blueDot;
     [SerializeField] private Image redDot;
@@ -83,6 +75,9 @@ public class Tile : MonoBehaviour
     void Start()
     {
 
+      //  Resources.Load("Text Assets/main.uss");
+     //   var newUSS = VisualElement.styleSheets.Add();
+        // VisualElement.
 
         //Debug.Log(tileData.tileType);
         /*

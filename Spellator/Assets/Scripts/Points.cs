@@ -5,7 +5,6 @@ using UnityEngine;
 public class Points : Messages
 {
 
-  // private ParticleSystem pe;
     // Start is called before the first frame update
     void Start()
     {
