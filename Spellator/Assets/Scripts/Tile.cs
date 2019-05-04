@@ -68,12 +68,23 @@ public class Tile : MonoBehaviour
         get { return tilePointValue; }
     }
 
+    private Transform originalParent;
 
+
+    public Transform OriginalParent
+
+    {
+        get { return originalParent; }
+        set { OriginalParent = value; }
+    }
 
     //create the list of letters which this could be.
 
     void Start()
     {
+
+        //set the original parent object to be the tile holder into which this tile is spawned
+        originalParent = gameObject.transform.parent;
 
       //  Resources.Load("Text Assets/main.uss");
      //   var newUSS = VisualElement.styleSheets.Add();
@@ -147,10 +158,6 @@ public class Tile : MonoBehaviour
 
                 //add this tile's Pos to the SelectedTiles list in TileManager
                 TileManager.Instance.SelectedTiles.Add(transform.parent);
-                //Debug.Log(transform.parent.ToString());
-
-
-                //Debug.Log("The number of tiles selected is: " + TileManager.Instance.SelectedTiles.Count);
 
 
                 //start spelling the word using the letter from this tile
@@ -165,12 +172,14 @@ public class Tile : MonoBehaviour
                 gameObject.tag = "TileSelected";
 
 
-                //////////////////
-                ///THIS IS THE SECTION WHERE THE TILE PARENT is changed to be the main 
-                /////////////////
-                //gameObject.transform.parent = TileManager.Instance.ActiveWordPosition;
-                //this sets the next tile to be placed
-                StartCoroutine(PlayTile(TileManager.Instance.NextFreePos));
+            //////////////////
+            ///THIS IS THE SECTION WHERE THE TILE PARENT is changed to be the main 
+            /////////////////
+            /// 
+            ParentTileToActiveWord();
+
+            //this sets the next tile to be placed
+            StartCoroutine(PlayTileToBoard(TileManager.Instance.NextFreePos));
 
                 //sets the next free position to the TileManage.Instance.selectedTiles length
 
@@ -194,10 +203,21 @@ public class Tile : MonoBehaviour
 
     }
 
-  
+    //this function resets the tile parent to be that of the Tile Creator to which is was spawned
+    public void SetToOriginalParent()
+    {
+        gameObject.transform.parent = originalParent;
+    }
+
+    //this function parents the tile to the active word positon
+    public void ParentTileToActiveWord()
+    {
+        gameObject.transform.parent = TileManager.Instance.ActiveWordPosition;
+    }
+
 
     //moves the tile to the correct position on the playing board
-    public IEnumerator PlayTile(Transform target)
+    public IEnumerator ReturnTile(Transform target)
     {
        // Debug.Log("coroutine started");
         while (Vector3.Distance(transform.position, target.position) > 0.05f)
@@ -209,5 +229,40 @@ public class Tile : MonoBehaviour
         }
 
     }
+
+    //moves the tile to the correct position on the playing board
+    public IEnumerator PlayTileToBoard(Transform target)
+    {
+        // Debug.Log("coroutine started");
+        while (Vector3.Distance(transform.position, target.position) > 0.05f)
+        {
+            transform.position = Vector3.Lerp(transform.position, target.position, smoothing * Time.deltaTime);
+
+            yield return null;
+        }
+
+
+
+        if (DictionaryManager.Instance.WordBeingMade.Length > 5)
+        {
+            new WaitForSeconds(0.2f);
+            Debug.Log("I just waited for 0.2s");
+
+            //this is for when the words get too long and the whole thing has to move over to the left
+            /*
+            while (Vector3.Distance(transform.position, new Vector3(target.position.x - 200, target.position.y)) > 0.05f)
+            {
+                transform.position = Vector3.Lerp(transform.position, new Vector3(target.position.x - 200, target.position.y), smoothing * Time.deltaTime);
+                yield return null;
+            }*/
+        }
+
+       
+    }
+
+   
+
+
+
 
 }

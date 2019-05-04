@@ -60,7 +60,7 @@ public class BonusBar : MonoBehaviour
             bar.transform.localScale = new Vector3(percentRemaining, bar.transform.localScale.y);
 
             bonusAwarded = Mathf.RoundToInt(bonusPoints * percentRemaining);
-            Debug.Log("Bonus Remaining: " + bonusAwarded);
+            //Debug.Log("Bonus Remaining: " + bonusAwarded);
 
 
         }

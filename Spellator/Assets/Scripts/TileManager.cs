@@ -6,9 +6,7 @@ public class TileManager : MonoBehaviour
 {
     //sets up an instance of the GameManager
     public static TileManager Instance;
-
-    private float smoothing = 5f;
-
+    
     //array of rack positions
     [SerializeField] public Transform[] rackPositions;
     //array of play positions

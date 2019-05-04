@@ -212,6 +212,9 @@ public class DictionaryManager : MonoBehaviour
                 /// THIS IS HOW TO SELECT THE SCRIPT OF A SINGLE PREFAB AND ACCESS ITS VARIABLES
                 ///////////////
        
+                var returnParentToTile = tile.GetComponent<Tile>();
+                returnParentToTile.SetToOriginalParent();
+
                 //access the script on each of the tile creators/spawners
                 var tileStatusUpdate = tile.transform.parent.GetComponent<TileCreator>();
 
@@ -382,14 +385,16 @@ public class DictionaryManager : MonoBehaviour
 
             {
 
+             
 
                 var connectToTileScript = tile.GetComponent<Tile>();
+                connectToTileScript.SetToOriginalParent();
                 var getStartPos = tile.transform.parent.GetComponent<TileCreator>();
 
 
                 //connect to the script of each tile, get the startPos from there (which is the starting transform of each Pos holder)
                 //then run the Coroutine from the tile game object. Phew!
-                connectToTileScript.StartCoroutine(connectToTileScript.PlayTile(getStartPos.startPos));
+                connectToTileScript.StartCoroutine(connectToTileScript.ReturnTile(getStartPos.startPos));
 
                 //reset the tile tage to "Tile" so it's not "Selected" anymore.
                 tile.tag = "Tile";
