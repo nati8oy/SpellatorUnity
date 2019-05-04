@@ -174,7 +174,7 @@ public class GameManager : MonoBehaviour
 
 
         //add audio if the score of the last word was bigger than 50 points
-        if (mostRecentScore >= 50)
+        if (mostRecentScore >= 350)
         {
             AudioManager.Instance.PlayAudio(bigScore);
         }

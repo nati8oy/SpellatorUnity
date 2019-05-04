@@ -120,7 +120,10 @@ public class DictionaryManager : MonoBehaviour
     void Start()
     {
 
-              // Instantiate(BoardHolder, new Vector3(200, 200), Quaternion.identity);
+
+
+
+        // Instantiate(BoardHolder, new Vector3(200, 200), Quaternion.identity);
 
 
         multiplierText.text = "";
@@ -218,8 +221,13 @@ public class DictionaryManager : MonoBehaviour
                 //access the script on each of the tile creators/spawners
                 var tileStatusUpdate = tile.transform.parent.GetComponent<TileCreator>();
 
+
+                iTween.MoveBy(tile, iTween.Hash("y", Random.Range(100,300), "easeType", "EaseOutQuad", "time", 0.5f));
+              
+
                 //set the status of the position within the board as available so that a new tile will be spawned there
                 tileStatusUpdate.CheckTileStatus("Available");
+
                 Destroy(tile.gameObject, Random.Range(0.1f, 0.4f));
 
 
@@ -397,7 +405,7 @@ public class DictionaryManager : MonoBehaviour
 
                 //connect to the script of each tile, get the startPos from there (which is the starting transform of each Pos holder)
                 //then run the Coroutine from the tile game object. Phew!
-                iTween.MoveTo(tile, new Vector3(getStartPos.startPos.position.x, getStartPos.startPos.position.y, 0), 1);
+                iTween.MoveTo(tile, new Vector3(getStartPos.startPos.position.x, getStartPos.startPos.position.y, 0), 0.5f);
 
                 //connectToTileScript.StartCoroutine(connectToTileScript.ReturnTile(getStartPos.startPos));
 
@@ -427,7 +435,7 @@ public class DictionaryManager : MonoBehaviour
     //spawns the points text so that they display when a word is made
     private void PointsSpawner()
     {
-        pointsHolder = Instantiate(pointsText, new Vector3(766, 1151, 1), Quaternion.identity);
+        pointsHolder = Instantiate(pointsText, new Vector3(Screen.width/2, TileManager.Instance.ActiveWordPosition.transform.position.y+100), Quaternion.identity);
         pointsHolder.transform.parent = GameObject.Find("Word Being Spelled").transform;
     }
 

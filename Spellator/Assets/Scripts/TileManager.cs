@@ -6,7 +6,7 @@ public class TileManager : MonoBehaviour
 {
     //sets up an instance of the GameManager
     public static TileManager Instance;
-    
+
     //array of rack positions
     [SerializeField] public Transform[] rackPositions;
     //array of play positions
@@ -116,7 +116,7 @@ public class TileManager : MonoBehaviour
         nextFreePos = playPositions[selectedTiles.Count];
     }
 
-  
+
 
     public void SetStartTile(string firstLetter)
     {
@@ -126,11 +126,16 @@ public class TileManager : MonoBehaviour
         tileScript.letter.text = firstLetter;
         tileScript.firstLetterTile = true;
 
-        
+
         startTile.tag = "PrimaryTile";
-//        startTile.name = "PrimaryTile";
+        //        startTile.name = "PrimaryTile";
 
         tileScript.points.text = InitDictionary.Instance.pointsDictionary[tileScript.letter.text].ToString();
+
+    }
+
+    public void ShakeTiles (){
+        iTween.MoveBy(gameObject, iTween.Hash("x", 2, "easeType", "easeInOutExpo", "loopType", "pingPong", "delay", .1));
 
     }
 }

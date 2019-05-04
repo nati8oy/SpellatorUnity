@@ -22,7 +22,7 @@ public class Encouragement : Messages
         encouragmentMessages.Add("Whoa!");
 
         messageText.text = encouragmentMessages[Random.Range(0, 7)];
-        StartCoroutine(Move(endPos.transform.position));
+        //StartCoroutine(Move(endPos.transform.position));
     }
 
 }

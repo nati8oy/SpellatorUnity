@@ -136,7 +136,7 @@ public class Tile : MonoBehaviour
 
 
 
-        moveSpeed = Time.deltaTime * speed;
+      //  moveSpeed = Time.deltaTime * speed;
 
     }
 
@@ -144,7 +144,7 @@ public class Tile : MonoBehaviour
 
 
     {
-
+      //  iTween.PunchScale(gameObject, new Vector3(1.05f, 1.05f), 0.5f);
 
         AudioManager.Instance.PlayAudio(tileClick);
 
@@ -177,7 +177,7 @@ public class Tile : MonoBehaviour
 
             //this sets the next tile to be placed
 
-            iTween.MoveTo(gameObject, new Vector3(TileManager.Instance.NextFreePos.position.x, TileManager.Instance.NextFreePos.position.y, 0), 1);
+            iTween.MoveTo(gameObject, new Vector3(TileManager.Instance.NextFreePos.position.x, TileManager.Instance.NextFreePos.position.y, 0), 0.5f);
 
             // TileManager.Instance.NextFreePos.position
             //StartCoroutine(PlayTileToBoard(TileManager.Instance.NextFreePos));
