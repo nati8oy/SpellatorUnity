@@ -386,15 +386,20 @@ public class DictionaryManager : MonoBehaviour
             {
 
              
-
+                //connect to the tile script component
                 var connectToTileScript = tile.GetComponent<Tile>();
+                //reset the parent to the original
                 connectToTileScript.SetToOriginalParent();
+
+                //set getStartPos so that it can be used in the coroutine below
                 var getStartPos = tile.transform.parent.GetComponent<TileCreator>();
 
 
                 //connect to the script of each tile, get the startPos from there (which is the starting transform of each Pos holder)
                 //then run the Coroutine from the tile game object. Phew!
-                connectToTileScript.StartCoroutine(connectToTileScript.ReturnTile(getStartPos.startPos));
+                iTween.MoveTo(tile, new Vector3(getStartPos.startPos.position.x, getStartPos.startPos.position.y, 0), 1);
+
+                //connectToTileScript.StartCoroutine(connectToTileScript.ReturnTile(getStartPos.startPos));
 
                 //reset the tile tage to "Tile" so it's not "Selected" anymore.
                 tile.tag = "Tile";

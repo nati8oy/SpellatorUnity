@@ -145,9 +145,6 @@ public class Tile : MonoBehaviour
 
     {
 
-        // if(DictionaryManager.Instance.StartLetter == )
-
-
 
         AudioManager.Instance.PlayAudio(tileClick);
 
@@ -179,11 +176,15 @@ public class Tile : MonoBehaviour
             ParentTileToActiveWord();
 
             //this sets the next tile to be placed
-            StartCoroutine(PlayTileToBoard(TileManager.Instance.NextFreePos));
 
-                //sets the next free position to the TileManage.Instance.selectedTiles length
+            iTween.MoveTo(gameObject, new Vector3(TileManager.Instance.NextFreePos.position.x, TileManager.Instance.NextFreePos.position.y, 0), 1);
 
-                TileManager.Instance.PlayTiles();
+            // TileManager.Instance.NextFreePos.position
+            //StartCoroutine(PlayTileToBoard(TileManager.Instance.NextFreePos));
+
+            //sets the next free position to the TileManage.Instance.selectedTiles length
+
+            TileManager.Instance.PlayTiles();
                 
 
                 //add the score
@@ -202,6 +203,8 @@ public class Tile : MonoBehaviour
 
 
     }
+
+
 
     //this function resets the tile parent to be that of the Tile Creator to which is was spawned
     public void SetToOriginalParent()
@@ -230,35 +233,6 @@ public class Tile : MonoBehaviour
 
     }
 
-    //moves the tile to the correct position on the playing board
-    public IEnumerator PlayTileToBoard(Transform target)
-    {
-        // Debug.Log("coroutine started");
-        while (Vector3.Distance(transform.position, target.position) > 0.05f)
-        {
-            transform.position = Vector3.Lerp(transform.position, target.position, smoothing * Time.deltaTime);
-
-            yield return null;
-        }
-
-
-
-        if (DictionaryManager.Instance.WordBeingMade.Length > 5)
-        {
-            new WaitForSeconds(0.2f);
-            Debug.Log("I just waited for 0.2s");
-
-            //this is for when the words get too long and the whole thing has to move over to the left
-            /*
-            while (Vector3.Distance(transform.position, new Vector3(target.position.x - 200, target.position.y)) > 0.05f)
-            {
-                transform.position = Vector3.Lerp(transform.position, new Vector3(target.position.x - 200, target.position.y), smoothing * Time.deltaTime);
-                yield return null;
-            }*/
-        }
-
-       
-    }
 
    
 
