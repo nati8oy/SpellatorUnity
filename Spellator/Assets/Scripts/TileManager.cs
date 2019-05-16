@@ -104,14 +104,11 @@ public class TileManager : MonoBehaviour
         //sets the next free position to the selectedTiles length
         nextFreePos = playPositions[selectedTiles.Count];
 
-
     }
 
 
     public void ResetWordStartPoint()
     {
-
-
         selectedTiles.Clear();
         nextFreePos = playPositions[selectedTiles.Count];
     }

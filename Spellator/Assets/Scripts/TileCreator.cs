@@ -7,33 +7,56 @@ public class TileCreator : MonoBehaviour
     [SerializeField] private GameObject tile;
     private GameObject newTile;
     public Transform startPos;
+    private TileSpawnerClass tileSpawner;
 
-    private string currentStatus = "Available";
+    private bool available = true;
 
-
-
-    // Start is called before the first frame update
-    void Start()
+    public bool Available
     {
+        get { return available; }
+        set { Available = value; }
+    }
+
+    private void Start()
+    {
+        newTile = GameManager.Instance.GetPooledObject();
         startPos = gameObject.transform;
-        newTile = Instantiate(tile, gameObject.transform);
 
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        TileSpawnerClass tileSpawner = new TileSpawnerClass();
+        tileSpawner.GetNewPooledObject(gameObject.transform.position, gameObject.transform);
+        Debug.Log("the parent of this object is: " + tileSpawner.newTile.transform.parent);
 
-    public void CheckTileStatus(string statusUpdate)
-    {
-
-      if(statusUpdate == "Available")
+      
+        /*
+        if (newTile != null)
         {
-            newTile = Instantiate(tile, gameObject.transform);
-        }
+            newTile.transform.position = gameObject.transform.position;
+            newTile.transform.parent = gameObject.transform.parent;
+            newTile.SetActive(true);
+            //available = false;
+            
+        }*/
+     
+    }
 
+
+    public void RefillTiles()
+    {
+        //tileSpawner.GetNewPooledObject(gameObject.transform.position, gameObject.transform);
+        Debug.Log("Refilled tiles");
+
+        newTile = GameManager.Instance.GetPooledObject();
+
+        if (newTile != null)
+        {
+            newTile.transform.position = gameObject.transform.position;
+            newTile.transform.parent = gameObject.transform;
+            Debug.Log("parent name for refilled tile is: " + newTile.transform.parent);
+            newTile.SetActive(true);
+            //available = false;
+
+        }
 
     }
 }

@@ -69,7 +69,7 @@ public class BonusBar : MonoBehaviour
         StopCoroutine("LoseTime");
         //ResetBonus();
        
-        Debug.Log("Coroutine stopped");
+       // Debug.Log("Coroutine stopped");
       //  StartCoroutine(LoseTime(timeLeft));
 
 

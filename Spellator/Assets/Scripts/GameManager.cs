@@ -22,7 +22,10 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private RectTransform gameOverPanel;
 
-    //[SerializeField] private GameObject ActiveWordPosition;
+    public List<GameObject> pooledObjects = new List<GameObject>();
+    public GameObject objectToPool;
+    public int amountToPool;
+    public GameObject obj;
 
 
     private int blueTotal;
@@ -115,9 +118,24 @@ public class GameManager : MonoBehaviour
     void Start()
     {
 
-       
-        //Debug.Log(messageHolder.transform.position);
-        
+        //add the letters to the bad List within the TileBag class
+        TileBag lettersBag = new TileBag();
+        lettersBag.AddLettersToDictonary();
+
+
+        for (int i = 0; i < amountToPool; i++)
+        {   
+            obj = Instantiate(objectToPool);
+                       
+            //set object to inactive
+            obj.SetActive(false);
+           // obj.tag = "Pooled Tile";
+            obj.transform.parent = GameObject.Find("Pool").transform;
+            pooledObjects.Add(obj);
+            //Debug.Log("There are currently " + pooledObjects.Count + " items in the pool");
+
+        }
+
 
         gameManagerAudioSource = GetComponent<AudioSource>();
 
@@ -223,4 +241,27 @@ public class GameManager : MonoBehaviour
         DictionaryManager.Instance.WordBeingMade = "";
 
     }
+
+
+
+    public GameObject GetPooledObject()
+    {
+        //Debug.Log("pooledObjects is currently "+ pooledObjects.Count + " long");
+        //
+        for (int i = 0; i < pooledObjects.Count; i++)
+        {
+
+
+            //if the pooled objects aren't active in the hierarchy then get the next pooled object
+            if (pooledObjects[i].activeInHierarchy != true)
+            {
+                return pooledObjects[i];
+            }
+        }
+        //if it's active then just return nothing.
+        return null;
+    }
+
+
+
 }

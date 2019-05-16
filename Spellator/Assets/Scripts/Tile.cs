@@ -1,41 +1,18 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Tile : MonoBehaviour
 {
 
-    public class TileAttributes
-    {
+    public TextMeshProUGUI letter;
+    public TextMeshProUGUI points;
 
-        public string tileType;
-
-        public TileAttributes(string tt)
-        {
-
-            tileType = tt;
-        }
-    }
-
-    public TileAttributes tileData = new TileAttributes("normal");
-
-    public Button buttonComponent;
-    public Text letter;
-    public Text points;
+    public TileClass spawnedTile;
 
     public bool firstLetterTile;
-
-    private Color wordCorrectColour;
-
-    private string tileColour;
-
-    public string TileColour
-    {
-        get { return tileColour; }
-    }
-
-
-
+    
     [SerializeField] private Image blueDot;
     [SerializeField] private Image redDot;
 
@@ -43,11 +20,6 @@ public class Tile : MonoBehaviour
 
     //for the coroutine
     private float smoothing = 10f;
-    private Transform target;
-
-    public Transform startPosition;
-
-    private int chooseColour;
 
     private int positionInRack;
     private Vector3 returnPos;
@@ -68,6 +40,8 @@ public class Tile : MonoBehaviour
         get { return tilePointValue; }
     }
 
+    /*
+    public Transform tileCreatorParent;
     private Transform originalParent;
 
 
@@ -76,67 +50,36 @@ public class Tile : MonoBehaviour
     {
         get { return originalParent; }
         set { OriginalParent = value; }
-    }
+    }*/
 
     //create the list of letters which this could be.
 
-    void Start()
+    private void OnEnable()
     {
 
-        //set the original parent object to be the tile holder into which this tile is spawned
-        originalParent = gameObject.transform.parent;
+        //create a new instance of the TileClass class
+        spawnedTile = new TileClass(gameObject.transform.position);
+        //Debug.Log("enable script is working");
+        spawnedTile.Scramble();
 
-      //  Resources.Load("Text Assets/main.uss");
-     //   var newUSS = VisualElement.styleSheets.Add();
-        // VisualElement.
-
-        //Debug.Log(tileData.tileType);
-        /*
-        //select a random colour of red or blue for the tiles
-        chooseColour = Random.Range(1, 3);
-
-        if (chooseColour == 1)
-        {
-            tileColour = "blue";
-            blueDot.gameObject.SetActive(true);
-
-        } else if (chooseColour == 2)   
-        {
-            tileColour = "red";
-            redDot.gameObject.SetActive(true);
-        }
-
-        */
-
-        //Debug.Log(chooseColour);
-
-        wordCorrectColour = Color.red;
-
-        //letter.color = wordCorrectColour;
+    }
 
 
-        startPosition = gameObject.transform;
-       // Debug.Log("start positon of this tile is: " + startPosition.position);
-
-
-        //set the first target positon to move to
-        target = TileManager.Instance.NextFreePos;
-
+    void Start()
+    {
+       
 
         //check to see if the tile is the first tile for chain mode words
         if (firstLetterTile == false)
         {
             //sets the letter and point text of each tile
-            letter.text = InitDictionary.Instance.bag[Random.Range(0, 95)];
-            points.text = InitDictionary.Instance.pointsDictionary[letter.text].ToString();
-
-            tilePointValue = InitDictionary.Instance.pointsDictionary[letter.text];
+            letter.text = spawnedTile.letter;
+            points.text = spawnedTile.points.ToString();
+            tilePointValue  = spawnedTile.points;
 
         }
 
 
-
-      //  moveSpeed = Time.deltaTime * speed;
 
     }
 
@@ -144,14 +87,14 @@ public class Tile : MonoBehaviour
 
 
     {
-      //  iTween.PunchScale(gameObject, new Vector3(1.05f, 1.05f), 0.5f);
+        //var mainWord = GameObject.Find("Word Being Spelled");
+        //iTween.MoveTo(mainWord, new Vector3(mainWord.transform.position.x-200, mainWord.transform.position.y, 0), 0.5f);
 
         AudioManager.Instance.PlayAudio(tileClick);
 
             //check is the tile is selected or not. If it's not tagged as "selected" then add it to the word being made.
             if (gameObject.tag != "TileSelected")
             {
-
 
                 //add this tile's Pos to the SelectedTiles list in TileManager
                 TileManager.Instance.SelectedTiles.Add(transform.parent);
@@ -170,14 +113,16 @@ public class Tile : MonoBehaviour
 
 
             //////////////////
-            ///THIS IS THE SECTION WHERE THE TILE PARENT is changed to be the main 
+            ///THIS IS THE SECTION WHERE THE TILE PARENT is changed to be attached to the main word 
             /////////////////
             /// 
-            ParentTileToActiveWord();
+           // ParentTileToActiveWord();
 
             //this sets the next tile to be placed
 
-            iTween.MoveTo(gameObject, new Vector3(TileManager.Instance.NextFreePos.position.x, TileManager.Instance.NextFreePos.position.y, 0), 0.5f);
+           // iTween.MoveTo(gameObject, new Vector3(TileManager.Instance.NextFreePos.position.x, TileManager.Instance.NextFreePos.position.y, 0), 0.5f);
+
+            iTween.MoveTo(gameObject, iTween.Hash("x", TileManager.Instance.NextFreePos.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time",0.5f, "easeType", "EaseOutQuint"));
 
             // TileManager.Instance.NextFreePos.position
             //StartCoroutine(PlayTileToBoard(TileManager.Instance.NextFreePos));
@@ -195,7 +140,6 @@ public class Tile : MonoBehaviour
 
 
 
-                //AudioManager.Instance.audioSource.PlayOneShot(AudioManager.Instance.tileClick);
 
 
 
@@ -205,8 +149,8 @@ public class Tile : MonoBehaviour
     }
 
 
-
-    //this function resets the tile parent to be that of the Tile Creator to which is was spawned
+    /*
+    //this function resets the tile parent to be that of the Tile Creator to which it was spawned
     public void SetToOriginalParent()
     {
         gameObject.transform.parent = originalParent;
@@ -216,27 +160,6 @@ public class Tile : MonoBehaviour
     public void ParentTileToActiveWord()
     {
         gameObject.transform.parent = TileManager.Instance.ActiveWordPosition;
-    }
-
-
-    //moves the tile to the correct position on the playing board
-    public IEnumerator ReturnTile(Transform target)
-    {
-       // Debug.Log("coroutine started");
-        while (Vector3.Distance(transform.position, target.position) > 0.05f)
-        {
-            transform.position = Vector3.Lerp(transform.position, target.position, smoothing * Time.deltaTime);
-
-            /*Debug.Log(Vector3.Distance(transform.position, target.position));*/
-            yield return null;
-        }
-
-    }
-
-
-   
-
-
-
+    }*/
 
 }

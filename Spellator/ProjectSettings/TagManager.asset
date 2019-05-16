@@ -10,6 +10,7 @@ TagManager:
   - DiscardedTile
   - UsedTile
   - PrimaryTile
+  - Pooled Tile
   layers:
   - Default
   - TransparentFX

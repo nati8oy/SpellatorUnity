@@ -17,6 +17,8 @@ public class DictionaryManager : MonoBehaviour
 
     [SerializeField] private Text multiplierText;
 
+  //  private TileCreator getStartPos;
+
     private GameObject pointsHolder;
     [SerializeField] private GameObject pointsText;
 
@@ -162,26 +164,7 @@ public class DictionaryManager : MonoBehaviour
 
     public void CheckAndDeleteTiles()
     {
-
-        /*
-        //set a bool to move the parent over to the right by 200px
-
-        if(initialBoardMove == false)
-        {
-
-
-            //var boardPos = BoardHolder.transform.position.x;
-            var boardPos = TileManager.Instance.ActiveWordPosition.transform.position.x;
-
-            boardPos += 200;
-
-            TileManager.Instance.ActiveWordPosition.transform.position = new Vector3(boardPos, TileManager.Instance.ActiveWordPosition.transform.position.y);
-
-            initialBoardMove = true;
-            Debug.Log("this is the board x pos: " + boardPos);
-        }
-        */
-
+    
         if (dictionary.ContainsKey(WordBeingMade))
         {
 
@@ -209,26 +192,50 @@ public class DictionaryManager : MonoBehaviour
 
             foreach (GameObject tile in selectedTilesArray)
             {
-             
+
                 ////////////////////
                 /// IMPORTANT!!!
                 /// THIS IS HOW TO SELECT THE SCRIPT OF A SINGLE PREFAB AND ACCESS ITS VARIABLES
                 ///////////////
-       
-                var returnParentToTile = tile.GetComponent<Tile>();
-                returnParentToTile.SetToOriginalParent();
+
+                //var returnParentToTile = tile.GetComponent<Tile>();
+
+                //returnParentToTile.SetToOriginalParent();
 
                 //access the script on each of the tile creators/spawners
-                var tileStatusUpdate = tile.transform.parent.GetComponent<TileCreator>();
+                //var tileStatusUpdate = tile.transform.parent.GetComponent<TileCreator>();
+               var getStartPos = tile.transform.parent.GetComponent<TileCreator>();
+               getStartPos.RefillTiles();
 
 
-                iTween.MoveBy(tile, iTween.Hash("y", Random.Range(100,300), "easeType", "EaseOutQuad", "time", 0.5f));
-              
+                tile.tag = "Tile";
+                tile.SetActive(false);
+
+                //iTween.MoveBy(tile, iTween.Hash("y", Random.Range(100,300), "easetype", "EaseOutQuad", "time", 0.5f));
+
+
+
 
                 //set the status of the position within the board as available so that a new tile will be spawned there
-                tileStatusUpdate.CheckTileStatus("Available");
 
-                Destroy(tile.gameObject, Random.Range(0.1f, 0.4f));
+                //tileStatusUpdate.CheckTileStatus("Available");
+
+
+                //set to inactive instead of destroy
+
+
+                //tile.SetActive(true);
+
+                // Debug.Log(tile.transform.parent.name);
+                // tile.transform.position = temp.startPos.position;
+
+                //                var resetTiles =  tile.transform.parent.GetComponent<TileCreator>();
+                //              resetTiles.RefillTiles();
+
+
+                //Destroy(tile.gameObject, Random.Range(0.1f, 0.4f));
+
+
 
 
             }
@@ -241,7 +248,6 @@ public class DictionaryManager : MonoBehaviour
 
             //keep track of the most recently made word
             mostRecentWord = WordBeingMade;
-           // Debug.Log("The last word you made was: " + mostRecentWord);
 
 
 
@@ -259,21 +265,16 @@ public class DictionaryManager : MonoBehaviour
             }
 
 
-
-
-
             //Clear the WordBeingMade first before setting it to be the startLetter of the next word
             WordBeingMade = "";
             WordBeingMade = startLetter;
 
+            Debug.Log(WordBeingMade + " is the word being made");
+
+            //sets the start letter of the next word
             TileManager.Instance.SetStartTile(startLetter);
 
-
-            //Debug.Log("The word being made contains the start letter: " + startLetter);
-
-
             sendButton.interactable = false;
-            // Debug.Log("the next play slot is: " + TileManager.Instance.NextFreeSlot);
 
             //add the scores to the screen after adding the ints together
             GameManager.Instance.CalculateScores();
@@ -293,8 +294,6 @@ public class DictionaryManager : MonoBehaviour
 
         //set the board holder position to be + 200 each time
         BoardHolder.transform.position = new Vector3(BoardHolder.transform.position.x, BoardHolder.transform.position.y+200);
-    
-
 
         //spawn the points to add
         PointsSpawner();
@@ -333,6 +332,8 @@ public class DictionaryManager : MonoBehaviour
 
     public void ClearWord()
     {
+
+        sendButton.interactable = false;
         AudioManager.Instance.PlayAudio(clearWordSound);
 
 
@@ -358,11 +359,14 @@ public class DictionaryManager : MonoBehaviour
 
 
                 //access the tile's scripts and make them "Available"
+
                 var setTileStatus = tile.transform.parent.GetComponent<TileCreator>();
-                setTileStatus.CheckTileStatus("Available");
+                setTileStatus.RefillTiles();
 
                 //destroy the tiles
-                Destroy(tile.gameObject);
+                tile.SetActive(false);
+
+
 
             }
 
@@ -393,19 +397,20 @@ public class DictionaryManager : MonoBehaviour
 
             {
 
-             
+
                 //connect to the tile script component
-                var connectToTileScript = tile.GetComponent<Tile>();
+                //var connectToTileScript = tile.GetComponent<Tile>();
                 //reset the parent to the original
-                connectToTileScript.SetToOriginalParent();
+                //connectToTileScript.SetToOriginalParent();
 
                 //set getStartPos so that it can be used in the coroutine below
+
+
                 var getStartPos = tile.transform.parent.GetComponent<TileCreator>();
-
-
                 //connect to the script of each tile, get the startPos from there (which is the starting transform of each Pos holder)
                 //then run the Coroutine from the tile game object. Phew!
                 iTween.MoveTo(tile, new Vector3(getStartPos.startPos.position.x, getStartPos.startPos.position.y, 0), 0.5f);
+                //iTween.MoveTo(gameObject, iTween.Hash("x", TileManager.Instance.NextFreePos.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time",0.5f, "easeType", "EaseOutQuint"));
 
                 //connectToTileScript.StartCoroutine(connectToTileScript.ReturnTile(getStartPos.startPos));
 
@@ -421,7 +426,19 @@ public class DictionaryManager : MonoBehaviour
         //WordBeingMade = "";
 
         //reset the word being made to be the startLetter
-        WordBeingMade = startLetter;
+
+        if (startLetter!=null)
+        { 
+            WordBeingMade = startLetter; 
+        } else
+        { 
+            WordBeingMade = ""; 
+        }
+
+       
+
+
+        Debug.Log("The word being made is now: " + wordBeingMade);
 
         //reset the score and live score
         GameManager.Instance.ResetScores();
@@ -439,5 +456,8 @@ public class DictionaryManager : MonoBehaviour
         pointsHolder.transform.parent = GameObject.Find("Word Being Spelled").transform;
     }
 
-
+    public void testFunction()
+    {
+        Debug.Log("test functon run!");
+    }
 }
