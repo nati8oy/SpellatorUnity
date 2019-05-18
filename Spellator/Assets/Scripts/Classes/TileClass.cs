@@ -5,43 +5,80 @@ using UnityEngine;
 public class TileClass
 {
 
-    public string tileType;
-    public string letter;
-    public int points;
-    public bool selected;
-    public Vector3 startPosition;
     public Dictionary<string, int> pointsDictionary = new Dictionary<string, int>();
 
+    public Vector3 startPosition;
+    public string tileType;
+    public bool selected;
+    public string letter;
+    public int points;
 
-    public TileClass (Vector3 _startPosition) {
 
-        tileType = "default";
-        letter = TileBag.bag[Random.Range(0, 95)];
-        points = TileBag.pointsDictionary[letter];
+    public TileClass (Vector3 _startPosition, string _tileType) {
+        tileType = _tileType;
         selected = false;
         startPosition = _startPosition;
 
-
-    }
-
-    public void Scramble()
-    {
-        letter = TileBag.bag[Random.Range(0, 95)];
-        points = TileBag.pointsDictionary[letter];
-    }
-
-    //this is a test function only to print things out that are getting passed in
-        public void PrintBase(string _tileType, string _letter, int _points)
+        if(tileType == "default")
         {
+            letter = TileBag.bag[Random.Range(0, 95)];
+            points = TileBag.pointsDictionary[letter];
 
-            tileType = _tileType;
-            letter = _letter;
-            points = _points;
 
-            Debug.Log("Tile Type: " + tileType);
-            Debug.Log("Letter: " + letter);
-            Debug.Log("Points: " + points);
-           
+            //points = TileBag.pointsDictionary[letter];
+        } else if (tileType == "primary")
+        {
+            letter = DictionaryManager.Instance.StartLetter;
+            points = TileBag.pointsDictionary[letter];
+        }
     }
-        
+
+    /*
+    interface ITile
+    {
+       string TileType { get; set; }
+       string Letter { get; set; }
+       int Points { get; set; }
+       bool Selected { get; set; }
+       Transform StartPositon { get; set; }
+    }
+
+
+    class DefaultTile : ITile
+    {
+        public string TileType { get; set; }
+        public string Letter { get; set; }
+        public int Points { get; set; }
+        public bool Selected { get; set; }
+        public Transform StartPositon { get; set; }
+
+        public DefaultTile(Transform _startPositon)
+        {
+            TileType = "default";
+            Letter = TileBag.bag[Random.Range(0, 95)];
+            Points = TileBag.pointsDictionary[Letter];
+            Selected = false;
+            StartPositon = _startPositon;
+        }
+    }
+
+
+    class StarterTile : ITile
+    {
+        public string TileType { get; set; }
+        public string Letter { get; set; }
+        public int Points { get; set; }
+        public bool Selected { get; set; }
+        public Transform StartPositon { get; set; }
+
+        public StarterTile(Transform _startPositon)
+        {
+            TileType = "starter";
+            Letter = DictionaryManager.Instance.StartLetter;
+            Points = TileBag.pointsDictionary[Letter];
+            Selected = false;
+            StartPositon = _startPositon;
+        }
+    }*/
+
 }

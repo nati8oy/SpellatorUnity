@@ -17,7 +17,9 @@ public class DictionaryManager : MonoBehaviour
 
     [SerializeField] private Text multiplierText;
 
-  //  private TileCreator getStartPos;
+
+    private TileClass NewPrimaryTile;
+    private GameObject startTile;
 
     private GameObject pointsHolder;
     [SerializeField] private GameObject pointsText;
@@ -31,7 +33,7 @@ public class DictionaryManager : MonoBehaviour
     public bool chainFlag;
 
     private string mostRecentWord;
-    private string startLetter = "S";
+    private string startLetter;
 
     public string StartLetter
     {
@@ -99,7 +101,6 @@ public class DictionaryManager : MonoBehaviour
         get { return wordBeingMade; }
         set
         {
-            //Debug.LogFormat("WordBeingMade will change to '{0}'", value);
             wordBeingMade = value;
             //inputText.text = wordBeingMade;
         }
@@ -139,7 +140,6 @@ public class DictionaryManager : MonoBehaviour
         //add each of the words within dictionaryList to the actual dictionary itself
         for (int i = 0; i < dictionaryList.Count; i++)
         {
-            // Debug.Log(dictionaryList[i]);
             dictionary.Add(dictionaryList[i], 1);
         }
 
@@ -193,14 +193,6 @@ public class DictionaryManager : MonoBehaviour
             foreach (GameObject tile in selectedTilesArray)
             {
 
-                ////////////////////
-                /// IMPORTANT!!!
-                /// THIS IS HOW TO SELECT THE SCRIPT OF A SINGLE PREFAB AND ACCESS ITS VARIABLES
-                ///////////////
-
-                //var returnParentToTile = tile.GetComponent<Tile>();
-
-                //returnParentToTile.SetToOriginalParent();
 
                 //access the script on each of the tile creators/spawners
                 //var tileStatusUpdate = tile.transform.parent.GetComponent<TileCreator>();
@@ -226,7 +218,6 @@ public class DictionaryManager : MonoBehaviour
 
                 //tile.SetActive(true);
 
-                // Debug.Log(tile.transform.parent.name);
                 // tile.transform.position = temp.startPos.position;
 
                 //                var resetTiles =  tile.transform.parent.GetComponent<TileCreator>();
@@ -269,10 +260,9 @@ public class DictionaryManager : MonoBehaviour
             WordBeingMade = "";
             WordBeingMade = startLetter;
 
-            Debug.Log(WordBeingMade + " is the word being made");
 
             //sets the start letter of the next word
-            TileManager.Instance.SetStartTile(startLetter);
+            SetStartTile(startLetter);
 
             sendButton.interactable = false;
 
@@ -296,7 +286,9 @@ public class DictionaryManager : MonoBehaviour
         BoardHolder.transform.position = new Vector3(BoardHolder.transform.position.x, BoardHolder.transform.position.y+200);
 
         //spawn the points to add
-        PointsSpawner();
+        // PointsSpawner();
+
+       // PointsSpawner();
 
 
     }
@@ -308,7 +300,6 @@ public class DictionaryManager : MonoBehaviour
         //check to see if the word is in the dictionary. If it is then clear the word being made and add points, etc. 
         if (dictionary.ContainsKey(WordBeingMade))
         {
-            Debug.Log(WordBeingMade + " is a word");
             sendButton.interactable = true;
             AudioManager.Instance.PlayAudio(correctWord);
 
@@ -438,7 +429,6 @@ public class DictionaryManager : MonoBehaviour
        
 
 
-        Debug.Log("The word being made is now: " + wordBeingMade);
 
         //reset the score and live score
         GameManager.Instance.ResetScores();
@@ -452,12 +442,53 @@ public class DictionaryManager : MonoBehaviour
     //spawns the points text so that they display when a word is made
     private void PointsSpawner()
     {
-        pointsHolder = Instantiate(pointsText, new Vector3(Screen.width/2, TileManager.Instance.ActiveWordPosition.transform.position.y+100), Quaternion.identity);
-        pointsHolder.transform.parent = GameObject.Find("Word Being Spelled").transform;
+
+       //Messages scoreMessage = new Messages();
+
+       pointsHolder = Instantiate(pointsText, new Vector3(Screen.width/2, Screen.height/2), Quaternion.identity);
+
+       
+       
+        // pointsHolder.transform.parent = GameObject.Find("Word Being Spelled").transform;
     }
 
-    public void testFunction()
+    public void SetStartTile(string firstLetter)
     {
-        Debug.Log("test functon run!");
+
+        startTile = GameManager.Instance.GetPooledObject();
+
+        if (startTile != null)
+        {
+
+            //var accessTileScript = startTile.GetComponent<TileClass>();
+
+           // accessTileScript.SetTileType("primary");
+           
+
+            /*
+            var holderObject = GameObject.Find("Primary Tile").transform;
+
+            startTile.transform.position = holderObject.transform.position;
+            //startTile.transform.parent = (GameObject.Find("Primary Tile").transform);
+            //startTile.transform.SetParent(holderObject);
+
+            */
+
+            //startTile = Instantiate(tile, primaryTile.transform);
+            var tileScript = startTile.GetComponent<Tile>();
+            tileScript.letter.text = firstLetter;
+            tileScript.firstLetterTile = true;
+            tileScript.points.text = InitDictionary.Instance.pointsDictionary[tileScript.letter.text].ToString();
+            startTile.SetActive(true);
+            //available = false;
+            var holderObject = GameObject.Find("Primary Tile").transform;
+
+            startTile.transform.position = holderObject.transform.position;
+            startTile.tag = "PrimaryTile";
+
+        }
+
     }
+
+
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9153612237074538060}
   - component: {fileID: 6246248826488173330}
   - component: {fileID: 1152897863452199090}
-  - component: {fileID: 3670776444266913109}
+  - component: {fileID: 114958638766446654}
   m_Layer: 5
   m_Name: Points Messages
   m_TagString: Untagged
@@ -80,7 +80,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Message Text
---- !u!114 &3670776444266913109
+--- !u!114 &114958638766446654
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -89,10 +89,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 2125873791564837}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9dd51cf69af70403a90e1463ce157fde, type: 3}
+  m_Script: {fileID: 11500000, guid: 521257714fc9e437a9163df2d37f2ea2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  red: {r: 0, g: 0, b: 0, a: 0}
-  endPos: {fileID: 0}
-  messageText: {fileID: 1152897863452199090}
-  lifetime: 1
+  id: 
+  type: 
+  method: 
+  easeType: 0
+  time: 0
+  delay: 0
+  loopType: 0
+  isRunning: 0
+  isPaused: 0
+  _name: 

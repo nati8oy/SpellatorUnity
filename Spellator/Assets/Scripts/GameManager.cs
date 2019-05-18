@@ -118,11 +118,11 @@ public class GameManager : MonoBehaviour
     void Start()
     {
 
-        //add the letters to the bad List within the TileBag class
+        //add the letters to the bag List within the TileBag class
         TileBag lettersBag = new TileBag();
         lettersBag.AddLettersToDictonary();
 
-
+        //instantiate all the objects to pool
         for (int i = 0; i < amountToPool; i++)
         {   
             obj = Instantiate(objectToPool);
@@ -130,9 +130,9 @@ public class GameManager : MonoBehaviour
             //set object to inactive
             obj.SetActive(false);
            // obj.tag = "Pooled Tile";
-            obj.transform.parent = GameObject.Find("Pool").transform;
+            obj.transform.SetParent(GameObject.Find("Pool").transform);
             pooledObjects.Add(obj);
-            //Debug.Log("There are currently " + pooledObjects.Count + " items in the pool");
+
 
         }
 
@@ -146,8 +146,8 @@ public class GameManager : MonoBehaviour
             //set scores to blank
         liveScoreText.text = "";
         scoreText.text = "";
-        blueTotalScore.text = "0";
-        redTotalScore.text = "0";
+       // blueTotalScore.text = "0";
+        //redTotalScore.text = "0";
 
         //make the send button inactive on start up
         DictionaryManager.Instance.sendButton.interactable = false;
@@ -157,8 +157,8 @@ public class GameManager : MonoBehaviour
     {
       
         //set the blue and red totals
-        blueTotalScore.text = blueTotal.ToString();
-        redTotalScore.text = redTotal.ToString();
+       // blueTotalScore.text = blueTotal.ToString();
+       // redTotalScore.text = redTotal.ToString();
     }
 
 
@@ -246,7 +246,6 @@ public class GameManager : MonoBehaviour
 
     public GameObject GetPooledObject()
     {
-        //Debug.Log("pooledObjects is currently "+ pooledObjects.Count + " long");
         //
         for (int i = 0; i < pooledObjects.Count; i++)
         {

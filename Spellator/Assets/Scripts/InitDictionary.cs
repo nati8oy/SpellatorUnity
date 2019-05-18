@@ -59,7 +59,6 @@ public class InitDictionary : MonoBehaviour
         //add each of the words within dictionaryList to the actual dictionary itself
         for (int i = 0; i < bag.Count; i++)
         {
-            // Debug.Log(dictionaryList[i]);
             dictionary.Add(bag[i], 1);
         }
 

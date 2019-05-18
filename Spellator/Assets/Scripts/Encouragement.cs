@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Encouragement : Messages
+public class Encouragement 
 {
 
     private List<string> encouragmentMessages = new List<string>();
     // Start is called before the first frame update
     void Start()
     {
-        base.Start();
 
         encouragmentMessages.Add("Wow!");
         encouragmentMessages.Add("Nice one!");
@@ -21,7 +20,7 @@ public class Encouragement : Messages
         encouragmentMessages.Add("Oh yeah!");
         encouragmentMessages.Add("Whoa!");
 
-        messageText.text = encouragmentMessages[Random.Range(0, 7)];
+        //messageText.text = encouragmentMessages[Random.Range(0, 7)];
         //StartCoroutine(Move(endPos.transform.position));
     }
 

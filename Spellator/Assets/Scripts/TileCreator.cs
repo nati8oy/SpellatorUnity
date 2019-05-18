@@ -25,34 +25,19 @@ public class TileCreator : MonoBehaviour
 
         TileSpawnerClass tileSpawner = new TileSpawnerClass();
         tileSpawner.GetNewPooledObject(gameObject.transform.position, gameObject.transform);
-        Debug.Log("the parent of this object is: " + tileSpawner.newTile.transform.parent);
 
       
-        /*
-        if (newTile != null)
-        {
-            newTile.transform.position = gameObject.transform.position;
-            newTile.transform.parent = gameObject.transform.parent;
-            newTile.SetActive(true);
-            //available = false;
-            
-        }*/
-     
     }
 
 
     public void RefillTiles()
     {
-        //tileSpawner.GetNewPooledObject(gameObject.transform.position, gameObject.transform);
-        Debug.Log("Refilled tiles");
-
         newTile = GameManager.Instance.GetPooledObject();
 
         if (newTile != null)
         {
             newTile.transform.position = gameObject.transform.position;
-            newTile.transform.parent = gameObject.transform;
-            Debug.Log("parent name for refilled tile is: " + newTile.transform.parent);
+            newTile.transform.SetParent(gameObject.transform);
             newTile.SetActive(true);
             //available = false;
 

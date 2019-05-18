@@ -16,7 +16,7 @@ public class TileManager : MonoBehaviour
 
     private GameObject[] moveTilesArray;
 
-    private GameObject startTile;
+   
 
     [SerializeField] private Transform activeWordPosition;
 
@@ -114,22 +114,6 @@ public class TileManager : MonoBehaviour
     }
 
 
-
-    public void SetStartTile(string firstLetter)
-    {
-
-        startTile = Instantiate(tile, primaryTile.transform);
-        var tileScript = startTile.GetComponent<Tile>();
-        tileScript.letter.text = firstLetter;
-        tileScript.firstLetterTile = true;
-
-
-        startTile.tag = "PrimaryTile";
-        //        startTile.name = "PrimaryTile";
-
-        tileScript.points.text = InitDictionary.Instance.pointsDictionary[tileScript.letter.text].ToString();
-
-    }
 
     public void ShakeTiles (){
         iTween.MoveBy(gameObject, iTween.Hash("x", 2, "easeType", "easeInOutExpo", "loopType", "pingPong", "delay", .1));

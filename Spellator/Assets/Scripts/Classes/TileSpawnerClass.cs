@@ -27,9 +27,6 @@ public class TileSpawnerClass
                 newTile.transform.parent = _parent;
                 newTile.SetActive(true);
                 available = false;
-            } else
-            {
-                newTile.SetActive(false);
             }
         }
 
