@@ -130,7 +130,7 @@ public class GameManager : MonoBehaviour
             //set object to inactive
             obj.SetActive(false);
            // obj.tag = "Pooled Tile";
-            obj.transform.SetParent(GameObject.Find("Pool").transform);
+            //obj.transform.SetParent(GameObject.Find("Pool").transform);
             pooledObjects.Add(obj);
 
 
@@ -151,14 +151,6 @@ public class GameManager : MonoBehaviour
 
         //make the send button inactive on start up
         DictionaryManager.Instance.sendButton.interactable = false;
-    }
-
-    private void Update()
-    {
-      
-        //set the blue and red totals
-       // blueTotalScore.text = blueTotal.ToString();
-       // redTotalScore.text = redTotal.ToString();
     }
 
 

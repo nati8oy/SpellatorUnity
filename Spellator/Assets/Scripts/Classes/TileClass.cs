@@ -9,29 +9,18 @@ public class TileClass
 
     public Vector3 startPosition;
     public string tileType;
-    public bool selected;
     public string letter;
     public int points;
 
 
-    public TileClass (Vector3 _startPosition, string _tileType) {
-        tileType = _tileType;
-        selected = false;
-        startPosition = _startPosition;
+    public TileClass (Vector3 _startPosition) {
+        startPosition = _startPosition;   
+        //letter = TileBag.bag[Random.Range(0, 95)];
+        //points = TileBag.pointsDictionary[letter];
 
-        if(tileType == "default")
-        {
-            letter = TileBag.bag[Random.Range(0, 95)];
-            points = TileBag.pointsDictionary[letter];
-
-
-            //points = TileBag.pointsDictionary[letter];
-        } else if (tileType == "primary")
-        {
-            letter = DictionaryManager.Instance.StartLetter;
-            points = TileBag.pointsDictionary[letter];
-        }
     }
+
+
 
     /*
     interface ITile

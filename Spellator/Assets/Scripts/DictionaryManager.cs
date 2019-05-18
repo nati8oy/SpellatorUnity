@@ -19,6 +19,8 @@ public class DictionaryManager : MonoBehaviour
 
 
     private TileClass NewPrimaryTile;
+    [SerializeField] private GameObject primaryTile;
+
     private GameObject startTile;
 
     private GameObject pointsHolder;
@@ -122,7 +124,8 @@ public class DictionaryManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        //create a new primary tile class so that it's avaiable for later on.
+        NewPrimaryTile = new TileClass(primaryTile.transform.position);
 
 
 
@@ -262,7 +265,7 @@ public class DictionaryManager : MonoBehaviour
 
 
             //sets the start letter of the next word
-            SetStartTile(startLetter);
+            SetStartTile();
 
             sendButton.interactable = false;
 
@@ -283,7 +286,6 @@ public class DictionaryManager : MonoBehaviour
 
 
         //set the board holder position to be + 200 each time
-        BoardHolder.transform.position = new Vector3(BoardHolder.transform.position.x, BoardHolder.transform.position.y+200);
 
         //spawn the points to add
         // PointsSpawner();
@@ -452,6 +454,32 @@ public class DictionaryManager : MonoBehaviour
         // pointsHolder.transform.parent = GameObject.Find("Word Being Spelled").transform;
     }
 
+    public void SetStartTile()
+    {
+
+       // NewPrimaryTile.letter = startLetter;
+       // NewPrimaryTile.points = TileBag.pointsDictionary[NewPrimaryTile.letter];
+
+        if (!primaryTile.activeSelf)
+        {
+            primaryTile.SetActive(true);
+        } else if (primaryTile.activeSelf)
+        {
+            primaryTile.SetActive(false);
+            primaryTile.SetActive(true);
+
+        }
+
+
+       
+
+
+ ;
+
+    }
+
+
+    /*
     public void SetStartTile(string firstLetter)
     {
 
@@ -474,21 +502,23 @@ public class DictionaryManager : MonoBehaviour
 
             */
 
-            //startTile = Instantiate(tile, primaryTile.transform);
-            var tileScript = startTile.GetComponent<Tile>();
-            tileScript.letter.text = firstLetter;
-            tileScript.firstLetterTile = true;
-            tileScript.points.text = InitDictionary.Instance.pointsDictionary[tileScript.letter.text].ToString();
-            startTile.SetActive(true);
-            //available = false;
-            var holderObject = GameObject.Find("Primary Tile").transform;
+    //startTile = Instantiate(tile, primaryTile.transform);
 
-            startTile.transform.position = holderObject.transform.position;
-            startTile.tag = "PrimaryTile";
+    /*
+        var tileScript = startTile.GetComponent<Tile>();
+        tileScript.letter.text = firstLetter;
+        tileScript.firstLetterTile = true;
+        tileScript.points.text = InitDictionary.Instance.pointsDictionary[tileScript.letter.text].ToString();
+        startTile.SetActive(true);
+        //available = false;
+        var holderObject = GameObject.Find("Primary Tile").transform;
 
-        }
+        startTile.transform.position = holderObject.transform.position;
+        startTile.tag = "PrimaryTile";
 
     }
+
+}*/
 
 
 }

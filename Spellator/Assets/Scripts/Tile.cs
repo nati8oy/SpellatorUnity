@@ -44,7 +44,21 @@ public class Tile : MonoBehaviour
 
         //spawnedTile = new TileClass();
 
-        spawnedTile = new TileClass(gameObject.transform.position, "default");
+        spawnedTile = new TileClass(gameObject.transform.position);
+
+        if (CompareTag ("PrimaryTile"))
+        {
+
+            spawnedTile.letter = DictionaryManager.Instance.StartLetter;
+            spawnedTile.points = TileBag.pointsDictionary[spawnedTile.letter];
+
+        } else if (CompareTag("Tile"))
+        {
+            spawnedTile.letter = TileBag.bag[Random.Range(0, 95)];
+            spawnedTile.points = TileBag.pointsDictionary[spawnedTile.letter];
+
+        }
+
 
         //sets the letter on the tile each time the tile is enabled
         letter.text = spawnedTile.letter;
@@ -56,6 +70,7 @@ public class Tile : MonoBehaviour
 
     void Start()
     {
+
         //gameObject.transform.localScale = new Vector3 (1,1);
 
         //check to see if the tile is the first tile for chain mode words
