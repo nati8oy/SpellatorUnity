@@ -58,6 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07dd2065e202f4e8088e6dacf0a29377, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  remainingBonusPoints: 0
   bonusPoints: 500
   bar: {fileID: 1779147374012780935}
 --- !u!1 &1779147374012780985
@@ -118,7 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9811321, g: 0.9410135, b: 0.28230685, a: 1}
+  m_Color: {r: 0.9607843, g: 0.80784315, b: 0.09803922, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

@@ -21,6 +21,11 @@ public class DictionaryManager : MonoBehaviour
     private TileClass NewPrimaryTile;
     [SerializeField] private GameObject primaryTile;
 
+    public GameObject PrimaryTile
+    {
+        get {return primaryTile; }
+    }
+
     private GameObject startTile;
 
     private GameObject pointsHolder;
@@ -204,10 +209,14 @@ public class DictionaryManager : MonoBehaviour
 
 
                 tile.tag = "Tile";
-                tile.SetActive(false);
+                //
+                //tile.SetActive(false);
 
-                //iTween.MoveBy(tile, iTween.Hash("y", Random.Range(100,300), "easetype", "EaseOutQuad", "time", 0.5f));
+                var randomYPos = Random.Range(75, 125);
+                var randomTimeFrame = Random.Range(0.2f,0.5f);
+               // StartCoroutine(DelayForTileReset(randomForTween, tile));
 
+               iTween.MoveBy(tile, iTween.Hash("y", randomYPos, "easetype", "EaseOutQuad", "time", randomTimeFrame, "oncomplete", "RemoveTileOnComplete"));
 
 
 

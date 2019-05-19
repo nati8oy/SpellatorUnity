@@ -38,14 +38,13 @@ public class Tile : MonoBehaviour
 
     private void OnEnable()
     {
-
-        //create a new instance of the TileClass class
-        //spawnedTile = new TileClass(gameObject.transform.position);
-
-        //spawnedTile = new TileClass();
-
+    
+        //create instance of the TileClass for use in the checks below
         spawnedTile = new TileClass(gameObject.transform.position);
 
+
+        //if that tag is PrimaryTile then set the tile letter and points to be that of the StartLetter
+        //otherwise, set them to come up randomly from the bag
         if (CompareTag ("PrimaryTile"))
         {
 
@@ -95,7 +94,7 @@ public class Tile : MonoBehaviour
         AudioManager.Instance.PlayAudio(tileClick);
 
             //check is the tile is selected or not. If it's not tagged as "selected" then add it to the word being made.
-            if (gameObject.tag != "TileSelected")
+            if (gameObject.tag == "Tile")
             {
 
                 //add this tile's Pos to the SelectedTiles list in TileManager
@@ -114,7 +113,7 @@ public class Tile : MonoBehaviour
                 gameObject.tag = "TileSelected";
 
 
-            iTween.MoveTo(gameObject, iTween.Hash("x", TileManager.Instance.NextFreePos.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time",0.5f, "easeType", "EaseOutQuint"));
+            iTween.MoveTo(gameObject, iTween.Hash("x", TileManager.Instance.NextFreePos.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time",0.5f, "easetype", "EaseOutQuint"));
 
  
             //sets the next free position to the TileManage.Instance.selectedTiles length
@@ -129,12 +128,15 @@ public class Tile : MonoBehaviour
 
 
 
-
-
-
-
         }
 
+
+    }
+    public void RemoveTileOnComplete()
+    {
+        //Debug.Log("Tile set to inactive");
+        gameObject.SetActive(false);
+       // iTween.FadeFrom(gameObject, iTween.Hash("time", 0.25f, "alpha", 1));
 
     }
 

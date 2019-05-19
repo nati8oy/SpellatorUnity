@@ -220,17 +220,18 @@ public class GameManager : MonoBehaviour
     {
 
         Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
-
+        /*
         ResetScores();
         setTimerTo = 60;
         blueTotal = 0;
         redTotal = 0;
-       // CountDown.Instance.StartCoroutine("LoseTime");
         totalScore = 0;
-        //DictionaryManager.Instance.TotalWordsMade = 0;
+        DictionaryManager.Instance.TotalWordsMade = 0;
         gameOverPanel.gameObject.SetActive(false);
         DictionaryManager.Instance.ClearWord();
         DictionaryManager.Instance.WordBeingMade = "";
+        DictionaryManager.Instance.PrimaryTile.SetActive(false);
+        */
 
     }
 
@@ -253,6 +254,28 @@ public class GameManager : MonoBehaviour
         return null;
     }
 
+
+    public void StartSetup()
+    {
+
+        //add the letters to the bag List within the TileBag class
+        TileBag lettersBag = new TileBag();
+        lettersBag.AddLettersToDictonary();
+
+        //instantiate all the objects to pool
+        for (int i = 0; i < amountToPool; i++)
+        {
+            obj = Instantiate(objectToPool);
+
+            //set object to inactive
+            obj.SetActive(false);
+            // obj.tag = "Pooled Tile";
+            //obj.transform.SetParent(GameObject.Find("Pool").transform);
+            pooledObjects.Add(obj);
+
+
+        }
+    }
 
 
 }
