@@ -220,6 +220,7 @@ public class GameManager : MonoBehaviour
     {
 
         Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
+
         /*
         ResetScores();
         setTimerTo = 60;
@@ -231,7 +232,8 @@ public class GameManager : MonoBehaviour
         DictionaryManager.Instance.ClearWord();
         DictionaryManager.Instance.WordBeingMade = "";
         DictionaryManager.Instance.PrimaryTile.SetActive(false);
-        */
+        var primaryTile = GameObject.Find("Primary Tile");
+        primaryTile.SetActive(false);*/
 
     }
 
@@ -261,6 +263,7 @@ public class GameManager : MonoBehaviour
         //add the letters to the bag List within the TileBag class
         TileBag lettersBag = new TileBag();
         lettersBag.AddLettersToDictonary();
+
 
         //instantiate all the objects to pool
         for (int i = 0; i < amountToPool; i++)

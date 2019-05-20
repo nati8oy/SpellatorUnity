@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class TileBag
 {
@@ -39,6 +40,22 @@ public class TileBag
         pointsDictionary.Add("X", 8);
         pointsDictionary.Add("Y", 4);
         pointsDictionary.Add("Z", 10);
+
+    }
+
+    public void RemoveLetterUsed(string letterToRemove)
+    {
+
+  
+
+        for (int i = 0; i< bag.Count; i++)
+        {
+            if(bag[i] == letterToRemove)
+            {
+               bag.Remove(bag[i]);
+                Debug.Log(bag.Count);
+            }
+        }
 
     }
 }

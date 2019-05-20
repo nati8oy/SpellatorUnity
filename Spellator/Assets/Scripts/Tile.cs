@@ -13,6 +13,8 @@ public class Tile : MonoBehaviour
 
     public bool firstLetterTile;
 
+    private TileBag tileBag = new TileBag();
+    
     [SerializeField] private AudioClip tileClick;
 
 
@@ -38,7 +40,8 @@ public class Tile : MonoBehaviour
 
     private void OnEnable()
     {
-    
+       
+
         //create instance of the TileClass for use in the checks below
         spawnedTile = new TileClass(gameObject.transform.position);
 
@@ -47,7 +50,6 @@ public class Tile : MonoBehaviour
         //otherwise, set them to come up randomly from the bag
         if (CompareTag ("PrimaryTile"))
         {
-
             spawnedTile.letter = DictionaryManager.Instance.StartLetter;
             spawnedTile.points = TileBag.pointsDictionary[spawnedTile.letter];
 
@@ -55,7 +57,7 @@ public class Tile : MonoBehaviour
         {
             spawnedTile.letter = TileBag.bag[Random.Range(0, 95)];
             spawnedTile.points = TileBag.pointsDictionary[spawnedTile.letter];
-
+            
         }
 
 
@@ -63,12 +65,16 @@ public class Tile : MonoBehaviour
         letter.text = spawnedTile.letter;
         points.text = spawnedTile.points.ToString();
         tilePointValue = spawnedTile.points;
+        
+
 
     }
 
 
     void Start()
     {
+
+
 
         //gameObject.transform.localScale = new Vector3 (1,1);
 
@@ -85,6 +91,8 @@ public class Tile : MonoBehaviour
 
 
     }
+
+
 
     public void HandleClick()
 
