@@ -262,7 +262,7 @@ public class GameManager : MonoBehaviour
 
         //add the letters to the bag List within the TileBag class
         TileBag lettersBag = new TileBag();
-        lettersBag.AddLettersToDictonary();
+       // lettersBag.AddLettersToDictonary();
 
 
         //instantiate all the objects to pool

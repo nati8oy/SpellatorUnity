@@ -45,9 +45,7 @@ public class TileBag
 
     public void RemoveLetterUsed(string letterToRemove)
     {
-
-  
-
+    
         for (int i = 0; i< bag.Count; i++)
         {
             if(bag[i] == letterToRemove)

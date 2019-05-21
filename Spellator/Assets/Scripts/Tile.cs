@@ -40,10 +40,11 @@ public class Tile : MonoBehaviour
 
     private void OnEnable()
     {
-       
 
-        //create instance of the TileClass for use in the checks below
-        spawnedTile = new TileClass(gameObject.transform.position);
+        
+
+         //create instance of the TileClass for use in the checks below
+         spawnedTile = new TileClass(gameObject.transform.position);
 
 
         //if that tag is PrimaryTile then set the tile letter and points to be that of the StartLetter
@@ -55,9 +56,9 @@ public class Tile : MonoBehaviour
 
         } else if (CompareTag("Tile"))
         {
-            spawnedTile.letter = TileBag.bag[Random.Range(0, 95)];
+            spawnedTile.letter = TileBag.bag[Random.Range(0, TileBag.bag.Count)];
             spawnedTile.points = TileBag.pointsDictionary[spawnedTile.letter];
-            
+            RemoveLetterFromBag();
         }
 
 
@@ -71,9 +72,9 @@ public class Tile : MonoBehaviour
     }
 
 
+
     void Start()
     {
-
 
 
         //gameObject.transform.localScale = new Vector3 (1,1);
@@ -87,8 +88,6 @@ public class Tile : MonoBehaviour
             tilePointValue  = spawnedTile.points;
 
         }
-
-
 
     }
 
@@ -146,6 +145,12 @@ public class Tile : MonoBehaviour
         gameObject.SetActive(false);
        // iTween.FadeFrom(gameObject, iTween.Hash("time", 0.25f, "alpha", 1));
 
+    }
+
+    public void RemoveLetterFromBag()
+    {
+        TileBag.bag.Remove(spawnedTile.letter);
+        Debug.Log("there are " + TileBag.bag.Count + " tiles remaining in the bag");
     }
 
 
