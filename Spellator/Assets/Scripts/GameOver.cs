@@ -14,7 +14,7 @@ public class GameOver : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Score.text = GameManager.Instance.TotalScore.ToString();
+        Score.text = PointsClass.totalScore.ToString();
         WordsMade.text = DictionaryManager.Instance.TotalWordsMade.ToString();
         BlueDots.text = GameManager.Instance.BlueTotal.ToString();
         RedDots.text = GameManager.Instance.RedTotal.ToString();

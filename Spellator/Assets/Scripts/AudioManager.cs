@@ -6,21 +6,12 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
 
-
     private AudioSource mainAudioSource;
     public AudioSource MainAudioSource
     {
         get { return mainAudioSource; }
     }
-
-    [SerializeField] private AudioClip tileClick; 
-
-    /*
-    public AudioClip TileClick
-    {
-        get { return tileClick; }
-    }
-    */
+    
 
 
     //this is the singleton code to ensure there's not more than one instance running
@@ -40,12 +31,6 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         mainAudioSource =  GetComponent<AudioSource>();
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         
     }
 

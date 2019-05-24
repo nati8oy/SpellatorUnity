@@ -5,7 +5,6 @@ using TMPro;
 
 public class Tile : MonoBehaviour
 {
-
     public TextMeshProUGUI letter;
     public TextMeshProUGUI points;
 
@@ -16,7 +15,11 @@ public class Tile : MonoBehaviour
     private TileBag tileBag = new TileBag();
     
     [SerializeField] private AudioClip tileClick;
+    public AudioClip[] popSounds;
 
+
+
+    private PointsClass scores = new PointsClass();
 
     private int positionInRack;
     private Vector3 returnPos;
@@ -41,10 +44,11 @@ public class Tile : MonoBehaviour
     private void OnEnable()
     {
 
-        
 
-         //create instance of the TileClass for use in the checks below
-         spawnedTile = new TileClass(gameObject.transform.position);
+
+
+        //create instance of the TileClass for use in the checks below
+        spawnedTile = new TileClass(gameObject.transform.position);
 
 
         //if that tag is PrimaryTile then set the tile letter and points to be that of the StartLetter
@@ -53,13 +57,29 @@ public class Tile : MonoBehaviour
         {
             spawnedTile.letter = DictionaryManager.Instance.StartLetter;
             spawnedTile.points = TileBag.pointsDictionary[spawnedTile.letter];
+            PointsClass.primaryTileScore = spawnedTile.points;
 
         } else if (CompareTag("Tile"))
         {
             spawnedTile.letter = TileBag.bag[Random.Range(0, TileBag.bag.Count)];
             spawnedTile.points = TileBag.pointsDictionary[spawnedTile.letter];
-            RemoveLetterFromBag();
+
+
+            /*
+            //extra check that the letter tile isn't equal to 0. This is the stop the bug where an "S" appears with 0 points and can't be played.
+            if (spawnedTile.points != 0)
+            {
+                RemoveLetterFromBag();
+            }
+            else if (spawnedTile.points == 0)
+            {
+                spawnedTile.letter = TileBag.bag[Random.Range(0, TileBag.bag.Count)];
+                spawnedTile.points = TileBag.pointsDictionary[spawnedTile.letter];
+            }
+            */
+
         }
+
 
 
         //sets the letter on the tile each time the tile is enabled
@@ -118,6 +138,7 @@ public class Tile : MonoBehaviour
                 }
 
                 gameObject.tag = "TileSelected";
+                
 
 
             iTween.MoveTo(gameObject, iTween.Hash("x", TileManager.Instance.NextFreePos.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time",0.5f, "easetype", "EaseOutQuint"));
@@ -126,12 +147,14 @@ public class Tile : MonoBehaviour
             //sets the next free position to the TileManage.Instance.selectedTiles length
 
             TileManager.Instance.PlayTiles();
-                
 
-                //add the score
+            //add the score
+            scores.addLiveScore(spawnedTile.points);
 
-                GameManager.Instance.LiveScore = GameManager.Instance.LiveScore + tilePointValue;
-                GameManager.Instance.LiveScoreText.text = GameManager.Instance.LiveScore.ToString();
+            GameManager.Instance.LiveScoreText.text = PointsClass.liveScore.ToString();
+
+            //GameManager.Instance.LiveScore = GameManager.Instance.LiveScore + tilePointValue;
+            // GameManager.Instance.LiveScoreText.text = GameManager.Instance.LiveScore.ToString();
 
 
 
@@ -143,14 +166,17 @@ public class Tile : MonoBehaviour
     {
         //Debug.Log("Tile set to inactive");
         gameObject.SetActive(false);
-       // iTween.FadeFrom(gameObject, iTween.Hash("time", 0.25f, "alpha", 1));
+        AudioManager.Instance.PlayAudio(popSounds[Random.Range(0, 3)]);
+        // iTween.FadeFrom(gameObject, iTween.Hash("time", 0.25f, "alpha", 1));
 
     }
 
     public void RemoveLetterFromBag()
     {
+
         TileBag.bag.Remove(spawnedTile.letter);
         Debug.Log("there are " + TileBag.bag.Count + " tiles remaining in the bag");
+
     }
 
 

@@ -11,10 +11,14 @@ public class TileClass
     public string tileType;
     public string letter;
     public int points;
+    public Color correctWord;
 
 
     public TileClass (Vector3 _startPosition) {
-        startPosition = _startPosition;   
+        startPosition = _startPosition;
+
+
+       // correctWord = new Color(255, 20, 10);
         //letter = TileBag.bag[Random.Range(0, 95)];
         //points = TileBag.pointsDictionary[letter];
 

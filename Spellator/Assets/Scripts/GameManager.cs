@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
     public int amountToPool;
     public GameObject obj;
 
+    //instance of the Points Class to handle points
+    private PointsClass scoreClass;
 
     private int blueTotal;
     private int redTotal;
@@ -74,17 +76,6 @@ public class GameManager : MonoBehaviour
     //holds the data for the most recent score the points text can access it
     public int mostRecentScore;
 
-    [SerializeField] private Text liveScoreText;
-
-    public Text LiveScoreText
-    {
-        get { return liveScoreText; }
-        set
-        {
-            liveScoreText = value;
-        }
-    }
-
     private int totalScore;
 
     public int TotalScore
@@ -93,7 +84,14 @@ public class GameManager : MonoBehaviour
         set { TotalScore = value; }
     }
 
-    [SerializeField] private Text scoreText;
+//    [SerializeField] private Text scoreText;
+    [SerializeField] private Text liveScoreText;
+
+    public Text LiveScoreText
+    {
+        get { return liveScoreText; }
+        set { LiveScoreText = value; }
+    }
 
     private int setTimerTo = 60;
 
@@ -117,6 +115,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+
+        //create an instance of the points class
+        scoreClass = new PointsClass();
 
         //add the letters to the bag List within the TileBag class
         TileBag lettersBag = new TileBag();
@@ -145,21 +146,12 @@ public class GameManager : MonoBehaviour
             //setTimerTo = 20;
             //set scores to blank
         liveScoreText.text = "";
-        scoreText.text = "";
-       // blueTotalScore.text = "0";
-        //redTotalScore.text = "0";
+        //scoreText.text = "";
 
         //make the send button inactive on start up
         DictionaryManager.Instance.sendButton.interactable = false;
     }
 
-
-    public void ResetScores()
-    {
-        //reset the score and live score
-        LiveScoreText.text = "";
-        liveScore = 0;
-    }
 
     public void CalculateScores()
     {
@@ -174,12 +166,23 @@ public class GameManager : MonoBehaviour
         //otherwise just do the standard score adding.
         else
         {
-
+            /*
             var bonusReference = GameObject.Find("Bonus Bar").GetComponent<BonusBar>();
 
             var additionalPoints = bonusReference.BonusAwarded;
-            totalScore = totalScore + liveScore + additionalPoints;
-            mostRecentScore = LiveScore + additionalPoints;
+          
+        */
+            /*
+
+                var primaryTile = GameObject.Find("Primary Tile");
+               var primaryTilePoints = primaryTile.GetComponent<Tile>();
+                var primaryTileTotalPoints = primaryTilePoints.points.;
+                */
+
+           // scoreClass.addPoints();
+            totalScore = totalScore + liveScore;
+
+               mostRecentScore = LiveScore;
         }
 
 
@@ -190,7 +193,7 @@ public class GameManager : MonoBehaviour
         }
 
 
-        scoreText.text = totalScore.ToString();
+        //scoreText.text = totalScore.ToString();
 
 
     }

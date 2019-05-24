@@ -17,6 +17,7 @@ public class DictionaryManager : MonoBehaviour
 
     [SerializeField] private Text multiplierText;
 
+    private PointsClass scores = new PointsClass();
 
     private TileClass NewPrimaryTile;
     [SerializeField] private GameObject primaryTile;
@@ -46,6 +47,8 @@ public class DictionaryManager : MonoBehaviour
     {
         get { return startLetter; }
     }
+
+    [SerializeField] private Text scoreText;
 
     private float smoothing;
     private Vector3 target;
@@ -214,7 +217,7 @@ public class DictionaryManager : MonoBehaviour
 
                 var randomYPos = Random.Range(75, 125);
                 var randomTimeFrame = Random.Range(0.2f,0.5f);
-               // StartCoroutine(DelayForTileReset(randomForTween, tile));
+                // StartCoroutine(DelayForTileReset(randomForTween, tile));
 
                iTween.MoveBy(tile, iTween.Hash("y", randomYPos, "easetype", "EaseOutQuad", "time", randomTimeFrame, "oncomplete", "RemoveTileOnComplete"));
 
@@ -279,10 +282,17 @@ public class DictionaryManager : MonoBehaviour
             sendButton.interactable = false;
 
             //add the scores to the screen after adding the ints together
-            GameManager.Instance.CalculateScores();
+            //GameManager.Instance.CalculateScores();
+
 
             //reset the scores
-            GameManager.Instance.ResetScores();
+            scoreText.text = PointsClass.totalScore.ToString();
+
+            scores.addPoints(PointsClass.liveScore);
+            //Debug.Log(PointsClass.totalScore);
+            scores.resetScores();
+
+            //GameManager.Instance.LiveScoreText = "";
 
             //clear the selectedTiles list so that it puts the new tiles in the right positions
             TileManager.Instance.ResetWordStartPoint();
@@ -334,7 +344,7 @@ public class DictionaryManager : MonoBehaviour
 
     public void ClearWord()
     {
-
+        scores.resetScores();
         sendButton.interactable = false;
         AudioManager.Instance.PlayAudio(clearWordSound);
 
@@ -442,7 +452,8 @@ public class DictionaryManager : MonoBehaviour
 
 
         //reset the score and live score
-        GameManager.Instance.ResetScores();
+        //GameManager.Instance.ResetScores();
+
 
         //reset the tile start positions when spelling a word
         TileManager.Instance.ResetWordStartPoint();

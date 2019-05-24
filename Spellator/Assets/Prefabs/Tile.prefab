@@ -613,7 +613,12 @@ MonoBehaviour:
   letter: {fileID: 781199010286186662}
   points: {fileID: 7308423248976456831}
   firstLetterTile: 0
-  tileClick: {fileID: 8300000, guid: be0bebc2341164f3baa2f1b634d10fee, type: 3}
+  tileClick: {fileID: 8300000, guid: ec0cf2de9da0741a08b887b79c11614c, type: 3}
+  popSounds:
+  - {fileID: 8300000, guid: ec0cf2de9da0741a08b887b79c11614c, type: 3}
+  - {fileID: 8300000, guid: bc0828e099bbb4743b0d1703f2f03c2b, type: 3}
+  - {fileID: 8300000, guid: a650b463cd5814f20aebd28e8be33277, type: 3}
+  - {fileID: 8300000, guid: 35a20f933f020402e8486b5482a119ff, type: 3}
 --- !u!114 &2297906503322204192
 MonoBehaviour:
   m_ObjectHideFlags: 0
