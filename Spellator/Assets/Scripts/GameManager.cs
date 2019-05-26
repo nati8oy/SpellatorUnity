@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
         set { RedTotal = value; }
     }
 
+    private SpecialMeterClass specialMeter = new SpecialMeterClass();
 
 
 
@@ -93,13 +94,6 @@ public class GameManager : MonoBehaviour
         set { LiveScoreText = value; }
     }
 
-    private int setTimerTo = 60;
-
-    public int SetTimerTo
-    {
-        get { return setTimerTo; }
-    }
-
 
     //this is the singleton code to ensure there's not more than one instance running
     void Awake()
@@ -116,6 +110,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
 
+
+
         //create an instance of the points class
         scoreClass = new PointsClass();
 
@@ -130,8 +126,6 @@ public class GameManager : MonoBehaviour
                        
             //set object to inactive
             obj.SetActive(false);
-           // obj.tag = "Pooled Tile";
-            //obj.transform.SetParent(GameObject.Find("Pool").transform);
             pooledObjects.Add(obj);
 
 
@@ -152,64 +146,6 @@ public class GameManager : MonoBehaviour
         DictionaryManager.Instance.sendButton.interactable = false;
     }
 
-
-    public void CalculateScores()
-    {
-
-        //check to see if there's a multiplier
-        if( DictionaryManager.Instance.Multiplier >= 3)
-        {
-            totalScore = totalScore + (liveScore* DictionaryManager.Instance.Multiplier);
-            mostRecentScore = liveScore * DictionaryManager.Instance.Multiplier;
-        }
-
-        //otherwise just do the standard score adding.
-        else
-        {
-            /*
-            var bonusReference = GameObject.Find("Bonus Bar").GetComponent<BonusBar>();
-
-            var additionalPoints = bonusReference.BonusAwarded;
-          
-        */
-            /*
-
-                var primaryTile = GameObject.Find("Primary Tile");
-               var primaryTilePoints = primaryTile.GetComponent<Tile>();
-                var primaryTileTotalPoints = primaryTilePoints.points.;
-                */
-
-           // scoreClass.addPoints();
-            totalScore = totalScore + liveScore;
-
-               mostRecentScore = LiveScore;
-        }
-
-
-        //add audio if the score of the last word was bigger than 50 points
-        if (mostRecentScore >= 350)
-        {
-            AudioManager.Instance.PlayAudio(bigScore);
-        }
-
-
-        //scoreText.text = totalScore.ToString();
-
-
-    }
-
-
-    public void TallyColours(string colour)
-    {
-        if(colour == "blue")
-        {
-            blueTotal += 1;
-        }
-         else if(colour == "red")
-        {
-            redTotal += 1;
-        }
-    }
 
     public void GameOverMethod()
     {

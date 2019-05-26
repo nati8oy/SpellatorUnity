@@ -10,20 +10,19 @@ public class SpecialMeterClass
 
     public SpecialMeterClass()
     {
-        totalMeter = 1;
+        totalMeter = 50;
         meterRemaining = 0;
         meterPercent = meterRemaining / totalMeter;
 
 
     }
 
-    public void IncreaseMeter(float _meterRemaining)
+    public void IncreaseMeter(float amountToAdd)
     {
-        if (meterRemaining <= 1)
-        {
-            meterRemaining = _meterRemaining + meterRemaining;
+       
+            meterRemaining = amountToAdd + meterRemaining;
             meterPercent = meterRemaining / totalMeter;
-        }
+
 
     }
 }

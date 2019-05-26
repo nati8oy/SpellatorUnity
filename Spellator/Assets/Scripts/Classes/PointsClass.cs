@@ -6,8 +6,10 @@ public class PointsClass
 {
     public static int totalScore;
     public static int multiplier;
+    public static bool multiplierActive;
     public static int liveScore;
     public static int primaryTileScore;
+    public static int mostRecentScore;
     public int pointsScored;
     public int bonusPoints;
     public int pointsAdded;
@@ -23,15 +25,27 @@ public class PointsClass
 
     public void addPoints(int _pointsScored)
     {
+
         pointsScored = _pointsScored;
-        totalScore = totalScore + pointsScored + bonusPoints + liveScore;
+
+        if (multiplierActive==true)
+        {
+            totalScore = totalScore + (pointsScored * multiplier);
+            Debug.Log("multplier is active and is set to: " + multiplier);
+        } else if (multiplierActive==false)
+        {
+            totalScore = totalScore + pointsScored;
+            Debug.Log("multplier is inactive");
+        }
+
+        mostRecentScore = liveScore;
         liveScore = primaryTileScore;
     }
 
     public void addLiveScore(int _pointsAdded)
     {
         pointsAdded = _pointsAdded;
-        liveScore = liveScore + pointsAdded + primaryTileScore;
+        liveScore = pointsAdded + liveScore;
     }
 
     public void resetScores()

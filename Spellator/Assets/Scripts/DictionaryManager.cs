@@ -27,6 +27,8 @@ public class DictionaryManager : MonoBehaviour
         get {return primaryTile; }
     }
 
+    private SpecialMeterClass specialMeter = new SpecialMeterClass();
+
     private GameObject startTile;
 
     private GameObject pointsHolder;
@@ -162,10 +164,11 @@ public class DictionaryManager : MonoBehaviour
     {
 
 
-        if (multiplier >= 3)
+        if (PointsClass.multiplier >= 3)
         {
             //set the multiplier text 
-            multiplierText.text = "x" + multiplier.ToString();
+            multiplierText.text = "x" + PointsClass.multiplier.ToString();
+            PointsClass.multiplierActive = true;
 
         }
 
@@ -188,12 +191,12 @@ public class DictionaryManager : MonoBehaviour
             //add to the multiplier
             if (WordBeingMade.Length >= 4)
             {
-                multiplier += 1;
+               PointsClass.multiplier += 1;
             }
 
             else if (WordBeingMade.Length <= 3)
             {
-                multiplier =0;
+                PointsClass.multiplier = 0;
                 multiplierText.text = "";
             }
 
@@ -220,32 +223,9 @@ public class DictionaryManager : MonoBehaviour
                 // StartCoroutine(DelayForTileReset(randomForTween, tile));
 
                iTween.MoveBy(tile, iTween.Hash("y", randomYPos, "easetype", "EaseOutQuad", "time", randomTimeFrame, "oncomplete", "RemoveTileOnComplete"));
-
-
-
-                //set the status of the position within the board as available so that a new tile will be spawned there
-
-                //tileStatusUpdate.CheckTileStatus("Available");
-
-
-                //set to inactive instead of destroy
-
-
-                //tile.SetActive(true);
-
-                // tile.transform.position = temp.startPos.position;
-
-                //                var resetTiles =  tile.transform.parent.GetComponent<TileCreator>();
-                //              resetTiles.RefillTiles();
-
-
-                //Destroy(tile.gameObject, Random.Range(0.1f, 0.4f));
-
-
-
+              
 
             }
-
 
 
             //add the to total words made
@@ -270,6 +250,16 @@ public class DictionaryManager : MonoBehaviour
 
             }
 
+            //reset the scores
+            scoreText.text = PointsClass.totalScore.ToString();
+
+            scores.addPoints(PointsClass.liveScore);
+
+            //Debug.Log(PointsClass.totalScore);
+            specialMeter.IncreaseMeter(PointsClass.liveScore);
+            Debug.Log("The most recent score was :" + PointsClass.mostRecentScore);
+
+            scores.resetScores();
 
             //Clear the WordBeingMade first before setting it to be the startLetter of the next word
             WordBeingMade = "";
@@ -285,12 +275,7 @@ public class DictionaryManager : MonoBehaviour
             //GameManager.Instance.CalculateScores();
 
 
-            //reset the scores
-            scoreText.text = PointsClass.totalScore.ToString();
 
-            scores.addPoints(PointsClass.liveScore);
-            //Debug.Log(PointsClass.totalScore);
-            scores.resetScores();
 
             //GameManager.Instance.LiveScoreText = "";
 
@@ -301,16 +286,9 @@ public class DictionaryManager : MonoBehaviour
             //set the chain flag to true so that chain mode can continue
             chainFlag = true;
 
+            scores.resetScores();
+
         }
-
-
-        //set the board holder position to be + 200 each time
-
-        //spawn the points to add
-        // PointsSpawner();
-
-       // PointsSpawner();
-
 
     }
 
@@ -384,12 +362,13 @@ public class DictionaryManager : MonoBehaviour
 
 
             //remove multiplier
-            if (multiplier >=3)
+            if (PointsClass.multiplier >= 3)
             {
                 AudioManager.Instance.PlayAudio(loseMultiplier);
             }
-            multiplier = 0;
-            multiplierText.text = multiplier.ToString();
+            PointsClass.multiplier = 0;
+            PointsClass.multiplierActive = false;
+            multiplierText.text = "";
 
 
 
@@ -494,7 +473,6 @@ public class DictionaryManager : MonoBehaviour
        
 
 
- ;
 
     }
 

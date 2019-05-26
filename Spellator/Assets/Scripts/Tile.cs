@@ -57,6 +57,15 @@ public class Tile : MonoBehaviour
         {
             spawnedTile.letter = DictionaryManager.Instance.StartLetter;
             spawnedTile.points = TileBag.pointsDictionary[spawnedTile.letter];
+
+            /*
+            if (spawnedTile.letter == "X")
+            {
+                spawnedTile.letter = TileBag.bag[Random.Range(0, TileBag.bag.Count)];
+                spawnedTile.points = TileBag.pointsDictionary[spawnedTile.letter];
+            }
+            */
+
             PointsClass.primaryTileScore = spawnedTile.points;
 
         } else if (CompareTag("Tile"))
@@ -173,9 +182,9 @@ public class Tile : MonoBehaviour
 
     public void RemoveLetterFromBag()
     {
-
+        //removes the letters from the bag
         TileBag.bag.Remove(spawnedTile.letter);
-        Debug.Log("there are " + TileBag.bag.Count + " tiles remaining in the bag");
+        //Debug.Log("there are " + TileBag.bag.Count + " tiles remaining in the bag");
 
     }
 
