@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DictionaryManager : MonoBehaviour
 {
@@ -15,7 +16,9 @@ public class DictionaryManager : MonoBehaviour
     [SerializeField] private AudioClip clearWordSound;
     [SerializeField] private AudioClip loseMultiplier;
 
-    [SerializeField] private Text multiplierText;
+    //[SerializeField] private Text multiplierText;
+
+    [SerializeField] private TextMeshProUGUI multiplierText;
 
     private PointsClass scores = new PointsClass();
 
@@ -255,9 +258,8 @@ public class DictionaryManager : MonoBehaviour
 
             scores.addPoints(PointsClass.liveScore);
 
-            //Debug.Log(PointsClass.totalScore);
             specialMeter.IncreaseMeter(PointsClass.liveScore);
-            Debug.Log("The most recent score was :" + PointsClass.mostRecentScore);
+            //Debug.Log("The most recent score was :" + PointsClass.mostRecentScore);
 
             scores.resetScores();
 
@@ -366,7 +368,7 @@ public class DictionaryManager : MonoBehaviour
             {
                 AudioManager.Instance.PlayAudio(loseMultiplier);
             }
-            PointsClass.multiplier = 0;
+            PointsClass.multiplier = 1;
             PointsClass.multiplierActive = false;
             multiplierText.text = "";
 

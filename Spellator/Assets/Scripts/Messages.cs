@@ -5,14 +5,20 @@ using UnityEngine.UI;
 
 public class Messages
 {
-    public string messageText;
+    public string message;
     public Color textColour;
 
    public Messages()
     {
-        messageText = GameManager.Instance.mostRecentScore.ToString();
-      //  iTween.MoveBy(messageObject, new Vector3(200,0), 1);
+        //message = GameManager.Instance.mostRecentScore.ToString();
+        //iTween.MoveBy(GameManager.Instance.MessageObject, new Vector3(200,0), 1);
        
+    }
+
+    public void MessageToDisplay(string _message)
+    {
+        message = _message;
+
     }
 
 }

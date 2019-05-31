@@ -20,12 +20,25 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Text blueTotalScore;
     [SerializeField] private Text redTotalScore;
 
+
     [SerializeField] private RectTransform gameOverPanel;
 
     public List<GameObject> pooledObjects = new List<GameObject>();
     public GameObject objectToPool;
     public int amountToPool;
     public GameObject obj;
+
+    [SerializeField] private GameObject messageObject;
+
+
+    private Messages onScreenMessage = new Messages();
+
+    public GameObject MessageObject
+    {
+        get { return messageObject; }
+        set { MessageObject = value; }
+    }
+
 
     //instance of the Points Class to handle points
     private PointsClass scoreClass;
@@ -110,6 +123,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
 
+        onScreenMessage.MessageToDisplay("Working!");
+        iTween.MoveBy(messageObject, new Vector3(0, 200), 1);
 
 
         //create an instance of the points class

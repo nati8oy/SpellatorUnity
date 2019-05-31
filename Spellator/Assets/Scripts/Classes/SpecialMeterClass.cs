@@ -10,7 +10,7 @@ public class SpecialMeterClass
 
     public SpecialMeterClass()
     {
-        totalMeter = 50;
+        totalMeter = 1;
         meterRemaining = 0;
         meterPercent = meterRemaining / totalMeter;
 
@@ -21,7 +21,8 @@ public class SpecialMeterClass
     {
        
             meterRemaining = amountToAdd + meterRemaining;
-            meterPercent = meterRemaining / totalMeter;
+            meterPercent = (meterRemaining / totalMeter)/100;
+        Debug.Log("Meter percent is: " + meterPercent);
 
 
     }
