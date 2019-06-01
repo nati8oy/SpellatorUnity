@@ -19,11 +19,25 @@ public class SpecialMeterClass
 
     public void IncreaseMeter(float amountToAdd)
     {
-       
+
+        if (meterPercent < 1)
+        {
             meterRemaining = amountToAdd + meterRemaining;
-            meterPercent = (meterRemaining / totalMeter)/100;
-        Debug.Log("Meter percent is: " + meterPercent);
+            meterPercent = (meterRemaining / totalMeter) / 10;
+           // meterPercent = (meterRemaining / totalMeter) / 100;
+            Debug.Log("Meter percent is: " + meterPercent);
+        }
+        else if (meterPercent >= 1)
+        {
+            meterRemaining = 0;
+            meterRemaining = amountToAdd + meterRemaining;
+            meterPercent = (meterRemaining / totalMeter) / 10;
+        }
 
+    }
 
+    public void ObjectToTween (GameObject objectToTween)
+    {
+        
     }
 }

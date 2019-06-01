@@ -22,6 +22,10 @@ public class DictionaryManager : MonoBehaviour
 
     private PointsClass scores = new PointsClass();
 
+    //add class for the on screen messages to reference later.
+    private Messages onScreenMessage = new Messages();
+
+
     private TileClass NewPrimaryTile;
     [SerializeField] private GameObject primaryTile;
 
@@ -139,6 +143,13 @@ public class DictionaryManager : MonoBehaviour
     {
         //create a new primary tile class so that it's avaiable for later on.
         NewPrimaryTile = new TileClass(primaryTile.transform.position);
+
+
+        //run the function in the Messages class that makes the message object active
+        onScreenMessage.ShowMessage();
+
+        //run the function in the Messages class that tweens the position of the messages
+        MoveOnScreenMessage();
 
 
 
@@ -472,53 +483,13 @@ public class DictionaryManager : MonoBehaviour
         }
 
 
-       
-
-
-
     }
 
-
-    /*
-    public void SetStartTile(string firstLetter)
+    public void MoveOnScreenMessage()
     {
-
-        startTile = GameManager.Instance.GetPooledObject();
-
-        if (startTile != null)
-        {
-
-            //var accessTileScript = startTile.GetComponent<TileClass>();
-
-           // accessTileScript.SetTileType("primary");
-           
-
-            /*
-            var holderObject = GameObject.Find("Primary Tile").transform;
-
-            startTile.transform.position = holderObject.transform.position;
-            //startTile.transform.parent = (GameObject.Find("Primary Tile").transform);
-            //startTile.transform.SetParent(holderObject);
-
-            */
-
-    //startTile = Instantiate(tile, primaryTile.transform);
-
-    /*
-        var tileScript = startTile.GetComponent<Tile>();
-        tileScript.letter.text = firstLetter;
-        tileScript.firstLetterTile = true;
-        tileScript.points.text = InitDictionary.Instance.pointsDictionary[tileScript.letter.text].ToString();
-        startTile.SetActive(true);
-        //available = false;
-        var holderObject = GameObject.Find("Primary Tile").transform;
-
-        startTile.transform.position = holderObject.transform.position;
-        startTile.tag = "PrimaryTile";
-
+        var parentObject = GameObject.Find("On Screen Messages");
+        iTween.MoveBy(parentObject, iTween.Hash("y", 200, "easeType", "easeInOutExpo", "delay", .1, "oncomplete", "DeactivateMessage"));
     }
-
-}*/
 
 
 }

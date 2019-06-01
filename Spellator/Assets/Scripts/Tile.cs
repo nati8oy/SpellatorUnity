@@ -49,6 +49,7 @@ public class Tile : MonoBehaviour
 
         //create instance of the TileClass for use in the checks below
         spawnedTile = new TileClass(gameObject.transform.position);
+       
 
 
         //if that tag is PrimaryTile then set the tile letter and points to be that of the StartLetter
@@ -95,7 +96,9 @@ public class Tile : MonoBehaviour
         letter.text = spawnedTile.letter;
         points.text = spawnedTile.points.ToString();
         tilePointValue = spawnedTile.points;
-        
+
+        //removes the tile from the bag
+        RemoveLetterFromBag();
 
 
     }

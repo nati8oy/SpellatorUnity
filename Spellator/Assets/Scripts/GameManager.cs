@@ -31,7 +31,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject messageObject;
 
 
-    private Messages onScreenMessage = new Messages();
 
     public GameObject MessageObject
     {
@@ -123,8 +122,14 @@ public class GameManager : MonoBehaviour
     void Start()
     {
 
-        onScreenMessage.MessageToDisplay("Working!");
+
+
+
         iTween.MoveBy(messageObject, new Vector3(0, 200), 1);
+
+
+        var specialButton = GameObject.Find("SpecialButton").GetComponent<Button>();
+        specialButton.interactable = false;
 
 
         //create an instance of the points class
