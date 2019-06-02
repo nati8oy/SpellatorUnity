@@ -152,10 +152,15 @@ public class DictionaryManager : MonoBehaviour
         EncouragementMessages.Add("Amazing!");
         EncouragementMessages.Add("Wow!");
         EncouragementMessages.Add("Nice word!");
-        EncouragementMessages.Add("Smashing it!");
+        EncouragementMessages.Add("Incredible!");
         EncouragementMessages.Add("Holy Heck!");
-        EncouragementMessages.Add("For real?!");
+        EncouragementMessages.Add("Keep it up!");
         EncouragementMessages.Add("Love!");
+        EncouragementMessages.Add("Great!");
+        EncouragementMessages.Add("That's Dope!");
+        EncouragementMessages.Add("Awesome!");
+        EncouragementMessages.Add("Love!");
+        EncouragementMessages.Add("Hot streak!");
 
 
 
@@ -165,7 +170,7 @@ public class DictionaryManager : MonoBehaviour
 
 
         //run the function in the Messages class that makes the message object active
-        ShowMessage();
+        //ShowMessage();
 
 
 
@@ -233,7 +238,7 @@ public class DictionaryManager : MonoBehaviour
 
 
             //add on screen encouragement for words above 5 letters
-            if (WordBeingMade.Length >= 3)
+            if ((WordBeingMade.Length >= 5) || (PointsClass.liveScore>=50))
             {
                 ShowMessage();
             }
@@ -518,6 +523,7 @@ public class DictionaryManager : MonoBehaviour
         //messageObject = GameObject.Find("Message Text").GetComponent<TextMeshProUGUI>();
 
         messageObject.text = message;
+        //messageObject.color = Color.red;
 
         if (messageParentObject.active != true)
         {

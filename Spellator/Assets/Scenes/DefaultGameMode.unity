@@ -252,7 +252,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -38.7, y: 448}
+  m_AnchoredPosition: {x: -38.699997, y: 448}
   m_SizeDelta: {x: 119.4, y: 65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &62966392
@@ -1619,16 +1619,16 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: x4
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e27ba77d62582402eb00b3b7d9b70ddb, type: 2}
-  m_sharedMaterial: {fileID: 21093249822708592, guid: e27ba77d62582402eb00b3b7d9b70ddb,
+  m_fontAsset: {fileID: 11400000, guid: 54dcc2803250b443ab9022bc6be9a6bf, type: 2}
+  m_sharedMaterial: {fileID: 21601728745053340, guid: 54dcc2803250b443ab9022bc6be9a6bf,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4279881461
+  m_fontColor: {r: 0.9607843, g: 0.80784315, b: 0.09803922, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1646,8 +1646,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1737,7 +1737,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -133, y: 102}
+  m_AnchoredPosition: {x: -202, y: 32}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &740672036
@@ -3254,36 +3254,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1538782954}
   m_CullTransparentMesh: 0
---- !u!1 &1541079285
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1541079286}
-  m_Layer: 0
-  m_Name: Pool
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1541079286
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1541079285}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 832.80817, y: 1407, z: -38.594807}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1595087527
 GameObject:
   m_ObjectHideFlags: 0
@@ -4011,7 +3981,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -247.2, y: 30.1}
+  m_AnchoredPosition: {x: -247.2, y: 30.099998}
   m_SizeDelta: {x: 98.8, y: 83.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &1451033588213933048 stripped
@@ -4226,6 +4196,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: On Screen Messages
       objectReference: {fileID: 0}
+    - target: {fileID: 9158315934212890931, guid: 23c8e898c760d49ea8dc3cba193a3f90,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1451033588213933048, guid: 23c8e898c760d49ea8dc3cba193a3f90,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4330,11 +4305,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4453073012619277101, guid: 23c8e898c760d49ea8dc3cba193a3f90,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 345
       objectReference: {fileID: 0}
     - target: {fileID: 6764422976199072721, guid: 23c8e898c760d49ea8dc3cba193a3f90,
         type: 3}
@@ -4897,15 +4867,3 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6417814906172121642}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &9158315934212890932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9158315934212890931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 133130dc76e71439eb19bdc59cbc8f87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

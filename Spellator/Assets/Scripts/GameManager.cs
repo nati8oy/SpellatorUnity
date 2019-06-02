@@ -125,7 +125,7 @@ public class GameManager : MonoBehaviour
 
 
 
-        iTween.MoveBy(messageObject, new Vector3(0, 200), 1);
+        //iTween.MoveBy(messageObject, new Vector3(0, 200), 1);
 
 
         var specialButton = GameObject.Find("SpecialButton").GetComponent<Button>();

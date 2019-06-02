@@ -153,15 +153,16 @@ public class Tile : MonoBehaviour
                 
 
 
-            iTween.MoveTo(gameObject, iTween.Hash("x", TileManager.Instance.NextFreePos.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time",0.5f, "easetype", "EaseOutQuint"));
+            iTween.MoveTo(gameObject, iTween.Hash("x", TileManager.Instance.NextFreePos.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time",0.5f, "easetype", "easeOutQuint"));
 
  
-            //sets the next free position to the TileManage.Instance.selectedTiles length
+            //sets the next free position to the TileManager.Instance.selectedTiles length
 
             TileManager.Instance.PlayTiles();
 
             //add the score
             scores.addLiveScore(spawnedTile.points);
+
 
             GameManager.Instance.LiveScoreText.text = PointsClass.liveScore.ToString();
 
