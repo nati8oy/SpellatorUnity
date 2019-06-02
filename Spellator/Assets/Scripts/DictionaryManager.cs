@@ -16,14 +16,19 @@ public class DictionaryManager : MonoBehaviour
     [SerializeField] private AudioClip clearWordSound;
     [SerializeField] private AudioClip loseMultiplier;
 
-    //[SerializeField] private Text multiplierText;
+    //this section is for the on screen messages
+    [SerializeField] private GameObject messageParentObject;
+    [SerializeField] private TextMeshProUGUI messageObject;
 
-    [SerializeField] private TextMeshProUGUI multiplierText;
+    private List<string> EncouragementMessages;
+    private string message;
+
+    [SerializeField] public TextMeshProUGUI multiplierText;
 
     private PointsClass scores = new PointsClass();
 
     //add class for the on screen messages to reference later.
-    private Messages onScreenMessage = new Messages();
+    //private Messages onScreenMessage = new Messages();
 
 
     private TileClass NewPrimaryTile;
@@ -41,7 +46,7 @@ public class DictionaryManager : MonoBehaviour
     private GameObject pointsHolder;
     [SerializeField] private GameObject pointsText;
 
-    [SerializeField] private GameObject message;
+    //[SerializeField] private GameObject message;
 
     private bool initialBoardMove;
 
@@ -141,15 +146,27 @@ public class DictionaryManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        EncouragementMessages = new List<string>();
+        EncouragementMessages.Add("Marvellous!");
+        EncouragementMessages.Add("Amazing!");
+        EncouragementMessages.Add("Wow!");
+        EncouragementMessages.Add("Nice word!");
+        EncouragementMessages.Add("Smashing it!");
+        EncouragementMessages.Add("Holy Heck!");
+        EncouragementMessages.Add("For real?!");
+        EncouragementMessages.Add("Love!");
+
+
+
+
         //create a new primary tile class so that it's avaiable for later on.
         NewPrimaryTile = new TileClass(primaryTile.transform.position);
 
 
         //run the function in the Messages class that makes the message object active
-        onScreenMessage.ShowMessage();
+        ShowMessage();
 
-        //run the function in the Messages class that tweens the position of the messages
-        MoveOnScreenMessage();
 
 
 
@@ -196,7 +213,7 @@ public class DictionaryManager : MonoBehaviour
         if (dictionary.ContainsKey(WordBeingMade))
         {
 
-            //check if the multiplier is gonig to be broken with a 3 letter word. If so, play the sound.
+            //check if the multiplier is going to be broken with a 3 letter word. If so, play the sound.
             if ((multiplier >= 3) && (WordBeingMade.Length <= 3))
             {
                 AudioManager.Instance.PlayAudio(loseMultiplier);
@@ -215,6 +232,14 @@ public class DictionaryManager : MonoBehaviour
             }
 
 
+            //add on screen encouragement for words above 5 letters
+            if (WordBeingMade.Length >= 3)
+            {
+                ShowMessage();
+            }
+
+
+
             //loop through the array and delete each of the gameObjects in it
             selectedTilesArray = GameObject.FindGameObjectsWithTag("TileSelected");
 
@@ -230,11 +255,9 @@ public class DictionaryManager : MonoBehaviour
 
                 tile.tag = "Tile";
                 //
-                //tile.SetActive(false);
 
                 var randomYPos = Random.Range(75, 125);
                 var randomTimeFrame = Random.Range(0.2f,0.5f);
-                // StartCoroutine(DelayForTileReset(randomForTween, tile));
 
                iTween.MoveBy(tile, iTween.Hash("y", randomYPos, "easetype", "EaseOutQuad", "time", randomTimeFrame, "oncomplete", "RemoveTileOnComplete"));
               
@@ -485,10 +508,24 @@ public class DictionaryManager : MonoBehaviour
 
     }
 
-    public void MoveOnScreenMessage()
+    public void ShowMessage()
     {
-        var parentObject = GameObject.Find("On Screen Messages");
-        iTween.MoveBy(parentObject, iTween.Hash("y", 200, "easeType", "easeInOutExpo", "delay", .1, "oncomplete", "DeactivateMessage"));
+
+        //set the message text to be a random one from the EncouragementMessage list
+        message = EncouragementMessages[Random.Range(0, EncouragementMessages.Count)];
+
+        //find the TMPro component that is going to hold the string from above
+        //messageObject = GameObject.Find("Message Text").GetComponent<TextMeshProUGUI>();
+
+        messageObject.text = message;
+
+        if (messageParentObject.active != true)
+        {
+            messageParentObject.SetActive(true);
+        }
+
+        //tween the parent object so that it moves up when spawned.
+        iTween.MoveBy(messageParentObject, iTween.Hash("y", 60, "easeType", "easeInOutExpo", "oncomplete", "DeactivateMessage"));
     }
 
 

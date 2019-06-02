@@ -14,11 +14,8 @@ public class Messages
 
    public Messages()
     {
-        AddEncouragementMessages();
-        //parentObject = GameObject.Find("On Screen Messages");
-        //message = GameManager.Instance.mostRecentScore.ToString();
-        //iTween.MoveBy(GameManager.Instance.MessageObject, new Vector3(200,0), 1);
-
+       // AddEncouragementMessages();
+       
     }
 
     public void ShowMessage()
@@ -33,18 +30,5 @@ public class Messages
 
     }
 
-    public void AddEncouragementMessages()
-    {
-        EncouragementMessages = new List<string>();
-        EncouragementMessages.Add("Marvellous!");
-        EncouragementMessages.Add("Amazing!");
-        EncouragementMessages.Add("Wow!");
-        EncouragementMessages.Add("Nice word!");
-        EncouragementMessages.Add("Smashing it!");
-        EncouragementMessages.Add("Holy Heck!");
-        EncouragementMessages.Add("For real?!");
-        EncouragementMessages.Add("Love!");
-
-    }
 
 }
