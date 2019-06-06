@@ -8,10 +8,14 @@ public class SpecialMeter : MonoBehaviour
     private SpecialMeterClass initClass;
     private GameObject bar;
     private Vector3 barSize;
+    private ParticleSystem starParticles;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        starParticles = GameObject.Find("Star Particles").GetComponent<ParticleSystem>();
+        starParticles.Stop();
         initClass = new SpecialMeterClass();
         bar = GameObject.Find("Special Bar");
 

@@ -108,7 +108,6 @@ public class Tile : MonoBehaviour
     void Start()
     {
 
-
         //gameObject.transform.localScale = new Vector3 (1,1);
 
         //check to see if the tile is the first tile for chain mode words
@@ -163,6 +162,8 @@ public class Tile : MonoBehaviour
             //add the score
             scores.addLiveScore(spawnedTile.points);
 
+            //var ComboText = GameObject.Find("Combo");
+           // iTween.MoveBy(ComboText, iTween.Hash("x", 110, "easeType", "easeInOutExpo"));
 
             GameManager.Instance.LiveScoreText.text = PointsClass.liveScore.ToString();
 

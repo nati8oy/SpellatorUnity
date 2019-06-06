@@ -10,6 +10,10 @@ public class DictionaryManager : MonoBehaviour
 
     public static DictionaryManager Instance;
 
+
+    private ParticleSystem starParticles;
+
+
     [SerializeField] private GameObject BoardHolder;
 
     [SerializeField] private AudioClip correctWord;
@@ -214,7 +218,12 @@ public class DictionaryManager : MonoBehaviour
 
     public void CheckAndDeleteTiles()
     {
-    
+        //temporary star particles test
+        starParticles = GameObject.Find("Star Particles").GetComponent<ParticleSystem>();
+        starParticles.Play();
+
+
+
         if (dictionary.ContainsKey(WordBeingMade))
         {
 
