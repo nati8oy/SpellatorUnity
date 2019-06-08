@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Text blueTotalScore;
     [SerializeField] private Text redTotalScore;
 
+    public string allLetters;
+    [SerializeField] public TextAsset externalBagTXT;
+
 
     [SerializeField] private RectTransform gameOverPanel;
 
@@ -125,19 +128,26 @@ public class GameManager : MonoBehaviour
 
 
 
-        //iTween.MoveBy(messageObject, new Vector3(0, 200), 1);
+
+       //iTween.MoveBy(messageObject, new Vector3(0, 200), 1);
 
 
-        var specialButton = GameObject.Find("SpecialButton").GetComponent<Button>();
+       var specialButton = GameObject.Find("SpecialButton").GetComponent<Button>();
         specialButton.interactable = false;
 
 
         //create an instance of the points class
         scoreClass = new PointsClass();
 
+        allLetters = externalBagTXT.text;
+
         //add the letters to the bag List within the TileBag class
         TileBag lettersBag = new TileBag();
         lettersBag.AddLettersToDictonary();
+        Debug.Log("Letters Dictionary:" + TileBag.pointsDictionary.Count);
+
+
+
 
         //instantiate all the objects to pool
         for (int i = 0; i < amountToPool; i++)
@@ -177,6 +187,14 @@ public class GameManager : MonoBehaviour
 
     public void ResetGame()
     {
+        TileBag.pointsDictionary.Clear();
+
+        /*
+        //Get current scene name
+        string scene = SceneManager.GetActiveScene().name;
+        //Load it
+        SceneManager.LoadScene(scene, LoadSceneMode.Single);
+        */
 
         Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
 

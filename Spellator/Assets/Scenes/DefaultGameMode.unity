@@ -2758,7 +2758,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSpeed:
       serializedVersion: 2
-      minMaxState: 2
+      minMaxState: 1
       scalar: 400
       minScalar: 250
       maxCurve:
@@ -2771,17 +2771,17 @@ ParticleSystem:
           outSlope: 0
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
+          inWeight: 0
+          outWeight: 0
         - serializedVersion: 3
           time: 1
-          value: 1
-          inSlope: 0
-          outSlope: 0
+          value: 0
+          inSlope: -2
+          outSlope: -2
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
+          inWeight: 0
+          outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
@@ -2875,7 +2875,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 70
+      scalar: 120
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -7293,7 +7293,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1118587100}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 567, y: 520, z: -1}
+  m_LocalPosition: {x: 337, y: 910, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -9105,7 +9105,7 @@ PrefabInstance:
         type: 3}
       propertyPath: BoardHolder
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 277859073}
     - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
         type: 3}
       propertyPath: pointsText
@@ -9132,6 +9132,11 @@ PrefabInstance:
       propertyPath: messageObject
       value: 
       objectReference: {fileID: 6764422976199072721}
+    - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
+        type: 3}
+      propertyPath: WordBeingSpelledHolder
+      value: 
+      objectReference: {fileID: 277859073}
     - target: {fileID: 6609693015226162854, guid: cc08af2b56d9c45b3af66e59305a1835,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9431,6 +9436,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2821882207915013465, guid: a288115374d8f43f7a450aa2077af955,
         type: 3}
+    - target: {fileID: 7349431635441859144, guid: cf2cb441bcdc54fbba9fdd62fba05c37,
+        type: 3}
+      propertyPath: externalBagTXT
+      value: 
+      objectReference: {fileID: 4900000, guid: 9d6146cddd6ef4ea78ce7418d4c646a7, type: 3}
     - target: {fileID: 7349431635441859143, guid: cf2cb441bcdc54fbba9fdd62fba05c37,
         type: 3}
       propertyPath: m_LocalPosition.x

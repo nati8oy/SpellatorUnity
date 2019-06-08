@@ -18,6 +18,8 @@ public class Tile : MonoBehaviour
     public AudioClip[] popSounds;
 
 
+    public Vector3 nextTileSpot;
+
 
     private PointsClass scores = new PointsClass();
 
@@ -149,12 +151,19 @@ public class Tile : MonoBehaviour
                 }
 
                 gameObject.tag = "TileSelected";
-                
+
+
+
+
+            nextTileSpot = GameObject.Find("Primary Tile").transform.position;
+
+            //iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x)+(110*DictionaryManager.Instance.WordBeingMade.Length), "y", nextTileSpot.y, "time", 0.5f, "easetype", "easeOutQuint"));
+
 
 
             iTween.MoveTo(gameObject, iTween.Hash("x", TileManager.Instance.NextFreePos.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time",0.5f, "easetype", "easeOutQuint"));
 
- 
+
             //sets the next free position to the TileManager.Instance.selectedTiles length
 
             TileManager.Instance.PlayTiles();
@@ -193,5 +202,17 @@ public class Tile : MonoBehaviour
 
     }
 
+
+    public void MoveTileForLongWord()
+
+    {
+        if (DictionaryManager.Instance.WordBeingMade.Length > 3)
+        {
+            DictionaryManager.Instance.ScootTilesDown();
+
+        }
+
+
+    }
 
 }

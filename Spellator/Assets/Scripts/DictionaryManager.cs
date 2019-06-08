@@ -218,9 +218,7 @@ public class DictionaryManager : MonoBehaviour
 
     public void CheckAndDeleteTiles()
     {
-        //temporary star particles test
-        starParticles = GameObject.Find("Star Particles").GetComponent<ParticleSystem>();
-        starParticles.Play();
+       
 
 
 
@@ -237,6 +235,13 @@ public class DictionaryManager : MonoBehaviour
             if (WordBeingMade.Length >= 4)
             {
                PointsClass.multiplier += 1;
+            }
+
+            if (WordBeingMade.Length >= 5)
+            {
+                //temporary star particles test
+                starParticles = GameObject.Find("Star Particles").GetComponent<ParticleSystem>();
+                starParticles.Play();
             }
 
             else if (WordBeingMade.Length <= 3)
@@ -353,11 +358,18 @@ public class DictionaryManager : MonoBehaviour
             AudioManager.Instance.PlayAudio(correctWord);
 
 
+
         }
         else
         {
             sendButton.interactable = false;
         }
+
+        /*
+        if (wordBeingMade.Length > 3)
+        {
+            ScootTilesDown();
+        }*/
 
 
     }
@@ -544,4 +556,20 @@ public class DictionaryManager : MonoBehaviour
     }
 
 
+
+    public void ScootTilesDown()
+    {
+
+
+        selectedTilesArray = GameObject.FindGameObjectsWithTag("TileSelected");
+
+        foreach (GameObject tile in selectedTilesArray)
+        {
+            iTween.MoveBy(tile, iTween.Hash("x", -110, "easeType", "easeInOutExpo"));
+            
+        }
+
+        iTween.MoveBy(BoardHolder, iTween.Hash("x", -110, "easeType", "easeInOutExpo"));
+
+    }
 }
