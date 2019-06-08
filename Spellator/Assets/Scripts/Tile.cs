@@ -13,7 +13,7 @@ public class Tile : MonoBehaviour
     public bool firstLetterTile;
 
     private TileBag tileBag = new TileBag();
-    
+
     [SerializeField] private AudioClip tileClick;
     public AudioClip[] popSounds;
 
@@ -51,12 +51,12 @@ public class Tile : MonoBehaviour
 
         //create instance of the TileClass for use in the checks below
         spawnedTile = new TileClass(gameObject.transform.position);
-       
+
 
 
         //if that tag is PrimaryTile then set the tile letter and points to be that of the StartLetter
         //otherwise, set them to come up randomly from the bag
-        if (CompareTag ("PrimaryTile"))
+        if (CompareTag("PrimaryTile"))
         {
             spawnedTile.letter = DictionaryManager.Instance.StartLetter;
             spawnedTile.points = TileBag.pointsDictionary[spawnedTile.letter];
@@ -118,7 +118,7 @@ public class Tile : MonoBehaviour
             //sets the letter and point text of each tile
             letter.text = spawnedTile.letter;
             points.text = spawnedTile.points.ToString();
-            tilePointValue  = spawnedTile.points;
+            tilePointValue = spawnedTile.points;
 
         }
 
@@ -133,24 +133,24 @@ public class Tile : MonoBehaviour
 
         AudioManager.Instance.PlayAudio(tileClick);
 
-            //check is the tile is selected or not. If it's not tagged as "selected" then add it to the word being made.
-            if (gameObject.tag == "Tile")
+        //check is the tile is selected or not. If it's not tagged as "selected" then add it to the word being made.
+        if (gameObject.tag == "Tile")
+        {
+
+            //add this tile's Pos to the SelectedTiles list in TileManager
+            TileManager.Instance.SelectedTiles.Add(transform.parent);
+
+
+            //start spelling the word using the letter from this tile
+            DictionaryManager.Instance.CreateWord(letter.text);
+
+            //if the word is longer than 3 letters, check if it's in the dictionary
+            if (DictionaryManager.Instance.WordBeingMade.Length >= 3)
             {
+                DictionaryManager.Instance.CheckWord();
+            }
 
-                //add this tile's Pos to the SelectedTiles list in TileManager
-                TileManager.Instance.SelectedTiles.Add(transform.parent);
-
-
-                //start spelling the word using the letter from this tile
-                DictionaryManager.Instance.CreateWord(letter.text);
-
-                //if the word is longer than 3 letters, check if it's in the dictionary
-                if (DictionaryManager.Instance.WordBeingMade.Length >= 3)
-                {
-                    DictionaryManager.Instance.CheckWord();
-                }
-
-                gameObject.tag = "TileSelected";
+            gameObject.tag = "TileSelected";
 
 
 
@@ -161,7 +161,7 @@ public class Tile : MonoBehaviour
 
 
 
-            iTween.MoveTo(gameObject, iTween.Hash("x", TileManager.Instance.NextFreePos.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time",0.5f, "easetype", "easeOutQuint"));
+            iTween.MoveTo(gameObject, iTween.Hash("x", TileManager.Instance.NextFreePos.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time", 0.5f, "easetype", "easeOutQuint"));
 
 
             //sets the next free position to the TileManager.Instance.selectedTiles length
@@ -171,13 +171,11 @@ public class Tile : MonoBehaviour
             //add the score
             scores.addLiveScore(spawnedTile.points);
 
-            //var ComboText = GameObject.Find("Combo");
-           // iTween.MoveBy(ComboText, iTween.Hash("x", 110, "easeType", "easeInOutExpo"));
+            //move the live scor text box to below the current tile
+            SetLiveScorePos();
 
             GameManager.Instance.LiveScoreText.text = PointsClass.liveScore.ToString();
 
-            //GameManager.Instance.LiveScore = GameManager.Instance.LiveScore + tilePointValue;
-            // GameManager.Instance.LiveScoreText.text = GameManager.Instance.LiveScore.ToString();
 
 
 
@@ -202,6 +200,11 @@ public class Tile : MonoBehaviour
 
     }
 
+    //this function sets the position of the live score text box to be under the current letter
+    public void SetLiveScorePos(){
+        var liveScoreGameObject = GameObject.Find("Live Score");
+        liveScoreGameObject.transform.position = new Vector3(liveScoreGameObject.transform.position.x+100, liveScoreGameObject.transform.position.y);
+}
 
     public void MoveTileForLongWord()
 

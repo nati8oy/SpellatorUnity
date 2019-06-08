@@ -126,12 +126,6 @@ public class GameManager : MonoBehaviour
     {
 
 
-
-
-
-       //iTween.MoveBy(messageObject, new Vector3(0, 200), 1);
-
-
        var specialButton = GameObject.Find("SpecialButton").GetComponent<Button>();
         specialButton.interactable = false;
 
@@ -175,7 +169,6 @@ public class GameManager : MonoBehaviour
         //make the send button inactive on start up
         DictionaryManager.Instance.sendButton.interactable = false;
     }
-
 
     public void GameOverMethod()
     {

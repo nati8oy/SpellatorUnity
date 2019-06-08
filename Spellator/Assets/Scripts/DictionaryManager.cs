@@ -218,7 +218,8 @@ public class DictionaryManager : MonoBehaviour
 
     public void CheckAndDeleteTiles()
     {
-       
+
+        ResetLiveScorePosition();
 
 
 
@@ -388,6 +389,11 @@ public class DictionaryManager : MonoBehaviour
         sendButton.interactable = false;
         AudioManager.Instance.PlayAudio(clearWordSound);
 
+       // var liveScoreText = GameObject.Find("Live Score").GetComponent<Text>();
+        //liveScoreText.text = GameObject.Find("Primary Tile").GetComponent<TextMeshProUGUI>().ToString();
+
+        //set the live score back to the start position
+        ResetLiveScorePosition();
 
         TileManager.Instance.SelectedTiles.Clear();
         //check if the reset bool is true. If it is, delete all the tiles in the rack
@@ -555,6 +561,17 @@ public class DictionaryManager : MonoBehaviour
         iTween.MoveBy(messageParentObject, iTween.Hash("y", 60, "easeType", "easeInOutExpo", "oncomplete", "DeactivateMessage"));
     }
 
+
+    public void ResetLiveScorePosition()
+    {
+        //set the live score back to the start position
+        var liveScoreGameObject = GameObject.Find("Live Score");
+
+        iTween.MoveTo(liveScoreGameObject, iTween.Hash("x", GameObject.Find("Primary Tile").transform.position.x + 50, "easeType", "easeOutExpo"));
+
+        //liveScoreGameObject.transform.position = new Vector3(GameObject.Find("Primary Tile").transform.position.x+50, liveScoreGameObject.transform.position.y);
+
+    }
 
 
     public void ScootTilesDown()
