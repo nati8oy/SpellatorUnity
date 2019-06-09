@@ -12,13 +12,16 @@ public class Encouragement
 
         encouragmentMessages.Add("Wow!");
         encouragmentMessages.Add("Nice one!");
-        encouragmentMessages.Add("Word up!");
+        encouragmentMessages.Add("Keep it up!");
         encouragmentMessages.Add("Excellent!");
         encouragmentMessages.Add("Totes amaze!");
         encouragmentMessages.Add("Great word!");
         encouragmentMessages.Add("Best!");
         encouragmentMessages.Add("Oh yeah!");
         encouragmentMessages.Add("Whoa!");
+        encouragmentMessages.Add("Wunderbar!");
+        encouragmentMessages.Add("Incredible!");
+
 
         //messageText.text = encouragmentMessages[Random.Range(0, 7)];
         //StartCoroutine(Move(endPos.transform.position));

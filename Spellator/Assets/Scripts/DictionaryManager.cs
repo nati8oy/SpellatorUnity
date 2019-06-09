@@ -157,7 +157,6 @@ public class DictionaryManager : MonoBehaviour
         EncouragementMessages.Add("Wow!");
         EncouragementMessages.Add("Nice word!");
         EncouragementMessages.Add("Incredible!");
-        EncouragementMessages.Add("Holy Heck!");
         EncouragementMessages.Add("Keep it up!");
         EncouragementMessages.Add("Love!");
         EncouragementMessages.Add("Great!");
@@ -165,6 +164,8 @@ public class DictionaryManager : MonoBehaviour
         EncouragementMessages.Add("Awesome!");
         EncouragementMessages.Add("Love!");
         EncouragementMessages.Add("Hot streak!");
+        EncouragementMessages.Add("Excellent!");
+        EncouragementMessages.Add("Great Word!");
 
 
 
