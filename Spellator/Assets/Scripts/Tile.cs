@@ -15,6 +15,8 @@ public class Tile : MonoBehaviour
     private TileBag tileBag = new TileBag();
 
     [SerializeField] private AudioClip tileClick;
+    [SerializeField] private GameObject specialIcon;
+
     public AudioClip[] popSounds;
 
 
@@ -45,12 +47,32 @@ public class Tile : MonoBehaviour
 
     private void OnEnable()
     {
-
-
-
-
         //create instance of the TileClass for use in the checks below
         spawnedTile = new TileClass(gameObject.transform.position);
+
+        switch (spawnedTile.specialAttribute)
+        {
+            case "star":
+                specialIcon.SetActive(true);
+
+                break;
+            case "triangle":
+                specialIcon.SetActive(true);
+
+                break;
+            case "circle":
+                specialIcon.SetActive(true);
+
+                break;
+            case "square":
+                specialIcon.SetActive(true);
+
+                break;
+        }
+
+     
+
+
 
 
 

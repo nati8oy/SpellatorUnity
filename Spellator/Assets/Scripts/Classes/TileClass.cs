@@ -12,17 +12,50 @@ public class TileClass
     public string letter;
     public int points;
     public Color correctWord;
+    public int randomSelector;
+
+    //this list holds the different special types
+    public List<string> specialTypes;
+
+    //this defines the kind of special that the tile will be. Circle, square, etc.
+    public string specialAttribute;
+
+    //the chance of a special tile showing up
+    public static int specialChance;
 
 
     public TileClass (Vector3 _startPosition) {
         startPosition = _startPosition;
 
+        specialTypes = new List<string>();
 
-       // correctWord = new Color(255, 20, 10);
-        //letter = TileBag.bag[Random.Range(0, 95)];
-        //points = TileBag.pointsDictionary[letter];
+        specialChance = 20;
 
+        //add special types on initialisaton
+        specialTypes.Add("triangle");
+        specialTypes.Add("circle");
+        specialTypes.Add("square");
+        specialTypes.Add("star");
+
+        //choose a random number for special probability
+        randomSelector = Random.Range(1,20);
+
+        if (randomSelector >= (specialChance-1))
+        {
+            tileType = "special";
+            specialAttribute = specialTypes[Random.Range(0, 3)];
+        }
+
+        else if (randomSelector < (specialChance - 1))
+        {
+            tileType = "default";
+            specialAttribute = "none";
+        }
+
+        //Debug.Log("Tile type is: " + tileType + " Special type: " + specialAttribute);
     }
+
+    
 
 
 

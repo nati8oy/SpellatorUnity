@@ -7,6 +7,8 @@ public class SpecialMeter : MonoBehaviour
 {
     private SpecialMeterClass initClass;
     private GameObject bar;
+    private GameObject bar2;
+    private GameObject bar3;
     private Vector3 barSize;
     private ParticleSystem starParticles;
 
@@ -17,7 +19,7 @@ public class SpecialMeter : MonoBehaviour
         starParticles = GameObject.Find("Star Particles").GetComponent<ParticleSystem>();
         starParticles.Stop();
         initClass = new SpecialMeterClass();
-        bar = GameObject.Find("Special Bar");
+        bar = GameObject.Find("Level 1");
 
         bar.transform.localScale = new Vector3(0, bar.transform.localScale.y);
 
@@ -26,7 +28,6 @@ public class SpecialMeter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
 
         if (SpecialMeterClass.meterPercent < 1)
         {
@@ -37,6 +38,7 @@ public class SpecialMeter : MonoBehaviour
         if(SpecialMeterClass.meterPercent >= 1)
         {
             SetToZero();
+
         }
 
     }
