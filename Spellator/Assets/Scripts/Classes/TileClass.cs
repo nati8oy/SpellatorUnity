@@ -13,6 +13,7 @@ public class TileClass
     public int points;
     public Color correctWord;
     public int randomSelector;
+    public int age;
 
     //this list holds the different special types
     public List<string> specialTypes;
@@ -25,6 +26,8 @@ public class TileClass
 
 
     public TileClass (Vector3 _startPosition) {
+
+        age = 3;
         startPosition = _startPosition;
 
         specialTypes = new List<string>();

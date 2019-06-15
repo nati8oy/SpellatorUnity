@@ -5,8 +5,17 @@ using TMPro;
 
 public class Tile : MonoBehaviour
 {
+
+    [SerializeField] private Image tileBGImage;
+    public Sprite[] tileStateImages;
+
+    //sets whether or not the tile can age
+    public bool canAge = true;
+
     public TextMeshProUGUI letter;
     public TextMeshProUGUI points;
+
+
 
     public TileClass spawnedTile;
 
@@ -21,7 +30,6 @@ public class Tile : MonoBehaviour
 
 
     public Vector3 nextTileSpot;
-
 
     private PointsClass scores = new PointsClass();
 
@@ -42,6 +50,37 @@ public class Tile : MonoBehaviour
         get { return tilePointValue; }
     }
 
+
+
+    private void Update()
+    {
+      
+
+            switch (spawnedTile.age)
+            {
+                case 4:
+                    // tileBGImage.color = Color.white;
+                    tileBGImage.sprite = tileStateImages[3];
+                    break;
+                case 3:
+                   // tileBGImage.color = Color.white;
+                    tileBGImage.sprite = tileStateImages[2];
+                    break;
+                case 2:
+                  //  tileBGImage.color = Color.yellow;
+                    tileBGImage.sprite = tileStateImages[1];
+                    break;
+                case 1:
+                   // tileBGImage.color = Color.red;
+                    tileBGImage.sprite = tileStateImages[0];
+                    break;
+                case 0:
+                    break;
+
+            }
+
+
+    }
 
     //create the list of letters which this could be.
 
@@ -74,8 +113,6 @@ public class Tile : MonoBehaviour
         }
 
      
-
-
 
 
 
@@ -241,6 +278,11 @@ public class Tile : MonoBehaviour
         }
 
 
+    }
+
+    public void ReduceAge()
+    {
+        spawnedTile.age -= 1;
     }
 
 }

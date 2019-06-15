@@ -67,8 +67,7 @@ public class DictionaryManager : MonoBehaviour
 
     [SerializeField] private Text scoreText;
 
-    private float smoothing;
-    private Vector3 target;
+    private GameObject[] agingArray;
 
 
     private int multiplier;
@@ -221,7 +220,7 @@ public class DictionaryManager : MonoBehaviour
 
         ResetLiveScorePosition();
 
-
+        ReduceAge();
 
         if (dictionary.ContainsKey(WordBeingMade))
         {
@@ -644,5 +643,27 @@ public class DictionaryManager : MonoBehaviour
 
         iTween.MoveBy(BoardHolder, iTween.Hash("x", -110, "easeType", "easeInOutExpo"));
 
+    }
+
+    public void ReduceAge()
+    {
+
+
+        agingArray = GameObject.FindGameObjectsWithTag("Tile");
+
+        foreach (GameObject tile in agingArray)
+        {
+
+            if(tile.GetComponent<Tile>().spawnedTile.age > 0)
+            {
+                tile.GetComponent<Tile>().spawnedTile.age -= 1;
+                Debug.Log("The age of the tiles remaining is: " + tile.GetComponent<Tile>().spawnedTile.age);
+
+            }  if (tile.GetComponent<Tile>().spawnedTile.age == 0)
+            {
+                tile.SetActive(false);
+                tile.transform.parent.GetComponent<TileCreator>().RefillTiles();
+            }
+        }
     }
 }

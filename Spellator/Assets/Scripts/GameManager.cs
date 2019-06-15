@@ -26,10 +26,10 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private RectTransform gameOverPanel;
 
-    public List<GameObject> pooledObjects = new List<GameObject>();
-    public GameObject objectToPool;
-    public int amountToPool;
-    public GameObject obj;
+    //public List<GameObject> pooledObjects = new List<GameObject>();
+    //public GameObject objectToPool;
+   // public int amountToPool;
+   // public GameObject obj;
 
     [SerializeField] private GameObject messageObject;
 
@@ -143,19 +143,6 @@ public class GameManager : MonoBehaviour
 
 
 
-        //instantiate all the objects to pool
-        for (int i = 0; i < amountToPool; i++)
-        {   
-            obj = Instantiate(objectToPool);
-                       
-            //set object to inactive
-            obj.SetActive(false);
-            pooledObjects.Add(obj);
-
-
-        }
-
-
         gameManagerAudioSource = GetComponent<AudioSource>();
 
         gameManagerAudioSource.loop = true;
@@ -189,32 +176,14 @@ public class GameManager : MonoBehaviour
 
 
 
-    public GameObject GetPooledObject()
-    {
-        //
-        for (int i = 0; i < pooledObjects.Count; i++)
-        {
-
-
-            //if the pooled objects aren't active in the hierarchy then get the next pooled object
-            if (pooledObjects[i].activeInHierarchy != true)
-            {
-                return pooledObjects[i];
-            }
-        }
-        //if it's active then just return nothing.
-        return null;
-    }
-
-
     public void StartSetup()
     {
 
         //add the letters to the bag List within the TileBag class
         TileBag lettersBag = new TileBag();
-       // lettersBag.AddLettersToDictonary();
 
 
+        /*
         //instantiate all the objects to pool
         for (int i = 0; i < amountToPool; i++)
         {
@@ -222,12 +191,10 @@ public class GameManager : MonoBehaviour
 
             //set object to inactive
             obj.SetActive(false);
-            // obj.tag = "Pooled Tile";
-            //obj.transform.SetParent(GameObject.Find("Pool").transform);
             pooledObjects.Add(obj);
 
 
-        }
+        }*/
     }
 
 

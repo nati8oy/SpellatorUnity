@@ -10,7 +10,7 @@ public class TileSpawnerClass
 
     public TileSpawnerClass()
     {
-        newTile = GameManager.Instance.GetPooledObject();
+        newTile = ObjectPooler.SharedInstance.GetPooledObject("Tile");
         available = true;
     }
 

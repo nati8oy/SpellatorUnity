@@ -19,10 +19,10 @@ public class TileCreator : MonoBehaviour
 
     private void Start()
     {
-        newTile = GameManager.Instance.GetPooledObject();
+        newTile = ObjectPooler.SharedInstance.GetPooledObject("Tile");
         startPos = gameObject.transform;
 
-
+        
         TileSpawnerClass tileSpawner = new TileSpawnerClass();
         tileSpawner.GetNewPooledObject(gameObject.transform.position, gameObject.transform);
 
@@ -32,7 +32,8 @@ public class TileCreator : MonoBehaviour
 
     public void RefillTiles()
     {
-        newTile = GameManager.Instance.GetPooledObject();
+
+        newTile = ObjectPooler.SharedInstance.GetPooledObject("Tile");
 
         if (newTile != null)
         {
