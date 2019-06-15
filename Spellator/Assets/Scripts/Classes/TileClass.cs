@@ -27,7 +27,7 @@ public class TileClass
 
     public TileClass (Vector3 _startPosition) {
 
-        age = 3;
+        age = 4;
         startPosition = _startPosition;
 
         specialTypes = new List<string>();
