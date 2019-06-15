@@ -181,29 +181,9 @@ public class GameManager : MonoBehaviour
     public void ResetGame()
     {
         TileBag.pointsDictionary.Clear();
-
-        /*
-        //Get current scene name
-        string scene = SceneManager.GetActiveScene().name;
-        //Load it
-        SceneManager.LoadScene(scene, LoadSceneMode.Single);
-        */
-
+        CountDown.timeLeft = 75;
         Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
-
-        /*
-        ResetScores();
-        setTimerTo = 60;
-        blueTotal = 0;
-        redTotal = 0;
-        totalScore = 0;
-        DictionaryManager.Instance.TotalWordsMade = 0;
-        gameOverPanel.gameObject.SetActive(false);
-        DictionaryManager.Instance.ClearWord();
-        DictionaryManager.Instance.WordBeingMade = "";
-        DictionaryManager.Instance.PrimaryTile.SetActive(false);
-        var primaryTile = GameObject.Find("Primary Tile");
-        primaryTile.SetActive(false);*/
+     
 
     }
 

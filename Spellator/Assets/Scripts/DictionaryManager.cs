@@ -7,7 +7,6 @@ using TMPro;
 public class DictionaryManager : MonoBehaviour
 {
 
-
     public static DictionaryManager Instance;
 
 
@@ -227,6 +226,37 @@ public class DictionaryManager : MonoBehaviour
         if (dictionary.ContainsKey(WordBeingMade))
         {
 
+            //switch to check length of word for adding time bonuses
+            switch (WordBeingMade.Length)
+            {
+                case 5:
+                    ShowMessage("time");
+                    CountDown.timeLeft += 2;
+                    break;
+                case 6:
+                    ShowMessage("time");
+                    CountDown.timeLeft += 3;
+                    break;
+                case 7:
+                    ShowMessage("time");
+                    CountDown.timeLeft += 5;
+                    break;
+                case 8:
+                    ShowMessage("time");
+                    CountDown.timeLeft += 7;
+                    break;
+                case 9:
+                    ShowMessage("time");
+                    CountDown.timeLeft += 10;
+                    break;
+                case 10:
+                    ShowMessage("time");
+                    CountDown.timeLeft += 15;
+                    break;
+            }
+
+
+
             //check if the multiplier is going to be broken with a 3 letter word. If so, play the sound.
             if ((multiplier >= 3) && (WordBeingMade.Length <= 3))
             {
@@ -236,7 +266,7 @@ public class DictionaryManager : MonoBehaviour
             //add to the multiplier
             if (WordBeingMade.Length >= 4)
             {
-               PointsClass.multiplier += 1;
+                PointsClass.multiplier += 1;
             }
 
             if (WordBeingMade.Length >= 5)
@@ -245,18 +275,19 @@ public class DictionaryManager : MonoBehaviour
                 starParticles = GameObject.Find("Star Particles").GetComponent<ParticleSystem>();
                 starParticles.Play();
             }
+        
 
-            else if (WordBeingMade.Length <= 3)
-            {
-                PointsClass.multiplier = 0;
-                multiplierText.text = "";
-            }
+        else if (WordBeingMade.Length <= 3)
+        {
+            PointsClass.multiplier = 0;
+            multiplierText.text = "";
+        }
 
 
             //add on screen encouragement for words above 5 letters
             if ((WordBeingMade.Length >= 5) || (PointsClass.liveScore>=50))
             {
-                ShowMessage();
+                ShowMessage("encouragement");
             }
 
 
@@ -541,25 +572,49 @@ public class DictionaryManager : MonoBehaviour
 
     }
 
-    public void ShowMessage()
+    public void ShowMessage(string messageType)
     {
 
-        //set the message text to be a random one from the EncouragementMessage list
-        message = EncouragementMessages[Random.Range(0, EncouragementMessages.Count)];
 
-        //find the TMPro component that is going to hold the string from above
-        //messageObject = GameObject.Find("Message Text").GetComponent<TextMeshProUGUI>();
-
-        messageObject.text = message;
-        //messageObject.color = Color.red;
-
+        //if it's inactive, set it to active
         if (messageParentObject.active != true)
         {
             messageParentObject.SetActive(true);
         }
 
-        //tween the parent object so that it moves up when spawned.
-        iTween.MoveBy(messageParentObject, iTween.Hash("y", 60, "easeType", "easeInOutExpo", "oncomplete", "DeactivateMessage"));
+        //show different messages for different types
+
+        switch (messageType)
+        {
+            case "encouragement":
+                //set the message text to be a random one from the EncouragementMessage list
+                message = EncouragementMessages[Random.Range(0, EncouragementMessages.Count)];
+
+                messageObject.text = message;
+                //messageObject.color = Color.red;
+
+
+                //tween the parent object so that it moves up when spawned.
+                iTween.MoveBy(messageParentObject, iTween.Hash("y", 60, "easeType", "easeInOutExpo", "oncomplete", "DeactivateMessage"));
+
+                break;
+
+            case "time":
+                //set the message text to be a random one from the EncouragementMessage list
+                message = "Time++";
+
+                messageObject.text = message;
+                //messageObject.color = Color.red;
+
+                Debug.Log("time message sent");
+                //tween the parent object so that it moves up when spawned.
+                iTween.MoveBy(messageParentObject, iTween.Hash("y", 60, "easeType", "easeInOutExpo", "oncomplete", "DeactivateMessage"));
+                break;
+
+
+        }
+
+
     }
 
 

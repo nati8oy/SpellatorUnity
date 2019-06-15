@@ -68,6 +68,9 @@ public class Tile : MonoBehaviour
                 specialIcon.SetActive(true);
 
                 break;
+            case "none":
+                specialIcon.SetActive(false);
+                break;
         }
 
      

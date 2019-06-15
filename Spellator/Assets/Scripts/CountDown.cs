@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using System.Threading;
 public class CountDown : MonoBehaviour
 {
-    private int timeLeft; //Seconds Overall
+    public static int timeLeft = 75; //Seconds Overall
 
     public static CountDown Instance;
 
@@ -17,7 +17,7 @@ public class CountDown : MonoBehaviour
     {
         StartCoroutine("LoseTime");
         Time.timeScale = 1; //Just making sure that the timeScale is right
-        timeLeft = 120;
+        //timeLeft = 120;
        // timeLeft = GameManager.Instance.SetTimerTo;
     }
     void Update()
