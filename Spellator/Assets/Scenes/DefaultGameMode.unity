@@ -9064,6 +9064,11 @@ PrefabInstance:
       propertyPath: WordBeingSpelledHolder
       value: 
       objectReference: {fileID: 277859073}
+    - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
+        type: 3}
+      propertyPath: goodWordSound
+      value: 
+      objectReference: {fileID: 8300000, guid: a2f9acc43f6a643aeb38807bd06707b9, type: 3}
     - target: {fileID: 6609693015226162854, guid: cc08af2b56d9c45b3af66e59305a1835,
         type: 3}
       propertyPath: m_LocalPosition.x

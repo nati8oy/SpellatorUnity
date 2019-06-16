@@ -18,6 +18,8 @@ public class DictionaryManager : MonoBehaviour
     [SerializeField] private AudioClip correctWord;
     [SerializeField] private AudioClip clearWordSound;
     [SerializeField] private AudioClip loseMultiplier;
+    [SerializeField] private AudioClip goodWordSound;
+
 
     //this section is for the on screen messages
     [SerializeField] private GameObject messageParentObject;
@@ -225,32 +227,39 @@ public class DictionaryManager : MonoBehaviour
         if (dictionary.ContainsKey(WordBeingMade))
         {
 
-            //switch to check length of word for adding time bonuses
+            //switch to check length of word for adding time bonuses plus the audio
             switch (WordBeingMade.Length)
             {
                 case 5:
                     ShowMessage("time");
                     CountDown.timeLeft += 2;
+                    AudioManager.Instance.PlayAudio(goodWordSound);
+
                     break;
                 case 6:
                     ShowMessage("time");
                     CountDown.timeLeft += 3;
+                    AudioManager.Instance.PlayAudio(goodWordSound);
                     break;
                 case 7:
                     ShowMessage("time");
                     CountDown.timeLeft += 5;
+                    AudioManager.Instance.PlayAudio(goodWordSound);
                     break;
                 case 8:
                     ShowMessage("time");
                     CountDown.timeLeft += 7;
+                    AudioManager.Instance.PlayAudio(goodWordSound);
                     break;
                 case 9:
                     ShowMessage("time");
                     CountDown.timeLeft += 10;
+                    AudioManager.Instance.PlayAudio(goodWordSound);
                     break;
                 case 10:
                     ShowMessage("time");
                     CountDown.timeLeft += 15;
+                    AudioManager.Instance.PlayAudio(goodWordSound);
                     break;
             }
 
@@ -648,21 +657,46 @@ public class DictionaryManager : MonoBehaviour
     public void ReduceAge()
     {
 
-
+        //fill the array with all of the tiles that need to be aged i.e. the letters in the rack not included in the word.
         agingArray = GameObject.FindGameObjectsWithTag("Tile");
 
+
+        //check which tiles aren't in the selected tiles array and age them accordingly
         foreach (GameObject tile in agingArray)
         {
+           
 
-            if(tile.GetComponent<Tile>().spawnedTile.age > 0)
+            if (tile.GetComponent<Tile>().spawnedTile.age > 0)
             {
+                //reduce tile age
                 tile.GetComponent<Tile>().spawnedTile.age -= 1;
-                Debug.Log("The age of the tiles remaining is: " + tile.GetComponent<Tile>().spawnedTile.age);
+
+                var randomTime = Random.Range(0.5f, 1f);
+
+                switch (tile.GetComponent<Tile>().spawnedTile.age){
+
+                    case 3:
+                        iTween.ShakePosition(tile, iTween.Hash("x", 2, "y", 2, "time", randomTime, "easetype", "easeOutQuint"));
+                        break;
+                    case 2:
+                        iTween.ShakePosition(tile, iTween.Hash("x", 4, "y", 4, "time", randomTime, "easetype", "easeOutQuint"));
+                        break;
+                    case 1:
+                        iTween.ShakePosition(tile, iTween.Hash("x", 8, "y", 8, "time", randomTime, "easetype", "easeOutQuint"));
+                        break;
+                   
+
+
+                }
+                 
+
+
 
             }  if (tile.GetComponent<Tile>().spawnedTile.age == 0)
             {
                 tile.SetActive(false);
                 tile.transform.parent.GetComponent<TileCreator>().RefillTiles();
+
             }
         }
     }

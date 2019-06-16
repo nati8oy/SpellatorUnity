@@ -165,6 +165,8 @@ public class Tile : MonoBehaviour
         RemoveLetterFromBag();
 
 
+
+
     }
 
 
@@ -183,6 +185,8 @@ public class Tile : MonoBehaviour
             tilePointValue = spawnedTile.points;
 
         }
+
+       
 
     }
 
