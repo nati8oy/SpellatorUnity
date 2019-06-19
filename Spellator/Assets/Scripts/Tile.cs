@@ -80,6 +80,7 @@ public class Tile : MonoBehaviour
             }
 
 
+
     }
 
     //create the list of letters which this could be.
@@ -226,8 +227,15 @@ public class Tile : MonoBehaviour
             //iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x)+(110*DictionaryManager.Instance.WordBeingMade.Length), "y", nextTileSpot.y, "time", 0.5f, "easetype", "easeOutQuint"));
 
 
+            if (DictionaryManager.Instance.WordBeingMade.Length != 5)
+            {
+                iTween.MoveTo(gameObject, iTween.Hash("x", TileManager.Instance.NextFreePos.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time", 0.5f, "easetype", "easeOutQuint"));
 
-            iTween.MoveTo(gameObject, iTween.Hash("x", TileManager.Instance.NextFreePos.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time", 0.5f, "easetype", "easeOutQuint"));
+            } else if (DictionaryManager.Instance.WordBeingMade.Length == 5)
+            {
+                iTween.MoveTo(gameObject, iTween.Hash("x", TileManager.Instance.NextFreePos.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time", 0.5f, "easetype", "easeOutQuint", "oncomplete", "MoveTileForLongWord"));
+
+            }
 
 
             //sets the next free position to the TileManager.Instance.selectedTiles length
@@ -243,8 +251,7 @@ public class Tile : MonoBehaviour
             GameManager.Instance.LiveScoreText.text = PointsClass.liveScore.ToString();
 
 
-
-
+           
         }
 
 
@@ -275,9 +282,9 @@ public class Tile : MonoBehaviour
     public void MoveTileForLongWord()
 
     {
-        if (DictionaryManager.Instance.WordBeingMade.Length > 3)
+        if (DictionaryManager.Instance.WordBeingMade.Length > 3)    
         {
-            DictionaryManager.Instance.ScootTilesDown();
+            DictionaryManager.Instance.ScootTilesDown(DictionaryManager.Instance.mainWordXPos2);
 
         }
 

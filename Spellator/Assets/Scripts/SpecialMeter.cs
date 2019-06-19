@@ -16,8 +16,8 @@ public class SpecialMeter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        starParticles = GameObject.Find("Star Particles").GetComponent<ParticleSystem>();
-        starParticles.Stop();
+       // starParticles = GameObject.Find("Star Particles").GetComponent<ParticleSystem>();
+        //starParticles.Stop();
         initClass = new SpecialMeterClass();
         bar = GameObject.Find("Level 1");
 

@@ -36,8 +36,4 @@ public class SpecialMeterClass
 
     }
 
-    public void ObjectToTween (GameObject objectToTween)
-    {
-        
-    }
 }

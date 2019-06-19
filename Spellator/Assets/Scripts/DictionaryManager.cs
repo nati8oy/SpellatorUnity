@@ -44,6 +44,10 @@ public class DictionaryManager : MonoBehaviour
         get {return primaryTile; }
     }
 
+    //these are the two positions for the word to move to when accommodating longer words
+    private int mainWordXPos1 = 317;
+    public int mainWordXPos2 = -120;
+
     private SpecialMeterClass specialMeter = new SpecialMeterClass();
 
     private GameObject startTile;
@@ -214,6 +218,7 @@ public class DictionaryManager : MonoBehaviour
         }
 
 
+
     }
 
 
@@ -223,6 +228,14 @@ public class DictionaryManager : MonoBehaviour
         ResetLiveScorePosition();
 
         ReduceAge();
+
+
+        if (wordBeingMade.Length >= 5)
+        {
+            //moves the tiles back to the start position
+            ScootTilesDown(mainWordXPos1);
+        }
+
 
         if (dictionary.ContainsKey(WordBeingMade))
         {
@@ -448,9 +461,11 @@ public class DictionaryManager : MonoBehaviour
         if (resetBool == true)
         {
 
-
+            //ScootTilesDown(440);
             //loop through the array and delete each of the gameObjects in it
             allTilesArray = GameObject.FindGameObjectsWithTag("Tile");
+
+
 
             foreach (GameObject tile in allTilesArray)
             {
@@ -480,10 +495,14 @@ public class DictionaryManager : MonoBehaviour
 
 
 
+
+
         }
 
         else if (resetBool == false)
         {
+
+            //ScootTilesDown(440);
             //add all the tiles with the tag "Selected" to an array
 
             selectedTilesArray = GameObject.FindGameObjectsWithTag("TileSelected");
@@ -497,13 +516,9 @@ public class DictionaryManager : MonoBehaviour
             {
 
 
-                //connect to the tile script component
-                //var connectToTileScript = tile.GetComponent<Tile>();
-                //reset the parent to the original
-                //connectToTileScript.SetToOriginalParent();
-
                 //set getStartPos so that it can be used in the coroutine below
 
+              
 
                 var getStartPos = tile.transform.parent.GetComponent<TileCreator>();
                 //connect to the script of each tile, get the startPos from there (which is the starting transform of each Pos holder)
@@ -517,6 +532,14 @@ public class DictionaryManager : MonoBehaviour
                 tile.tag = "Tile";
 
             }
+
+            if (wordBeingMade.Length >=5)
+            {
+                //moves the tiles back to the start position
+                ScootTilesDown(mainWordXPos1);
+            }
+
+            
 
 
         }
@@ -638,7 +661,7 @@ public class DictionaryManager : MonoBehaviour
     }
 
 
-    public void ScootTilesDown()
+    public void ScootTilesDown(int amountToScoot)
     {
 
 
@@ -646,11 +669,16 @@ public class DictionaryManager : MonoBehaviour
 
         foreach (GameObject tile in selectedTilesArray)
         {
-            iTween.MoveBy(tile, iTween.Hash("x", -110, "easeType", "easeInOutExpo"));
-            
+
+
+
+            //iTween.MoveBy(tile, iTween.Hash("x", amountToScoot, "easeType", "easeInOutExpo"));
+            iTween.MoveTo(tile, iTween.Hash("x", amountToScoot, "easeType", "easeInOutExpo"));
+
         }
 
-        iTween.MoveBy(BoardHolder, iTween.Hash("x", -110, "easeType", "easeInOutExpo"));
+        //this moves all the tile positions at once
+        iTween.MoveTo(BoardHolder, iTween.Hash("x", amountToScoot, "easeType", "easeInOutExpo"));
 
     }
 
@@ -675,6 +703,7 @@ public class DictionaryManager : MonoBehaviour
 
                 switch (tile.GetComponent<Tile>().spawnedTile.age){
 
+                    //if the tile's age is 3, 2 or 1 then shake it accordingly
                     case 3:
                         iTween.ShakePosition(tile, iTween.Hash("x", 2, "y", 2, "time", randomTime, "easetype", "easeOutQuint"));
                         break;
@@ -684,8 +713,6 @@ public class DictionaryManager : MonoBehaviour
                     case 1:
                         iTween.ShakePosition(tile, iTween.Hash("x", 8, "y", 8, "time", randomTime, "easetype", "easeOutQuint"));
                         break;
-                   
-
 
                 }
                  
@@ -696,6 +723,7 @@ public class DictionaryManager : MonoBehaviour
             {
                 tile.SetActive(false);
                 tile.transform.parent.GetComponent<TileCreator>().RefillTiles();
+
 
             }
         }
