@@ -44,9 +44,6 @@ public class DictionaryManager : MonoBehaviour
         get {return primaryTile; }
     }
 
-    //these are the two positions for the word to move to when accommodating longer words
-    private int mainWordXPos1 = 317;
-    public int mainWordXPos2 = -120;
 
     private SpecialMeterClass specialMeter = new SpecialMeterClass();
 
@@ -155,7 +152,11 @@ public class DictionaryManager : MonoBehaviour
     void Start()
     {
 
-        EncouragementMessages = new List<string>();
+
+         //mainWordXPos1 = 150;
+          // mainWordXPos2 = mainWordXPos1*-1;
+      
+    EncouragementMessages = new List<string>();
         EncouragementMessages.Add("Marvellous!");
         EncouragementMessages.Add("Amazing!");
         EncouragementMessages.Add("Wow!");
@@ -233,7 +234,7 @@ public class DictionaryManager : MonoBehaviour
         if (wordBeingMade.Length >= 5)
         {
             //moves the tiles back to the start position
-            ScootTilesDown(mainWordXPos1);
+            ScootTilesDown(475);
         }
 
 
@@ -536,7 +537,7 @@ public class DictionaryManager : MonoBehaviour
             if (wordBeingMade.Length >=5)
             {
                 //moves the tiles back to the start position
-                ScootTilesDown(mainWordXPos1);
+                ScootTilesDown(475);
             }
 
             
@@ -671,14 +672,12 @@ public class DictionaryManager : MonoBehaviour
         {
 
 
-
-            //iTween.MoveBy(tile, iTween.Hash("x", amountToScoot, "easeType", "easeInOutExpo"));
-            iTween.MoveTo(tile, iTween.Hash("x", amountToScoot, "easeType", "easeInOutExpo"));
-
+            iTween.MoveBy(tile, iTween.Hash("x", amountToScoot, "easeType", "easeInOutExpo"));
+            //iTween.MoveTo(tile, iTween.Hash("x", amountToScoot, "easeType", "easeInOutExpo"));
         }
 
         //this moves all the tile positions at once
-        iTween.MoveTo(BoardHolder, iTween.Hash("x", amountToScoot, "easeType", "easeInOutExpo"));
+        iTween.MoveBy(BoardHolder, iTween.Hash("x", amountToScoot, "easeType", "easeInOutExpo"));
 
     }
 

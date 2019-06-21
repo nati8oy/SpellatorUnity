@@ -284,8 +284,8 @@ public class Tile : MonoBehaviour
     {
         if (DictionaryManager.Instance.WordBeingMade.Length > 3)    
         {
-            DictionaryManager.Instance.ScootTilesDown(DictionaryManager.Instance.mainWordXPos2);
-
+            DictionaryManager.Instance.ScootTilesDown(-475);
+      
         }
 
 
