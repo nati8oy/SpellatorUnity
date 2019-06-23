@@ -11,6 +11,7 @@ TagManager:
   - UsedTile
   - PrimaryTile
   - Pooled Tile
+  - Particles
   layers:
   - Default
   - TransparentFX

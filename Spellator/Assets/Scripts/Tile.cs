@@ -229,11 +229,11 @@ public class Tile : MonoBehaviour
 
             if (DictionaryManager.Instance.WordBeingMade.Length != 5)
             {
-                iTween.MoveTo(gameObject, iTween.Hash("x", TileManager.Instance.NextFreePos.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time", 0.5f, "easetype", "easeOutQuint"));
+                iTween.MoveTo(gameObject, iTween.Hash("x", TileManager.Instance.NextFreePos.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time", 0.5f, "easetype", "easeOut"));
 
             } else if (DictionaryManager.Instance.WordBeingMade.Length == 5)
             {
-                iTween.MoveTo(gameObject, iTween.Hash("x", TileManager.Instance.NextFreePos.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time", 0.5f, "easetype", "easeOutQuint", "oncomplete", "MoveTileForLongWord"));
+                iTween.MoveTo(gameObject, iTween.Hash("x", TileManager.Instance.NextFreePos.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time", 0.5f, "easetype", "easeOut", "oncomplete", "MoveTileForLongWord"));
 
             }
 
@@ -284,7 +284,7 @@ public class Tile : MonoBehaviour
     {
         if (DictionaryManager.Instance.WordBeingMade.Length > 3)    
         {
-            DictionaryManager.Instance.ScootTilesDown(-475);
+            DictionaryManager.Instance.ScootTilesDown(-450);
       
         }
 

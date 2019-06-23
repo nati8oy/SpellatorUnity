@@ -234,7 +234,7 @@ public class DictionaryManager : MonoBehaviour
         if (wordBeingMade.Length >= 5)
         {
             //moves the tiles back to the start position
-            ScootTilesDown(475);
+            ScootTilesDown(450);
         }
 
 
@@ -294,8 +294,8 @@ public class DictionaryManager : MonoBehaviour
             if (WordBeingMade.Length >= 5)
             {
                 //temporary star particles test
-                starParticles = GameObject.Find("Star Particles").GetComponent<ParticleSystem>();
-                starParticles.Play();
+              //  starParticles = GameObject.Find("Star Particles").GetComponent<ParticleSystem>();
+               // starParticles.Play();
             }
         
 
@@ -537,7 +537,7 @@ public class DictionaryManager : MonoBehaviour
             if (wordBeingMade.Length >=5)
             {
                 //moves the tiles back to the start position
-                ScootTilesDown(475);
+                ScootTilesDown(450);
             }
 
             
@@ -675,7 +675,7 @@ public class DictionaryManager : MonoBehaviour
             iTween.MoveBy(tile, iTween.Hash("x", amountToScoot, "easeType", "easeInOutExpo"));
             //iTween.MoveTo(tile, iTween.Hash("x", amountToScoot, "easeType", "easeInOutExpo"));
         }
-
+        
         //this moves all the tile positions at once
         iTween.MoveBy(BoardHolder, iTween.Hash("x", amountToScoot, "easeType", "easeInOutExpo"));
 

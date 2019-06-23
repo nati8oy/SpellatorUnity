@@ -9,6 +9,8 @@ public class TileCreator : MonoBehaviour
     public Transform startPos;
     private TileSpawnerClass tileSpawner;
 
+    private GameObject starParticles;
+
     private bool available = true;
 
     public bool Available
@@ -43,6 +45,21 @@ public class TileCreator : MonoBehaviour
             //available = false;
 
         }
+
+        starParticles = ObjectPooler.SharedInstance.GetPooledObject("Particles");
+        //starParticles.GetComponent<ParticleSystem>().Play();
+
+        if (starParticles != null)
+        {
+            starParticles.transform.position = gameObject.transform.position;
+           // starParticles.transform.SetParent(gameObject.transform);
+            starParticles.SetActive(true);
+            //available = false;
+
+        }
+
+
+
 
     }
 }
