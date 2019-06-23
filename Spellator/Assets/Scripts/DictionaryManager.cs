@@ -231,6 +231,8 @@ public class DictionaryManager : MonoBehaviour
         ReduceAge();
 
 
+
+
         if (wordBeingMade.Length >= 5)
         {
             //moves the tiles back to the start position

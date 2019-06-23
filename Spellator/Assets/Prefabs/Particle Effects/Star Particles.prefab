@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1967572491710229913}
   - component: {fileID: 1967572491710229912}
   - component: {fileID: 1967572491710229915}
-  - component: {fileID: 6780151877977797554}
   m_Layer: 0
   m_Name: Star Particles
   m_TagString: Particles
@@ -4757,15 +4756,3 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &6780151877977797554
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1967572491710229914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c03e26221a8064833a5a61be7d034d07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

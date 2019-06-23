@@ -55,11 +55,21 @@ public class TileCreator : MonoBehaviour
            // starParticles.transform.SetParent(gameObject.transform);
             starParticles.SetActive(true);
             //available = false;
+            StartCoroutine("CheckIfAlive");
 
         }
 
 
+    }
 
-
+    //resets the particle systems to be inactive so they can be reused in the object pool
+    private IEnumerator CheckIfAlive()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(0.5f);
+            starParticles.SetActive(false);
+            StopCoroutine("CheckIfAlive");
+        }
     }
 }
