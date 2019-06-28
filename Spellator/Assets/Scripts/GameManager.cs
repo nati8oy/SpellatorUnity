@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Text blueTotalScore;
     [SerializeField] private Text redTotalScore;
 
+    [SerializeField] private RectTransform pauseMenu;
+
     public string allLetters;
     [SerializeField] public TextAsset externalBagTXT;
 
@@ -182,6 +184,17 @@ public class GameManager : MonoBehaviour
     }
 
 
+    public void PauseGame()
+    {
+
+        pauseMenu.gameObject.SetActive(true);
+    }
+
+    public void ResumeGame()
+    {
+        GameObject.Find("Pause Menu").SetActive(false);
+
+    }
 
     public void StartSetup()
     {

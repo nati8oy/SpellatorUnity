@@ -20,18 +20,33 @@ public class SpecialMeterClass
     public void IncreaseMeter(float amountToAdd)
     {
 
+        //increases the amount of life meter you have remaining
+        if (meterPercent < 1)
+        {
+            meterRemaining = (amountToAdd / 50) + meterRemaining;
+            meterPercent = meterRemaining / totalMeter;
+            //meterPercent = (meterRemaining / 10);
+            //Debug.Log("Meter percent is: "+ meterPercent+ " Meter increased by: " + amountToAdd);
+        }
+
+        /*
         if (meterPercent < 1)
         {
             meterRemaining = amountToAdd + meterRemaining;
-            meterPercent = (meterRemaining / totalMeter) / 10;
+            // meterPercent = (meterRemaining / totalMeter) / 10;
+            meterPercent = (meterRemaining / 10);
+            Debug.Log("increased meter by: "+ amountToAdd);
            // meterPercent = (meterRemaining / totalMeter) / 100;
-        }
+
+        }*/
+
+        /*
         else if (meterPercent >= 1)
         {
             meterRemaining = 0;
             meterRemaining = amountToAdd + meterRemaining;
             meterPercent = (meterRemaining / totalMeter) / 10;
-        }
+        }*/
 
     }
 

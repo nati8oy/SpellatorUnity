@@ -107,6 +107,9 @@ public class Tile : MonoBehaviour
 
         switch (spawnedTile.specialAttribute)
         {
+            case "life up":
+                specialIcon.SetActive(true);
+                break;
             case "star":
                 specialIcon.SetActive(true);
 
@@ -299,10 +302,21 @@ public class Tile : MonoBehaviour
     }
     public void RemoveTileOnComplete()
     {
-        //Debug.Log("Tile set to inactive");
+        //check if there was a special tile and add the appropriate bonus
+
         gameObject.SetActive(false);
         AudioManager.Instance.PlayAudio(popSounds[Random.Range(0, 3)]);
-        // iTween.FadeFrom(gameObject, iTween.Hash("time", 0.25f, "alpha", 1));
+
+
+    }
+
+    public void AddSpecialBonuses()
+    {
+        //if the tile was a life tile then add life to the special meter
+        if (spawnedTile.tileType == "special")
+        {
+            specialMeter.IncreaseMeter(spawnedTile.points);
+        }
 
     }
 

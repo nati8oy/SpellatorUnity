@@ -35,7 +35,7 @@ public class SpecialMeter : MonoBehaviour
         //iTween.MoveBy(gameObject, iTween.Hash("y", randomDistance, "time", randomTime, "easetype", "easeInOutExpo", "delay", randomTime, "oncomplete", "SetTileInactive"));
 
 
-        if (SpecialMeterClass.meterPercent < 0)
+        if (SpecialMeterClass.meterPercent <= 0)
         {
 
             GameManager.Instance.GameOverMethod();

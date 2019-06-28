@@ -35,10 +35,13 @@ public class TileClass
         specialChance = 20;
 
         //add special types on initialisaton
+        specialTypes.Add("life up");
         specialTypes.Add("triangle");
         specialTypes.Add("circle");
         specialTypes.Add("square");
         specialTypes.Add("star");
+        
+
 
         //choose a random number for special probability
         randomSelector = Random.Range(1,20);
@@ -46,7 +49,12 @@ public class TileClass
         if (randomSelector >= (specialChance-1))
         {
             tileType = "special";
-            specialAttribute = specialTypes[Random.Range(0, 3)];
+
+            //choose the life up special type
+            specialAttribute = specialTypes[0];
+
+            //choose a random special type
+            //specialAttribute = specialTypes[Random.Range(0, 3)];
         }
 
         else if (randomSelector < (specialChance - 1))

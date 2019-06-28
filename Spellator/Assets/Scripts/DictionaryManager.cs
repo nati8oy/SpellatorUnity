@@ -242,7 +242,7 @@ public class DictionaryManager : MonoBehaviour
 
         if (dictionary.ContainsKey(WordBeingMade))
         {
-
+            /*
             //switch to check length of word for adding time bonuses plus the audio
             switch (WordBeingMade.Length)
             {
@@ -278,7 +278,7 @@ public class DictionaryManager : MonoBehaviour
                     AudioManager.Instance.PlayAudio(goodWordSound);
                     break;
             }
-
+            */
 
 
             //check if the multiplier is going to be broken with a 3 letter word. If so, play the sound.
@@ -329,19 +329,28 @@ public class DictionaryManager : MonoBehaviour
                getStartPos.RefillTiles();
 
 
-                tile.tag = "Tile";
-                //
+                if (tile.GetComponent<Tile>().spawnedTile.tileType == "special")
+                {
 
+                        specialMeter.IncreaseMeter(tile.GetComponent<Tile>().spawnedTile.points);
+                    
+                    //tile.GetComponent<Tile>().AddSpecialBonuses();
+                }
+
+                tile.tag = "Tile";
+               
+
+                //move the tiles to a random yPos between 75 and 125
                 var randomYPos = Random.Range(75, 125);
                 var randomTimeFrame = Random.Range(0.2f,0.5f);
 
-               iTween.MoveBy(tile, iTween.Hash("y", randomYPos, "easetype", "EaseOutQuad", "time", randomTimeFrame, "oncomplete", "RemoveTileOnComplete"));
+                iTween.MoveBy(tile, iTween.Hash("y", randomYPos, "easetype", "EaseOutQuad", "time", randomTimeFrame, "oncomplete", "RemoveTileOnComplete"));
               
 
             }
 
 
-            //add the to total words made
+            //add to total words made
             totalWordsMade += 1;
 
 
@@ -640,7 +649,6 @@ public class DictionaryManager : MonoBehaviour
                 messageObject.text = message;
                 //messageObject.color = Color.red;
 
-                Debug.Log("time message sent");
                 //tween the parent object so that it moves up when spawned.
                 iTween.MoveBy(messageParentObject, iTween.Hash("y", 60, "easeType", "easeInOutExpo", "oncomplete", "DeactivateMessage"));
                 break;
