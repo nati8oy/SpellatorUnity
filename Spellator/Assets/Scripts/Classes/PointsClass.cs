@@ -31,11 +31,11 @@ public class PointsClass
         if (multiplierActive==true)
         {
             totalScore = totalScore + (pointsScored * multiplier);
-            Debug.Log("multplier is active and is set to: " + multiplier);
+            //Debug.Log("multplier is active and is set to: " + multiplier);
         } else if (multiplierActive==false)
         {
             totalScore = totalScore + pointsScored;
-            Debug.Log("multplier is inactive");
+            //Debug.Log("multplier is inactive");
         }
 
         mostRecentScore = liveScore;

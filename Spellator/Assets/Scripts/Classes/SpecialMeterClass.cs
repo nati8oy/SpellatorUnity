@@ -11,7 +11,7 @@ public class SpecialMeterClass
     public SpecialMeterClass()
     {
         totalMeter = 1;
-        meterRemaining = 0;
+        meterRemaining = 1;
         meterPercent = meterRemaining / totalMeter;
 
 
@@ -25,7 +25,6 @@ public class SpecialMeterClass
             meterRemaining = amountToAdd + meterRemaining;
             meterPercent = (meterRemaining / totalMeter) / 10;
            // meterPercent = (meterRemaining / totalMeter) / 100;
-            Debug.Log("Meter percent is: " + meterPercent);
         }
         else if (meterPercent >= 1)
         {
@@ -34,6 +33,23 @@ public class SpecialMeterClass
             meterPercent = (meterRemaining / totalMeter) / 10;
         }
 
+    }
+
+    public void DecreaseMeter(float reduceBy)
+    {
+
+        if (meterPercent <= 1)
+        {
+            meterRemaining =  meterRemaining - (reduceBy/100);
+            meterPercent = meterRemaining / totalMeter;
+            // meterPercent = (meterRemaining / totalMeter) / 100;
+        }
+
+        /*
+        else if (meterPercent < 0)
+        {
+            meterPercent = 0;
+        }*/
     }
 
 }

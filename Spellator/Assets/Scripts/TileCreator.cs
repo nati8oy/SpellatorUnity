@@ -67,7 +67,7 @@ public class TileCreator : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(2f);
             starParticles.SetActive(false);
             StopCoroutine("CheckIfAlive");
         }

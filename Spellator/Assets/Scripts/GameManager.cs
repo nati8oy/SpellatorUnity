@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] public TextAsset externalBagTXT;
 
 
+
+
     [SerializeField] private RectTransform gameOverPanel;
 
     //public List<GameObject> pooledObjects = new List<GameObject>();
@@ -110,6 +112,10 @@ public class GameManager : MonoBehaviour
     }
 
 
+
+  //  public GameObject[] rackSpots;
+
+
     //this is the singleton code to ensure there's not more than one instance running
     void Awake()
     {
@@ -125,9 +131,11 @@ public class GameManager : MonoBehaviour
     void Start()
     {
 
+      // rackSpots =  GameObject.FindGameObjectsWithTag("TileHolder");
 
-       var specialButton = GameObject.Find("SpecialButton").GetComponent<Button>();
-        specialButton.interactable = false;
+
+      // var specialButton = GameObject.Find("SpecialButton").GetComponent<Button>();
+      //  specialButton.interactable = false;
 
 
         //create an instance of the points class
@@ -138,7 +146,6 @@ public class GameManager : MonoBehaviour
         //add the letters to the bag List within the TileBag class
         TileBag lettersBag = new TileBag();
         lettersBag.AddLettersToDictonary();
-        Debug.Log("Letters Dictionary:" + TileBag.pointsDictionary.Count);
 
 
 

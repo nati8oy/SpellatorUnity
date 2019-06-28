@@ -236,7 +236,7 @@ public class DictionaryManager : MonoBehaviour
         if (wordBeingMade.Length >= 5)
         {
             //moves the tiles back to the start position
-            ScootTilesDown(450);
+         //   ScootTilesDown(450);
         }
 
 
@@ -368,7 +368,7 @@ public class DictionaryManager : MonoBehaviour
 
             scores.addPoints(PointsClass.liveScore);
 
-            specialMeter.IncreaseMeter(PointsClass.liveScore);
+            //specialMeter.IncreaseMeter(PointsClass.liveScore);
             //Debug.Log("The most recent score was :" + PointsClass.mostRecentScore);
 
             scores.resetScores();
@@ -539,7 +539,7 @@ public class DictionaryManager : MonoBehaviour
             if (wordBeingMade.Length >=5)
             {
                 //moves the tiles back to the start position
-                ScootTilesDown(450);
+               // ScootTilesDown(450);
             }
 
             
@@ -722,8 +722,10 @@ public class DictionaryManager : MonoBehaviour
 
             }  if (tile.GetComponent<Tile>().spawnedTile.age == 0)
             {
-                tile.SetActive(false);
-                tile.transform.parent.GetComponent<TileCreator>().RefillTiles();
+                //if the tile age == 0 then run the DropTile function on the tile
+
+                tile.GetComponent<Tile>().DropTile();
+               
 
 
             }

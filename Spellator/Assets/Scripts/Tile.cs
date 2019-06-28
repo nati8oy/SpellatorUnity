@@ -15,7 +15,7 @@ public class Tile : MonoBehaviour
     public TextMeshProUGUI letter;
     public TextMeshProUGUI points;
 
-
+    private SpecialMeterClass specialMeter = new SpecialMeterClass();
 
     public TileClass spawnedTile;
 
@@ -36,6 +36,8 @@ public class Tile : MonoBehaviour
     private int positionInRack;
     private Vector3 returnPos;
 
+    private Vector3 currentSpot;
+
     public int PositionInRack
 
     {
@@ -51,27 +53,25 @@ public class Tile : MonoBehaviour
     }
 
 
+    private int positionInWord;
+
 
     private void Update()
     {
       
-
+        //check the tile's age and swap in the appropirate tile state image
             switch (spawnedTile.age)
             {
                 case 4:
-                    // tileBGImage.color = Color.white;
                     tileBGImage.sprite = tileStateImages[3];
                     break;
                 case 3:
-                   // tileBGImage.color = Color.white;
                     tileBGImage.sprite = tileStateImages[2];
                     break;
                 case 2:
-                  //  tileBGImage.color = Color.yellow;
                     tileBGImage.sprite = tileStateImages[1];
                     break;
                 case 1:
-                   // tileBGImage.color = Color.red;
                     tileBGImage.sprite = tileStateImages[0];
                     break;
                 case 0:
@@ -79,14 +79,29 @@ public class Tile : MonoBehaviour
 
             }
 
+        var currentPos = GameObject.Find("Primary Tile").transform.position;
+
+        if (gameObject.CompareTag("TileSelected"))
+        {
+           // iTween.MoveUpdate(gameObject, iTween.Hash("x", GameManager.Instance.rackSpots[DictionaryManager.Instance.WordBeingMade.Length].transform.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time", 0.5f));
+
+            // iTween.MoveUpdate(gameObject, iTween.Hash("x", currentPos.x+(110*positionInWord), "y", TileManager.Instance.NextFreePos.position.y, "time", 0.5f));
+            //iTween.MoveUpdate(gameObject, iTween.Hash("x", TileManager.Instance.NextFreePos.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time", 0.5f));
+
+        }
+
+
+
+
 
 
     }
 
-    //create the list of letters which this could be.
 
     private void OnEnable()
     {
+       // iTween.Move(gameObject, iTween.Hash("x", 1.01, "y", 1.01, "time", Random.RandomRange(1f, 2f)));
+
         //create instance of the TileClass for use in the checks below
         spawnedTile = new TileClass(gameObject.transform.position);
 
@@ -113,8 +128,6 @@ public class Tile : MonoBehaviour
                 break;
         }
 
-     
-
 
 
         //if that tag is PrimaryTile then set the tile letter and points to be that of the StartLetter
@@ -139,20 +152,32 @@ public class Tile : MonoBehaviour
             spawnedTile.letter = TileBag.bag[Random.Range(0, TileBag.bag.Count)];
             spawnedTile.points = TileBag.pointsDictionary[spawnedTile.letter];
 
-
-            /*
-            //extra check that the letter tile isn't equal to 0. This is the stop the bug where an "S" appears with 0 points and can't be played.
-            if (spawnedTile.points != 0)
+            if (BalanceConfig.vowels > (BalanceConfig.consonants + 2))
             {
-                RemoveLetterFromBag();
-            }
-            else if (spawnedTile.points == 0)
-            {
-                spawnedTile.letter = TileBag.bag[Random.Range(0, TileBag.bag.Count)];
+                spawnedTile.letter = TileBag.consonantList[Random.Range(0, TileBag.consonantList.Count)];
                 spawnedTile.points = TileBag.pointsDictionary[spawnedTile.letter];
+                BalanceConfig.consonants += 1;
+                //Debug.Log("consonant count: " + BalanceConfig.consonants);
             }
-            */
 
+            switch (spawnedTile.letter)
+            {
+                case "A":
+                    BalanceConfig.vowels += 1;
+                    break;
+                case "E":
+                    BalanceConfig.vowels += 1;
+                    break;
+                case "I":
+                    BalanceConfig.vowels += 1;
+                    break;
+                case "O":
+                    BalanceConfig.vowels += 1;
+                    break;
+                case "U":
+                    BalanceConfig.vowels += 1;
+                    break;
+            }
         }
 
 
@@ -187,7 +212,7 @@ public class Tile : MonoBehaviour
 
         }
 
-       
+
 
     }
 
@@ -198,11 +223,16 @@ public class Tile : MonoBehaviour
 
     {
 
+
+
         AudioManager.Instance.PlayAudio(tileClick);
 
         //check is the tile is selected or not. If it's not tagged as "selected" then add it to the word being made.
-        if (gameObject.tag == "Tile")
+        if (CompareTag("Tile"))
         {
+
+           
+            
 
             //add this tile's Pos to the SelectedTiles list in TileManager
             TileManager.Instance.SelectedTiles.Add(transform.parent);
@@ -215,6 +245,7 @@ public class Tile : MonoBehaviour
             if (DictionaryManager.Instance.WordBeingMade.Length >= 3)
             {
                 DictionaryManager.Instance.CheckWord();
+                positionInWord = DictionaryManager.Instance.WordBeingMade.Length;
             }
 
             gameObject.tag = "TileSelected";
@@ -224,18 +255,28 @@ public class Tile : MonoBehaviour
 
             nextTileSpot = GameObject.Find("Primary Tile").transform.position;
 
-            //iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x)+(110*DictionaryManager.Instance.WordBeingMade.Length), "y", nextTileSpot.y, "time", 0.5f, "easetype", "easeOutQuint"));
+            // currentSpot = (nextTileSpot.x) + (110 * DictionaryManager.Instance.WordBeingMade.Length);
+
+            //iTween.MoveTo(gameObject, iTween.Hash("x", TileManager.Instance.NextFreePos.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time", 0.5f, "easetype", "easeOut"));
 
 
-            if (DictionaryManager.Instance.WordBeingMade.Length != 5)
-            {
-                iTween.MoveTo(gameObject, iTween.Hash("x", TileManager.Instance.NextFreePos.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time", 0.5f, "easetype", "easeOut"));
+            // iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x)+(110*DictionaryManager.Instance.WordBeingMade.Length), "y", nextTileSpot.y, "time", 0.5f, "easetype", "easeOutQuint"));
 
-            } else if (DictionaryManager.Instance.WordBeingMade.Length == 5)
-            {
-                iTween.MoveTo(gameObject, iTween.Hash("x", TileManager.Instance.NextFreePos.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time", 0.5f, "easetype", "easeOut", "oncomplete", "MoveTileForLongWord"));
 
-            }
+            //move tiles into position
+            iTween.MoveTo(gameObject, iTween.Hash("x", TileManager.Instance.NextFreePos.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time", 0.5f, "easetype", "easeOut"));
+
+
+            /*
+             if (DictionaryManager.Instance.WordBeingMade.Length != 5)
+             {
+                 iTween.MoveTo(gameObject, iTween.Hash("x", TileManager.Instance.NextFreePos.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time", 0.5f, "easetype", "easeOut"));
+
+             } else if (DictionaryManager.Instance.WordBeingMade.Length == 5)
+             {
+                 iTween.MoveTo(gameObject, iTween.Hash("x", TileManager.Instance.NextFreePos.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time", 0.5f, "easetype", "easeOut", "oncomplete", "MoveTileForLongWord"));
+
+             }*/
 
 
             //sets the next free position to the TileManager.Instance.selectedTiles length
@@ -294,6 +335,31 @@ public class Tile : MonoBehaviour
     public void ReduceAge()
     {
         spawnedTile.age -= 1;
+    }
+
+    //this function needs to be on the tile as it has to have an oncomplete function run
+    //this oncomplete refills the tiles via the TileCreator
+    public void DropTile()
+    {
+        var randomTime = Random.Range(0.5f, 1f);
+        var randomDistance = Random.Range(-500, -800);
+
+        iTween.MoveBy(gameObject, iTween.Hash("y", randomDistance, "time", randomTime, "easetype", "easeInOutExpo", "delay", randomTime, "oncomplete", "SetTileInactive"));
+
+        
+
+
+        //Debug.Log("Meter Percent: " + SpecialMeterClass.meterPercent + " Reduced by: " + spawnedTile.points + " Remaining Meter: " + SpecialMeterClass.meterRemaining);
+    }
+
+    //function to refill the tiles and set this one to inactive so it can go back into the object pool
+    public void SetTileInactive()
+    {
+        //decreases the "special" meter by the amount of the points on this tile
+        specialMeter.DecreaseMeter(spawnedTile.points);
+
+        gameObject.SetActive(false);
+        gameObject.transform.parent.GetComponent<TileCreator>().RefillTiles();
     }
 
 }
