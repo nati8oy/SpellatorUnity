@@ -27,6 +27,7 @@ public class Tile : MonoBehaviour
     [SerializeField] private GameObject specialIcon;
 
     public AudioClip[] popSounds;
+    public AudioClip[] smashSounds;
 
 
     public Vector3 nextTileSpot;
@@ -290,7 +291,7 @@ public class Tile : MonoBehaviour
             scores.addLiveScore(spawnedTile.points);
 
             //move the live scor text box to below the current tile
-            SetLiveScorePos();
+           // SetLiveScorePos();
 
             GameManager.Instance.LiveScoreText.text = PointsClass.liveScore.ToString();
 
@@ -302,21 +303,14 @@ public class Tile : MonoBehaviour
     }
     public void RemoveTileOnComplete()
     {
-        //check if there was a special tile and add the appropriate bonus
-
+        //set tiles back to inactive so that they can go back into the object pool
         gameObject.SetActive(false);
         AudioManager.Instance.PlayAudio(popSounds[Random.Range(0, 3)]);
 
+        //checks to see if the life meter has anything left in it. If not, it's game over, fool.
+        GameManager.Instance.CheckLifeMeter();
+        
 
-    }
-
-    public void AddSpecialBonuses()
-    {
-        //if the tile was a life tile then add life to the special meter
-        if (spawnedTile.tileType == "special")
-        {
-            specialMeter.IncreaseMeter(spawnedTile.points);
-        }
 
     }
 
@@ -371,6 +365,8 @@ public class Tile : MonoBehaviour
     {
         //decreases the "special" meter by the amount of the points on this tile
         specialMeter.DecreaseMeter(spawnedTile.points);
+        AudioManager.Instance.PlayAudio(smashSounds[Random.Range(0,smashSounds.Length)]);
+
 
         gameObject.SetActive(false);
         gameObject.transform.parent.GetComponent<TileCreator>().RefillTiles();

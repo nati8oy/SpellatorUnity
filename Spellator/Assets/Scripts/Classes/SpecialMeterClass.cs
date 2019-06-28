@@ -20,7 +20,7 @@ public class SpecialMeterClass
     public void IncreaseMeter(float amountToAdd)
     {
 
-        //increases the amount of life meter you have remaining
+        //increases the amount of life meter you have remaining 
         if (meterPercent < 1)
         {
             meterRemaining = (amountToAdd / 50) + meterRemaining;

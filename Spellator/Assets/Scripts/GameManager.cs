@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject messageObject;
 
+    [SerializeField] private GameObject lifeMeter;
 
 
     public GameObject MessageObject
@@ -157,10 +158,8 @@ public class GameManager : MonoBehaviour
         gameManagerAudioSource.loop = true;
 
 
-            //setTimerTo = 20;
             //set scores to blank
         liveScoreText.text = "";
-        //scoreText.text = "";
 
         //make the send button inactive on start up
         DictionaryManager.Instance.sendButton.interactable = false;
@@ -217,5 +216,13 @@ public class GameManager : MonoBehaviour
         }*/
     }
 
+
+    public void CheckLifeMeter()
+    {
+        if (lifeMeter.transform.localScale.x <= 0)
+        {
+            GameOverMethod();
+        }
+    }
 
 }

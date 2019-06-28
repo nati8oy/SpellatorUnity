@@ -15,10 +15,9 @@ public class DictionaryManager : MonoBehaviour
 
     [SerializeField] private GameObject BoardHolder;
 
-    [SerializeField] private AudioClip correctWord;
-    [SerializeField] private AudioClip clearWordSound;
-    [SerializeField] private AudioClip loseMultiplier;
-    [SerializeField] private AudioClip goodWordSound;
+    //store all of the audio clips in this array
+    public AudioClip[] allAudioClips;
+
 
 
     //this section is for the on screen messages
@@ -226,7 +225,7 @@ public class DictionaryManager : MonoBehaviour
     public void CheckAndDeleteTiles()
     {
 
-        ResetLiveScorePosition();
+        //ResetLiveScorePosition();
 
         ReduceAge();
 
@@ -236,7 +235,9 @@ public class DictionaryManager : MonoBehaviour
         if (wordBeingMade.Length >= 5)
         {
             //moves the tiles back to the start position
-         //   ScootTilesDown(450);
+            //   ScootTilesDown(450);
+            AudioManager.Instance.PlayAudio(allAudioClips[3]);
+
         }
 
 
@@ -284,7 +285,7 @@ public class DictionaryManager : MonoBehaviour
             //check if the multiplier is going to be broken with a 3 letter word. If so, play the sound.
             if ((multiplier >= 3) && (WordBeingMade.Length <= 3))
             {
-                AudioManager.Instance.PlayAudio(loseMultiplier);
+                AudioManager.Instance.PlayAudio(allAudioClips[2]);
             }
 
             //add to the multiplier
@@ -329,12 +330,11 @@ public class DictionaryManager : MonoBehaviour
                getStartPos.RefillTiles();
 
 
+                //checks the tile type and adds whatever the special tile bonus is
                 if (tile.GetComponent<Tile>().spawnedTile.tileType == "special")
                 {
-
                         specialMeter.IncreaseMeter(tile.GetComponent<Tile>().spawnedTile.points);
                     
-                    //tile.GetComponent<Tile>().AddSpecialBonuses();
                 }
 
                 tile.tag = "Tile";
@@ -421,7 +421,7 @@ public class DictionaryManager : MonoBehaviour
         if (dictionary.ContainsKey(WordBeingMade))
         {
             sendButton.interactable = true;
-            AudioManager.Instance.PlayAudio(correctWord);
+            AudioManager.Instance.PlayAudio(allAudioClips[0]);
 
 
 
@@ -452,13 +452,13 @@ public class DictionaryManager : MonoBehaviour
     {
         scores.resetScores();
         sendButton.interactable = false;
-        AudioManager.Instance.PlayAudio(clearWordSound);
+        
 
        // var liveScoreText = GameObject.Find("Live Score").GetComponent<Text>();
         //liveScoreText.text = GameObject.Find("Primary Tile").GetComponent<TextMeshProUGUI>().ToString();
 
         //set the live score back to the start position
-        ResetLiveScorePosition();
+        //ResetLiveScorePosition();
 
         TileManager.Instance.SelectedTiles.Clear();
         //check if the reset bool is true. If it is, delete all the tiles in the rack
@@ -473,7 +473,13 @@ public class DictionaryManager : MonoBehaviour
         if (resetBool == true)
         {
 
+
+            //reduce the age of the tiles that are on the rack currently instead of deleting them all
+            ReduceAge();
+
             //ScootTilesDown(440);
+
+            /*
             //loop through the array and delete each of the gameObjects in it
             allTilesArray = GameObject.FindGameObjectsWithTag("Tile");
 
@@ -494,12 +500,12 @@ public class DictionaryManager : MonoBehaviour
 
 
             }
-
+            */
 
             //remove multiplier
             if (PointsClass.multiplier >= 3)
             {
-                AudioManager.Instance.PlayAudio(loseMultiplier);
+                AudioManager.Instance.PlayAudio(allAudioClips[2]);
             }
             PointsClass.multiplier = 1;
             PointsClass.multiplierActive = false;
@@ -697,7 +703,7 @@ public class DictionaryManager : MonoBehaviour
         //fill the array with all of the tiles that need to be aged i.e. the letters in the rack not included in the word.
         agingArray = GameObject.FindGameObjectsWithTag("Tile");
 
-
+        AudioManager.Instance.PlayAudio(allAudioClips[4]);
         //check which tiles aren't in the selected tiles array and age them accordingly
         foreach (GameObject tile in agingArray)
         {
