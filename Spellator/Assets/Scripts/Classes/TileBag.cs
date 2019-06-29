@@ -18,9 +18,8 @@ public class TileBag
     public static List<string> consonantList = new List<string>() { "B","C","D","F","G","H","J","K","L","M", "N","P","Q","R","S","T","V","W","X","Y","Z"};
     public static List<string> vowelList = new List<string>() { "A","E","I","O","U"};
 
-
-
     public static Dictionary<string, int> pointsDictionary = new Dictionary<string, int>();
+
 
     /*
 

@@ -106,35 +106,30 @@ public class Tile : MonoBehaviour
         //create instance of the TileClass for use in the checks below
         spawnedTile = new TileClass(gameObject.transform.position);
 
+
         switch (spawnedTile.specialAttribute)
         {
-            case "life up":
+            case "heart":
                 specialIcon.SetActive(true);
                 break;
-            case "star":
-                specialIcon.SetActive(true);
+            case "double":
+              //  specialIcon.SetActive(false);
+            //    letter.color = Color.red;
+                break;
+            case "triple":
+              //  specialIcon.SetActive(false);
+               // letter.color = Color.blue;
 
                 break;
-            case "triangle":
-                specialIcon.SetActive(true);
 
-                break;
-            case "circle":
-                specialIcon.SetActive(true);
-
-                break;
-            case "square":
-                specialIcon.SetActive(true);
-
-                break;
             case "none":
                 specialIcon.SetActive(false);
+
                 break;
         }
 
 
-
-        //if that tag is PrimaryTile then set the tile letter and points to be that of the StartLetter
+        //if the tag is PrimaryTile then set the tile letter and points to be that of the StartLetter
         //otherwise, set them to come up randomly from the bag
         if (CompareTag("PrimaryTile"))
         {
@@ -146,42 +141,20 @@ public class Tile : MonoBehaviour
             {
                 spawnedTile.letter = TileBag.bag[Random.Range(0, TileBag.bag.Count)];
                 spawnedTile.points = TileBag.pointsDictionary[spawnedTile.letter];
-            }
-            */
+            }*/
+            
 
             PointsClass.primaryTileScore = spawnedTile.points;
 
         } else if (CompareTag("Tile"))
         {
+
             spawnedTile.letter = TileBag.bag[Random.Range(0, TileBag.bag.Count)];
             spawnedTile.points = TileBag.pointsDictionary[spawnedTile.letter];
+            RemoveLetterFromBag();
 
-            if (BalanceConfig.vowels > (BalanceConfig.consonants + 2))
-            {
-                spawnedTile.letter = TileBag.consonantList[Random.Range(0, TileBag.consonantList.Count)];
-                spawnedTile.points = TileBag.pointsDictionary[spawnedTile.letter];
-                BalanceConfig.consonants += 1;
-                //Debug.Log("consonant count: " + BalanceConfig.consonants);
-            }
 
-            switch (spawnedTile.letter)
-            {
-                case "A":
-                    BalanceConfig.vowels += 1;
-                    break;
-                case "E":
-                    BalanceConfig.vowels += 1;
-                    break;
-                case "I":
-                    BalanceConfig.vowels += 1;
-                    break;
-                case "O":
-                    BalanceConfig.vowels += 1;
-                    break;
-                case "U":
-                    BalanceConfig.vowels += 1;
-                    break;
-            }
+
         }
 
 
@@ -192,7 +165,7 @@ public class Tile : MonoBehaviour
         tilePointValue = spawnedTile.points;
 
         //removes the tile from the bag
-        RemoveLetterFromBag();
+
 
 
 
@@ -215,6 +188,7 @@ public class Tile : MonoBehaviour
             tilePointValue = spawnedTile.points;
 
         }
+
 
 
 
@@ -318,7 +292,14 @@ public class Tile : MonoBehaviour
     {
         //removes the letters from the bag
         TileBag.bag.Remove(spawnedTile.letter);
-        //Debug.Log("there are " + TileBag.bag.Count + " tiles remaining in the bag");
+        //TileBag.usedLetters.Add(spawnedTile.letter);
+
+        /*
+        foreach(string letterInBag in TileBag.usedLetters)
+        {
+            Debug.Log("used letter: " + letterInBag);
+        }
+    */   
 
     }
 

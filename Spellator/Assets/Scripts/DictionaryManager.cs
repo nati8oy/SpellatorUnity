@@ -101,8 +101,7 @@ public class DictionaryManager : MonoBehaviour
     private bool resetBool;
 
 
-    //reference to the delete button 
-    [SerializeField] public Button deleteButton;
+    //reference to the send button 
     [SerializeField] public Button sendButton;
 
 
@@ -331,9 +330,9 @@ public class DictionaryManager : MonoBehaviour
 
 
                 //checks the tile type and adds whatever the special tile bonus is
-                if (tile.GetComponent<Tile>().spawnedTile.tileType == "special")
+                if (tile.GetComponent<Tile>().spawnedTile.specialAttribute == "heart")
                 {
-                        specialMeter.IncreaseMeter(tile.GetComponent<Tile>().spawnedTile.points);
+                        specialMeter.IncreaseMeter((tile.GetComponent<Tile>().spawnedTile.points)*1.5f);
                     
                 }
 
