@@ -32,7 +32,7 @@ public class TileClass
 
         specialTypes = new List<string>();
 
-        specialChance = 3;
+        specialChance = 5;
 
         //add special types on initialisaton
         specialTypes.Add("heart");
@@ -41,7 +41,7 @@ public class TileClass
 
 
         //choose a random number for special probability
-        randomSelector = Random.Range(0, 4);
+        randomSelector = Random.Range(0, 6);
       //  Debug.Log("Random Selector is: " + randomSelector);
 
         if (randomSelector == specialChance)

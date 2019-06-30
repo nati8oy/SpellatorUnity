@@ -286,9 +286,7 @@ public class Tile : MonoBehaviour
         gameObject.SetActive(false);
         AudioManager.Instance.PlayAudio(popSounds[Random.Range(0, 3)]);
 
-        //checks to see if the life meter has anything left in it. If not, it's game over, fool.
-        GameManager.Instance.CheckLifeMeter();
-        
+    
 
 
     }
@@ -349,10 +347,14 @@ public class Tile : MonoBehaviour
     //function to refill the tiles and set this one to inactive so it can go back into the object pool
     public void SetTileInactive()
     {
+        
+
         //decreases the "special" meter by the amount of the points on this tile
         specialMeter.DecreaseMeter(spawnedTile.points);
         AudioManager.Instance.PlayAudio(smashSounds[Random.Range(0,smashSounds.Length)]);
 
+        //checks to see if the life meter has anything left in it. If not, it's game over, fool.
+        GameManager.Instance.CheckLifeMeter();
 
         gameObject.SetActive(false);
         gameObject.transform.parent.GetComponent<TileCreator>().RefillTiles();

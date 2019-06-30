@@ -15,7 +15,7 @@ public class SpecialMeter : MonoBehaviour
     {
 
         specialMeter = new SpecialMeterClass();
-        bar = GameObject.Find("Level 1");
+        bar = GameObject.Find("bar");
 
         bar.transform.localScale = new Vector3(1, bar.transform.localScale.y);
 
@@ -41,7 +41,7 @@ public class SpecialMeter : MonoBehaviour
   //      specialButton.interactable = true;
 
      //   iTween.ScaleTo(bar, new Vector3(0, bar.transform.localScale.y), 0.2f);
-      GameManager.Instance.GameOverMethod();
+        GameManager.Instance.GameOverMethod();
     }
 
 }
