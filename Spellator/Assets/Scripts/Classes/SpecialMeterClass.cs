@@ -55,7 +55,7 @@ public class SpecialMeterClass
 
         if (meterPercent <= 1)
         {
-            meterRemaining =  meterRemaining - (reduceBy/100);
+            meterRemaining =  meterRemaining - (reduceBy/50);
             meterPercent = meterRemaining / totalMeter;
             // meterPercent = (meterRemaining / totalMeter) / 100;
         }

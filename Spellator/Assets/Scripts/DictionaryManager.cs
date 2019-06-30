@@ -53,8 +53,6 @@ public class DictionaryManager : MonoBehaviour
 
     //[SerializeField] private GameObject message;
 
-    private bool initialBoardMove;
-
     public bool firstLetterOfWord;
 
     public bool chainFlag;
@@ -151,8 +149,6 @@ public class DictionaryManager : MonoBehaviour
     {
 
 
-         //mainWordXPos1 = 150;
-          // mainWordXPos2 = mainWordXPos1*-1;
       
     EncouragementMessages = new List<string>();
         EncouragementMessages.Add("Marvellous!");
@@ -231,15 +227,6 @@ public class DictionaryManager : MonoBehaviour
 
 
 
-        if (wordBeingMade.Length >= 5)
-        {
-            //moves the tiles back to the start position
-            //   ScootTilesDown(450);
-            AudioManager.Instance.PlayAudio(allAudioClips[3]);
-
-        }
-
-
         if (dictionary.ContainsKey(WordBeingMade))
         {
             /*
@@ -312,6 +299,8 @@ public class DictionaryManager : MonoBehaviour
             if ((WordBeingMade.Length >= 5) || (PointsClass.liveScore>=50))
             {
                 ShowMessage("encouragement");
+                AudioManager.Instance.PlayAudio(allAudioClips[3]);
+
             }
 
 
@@ -371,15 +360,14 @@ public class DictionaryManager : MonoBehaviour
 
             }
 
+            scores.addPoints(PointsClass.liveScore);
+
             //reset the scores
             scoreText.text = PointsClass.totalScore.ToString();
 
-            scores.addPoints(PointsClass.liveScore);
 
             //specialMeter.IncreaseMeter(PointsClass.liveScore);
             //Debug.Log("The most recent score was :" + PointsClass.mostRecentScore);
-
-            scores.resetScores();
 
             //Clear the WordBeingMade first before setting it to be the startLetter of the next word
             WordBeingMade = "";
@@ -393,7 +381,6 @@ public class DictionaryManager : MonoBehaviour
 
             //add the scores to the screen after adding the ints together
             //GameManager.Instance.CalculateScores();
-
 
 
 

@@ -65,7 +65,9 @@ public class Tile : MonoBehaviour
             {
                 case 4:
                     tileBGImage.sprite = tileStateImages[3];
-                    break;
+                    letter.color = Color.black;
+                    points.color = Color.black;
+                break;
                 case 3:
                     tileBGImage.sprite = tileStateImages[2];
                     break;
@@ -76,7 +78,10 @@ public class Tile : MonoBehaviour
                     tileBGImage.sprite = tileStateImages[0];
                     break;
                 case 0:
-                    break;
+                tileBGImage.sprite = tileStateImages[0];
+                letter.color = Color.gray;
+                points.color = Color.gray;
+                break;
 
             }
 

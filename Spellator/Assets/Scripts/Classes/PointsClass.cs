@@ -50,6 +50,7 @@ public class PointsClass
 
     public void resetScores()
     {
+        GameManager.Instance.LiveScoreText.text = "";
         liveScore = 0 + primaryTileScore;
 
     }
