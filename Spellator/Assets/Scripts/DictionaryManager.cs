@@ -93,6 +93,8 @@ public class DictionaryManager : MonoBehaviour
 
     public GameObject[] selectedTilesArray;
 
+    //public List<GameObject> selectedTilesArray = new List<GameObject>();
+
     public GameObject[] allTilesArray;
 
     //bool to check if all tiles can be replaced
@@ -142,6 +144,45 @@ public class DictionaryManager : MonoBehaviour
 
         Instance = this;
     }
+
+    private Vector3[] pointLines;
+    private IEnumerator TileCompleteSequence() {
+
+        //find the current primary tile
+        var currentPrimary = GameObject.FindGameObjectWithTag("PrimaryTile");
+        var primaryPosX = GameObject.Find("Primary Tile").transform.position.x+50;
+        var primaryPosY = GameObject.Find("Primary Tile").transform.position.y;
+
+
+      //  if the current primary tile exists then remove it.
+        if (currentPrimary)
+        {
+            iTween.MoveBy(currentPrimary, iTween.Hash("y", 125, "easetype", "EaseInQuad", "time", 0.3f, "oncomplete", "RemoveTileOnComplete"));
+
+        }
+
+        //move the last tile of the word to the primary tile spot
+        iTween.MoveTo(selectedTilesArray[selectedTilesArray.Length - 1], iTween.Hash("x", primaryPosX, "easetype", "EaseInQuad", "time", 0.3f, "onComplete", "SetPrimaryTile"));
+
+
+        
+        selectedTilesArray[selectedTilesArray.Length - 1].tag = "Tile";
+
+        //for each of the tiles set a delay and remove them from the screen
+        for (int i = 0; i<selectedTilesArray.Length-1; i++)
+        {
+
+            iTween.MoveBy(selectedTilesArray[i], iTween.Hash("y", 125, "easetype", "EaseInQuad", "time", 0.3f, "delay", (0.1f) * i, "oncomplete", "RemoveTileOnComplete"));
+          //  iTween.RotateBy(selectedTilesArray[i], new Vector3(10, 10), 1);
+
+
+
+        }
+
+        yield return null;
+
+    }
+
 
 
     // Start is called before the first frame update
@@ -220,7 +261,6 @@ public class DictionaryManager : MonoBehaviour
     public void CheckAndDeleteTiles()
     {
 
-        //ResetLiveScorePosition();
 
         ReduceAge();
 
@@ -326,16 +366,20 @@ public class DictionaryManager : MonoBehaviour
                 }
 
                 tile.tag = "Tile";
-               
 
+                
+                /*
                 //move the tiles to a random yPos between 75 and 125
                 var randomYPos = Random.Range(75, 125);
                 var randomTimeFrame = Random.Range(0.2f,0.5f);
 
                 iTween.MoveBy(tile, iTween.Hash("y", randomYPos, "easetype", "EaseOutQuad", "time", randomTimeFrame, "oncomplete", "RemoveTileOnComplete"));
               
-
+            */
             }
+
+            StartCoroutine(TileCompleteSequence());
+
 
 
             //add to total words made
@@ -375,7 +419,7 @@ public class DictionaryManager : MonoBehaviour
 
 
             //sets the start letter of the next word
-            SetStartTile();
+            //SetStartTile();
 
             sendButton.interactable = false;
 
@@ -443,8 +487,6 @@ public class DictionaryManager : MonoBehaviour
        // var liveScoreText = GameObject.Find("Live Score").GetComponent<Text>();
         //liveScoreText.text = GameObject.Find("Primary Tile").GetComponent<TextMeshProUGUI>().ToString();
 
-        //set the live score back to the start position
-        //ResetLiveScorePosition();
 
         TileManager.Instance.SelectedTiles.Clear();
         //check if the reset bool is true. If it is, delete all the tiles in the rack
@@ -652,18 +694,6 @@ public class DictionaryManager : MonoBehaviour
     }
 
 
-    public void ResetLiveScorePosition()
-    {
-        //set the live score back to the start position
-        var liveScoreGameObject = GameObject.Find("Live Score");
-
-        iTween.MoveTo(liveScoreGameObject, iTween.Hash("x", GameObject.Find("Primary Tile").transform.position.x + 50, "easeType", "easeOutExpo"));
-
-        //liveScoreGameObject.transform.position = new Vector3(GameObject.Find("Primary Tile").transform.position.x+50, liveScoreGameObject.transform.position.y);
-
-    }
-
-
     public void ScootTilesDown(int amountToScoot)
     {
 
@@ -729,6 +759,8 @@ public class DictionaryManager : MonoBehaviour
 
 
             }
+
         }
     }
+
 }

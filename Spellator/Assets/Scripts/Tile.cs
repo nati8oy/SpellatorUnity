@@ -210,7 +210,7 @@ public class Tile : MonoBehaviour
 
         AudioManager.Instance.PlayAudio(tileClick);
 
-        //check is the tile is selected or not. If it's not tagged as "selected" then add it to the word being made.
+        //check if the tile is selected or not. If it's not tagged as "selected" then add it to the word being made.
         if (CompareTag("Tile"))
         {
 
@@ -358,6 +358,11 @@ public class Tile : MonoBehaviour
 
         gameObject.SetActive(false);
         gameObject.transform.parent.GetComponent<TileCreator>().RefillTiles();
+    }
+
+    public void SetPrimaryTile()
+    {
+        gameObject.tag = "PrimaryTile";
     }
 
 }
