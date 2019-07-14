@@ -12,6 +12,8 @@ public class DictionaryManager : MonoBehaviour
 
     private ParticleSystem starParticles;
 
+    [SerializeField] private GameObject correctIcon;
+
 
     [SerializeField] private GameObject BoardHolder;
 
@@ -146,6 +148,7 @@ public class DictionaryManager : MonoBehaviour
     }
 
     private Vector3[] pointLines;
+
     private IEnumerator TileCompleteSequence() {
 
         //find the current primary tile
@@ -162,7 +165,7 @@ public class DictionaryManager : MonoBehaviour
         }
 
         //move the last tile of the word to the primary tile spot
-        iTween.MoveTo(selectedTilesArray[selectedTilesArray.Length - 1], iTween.Hash("x", primaryPosX, "easetype", "EaseInQuad", "time", 0.3f, "onComplete", "SetPrimaryTile"));
+        iTween.MoveTo(selectedTilesArray[selectedTilesArray.Length - 1], iTween.Hash("x", primaryPosX, "easetype", "EaseInOutCirc", "delay", 0.1*wordBeingMade.Length, "time", 0.4f, "onComplete", "SetPrimaryTile"));
 
 
         
@@ -171,8 +174,9 @@ public class DictionaryManager : MonoBehaviour
         //for each of the tiles set a delay and remove them from the screen
         for (int i = 0; i<selectedTilesArray.Length-1; i++)
         {
+            var randomY = Random.Range(100, 135);
 
-            iTween.MoveBy(selectedTilesArray[i], iTween.Hash("y", 125, "easetype", "EaseInQuad", "time", 0.3f, "delay", (0.1f) * i, "oncomplete", "RemoveTileOnComplete"));
+            iTween.MoveBy(selectedTilesArray[i], iTween.Hash("y", randomY, "easetype", "spring", "time", 0.5f, "delay", (0.1f) * (i+1), "oncomplete", "RemoveTileOnComplete"));
           //  iTween.RotateBy(selectedTilesArray[i], new Vector3(10, 10), 1);
 
 
@@ -255,6 +259,9 @@ public class DictionaryManager : MonoBehaviour
 
 
 
+
+
+
     }
 
 
@@ -264,6 +271,8 @@ public class DictionaryManager : MonoBehaviour
 
         ReduceAge();
 
+        //hide the icon that indicates that a word is correct
+        correctIcon.SetActive(false);
 
 
 
@@ -453,12 +462,16 @@ public class DictionaryManager : MonoBehaviour
             sendButton.interactable = true;
             AudioManager.Instance.PlayAudio(allAudioClips[0]);
 
-
-
+            //show the icon that indicates that a word is correct
+            correctIcon.SetActive(true);
         }
         else
         {
             sendButton.interactable = false;
+
+            //hide the icon that indicates that a word is correct
+            correctIcon.SetActive(false);
+
         }
 
         /*
@@ -482,9 +495,12 @@ public class DictionaryManager : MonoBehaviour
     {
         scores.resetScores();
         sendButton.interactable = false;
-        
 
-       // var liveScoreText = GameObject.Find("Live Score").GetComponent<Text>();
+        //hide the icon that indicates that a word is correct
+        correctIcon.SetActive(false);
+
+
+        // var liveScoreText = GameObject.Find("Live Score").GetComponent<Text>();
         //liveScoreText.text = GameObject.Find("Primary Tile").GetComponent<TextMeshProUGUI>().ToString();
 
 

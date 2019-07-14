@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: a1537b96e75bc4473a63b045c66e95d4
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Les Paul
+  fontNames:
+  - Les Paul
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: fb4dedba90b954aaeb1b7b11ce6de5b9, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
