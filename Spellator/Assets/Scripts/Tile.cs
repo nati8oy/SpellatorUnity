@@ -78,7 +78,7 @@ public class Tile : MonoBehaviour
                     tileBGImage.sprite = tileStateImages[0];
                     break;
                 case 0:
-                tileBGImage.sprite = tileStateImages[0];
+                tileBGImage.sprite = tileStateImages[4];
                 letter.color = Color.gray;
                 points.color = Color.gray;
                 break;
@@ -266,11 +266,21 @@ public class Tile : MonoBehaviour
 
             TileManager.Instance.PlayTiles();
 
-            //add the score
-            scores.addLiveScore(spawnedTile.points);
+            //add the score to the live scroe
+
+            if (PointsClass.multiplier >= 3)
+            {
+                scores.addLiveScore(spawnedTile.points * PointsClass.multiplier);
+            }
+
+            else
+            {
+                scores.addLiveScore(spawnedTile.points);
+
+            }
 
             //move the live scor text box to below the current tile
-           // SetLiveScorePos();
+            // SetLiveScorePos();
 
             GameManager.Instance.LiveScoreText.text = PointsClass.liveScore.ToString();
 
@@ -362,7 +372,20 @@ public class Tile : MonoBehaviour
 
     public void SetPrimaryTile()
     {
+
+        //set the tile's tag to be PrimaryTile
         gameObject.tag = "PrimaryTile";
+
+        PointsClass.primaryTileScore = spawnedTile.points;
+
+        //Debug.Log("the primary tile is worth " + spawnedTile.points + "points.");
+
+        //reset the tile age
+        spawnedTile.age = 4;
+
+
+
+
     }
 
 }

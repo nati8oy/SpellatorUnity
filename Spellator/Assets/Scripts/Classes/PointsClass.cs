@@ -43,9 +43,11 @@ public class PointsClass
     }
 
     public void addLiveScore(int _pointsAdded)
+
     {
         pointsAdded = _pointsAdded;
         liveScore = pointsAdded + liveScore;
+
     }
 
     public void resetScores()
