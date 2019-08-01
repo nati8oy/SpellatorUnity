@@ -25,15 +25,14 @@ public class SpecialMeter : MonoBehaviour
     void Update()
     {
 
-        bar.transform.localScale = new Vector3(SpecialMeterClass.meterPercent, bar.transform.localScale.y);
-       // iTween.ScaleTo(bar, iTween.Hash("x", new Vector3(SpecialMeterClass.meterPercent, bar.transform.localScale.y), "time", "0.25f"));
+         bar.transform.localScale = new Vector3(SpecialMeterClass.meterPercent, bar.transform.localScale.y);
+        // iTween.ScaleTo(bar, iTween.Hash("x", new Vector3(SpecialMeterClass.meterPercent, bar.transform.localScale.y), "time", "0.25f"));
 
         //iTween.MoveBy(gameObject, iTween.Hash("y", randomDistance, "time", randomTime, "easetype", "easeInOutExpo", "delay", randomTime, "oncomplete", "SetTileInactive"));
 
 
     }
 
-     
 
     private void SetToZero()
     {

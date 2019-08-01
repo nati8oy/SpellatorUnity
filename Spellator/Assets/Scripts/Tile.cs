@@ -15,6 +15,9 @@ public class Tile : MonoBehaviour
     public TextMeshProUGUI letter;
     public TextMeshProUGUI points;
 
+    //used to adding double and triple points to the overall score
+    public int adjustedPointValue;
+
     private SpecialMeterClass specialMeter = new SpecialMeterClass();
 
     public TileClass spawnedTile;
@@ -59,37 +62,37 @@ public class Tile : MonoBehaviour
 
     private void Update()
     {
-      
+
         //check the tile's age and swap in the appropirate tile state image
-            switch (spawnedTile.age)
-            {
-                case 4:
-                    tileBGImage.sprite = tileStateImages[3];
-                    letter.color = Color.black;
-                    points.color = Color.black;
+        switch (spawnedTile.age)
+        {
+            case 4:
+                tileBGImage.sprite = tileStateImages[3];
+               // letter.color = Color.black;
+              //  points.color = Color.black;
                 break;
-                case 3:
-                    tileBGImage.sprite = tileStateImages[2];
-                    break;
-                case 2:
-                    tileBGImage.sprite = tileStateImages[1];
-                    break;
-                case 1:
-                    tileBGImage.sprite = tileStateImages[0];
-                    break;
-                case 0:
-                tileBGImage.sprite = tileStateImages[4];
+            case 3:
+                tileBGImage.sprite = tileStateImages[2];
+                break;
+            case 2:
+                tileBGImage.sprite = tileStateImages[1];
+                break;
+            case 1:
+                tileBGImage.sprite = tileStateImages[0];
+                break;
+            case 0:
+                tileBGImage.sprite = tileStateImages[0];
                 letter.color = Color.gray;
                 points.color = Color.gray;
                 break;
 
-            }
+        }
 
         var currentPos = GameObject.Find("Primary Tile").transform.position;
 
         if (gameObject.CompareTag("TileSelected"))
         {
-           // iTween.MoveUpdate(gameObject, iTween.Hash("x", GameManager.Instance.rackSpots[DictionaryManager.Instance.WordBeingMade.Length].transform.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time", 0.5f));
+            // iTween.MoveUpdate(gameObject, iTween.Hash("x", GameManager.Instance.rackSpots[DictionaryManager.Instance.WordBeingMade.Length].transform.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time", 0.5f));
 
             // iTween.MoveUpdate(gameObject, iTween.Hash("x", currentPos.x+(110*positionInWord), "y", TileManager.Instance.NextFreePos.position.y, "time", 0.5f));
             //iTween.MoveUpdate(gameObject, iTween.Hash("x", TileManager.Instance.NextFreePos.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time", 0.5f));
@@ -106,33 +109,18 @@ public class Tile : MonoBehaviour
 
     private void OnEnable()
     {
-       // iTween.Move(gameObject, iTween.Hash("x", 1.01, "y", 1.01, "time", Random.RandomRange(1f, 2f)));
+
+        //set the colour back to black. It'll then get reset to the triple or double colour below
+        letter.color = Color.black;
+        points.color = Color.black;
+
+        // iTween.Move(gameObject, iTween.Hash("x", 1.01, "y", 1.01, "time", Random.RandomRange(1f, 2f)));
 
         //create instance of the TileClass for use in the checks below
         spawnedTile = new TileClass(gameObject.transform.position);
 
 
-        switch (spawnedTile.specialAttribute)
-        {
-            case "heart":
-                specialIcon.SetActive(true);
-                break;
-            case "double":
-              //  specialIcon.SetActive(false);
-            //    letter.color = Color.red;
-                break;
-            case "triple":
-              //  specialIcon.SetActive(false);
-               // letter.color = Color.blue;
-
-                break;
-
-            case "none":
-                specialIcon.SetActive(false);
-
-                break;
-        }
-
+        
 
         //if the tag is PrimaryTile then set the tile letter and points to be that of the StartLetter
         //otherwise, set them to come up randomly from the bag
@@ -147,7 +135,7 @@ public class Tile : MonoBehaviour
                 spawnedTile.letter = TileBag.bag[Random.Range(0, TileBag.bag.Count)];
                 spawnedTile.points = TileBag.pointsDictionary[spawnedTile.letter];
             }*/
-            
+
 
             PointsClass.primaryTileScore = spawnedTile.points;
 
@@ -158,8 +146,6 @@ public class Tile : MonoBehaviour
             spawnedTile.points = TileBag.pointsDictionary[spawnedTile.letter];
             RemoveLetterFromBag();
 
-
-
         }
 
 
@@ -169,10 +155,39 @@ public class Tile : MonoBehaviour
         points.text = spawnedTile.points.ToString();
         tilePointValue = spawnedTile.points;
 
-        //removes the tile from the bag
+        switch (spawnedTile.specialAttribute)
+        {
+            case "heart":
+                specialIcon.SetActive(true);
+                Debug.Log("heart tile");
+                break;
+            case "double":
+                //specialIcon.SetActive(false);
+                
+                letter.color = Color.red;
+                letter.color = Color.red;
+                //update the points value of the tile so that it is added correctly to the overall live score
+                adjustedPointValue = spawnedTile.points * 2;
+                points.text = (spawnedTile.points * 2).ToString();
+                Debug.Log("double tile");
 
+                break;
+            case "triple":
+                //  specialIcon.SetActive(false);
+                letter.color = Color.blue;
+                //update the points value of the tile so that it is added correctly to the overall live score
+                adjustedPointValue = spawnedTile.points * 3;
+                points.text = (spawnedTile.points * 3).ToString();
+                Debug.Log("triple tile");
 
+                break;
 
+            case "none":
+                specialIcon.SetActive(false);
+                adjustedPointValue = spawnedTile.points;
+
+                break;
+        }
 
 
     }
@@ -190,7 +205,8 @@ public class Tile : MonoBehaviour
             //sets the letter and point text of each tile
             letter.text = spawnedTile.letter;
             points.text = spawnedTile.points.ToString();
-            tilePointValue = spawnedTile.points;
+            adjustedPointValue = spawnedTile.points;
+            //tilePointValue = spawnedTile.points;
 
         }
 
@@ -214,9 +230,6 @@ public class Tile : MonoBehaviour
         if (CompareTag("Tile"))
         {
 
-           
-            
-
             //add this tile's Pos to the SelectedTiles list in TileManager
             TileManager.Instance.SelectedTiles.Add(transform.parent);
 
@@ -224,12 +237,7 @@ public class Tile : MonoBehaviour
             //start spelling the word using the letter from this tile
             DictionaryManager.Instance.CreateWord(letter.text);
 
-            //if the word is longer than 3 letters, check if it's in the dictionary
-            if (DictionaryManager.Instance.WordBeingMade.Length >= 3)
-            {
-                DictionaryManager.Instance.CheckWord();
-                positionInWord = DictionaryManager.Instance.WordBeingMade.Length;
-            }
+
 
             gameObject.tag = "TileSelected";
 
@@ -247,7 +255,7 @@ public class Tile : MonoBehaviour
 
 
             //move tiles into position
-            iTween.MoveTo(gameObject, iTween.Hash("x", TileManager.Instance.NextFreePos.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time", 0.5f, "easetype", "easeOut"));
+            iTween.MoveTo(gameObject, iTween.Hash("x", TileManager.Instance.NextFreePos.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time", 0.5f, "easetype", "easeOut", "oncomplete", "CheckWordBeingSpelled"));
 
 
             /*
@@ -270,12 +278,12 @@ public class Tile : MonoBehaviour
 
             if (PointsClass.multiplier >= 3)
             {
-                scores.addLiveScore(spawnedTile.points * PointsClass.multiplier);
+                scores.addLiveScore(adjustedPointValue * PointsClass.multiplier);
             }
 
             else
             {
-                scores.addLiveScore(spawnedTile.points);
+                scores.addLiveScore(adjustedPointValue);
 
             }
 
@@ -285,13 +293,26 @@ public class Tile : MonoBehaviour
             GameManager.Instance.LiveScoreText.text = PointsClass.liveScore.ToString();
 
 
-           
+
         }
 
 
     }
+
+    public void CheckWordBeingSpelled()
+    {
+         //if the word is longer than 3 letters, check if it's in the dictionary
+            if (DictionaryManager.Instance.WordBeingMade.Length >= 3)
+            {
+                DictionaryManager.Instance.CheckWord();
+                positionInWord = DictionaryManager.Instance.WordBeingMade.Length;
+            }
+    }
     public void RemoveTileOnComplete()
     {
+       
+       
+
         //set tiles back to inactive so that they can go back into the object pool
         gameObject.SetActive(false);
         AudioManager.Instance.PlayAudio(popSounds[Random.Range(0, 3)]);
@@ -316,11 +337,7 @@ public class Tile : MonoBehaviour
 
     }
 
-    //this function sets the position of the live score text box to be under the current letter
-    public void SetLiveScorePos(){
-        var liveScoreGameObject = GameObject.Find("Live Score");
-        liveScoreGameObject.transform.position = new Vector3(liveScoreGameObject.transform.position.x+100, liveScoreGameObject.transform.position.y);
-}
+ 
 
     public void MoveTileForLongWord()
 
@@ -357,17 +374,18 @@ public class Tile : MonoBehaviour
     //function to refill the tiles and set this one to inactive so it can go back into the object pool
     public void SetTileInactive()
     {
-        
 
         //decreases the "special" meter by the amount of the points on this tile
-        specialMeter.DecreaseMeter(spawnedTile.points);
+        specialMeter.DecreaseMeter(adjustedPointValue);
         AudioManager.Instance.PlayAudio(smashSounds[Random.Range(0,smashSounds.Length)]);
 
         //checks to see if the life meter has anything left in it. If not, it's game over, fool.
         GameManager.Instance.CheckLifeMeter();
 
         gameObject.SetActive(false);
+        //set the tile holder to refill its tiles AFTER this object has been set to inactive
         gameObject.transform.parent.GetComponent<TileCreator>().RefillTiles();
+
     }
 
     public void SetPrimaryTile()

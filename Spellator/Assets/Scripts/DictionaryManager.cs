@@ -367,13 +367,21 @@ public class DictionaryManager : MonoBehaviour
                getStartPos.RefillTiles();
 
 
+                
                 //checks the tile type and adds whatever the special tile bonus is
                 if (tile.GetComponent<Tile>().spawnedTile.specialAttribute == "heart")
                 {
-                        specialMeter.IncreaseMeter((tile.GetComponent<Tile>().spawnedTile.points)*1.5f);
+
+                    
+                   // var heartRefillAmount = tile.GetComponent<Tile>().spawnedTile.points;
+                      specialMeter.IncreaseMeter(0.1f);
+
+
+                    //Debug.Log("heart refill amount is: " + heartRefillAmount);
+
                     
                 }
-
+                
                 tile.tag = "Tile";
 
                 

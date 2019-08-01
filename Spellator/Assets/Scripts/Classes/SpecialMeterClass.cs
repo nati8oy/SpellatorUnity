@@ -17,16 +17,20 @@ public class SpecialMeterClass
 
     }
 
+    
+
     public void IncreaseMeter(float amountToAdd)
     {
 
         //increases the amount of life meter you have remaining 
         if (meterPercent < 1)
         {
-            meterRemaining = (amountToAdd / 50) + meterRemaining;
+            //meterRemaining = amountToAdd  + meterRemaining;
+            meterRemaining = (amountToAdd / 100) + meterRemaining;
             meterPercent = meterRemaining / totalMeter;
             //meterPercent = (meterRemaining / 10);
-            //Debug.Log("Meter percent is: "+ meterPercent+ " Meter increased by: " + amountToAdd);
+           // Debug.Log("Meter percent is: "+ meterPercent+ " Meter increased by: " + amountToAdd);
+           // Debug.Log("The most recent word was: " + DictionaryManager.Instance.WordBeingMade);
         }
 
         /*
