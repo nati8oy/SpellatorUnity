@@ -38,7 +38,9 @@ public class Tile : MonoBehaviour
     private PointsClass scores = new PointsClass();
 
     private int positionInRack;
-    private Vector3 returnPos;
+
+    //use as a unit of measurement for offsetting tiles
+    private int tileOffset = 110;
 
     private Vector3 currentSpot;
 
@@ -68,8 +70,6 @@ public class Tile : MonoBehaviour
         {
             case 4:
                 tileBGImage.sprite = tileStateImages[3];
-               // letter.color = Color.black;
-              //  points.color = Color.black;
                 break;
             case 3:
                 tileBGImage.sprite = tileStateImages[2];
@@ -87,9 +87,34 @@ public class Tile : MonoBehaviour
                 break;
 
         }
-        
 
-        //iTween.MoveUpdate(gameObject, new Vector3(GameObject.Find("Primary Tile").transform.position.x, GameObject.Find("Primary Tile").transform.position.y), 1);
+        //get the primary tile position as a reference to use in the tweens below
+        //it is in the update function as it needs to be updated constantly for use with the tweens below
+        nextTileSpot = GameObject.Find("Primary Tile").transform.position;
+
+
+        //make sure both the primary tile and the selected tiles move in relation to the Primary Tile game object
+        if (CompareTag("TileSelected"))
+        {
+            //check if a word has been made before this
+            if (DictionaryManager.Instance.chainFlag)
+            {
+                iTween.MoveUpdate(gameObject, new Vector3((nextTileSpot.x) + (tileOffset * positionInWord)- tileOffset, nextTileSpot.y), 1);
+
+            }
+            else
+            {
+                iTween.MoveUpdate(gameObject, new Vector3((nextTileSpot.x) + (tileOffset * positionInWord), nextTileSpot.y), 1);
+
+            }
+
+        }
+
+        else if(CompareTag("PrimaryTile"))
+        {
+            iTween.MoveUpdate(gameObject, new Vector3(nextTileSpot.x, nextTileSpot.y), 1);
+
+        }
 
 
     }
@@ -117,13 +142,7 @@ public class Tile : MonoBehaviour
             spawnedTile.letter = DictionaryManager.Instance.StartLetter;
             spawnedTile.points = TileBag.pointsDictionary[spawnedTile.letter];
 
-            /*
-            if (spawnedTile.letter == "X")
-            {
-                spawnedTile.letter = TileBag.bag[Random.Range(0, TileBag.bag.Count)];
-                spawnedTile.points = TileBag.pointsDictionary[spawnedTile.letter];
-            }*/
-
+           
 
             PointsClass.primaryTileScore = spawnedTile.points;
 
@@ -210,8 +229,6 @@ public class Tile : MonoBehaviour
 
     {
 
-
-
         AudioManager.Instance.PlayAudio(tileClick);
 
         //check if the tile is selected or not. If it's not tagged as "selected" then add it to the word being made.
@@ -226,13 +243,9 @@ public class Tile : MonoBehaviour
             DictionaryManager.Instance.CreateWord(letter.text);
 
 
-
+            //set the tag of this tile to be selected
             gameObject.tag = "TileSelected";
 
-
-
-
-            nextTileSpot = GameObject.Find("Primary Tile").transform.position;
 
 
             //move tiles into position
@@ -241,11 +254,11 @@ public class Tile : MonoBehaviour
             //use the chainFlag to see if you've made a word before or not.
             if (DictionaryManager.Instance.chainFlag)
             {
-                iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x) + (100 * DictionaryManager.Instance.WordBeingMade.Length)-100, "y", nextTileSpot.y, "time", 0.5f, "easetype", "easeOut", "oncomplete", "CheckWordBeingSpelled"));
+                iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x) + (tileOffset * DictionaryManager.Instance.WordBeingMade.Length)- tileOffset, "y", nextTileSpot.y, "time", 0.5f, "easetype", "easeOut", "oncomplete", "CheckWordBeingSpelled"));
 
             } else
             {
-                iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x) + (100 * DictionaryManager.Instance.WordBeingMade.Length), "y", nextTileSpot.y, "time", 0.5f, "easetype", "easeOut", "oncomplete", "CheckWordBeingSpelled"));
+                iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x) + (tileOffset * DictionaryManager.Instance.WordBeingMade.Length), "y", nextTileSpot.y, "time", 0.5f, "easetype", "easeOut", "oncomplete", "CheckWordBeingSpelled"));
 
             }
 
@@ -271,7 +284,7 @@ public class Tile : MonoBehaviour
 
             GameManager.Instance.LiveScoreText.text = PointsClass.liveScore.ToString();
 
-
+            positionInWord = DictionaryManager.Instance.WordBeingMade.Length;
 
         }
 
@@ -284,7 +297,7 @@ public class Tile : MonoBehaviour
             if (DictionaryManager.Instance.WordBeingMade.Length >= 3)
             {
                 DictionaryManager.Instance.CheckWord();
-                positionInWord = DictionaryManager.Instance.WordBeingMade.Length;
+
             }
     }
     public void RemoveTileOnComplete()
@@ -307,30 +320,9 @@ public class Tile : MonoBehaviour
         TileBag.bag.Remove(spawnedTile.letter);
         //TileBag.usedLetters.Add(spawnedTile.letter);
 
-        /*
-        foreach(string letterInBag in TileBag.usedLetters)
-        {
-            Debug.Log("used letter: " + letterInBag);
-        }
-    */   
-
-    }
-    /*
- 
-
-    public void MoveTileForLongWord()
-
-    {
-        if (DictionaryManager.Instance.WordBeingMade.Length > 3)    
-        {
-            DictionaryManager.Instance.ScootTilesDown(-450);
-      
-        }
-
 
     }
 
-    */
 
     public void ReduceAge()
     {

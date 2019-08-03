@@ -531,30 +531,7 @@ public class DictionaryManager : MonoBehaviour
             //reduce the age of the tiles that are on the rack currently instead of deleting them all
             ReduceAge();
 
-            //ScootTilesDown(440);
-
-            /*
-            //loop through the array and delete each of the gameObjects in it
-            allTilesArray = GameObject.FindGameObjectsWithTag("Tile");
-
-
-
-            foreach (GameObject tile in allTilesArray)
-            {
-
-
-                //access the tile's scripts and make them "Available"
-
-                var setTileStatus = tile.transform.parent.GetComponent<TileCreator>();
-                setTileStatus.RefillTiles();
-
-                //destroy the tiles
-                tile.SetActive(false);
-
-
-
-            }
-            */
+            
 
             //remove multiplier
             if (PointsClass.multiplier >= 3)
@@ -574,7 +551,6 @@ public class DictionaryManager : MonoBehaviour
         else if (resetBool == false)
         {
 
-            //ScootTilesDown(440);
             //add all the tiles with the tag "Selected" to an array
 
             selectedTilesArray = GameObject.FindGameObjectsWithTag("TileSelected");
@@ -605,11 +581,7 @@ public class DictionaryManager : MonoBehaviour
 
             }
 
-            if (wordBeingMade.Length >=5)
-            {
-                //moves the tiles back to the start position
-               // ScootTilesDown(450);
-            }
+  
 
             
 
@@ -651,31 +623,9 @@ public class DictionaryManager : MonoBehaviour
 
        pointsHolder = Instantiate(pointsText, new Vector3(Screen.width/2, Screen.height/2), Quaternion.identity);
 
-       
-       
-        // pointsHolder.transform.parent = GameObject.Find("Word Being Spelled").transform;
+              
     }
 
-    /*
-    public void SetStartTile()
-    {
-
-       // NewPrimaryTile.letter = startLetter;
-       // NewPrimaryTile.points = TileBag.pointsDictionary[NewPrimaryTile.letter];
-
-        if (!primaryTile.activeSelf)
-        {
-            primaryTile.SetActive(true);
-        } else if (primaryTile.activeSelf)
-        {
-            primaryTile.SetActive(false);
-            primaryTile.SetActive(true);
-
-        }
-
-
-    }
-    */
 
     public void ShowMessage(string messageType)
     {
@@ -720,27 +670,7 @@ public class DictionaryManager : MonoBehaviour
 
 
     }
-    /*
-
-    public void ScootTilesDown(int amountToScoot)
-    {
-
-
-        selectedTilesArray = GameObject.FindGameObjectsWithTag("TileSelected");
-
-        foreach (GameObject tile in selectedTilesArray)
-        {
-
-
-            iTween.MoveBy(tile, iTween.Hash("x", amountToScoot, "easeType", "easeInOutExpo"));
-            //iTween.MoveTo(tile, iTween.Hash("x", amountToScoot, "easeType", "easeInOutExpo"));
-        }
-        
-        //this moves all the tile positions at once
-        iTween.MoveBy(BoardHolder, iTween.Hash("x", amountToScoot, "easeType", "easeInOutExpo"));
-
-    }
-    */
+    
 
     public void ReduceAge()
     {
