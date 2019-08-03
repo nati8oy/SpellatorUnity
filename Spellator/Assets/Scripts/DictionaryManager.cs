@@ -37,14 +37,14 @@ public class DictionaryManager : MonoBehaviour
     //private Messages onScreenMessage = new Messages();
 
 
-    private TileClass NewPrimaryTile;
+    /*private TileClass NewPrimaryTile;
     [SerializeField] private GameObject primaryTile;
 
     public GameObject PrimaryTile
     {
         get {return primaryTile; }
     }
-
+    */
 
     private SpecialMeterClass specialMeter = new SpecialMeterClass();
 
@@ -153,7 +153,7 @@ public class DictionaryManager : MonoBehaviour
 
         //find the current primary tile
         var currentPrimary = GameObject.FindGameObjectWithTag("PrimaryTile");
-        var primaryPosX = GameObject.Find("Primary Tile").transform.position.x+50;
+        var primaryPosX = GameObject.Find("Primary Tile").transform.position.x;
         var primaryPosY = GameObject.Find("Primary Tile").transform.position.y;
 
 
@@ -194,7 +194,9 @@ public class DictionaryManager : MonoBehaviour
     {
 
 
-      
+
+       // Debug.Log("x position of the primary tile: " + GameObject.Find("Primary Tile").transform.position.x);
+
     EncouragementMessages = new List<string>();
         EncouragementMessages.Add("Marvellous!");
         EncouragementMessages.Add("Amazing!");
@@ -215,7 +217,7 @@ public class DictionaryManager : MonoBehaviour
 
 
         //create a new primary tile class so that it's avaiable for later on.
-        NewPrimaryTile = new TileClass(primaryTile.transform.position);
+        //NewPrimaryTile = new TileClass(primaryTile.transform.position);
 
 
         //run the function in the Messages class that makes the message object active
@@ -654,6 +656,7 @@ public class DictionaryManager : MonoBehaviour
         // pointsHolder.transform.parent = GameObject.Find("Word Being Spelled").transform;
     }
 
+    /*
     public void SetStartTile()
     {
 
@@ -672,6 +675,7 @@ public class DictionaryManager : MonoBehaviour
 
 
     }
+    */
 
     public void ShowMessage(string messageType)
     {
@@ -716,7 +720,7 @@ public class DictionaryManager : MonoBehaviour
 
 
     }
-
+    /*
 
     public void ScootTilesDown(int amountToScoot)
     {
@@ -736,6 +740,7 @@ public class DictionaryManager : MonoBehaviour
         iTween.MoveBy(BoardHolder, iTween.Hash("x", amountToScoot, "easeType", "easeInOutExpo"));
 
     }
+    */
 
     public void ReduceAge()
     {

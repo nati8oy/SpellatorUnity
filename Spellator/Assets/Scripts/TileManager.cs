@@ -91,7 +91,7 @@ public class TileManager : MonoBehaviour
     void Start()
     {
 
-        firstLetterPosition = GameObject.Find("Pos 1").transform;
+//        firstLetterPosition = GameObject.Find("Pos 1").transform;
 
 
         nextFreePos = playPositions[selectedTiles.Count];

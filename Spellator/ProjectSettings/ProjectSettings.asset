@@ -679,10 +679,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: 
+  cloudProjectId: 97095c7c-5319-4a69-9146-df9868b72804
   framebufferDepthMemorylessMode: 0
-  projectName: 
-  organizationId: 
+  projectName: Spellator
+  organizationId: nati8oy
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

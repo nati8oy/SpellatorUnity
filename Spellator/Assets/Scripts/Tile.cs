@@ -87,21 +87,9 @@ public class Tile : MonoBehaviour
                 break;
 
         }
+        
 
-        var currentPos = GameObject.Find("Primary Tile").transform.position;
-
-        if (gameObject.CompareTag("TileSelected"))
-        {
-            // iTween.MoveUpdate(gameObject, iTween.Hash("x", GameManager.Instance.rackSpots[DictionaryManager.Instance.WordBeingMade.Length].transform.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time", 0.5f));
-
-            // iTween.MoveUpdate(gameObject, iTween.Hash("x", currentPos.x+(110*positionInWord), "y", TileManager.Instance.NextFreePos.position.y, "time", 0.5f));
-            //iTween.MoveUpdate(gameObject, iTween.Hash("x", TileManager.Instance.NextFreePos.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time", 0.5f));
-
-        }
-
-
-
-
+        //iTween.MoveUpdate(gameObject, new Vector3(GameObject.Find("Primary Tile").transform.position.x, GameObject.Find("Primary Tile").transform.position.y), 1);
 
 
     }
@@ -246,29 +234,20 @@ public class Tile : MonoBehaviour
 
             nextTileSpot = GameObject.Find("Primary Tile").transform.position;
 
-            // currentSpot = (nextTileSpot.x) + (110 * DictionaryManager.Instance.WordBeingMade.Length);
-
-            //iTween.MoveTo(gameObject, iTween.Hash("x", TileManager.Instance.NextFreePos.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time", 0.5f, "easetype", "easeOut"));
-
-
-            // iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x)+(110*DictionaryManager.Instance.WordBeingMade.Length), "y", nextTileSpot.y, "time", 0.5f, "easetype", "easeOutQuint"));
-
 
             //move tiles into position
-            iTween.MoveTo(gameObject, iTween.Hash("x", TileManager.Instance.NextFreePos.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time", 0.5f, "easetype", "easeOut", "oncomplete", "CheckWordBeingSpelled"));
+            //iTween.MoveTo(gameObject, iTween.Hash("x", TileManager.Instance.NextFreePos.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time", 0.5f, "easetype", "easeOut", "oncomplete", "CheckWordBeingSpelled"));
 
+            //use the chainFlag to see if you've made a word before or not.
+            if (DictionaryManager.Instance.chainFlag)
+            {
+                iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x) + (100 * DictionaryManager.Instance.WordBeingMade.Length)-100, "y", nextTileSpot.y, "time", 0.5f, "easetype", "easeOut", "oncomplete", "CheckWordBeingSpelled"));
 
-            /*
-             if (DictionaryManager.Instance.WordBeingMade.Length != 5)
-             {
-                 iTween.MoveTo(gameObject, iTween.Hash("x", TileManager.Instance.NextFreePos.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time", 0.5f, "easetype", "easeOut"));
+            } else
+            {
+                iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x) + (100 * DictionaryManager.Instance.WordBeingMade.Length), "y", nextTileSpot.y, "time", 0.5f, "easetype", "easeOut", "oncomplete", "CheckWordBeingSpelled"));
 
-             } else if (DictionaryManager.Instance.WordBeingMade.Length == 5)
-             {
-                 iTween.MoveTo(gameObject, iTween.Hash("x", TileManager.Instance.NextFreePos.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time", 0.5f, "easetype", "easeOut", "oncomplete", "MoveTileForLongWord"));
-
-             }*/
-
+            }
 
             //sets the next free position to the TileManager.Instance.selectedTiles length
 
@@ -336,7 +315,7 @@ public class Tile : MonoBehaviour
     */   
 
     }
-
+    /*
  
 
     public void MoveTileForLongWord()
@@ -350,6 +329,8 @@ public class Tile : MonoBehaviour
 
 
     }
+
+    */
 
     public void ReduceAge()
     {
