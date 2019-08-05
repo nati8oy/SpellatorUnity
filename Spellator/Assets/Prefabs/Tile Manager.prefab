@@ -62,6 +62,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   tile: {fileID: 5976778401099106082, guid: 62493d6093b174721b8a10a5964d4855, type: 3}
+  activeWordPosition: {fileID: 0}
+  primaryTile: {fileID: 0}
   rackSpacesAvailable: 01010101010101010101
-  nextFreePos: {fileID: 0}

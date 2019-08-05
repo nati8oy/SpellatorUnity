@@ -46,6 +46,10 @@ public class DictionaryManager : MonoBehaviour
     }
     */
 
+    [SerializeField] private GameObject PrimaryTile;
+    private float primaryPosX;
+    private float primaryPosY;
+
     private SpecialMeterClass specialMeter = new SpecialMeterClass();
 
     private GameObject startTile;
@@ -151,13 +155,10 @@ public class DictionaryManager : MonoBehaviour
 
     private IEnumerator TileCompleteSequence() {
 
-        //find the current primary tile
+        //create a local var from the tile TAGGED with "PrimaryTile"
         var currentPrimary = GameObject.FindGameObjectWithTag("PrimaryTile");
-        var primaryPosX = GameObject.Find("Primary Tile").transform.position.x;
-        var primaryPosY = GameObject.Find("Primary Tile").transform.position.y;
 
-
-      //  if the current primary tile exists then remove it.
+        //if the current primary tile exists then remove it.
         if (currentPrimary)
         {
             iTween.MoveBy(currentPrimary, iTween.Hash("y", 125, "easetype", "EaseInQuad", "time", 0.3f, "oncomplete", "RemoveTileOnComplete"));
@@ -166,8 +167,6 @@ public class DictionaryManager : MonoBehaviour
 
         //move the last tile of the word to the primary tile spot
         iTween.MoveTo(selectedTilesArray[selectedTilesArray.Length - 1], iTween.Hash("x", primaryPosX, "easetype", "EaseInOutCirc", "delay", 0.1*wordBeingMade.Length, "time", 0.4f, "onComplete", "SetPrimaryTile"));
-
-
         
         selectedTilesArray[selectedTilesArray.Length - 1].tag = "Tile";
 
@@ -192,12 +191,14 @@ public class DictionaryManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //find the current primary tile and add its x and y positions to these vars
+        primaryPosX = GameObject.Find("Primary Tile").transform.position.x;
+        primaryPosY = GameObject.Find("Primary Tile").transform.position.y;
 
 
+        // Debug.Log("x position of the primary tile: " + GameObject.Find("Primary Tile").transform.position.x);
 
-       // Debug.Log("x position of the primary tile: " + GameObject.Find("Primary Tile").transform.position.x);
-
-    EncouragementMessages = new List<string>();
+        EncouragementMessages = new List<string>();
         EncouragementMessages.Add("Marvellous!");
         EncouragementMessages.Add("Amazing!");
         EncouragementMessages.Add("Wow!");
@@ -250,15 +251,14 @@ public class DictionaryManager : MonoBehaviour
     void Update()
     {
 
-
         if (PointsClass.multiplier >= 3)
         {
             //set the multiplier text 
             multiplierText.text = "x" + PointsClass.multiplier.ToString();
             PointsClass.multiplierActive = true;
-
         }
 
+       
 
 
 
@@ -272,6 +272,9 @@ public class DictionaryManager : MonoBehaviour
 
 
         ReduceAge();
+
+        //move the primary tile back to its starting position
+        iTween.MoveTo(PrimaryTile, iTween.Hash("x", primaryPosX, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
 
         //hide the icon that indicates that a word is correct
         correctIcon.SetActive(false);
@@ -484,6 +487,26 @@ public class DictionaryManager : MonoBehaviour
 
         }
 
+
+        switch (wordBeingMade.Length)
+        {
+            case 5:
+                iTween.MoveTo(PrimaryTile, iTween.Hash("x", PrimaryTile.transform.position.x - 200, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
+                break;
+            case 6:
+                break;
+            case 7:
+                iTween.MoveTo(PrimaryTile, iTween.Hash("x", PrimaryTile.transform.position.x - 300, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
+                break;
+            case 8:
+                break;
+            case 9:
+                iTween.MoveTo(PrimaryTile, iTween.Hash("x", PrimaryTile.transform.position.x - 350, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
+                break;
+
+
+
+        }
         /*
         if (wordBeingMade.Length > 3)
         {
@@ -503,6 +526,10 @@ public class DictionaryManager : MonoBehaviour
 
     public void ClearWord()
     {
+        //move the primary tile back to its starting position
+        iTween.MoveTo(PrimaryTile, iTween.Hash("x", primaryPosX, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
+
+        //reset the scores
         scores.resetScores();
         sendButton.interactable = false;
 
