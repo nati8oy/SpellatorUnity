@@ -36,8 +36,10 @@ public class TileClass
 
         //add special types on initialisaton
         specialTypes.Add("heart");
-        specialTypes.Add("double");
-        specialTypes.Add("triple");
+    //    specialTypes.Add("double");
+      //  specialTypes.Add("triple");
+
+
 
 
         //choose a random number for special probability
@@ -49,7 +51,7 @@ public class TileClass
             tileType = "special";
 
             //choose a random special tile type
-            specialAttribute = specialTypes[Random.Range(0, 3)] ;
+            specialAttribute = specialTypes[Random.Range(0, specialTypes.Count)] ;
           //  Debug.Log("Special attribute is: " + specialAttribute);
 
         }

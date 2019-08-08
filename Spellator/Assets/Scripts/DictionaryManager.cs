@@ -20,7 +20,7 @@ public class DictionaryManager : MonoBehaviour
     //store all of the audio clips in this array
     public AudioClip[] allAudioClips;
 
-
+    private GameObject healthBar;
 
     //this section is for the on screen messages
     [SerializeField] private GameObject messageParentObject;
@@ -50,7 +50,6 @@ public class DictionaryManager : MonoBehaviour
     private float primaryPosX;
     private float primaryPosY;
 
-    private SpecialMeterClass specialMeter = new SpecialMeterClass();
 
     private GameObject startTile;
 
@@ -227,6 +226,8 @@ public class DictionaryManager : MonoBehaviour
 
 
 
+        healthBar = GameObject.Find("HealthBar");
+
         // Instantiate(BoardHolder, new Vector3(200, 200), Quaternion.identity);
 
 
@@ -362,42 +363,33 @@ public class DictionaryManager : MonoBehaviour
             //loop through the array and delete each of the gameObjects in it
             selectedTilesArray = GameObject.FindGameObjectsWithTag("TileSelected");
 
+
+
             foreach (GameObject tile in selectedTilesArray)
             {
 
+                //access the script on each of the tile creators/spawners and refill the tiles
+               tile.transform.parent.GetComponent<TileCreator>().RefillTiles();
 
-                //access the script on each of the tile creators/spawners
-                //var tileStatusUpdate = tile.transform.parent.GetComponent<TileCreator>();
-               var getStartPos = tile.transform.parent.GetComponent<TileCreator>();
-               getStartPos.RefillTiles();
+                //checks the tile type and adds whatever the special tile bonus is
 
 
                 
-                //checks the tile type and adds whatever the special tile bonus is
                 if (tile.GetComponent<Tile>().spawnedTile.specialAttribute == "heart")
                 {
 
-                    
-                   // var heartRefillAmount = tile.GetComponent<Tile>().spawnedTile.points;
-                      specialMeter.IncreaseMeter(0.1f);
 
 
-                    //Debug.Log("heart refill amount is: " + heartRefillAmount);
+                    healthBar.GetComponent<PlayerHealth>().Heal(tile.GetComponent<Tile>().spawnedTile.points);
+                    //healthBar.GetComponent<PlayerHealth>().Heal(PointsClass.liveScore);
+                   
+                   // Camera.main.GetComponent<PlayerHealth>().Heal(tile.GetComponent<Tile>().spawnedTile.points); 
 
-                    
                 }
                 
+
+                //set the tag back to "Tile"
                 tile.tag = "Tile";
-
-                
-                /*
-                //move the tiles to a random yPos between 75 and 125
-                var randomYPos = Random.Range(75, 125);
-                var randomTimeFrame = Random.Range(0.2f,0.5f);
-
-                iTween.MoveBy(tile, iTween.Hash("y", randomYPos, "easetype", "EaseOutQuad", "time", randomTimeFrame, "oncomplete", "RemoveTileOnComplete"));
-              
-            */
             }
 
             StartCoroutine(TileCompleteSequence());
@@ -432,9 +424,6 @@ public class DictionaryManager : MonoBehaviour
             scoreText.text = PointsClass.totalScore.ToString();
 
 
-            //specialMeter.IncreaseMeter(PointsClass.liveScore);
-            //Debug.Log("The most recent score was :" + PointsClass.mostRecentScore);
-
             //Clear the WordBeingMade first before setting it to be the startLetter of the next word
             WordBeingMade = "";
             WordBeingMade = startLetter;
@@ -448,9 +437,6 @@ public class DictionaryManager : MonoBehaviour
             //add the scores to the screen after adding the ints together
             //GameManager.Instance.CalculateScores();
 
-
-
-            //GameManager.Instance.LiveScoreText = "";
 
             //clear the selectedTiles list so that it puts the new tiles in the right positions
             TileManager.Instance.ResetWordStartPoint();
@@ -507,12 +493,7 @@ public class DictionaryManager : MonoBehaviour
 
 
         }
-        /*
-        if (wordBeingMade.Length > 3)
-        {
-            ScootTilesDown();
-        }*/
-
+ 
 
     }
 

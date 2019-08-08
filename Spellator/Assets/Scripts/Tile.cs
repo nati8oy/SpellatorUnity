@@ -162,11 +162,13 @@ public class Tile : MonoBehaviour
         points.text = spawnedTile.points.ToString();
         tilePointValue = spawnedTile.points;
 
+
+
         switch (spawnedTile.specialAttribute)
         {
             case "heart":
                 specialIcon.SetActive(true);
-                Debug.Log("heart tile");
+                //Debug.Log("heart tile");
                 break;
             case "double":
                 //specialIcon.SetActive(false);
@@ -176,7 +178,7 @@ public class Tile : MonoBehaviour
                 //update the points value of the tile so that it is added correctly to the overall live score
                 adjustedPointValue = spawnedTile.points * 2;
                 points.text = (spawnedTile.points * 2).ToString();
-                Debug.Log("double tile");
+               // Debug.Log("double tile");
 
                 break;
             case "triple":
@@ -185,7 +187,7 @@ public class Tile : MonoBehaviour
                 //update the points value of the tile so that it is added correctly to the overall live score
                 adjustedPointValue = spawnedTile.points * 3;
                 points.text = (spawnedTile.points * 3).ToString();
-                Debug.Log("triple tile");
+                //Debug.Log("triple tile");
 
                 break;
 
@@ -203,7 +205,6 @@ public class Tile : MonoBehaviour
 
     void Start()
     {
-
         //gameObject.transform.localScale = new Vector3 (1,1);
 
         //check to see if the tile is the first tile for chain mode words
@@ -303,8 +304,6 @@ public class Tile : MonoBehaviour
     public void RemoveTileOnComplete()
     {
        
-       
-
         //set tiles back to inactive so that they can go back into the object pool
         gameObject.SetActive(false);
         AudioManager.Instance.PlayAudio(popSounds[Random.Range(0, 3)]);
@@ -348,12 +347,13 @@ public class Tile : MonoBehaviour
     public void SetTileInactive()
     {
 
-        //decreases the "special" meter by the amount of the points on this tile
-        specialMeter.DecreaseMeter(adjustedPointValue);
-        AudioManager.Instance.PlayAudio(smashSounds[Random.Range(0,smashSounds.Length)]);
+        //decreases the health meter by the amount of the points on this tile
 
-        //checks to see if the life meter has anything left in it. If not, it's game over, fool.
-        GameManager.Instance.CheckLifeMeter();
+        //Camera.main.GetComponent<PlayerHealth>().DealDamage(spawnedTile.points);
+
+        GameObject.Find("HealthBar").GetComponent<PlayerHealth>().DealDamage(spawnedTile.points);
+
+        AudioManager.Instance.PlayAudio(smashSounds[Random.Range(0,smashSounds.Length)]);
 
         gameObject.SetActive(false);
         //set the tile holder to refill its tiles AFTER this object has been set to inactive

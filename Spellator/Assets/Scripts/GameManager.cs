@@ -216,13 +216,4 @@ public class GameManager : MonoBehaviour
         }*/
     }
 
-
-    public void CheckLifeMeter()
-    {
-        if (lifeMeter.transform.localScale.x <= 0)
-        {
-            GameOverMethod();
-        }
-    }
-
 }
