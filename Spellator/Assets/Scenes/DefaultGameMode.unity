@@ -798,6 +798,7 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   - component: {fileID: 519420032}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -959,6 +960,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_CullTransparentMesh: 0
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e8f1c3859799480e91b329fc142ab27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointsScored: 0
+  pointsAdded: 0
+  liveScoreText: {fileID: 2066190560}
+  currentScoreText: {fileID: 62966392}
 --- !u!224 &519420034
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1550,7 +1567,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 258
+  m_textAlignment: 260
   m_isAlignmentEnumConverted: 1
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1634,7 +1651,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 41, y: 225}
+  m_AnchoredPosition: {x: 273, y: 11}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &753363417 stripped
@@ -3260,8 +3277,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Score: {fileID: 0}
   WordsMade: {fileID: 0}
-  RedDots: {fileID: 0}
-  BlueDots: {fileID: 0}
 --- !u!114 &1647809395
 MonoBehaviour:
   m_ObjectHideFlags: 0

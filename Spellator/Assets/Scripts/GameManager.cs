@@ -17,9 +17,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioClip gameOverAudio;
     [SerializeField] private AudioClip bigScore;
 
-    [SerializeField] private Text blueTotalScore;
-    [SerializeField] private Text redTotalScore;
-
     [SerializeField] private RectTransform pauseMenu;
 
     public string allLetters;
@@ -47,24 +44,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-    //instance of the Points Class to handle points
-    private PointsClass scoreClass;
-
-    private int blueTotal;
-    private int redTotal;
-
-    public int BlueTotal
-    {
-        get { return blueTotal; }
-        set { BlueTotal = value; }
-    }
-
-    public int RedTotal
-    {
-        get { return redTotal; }
-        set { RedTotal = value; }
-    }
-
+  
     private SpecialMeterClass specialMeter = new SpecialMeterClass();
 
 
@@ -141,9 +121,6 @@ public class GameManager : MonoBehaviour
       //  specialButton.interactable = false;
 
 
-        //create an instance of the points class
-        scoreClass = new PointsClass();
-
         allLetters = externalBagTXT.text;
 
         //add the letters to the bag List within the TileBag class
@@ -168,6 +145,7 @@ public class GameManager : MonoBehaviour
     public void GameOverMethod()
     {
 
+        
        gameOverPanel.gameObject.SetActive(true);
         AudioManager.Instance.PlayAudio(gameOverAudio);
 
@@ -178,7 +156,8 @@ public class GameManager : MonoBehaviour
         TileBag.pointsDictionary.Clear();
         CountDown.timeLeft = 75;
         Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
-     
+        Points.liveScore = 0;
+        Points.totalScore = 0;
 
     }
 

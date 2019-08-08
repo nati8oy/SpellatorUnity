@@ -31,8 +31,6 @@ public class DictionaryManager : MonoBehaviour
 
     [SerializeField] public TextMeshProUGUI multiplierText;
 
-    private PointsClass scores = new PointsClass();
-
     //add class for the on screen messages to reference later.
     //private Messages onScreenMessage = new Messages();
 
@@ -177,9 +175,12 @@ public class DictionaryManager : MonoBehaviour
             iTween.MoveBy(selectedTilesArray[i], iTween.Hash("y", randomY, "easetype", "spring", "time", 0.5f, "delay", (0.1f) * (i+1), "oncomplete", "RemoveTileOnComplete"));
           //  iTween.RotateBy(selectedTilesArray[i], new Vector3(10, 10), 1);
 
-
-
         }
+
+        //reset the scores after all of the above has been done to set the primary tile value
+
+        //Points.primaryTileScore = GameObject.FindGameObjectWithTag("PrimaryTile").GetComponent<Tile>().spawnedTile.points;
+        //Points.resetScores();
 
         yield return null;
 
@@ -252,11 +253,10 @@ public class DictionaryManager : MonoBehaviour
     void Update()
     {
 
-        if (PointsClass.multiplier >= 3)
+        if (Points.multiplier >= 3)
         {
             //set the multiplier text 
-            multiplierText.text = "x" + PointsClass.multiplier.ToString();
-            PointsClass.multiplierActive = true;
+            multiplierText.text = "x" + Points.multiplier.ToString();
         }
 
        
@@ -332,7 +332,7 @@ public class DictionaryManager : MonoBehaviour
             //add to the multiplier
             if (WordBeingMade.Length >= 4)
             {
-                PointsClass.multiplier += 1;
+                Points.multiplier += 1;
             }
 
             if (WordBeingMade.Length >= 5)
@@ -345,13 +345,13 @@ public class DictionaryManager : MonoBehaviour
 
         else if (WordBeingMade.Length <= 3)
         {
-            PointsClass.multiplier = 0;
+            Points.multiplier = 0;
             multiplierText.text = "";
         }
 
 
             //add on screen encouragement for words above 5 letters
-            if ((WordBeingMade.Length >= 5) || (PointsClass.liveScore>=50))
+            if ((WordBeingMade.Length >= 5) || (Points.liveScore>=50))
             {
                 ShowMessage("encouragement");
                 AudioManager.Instance.PlayAudio(allAudioClips[3]);
@@ -381,7 +381,6 @@ public class DictionaryManager : MonoBehaviour
 
 
                     healthBar.GetComponent<PlayerHealth>().Heal(tile.GetComponent<Tile>().spawnedTile.points);
-                    //healthBar.GetComponent<PlayerHealth>().Heal(PointsClass.liveScore);
                    
                    // Camera.main.GetComponent<PlayerHealth>().Heal(tile.GetComponent<Tile>().spawnedTile.points); 
 
@@ -418,10 +417,11 @@ public class DictionaryManager : MonoBehaviour
 
             }
 
-            scores.addPoints(PointsClass.liveScore);
+            Points.AddPoints(Points.liveScore);
 
-            //reset the scores
-            scoreText.text = PointsClass.totalScore.ToString();
+          
+
+            scoreText.text = Points.totalScore.ToString();
 
 
             //Clear the WordBeingMade first before setting it to be the startLetter of the next word
@@ -445,7 +445,6 @@ public class DictionaryManager : MonoBehaviour
             //set the chain flag to true so that chain mode can continue
             chainFlag = true;
 
-            scores.resetScores();
 
         }
 
@@ -511,15 +510,12 @@ public class DictionaryManager : MonoBehaviour
         iTween.MoveTo(PrimaryTile, iTween.Hash("x", primaryPosX, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
 
         //reset the scores
-        scores.resetScores();
+        Points.resetScores();
         sendButton.interactable = false;
 
         //hide the icon that indicates that a word is correct
         correctIcon.SetActive(false);
 
-
-        // var liveScoreText = GameObject.Find("Live Score").GetComponent<Text>();
-        //liveScoreText.text = GameObject.Find("Primary Tile").GetComponent<TextMeshProUGUI>().ToString();
 
 
         TileManager.Instance.SelectedTiles.Clear();
@@ -542,12 +538,19 @@ public class DictionaryManager : MonoBehaviour
             
 
             //remove multiplier
-            if (PointsClass.multiplier >= 3)
+            if (Points.multiplier >= 3)
             {
                 AudioManager.Instance.PlayAudio(allAudioClips[2]);
             }
-            PointsClass.multiplier = 1;
-            PointsClass.multiplierActive = false;
+
+            /* multiplier content
+            Points.multiplier = 1;
+            Points.multiplierActive = false;
+
+            */
+
+            Points.multiplier = 1;
+
             multiplierText.text = "";
 
 
@@ -574,30 +577,21 @@ public class DictionaryManager : MonoBehaviour
 
                 //set getStartPos so that it can be used in the coroutine below
 
-              
-
                 var getStartPos = tile.transform.parent.GetComponent<TileCreator>();
                 //connect to the script of each tile, get the startPos from there (which is the starting transform of each Pos holder)
                 //then run the Coroutine from the tile game object. Phew!
                 iTween.MoveTo(tile, new Vector3(getStartPos.startPos.position.x, getStartPos.startPos.position.y, 0), 0.5f);
                 //iTween.MoveTo(gameObject, iTween.Hash("x", TileManager.Instance.NextFreePos.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time",0.5f, "easeType", "EaseOutQuint"));
 
-                //connectToTileScript.StartCoroutine(connectToTileScript.ReturnTile(getStartPos.startPos));
 
                 //reset the tile tage to "Tile" so it's not "Selected" anymore.
                 tile.tag = "Tile";
 
             }
 
-  
-
-            
-
 
         }
 
-        //reset the word being made
-        //WordBeingMade = "";
 
         //reset the word being made to be the startLetter
 
@@ -609,12 +603,7 @@ public class DictionaryManager : MonoBehaviour
             WordBeingMade = ""; 
         }
 
-       
-
-
-
-        //reset the score and live score
-        //GameManager.Instance.ResetScores();
+ 
 
 
         //reset the tile start positions when spelling a word

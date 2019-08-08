@@ -680,6 +680,7 @@ MonoBehaviour:
   canAge: 1
   letter: {fileID: 781199010286186662}
   points: {fileID: 7308423248976456831}
+  adjustedPointValue: 0
   firstLetterTile: 0
   tileClick: {fileID: 8300000, guid: ec0cf2de9da0741a08b887b79c11614c, type: 3}
   specialIcon: {fileID: 1494288407093416192}
