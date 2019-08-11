@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TileCreator : MonoBehaviour
 {
-    [SerializeField] private GameObject tile;
     private GameObject newTile;
     public Transform startPos;
     private TileSpawnerClass tileSpawner;
@@ -21,6 +20,7 @@ public class TileCreator : MonoBehaviour
 
     private void Start()
     {
+        //Remember that the object pooler uses TAGS not names of objects to set them active, etc. here.
         newTile = ObjectPooler.SharedInstance.GetPooledObject("Tile");
         startPos = gameObject.transform;
 
@@ -34,7 +34,7 @@ public class TileCreator : MonoBehaviour
 
     public void RefillTiles()
     {
-
+        //Remember that the object pooler uses TAGS not names of objects to set them active, etc. here.
         newTile = ObjectPooler.SharedInstance.GetPooledObject("Tile");
 
         if (newTile != null)
@@ -46,6 +46,7 @@ public class TileCreator : MonoBehaviour
 
         }
 
+        //Remember that the object pooler uses TAGS not names of objects to set them active, etc. here.
         starParticles = ObjectPooler.SharedInstance.GetPooledObject("Particles");
         //starParticles.GetComponent<ParticleSystem>().Play();
 

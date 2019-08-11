@@ -18,19 +18,17 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioClip bigScore;
 
     [SerializeField] private RectTransform pauseMenu;
+    [SerializeField] private RectTransform wordList;
 
     public string allLetters;
     [SerializeField] public TextAsset externalBagTXT;
 
-
+    //the list for all the words currently that have been made
+    public WordData currentWordList;
 
 
     [SerializeField] private RectTransform gameOverPanel;
 
-    //public List<GameObject> pooledObjects = new List<GameObject>();
-    //public GameObject objectToPool;
-   // public int amountToPool;
-   // public GameObject obj;
 
     [SerializeField] private GameObject messageObject;
 
@@ -113,14 +111,15 @@ public class GameManager : MonoBehaviour
     void Start()
     {
 
-      // rackSpots =  GameObject.FindGameObjectsWithTag("TileHolder");
+
+    // rackSpots =  GameObject.FindGameObjectsWithTag("TileHolder");
 
 
-      // var specialButton = GameObject.Find("SpecialButton").GetComponent<Button>();
-      //  specialButton.interactable = false;
+    // var specialButton = GameObject.Find("SpecialButton").GetComponent<Button>();
+    //  specialButton.interactable = false;
 
 
-        allLetters = externalBagTXT.text;
+    allLetters = externalBagTXT.text;
 
         //add the letters to the bag List within the TileBag class
         TileBag lettersBag = new TileBag();
@@ -167,10 +166,21 @@ public class GameManager : MonoBehaviour
         pauseMenu.gameObject.SetActive(true);
     }
 
+
     public void ResumeGame()
     {
         GameObject.Find("Pause Menu").SetActive(false);
 
+    }
+
+    public void ShowWordList()
+    {
+        wordList.gameObject.SetActive(true);
+    }
+
+    public void CloseWordList()
+    {
+        GameObject.Find("Word List").SetActive(false);
     }
 
     public void StartSetup()
@@ -179,19 +189,6 @@ public class GameManager : MonoBehaviour
         //add the letters to the bag List within the TileBag class
         TileBag lettersBag = new TileBag();
 
-
-        /*
-        //instantiate all the objects to pool
-        for (int i = 0; i < amountToPool; i++)
-        {
-            obj = Instantiate(objectToPool);
-
-            //set object to inactive
-            obj.SetActive(false);
-            pooledObjects.Add(obj);
-
-
-        }*/
     }
 
 }

@@ -9,6 +9,8 @@ public class DictionaryManager : MonoBehaviour
 
     public static DictionaryManager Instance;
 
+    private WordData listOfWordsMade;
+
 
     private ParticleSystem starParticles;
 
@@ -288,6 +290,8 @@ public class DictionaryManager : MonoBehaviour
             AudioManager.Instance.PlayAudio(allAudioClips[3]);
 
 
+            //add the word to the overall list of words being made
+
             //check if the multiplier is going to be broken with a 3 letter word. If so, play the sound.
             if ((multiplier >= 3) && (WordBeingMade.Length <= 3))
             {
@@ -374,7 +378,7 @@ public class DictionaryManager : MonoBehaviour
 
             }
 
-            Debug.Log("Live score is: " + Points.liveScore);
+//            Debug.Log("Live score is: " + Points.liveScore);
             Points.AddPoints(Points.liveScore);
 
             scoreText.text = Points.totalScore.ToString();

@@ -13,6 +13,7 @@ TagManager:
   - Pooled Tile
   - Particles
   - TileHolder
+  - TextListItem
   layers:
   - Default
   - TransparentFX
