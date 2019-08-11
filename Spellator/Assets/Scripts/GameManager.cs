@@ -34,7 +34,6 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject messageObject;
 
-    [SerializeField] private GameObject lifeMeter;
 
 
     public GameObject MessageObject

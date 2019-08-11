@@ -33,7 +33,7 @@ public class Points : MonoBehaviour
 
     public static void AddPoints (int incomingPoints)
     {
-        if (multiplier >= 3)
+        if (multiplier > 2)
         {
             totalScore += (incomingPoints * multiplier);
         }
@@ -65,7 +65,7 @@ public class Points : MonoBehaviour
         liveScore = primaryTileScore;
 
 
-        
+        /*
         if (GameObject.FindGameObjectWithTag("PrimaryTile"))
         {
             liveScore = 0 + primaryTileScore;
@@ -74,9 +74,8 @@ public class Points : MonoBehaviour
 
         else
         {
-
         }
-        
+        */
     }
 
     public static void AddToLiveScore(int tileScore)

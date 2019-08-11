@@ -253,7 +253,7 @@ public class DictionaryManager : MonoBehaviour
     void Update()
     {
 
-        if (Points.multiplier >= 3)
+        if (Points.multiplier > 2)
         {
             //set the multiplier text 
             multiplierText.text = "x" + Points.multiplier.ToString();
@@ -284,43 +284,8 @@ public class DictionaryManager : MonoBehaviour
 
         if (dictionary.ContainsKey(WordBeingMade))
         {
-            /*
-            //switch to check length of word for adding time bonuses plus the audio
-            switch (WordBeingMade.Length)
-            {
-                case 5:
-                    ShowMessage("time");
-                    CountDown.timeLeft += 2;
-                    AudioManager.Instance.PlayAudio(goodWordSound);
-
-                    break;
-                case 6:
-                    ShowMessage("time");
-                    CountDown.timeLeft += 3;
-                    AudioManager.Instance.PlayAudio(goodWordSound);
-                    break;
-                case 7:
-                    ShowMessage("time");
-                    CountDown.timeLeft += 5;
-                    AudioManager.Instance.PlayAudio(goodWordSound);
-                    break;
-                case 8:
-                    ShowMessage("time");
-                    CountDown.timeLeft += 7;
-                    AudioManager.Instance.PlayAudio(goodWordSound);
-                    break;
-                case 9:
-                    ShowMessage("time");
-                    CountDown.timeLeft += 10;
-                    AudioManager.Instance.PlayAudio(goodWordSound);
-                    break;
-                case 10:
-                    ShowMessage("time");
-                    CountDown.timeLeft += 15;
-                    AudioManager.Instance.PlayAudio(goodWordSound);
-                    break;
-            }
-            */
+            //play "ding" sound
+            AudioManager.Instance.PlayAudio(allAudioClips[3]);
 
 
             //check if the multiplier is going to be broken with a 3 letter word. If so, play the sound.
@@ -334,18 +299,11 @@ public class DictionaryManager : MonoBehaviour
             {
                 Points.multiplier += 1;
             }
-
-            if (WordBeingMade.Length >= 5)
-            {
-                //temporary star particles test
-              //  starParticles = GameObject.Find("Star Particles").GetComponent<ParticleSystem>();
-               // starParticles.Play();
-            }
         
 
-        else if (WordBeingMade.Length <= 3)
+        else if (WordBeingMade.Length < 4)
         {
-            Points.multiplier = 0;
+            Points.multiplier = 1;
             multiplierText.text = "";
         }
 
@@ -354,7 +312,6 @@ public class DictionaryManager : MonoBehaviour
             if ((WordBeingMade.Length >= 5) || (Points.liveScore>=50))
             {
                 ShowMessage("encouragement");
-                AudioManager.Instance.PlayAudio(allAudioClips[3]);
 
             }
 
@@ -417,9 +374,8 @@ public class DictionaryManager : MonoBehaviour
 
             }
 
+            Debug.Log("Live score is: " + Points.liveScore);
             Points.AddPoints(Points.liveScore);
-
-          
 
             scoreText.text = Points.totalScore.ToString();
 
@@ -543,14 +499,7 @@ public class DictionaryManager : MonoBehaviour
                 AudioManager.Instance.PlayAudio(allAudioClips[2]);
             }
 
-            /* multiplier content
             Points.multiplier = 1;
-            Points.multiplierActive = false;
-
-            */
-
-            Points.multiplier = 1;
-
             multiplierText.text = "";
 
 

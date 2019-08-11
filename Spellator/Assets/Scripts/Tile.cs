@@ -269,7 +269,8 @@ public class Tile : MonoBehaviour
 
             //add the score to the live score
 
-            Points.AddToLiveScore(spawnedTile.points);
+                Points.AddToLiveScore(spawnedTile.points);
+
        
 
             GameManager.Instance.LiveScoreText.text = Points.liveScore.ToString();

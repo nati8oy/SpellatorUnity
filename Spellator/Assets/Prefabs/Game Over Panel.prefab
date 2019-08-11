@@ -614,8 +614,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Score: {fileID: 8367778211871980957}
   WordsMade: {fileID: 8367778211936215174}
-  RedDots: {fileID: 8367778213911677201}
-  BlueDots: {fileID: 8367778213346029523}
 --- !u!1 &8367778212846412689
 GameObject:
   m_ObjectHideFlags: 0
@@ -763,7 +761,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: b1faeb829db1b412296beac4f740ae4c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 391e1bf25755a485cb5e103dbfd58818, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
