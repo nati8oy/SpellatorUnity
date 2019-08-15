@@ -174,8 +174,11 @@ public class DictionaryManager : MonoBehaviour
         {
             var randomY = Random.Range(100, 135);
 
+            iTween.PunchScale(selectedTilesArray[i], iTween.Hash("x", 1.05, "y", 1.05, "easetype", "easeOutCirc", "delay", (0.1f) * (i + 1), "time", 0.5f));
+
             iTween.MoveBy(selectedTilesArray[i], iTween.Hash("y", randomY, "easetype", "spring", "time", 0.5f, "delay", (0.1f) * (i+1), "oncomplete", "RemoveTileOnComplete"));
-          //  iTween.RotateBy(selectedTilesArray[i], new Vector3(10, 10), 1);
+
+            //  iTween.RotateBy(selectedTilesArray[i], new Vector3(10, 10), 1);
 
         }
 
@@ -323,7 +326,6 @@ public class DictionaryManager : MonoBehaviour
 
             //loop through the array and delete each of the gameObjects in it
             selectedTilesArray = GameObject.FindGameObjectsWithTag("TileSelected");
-
 
 
             foreach (GameObject tile in selectedTilesArray)

@@ -121,6 +121,9 @@ public class Tile : MonoBehaviour
 
     private void OnEnable()
     {
+        //MAKE TILES BOUNCE
+        //iTween.MoveBy(gameObject, iTween.Hash("y", 10, "easetype", "easeOutCirc", "time",Random.Range(0.6f, 1.1f), "loopType", "pingPong"));
+
 
         //set the colour back to black. It'll then get reset to the triple or double colour below
         letter.color = Color.black;

@@ -16,12 +16,11 @@ public class WordList : MonoBehaviour
         //
         wordsMade = new List<string>();
 
-        for(int i = 0; i<30; i++)
+        for(int i = 0; i<10; i++)
         {
             wordsMade.Add("word" + i);
         }
        
-        Debug.Log(wordsMade.Count);
 
         foreach (string wordInList in wordsMade)
         {
