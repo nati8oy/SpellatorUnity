@@ -6,16 +6,15 @@ using UnityEngine;
 
 public class PlayerData
 {
-    public int level;
-    public int health;
-    public int currentScore;
 
-    public PlayerData (Player player)
+    public int currentScore;
+    public List<string> playerWordsMade = new List<string>();
+
+    public PlayerData (GameState gameState)
     {
-        
-        level = player.level;
-        health = player.health;
-        currentScore = player.currentScore;
+ 
+        currentScore = gameState.currentScore;
+        playerWordsMade = gameState.playerWordsMade;
 
     }
 }

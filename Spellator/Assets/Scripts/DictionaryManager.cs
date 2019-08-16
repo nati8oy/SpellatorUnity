@@ -11,8 +11,10 @@ public class DictionaryManager : MonoBehaviour
 
     private WordData listOfWordsMade;
 
+	// public Dictionary<string, int> playerWordsMade = new Dictionary<string, int>();
+	public List<string> playerWordsMade = new List<string>();
 
-    private ParticleSystem starParticles;
+	private ParticleSystem starParticles;
 
     [SerializeField] private GameObject correctIcon;
 
@@ -286,6 +288,8 @@ public class DictionaryManager : MonoBehaviour
         correctIcon.SetActive(false);
 
 
+       
+
 
         if (dictionary.ContainsKey(WordBeingMade))
         {
@@ -306,9 +310,31 @@ public class DictionaryManager : MonoBehaviour
             {
                 Points.multiplier += 1;
             }
-        
 
-        else if (WordBeingMade.Length < 4)
+
+			//if the word doesn't exist in the current dictionary, add it to the playerWordsMade dictionary
+
+
+			if (!playerWordsMade.Contains(WordBeingMade))
+			{
+				playerWordsMade.Add(WordBeingMade);
+				Debug.Log("Word added to list! " + "(" + playerWordsMade.Count + " words)");
+
+			}
+            /*
+
+			if (!playerWordsMade.ContainsKey(WordBeingMade))
+            {
+                playerWordsMade.Add(WordBeingMade,1);
+                Debug.Log("Word added! ");
+
+            }*/
+
+
+
+
+
+            else if (WordBeingMade.Length < 4)
         {
             Points.multiplier = 1;
             multiplierText.text = "";

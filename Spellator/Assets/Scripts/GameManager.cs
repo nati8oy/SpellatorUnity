@@ -110,13 +110,11 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        //Auto load the data from the Game State file when the game manager loads
 
+        GetComponent<GameState>().LoadGameData();
+        //SaveSystem.LoadGameData();
 
-    // rackSpots =  GameObject.FindGameObjectsWithTag("TileHolder");
-
-
-    // var specialButton = GameObject.Find("SpecialButton").GetComponent<Button>();
-    //  specialButton.interactable = false;
 
 
     allLetters = externalBagTXT.text;
@@ -188,7 +186,9 @@ public class GameManager : MonoBehaviour
 
         //add the letters to the bag List within the TileBag class
         TileBag lettersBag = new TileBag();
-
+        
     }
+
+    
 
 }
