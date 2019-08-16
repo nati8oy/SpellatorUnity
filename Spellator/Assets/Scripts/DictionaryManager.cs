@@ -312,8 +312,7 @@ public class DictionaryManager : MonoBehaviour
             }
 
 
-			//if the word doesn't exist in the current dictionary, add it to the playerWordsMade dictionary
-
+			//if the word doesn't exist in the current list, add it to the playerWordsMade list
 
 			if (!playerWordsMade.Contains(WordBeingMade))
 			{
