@@ -176,7 +176,6 @@ public class DictionaryManager : MonoBehaviour
         {
             var randomY = Random.Range(100, 135);
 
-            iTween.PunchScale(selectedTilesArray[i], iTween.Hash("x", 1.05, "y", 1.05, "easetype", "easeOutCirc", "delay", (0.1f) * (i + 1), "time", 0.5f));
 
             iTween.MoveBy(selectedTilesArray[i], iTween.Hash("y", randomY, "easetype", "spring", "time", 0.5f, "delay", (0.1f) * (i+1), "oncomplete", "RemoveTileOnComplete"));
 

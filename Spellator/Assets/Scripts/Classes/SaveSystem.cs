@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using System;
 
 
 public static class SaveSystem
@@ -8,6 +9,7 @@ public static class SaveSystem
 
 	public static void SaveGameData(GameState gameState)
 	{
+        
 		BinaryFormatter formatter = new BinaryFormatter();
 		string path = Application.persistentDataPath + "/player.fisi";
 		FileStream stream = new FileStream(path, FileMode.Create);
@@ -21,7 +23,7 @@ public static class SaveSystem
 
     public static PlayerData LoadGameData()
 	{
-        string path = Application.persistentDataPath + "/player.fisi";
+		string path = Application.persistentDataPath + "/player.fisi";
 
 
         if (File.Exists(path))
