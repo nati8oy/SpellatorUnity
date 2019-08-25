@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TileSkins
   m_EditorClassIdentifier: 
   nameOfSkin: Default
-  darkTileBG: {fileID: 21300000, guid: 7bea24fe5b8da488ab991635483ed70c, type: 3}
-  darkTileTextColour: {r: 1, g: 1, b: 1, a: 1}
-  lightTileBG: {fileID: 21300000, guid: 72ad4ce003ee14f039bbf716192d7225, type: 3}
-  lightTileTextColour: {r: 0, g: 0, b: 0, a: 1}
+  tileBG: {fileID: 21300000, guid: 72ad4ce003ee14f039bbf716192d7225, type: 3}
+  colourOfTileText: {r: 0, g: 0, b: 0, a: 1}
+  lightTileBG: {fileID: 21300000, guid: 7bea24fe5b8da488ab991635483ed70c, type: 3}
+  darkTileBG: {fileID: 21300000, guid: c3be5b13b605e4f00b2ef29b7669f37d, type: 3}

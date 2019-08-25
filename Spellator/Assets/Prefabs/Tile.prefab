@@ -551,8 +551,9 @@ GameObject:
   - component: {fileID: 5976778401099106095}
   - component: {fileID: 8140355924913221013}
   - component: {fileID: 5976778401099106080}
-  - component: {fileID: 9152918044419842855}
   - component: {fileID: 7629360241887565636}
+  - component: {fileID: 2007753463245928147}
+  - component: {fileID: 3306619303720593527}
   m_Layer: 5
   m_Name: Tile
   m_TagString: Tile
@@ -600,7 +601,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5976778401099106082}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -629,7 +630,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 2007753463245928147}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -698,24 +699,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 803a8dfcc312f4ee6bcf2da8b38278fa, type: 3}
   - {fileID: 8300000, guid: 55c076fd0913348968225aa2053dd095, type: 3}
   nextTileSpot: {x: 0, y: 0, z: 0}
---- !u!114 &9152918044419842855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5976778401099106082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce5be19d781bb44a980905e8c6117b14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tileSkin: {fileID: 11400000, guid: f3aef0eed6c3c46d4a9566d3bdae68dd, type: 2}
-  tileBackground: {fileID: 7076420191266652025}
-  tileTextColour: {r: 0, g: 0, b: 0, a: 0}
-  skinName: Default
-  letterText: {fileID: 781199010286186662}
-  pointsText: {fileID: 7308423248976456831}
 --- !u!114 &7629360241887565636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -764,6 +747,49 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!114 &2007753463245928147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5976778401099106082}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!114 &3306619303720593527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5976778401099106082}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b6a50fd9776b438896f39a16e78fa1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skinData: {fileID: 0}
+  buttonType: 0
 --- !u!1 &7206949428114663305
 GameObject:
   m_ObjectHideFlags: 0

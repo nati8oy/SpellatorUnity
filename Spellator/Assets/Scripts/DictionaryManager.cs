@@ -26,6 +26,8 @@ public class DictionaryManager : MonoBehaviour
 
     private GameObject healthBar;
 
+    private TextMeshProUGUI currentLevel;
+
     //this section is for the on screen messages
     [SerializeField] private GameObject messageParentObject;
     [SerializeField] private TextMeshProUGUI messageObject;
@@ -176,7 +178,7 @@ public class DictionaryManager : MonoBehaviour
         {
             var randomY = Random.Range(100, 135);
 
-
+            
             iTween.MoveBy(selectedTilesArray[i], iTween.Hash("y", randomY, "easetype", "spring", "time", 0.5f, "delay", (0.1f) * (i+1), "oncomplete", "RemoveTileOnComplete"));
 
             //  iTween.RotateBy(selectedTilesArray[i], new Vector3(10, 10), 1);
@@ -197,6 +199,10 @@ public class DictionaryManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        //
+        currentLevel = GameObject.Find("Level").GetComponent<TextMeshProUGUI>();
+
         //find the current primary tile and add its x and y positions to these vars
         primaryPosX = GameObject.Find("Primary Tile").transform.position.x;
         primaryPosY = GameObject.Find("Primary Tile").transform.position.y;
@@ -265,8 +271,9 @@ public class DictionaryManager : MonoBehaviour
             multiplierText.text = "x" + Points.multiplier.ToString();
         }
 
-       
 
+        
+        currentLevel.text = playerWordsMade.Count.ToString();
 
 
 

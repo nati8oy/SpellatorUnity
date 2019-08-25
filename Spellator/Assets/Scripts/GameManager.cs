@@ -189,6 +189,22 @@ public class GameManager : MonoBehaviour
         
     }
 
-    
+    /*
+    //saves the game data when the user presses the home button or suspends the app somehow
+    void OnApplicationPause(bool pauseStatus)
+    {
+        if (pauseStatus)
+        {
+            Debug.Log("Paused");
+            //Save Player Settings
+        }
+        else
+        {
+            Debug.Log("resumed");
+            //Load Player Settings
+        }
+    }
+    */
+
 
 }

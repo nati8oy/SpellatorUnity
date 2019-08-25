@@ -7,37 +7,85 @@ public class WordList : MonoBehaviour
 {
 
     private GameObject newWord;
+    public TextMeshProUGUI uniqueWords;
+    
     public List<string> wordsMade = new List<string>();
+    public Dictionary<string, int> fullWordList = new Dictionary<string, int>();
 
 
     private void Start()
     {
-        //set the wordsMade list to be that of list stored in the DictionaryManager
         wordsMade = DictionaryManager.Instance.playerWordsMade;
+        //sort the list alphabetically
         wordsMade.Sort();
 
-        //get the text box and add the total word count to it
-        //GetComponent<TextMeshProUGUI>().text = wordsMade.Count + " unique words";
 
-        Debug.Log("wordsMade List is: "+ wordsMade.Count +" long");
+        uniqueWords.text = "You've made " + wordsMade.Count.ToString() + " unique words";
 
-        foreach (string wordInList in wordsMade)
+        /*
+        for (int i = 0; i < wordsMade.Count; i++)
         {
-            //get the object from the pool that is tagged as "TextListItem"
-            newWord = ObjectPooler.SharedInstance.GetPooledObject("TextListItem");
-            if (newWord != null)
+            //fullWordList.Add(wordsMade[i], 1);
+            
+            if (!fullWordList.ContainsKey(wordsMade[i]))
             {
-                newWord.transform.position = gameObject.transform.position;
-                newWord.transform.SetParent(gameObject.transform);
-                //set the value of the text box in the prefab to be the word from the list
-                newWord.GetComponent<TextMeshProUGUI>().text = wordInList;
-                newWord.SetActive(true);
-
+                fullWordList.Add(wordsMade[i], 1);
+                //Debug.Log("added the word " + wordsMade[i]);
+            }
+            else if (fullWordList.ContainsKey(wordsMade[i]))
+            {
+                //Debug.Log("didn't add the word " + wordsMade[i]);
             }
         }
 
+        Debug.Log("on Start fullWordList array is this long: " + fullWordList.Count);
 
-        
+        */
     }
+
+    private void OnEnable()
+    {
+       // Debug.Log("on Enable fullWordList array is this long: " + fullWordList.Count);
+
+        //set the wordsMade list to be that of list stored in the DictionaryManager
+        wordsMade = DictionaryManager.Instance.playerWordsMade;
+        //sort the list alphabetically
+        wordsMade.Sort();
+
+        uniqueWords.text = "You've made " + wordsMade.Count.ToString() + " unique words";
+
+
+
+        //when the wordlist menu gameobject is enabled check if the words that have been made are in there or not.
+        for (int i = 0; i < wordsMade.Count; i++)
+        {
+            //if the words aren't already in this list then add them.
+            //otherwise if they are then don't add them
+            if (!fullWordList.ContainsKey(wordsMade[i]))
+            {
+                fullWordList.Add(wordsMade[i], 1);
+                //get the object from the pool that is tagged as "TextListItem"
+                newWord = ObjectPooler.SharedInstance.GetPooledObject("TextListItem");
+                if (newWord != null)
+                {
+                    newWord.transform.position = gameObject.transform.position;
+                    newWord.transform.SetParent(gameObject.transform);
+                    //set the value of the text box in the prefab to be the word from the list
+                    newWord.GetComponent<TextMeshProUGUI>().text = wordsMade[i];
+                    newWord.SetActive(true);
+
+                }
+                Debug.Log("added the word " + wordsMade[i] + " full word list is now "+ fullWordList.Count + " long");
+                
+
+            } else if (fullWordList.ContainsKey(wordsMade[i]))
+            {
+                Debug.Log("didn't add the word " + wordsMade[i] + " full word list is now " + fullWordList.Count + " long");
+            }
+        }
+      
+    }
+
+    
 
 }

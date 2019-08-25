@@ -11,12 +11,15 @@ public class TileSkinSO : ScriptableObject
 
 
     //dark skin
+    [Header("Default")]
     public Sprite tileBG;
     public Color colourOfTileText;
 
     // Light skin
-  //  public Sprite lightTileBG;
-   // public Color lightTileTextColour;
+    [Header("Dark Skin")]
+    public Sprite lightTileBG;
 
+    [Header("Light Skin")]
+    public Sprite darkTileBG;
 
 }

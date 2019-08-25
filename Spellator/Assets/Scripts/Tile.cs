@@ -18,7 +18,6 @@ public class Tile : MonoBehaviour
     //used to adding double and triple points to the overall score
     public int adjustedPointValue;
 
-    private SpecialMeterClass specialMeter = new SpecialMeterClass();
 
     public TileClass spawnedTile;
 
@@ -63,7 +62,7 @@ public class Tile : MonoBehaviour
 
     private void Update()
     {
-
+        
         //check the tile's age and swap in the appropirate tile state image
         switch (spawnedTile.age)
         {
@@ -258,11 +257,11 @@ public class Tile : MonoBehaviour
             //use the chainFlag to see if you've made a word before or not.
             if (DictionaryManager.Instance.chainFlag)
             {
-                iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x) + (tileOffset * DictionaryManager.Instance.WordBeingMade.Length)- tileOffset, "y", nextTileSpot.y, "time", 0.5f, "easetype", "easeOut", "oncomplete", "CheckWordBeingSpelled"));
+                iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x) + (tileOffset * DictionaryManager.Instance.WordBeingMade.Length)- tileOffset, "y", nextTileSpot.y, "time", 0.5f, "easetype", "easeInOut", "oncomplete", "CheckWordBeingSpelled"));
 
             } else
             {
-                iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x) + (tileOffset * DictionaryManager.Instance.WordBeingMade.Length), "y", nextTileSpot.y, "time", 0.5f, "easetype", "easeOut", "oncomplete", "CheckWordBeingSpelled"));
+                iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x) + (tileOffset * DictionaryManager.Instance.WordBeingMade.Length), "y", nextTileSpot.y, "time", 0.5f, "easetype", "easeInOut", "oncomplete", "CheckWordBeingSpelled"));
 
             }
 
