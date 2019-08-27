@@ -18,6 +18,10 @@ public class Tile : MonoBehaviour
     //used to adding double and triple points to the overall score
     public int adjustedPointValue;
 
+    //add reference to scriptable objects
+    public AudioEvent removeTileAudio;
+    public AudioEvent tileClicked;
+    public AudioSource defaultAudioSource;
 
     public TileClass spawnedTile;
 
@@ -29,7 +33,7 @@ public class Tile : MonoBehaviour
     [SerializeField] private GameObject specialIcon;
 
     public AudioClip[] popSounds;
-    public AudioClip[] smashSounds;
+    //public AudioClip[] smashSounds;
 
 
     public Vector3 nextTileSpot;
@@ -345,7 +349,8 @@ public class Tile : MonoBehaviour
 
         GameObject.Find("HealthBar").GetComponent<PlayerHealth>().DealDamage(spawnedTile.points);
 
-        AudioManager.Instance.PlayAudio(smashSounds[Random.Range(0,smashSounds.Length)]);
+        removeTileAudio.Play(defaultAudioSource);
+        //AudioManager.Instance.PlayAudio(smashSounds[Random.Range(0,smashSounds.Length)]);
 
         gameObject.SetActive(false);
         //set the tile holder to refill its tiles AFTER this object has been set to inactive

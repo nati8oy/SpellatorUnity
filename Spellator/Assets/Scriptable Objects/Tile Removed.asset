@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c17f526f33975403689c93a28f4915f8, type: 3}
+  m_Name: Tile Removed
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: bc0828e099bbb4743b0d1703f2f03c2b, type: 3}
+  - {fileID: 8300000, guid: a650b463cd5814f20aebd28e8be33277, type: 3}
+  - {fileID: 8300000, guid: 35a20f933f020402e8486b5482a119ff, type: 3}
+  - {fileID: 8300000, guid: be0bebc2341164f3baa2f1b634d10fee, type: 3}
+  volume:
+    minValue: 1
+    maxValue: 1

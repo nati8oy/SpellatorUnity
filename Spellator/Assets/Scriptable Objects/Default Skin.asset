@@ -18,7 +18,7 @@ MonoBehaviour:
       type: 3}
     m_PressedSprite: {fileID: 21300000, guid: f832e8f9878f744258efd0d642670044, type: 3}
     m_DisabledSprite: {fileID: 21300000, guid: c6aa30eebf683437ab055ba46df811c1, type: 3}
-  defaultColour: {r: 0, g: 1, b: 0, a: 1}
+  defaultColour: {r: 0.8396226, g: 0.34090135, b: 0.22574759, a: 1}
   defaultIcon: {fileID: 21300000, guid: 310a1b5c97cd14f56b6d063afa6c4478, type: 3}
   confirmColour: {r: 1, g: 0, b: 0, a: 1}
   confirmIcon: {fileID: 21300000, guid: 310a1b5c97cd14f56b6d063afa6c4478, type: 3}
