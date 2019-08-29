@@ -550,6 +550,7 @@ GameObject:
   - component: {fileID: 5976778401099106093}
   - component: {fileID: 8140355924913221013}
   - component: {fileID: 5976778401099106080}
+  - component: {fileID: 5503959394071913919}
   - component: {fileID: 7629360241887565636}
   - component: {fileID: 2354001267598800883}
   m_Layer: 5
@@ -628,17 +629,30 @@ MonoBehaviour:
   points: {fileID: 7308423248976456831}
   adjustedPointValue: 0
   removeTileAudio: {fileID: 11400000, guid: 3f75798fae7da44098a54b5f9d23c1fa, type: 2}
-  tileClicked: {fileID: 0}
-  defaultAudioSource: {fileID: 2354001267598800883}
+  popSounds: {fileID: 11400000, guid: 855f2b9911c074e1f90962772638fe29, type: 2}
+  smashAudioSource: {fileID: 2354001267598800883}
+  popAudioSource: {fileID: 2354001267598800883}
   firstLetterTile: 0
   tileClick: {fileID: 8300000, guid: ec0cf2de9da0741a08b887b79c11614c, type: 3}
   specialIcon: {fileID: 1494288407093416192}
-  popSounds:
-  - {fileID: 8300000, guid: ec0cf2de9da0741a08b887b79c11614c, type: 3}
-  - {fileID: 8300000, guid: bc0828e099bbb4743b0d1703f2f03c2b, type: 3}
-  - {fileID: 8300000, guid: a650b463cd5814f20aebd28e8be33277, type: 3}
-  - {fileID: 8300000, guid: 35a20f933f020402e8486b5482a119ff, type: 3}
   nextTileSpot: {x: 0, y: 0, z: 0}
+--- !u!114 &5503959394071913919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5976778401099106082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce5be19d781bb44a980905e8c6117b14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileSkin: {fileID: 11400000, guid: f3aef0eed6c3c46d4a9566d3bdae68dd, type: 2}
+  tileBackground: {fileID: 7076420191266652025}
+  tileTextColour: {r: 0, g: 0, b: 0, a: 0}
+  letterText: {fileID: 781199010286186662}
+  pointsText: {fileID: 7308423248976456831}
 --- !u!114 &7629360241887565636
 MonoBehaviour:
   m_ObjectHideFlags: 0

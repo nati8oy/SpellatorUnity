@@ -9,6 +9,8 @@ public class Tile : MonoBehaviour
     [SerializeField] private Image tileBGImage;
     public Sprite[] tileStateImages;
 
+    public static TileDisplay tileDisplayAccess;
+
     //sets whether or not the tile can age
     public bool canAge = true;
 
@@ -20,8 +22,9 @@ public class Tile : MonoBehaviour
 
     //add reference to scriptable objects
     public AudioEvent removeTileAudio;
-    public AudioEvent tileClicked;
-    public AudioSource defaultAudioSource;
+    public AudioEvent popSounds;
+    public AudioSource smashAudioSource;
+    public AudioSource popAudioSource;
 
     public TileClass spawnedTile;
 
@@ -32,7 +35,7 @@ public class Tile : MonoBehaviour
     [SerializeField] private AudioClip tileClick;
     [SerializeField] private GameObject specialIcon;
 
-    public AudioClip[] popSounds;
+    //public AudioClip[] popSounds;
     //public AudioClip[] smashSounds;
 
 
@@ -64,9 +67,55 @@ public class Tile : MonoBehaviour
     private int positionInWord;
 
 
+
+    void Start()
+    {
+        //gameObject.transform.localScale = new Vector3 (1,1);
+
+        //check to see if the tile is the first tile for chain mode words
+        if (firstLetterTile == false)
+        {
+            //sets the letter and point text of each tile
+            letter.text = spawnedTile.letter;
+            points.text = spawnedTile.points.ToString();
+            adjustedPointValue = spawnedTile.points;
+
+        }
+
+        tileDisplayAccess = GetComponent<TileDisplay>();
+
+
+
+
+    }
+
     private void Update()
     {
-        
+
+        switch (spawnedTile.age)
+        {
+            case 4:
+                tileBGImage.sprite = tileDisplayAccess.tileSkin.TileAgeSprites[0];
+                break;
+            case 3:
+                tileBGImage.sprite = tileDisplayAccess.tileSkin.TileAgeSprites[1];
+                break;
+            case 2:
+                tileBGImage.sprite = tileDisplayAccess.tileSkin.TileAgeSprites[2];
+                break;
+            case 1:
+                tileBGImage.sprite = tileDisplayAccess.tileSkin.TileAgeSprites[3];
+                break;
+            case 0:
+                tileBGImage.sprite = tileDisplayAccess.tileSkin.TileAgeSprites[3];
+                letter.color = Color.gray;
+                points.color = Color.gray;
+                break;
+
+        }
+
+
+        /*
         //check the tile's age and swap in the appropirate tile state image
         switch (spawnedTile.age)
         {
@@ -88,7 +137,9 @@ public class Tile : MonoBehaviour
                 points.color = Color.gray;
                 break;
 
-        }
+        }*/
+
+
 
         //get the primary tile position as a reference to use in the tweens below
         //it is in the update function as it needs to be updated constantly for use with the tweens below
@@ -209,25 +260,6 @@ public class Tile : MonoBehaviour
 
 
 
-    void Start()
-    {
-        //gameObject.transform.localScale = new Vector3 (1,1);
-
-        //check to see if the tile is the first tile for chain mode words
-        if (firstLetterTile == false)
-        {
-            //sets the letter and point text of each tile
-            letter.text = spawnedTile.letter;
-            points.text = spawnedTile.points.ToString();
-            adjustedPointValue = spawnedTile.points;
-            //tilePointValue = spawnedTile.points;
-
-        }
-
-
-
-
-    }
 
 
 
@@ -302,9 +334,11 @@ public class Tile : MonoBehaviour
        
         //set tiles back to inactive so that they can go back into the object pool
         gameObject.SetActive(false);
-        AudioManager.Instance.PlayAudio(popSounds[Random.Range(0, 3)]);
+        // AudioManager.Instance.PlayAudio(popSounds[Random.Range(0, 3)]);
+        popSounds.Play(popAudioSource);
+       // Debug.Log("remove sound played");
 
-    
+
 
 
     }
@@ -349,7 +383,7 @@ public class Tile : MonoBehaviour
 
         GameObject.Find("HealthBar").GetComponent<PlayerHealth>().DealDamage(spawnedTile.points);
 
-        removeTileAudio.Play(defaultAudioSource);
+        removeTileAudio.Play(smashAudioSource);
         //AudioManager.Instance.PlayAudio(smashSounds[Random.Range(0,smashSounds.Length)]);
 
         gameObject.SetActive(false);

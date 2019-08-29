@@ -22,25 +22,6 @@ public class WordList : MonoBehaviour
 
         uniqueWords.text = "You've made " + wordsMade.Count.ToString() + " unique words";
 
-        /*
-        for (int i = 0; i < wordsMade.Count; i++)
-        {
-            //fullWordList.Add(wordsMade[i], 1);
-            
-            if (!fullWordList.ContainsKey(wordsMade[i]))
-            {
-                fullWordList.Add(wordsMade[i], 1);
-                //Debug.Log("added the word " + wordsMade[i]);
-            }
-            else if (fullWordList.ContainsKey(wordsMade[i]))
-            {
-                //Debug.Log("didn't add the word " + wordsMade[i]);
-            }
-        }
-
-        Debug.Log("on Start fullWordList array is this long: " + fullWordList.Count);
-
-        */
     }
 
     private void OnEnable()
