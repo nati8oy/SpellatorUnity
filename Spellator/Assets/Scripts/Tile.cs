@@ -96,6 +96,8 @@ public class Tile : MonoBehaviour
         {
             case 4:
                 tileBGImage.sprite = tileDisplayAccess.tileSkin.TileAgeSprites[0];
+                letter.color = tileDisplayAccess.tileSkin.colourOfTileText;
+                points.color = tileDisplayAccess.tileSkin.colourOfTileText;
                 break;
             case 3:
                 tileBGImage.sprite = tileDisplayAccess.tileSkin.TileAgeSprites[1];
@@ -108,37 +110,11 @@ public class Tile : MonoBehaviour
                 break;
             case 0:
                 tileBGImage.sprite = tileDisplayAccess.tileSkin.TileAgeSprites[3];
-                letter.color = Color.gray;
-                points.color = Color.gray;
+                letter.color = tileDisplayAccess.tileSkin.colourOfInactiveText;
+                points.color = tileDisplayAccess.tileSkin.colourOfInactiveText;
                 break;
 
         }
-
-
-        /*
-        //check the tile's age and swap in the appropirate tile state image
-        switch (spawnedTile.age)
-        {
-            case 4:
-                tileBGImage.sprite = tileStateImages[3];
-                break;
-            case 3:
-                tileBGImage.sprite = tileStateImages[2];
-                break;
-            case 2:
-                tileBGImage.sprite = tileStateImages[1];
-                break;
-            case 1:
-                tileBGImage.sprite = tileStateImages[0];
-                break;
-            case 0:
-                tileBGImage.sprite = tileStateImages[0];
-                letter.color = Color.gray;
-                points.color = Color.gray;
-                break;
-
-        }*/
-
 
 
         //get the primary tile position as a reference to use in the tweens below
@@ -180,8 +156,8 @@ public class Tile : MonoBehaviour
 
 
         //set the colour back to black. It'll then get reset to the triple or double colour below
-        letter.color = Color.black;
-        points.color = Color.black;
+      //  letter.color = Color.black;
+        //points.color = Color.black;
 
         // iTween.Move(gameObject, iTween.Hash("x", 1.01, "y", 1.01, "time", Random.RandomRange(1f, 2f)));
 

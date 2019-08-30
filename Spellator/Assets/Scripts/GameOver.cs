@@ -14,13 +14,16 @@ public class GameOver : MonoBehaviour
     {
         Score.text = Points.totalScore.ToString();
         WordsMade.text = DictionaryManager.Instance.TotalWordsMade.ToString();
-       // BlueDots.text = GameManager.Instance.BlueTotal.ToString();
-     //   RedDots.text = GameManager.Instance.RedTotal.ToString();
+      
     }
 
     // Update is called once per frame
     void Update()
     {
       
+    }
+    private void OnEnable()
+    {
+        GameManager.Instance.GetComponent<GameState>().SaveGameData();
     }
 }

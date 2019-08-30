@@ -20,3 +20,4 @@ MonoBehaviour:
   nameOfSkin: Dark
   tileBG: {fileID: 21300000, guid: 133d1f960cd494411bc708ee463f0fd5, type: 3}
   colourOfTileText: {r: 1, g: 1, b: 1, a: 1}
+  colourOfInactiveText: {r: 0.6037736, g: 0.6009256, b: 0.6009256, a: 1}

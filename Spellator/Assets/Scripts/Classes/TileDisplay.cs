@@ -12,13 +12,16 @@ public class TileDisplay : MonoBehaviour
 //public Sprite tileBackground;
 public Image tileBackground;
     public Color tileTextColour;
+    public Color tileDisabledColour;
     //public string skinName;
     public TextMeshProUGUI letterText;
     public TextMeshProUGUI pointsText;
+    
 
     // Start is called before the first frame update
     void Start()
     {
+        tileDisabledColour = tileSkin.colourOfInactiveText;
         tileBackground.sprite = tileSkin.tileBG;
         tileTextColour = tileSkin.colourOfTileText;
         letterText.color = tileTextColour;

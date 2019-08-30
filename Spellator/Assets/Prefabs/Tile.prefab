@@ -648,7 +648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce5be19d781bb44a980905e8c6117b14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileSkin: {fileID: 11400000, guid: f3aef0eed6c3c46d4a9566d3bdae68dd, type: 2}
+  tileSkin: {fileID: 11400000, guid: 7eff04686598d4c1488802337039c54f, type: 2}
   tileBackground: {fileID: 7076420191266652025}
   tileTextColour: {r: 0, g: 0, b: 0, a: 0}
   letterText: {fileID: 781199010286186662}
