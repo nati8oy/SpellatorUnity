@@ -17,6 +17,7 @@ public class Tile : MonoBehaviour
     public TextMeshProUGUI letter;
     public TextMeshProUGUI points;
 
+
     //used to adding double and triple points to the overall score
     public int adjustedPointValue;
 
@@ -70,6 +71,7 @@ public class Tile : MonoBehaviour
 
     void Start()
     {
+
         //gameObject.transform.localScale = new Vector3 (1,1);
 
         //check to see if the tile is the first tile for chain mode words
@@ -82,7 +84,9 @@ public class Tile : MonoBehaviour
 
         }
 
+        //used for Scriptable Object access
         tileDisplayAccess = GetComponent<TileDisplay>();
+       
 
 
 
@@ -95,11 +99,14 @@ public class Tile : MonoBehaviour
         switch (spawnedTile.age)
         {
             case 4:
+                //if the age is 4 then use the tiles from the scriptable object within the array
                 tileBGImage.sprite = tileDisplayAccess.tileSkin.TileAgeSprites[0];
+                //set the colour of the tile text to be that of the default skin selected colour
                 letter.color = tileDisplayAccess.tileSkin.colourOfTileText;
                 points.color = tileDisplayAccess.tileSkin.colourOfTileText;
                 break;
             case 3:
+                //if the age is 4 then use the tiles from the scriptable object within the array
                 tileBGImage.sprite = tileDisplayAccess.tileSkin.TileAgeSprites[1];
                 break;
             case 2:
@@ -110,6 +117,7 @@ public class Tile : MonoBehaviour
                 break;
             case 0:
                 tileBGImage.sprite = tileDisplayAccess.tileSkin.TileAgeSprites[3];
+                //set the colour of the tile text to be that of the inactive text within the scriptable object
                 letter.color = tileDisplayAccess.tileSkin.colourOfInactiveText;
                 points.color = tileDisplayAccess.tileSkin.colourOfInactiveText;
                 break;
@@ -156,16 +164,20 @@ public class Tile : MonoBehaviour
 
 
         //set the colour back to black. It'll then get reset to the triple or double colour below
-      //  letter.color = Color.black;
+        //  letter.color = Color.black;
         //points.color = Color.black;
 
         // iTween.Move(gameObject, iTween.Hash("x", 1.01, "y", 1.01, "time", Random.RandomRange(1f, 2f)));
 
         //create instance of the TileClass for use in the checks below
+
         spawnedTile = new TileClass(gameObject.transform.position);
 
 
-        
+
+    
+
+
 
         //if the tag is PrimaryTile then set the tile letter and points to be that of the StartLetter
         //otherwise, set them to come up randomly from the bag
@@ -243,7 +255,6 @@ public class Tile : MonoBehaviour
 
 
     {
-
         AudioManager.Instance.PlayAudio(tileClick);
 
         //check if the tile is selected or not. If it's not tagged as "selected" then add it to the word being made.
@@ -307,7 +318,7 @@ public class Tile : MonoBehaviour
     }
     public void RemoveTileOnComplete()
     {
-       
+        
         //set tiles back to inactive so that they can go back into the object pool
         gameObject.SetActive(false);
         // AudioManager.Instance.PlayAudio(popSounds[Random.Range(0, 3)]);

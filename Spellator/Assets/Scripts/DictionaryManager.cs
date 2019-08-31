@@ -168,6 +168,7 @@ public class DictionaryManager : MonoBehaviour
 
         }
 
+       
         //move the last tile of the word to the primary tile spot
         iTween.MoveTo(selectedTilesArray[selectedTilesArray.Length - 1], iTween.Hash("x", primaryPosX, "easetype", "EaseInOutCirc", "delay", 0.1*wordBeingMade.Length, "time", 0.4f, "onComplete", "SetPrimaryTile"));
         
@@ -271,6 +272,10 @@ public class DictionaryManager : MonoBehaviour
             multiplierText.text = "x" + Points.multiplier.ToString();
         }
 
+        else
+        {
+            multiplierText.text = "";
+        }
 
         
         currentLevel.text = playerWordsMade.Count.ToString();
@@ -337,9 +342,7 @@ public class DictionaryManager : MonoBehaviour
 
 
 
-
-
-            else if (WordBeingMade.Length < 4)
+            else if (WordBeingMade.Length <= 3)
         {
             Points.multiplier = 1;
             multiplierText.text = "";

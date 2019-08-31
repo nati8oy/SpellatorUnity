@@ -16,7 +16,7 @@ public Image tileBackground;
     //public string skinName;
     public TextMeshProUGUI letterText;
     public TextMeshProUGUI pointsText;
-    
+    public ParticleSystem particles;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +26,7 @@ public Image tileBackground;
         tileTextColour = tileSkin.colourOfTileText;
         letterText.color = tileTextColour;
         pointsText.color = tileTextColour;
+        particles = tileSkin.particles;
 
     }
 

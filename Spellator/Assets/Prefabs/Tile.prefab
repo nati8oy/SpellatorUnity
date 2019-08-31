@@ -627,6 +627,7 @@ MonoBehaviour:
   canAge: 1
   letter: {fileID: 781199010286186662}
   points: {fileID: 7308423248976456831}
+  ps: {fileID: 0}
   adjustedPointValue: 0
   removeTileAudio: {fileID: 11400000, guid: 3f75798fae7da44098a54b5f9d23c1fa, type: 2}
   popSounds: {fileID: 11400000, guid: 855f2b9911c074e1f90962772638fe29, type: 2}
@@ -648,11 +649,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce5be19d781bb44a980905e8c6117b14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileSkin: {fileID: 11400000, guid: 7eff04686598d4c1488802337039c54f, type: 2}
+  tileSkin: {fileID: 11400000, guid: f3aef0eed6c3c46d4a9566d3bdae68dd, type: 2}
   tileBackground: {fileID: 7076420191266652025}
   tileTextColour: {r: 0, g: 0, b: 0, a: 0}
+  tileDisabledColour: {r: 0, g: 0, b: 0, a: 0}
   letterText: {fileID: 781199010286186662}
   pointsText: {fileID: 7308423248976456831}
+  particles: {fileID: 0}
 --- !u!114 &7629360241887565636
 MonoBehaviour:
   m_ObjectHideFlags: 0

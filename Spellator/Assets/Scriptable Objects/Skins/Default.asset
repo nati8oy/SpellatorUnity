@@ -20,3 +20,6 @@ MonoBehaviour:
   nameOfSkin: Default
   tileBG: {fileID: 21300000, guid: 3b4d6eda97ac0432bbd19fd35960efb1, type: 3}
   colourOfTileText: {r: 0, g: 0, b: 0, a: 1}
+  colourOfInactiveText: {r: 0, g: 0, b: 0, a: 0}
+  particles: {fileID: 1967572491710229912, guid: 8b064098d71af42f087d3cd6c69fa478,
+    type: 3}

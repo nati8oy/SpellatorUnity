@@ -14,11 +14,13 @@ public class TileSkinSO : ScriptableObject
 //    public Button mainButton;
 
 
-    //dark skin
     [Header("Default")]
     public Sprite tileBG;
     public Color colourOfTileText;
     public Color colourOfInactiveText;
+    public ParticleSystem particles;
+
+
 
 
 

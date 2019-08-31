@@ -24,6 +24,7 @@ public class GameOver : MonoBehaviour
     }
     private void OnEnable()
     {
+        //saves the game automatically so the words you have made are saved.
         GameManager.Instance.GetComponent<GameState>().SaveGameData();
     }
 }
