@@ -20,6 +20,9 @@ MonoBehaviour:
   nameOfSkin: Default
   tileBG: {fileID: 21300000, guid: 3b4d6eda97ac0432bbd19fd35960efb1, type: 3}
   colourOfTileText: {r: 0, g: 0, b: 0, a: 1}
-  colourOfInactiveText: {r: 0, g: 0, b: 0, a: 0}
+  colourOfInactiveText: {r: 0.5283019, g: 0.5283019, b: 0.5283019, a: 1}
+  correctWordTextColour: {r: 0.9607843, g: 0.80784315, b: 0.09803922, a: 1}
+  doubleLetterColour: {r: 0.6714932, g: 0.34825563, b: 0.8113208, a: 1}
+  tripleLetterColour: {r: 0.044544328, g: 0.61595255, b: 0.8584906, a: 1}
   particles: {fileID: 1967572491710229912, guid: 8b064098d71af42f087d3cd6c69fa478,
     type: 3}

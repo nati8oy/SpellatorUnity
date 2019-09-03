@@ -18,6 +18,9 @@ public class TileSkinSO : ScriptableObject
     public Sprite tileBG;
     public Color colourOfTileText;
     public Color colourOfInactiveText;
+    public Color correctWordTextColour;
+    public Color doubleLetterColour;
+    public Color tripleLetterColour;
     public ParticleSystem particles;
 
 

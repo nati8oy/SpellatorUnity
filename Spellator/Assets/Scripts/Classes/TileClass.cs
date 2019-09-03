@@ -36,40 +36,44 @@ public class TileClass
 
         //add special types on initialisaton
         specialTypes.Add("heart");
-    //    specialTypes.Add("double");
-      //  specialTypes.Add("triple");
+        specialTypes.Add("double");
+        specialTypes.Add("triple");
+
+        AllocateSpecialType();
 
 
+
+        //Debug.Log("Tile type is: " + tileType + " Special type: " + specialAttribute);
+    }
+
+    public void AllocateSpecialType()
+    {
 
 
         //choose a random number for special probability
         randomSelector = Random.Range(0, 6);
-      //  Debug.Log("Random Selector is: " + randomSelector);
+        //  Debug.Log("Random Selector is: " + randomSelector);
 
         if (randomSelector == specialChance)
         {
             tileType = "special";
 
             //choose a random special tile type
-            specialAttribute = specialTypes[Random.Range(0, specialTypes.Count)] ;
-          //  Debug.Log("Special attribute is: " + specialAttribute);
+            specialAttribute = specialTypes[Random.Range(0, specialTypes.Count)];
+            //  Debug.Log("Special attribute is: " + specialAttribute);
 
         }
-       
 
-        else if (randomSelector !=specialChance)
+
+        else if (randomSelector != specialChance)
         {
             tileType = "default";
             specialAttribute = "none";
         }
 
 
-        
 
-        //Debug.Log("Tile type is: " + tileType + " Special type: " + specialAttribute);
     }
-
-    
 
 
 

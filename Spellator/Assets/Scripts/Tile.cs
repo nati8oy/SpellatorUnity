@@ -102,8 +102,9 @@ public class Tile : MonoBehaviour
                 //if the age is 4 then use the tiles from the scriptable object within the array
                 tileBGImage.sprite = tileDisplayAccess.tileSkin.TileAgeSprites[0];
                 //set the colour of the tile text to be that of the default skin selected colour
-                letter.color = tileDisplayAccess.tileSkin.colourOfTileText;
-                points.color = tileDisplayAccess.tileSkin.colourOfTileText;
+                //letter.color = Color.black;
+               // letter.color = tileDisplayAccess.tileSkin.colourOfTileText;
+                //points.color = tileDisplayAccess.tileSkin.colourOfTileText;
                 break;
             case 3:
                 //if the age is 4 then use the tiles from the scriptable object within the array
@@ -118,11 +119,52 @@ public class Tile : MonoBehaviour
             case 0:
                 tileBGImage.sprite = tileDisplayAccess.tileSkin.TileAgeSprites[3];
                 //set the colour of the tile text to be that of the inactive text within the scriptable object
-                letter.color = tileDisplayAccess.tileSkin.colourOfInactiveText;
-                points.color = tileDisplayAccess.tileSkin.colourOfInactiveText;
+                //letter.color = tileDisplayAccess.tileSkin.colourOfInactiveText;
+               // points.color = tileDisplayAccess.tileSkin.colourOfInactiveText;
                 break;
 
         }
+
+        switch (spawnedTile.specialAttribute)
+        {
+            case "heart":
+                specialIcon.SetActive(true);
+                //Debug.Log("heart tile");
+                break;
+            case "double":
+                //specialIcon.SetActive(false);
+
+               // Debug.Log("double letter spawned");
+                //access the double letter colour
+                letter.color = tileDisplayAccess.tileSkin.doubleLetterColour;
+
+                //update the points value of the tile so that it is added correctly to the overall live score
+                adjustedPointValue = spawnedTile.points * 2;
+                points.text = (spawnedTile.points * 2).ToString();
+                // Debug.Log("double tile");
+
+                break;
+            case "triple":
+               // Debug.Log("triple letter spawned");
+                //  specialIcon.SetActive(false);
+                letter.color = tileDisplayAccess.tileSkin.tripleLetterColour;
+
+                //update the points value of the tile so that it is added correctly to the overall live score
+                adjustedPointValue = spawnedTile.points * 3;
+                points.text = (spawnedTile.points * 3).ToString();
+                //Debug.Log("triple tile");
+
+                break;
+
+            case "none":
+                specialIcon.SetActive(false);
+                adjustedPointValue = spawnedTile.points;
+
+                break;
+        }
+
+
+
 
 
         //get the primary tile position as a reference to use in the tweens below
@@ -159,30 +201,22 @@ public class Tile : MonoBehaviour
 
     private void OnEnable()
     {
-        //MAKE TILES BOUNCE
-        //iTween.MoveBy(gameObject, iTween.Hash("y", 10, "easetype", "easeOutCirc", "time",Random.Range(0.6f, 1.1f), "loopType", "pingPong"));
-
-
-        //set the colour back to black. It'll then get reset to the triple or double colour below
-        //  letter.color = Color.black;
-        //points.color = Color.black;
-
-        // iTween.Move(gameObject, iTween.Hash("x", 1.01, "y", 1.01, "time", Random.RandomRange(1f, 2f)));
+       
 
         //create instance of the TileClass for use in the checks below
 
         spawnedTile = new TileClass(gameObject.transform.position);
 
+        spawnedTile.AllocateSpecialType();
 
-
-    
-
+        
 
 
         //if the tag is PrimaryTile then set the tile letter and points to be that of the StartLetter
         //otherwise, set them to come up randomly from the bag
         if (CompareTag("PrimaryTile"))
         {
+
             spawnedTile.letter = DictionaryManager.Instance.StartLetter;
             spawnedTile.points = TileBag.pointsDictionary[spawnedTile.letter];
 
@@ -193,7 +227,7 @@ public class Tile : MonoBehaviour
 
         } else if (CompareTag("Tile"))
         {
-
+            
             spawnedTile.letter = TileBag.bag[Random.Range(0, TileBag.bag.Count)];
             spawnedTile.points = TileBag.pointsDictionary[spawnedTile.letter];
             RemoveLetterFromBag();
@@ -206,42 +240,7 @@ public class Tile : MonoBehaviour
         letter.text = spawnedTile.letter;
         points.text = spawnedTile.points.ToString();
         tilePointValue = spawnedTile.points;
-
-
-
-        switch (spawnedTile.specialAttribute)
-        {
-            case "heart":
-                specialIcon.SetActive(true);
-                //Debug.Log("heart tile");
-                break;
-            case "double":
-                //specialIcon.SetActive(false);
-                
-                letter.color = Color.red;
-                letter.color = Color.red;
-                //update the points value of the tile so that it is added correctly to the overall live score
-                adjustedPointValue = spawnedTile.points * 2;
-                points.text = (spawnedTile.points * 2).ToString();
-               // Debug.Log("double tile");
-
-                break;
-            case "triple":
-                //  specialIcon.SetActive(false);
-                letter.color = Color.blue;
-                //update the points value of the tile so that it is added correctly to the overall live score
-                adjustedPointValue = spawnedTile.points * 3;
-                points.text = (spawnedTile.points * 3).ToString();
-                //Debug.Log("triple tile");
-
-                break;
-
-            case "none":
-                specialIcon.SetActive(false);
-                adjustedPointValue = spawnedTile.points;
-
-                break;
-        }
+        
 
 
     }
@@ -294,7 +293,7 @@ public class Tile : MonoBehaviour
 
             //add the score to the live score
 
-                Points.AddToLiveScore(spawnedTile.points);
+                Points.AddToLiveScore(adjustedPointValue);
 
        
 

@@ -18,6 +18,7 @@ public class DictionaryManager : MonoBehaviour
 
     [SerializeField] private GameObject correctIcon;
 
+    [SerializeField] private ParticleSystem correctWordParticles;
 
     [SerializeField] private GameObject BoardHolder;
 
@@ -201,7 +202,7 @@ public class DictionaryManager : MonoBehaviour
     void Start()
     {
 
-        //
+        //display the level which is the number of unique words made
         currentLevel = GameObject.Find("Level").GetComponent<TextMeshProUGUI>();
 
         //find the current primary tile and add its x and y positions to these vars
@@ -289,6 +290,7 @@ public class DictionaryManager : MonoBehaviour
     public void CheckAndDeleteTiles()
     {
 
+        correctWordParticles.Play();
 
         ReduceAge();
 
@@ -369,18 +371,12 @@ public class DictionaryManager : MonoBehaviour
                tile.transform.parent.GetComponent<TileCreator>().RefillTiles();
 
                 //checks the tile type and adds whatever the special tile bonus is
-
-
                 
                 if (tile.GetComponent<Tile>().spawnedTile.specialAttribute == "heart")
                 {
-
-
-
+                    //update the player health based on the tile points amount
                     healthBar.GetComponent<PlayerHealth>().Heal(tile.GetComponent<Tile>().spawnedTile.points);
                    
-                   // Camera.main.GetComponent<PlayerHealth>().Heal(tile.GetComponent<Tile>().spawnedTile.points); 
-
                 }
                 
 
@@ -469,6 +465,7 @@ public class DictionaryManager : MonoBehaviour
         }
 
 
+      
         switch (wordBeingMade.Length)
         {
             case 5:
@@ -484,11 +481,10 @@ public class DictionaryManager : MonoBehaviour
             case 9:
                 iTween.MoveTo(PrimaryTile, iTween.Hash("x", PrimaryTile.transform.position.x - 350, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
                 break;
+            }
 
 
 
-        }
- 
 
     }
 

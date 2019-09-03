@@ -30,17 +30,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private RectTransform gameOverPanel;
 
 
-    [SerializeField] private GameObject messageObject;
-
-
-
-    public GameObject MessageObject
-    {
-        get { return messageObject; }
-        set { MessageObject = value; }
-    }
-
-
   
     private SpecialMeterClass specialMeter = new SpecialMeterClass();
 
@@ -173,6 +162,7 @@ public class GameManager : MonoBehaviour
 
     public void ShowWordList()
     {
+
         wordList.gameObject.SetActive(true);
     }
 
