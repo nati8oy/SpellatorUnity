@@ -140,7 +140,7 @@ public class Tile : MonoBehaviour
 
                 //update the points value of the tile so that it is added correctly to the overall live score
                 adjustedPointValue = spawnedTile.points * 2;
-                points.text = (spawnedTile.points * 2).ToString();
+                points.text = adjustedPointValue.ToString();
                 // Debug.Log("double tile");
 
                 break;

@@ -22,6 +22,8 @@ public class DictionaryManager : MonoBehaviour
 
     [SerializeField] private GameObject BoardHolder;
 
+    [SerializeField] private MessagingSO encouragementMessages;
+
     //store all of the audio clips in this array
     public AudioClip[] allAudioClips;
 
@@ -33,7 +35,6 @@ public class DictionaryManager : MonoBehaviour
     [SerializeField] private GameObject messageParentObject;
     [SerializeField] private TextMeshProUGUI messageObject;
 
-    private List<string> EncouragementMessages;
     private string message;
 
     [SerializeField] public TextMeshProUGUI multiplierText;
@@ -212,21 +213,7 @@ public class DictionaryManager : MonoBehaviour
 
         // Debug.Log("x position of the primary tile: " + GameObject.Find("Primary Tile").transform.position.x);
 
-        EncouragementMessages = new List<string>();
-        EncouragementMessages.Add("Marvellous!");
-        EncouragementMessages.Add("Amazing!");
-        EncouragementMessages.Add("Wow!");
-        EncouragementMessages.Add("Nice word!");
-        EncouragementMessages.Add("Incredible!");
-        EncouragementMessages.Add("Keep it up!");
-        EncouragementMessages.Add("Love!");
-        EncouragementMessages.Add("Great!");
-        EncouragementMessages.Add("That's Dope!");
-        EncouragementMessages.Add("Awesome!");
-        EncouragementMessages.Add("Love!");
-        EncouragementMessages.Add("Hot streak!");
-        EncouragementMessages.Add("Excellent!");
-        EncouragementMessages.Add("Great Word!");
+       
 
 
 
@@ -625,14 +612,14 @@ public class DictionaryManager : MonoBehaviour
         {
             case "encouragement":
                 //set the message text to be a random one from the EncouragementMessage list
-                message = EncouragementMessages[Random.Range(0, EncouragementMessages.Count)];
+                message = encouragementMessages.OnScreenMessages[Random.Range(0, encouragementMessages.OnScreenMessages.Length)];
 
                 messageObject.text = message;
                 //messageObject.color = Color.red;
 
 
                 //tween the parent object so that it moves up when spawned.
-                iTween.MoveBy(messageParentObject, iTween.Hash("y", 60, "easeType", "easeInOutExpo", "oncomplete", "DeactivateMessage"));
+                iTween.FadeTo(messageParentObject, iTween.Hash("alpha", 1, "amount",1, "easeType", "easeInOutExpo", "oncomplete", "DeactivateMessage"));;
 
                 break;
 
