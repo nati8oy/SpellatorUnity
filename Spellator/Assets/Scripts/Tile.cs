@@ -7,9 +7,9 @@ public class Tile : MonoBehaviour
 {
 
     [SerializeField] private Image tileBGImage;
-    public Sprite[] tileStateImages;
 
     public static TileDisplay tileDisplayAccess;
+    public Animator animator;
 
     //sets whether or not the tile can age
     public bool canAge = true;
@@ -86,7 +86,10 @@ public class Tile : MonoBehaviour
 
         //used for Scriptable Object access
         tileDisplayAccess = GetComponent<TileDisplay>();
-       
+      // Debug.Log(tileDisplayAccess.tileSkin.TileAgeSprites[0]);
+        Debug.Log(tileBGImage);
+
+
 
 
 
@@ -100,7 +103,7 @@ public class Tile : MonoBehaviour
         {
             case 4:
                 //if the age is 4 then use the tiles from the scriptable object within the array
-                tileBGImage.sprite = tileDisplayAccess.tileSkin.TileAgeSprites[0];
+               tileBGImage.sprite = tileDisplayAccess.tileSkin.TileAgeSprites[0];
                 //set the colour of the tile text to be that of the default skin selected colour
                 //letter.color = Color.black;
                // letter.color = tileDisplayAccess.tileSkin.colourOfTileText;
@@ -108,7 +111,7 @@ public class Tile : MonoBehaviour
                 break;
             case 3:
                 //if the age is 4 then use the tiles from the scriptable object within the array
-                tileBGImage.sprite = tileDisplayAccess.tileSkin.TileAgeSprites[1];
+               tileBGImage.sprite = GetComponent<TileDisplay>().tileSkin.TileAgeSprites[1];
                 break;
             case 2:
                 tileBGImage.sprite = tileDisplayAccess.tileSkin.TileAgeSprites[2];
@@ -270,6 +273,11 @@ public class Tile : MonoBehaviour
 
             //set the tag of this tile to be selected
             gameObject.tag = "TileSelected";
+
+            //set the animator to use another animation
+
+
+            animator.SetBool("tileActive", true);
 
 
 

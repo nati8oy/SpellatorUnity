@@ -22,6 +22,7 @@ public class DictionaryManager : MonoBehaviour
 
     [SerializeField] private GameObject BoardHolder;
 
+    //uses a scritable object to hold the array for on screen messages
     [SerializeField] private MessagingSO encouragementMessages;
 
     //store all of the audio clips in this array
@@ -188,11 +189,6 @@ public class DictionaryManager : MonoBehaviour
 
         }
 
-        //reset the scores after all of the above has been done to set the primary tile value
-
-        //Points.primaryTileScore = GameObject.FindGameObjectWithTag("PrimaryTile").GetComponent<Tile>().spawnedTile.points;
-        //Points.resetScores();
-
         yield return null;
 
     }
@@ -202,30 +198,13 @@ public class DictionaryManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        correctWordParticles.Stop();
         //display the level which is the number of unique words made
         currentLevel = GameObject.Find("Level").GetComponent<TextMeshProUGUI>();
 
         //find the current primary tile and add its x and y positions to these vars
         primaryPosX = GameObject.Find("Primary Tile").transform.position.x;
         primaryPosY = GameObject.Find("Primary Tile").transform.position.y;
-
-
-        // Debug.Log("x position of the primary tile: " + GameObject.Find("Primary Tile").transform.position.x);
-
-       
-
-
-
-
-        //create a new primary tile class so that it's avaiable for later on.
-        //NewPrimaryTile = new TileClass(primaryTile.transform.position);
-
-
-        //run the function in the Messages class that makes the message object active
-        //ShowMessage();
-
-
 
 
         healthBar = GameObject.Find("HealthBar");
@@ -545,7 +524,8 @@ public class DictionaryManager : MonoBehaviour
             foreach (GameObject tile in selectedTilesArray)
 
             {
-
+                //set the animator of each tile to revert to the idle animation when the word is cleared
+                tile.GetComponent<Tile>().animator.SetBool("tileActive", false);
 
                 //set getStartPos so that it can be used in the coroutine below
 

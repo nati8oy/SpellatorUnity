@@ -3,7 +3,9 @@ guid: 06eb70606e43e4498b38e75704ce1581
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - tileBG: {instanceID: 0}
+  - particles: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
