@@ -13,12 +13,12 @@ public class FaderScript : MonoBehaviour
     private void Start()
     {
         image.color = alphaFadeColor;
+        alphaFadeColor.a = 1;
         
     }
     // Update is called once per frame
     void Update()
     {
-        
 
         if (alphaFadeColor.a > 0)
         {
