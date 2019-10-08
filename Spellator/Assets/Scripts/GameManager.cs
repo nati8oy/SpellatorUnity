@@ -29,7 +29,6 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private RectTransform gameOverPanel;
 
-
   
     private SpecialMeterClass specialMeter = new SpecialMeterClass();
 

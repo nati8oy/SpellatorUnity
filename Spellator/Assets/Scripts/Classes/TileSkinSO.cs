@@ -15,7 +15,7 @@ public class TileSkinSO : ScriptableObject
 
 
     [Header("Default")]
-    public Sprite tileBG;
+    //public Sprite tileBG;
     public Color colourOfTileText;
     public Color colourOfInactiveText;
     public Color correctWordTextColour;

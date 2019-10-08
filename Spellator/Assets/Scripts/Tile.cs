@@ -46,7 +46,7 @@ public class Tile : MonoBehaviour
     private int positionInRack;
 
     //use as a unit of measurement for offsetting tiles
-    private int tileOffset = 110;
+    private int tileOffset = 100;
 
     private Vector3 currentSpot;
 
@@ -86,10 +86,6 @@ public class Tile : MonoBehaviour
 
         //used for Scriptable Object access
         tileDisplayAccess = GetComponent<TileDisplay>();
-      // Debug.Log(tileDisplayAccess.tileSkin.TileAgeSprites[0]);
-        Debug.Log(tileBGImage);
-
-
 
 
 
@@ -144,17 +140,21 @@ public class Tile : MonoBehaviour
                 //update the points value of the tile so that it is added correctly to the overall live score
                 adjustedPointValue = spawnedTile.points * 2;
                 points.text = adjustedPointValue.ToString();
+               // Debug.Log("adjusted points value is: " + adjustedPointValue);
+
                 // Debug.Log("double tile");
 
                 break;
             case "triple":
                // Debug.Log("triple letter spawned");
                 //  specialIcon.SetActive(false);
+
                 letter.color = tileDisplayAccess.tileSkin.tripleLetterColour;
 
                 //update the points value of the tile so that it is added correctly to the overall live score
                 adjustedPointValue = spawnedTile.points * 3;
                 points.text = (spawnedTile.points * 3).ToString();
+                //Debug.Log("adjusted points value is: " + adjustedPointValue);
                 //Debug.Log("triple tile");
 
                 break;
@@ -322,6 +322,7 @@ public class Tile : MonoBehaviour
                 DictionaryManager.Instance.CheckWord();
 
             }
+        animator.SetBool("tileActive", false);
     }
     public void RemoveTileOnComplete()
     {

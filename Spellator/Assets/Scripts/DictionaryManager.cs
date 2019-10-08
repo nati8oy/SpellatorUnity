@@ -9,24 +9,59 @@ public class DictionaryManager : MonoBehaviour
 
     public static DictionaryManager Instance;
 
+
+    [Space()]
+    [Header("Word Related Variables")]
     private WordData listOfWordsMade;
 
 	// public Dictionary<string, int> playerWordsMade = new Dictionary<string, int>();
 	public List<string> playerWordsMade = new List<string>();
 
-	private ParticleSystem starParticles;
-
-    [SerializeField] private GameObject correctIcon;
-
-    [SerializeField] private ParticleSystem correctWordParticles;
-
-    [SerializeField] private GameObject BoardHolder;
-
     //uses a scritable object to hold the array for on screen messages
     [SerializeField] private MessagingSO encouragementMessages;
 
+    //a list to store all of the values from the dictionary text file in
+    private List<string> dictionaryList = new List<string>();
+
+    private Text tileText;
+
+
+    //this sets up the field for which to add the external dictionary txt file
+    [SerializeField]
+    private TextAsset dictionaryTxtFile;
+
+    //a list to store all of the values from the bag text file in
+
+    private List<string> bagList = new List<string>();
+
+
+    //this is the string to which the full dictionary is assigned before being split up by the Split method
+    private string fullDictionary;
+
+    //create the dictionary to store all of the words in
+    private Dictionary<string, int> dictionary = new Dictionary<string, int>();
+
+
+
+
+    [Space()]
+    [Header("Particle Systems")]
+    private ParticleSystem starParticles;
+    [SerializeField] private ParticleSystem correctWordParticles;
+
+
+    [Space()]
+    [Header("Sprites")]
+    [SerializeField] private GameObject correctIcon;
+
+    [Space()]
+    [Header("Audio")]
+
     //store all of the audio clips in this array
     public AudioClip[] allAudioClips;
+
+    [Space()]
+    [Header("UI Elements")]
 
     private GameObject healthBar;
 
@@ -40,68 +75,29 @@ public class DictionaryManager : MonoBehaviour
 
     [SerializeField] public TextMeshProUGUI multiplierText;
 
-    //add class for the on screen messages to reference later.
-    //private Messages onScreenMessage = new Messages();
+    [SerializeField] private GameObject pointsText;
 
 
-    /*private TileClass NewPrimaryTile;
-    [SerializeField] private GameObject primaryTile;
+    //reference to the send button 
+    [SerializeField] public Button sendButton;
 
-    public GameObject PrimaryTile
-    {
-        get {return primaryTile; }
-    }
-    */
+
+
+    [Space()]
+    [Header("Tile Elements")]
 
     [SerializeField] private GameObject PrimaryTile;
     private float primaryPosX;
     private float primaryPosY;
 
-
     private GameObject startTile;
 
     private GameObject pointsHolder;
-    [SerializeField] private GameObject pointsText;
-
-    //[SerializeField] private GameObject message;
-
-    public bool firstLetterOfWord;
-
-    public bool chainFlag;
-
-    private string mostRecentWord;
-    private string startLetter;
-
-    public string StartLetter
-    {
-        get { return startLetter; }
-    }
-
-    [SerializeField] private Text scoreText;
-
     private GameObject[] agingArray;
 
 
-    private int multiplier;
-    public int Multiplier
-    {
-        get { return multiplier; }
-    }
+    [SerializeField] private Text scoreText;
 
-    //a list to store all of the values from the dictionary text file in
-    private List<string> dictionaryList = new List<string>();
-
-
-
-    private Text tileText;
-
-    //this sets up the field for which to add the external dictionary txt file
-    [SerializeField]
-    private TextAsset dictionaryTxtFile;
-
-    //a list to store all of the values from the bag text file in
-
-    private List<string> bagList = new List<string>();
 
     public GameObject[] selectedTilesArray;
 
@@ -113,15 +109,23 @@ public class DictionaryManager : MonoBehaviour
     private bool resetBool;
 
 
-    //reference to the send button 
-    [SerializeField] public Button sendButton;
+    public bool chainFlag;
+
+    private string mostRecentWord;
+    private string startLetter;
+
+    public string StartLetter
+    {
+        get { return startLetter; }
+    }
 
 
-    //this is the string to which the full dictionary is assigned before being split up by the Split method
-    private string fullDictionary;
+    private int multiplier;
+    public int Multiplier
+    {
+        get { return multiplier; }
+    }
 
-    //create the dictionary to store all of the words in
-    private Dictionary<string, int> dictionary = new Dictionary<string, int>();
 
     //used for resetting the game
     private int totalWordsMade;
@@ -157,7 +161,6 @@ public class DictionaryManager : MonoBehaviour
         Instance = this;
     }
 
-    private Vector3[] pointLines;
 
     private IEnumerator TileCompleteSequence() {
 
@@ -209,7 +212,6 @@ public class DictionaryManager : MonoBehaviour
 
         healthBar = GameObject.Find("HealthBar");
 
-        // Instantiate(BoardHolder, new Vector3(200, 200), Quaternion.identity);
 
 
         multiplierText.text = "";

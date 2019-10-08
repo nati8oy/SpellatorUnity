@@ -10,7 +10,7 @@ public class TileDisplay : MonoBehaviour
 
 
 //public Sprite tileBackground;
-public Image tileBackground;
+//public Image tileBackground;
     public Color tileTextColour;
     public Color tileDisabledColour;
     public Color doubleLetterColour;
@@ -27,7 +27,7 @@ public Image tileBackground;
     {
         correctWordTextColour = tileSkin.correctWordTextColour;
         tileDisabledColour = tileSkin.colourOfInactiveText;
-        tileBackground.sprite = tileSkin.tileBG;
+        //tileBackground.sprite = tileSkin.tileBG;
         tileTextColour = tileSkin.colourOfTileText;
         letterText.color = tileTextColour;
         pointsText.color = tileTextColour;
