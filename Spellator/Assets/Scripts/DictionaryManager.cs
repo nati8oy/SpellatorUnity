@@ -185,7 +185,8 @@ public class DictionaryManager : MonoBehaviour
         {
             var randomY = Random.Range(100, 135);
 
-            
+            selectedTilesArray[i].GetComponent<Tile>().animator.SetBool("clearTile", true);
+
             iTween.MoveBy(selectedTilesArray[i], iTween.Hash("y", randomY, "easetype", "spring", "time", 0.5f, "delay", (0.1f) * (i+1), "oncomplete", "RemoveTileOnComplete"));
 
             //  iTween.RotateBy(selectedTilesArray[i], new Vector3(10, 10), 1);

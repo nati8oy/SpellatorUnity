@@ -204,7 +204,9 @@ public class Tile : MonoBehaviour
 
     private void OnEnable()
     {
-       
+
+        animator.SetBool("clearTile", false);
+
 
         //create instance of the TileClass for use in the checks below
 
@@ -277,7 +279,7 @@ public class Tile : MonoBehaviour
             //set the animator to use another animation
 
 
-            animator.SetBool("tileActive", true);
+          //  animator.SetBool("clearTile", true);
 
 
 
@@ -322,7 +324,7 @@ public class Tile : MonoBehaviour
                 DictionaryManager.Instance.CheckWord();
 
             }
-        animator.SetBool("tileActive", false);
+        //animator.SetBool("tileActive", false);
     }
     public void RemoveTileOnComplete()
     {
