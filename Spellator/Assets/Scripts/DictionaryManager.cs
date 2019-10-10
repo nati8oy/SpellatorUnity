@@ -48,6 +48,8 @@ public class DictionaryManager : MonoBehaviour
     [Header("Particle Systems")]
     private ParticleSystem starParticles;
     [SerializeField] private ParticleSystem correctWordParticles;
+    private ParticleSystem heartParticles;
+    [SerializeField] private ParticleSystem healthUpParticles;
 
 
     [Space()]
@@ -206,6 +208,7 @@ public class DictionaryManager : MonoBehaviour
         fadeManager = GameObject.Find("Fade Manager").GetComponent<Transitions>();
 
         correctWordParticles.Stop();
+        healthUpParticles.Stop();
         //display the level which is the number of unique words made
         currentLevel = GameObject.Find("Level").GetComponent<TextMeshProUGUI>();
 
@@ -349,6 +352,7 @@ public class DictionaryManager : MonoBehaviour
                 {
                     //update the player health based on the tile points amount
                     healthBar.GetComponent<PlayerHealth>().Heal(tile.GetComponent<Tile>().spawnedTile.points);
+                    healthUpParticles.Play();
                    
                 }
                 
