@@ -42,7 +42,7 @@ public class DictionaryManager : MonoBehaviour
     private Dictionary<string, int> dictionary = new Dictionary<string, int>();
 
 
-
+    private Transitions fadeManager;
 
     [Space()]
     [Header("Particle Systems")]
@@ -202,6 +202,9 @@ public class DictionaryManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        fadeManager = GameObject.Find("Fade Manager").GetComponent<Transitions>();
+
         correctWordParticles.Stop();
         //display the level which is the number of unique words made
         currentLevel = GameObject.Find("Level").GetComponent<TextMeshProUGUI>();
@@ -324,6 +327,7 @@ public class DictionaryManager : MonoBehaviour
             if ((WordBeingMade.Length >= 5) || (Points.liveScore>=50))
             {
                 ShowMessage("encouragement");
+                fadeManager.FadeType(fadeManager._flashColour, fadeManager.pulseSpeed);
 
             }
 

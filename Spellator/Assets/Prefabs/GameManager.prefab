@@ -49,12 +49,11 @@ MonoBehaviour:
   gameOverAudio: {fileID: 8300000, guid: 199442004b5c14c4a9f6012ed4e5c602, type: 3}
   bigScore: {fileID: 8300000, guid: 5a863d36171ec43ad8f28dee819c539c, type: 3}
   pauseMenu: {fileID: 0}
-  wordList: {fileID: 0}
+  wordList: {fileID: 3179203672773484463, guid: 5f8d3c5e079bb4e06bd3c7d9dc73c31d,
+    type: 3}
   allLetters: 
   externalBagTXT: {fileID: 4900000, guid: 9d6146cddd6ef4ea78ce7418d4c646a7, type: 3}
   gameOverPanel: {fileID: 0}
-  messageObject: {fileID: 2821882207915013465, guid: a288115374d8f43f7a450aa2077af955,
-    type: 3}
   mostRecentScore: 0
   liveScoreText: {fileID: 0}
 --- !u!82 &166281410

@@ -12,6 +12,7 @@ public class FaderScript : MonoBehaviour
 
     private void Start()
     {
+        fadeSpeed = 0.03f;
         image.color = alphaFadeColor;
         alphaFadeColor.a = 1;
         
@@ -22,7 +23,7 @@ public class FaderScript : MonoBehaviour
 
         if (alphaFadeColor.a > 0)
         {
-            alphaFadeColor.a -= 0.01f;
+            alphaFadeColor.a -= fadeSpeed;
         }
 
         image.color = alphaFadeColor;
