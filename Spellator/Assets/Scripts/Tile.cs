@@ -136,6 +136,8 @@ public class Tile : MonoBehaviour
                // Debug.Log("double letter spawned");
                 //access the double letter colour
                 letter.color = tileDisplayAccess.tileSkin.doubleLetterColour;
+                tileBGImage.color = tileDisplayAccess.tileSkin.doubleTileColour;
+
 
                 //update the points value of the tile so that it is added correctly to the overall live score
                 adjustedPointValue = spawnedTile.points * 2;
@@ -150,6 +152,9 @@ public class Tile : MonoBehaviour
                 //  specialIcon.SetActive(false);
 
                 letter.color = tileDisplayAccess.tileSkin.tripleLetterColour;
+                tileBGImage.color = tileDisplayAccess.tileSkin.tripleTileColour;
+
+
 
                 //update the points value of the tile so that it is added correctly to the overall live score
                 adjustedPointValue = spawnedTile.points * 3;

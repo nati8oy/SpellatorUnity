@@ -19,12 +19,15 @@ public class TileSkinSO : ScriptableObject
     public Color colourOfTileText;
     public Color colourOfInactiveText;
     public Color correctWordTextColour;
-    public Color doubleLetterColour;
-    public Color tripleLetterColour;
     public ParticleSystem particles;
 
+    [Header("Double Tile Colours")]
+    public Color doubleLetterColour;
+    public Color doubleTileColour;
 
-
+    [Header("Triple Tile Colours")]
+    public Color tripleLetterColour;
+   public Color tripleTileColour;
 
 
 }

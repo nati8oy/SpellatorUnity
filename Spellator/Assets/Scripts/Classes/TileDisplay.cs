@@ -14,8 +14,12 @@ public class TileDisplay : MonoBehaviour
     public Color tileTextColour;
     public Color tileDisabledColour;
     public Color doubleLetterColour;
-    public Color tripleLetterColour;
     public Color correctWordTextColour;
+
+    public Color tripleLetterColour;
+
+    public Color doubleTileColour;
+
     //public string skinName;
     public TextMeshProUGUI letterText;
     public TextMeshProUGUI pointsText;
@@ -33,6 +37,12 @@ public class TileDisplay : MonoBehaviour
         pointsText.color = tileTextColour;
         particles = tileSkin.particles;
         doubleLetterColour = tileSkin.doubleLetterColour;
+        tripleLetterColour = tileSkin.tripleLetterColour;
+
+        //set the double tile background colour to whatever is in the scriptable object
+        doubleTileColour = tileSkin.doubleTileColour;
+
+        //set the double tile background colour to whatever is in the scriptable object
         tripleLetterColour = tileSkin.tripleLetterColour;
 
     }
