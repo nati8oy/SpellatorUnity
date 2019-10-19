@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
   
     private SpecialMeterClass specialMeter = new SpecialMeterClass();
 
+    public ConfigSO configData;
 
 
     public RectTransform GameOverPanel
@@ -112,6 +113,7 @@ public class GameManager : MonoBehaviour
         lettersBag.AddLettersToDictonary();
 
 
+      
 
 
         gameManagerAudioSource = GetComponent<AudioSource>();
@@ -119,7 +121,7 @@ public class GameManager : MonoBehaviour
         gameManagerAudioSource.loop = true;
 
 
-            //set scores to blank
+        //set scores to blank
         liveScoreText.text = "";
 
         //make the send button inactive on start up

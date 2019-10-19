@@ -8,6 +8,8 @@ public class WordList : MonoBehaviour
 
     private GameObject newWord;
     public TextMeshProUGUI uniqueWords;
+
+    public ConfigSO wordData;
     
     public List<string> wordsMade = new List<string>();
     public Dictionary<string, int> fullWordList = new Dictionary<string, int>();
@@ -15,7 +17,10 @@ public class WordList : MonoBehaviour
 
     private void Start()
     {
+        //wordsMade = wordData.uniqueWordsList;
         wordsMade = DictionaryManager.Instance.playerWordsMade;
+
+
         //sort the list alphabetically
         wordsMade.Sort();
 

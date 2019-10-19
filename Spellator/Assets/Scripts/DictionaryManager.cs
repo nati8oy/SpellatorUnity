@@ -8,11 +8,13 @@ public class DictionaryManager : MonoBehaviour
 {
 
     public static DictionaryManager Instance;
+    [Header("Scriptable Objects")]
+    public ConfigSO wordData;
 
 
     [Space()]
     [Header("Word Related Variables")]
-    private WordData listOfWordsMade;
+//    private WordData listOfWordsMade;
 
 	// public Dictionary<string, int> playerWordsMade = new Dictionary<string, int>();
 	public List<string> playerWordsMade = new List<string>();
@@ -205,6 +207,9 @@ public class DictionaryManager : MonoBehaviour
     void Start()
     {
 
+        //set the list of playerWordsMade to be that of the Scriptable object's uniqueWordList
+        playerWordsMade = wordData.uniqueWordsList;
+
         fadeManager = GameObject.Find("Fade Manager").GetComponent<Transitions>();
 
         correctWordParticles.Stop();
@@ -305,7 +310,11 @@ public class DictionaryManager : MonoBehaviour
 			if (!playerWordsMade.Contains(WordBeingMade))
 			{
 				playerWordsMade.Add(WordBeingMade);
-				Debug.Log("Word added to list! " + "(" + playerWordsMade.Count + " words)");
+
+                //add the word to the scriptable object as well so that it can be referenced elsewhere e.g. the main menu scene
+                wordData.uniqueWordsList.Add(WordBeingMade);
+
+                Debug.Log("Word added to list! " + "(" + playerWordsMade.Count + " words)");
 
 			}
             /*
@@ -330,6 +339,7 @@ public class DictionaryManager : MonoBehaviour
             if ((WordBeingMade.Length >= 5) || (Points.liveScore>=50))
             {
                 ShowMessage("encouragement");
+                //this chooses the kind of cross fade or screen flash to use
                 fadeManager.FadeType(fadeManager._flashColour, fadeManager.pulseSpeed);
 
             }

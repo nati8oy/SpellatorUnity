@@ -4,17 +4,24 @@ using UnityEngine;
 
 public class GameState : MonoBehaviour
 {
+    //public WordListSO wordData;
 
     public int currentScore;
 	//public Dictionary<string, int> playerWordsMade = new Dictionary<string, int>();
 	public List<string> playerWordsMade = new List<string>();
+    public bool audioOnOff;
+
 
 
 	public void SaveGameData()
     {
         currentScore = Points.totalScore;
+
+        //playerWordsMade = wordData.uniqueWordsList;
 		playerWordsMade = DictionaryManager.Instance.playerWordsMade;
 
+
+        
 
 		//save the data
 		SaveSystem.SaveGameData(this);

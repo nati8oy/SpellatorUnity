@@ -24,6 +24,6 @@ MonoBehaviour:
   particles: {fileID: 1967572491710229912, guid: 8b064098d71af42f087d3cd6c69fa478,
     type: 3}
   doubleLetterColour: {r: 0, g: 0, b: 0, a: 1}
-  doubleTileColour: {r: 0.6637148, g: 0.8962264, b: 0.86163497, a: 1}
-  tripleLetterColour: {r: 0, g: 0, b: 0, a: 1}
-  tripleTileColour: {r: 0.91773605, g: 1, b: 0.5176471, a: 1}
+  doubleTileColour: {r: 0.98039216, g: 0.92941177, b: 0.3372549, a: 1}
+  tripleLetterColour: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+  tripleTileColour: {r: 0.7490196, g: 0.7764706, b: 0.29411766, a: 1}

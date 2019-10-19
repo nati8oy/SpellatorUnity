@@ -19,6 +19,11 @@ public class DebugManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
+
+        }
+
+            if (Input.GetKeyDown(KeyCode.Q))
+        {
             Debug.Log("q pressed!");
 
             foreach (GameObject tile in tiles)
