@@ -10,6 +10,8 @@ public class DictionaryManager : MonoBehaviour
     public static DictionaryManager Instance;
     [Header("Scriptable Objects")]
     public ConfigSO wordData;
+    public bool musicOn;
+    public bool sfxOn;
 
 
     [Space()]
@@ -209,6 +211,10 @@ public class DictionaryManager : MonoBehaviour
 
         //set the list of playerWordsMade to be that of the Scriptable object's uniqueWordList
         playerWordsMade = wordData.uniqueWordsList;
+        //set the scriptable object to be the longest word
+        wordData.FindLongestWord();
+        musicOn = wordData.musicOn;
+        sfxOn = wordData.sfxOn;
 
         fadeManager = GameObject.Find("Fade Manager").GetComponent<Transitions>();
 

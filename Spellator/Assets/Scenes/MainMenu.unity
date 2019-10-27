@@ -670,7 +670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1390,6 +1390,32 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tab Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 7505744519241277055, guid: 668d832b3085043c0a353fa1e63869a2,
+        type: 3}
+      propertyPath: tabmap
+      value: 
+      objectReference: {fileID: 11400000, guid: cf2786c0e84304bd3a4c93293e0948e0,
+        type: 2}
+    - target: {fileID: 7505744519241277055, guid: 668d832b3085043c0a353fa1e63869a2,
+        type: 3}
+      propertyPath: tab1
+      value: 
+      objectReference: {fileID: 1433523179}
+    - target: {fileID: 7505744519241277055, guid: 668d832b3085043c0a353fa1e63869a2,
+        type: 3}
+      propertyPath: tab2
+      value: 
+      objectReference: {fileID: 596508721}
+    - target: {fileID: 7505744519241277055, guid: 668d832b3085043c0a353fa1e63869a2,
+        type: 3}
+      propertyPath: tab3
+      value: 
+      objectReference: {fileID: 973903353}
+    - target: {fileID: 7505744519241277055, guid: 668d832b3085043c0a353fa1e63869a2,
+        type: 3}
+      propertyPath: tab4
+      value: 
+      objectReference: {fileID: 901340700}
     - target: {fileID: 2286818972334069751, guid: 668d832b3085043c0a353fa1e63869a2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1445,32 +1471,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7505744519241277055, guid: 668d832b3085043c0a353fa1e63869a2,
-        type: 3}
-      propertyPath: tabmap
-      value: 
-      objectReference: {fileID: 11400000, guid: cf2786c0e84304bd3a4c93293e0948e0,
-        type: 2}
-    - target: {fileID: 7505744519241277055, guid: 668d832b3085043c0a353fa1e63869a2,
-        type: 3}
-      propertyPath: tab1
-      value: 
-      objectReference: {fileID: 1433523179}
-    - target: {fileID: 7505744519241277055, guid: 668d832b3085043c0a353fa1e63869a2,
-        type: 3}
-      propertyPath: tab2
-      value: 
-      objectReference: {fileID: 596508721}
-    - target: {fileID: 7505744519241277055, guid: 668d832b3085043c0a353fa1e63869a2,
-        type: 3}
-      propertyPath: tab3
-      value: 
-      objectReference: {fileID: 973903353}
-    - target: {fileID: 7505744519241277055, guid: 668d832b3085043c0a353fa1e63869a2,
-        type: 3}
-      propertyPath: tab4
-      value: 
-      objectReference: {fileID: 901340700}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 668d832b3085043c0a353fa1e63869a2, type: 3}
 --- !u!1001 &1307406041
@@ -1841,7 +1841,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 54}
+  m_AnchoredPosition: {x: 0, y: -5}
   m_SizeDelta: {x: 320, y: 90.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1427587713
@@ -1991,7 +1991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2346,7 +2346,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2420,7 +2420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2456,6 +2456,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: MenuManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3903862183715732450, guid: bff95ac737eaa4d4388fac7a5b2e6269,
+        type: 3}
+      propertyPath: startButton
+      value: 
+      objectReference: {fileID: 1427587713}
+    - target: {fileID: 3903862183715732450, guid: bff95ac737eaa4d4388fac7a5b2e6269,
+        type: 3}
+      propertyPath: configData
+      value: 
+      objectReference: {fileID: 11400000, guid: 87f9af19399d249068769bd3553e5227,
+        type: 2}
     - target: {fileID: 4756407346580760911, guid: bff95ac737eaa4d4388fac7a5b2e6269,
         type: 3}
       propertyPath: m_LocalPosition.x

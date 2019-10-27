@@ -13,59 +13,172 @@ MonoBehaviour:
   m_Name: Config Data
   m_EditorClassIdentifier: 
   uniqueWordsList:
+  - AGE
+  - AQUAS
   - ARE
   - BAITS
+  - BALD
   - BAT
+  - BEEN
+  - BEER
+  - BEND
+  - BITES
+  - BREED
+  - BUGS
+  - BUNGED
+  - CANE
+  - CINE
   - CRIP
+  - CUNT
+  - DAB
+  - DADS
+  - DAFT
+  - DAG
+  - DAIRY
+  - DALLY
+  - DAME
+  - DAMN
+  - DATES
+  - DAWNED
+  - DAZED
+  - DAZES
+  - DEARY
+  - DEFER
+  - DEFT
   - DEN
+  - DENS
   - DENT
+  - DEWS
+  - DEXY
   - DIES
   - DILLS
+  - DILUTER
+  - DIME
+  - DINE
   - DINER
+  - DINT
+  - DIRE
+  - DIRT
+  - DIT
+  - DITZ
+  - DRAB
   - DRAMS
   - DRAT
   - DREAMT
+  - DUELED
+  - DUES
+  - DUMPS
+  - DUNE
+  - DUNKS
   - DUSTY
+  - EACH
   - EAGER
+  - EAGLE
+  - EAR
+  - EARL
+  - EARN
   - EARNED
+  - EASES
   - EAT
   - EATEN
+  - EATER
   - EATS
+  - EDIT
+  - EDITS
   - EEK
   - EEL
+  - EERIE
+  - EFT
   - EIGHTY
+  - EKE
+  - ELK
+  - ELM
+  - ELSE
   - EMIT
+  - EMITS
   - EMS
   - EMU
   - END
   - ENDS
   - ERE
+  - ERM
+  - ERS
+  - ETCH
+  - EVENS
   - EVER
+  - EWE
+  - EWES
   - EXAMS
   - EXIT
   - FAILS
+  - FANGS
   - FAP
   - FART
+  - FINDS
+  - FINE
+  - GAB
+  - GAG
+  - GEES
   - GIST
+  - GLINTS
+  - GNU
   - GRABS
+  - GRAMP
+  - GRAPE
+  - GRAPES
+  - HAN
   - HANGER
+  - HARE
   - HAZY
   - HEMP
+  - HEN
+  - HENT
+  - HEX
+  - IDE
   - INNER
+  - JAR
+  - JET
   - JUTE
+  - KART
+  - KENS
   - KITE
+  - LAME
   - LAND
+  - LEAD
+  - LEANER
+  - LEARS
   - LENT
   - LIME
   - LIMED
+  - LINE
   - LITE
+  - LUCK
+  - MAGS
   - MAIL
+  - MAKER
+  - MASE
+  - MASTED
+  - MEAN
+  - MEANER
   - MEERS
+  - MEET
   - MID
+  - MILES
+  - MINCERS
+  - MIND
+  - MINER
   - MINT
+  - MUD
+  - NAAN
+  - NAB
   - NABBED
+  - NAG
+  - NAGGER
+  - NAIL
+  - NAN
   - NARY
   - NEAR
+  - NEED
   - NEEDY
   - NET
   - NEW
@@ -73,342 +186,253 @@ MonoBehaviour:
   - NINE
   - NIP
   - NIT
+  - NITE
+  - NUGS
+  - PAID
+  - PALM
   - PARES
+  - PEND
   - PENT
+  - PINE
+  - PINES
   - PINT
+  - PIPED
   - PISTE
   - PIT
   - PLEADS
+  - PUTTED
   - QUAGS
+  - QUEST
+  - QUINS
   - RADS
   - RAFT
   - RAIL
+  - RAIN
+  - RAM
+  - RAND
   - RANT
   - RARE
+  - RAT
+  - RATS
+  - RAW
+  - RAWER
+  - READ
+  - REAP
   - REDS
   - REE
+  - REMAND
+  - RENDS
+  - RENTS
+  - REPENT
+  - RESCIND
+  - REST
+  - RIB
+  - RIMS
+  - RIPE
+  - RITZ
+  - RUB
+  - RUN
+  - RUNES
+  - RUNS
   - RUNT
+  - SAFER
   - SAGE
+  - SAIL
   - SAME
   - SAMPLED
   - SANE
+  - SANELY
+  - SANS
   - SCALE
+  - SCANTILY
+  - SCRAM
   - SCREE
+  - SEALER
+  - SEEDER
+  - SEEDS
+  - SEMENS
   - SEND
   - SENDS
+  - SEPT
   - SERF
+  - SET
+  - SHADY
+  - SHAME
+  - SHANTY
+  - SHARES
+  - SHAW
+  - SHE
+  - SHEER
   - SHIN
   - SHUTS
+  - SICKENERS
+  - SINEW
+  - SINGE
+  - SINGLETS
   - SIPPY
   - SITE
   - SKIN
+  - SKINT
+  - SLAGS
   - SLAM
+  - SLAP
+  - SLAT
   - SLATE
+  - SLED
   - SLIDES
   - SLIP
   - SLUG
+  - SLUT
   - SLUTS
+  - SMARTS
+  - SMEAR
+  - SMUG
+  - SNAKE
+  - SPAMS
+  - SPEERS
+  - SPENT
+  - SQUADS
+  - SQUARED
   - STAG
+  - STAIR
+  - STAMENS
   - STAMPS
+  - STAR
+  - STARCHED
   - STEEP
   - STEER
   - STEWER
+  - STINT
   - STIRS
+  - STRAIT
   - STUM
   - STUNS
+  - STY
+  - SUB
   - SUN
+  - SWAB
   - SWAG
   - SWAM
+  - SWAN
+  - SWEEP
   - SYNC
+  - TAB
+  - TABLE
+  - TAG
   - TAILS
+  - TALC
   - TALE
   - TAMP
   - TAN
+  - TANGED
   - TARE
   - TASTE
   - TAT
+  - TAUNT
   - TAW
+  - TEAR
+  - TEARS
   - TECH
   - TEE
+  - TEED
+  - TEEM
+  - TEEMS
+  - TENSING
   - TENT
+  - TENTY
+  - TERM
+  - TEW
+  - THANG
   - THAT
   - THEATRE
+  - THEM
   - THEY
+  - THINE
+  - TICKS
   - TIE
   - TIGERS
   - TIL
+  - TIME
+  - TIMER
   - TIN
+  - TIND
+  - TING
   - TINT
+  - TIP
   - TIRE
+  - TIT
   - TITE
+  - TRADE
+  - TRAIL
   - TREE
   - TRICKY
+  - TRIPLED
   - TUB
+  - TUGS
+  - TULIP
+  - TUNE
   - TURN
   - TUT
   - UGS
+  - VAT
   - VENDS
   - VEXES
   - VILE
+  - WAIL
   - WAND
+  - WANS
+  - WEEN
+  - WEN
+  - WEND
+  - WIN
   - WINCE
+  - WINE
   - WINES
+  - WIST
   - WIT
   - YARNS
+  - YEA
   - YEARS
+  - YEASTY
   - YEN
   - YENS
   - YER
   - YES
-  - YETI
-  - YIN
-  - DATES
-  - SHARES
-  - SHADY
-  - SLUT
-  - TICKS
-  - JET
-  - TAB
-  - BITES
-  - SHE
-  - LUCK
-  - KART
-  - TUNE
-  - EERIE
-  - LEAD
-  - DINE
-  - EWES
-  - SANS
-  - STAR
-  - RAM
-  - NUGS
-  - EMITS
-  - SEEDS
-  - SLAT
-  - TIMER
-  - RAW
-  - WEEN
-  - NAIL
-  - LINE
-  - JAR
-  - RIMS
-  - STINT
-  - THINE
-  - EACH
-  - HEX
-  - SLAGS
-  - SINGE
-  - WINE
-  - EARL
-  - LEARS
-  - SMUG
-  - GNU
-  - WANS
-  - SAIL
-  - DAMN
-  - TRADE
-  - EAR
-  - RENDS
-  - SEEDER
-  - RAIN
-  - NAN
-  - NAG
-  - GRAMP
-  - PUTTED
-  - PINE
-  - EAGLE
-  - QUEST
-  - TUGS
-  - DUNE
-  - HARE
-  - FINDS
-  - SUB
-  - BEEN
-  - RAND
-  - DUELED
-  - DIME
-  - EATER
-  - RUN
-  - HAN
-  - NAAN
-  - WIN
-  - TALC
-  - CANE
-  - EFT
-  - TEED
-  - DENS
-  - SMEAR
-  - TIP
-  - PINES
-  - SEALER
-  - RUNS
-  - SWAN
-  - GRAPE
-  - EDIT
-  - TABLE
-  - EWE
-  - ELSE
-  - ERM
-  - MEAN
-  - NEED
-  - DAME
-  - MASE
-  - EARN
-  - NAB
-  - BALD
-  - DEFT
-  - SPEERS
-  - SHEER
-  - RUB
-  - BEER
-  - MAKER
-  - RESCIND
-  - DINT
-  - TIND
-  - DIRT
-  - TRAIL
-  - LAME
-  - ELM
-  - MINCERS
-  - STRAIT
-  - TRIPLED
-  - DEWS
-  - SWEEP
-  - PALM
-  - MINER
-  - TANGED
-  - DUMPS
-  - BREED
-  - DRAB
-  - BUNGED
-  - DALLY
   - YET
-  - THEM
-  - MASTED
-  - DEXY
-  - SHANTY
-  - YEA
-  - AGE
-  - RIPE
-  - DAWNED
-  - TIT
-  - GRAPES
-  - SICKENERS
-  - SQUARED
-  - DILUTER
-  - REPENT
-  - ETCH
-  - HEN
-  - NITE
-  - MEANER
-  - REMAND
-  - DEFER
-  - RENTS
-  - SMARTS
-  - SWAB
-  - BEND
-  - DAB
-  - CINE
-  - ELK
-  - KENS
-  - SQUADS
-  - FINE
-  - EKE
-  - TULIP
-  - PIPED
-  - DADS
-  - SCANTILY
-  - STAIR
-  - RAT
-  - TEARS
-  - READ
-  - DAZED
-  - DAZES
-  - SEPT
-  - TERM
-  - TENSING
-  - GLINTS
-  - STAMENS
-  - SINGLETS
-  - STARCHED
-  - DUNKS
-  - SHAME
-  - TEAR
-  - RUNES
-  - SHAW
-  - WEN
-  - MUD
-  - DAFT
-  - TEEMS
-  - STY
-  - WEND
-  - DIT
-  - BUGS
-  - SLED
-  - DITZ
-  - RIB
-  - NAGGER
-  - RATS
-  - SCRAM
-  - MIND
-  - DEARY
-  - IDE
-  - EASES
-  - SPAMS
-  - SINEW
-  - WAIL
-  - LEANER
-  - RAWER
-  - REST
-  - TENTY
+  - YETI
   - YETIS
-  - EDITS
-  - SET
-  - TAG
-  - GAG
-  - EVENS
-  - SNAKE
-  - QUINS
-  - SAFER
-  - REAP
-  - PEND
-  - DAIRY
-  - AILS
-  - DAG
-  - GEES
-  - SLAP
-  - DIRE
-  - TEW
-  - WIST
-  - TAUNT
-  - TEEM
-  - BASER
-  - AQUAS
-  - SEMENS
-  - STANDS
-  - PAID
-  - LINED
-  - CUNT
-  - HENT
-  - TIME
-  - DUES
-  - RITZ
+  - YIN
   - ZEES
-  - SKINT
-  - THANG
-  - GRINNER
-  - REAL
-  - LASH
-  - HEAD
-  - DRIP
-  - PANTED
-  - DIE
-  - MILES
-  - SANELY
-  - YEASTY
-  - SPENT
-  - VAT
-  - TING
-  - GAB
-  soundOn: 0
-  musicOn: 0
+  - DRUNKEN
+  - NAMES
+  - STAINER
+  - RUMBA
+  - WED
+  - MUSHED
+  - TUN
+  - DRAPE
+  - RIN
+  - NUTS
+  - CELS
+  - SMILE
+  - RACKET
+  - TEENS
+  - SMACKER
+  - TARN
+  - WAVERS
+  - SAILER
+  - STEMS
+  - SCENT
+  - MITES
+  - MATE
+  - DUST
+  - LATE
+  - ESS
+  - PEELINGS
+  - MANY
+  - VERY
+  - HARMER
+  sfxOn: 1
+  musicOn: 1
+  longestWord: SICKENERS
+  favouriteWordLength: 

@@ -49,12 +49,6 @@ public class Points : MonoBehaviour
         currentScoreText.text = totalScore.ToString();
         liveScoreText.text = liveScore.ToString();
 
-
-        if (Input.GetKeyDown("1"))
-        {
-            totalScore += 20;
-
-        }
        
     }
 

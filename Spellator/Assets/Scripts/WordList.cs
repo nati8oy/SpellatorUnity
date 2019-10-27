@@ -17,31 +17,15 @@ public class WordList : MonoBehaviour
 
     private void Start()
     {
-        //wordsMade = wordData.uniqueWordsList;
-        wordsMade = DictionaryManager.Instance.playerWordsMade;
 
-
-        //sort the list alphabetically
-        wordsMade.Sort();
-
-
-        uniqueWords.text = "You've made " + wordsMade.Count.ToString() + " unique words";
+        InitWordsMade();
 
     }
 
     private void OnEnable()
     {
-       // Debug.Log("on Enable fullWordList array is this long: " + fullWordList.Count);
-
-        //set the wordsMade list to be that of list stored in the DictionaryManager
-        wordsMade = DictionaryManager.Instance.playerWordsMade;
-        //sort the list alphabetically
-        wordsMade.Sort();
-
-        uniqueWords.text = "You've made " + wordsMade.Count.ToString() + " unique words";
-
-
-
+        InitWordsMade();
+       
         //when the wordlist menu gameobject is enabled check if the words that have been made are in there or not.
         for (int i = 0; i < wordsMade.Count; i++)
         {
@@ -72,6 +56,16 @@ public class WordList : MonoBehaviour
       
     }
 
-    
+    //initialise the words that have been made on both enable and start
+    private void InitWordsMade()
+    {
+        //set the wordsMade list to be that of list stored in the DictionaryManager
+        wordsMade = DictionaryManager.Instance.playerWordsMade;
+
+        //sort the list alphabetically
+        wordsMade.Sort();
+
+        uniqueWords.text = "You've made " + wordsMade.Count.ToString() + " unique words";
+    }
 
 }

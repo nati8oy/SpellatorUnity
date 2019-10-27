@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private RectTransform pauseMenu;
     [SerializeField] private RectTransform wordList;
 
-    public string allLetters;
+  //  public string allLetters;
     [SerializeField] public TextAsset externalBagTXT;
 
     //the list for all the words currently that have been made
@@ -100,17 +100,17 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         //Auto load the data from the Game State file when the game manager loads
-
         GetComponent<GameState>().LoadGameData();
         //SaveSystem.LoadGameData();
 
 
 
-    allLetters = externalBagTXT.text;
+        //allLetters = externalBagTXT.text;
 
         //add the letters to the bag List within the TileBag class
         TileBag lettersBag = new TileBag();
         lettersBag.AddLettersToDictonary();
+        
 
 
       
