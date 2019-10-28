@@ -10,8 +10,7 @@ public class DictionaryManager : MonoBehaviour
     public static DictionaryManager Instance;
     [Header("Scriptable Objects")]
     public ConfigSO wordData;
-    public bool musicOn;
-    public bool sfxOn;
+
 
 
     [Space()]
@@ -213,8 +212,8 @@ public class DictionaryManager : MonoBehaviour
         playerWordsMade = wordData.uniqueWordsList;
         //set the scriptable object to be the longest word
         wordData.FindLongestWord();
-        musicOn = wordData.musicOn;
-        sfxOn = wordData.sfxOn;
+      //  musicOn = wordData.musicOn;
+       // sfxOn = wordData.sfxOn;
 
         fadeManager = GameObject.Find("Fade Manager").GetComponent<Transitions>();
 
@@ -318,7 +317,7 @@ public class DictionaryManager : MonoBehaviour
 				playerWordsMade.Add(WordBeingMade);
 
                 //add the word to the scriptable object as well so that it can be referenced elsewhere e.g. the main menu scene
-                wordData.uniqueWordsList.Add(WordBeingMade);
+                //wordData.uniqueWordsList.Add(WordBeingMade);
 
                 Debug.Log("Word added to list! " + "(" + playerWordsMade.Count + " words)");
 

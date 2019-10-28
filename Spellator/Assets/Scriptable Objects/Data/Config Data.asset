@@ -432,6 +432,11 @@ MonoBehaviour:
   - MANY
   - VERY
   - HARMER
+  - JAILS
+  - HARMS
+  - SLIMES
+  - CYSTS
+  - LATEST
   sfxOn: 1
   musicOn: 1
   longestWord: SICKENERS

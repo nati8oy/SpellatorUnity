@@ -19,10 +19,10 @@ public class GameState : MonoBehaviour
         //musicOn = wordData.musicOn;
         //sfxOn = wordData.sfxOn;
 
-        musicOn = GameConfig.Instance.musicOn;
-        sfxOn = GameConfig.Instance.sfxOn;
+//        musicOn = GameConfig.Instance.musicOn;
+  //      sfxOn = GameConfig.Instance.sfxOn;
 
-        //playerWordsMade = wordData.uniqueWordsList;
+        //playerWordsMade = GameConfig.Instance.uniqueWordsList;
 		playerWordsMade = DictionaryManager.Instance.playerWordsMade;
 
         
@@ -42,8 +42,8 @@ public class GameState : MonoBehaviour
         currentScore = data.currentScore;
 		playerWordsMade = data.playerWordsMade;
 		DictionaryManager.Instance.playerWordsMade = data.playerWordsMade;
-        sfxOn = data.sfxOn;
-        musicOn = data.musicOn;
+       // sfxOn = data.sfxOn;
+       // musicOn = data.musicOn;
 
         Debug.Log("score loaded: " + currentScore + " Loaded dictionary length is " + playerWordsMade.Count);
         Debug.Log("Audio state: " + "sfx = " + sfxOn + " music = " + musicOn);

@@ -148,6 +148,14 @@ public class GameManager : MonoBehaviour
     }
 
 
+    public void MainMenu()
+    {
+        //save before the game goes back to the main menu.
+        GetComponent<GameState>().SaveGameData();
+
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+    }
+
     public void PauseGame()
     {
 

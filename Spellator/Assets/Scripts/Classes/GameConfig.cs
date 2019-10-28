@@ -4,46 +4,54 @@ using UnityEngine;
 
 public class GameConfig : MonoBehaviour
 {
+    //this script is used to access data from the scriptable object which holds all of the updated information.
 
     public static GameConfig Instance;
-
     public ConfigSO configScriptableObject;
 
-    public bool musicOn;
-    public bool sfxOn;
-    public List<string> uniqueWordsList;
-    public string longestWord;
-    public string favouriteWordLength;
+    public  bool musicOn;
+    public  bool sfxOn;
+    public  List<string> uniqueWordsList;
+    public  string longestWord;
+    public  string favouriteWordLength;
 
 
-
-    void Awake()
+    private void Awake()
     {
-        if (Instance != null && Instance != this)
+
+        void Awake()
         {
-            Destroy(gameObject);
-            return;
+            if (Instance != null)
+            {
+                Destroy(Instance);
+            }
+            else
+            {
+                Instance = this;
+                DontDestroyOnLoad(this);
+            }
+
         }
 
-        Instance = this;
-    }
+        // Start is called before the first frame update
+        void Start()
+        {
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        musicOn = configScriptableObject.musicOn;
-        sfxOn = configScriptableObject.sfxOn;
-        uniqueWordsList = configScriptableObject.uniqueWordsList;
-        longestWord = configScriptableObject.longestWord;
-        favouriteWordLength = configScriptableObject.favouriteWordLength;
+            //all of this data is being read out of the scriptable object
+            musicOn = configScriptableObject.musicOn;
+            sfxOn = configScriptableObject.sfxOn;
+            uniqueWordsList = configScriptableObject.uniqueWordsList;
+            longestWord = configScriptableObject.longestWord;
+            favouriteWordLength = configScriptableObject.favouriteWordLength;
 
-    }
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        musicOn = configScriptableObject.musicOn;
-        sfxOn = configScriptableObject.sfxOn;
+        // Update is called once per frame
+        void Update()
+        {
+            musicOn = configScriptableObject.musicOn;
+            sfxOn = configScriptableObject.sfxOn;
+        }
     }
 
 }
