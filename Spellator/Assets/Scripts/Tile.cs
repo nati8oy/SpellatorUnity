@@ -6,6 +6,7 @@ using TMPro;
 public class Tile : MonoBehaviour
 {
 
+
     [SerializeField] private Image tileBGImage;
 
     public static TileDisplay tileDisplayAccess;
@@ -107,7 +108,7 @@ public class Tile : MonoBehaviour
                 break;
             case 3:
                 //if the age is 4 then use the tiles from the scriptable object within the array
-               tileBGImage.sprite = GetComponent<TileDisplay>().tileSkin.TileAgeSprites[1];
+               tileBGImage.sprite = tileDisplayAccess.tileSkin.TileAgeSprites[1];
                 break;
             case 2:
                 tileBGImage.sprite = tileDisplayAccess.tileSkin.TileAgeSprites[2];
@@ -217,6 +218,7 @@ public class Tile : MonoBehaviour
 
         spawnedTile = new TileClass(gameObject.transform.position);
 
+        //resets the special type of a tile when it loads
         spawnedTile.AllocateSpecialType();
 
         
