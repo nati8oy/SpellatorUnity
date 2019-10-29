@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 166281410}
   - component: {fileID: 166281411}
   - component: {fileID: 166281412}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,11 +49,10 @@ MonoBehaviour:
   gameOverAudio: {fileID: 8300000, guid: 199442004b5c14c4a9f6012ed4e5c602, type: 3}
   bigScore: {fileID: 8300000, guid: 5a863d36171ec43ad8f28dee819c539c, type: 3}
   pauseMenu: {fileID: 0}
-  wordList: {fileID: 3179203672773484463, guid: 5f8d3c5e079bb4e06bd3c7d9dc73c31d,
-    type: 3}
-  allLetters: 
+  wordList: {fileID: 0}
   externalBagTXT: {fileID: 4900000, guid: 9d6146cddd6ef4ea78ce7418d4c646a7, type: 3}
   gameOverPanel: {fileID: 0}
+  configData: {fileID: 11400000, guid: 87f9af19399d249068769bd3553e5227, type: 2}
   mostRecentScore: 0
   liveScoreText: {fileID: 0}
 --- !u!82 &166281410
@@ -193,3 +192,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentScore: 0
   playerWordsMade: []
+  musicOn: 0
+  sfxOn: 0

@@ -103,8 +103,8 @@ public class Tile : MonoBehaviour
                tileBGImage.sprite = tileDisplayAccess.tileSkin.TileAgeSprites[0];
                 //set the colour of the tile text to be that of the default skin selected colour
                 //letter.color = Color.black;
-               // letter.color = tileDisplayAccess.tileSkin.colourOfTileText;
-                //points.color = tileDisplayAccess.tileSkin.colourOfTileText;
+               letter.color = tileDisplayAccess.tileSkin.colourOfTileText;
+                points.color = tileDisplayAccess.tileSkin.colourOfTileText;
                 break;
             case 3:
                 //if the age is 4 then use the tiles from the scriptable object within the array
@@ -119,8 +119,8 @@ public class Tile : MonoBehaviour
             case 0:
                 tileBGImage.sprite = tileDisplayAccess.tileSkin.TileAgeSprites[3];
                 //set the colour of the tile text to be that of the inactive text within the scriptable object
-                //letter.color = tileDisplayAccess.tileSkin.colourOfInactiveText;
-               // points.color = tileDisplayAccess.tileSkin.colourOfInactiveText;
+                letter.color = tileDisplayAccess.tileSkin.colourOfInactiveText;
+                points.color = tileDisplayAccess.tileSkin.colourOfInactiveText;
                 break;
 
         }

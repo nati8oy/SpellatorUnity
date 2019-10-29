@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3028265819440259818}
   - component: {fileID: 3028265819440259817}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tile Manager
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}

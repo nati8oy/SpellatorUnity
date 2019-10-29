@@ -12009,7 +12009,7 @@ GameObject:
   - component: {fileID: 1274787608}
   - component: {fileID: 1274787609}
   - component: {fileID: 1274787610}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Fade Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12354,12 +12354,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1442084268}
   m_CullTransparentMesh: 0
---- !u!1 &1445958738 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5976778401099106082, guid: 62493d6093b174721b8a10a5964d4855,
-    type: 3}
-  m_PrefabInstance: {fileID: 1997246113}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1445958739 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5976778401099106081, guid: 62493d6093b174721b8a10a5964d4855,
@@ -13160,11 +13154,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tile Manager
       objectReference: {fileID: 0}
-    - target: {fileID: 3028265819440259816, guid: 920b105edbfbd49b78363ea15b9ae17b,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 3028265819440259817, guid: 920b105edbfbd49b78363ea15b9ae17b,
         type: 3}
       propertyPath: primaryTile
@@ -13696,6 +13685,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DebugManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4337604481288094858, guid: 14cfc8804ecf2485a9b00a461b073157,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4337604481288094836, guid: 14cfc8804ecf2485a9b00a461b073157,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13765,52 +13759,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: DictionaryManager
       objectReference: {fileID: 0}
-    - target: {fileID: 6609693015226162840, guid: cc08af2b56d9c45b3af66e59305a1835,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
         type: 3}
-      propertyPath: allAudioClips.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
-        type: 3}
-      propertyPath: multiplierText
+      propertyPath: correctWordParticles
       value: 
-      objectReference: {fileID: 739806363}
+      objectReference: {fileID: 130774573}
     - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
         type: 3}
-      propertyPath: deleteButton
+      propertyPath: healthUpParticles
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 877902848}
     - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
         type: 3}
-      propertyPath: sendButton
+      propertyPath: correctIcon
       value: 
-      objectReference: {fileID: 184758118}
-    - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
-        type: 3}
-      propertyPath: BoardHolder
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
-        type: 3}
-      propertyPath: pointsText
-      value: 
-      objectReference: {fileID: 2125873791564837, guid: 7df6b5e4520404da49b7b76268cf0055,
-        type: 3}
-    - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
-        type: 3}
-      propertyPath: primaryTile
-      value: 
-      objectReference: {fileID: 1445958738}
-    - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
-        type: 3}
-      propertyPath: scoreText
-      value: 
-      objectReference: {fileID: 62966392}
+      objectReference: {fileID: 1065890925}
     - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
         type: 3}
       propertyPath: messageParentObject
@@ -13823,44 +13786,14 @@ PrefabInstance:
       objectReference: {fileID: 1049708131}
     - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
         type: 3}
-      propertyPath: WordBeingSpelledHolder
+      propertyPath: multiplierText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 739806363}
     - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
         type: 3}
-      propertyPath: goodWordSound
+      propertyPath: sendButton
       value: 
-      objectReference: {fileID: 8300000, guid: a2f9acc43f6a643aeb38807bd06707b9, type: 3}
-    - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
-        type: 3}
-      propertyPath: allAudioClips.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: a5992ba9e416945ceb9a5f6384a97f7f, type: 3}
-    - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
-        type: 3}
-      propertyPath: allAudioClips.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
-        type: 3}
-      propertyPath: allAudioClips.Array.data[2]
-      value: 
-      objectReference: {fileID: 8300000, guid: fd99d07e81ffd474bba1f756298fcc07, type: 3}
-    - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
-        type: 3}
-      propertyPath: allAudioClips.Array.data[3]
-      value: 
-      objectReference: {fileID: 8300000, guid: a2f9acc43f6a643aeb38807bd06707b9, type: 3}
-    - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
-        type: 3}
-      propertyPath: allAudioClips.Array.data[4]
-      value: 
-      objectReference: {fileID: 8300000, guid: 540952593469a45aa92dc621bc4f09a7, type: 3}
-    - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
-        type: 3}
-      propertyPath: correctIcon
-      value: 
-      objectReference: {fileID: 1065890925}
+      objectReference: {fileID: 184758118}
     - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
         type: 3}
       propertyPath: PrimaryTile
@@ -13868,32 +13801,9 @@ PrefabInstance:
       objectReference: {fileID: 722859413}
     - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
         type: 3}
-      propertyPath: correctWordParticles
+      propertyPath: scoreText
       value: 
-      objectReference: {fileID: 130774573}
-    - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
-        type: 3}
-      propertyPath: encouragementMessages
-      value: 
-      objectReference: {fileID: 11400000, guid: 250a7d87c3cfc44a296c52447dfafc90,
-        type: 2}
-    - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
-        type: 3}
-      propertyPath: healthUpParticles
-      value: 
-      objectReference: {fileID: 877902848}
-    - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
-        type: 3}
-      propertyPath: wordListData
-      value: 
-      objectReference: {fileID: 11400000, guid: 87f9af19399d249068769bd3553e5227,
-        type: 2}
-    - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
-        type: 3}
-      propertyPath: wordData
-      value: 
-      objectReference: {fileID: 11400000, guid: 87f9af19399d249068769bd3553e5227,
-        type: 2}
+      objectReference: {fileID: 62966392}
     - target: {fileID: 6609693015226162854, guid: cc08af2b56d9c45b3af66e59305a1835,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13963,11 +13873,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
-    - target: {fileID: 7287963920263316324, guid: 9cb0deb50e8924488bda1c3bb66b7238,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 7287963920263316322, guid: 9cb0deb50e8924488bda1c3bb66b7238,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14023,31 +13928,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7287963920263316323, guid: 9cb0deb50e8924488bda1c3bb66b7238,
-        type: 3}
-      propertyPath: popSounds.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7287963920263316323, guid: 9cb0deb50e8924488bda1c3bb66b7238,
-        type: 3}
-      propertyPath: popSounds.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: ec0cf2de9da0741a08b887b79c11614c, type: 3}
-    - target: {fileID: 7287963920263316323, guid: 9cb0deb50e8924488bda1c3bb66b7238,
-        type: 3}
-      propertyPath: popSounds.Array.data[1]
-      value: 
-      objectReference: {fileID: 8300000, guid: bc0828e099bbb4743b0d1703f2f03c2b, type: 3}
-    - target: {fileID: 7287963920263316323, guid: 9cb0deb50e8924488bda1c3bb66b7238,
-        type: 3}
-      propertyPath: popSounds.Array.data[2]
-      value: 
-      objectReference: {fileID: 8300000, guid: a650b463cd5814f20aebd28e8be33277, type: 3}
-    - target: {fileID: 7287963920263316323, guid: 9cb0deb50e8924488bda1c3bb66b7238,
-        type: 3}
-      propertyPath: popSounds.Array.data[3]
-      value: 
-      objectReference: {fileID: 8300000, guid: 35a20f933f020402e8486b5482a119ff, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cb0deb50e8924488bda1c3bb66b7238, type: 3}
 --- !u!1001 &7349431636452027360
@@ -14061,11 +13941,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 7349431635441859142, guid: cf2cb441bcdc54fbba9fdd62fba05c37,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7349431635441859144, guid: cf2cb441bcdc54fbba9fdd62fba05c37,
         type: 3}
@@ -14087,17 +13962,6 @@ PrefabInstance:
       propertyPath: liveScoreText
       value: 
       objectReference: {fileID: 2066190560}
-    - target: {fileID: 7349431635441859144, guid: cf2cb441bcdc54fbba9fdd62fba05c37,
-        type: 3}
-      propertyPath: crossFadeObject
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7349431635441859144, guid: cf2cb441bcdc54fbba9fdd62fba05c37,
-        type: 3}
-      propertyPath: configData
-      value: 
-      objectReference: {fileID: 11400000, guid: 87f9af19399d249068769bd3553e5227,
-        type: 2}
     - target: {fileID: 7349431635441859143, guid: cf2cb441bcdc54fbba9fdd62fba05c37,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14152,15 +14016,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 166281412, guid: cf2cb441bcdc54fbba9fdd62fba05c37, type: 3}
-      propertyPath: wordData
-      value: 
-      objectReference: {fileID: 11400000, guid: 87f9af19399d249068769bd3553e5227,
-        type: 2}
-    - target: {fileID: 166281412, guid: cf2cb441bcdc54fbba9fdd62fba05c37, type: 3}
-      propertyPath: gameConfig
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf2cb441bcdc54fbba9fdd62fba05c37, type: 3}

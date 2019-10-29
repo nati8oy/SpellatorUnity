@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6609693015226162854}
   - component: {fileID: 6609693015226162855}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DictionaryManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,14 +43,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c70ab42ad188449cb807bd70f7f4e70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  correctWord: {fileID: 8300000, guid: a5992ba9e416945ceb9a5f6384a97f7f, type: 3}
-  clearWordSound: {fileID: 8300000, guid: fa9101c28edb646048855477a519f6a9, type: 3}
-  loseMultiplier: {fileID: 8300000, guid: fd99d07e81ffd474bba1f756298fcc07, type: 3}
+  wordData: {fileID: 11400000, guid: 87f9af19399d249068769bd3553e5227, type: 2}
+  playerWordsMade: []
+  encouragementMessages: {fileID: 11400000, guid: 250a7d87c3cfc44a296c52447dfafc90,
+    type: 2}
+  dictionaryTxtFile: {fileID: 4900000, guid: 7c382be831dd04dd5832d2f7e1219647, type: 3}
+  correctWordParticles: {fileID: 0}
+  healthUpParticles: {fileID: 0}
+  correctIcon: {fileID: 0}
+  allAudioClips:
+  - {fileID: 8300000, guid: a5992ba9e416945ceb9a5f6384a97f7f, type: 3}
+  - {fileID: 0}
+  - {fileID: 8300000, guid: fd99d07e81ffd474bba1f756298fcc07, type: 3}
+  - {fileID: 8300000, guid: a2f9acc43f6a643aeb38807bd06707b9, type: 3}
+  - {fileID: 8300000, guid: 540952593469a45aa92dc621bc4f09a7, type: 3}
+  messageParentObject: {fileID: 0}
+  messageObject: {fileID: 0}
   multiplierText: {fileID: 0}
   pointsText: {fileID: 2125873791564837, guid: 7df6b5e4520404da49b7b76268cf0055, type: 3}
-  message: {fileID: 214882632009247851, guid: 27fc504c9dcec41698cb0185713ef0ee, type: 3}
-  dictionaryTxtFile: {fileID: 4900000, guid: 7c382be831dd04dd5832d2f7e1219647, type: 3}
+  sendButton: {fileID: 0}
+  PrimaryTile: {fileID: 0}
+  scoreText: {fileID: 0}
   selectedTilesArray: []
   allTilesArray: []
-  deleteButton: {fileID: 0}
-  sendButton: {fileID: 0}
+  chainFlag: 0

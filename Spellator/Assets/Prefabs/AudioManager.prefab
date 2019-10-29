@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7287963920263316322}
   - component: {fileID: 7287963920263316323}
   - component: {fileID: 7287963920263316321}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AudioManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec6fc6c1af5074e61b5cebb6d5cca7ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileClick: {fileID: 8300000, guid: be0bebc2341164f3baa2f1b634d10fee, type: 3}
 --- !u!82 &7287963920263316321
 AudioSource:
   m_ObjectHideFlags: 0
