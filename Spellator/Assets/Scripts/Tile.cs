@@ -117,7 +117,7 @@ public class Tile : MonoBehaviour
                 tileBGImage.sprite = tileDisplayAccess.tileSkin.TileAgeSprites[3];
                 break;
             case 0:
-                tileBGImage.sprite = tileDisplayAccess.tileSkin.TileAgeSprites[3];
+                tileBGImage.sprite = tileDisplayAccess.tileSkin.TileAgeSprites[4];
                 //set the colour of the tile text to be that of the inactive text within the scriptable object
                 letter.color = tileDisplayAccess.tileSkin.colourOfInactiveText;
                 points.color = tileDisplayAccess.tileSkin.colourOfInactiveText;
