@@ -10,7 +10,6 @@ public class DictionaryManager : MonoBehaviour
     [Header("Save Data Items")]
     // public Dictionary<string, int> playerWordsMade = new Dictionary<string, int>();
     public List<string> playerWordsMade = new List<string>();
-    public List <int> highScores = new List<int>();
 
     public static DictionaryManager Instance;
     [Header("Scriptable Objects")]
@@ -211,14 +210,12 @@ public class DictionaryManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //get the top 10 high scores out of the SO
-        highScores = wordData.topTenHighScores;
-        Debug.Log("Loaded " + highScores.Count + " high scores");
-
+     
 
         //set the list of playerWordsMade to be that of the Scriptable object's uniqueWordList
         playerWordsMade = wordData.uniqueWordsList;
-        //set the scriptable object to be the longest word
+
+        //set the scriptable object find the longest word in the list of unique words
         wordData.FindLongestWord();
       //  musicOn = wordData.musicOn;
        // sfxOn = wordData.sfxOn;

@@ -30,8 +30,18 @@ public class ConfigSO : ScriptableObject
         //add the high scores to the top 10 list of high scores.
 
         highScore = score;
+
         topTenHighScores.Add(highScore);
-        Debug.Log("topTenHighScores first item is " + topTenHighScores[0] + ". " + topTenHighScores.Count);
+        topTenHighScores.Sort();
+
+
+        /*
+        if ((highScore >= topTenHighScores[9])&&())
+        {
+            topTenHighScores.Add(highScore);
+
+        }*/
+
 
         //check each of the scores in the list against the incoming score.
 

@@ -12,15 +12,16 @@ public class GameConfig : MonoBehaviour
     public  bool musicOn;
     public  bool sfxOn;
     public  List<string> uniqueWordsList;
-    public  string longestWord;
+
+    public List<int> highScores = new List<int>();
+
+    public string longestWord;
     public  string favouriteWordLength;
 
 
     private void Awake()
     {
 
-        void Awake()
-        {
             if (Instance != null)
             {
                 Destroy(Instance);
@@ -43,6 +44,7 @@ public class GameConfig : MonoBehaviour
             uniqueWordsList = configScriptableObject.uniqueWordsList;
             longestWord = configScriptableObject.longestWord;
             favouriteWordLength = configScriptableObject.favouriteWordLength;
+            highScores = configScriptableObject.topTenHighScores;
 
         }
 
@@ -52,6 +54,6 @@ public class GameConfig : MonoBehaviour
             musicOn = configScriptableObject.musicOn;
             sfxOn = configScriptableObject.sfxOn;
         }
-    }
+    
 
 }
