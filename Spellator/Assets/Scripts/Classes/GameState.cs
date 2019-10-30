@@ -8,6 +8,7 @@ public class GameState : MonoBehaviour
     public int currentScore;
 	//public Dictionary<string, int> playerWordsMade = new Dictionary<string, int>();
 	public List<string> playerWordsMade = new List<string>();
+    public List<int> highScores = new List<int>();
     public bool musicOn;
     public bool sfxOn;
 
@@ -25,6 +26,9 @@ public class GameState : MonoBehaviour
         //playerWordsMade = GameConfig.Instance.uniqueWordsList;
 		playerWordsMade = DictionaryManager.Instance.playerWordsMade;
 
+        //save the high scores
+        highScores = DictionaryManager.Instance.highScores;
+
         
 
 		//save the data
@@ -41,12 +45,22 @@ public class GameState : MonoBehaviour
 
         currentScore = data.currentScore;
 		playerWordsMade = data.playerWordsMade;
-		DictionaryManager.Instance.playerWordsMade = data.playerWordsMade;
-       // sfxOn = data.sfxOn;
-       // musicOn = data.musicOn;
 
+        //load the list of unique words
+
+		DictionaryManager.Instance.playerWordsMade = data.playerWordsMade;
+
+        //load the high scores
+
+        DictionaryManager.Instance.highScores = data.highScores;
+
+        // sfxOn = data.sfxOn;
+        // musicOn = data.musicOn;
+
+        
         Debug.Log("score loaded: " + currentScore + " Loaded dictionary length is " + playerWordsMade.Count);
-        Debug.Log("Audio state: " + "sfx = " + sfxOn + " music = " + musicOn);
+
+        //Debug.Log("Audio state: " + "sfx = " + sfxOn + " music = " + musicOn);
 
 
     }

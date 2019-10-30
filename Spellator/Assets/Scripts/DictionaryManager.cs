@@ -7,6 +7,11 @@ using TMPro;
 public class DictionaryManager : MonoBehaviour
 {
 
+    [Header("Save Data Items")]
+    // public Dictionary<string, int> playerWordsMade = new Dictionary<string, int>();
+    public List<string> playerWordsMade = new List<string>();
+    public List <int> highScores = new List<int>();
+
     public static DictionaryManager Instance;
     [Header("Scriptable Objects")]
     public ConfigSO wordData;
@@ -17,8 +22,7 @@ public class DictionaryManager : MonoBehaviour
     [Header("Word Related Variables")]
 //    private WordData listOfWordsMade;
 
-	// public Dictionary<string, int> playerWordsMade = new Dictionary<string, int>();
-	public List<string> playerWordsMade = new List<string>();
+	
 
     //uses a scritable object to hold the array for on screen messages
     [SerializeField] private MessagingSO encouragementMessages;
@@ -207,6 +211,10 @@ public class DictionaryManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //get the top 10 high scores out of the SO
+        highScores = wordData.topTenHighScores;
+        Debug.Log("Loaded " + highScores.Count + " high scores");
+
 
         //set the list of playerWordsMade to be that of the Scriptable object's uniqueWordList
         playerWordsMade = wordData.uniqueWordsList;
