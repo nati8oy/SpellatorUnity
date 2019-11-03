@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using System.Collections;
-using System.Collections.Generic;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +12,8 @@ public class GameManager : MonoBehaviour
     //[SerializeField] private AudioClip bgMusic;
     //public float audioTrackSelection;
     private AudioSource gameManagerAudioSource;
+
+    public TileBagSO currentBag;
 
     [SerializeField] private AudioClip gameOverAudio;
     [SerializeField] private AudioClip bigScore;
@@ -95,10 +96,16 @@ public class GameManager : MonoBehaviour
         }
 
         Instance = this;
+
+
+     
     }
 
     void Start()
     {
+
+
+
         //Auto load the data from the Game State file when the game manager loads
         GetComponent<GameState>().LoadGameData();
         //SaveSystem.LoadGameData();
@@ -108,9 +115,8 @@ public class GameManager : MonoBehaviour
         //allLetters = externalBagTXT.text;
 
         //add the letters to the bag List within the TileBag class
-        TileBag lettersBag = new TileBag();
-        lettersBag.AddLettersToDictonary();
-        
+        //TileBag lettersBag = new TileBag();
+        //lettersBag.AddLettersToDictonary();
 
 
       
@@ -184,26 +190,11 @@ public class GameManager : MonoBehaviour
     {
 
         //add the letters to the bag List within the TileBag class
-        TileBag lettersBag = new TileBag();
+       // TileBag lettersBag = new TileBag();
         
     }
 
-    /*
-    //saves the game data when the user presses the home button or suspends the app somehow
-    void OnApplicationPause(bool pauseStatus)
-    {
-        if (pauseStatus)
-        {
-            Debug.Log("Paused");
-            //Save Player Settings
-        }
-        else
-        {
-            Debug.Log("resumed");
-            //Load Player Settings
-        }
-    }
-    */
+
 
 
 }

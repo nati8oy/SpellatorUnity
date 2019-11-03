@@ -37,11 +37,11 @@ public class GameConfig : MonoBehaviour
         // Start is called before the first frame update
         void Start()
         {
+        uniqueWordsList = configScriptableObject.uniqueWordsList;
 
-            //all of this data is being read out of the scriptable object
-            musicOn = configScriptableObject.musicOn;
+        //all of this data is being read out of the scriptable object
+        musicOn = configScriptableObject.musicOn;
             sfxOn = configScriptableObject.sfxOn;
-            uniqueWordsList = configScriptableObject.uniqueWordsList;
             longestWord = configScriptableObject.longestWord;
             favouriteWordLength = configScriptableObject.favouriteWordLength;
             highScores = configScriptableObject.topTenHighScores;
@@ -53,7 +53,9 @@ public class GameConfig : MonoBehaviour
         {
             musicOn = configScriptableObject.musicOn;
             sfxOn = configScriptableObject.sfxOn;
-        }
-    
+            uniqueWordsList = configScriptableObject.uniqueWordsList;
+
+    }
+
 
 }

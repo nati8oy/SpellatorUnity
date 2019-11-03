@@ -10,6 +10,7 @@ public class Tile : MonoBehaviour
     [SerializeField] private Image tileBGImage;
 
     public static TileDisplay tileDisplayAccess;
+    public TileBagSO currentBag;
     public Animator animator;
 
     //sets whether or not the tile can age
@@ -221,8 +222,8 @@ public class Tile : MonoBehaviour
         //resets the special type of a tile when it loads
         spawnedTile.AllocateSpecialType();
 
-        
 
+        //Debug.Log(TileBag.pointsDictionary.Count);
 
         //if the tag is PrimaryTile then set the tile letter and points to be that of the StartLetter
         //otherwise, set them to come up randomly from the bag
@@ -239,10 +240,12 @@ public class Tile : MonoBehaviour
 
         } else if (CompareTag("Tile"))
         {
-            
-            spawnedTile.letter = TileBag.bag[Random.Range(0, TileBag.bag.Count)];
-            spawnedTile.points = TileBag.pointsDictionary[spawnedTile.letter];
-            RemoveLetterFromBag();
+
+            spawnedTile.letter = currentBag.bag[Random.Range(0, currentBag.bag.Count)];
+            spawnedTile.points = currentBag.letterDictionary[spawnedTile.letter];
+            //spawnedTile.letter = TileBag.bag[Random.Range(0, TileBag.bag.Count)];
+            //spawnedTile.points = TileBag.pointsDictionary[spawnedTile.letter];
+            //RemoveLetterFromBag();
 
         }
 

@@ -23,11 +23,11 @@ public class GameState : MonoBehaviour
 //        musicOn = GameConfig.Instance.musicOn;
   //      sfxOn = GameConfig.Instance.sfxOn;
 
-        playerWordsMade = GameConfig.Instance.uniqueWordsList;
-		//playerWordsMade = DictionaryManager.Instance.playerWordsMade;
+        //playerWordsMade = GameConfig.Instance.uniqueWordsList;
+		playerWordsMade = DictionaryManager.Instance.playerWordsMade;
 
         //save the high scores
-        highScores = GameConfig.Instance.highScores;
+//        highScores = GameConfig.Instance.highScores;
 
         
 
@@ -48,11 +48,12 @@ public class GameState : MonoBehaviour
 
         //load the list of unique words
 
-		GameConfig.Instance.uniqueWordsList = data.playerWordsMade;
+        DictionaryManager.Instance.playerWordsMade = data.playerWordsMade;
+        //GameConfig.Instance.uniqueWordsList = data.playerWordsMade;
 
         //load the high scores
 
-        GameConfig.Instance.highScores = data.highScores;
+//        GameConfig.Instance.highScores = data.highScores;
 
         // sfxOn = data.sfxOn;
         // musicOn = data.musicOn;

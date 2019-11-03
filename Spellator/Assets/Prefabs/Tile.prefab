@@ -739,6 +739,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileBGImage: {fileID: 3855893996102124430}
+  currentBag: {fileID: 11400000, guid: babe16195cfd0444ebfc431df8bb800d, type: 2}
   animator: {fileID: 8052626522917010101}
   canAge: 1
   letter: {fileID: 781199010286186662}
