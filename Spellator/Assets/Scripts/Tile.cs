@@ -130,39 +130,26 @@ public class Tile : MonoBehaviour
         {
             case "heart":
                 specialIcon.SetActive(true);
-                //Debug.Log("heart tile");
                 break;
             case "double":
-                //specialIcon.SetActive(false);
-
-               // Debug.Log("double letter spawned");
-                //access the double letter colour
+              
                 letter.color = tileDisplayAccess.tileSkin.doubleLetterColour;
                 tileBGImage.color = tileDisplayAccess.tileSkin.doubleTileColour;
-
 
                 //update the points value of the tile so that it is added correctly to the overall live score
                 adjustedPointValue = spawnedTile.points * 2;
                 points.text = adjustedPointValue.ToString();
-               // Debug.Log("adjusted points value is: " + adjustedPointValue);
-
-                // Debug.Log("double tile");
+   
 
                 break;
             case "triple":
-               // Debug.Log("triple letter spawned");
-                //  specialIcon.SetActive(false);
-
+    
                 letter.color = tileDisplayAccess.tileSkin.tripleLetterColour;
                 tileBGImage.color = tileDisplayAccess.tileSkin.tripleTileColour;
-
-
 
                 //update the points value of the tile so that it is added correctly to the overall live score
                 adjustedPointValue = spawnedTile.points * 3;
                 points.text = (spawnedTile.points * 3).ToString();
-                //Debug.Log("adjusted points value is: " + adjustedPointValue);
-                //Debug.Log("triple tile");
 
                 break;
 
@@ -243,9 +230,12 @@ public class Tile : MonoBehaviour
 
             spawnedTile.letter = currentBag.bag[Random.Range(0, currentBag.bag.Count)];
             spawnedTile.points = currentBag.letterDictionary[spawnedTile.letter];
+
             //spawnedTile.letter = TileBag.bag[Random.Range(0, TileBag.bag.Count)];
             //spawnedTile.points = TileBag.pointsDictionary[spawnedTile.letter];
             //RemoveLetterFromBag();
+
+
 
         }
 

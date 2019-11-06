@@ -12,7 +12,10 @@ public class InitTileBag : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //add the letters to the bag
         bagLetters = tileBagData.bag;
+
+        //add the letters to the dictionary
         tiles = tileBagData.letterDictionary;
 
         tiles.Add("A", 1);
@@ -41,7 +44,7 @@ public class InitTileBag : MonoBehaviour
         tiles.Add("X", 8);
         tiles.Add("Y", 4);
         tiles.Add("Z", 10);
-        Debug.Log(tiles.Count);
+        //Debug.Log(tiles.Count);
         
 
     }
@@ -57,10 +60,11 @@ public class InitTileBag : MonoBehaviour
     {
 
 
-        if (tileBagData.letterDictionary.ContainsKey(letterToRemove))
+        if (bagLetters.Contains(letterToRemove))
         {
-            tileBagData.letterDictionary.Remove(letterToRemove);
-            Debug.Log(tileBagData.letterDictionary.Count + " tile was removed from bag");
+            bagLetters.Remove(letterToRemove);
+            Debug.Log(letterToRemove + " tile was removed from bag. " + "There are " + bagLetters.Count + " remaining" );
+
         }
 
 
