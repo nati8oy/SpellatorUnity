@@ -16,7 +16,7 @@ public class TabMapReader : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        Debug.Log(tab1);
+       // Debug.Log(tab1);
 
     }
 
@@ -26,7 +26,7 @@ public class TabMapReader : MonoBehaviour
         switch (tabName)
         {
             case "a":
-                Debug.Log("a");
+               // Debug.Log("a");
                 tab1.SetActive(true);
                 tab2.SetActive(false);
                 tab3.SetActive(false);
@@ -35,21 +35,21 @@ public class TabMapReader : MonoBehaviour
 
                 break;
             case "b":
-                Debug.Log("b");
+                //Debug.Log("b");
                 tab1.SetActive(false);
                 tab2.SetActive(true);
                 tab3.SetActive(false);
                 tab4.SetActive(false);
                 break;
             case "c":
-                Debug.Log("c");
+                //Debug.Log("c");
                 tab1.SetActive(false);
                 tab2.SetActive(false);
                 tab3.SetActive(true);
                 tab4.SetActive(false);
                 break;
             case "d":
-                Debug.Log("d");
+                //Debug.Log("d");
                 tab1.SetActive(false);
                 tab2.SetActive(false);
                 tab3.SetActive(false);

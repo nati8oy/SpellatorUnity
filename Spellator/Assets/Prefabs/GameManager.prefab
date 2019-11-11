@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 166281410}
   - component: {fileID: 166281411}
   - component: {fileID: 166281412}
+  - component: {fileID: 1026342681}
   m_Layer: 9
   m_Name: GameManager
   m_TagString: Untagged
@@ -46,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f79f7b51d295e4cb19eb237343666dc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentBag: {fileID: 0}
   gameOverAudio: {fileID: 8300000, guid: 199442004b5c14c4a9f6012ed4e5c602, type: 3}
   bigScore: {fileID: 8300000, guid: 5a863d36171ec43ad8f28dee819c539c, type: 3}
   pauseMenu: {fileID: 0}
@@ -192,5 +194,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentScore: 0
   playerWordsMade: []
+  highScores: 
   musicOn: 0
   sfxOn: 0
+--- !u!114 &1026342681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7349431635441859142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e970f98b72fc4d20bae865f397e54f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileBagData: {fileID: 11400000, guid: babe16195cfd0444ebfc431df8bb800d, type: 2}
+  bagLetters: []

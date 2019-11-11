@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
 
     public TileBagSO currentBag;
 
+
     [SerializeField] private AudioClip gameOverAudio;
     [SerializeField] private AudioClip bigScore;
 
@@ -96,10 +97,10 @@ public class GameManager : MonoBehaviour
         }
 
         Instance = this;
-
-
-     
     }
+
+
+
 
     void Start()
     {
@@ -137,8 +138,7 @@ public class GameManager : MonoBehaviour
     public void GameOverMethod()
     {
 
-        
-       gameOverPanel.gameObject.SetActive(true);
+        gameOverPanel.gameObject.SetActive(true);
         AudioManager.Instance.PlayAudio(gameOverAudio);
 
     }

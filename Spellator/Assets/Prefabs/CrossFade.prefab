@@ -12,13 +12,13 @@ GameObject:
   - component: {fileID: 4266048964202785822}
   - component: {fileID: 1099947662}
   - component: {fileID: 1099947661}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CrossFade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4266048964202785819
 RectTransform:
   m_ObjectHideFlags: 0
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2dd428dd71b2b4a29a7d2854de078898, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

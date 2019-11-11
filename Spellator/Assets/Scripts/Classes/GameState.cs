@@ -6,6 +6,7 @@ public class GameState : MonoBehaviour
 {
 
     public int currentScore;
+
 	//public Dictionary<string, int> playerWordsMade = new Dictionary<string, int>();
 	public List<string> playerWordsMade = new List<string>();
     public List<int> highScores = new List<int>();
@@ -23,8 +24,8 @@ public class GameState : MonoBehaviour
 //        musicOn = GameConfig.Instance.musicOn;
   //      sfxOn = GameConfig.Instance.sfxOn;
 
-        //playerWordsMade = GameConfig.Instance.uniqueWordsList;
-		playerWordsMade = DictionaryManager.Instance.playerWordsMade;
+        playerWordsMade = GameConfig.Instance.uniqueWordsList;
+		//playerWordsMade = DictionaryManager.Instance.playerWordsMade;
 
         //save the high scores
 //        highScores = GameConfig.Instance.highScores;
@@ -48,8 +49,8 @@ public class GameState : MonoBehaviour
 
         //load the list of unique words
 
-        DictionaryManager.Instance.playerWordsMade = data.playerWordsMade;
-        //GameConfig.Instance.uniqueWordsList = data.playerWordsMade;
+        //DictionaryManager.Instance.playerWordsMade = data.playerWordsMade;
+        GameConfig.Instance.uniqueWordsList = data.playerWordsMade;
 
         //load the high scores
 

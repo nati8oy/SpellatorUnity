@@ -614,6 +614,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Score: {fileID: 8367778211871980957}
   WordsMade: {fileID: 8367778211936215174}
+  configData: {fileID: 11400000, guid: 87f9af19399d249068769bd3553e5227, type: 2}
 --- !u!1 &8367778212846412689
 GameObject:
   m_ObjectHideFlags: 0

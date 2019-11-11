@@ -319,10 +319,10 @@ public class DictionaryManager : MonoBehaviour
 
 			if (!playerWordsMade.Contains(WordBeingMade))
 			{
-				playerWordsMade.Add(WordBeingMade);
+				//playerWordsMade.Add(WordBeingMade);
 
                 //add the word to the scriptable object as well so that it can be referenced elsewhere e.g. the main menu scene
-                //wordData.uniqueWordsList.Add(WordBeingMade);
+                wordData.uniqueWordsList.Add(WordBeingMade);
 
                 Debug.Log("Word added to list! " + "(" + playerWordsMade.Count + " words)");
 

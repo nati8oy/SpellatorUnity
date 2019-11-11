@@ -43,8 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c70ab42ad188449cb807bd70f7f4e70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wordData: {fileID: 11400000, guid: 87f9af19399d249068769bd3553e5227, type: 2}
   playerWordsMade: []
+  wordData: {fileID: 11400000, guid: 87f9af19399d249068769bd3553e5227, type: 2}
   encouragementMessages: {fileID: 11400000, guid: 250a7d87c3cfc44a296c52447dfafc90,
     type: 2}
   dictionaryTxtFile: {fileID: 4900000, guid: 7c382be831dd04dd5832d2f7e1219647, type: 3}
