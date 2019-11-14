@@ -15,6 +15,7 @@ TagManager:
   - TileHolder
   - TextListItem
   - Achievement
+  - Word List
   layers:
   - Default
   - TransparentFX
