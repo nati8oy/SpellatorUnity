@@ -13,7 +13,7 @@ public class ScrollList : MonoBehaviour
     public Transform listTransform;
 
     public string listType;
-
+    public List<string> mainWordList = new List<string>();
 
     [Header("List variables")]
     public string listTitle;
@@ -36,7 +36,8 @@ public class ScrollList : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+        //get the words out of the scriptable object
+        mainWordList = configObject.uniqueWordsList;
 
         switch (listType)
         {
@@ -49,11 +50,16 @@ public class ScrollList : MonoBehaviour
                     listObject = ObjectPooler.SharedInstance.GetPooledObject("Word List");
                     if (listObject != null)
                     {
-
                         listObject.transform.position = gameObject.transform.position;
                         listObject.transform.SetParent(listTransform.transform);
                         //set the value of the text box in the prefab to be the word from the list
-                        //listObject.GetComponent<TextMeshProUGUI>().text = configObject.uniqueWordsList[i];
+                        
+                        Debug.Log(listObject.GetComponent<TextMeshProUGUI>());
+
+                        var numberAndWordString = (i+1).ToString() + ". " + mainWordList[i];
+
+                        listObject.GetComponent<TextMeshProUGUI>().text = numberAndWordString;
+
                         listObject.SetActive(true);
                         
 

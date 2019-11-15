@@ -868,6 +868,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8248761824448598275, guid: 40528680a418d4330b08b2b83cbaab92,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8248761824448598275, guid: 40528680a418d4330b08b2b83cbaab92,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8248761824130243543, guid: 40528680a418d4330b08b2b83cbaab92,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -876,12 +886,12 @@ PrefabInstance:
     - target: {fileID: 8248761824130243543, guid: 40528680a418d4330b08b2b83cbaab92,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.99999994
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8248761824130243543, guid: 40528680a418d4330b08b2b83cbaab92,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 0.000000059604645
       objectReference: {fileID: 0}
     - target: {fileID: 9053669923067903488, guid: 40528680a418d4330b08b2b83cbaab92,
         type: 3}
@@ -891,12 +901,27 @@ PrefabInstance:
     - target: {fileID: 9053669923067903488, guid: 40528680a418d4330b08b2b83cbaab92,
         type: 3}
       propertyPath: closeButtonActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9053669923067903488, guid: 40528680a418d4330b08b2b83cbaab92,
         type: 3}
       propertyPath: listTitle
-      value: Word List
+      value: My Words
+      objectReference: {fileID: 0}
+    - target: {fileID: 9053669923067903488, guid: 40528680a418d4330b08b2b83cbaab92,
+        type: 3}
+      propertyPath: subtitle
+      value: Your unique word list
+      objectReference: {fileID: 0}
+    - target: {fileID: 8248761824448598278, guid: 40528680a418d4330b08b2b83cbaab92,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8248761824448598277, guid: 40528680a418d4330b08b2b83cbaab92,
+        type: 3}
+      propertyPath: m_Spacing
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40528680a418d4330b08b2b83cbaab92, type: 3}
@@ -987,7 +1012,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: d
+          m_StringArgument: settings
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -1116,7 +1141,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: c
+          m_StringArgument: achievements
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -1409,7 +1434,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: a
+          m_StringArgument: home
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -1753,7 +1778,7 @@ PrefabInstance:
     - target: {fileID: 8517723426858505060, guid: 39cb5be90e4fc4927ac804602ccb5f40,
         type: 3}
       propertyPath: m_Name
-      value: tab a
+      value: Home Screen
       objectReference: {fileID: 0}
     - target: {fileID: 8517723426858505060, guid: 39cb5be90e4fc4927ac804602ccb5f40,
         type: 3}
@@ -2462,7 +2487,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: b
+          m_StringArgument: word list
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -2612,8 +2637,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 50, y: 40}
+  m_AnchoredPosition: {x: 0, y: 5}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1922560885
 MonoBehaviour:
@@ -2635,7 +2660,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 310a1b5c97cd14f56b6d063afa6c4478, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d9adc8e7537cd4ff69e18c1d0662667d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2752,7 +2777,7 @@ MonoBehaviour:
       type: 3}
     shouldExpand: 1
   - amountToPool: 20
-    objectToPool: {fileID: 7295981552338345085, guid: c2f7f8c4583f04703bb0649cc128823d,
+    objectToPool: {fileID: 242514237211592103, guid: 161dc31fd820d42a6b2960a20921cfa8,
       type: 3}
     shouldExpand: 1
 --- !u!1001 &8248761823660090856
@@ -2950,7 +2975,7 @@ PrefabInstance:
     - target: {fileID: 9053669923067903488, guid: 40528680a418d4330b08b2b83cbaab92,
         type: 3}
       propertyPath: closeButtonActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9053669923067903488, guid: 40528680a418d4330b08b2b83cbaab92,
         type: 3}

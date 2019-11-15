@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7295981552338345085
+--- !u!1 &242514237211592103
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,23 +8,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7295981552338345082}
-  - component: {fileID: 7295981552338345080}
-  - component: {fileID: 1275468160838715247}
+  - component: {fileID: 234977933823113868}
+  - component: {fileID: 8975044356279886977}
+  - component: {fileID: 6791816865677422762}
   m_Layer: 5
-  m_Name: WordListPrefab
+  m_Name: WordListItem
   m_TagString: Word List
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &7295981552338345082
+--- !u!224 &234977933823113868
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7295981552338345085}
+  m_GameObject: {fileID: 242514237211592103}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -34,24 +34,24 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 500, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
-  m_Pivot: {x: 1, y: 1}
---- !u!222 &7295981552338345080
+  m_AnchoredPosition: {x: 247, y: -32}
+  m_SizeDelta: {x: 494.61, y: 64}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &8975044356279886977
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7295981552338345085}
+  m_GameObject: {fileID: 242514237211592103}
   m_CullTransparentMesh: 0
---- !u!114 &1275468160838715247
+--- !u!114 &6791816865677422762
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7295981552338345085}
+  m_GameObject: {fileID: 242514237211592103}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
@@ -132,9 +132,9 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -110.54965, y: 0, z: -140.21979, w: -16.168945}
+  m_margin: {x: 0, y: 0, z: -144.16278, w: -16.016602}
   m_textInfo:
-    textComponent: {fileID: 1275468160838715247}
+    textComponent: {fileID: 6791816865677422762}
     characterCount: 8
     spriteCount: 0
     spaceCount: 1

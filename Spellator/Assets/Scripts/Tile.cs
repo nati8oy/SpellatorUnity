@@ -362,7 +362,7 @@ public class Tile : MonoBehaviour
         var randomTime = Random.Range(0.5f, 1f);
         var randomDistance = Random.Range(-500, -800);
 
-        iTween.MoveBy(gameObject, iTween.Hash("y", randomDistance, "time", randomTime, "easetype", "easeInOutExpo", "delay", randomTime, "oncomplete", "SetTileInactive"));
+        iTween.MoveBy(gameObject, iTween.Hash("y", randomDistance, "time", randomTime, "easetype", "easeInExpo", "delay", randomTime, "oncomplete", "SetTileInactive"));
 
         
 

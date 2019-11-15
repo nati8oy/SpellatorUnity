@@ -25,8 +25,8 @@ public class TabMapReader : MonoBehaviour
     {
         switch (tabName)
         {
-            case "a":
-               // Debug.Log("a");
+            case "home":
+                //Debug.Log("home");
                 tab1.SetActive(true);
                 tab2.SetActive(false);
                 tab3.SetActive(false);
@@ -34,22 +34,22 @@ public class TabMapReader : MonoBehaviour
 
 
                 break;
-            case "b":
-                //Debug.Log("b");
+            case "word list":
+                //Debug.Log("word list");
                 tab1.SetActive(false);
                 tab2.SetActive(true);
                 tab3.SetActive(false);
                 tab4.SetActive(false);
                 break;
-            case "c":
-                //Debug.Log("c");
+            case "achievements":
+                //Debug.Log("achievements");
                 tab1.SetActive(false);
                 tab2.SetActive(false);
                 tab3.SetActive(true);
                 tab4.SetActive(false);
                 break;
-            case "d":
-                //Debug.Log("d");
+            case "settings":
+                //Debug.Log("settings");
                 tab1.SetActive(false);
                 tab2.SetActive(false);
                 tab3.SetActive(false);
