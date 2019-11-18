@@ -42,7 +42,7 @@ public class ScrollList : MonoBehaviour
         switch (listType)
         {
             case "word":
-                Debug.Log("enum type: word");
+                //Debug.Log("enum type: word");
 
 
                 for (int i = 0; i < configObject.uniqueWordsList.Count; i++)
@@ -52,10 +52,8 @@ public class ScrollList : MonoBehaviour
                     {
                         listObject.transform.position = gameObject.transform.position;
                         listObject.transform.SetParent(listTransform.transform);
-                        //set the value of the text box in the prefab to be the word from the list
-                        
-                        Debug.Log(listObject.GetComponent<TextMeshProUGUI>());
 
+                        //set the value of the text box in the prefab to be the word from the list
                         var numberAndWordString = (i+1).ToString() + ". " + mainWordList[i];
 
                         listObject.GetComponent<TextMeshProUGUI>().text = numberAndWordString;
@@ -70,7 +68,7 @@ public class ScrollList : MonoBehaviour
                 break;
 
             case "achievement":
-                Debug.Log("enum type: achievement");
+                //Debug.Log("enum type: achievement");
 
                 for (int i = 0; i < listLength; i++)
                 {

@@ -647,7 +647,7 @@ GameObject:
   - component: {fileID: 464065273}
   - component: {fileID: 464065272}
   m_Layer: 5
-  m_Name: Image
+  m_Name: crown icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -938,7 +938,7 @@ GameObject:
   - component: {fileID: 703871789}
   - component: {fileID: 703871788}
   m_Layer: 5
-  m_Name: d
+  m_Name: settings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1067,7 +1067,7 @@ GameObject:
   - component: {fileID: 865966833}
   - component: {fileID: 865966832}
   m_Layer: 5
-  m_Name: c
+  m_Name: achievements
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1360,7 +1360,7 @@ GameObject:
   - component: {fileID: 982972757}
   - component: {fileID: 982972756}
   m_Layer: 5
-  m_Name: a
+  m_Name: home
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2248,7 +2248,7 @@ GameObject:
   - component: {fileID: 1633045293}
   - component: {fileID: 1633045292}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: home icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2271,7 +2271,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 4}
-  m_SizeDelta: {x: 50, y: 50}
+  m_SizeDelta: {x: 50, y: 43}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1633045292
 MonoBehaviour:
@@ -2293,7 +2293,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d9adc8e7537cd4ff69e18c1d0662667d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 12f4a69cc57034a81b2079ebe7dc517b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2413,7 +2413,7 @@ GameObject:
   - component: {fileID: 1843730198}
   - component: {fileID: 1843730197}
   m_Layer: 5
-  m_Name: b
+  m_Name: word list
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2541,7 +2541,7 @@ GameObject:
   - component: {fileID: 1853873433}
   - component: {fileID: 1853873432}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: list icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2615,7 +2615,7 @@ GameObject:
   - component: {fileID: 1922560886}
   - component: {fileID: 1922560885}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: cog icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2780,6 +2780,23 @@ MonoBehaviour:
     objectToPool: {fileID: 242514237211592103, guid: 161dc31fd820d42a6b2960a20921cfa8,
       type: 3}
     shouldExpand: 1
+--- !u!114 &1945614840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945614838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3696f0f77b5414e409cbd5cd6b2f8f22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentScore: 0
+  playerWordsMade: []
+  highScores: 
+  musicOn: 0
+  sfxOn: 0
 --- !u!1001 &8248761823660090856
 PrefabInstance:
   m_ObjectHideFlags: 0

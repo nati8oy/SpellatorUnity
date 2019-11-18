@@ -37,6 +37,9 @@ public class GameConfig : MonoBehaviour
         // Start is called before the first frame update
         void Start()
         {
+
+        GetComponent<GameState>().LoadGameData();
+
         uniqueWordsList = configScriptableObject.uniqueWordsList;
 
         //all of this data is being read out of the scriptable object

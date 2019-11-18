@@ -108,7 +108,7 @@ public class GameManager : MonoBehaviour
 
 
         //Auto load the data from the Game State file when the game manager loads
-        GetComponent<GameState>().LoadGameData();
+        //GetComponent<GameState>().LoadGameData();
         //SaveSystem.LoadGameData();
 
 
