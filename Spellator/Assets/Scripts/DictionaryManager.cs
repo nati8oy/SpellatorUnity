@@ -193,7 +193,7 @@ public class DictionaryManager : MonoBehaviour
         {
             var randomY = Random.Range(100, 135);
 
-            //for each time in the selectedTilesArray set the animator bool to be "true"
+            //for each tile in the selectedTilesArray set the animator bool to be "true"
             selectedTilesArray[i].GetComponent<Tile>().animator.SetBool("clearTile", true);
 
 
@@ -558,7 +558,7 @@ public class DictionaryManager : MonoBehaviour
 
             {
                 //set the animator of each tile to revert to the idle animation when the word is cleared
-                tile.GetComponent<Tile>().animator.SetBool("tileActive", false);
+                tile.GetComponent<Tile>().animator.SetBool("clearTile", false);
 
                 //set getStartPos so that it can be used in the coroutine below
 
