@@ -19,6 +19,7 @@ public class Tile : MonoBehaviour
     public TextMeshProUGUI letter;
     public TextMeshProUGUI points;
 
+    private GameObject explosionObject;
 
     //used to adding double and triple points to the overall score
     public int adjustedPointValue;
@@ -199,7 +200,7 @@ public class Tile : MonoBehaviour
     private void OnEnable()
     {
 
-        animator.SetBool("clearTile", false);
+      //  animator.SetBool("clearTile", false);
         
 
 
@@ -277,11 +278,6 @@ public class Tile : MonoBehaviour
             //set the tag of this tile to be selected
             gameObject.tag = "TileSelected";
 
-            //set the animator to use another animation
-
-
-             animator.SetBool("clearTile", true);
-
 
 
             //move tiles into position
@@ -325,15 +321,27 @@ public class Tile : MonoBehaviour
                 DictionaryManager.Instance.CheckWord();
 
             }
-            animator.SetBool("clearTile", false);
+          //  animator.SetBool("clearTile", false);
     }
     public void RemoveTileOnComplete()
     {
-        
+
+
+
+        explosionObject = ObjectPooler.SharedInstance.GetPooledObject("Explosion");
+        if (explosionObject != null)
+        {
+            explosionObject.transform.position = gameObject.transform.position;
+            explosionObject.SetActive(true);
+
+
+        }
+
+        popSounds.Play(popAudioSource);
+
         //set tiles back to inactive so that they can go back into the object pool
         gameObject.SetActive(false);
         // AudioManager.Instance.PlayAudio(popSounds[Random.Range(0, 3)]);
-        popSounds.Play(popAudioSource);
        // Debug.Log("remove sound played");
 
 

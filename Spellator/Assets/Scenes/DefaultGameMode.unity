@@ -13933,7 +13933,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 166281411, guid: cf2cb441bcdc54fbba9fdd62fba05c37, type: 3}
+      propertyPath: itemsToPool.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 166281411, guid: cf2cb441bcdc54fbba9fdd62fba05c37, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 166281411, guid: cf2cb441bcdc54fbba9fdd62fba05c37, type: 3}
+      propertyPath: itemsToPool.Array.data[3].amountToPool
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 166281411, guid: cf2cb441bcdc54fbba9fdd62fba05c37, type: 3}
+      propertyPath: itemsToPool.Array.data[3].objectToPool
+      value: 
+      objectReference: {fileID: 805593367772713409, guid: e263fd3e48d1945b3a2df52e2e2f0346,
+        type: 3}
+    - target: {fileID: 166281411, guid: cf2cb441bcdc54fbba9fdd62fba05c37, type: 3}
+      propertyPath: itemsToPool.Array.data[3].shouldExpand
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 166281412, guid: cf2cb441bcdc54fbba9fdd62fba05c37, type: 3}

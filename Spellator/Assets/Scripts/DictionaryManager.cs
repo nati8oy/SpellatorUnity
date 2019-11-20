@@ -194,7 +194,7 @@ public class DictionaryManager : MonoBehaviour
             var randomY = Random.Range(100, 135);
 
             //for each tile in the selectedTilesArray set the animator bool to be "true"
-            selectedTilesArray[i].GetComponent<Tile>().animator.SetBool("clearTile", true);
+            //selectedTilesArray[i].GetComponent<Tile>().animator.SetBool("clearTile", true);
 
 
             iTween.MoveBy(selectedTilesArray[i], iTween.Hash("y", randomY, "easetype", "spring", "time", 0.5f, "delay", (0.1f) * (i+1), "oncomplete", "RemoveTileOnComplete"));
@@ -464,24 +464,23 @@ public class DictionaryManager : MonoBehaviour
         }
 
 
-      
+        //check the length of the word being makde and move the whole word to that point.
+
         switch (wordBeingMade.Length)
         {
             case 5:
-                iTween.MoveTo(PrimaryTile, iTween.Hash("x", PrimaryTile.transform.position.x - 200, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
+                iTween.MoveTo(PrimaryTile, iTween.Hash("x", -150, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
                 break;
             case 6:
                 break;
             case 7:
-                iTween.MoveTo(PrimaryTile, iTween.Hash("x", PrimaryTile.transform.position.x - 300, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
                 break;
             case 8:
                 break;
             case 9:
-                iTween.MoveTo(PrimaryTile, iTween.Hash("x", PrimaryTile.transform.position.x - 350, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
+                iTween.MoveTo(PrimaryTile, iTween.Hash("x", -500, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
                 break;
-            }
-
+        }
 
 
 
@@ -558,7 +557,7 @@ public class DictionaryManager : MonoBehaviour
 
             {
                 //set the animator of each tile to revert to the idle animation when the word is cleared
-                tile.GetComponent<Tile>().animator.SetBool("clearTile", false);
+                //tile.GetComponent<Tile>().animator.SetBool("clearTile", false);
 
                 //set getStartPos so that it can be used in the coroutine below
 

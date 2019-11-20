@@ -16,6 +16,7 @@ TagManager:
   - TextListItem
   - Achievement
   - Word List
+  - Explosion
   layers:
   - Default
   - TransparentFX
