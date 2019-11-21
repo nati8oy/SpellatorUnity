@@ -38,9 +38,9 @@ public class GameConfig : MonoBehaviour
         void Start()
         {
 
-        GetComponent<GameState>().LoadGameData();
-
         uniqueWordsList = configScriptableObject.uniqueWordsList;
+//        GetComponent<GameState>().LoadGameData();
+
 
         //all of this data is being read out of the scriptable object
         musicOn = configScriptableObject.musicOn;

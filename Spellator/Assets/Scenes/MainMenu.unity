@@ -482,7 +482,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8ba7dae0e930f4ecd99e5af309148ee7, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -995,7 +995,7 @@ PrefabInstance:
     - target: {fileID: 8248761824130243543, guid: 40528680a418d4330b08b2b83cbaab92,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.000000059604645
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9053669923067903488, guid: 40528680a418d4330b08b2b83cbaab92,
         type: 3}
@@ -2884,23 +2884,6 @@ MonoBehaviour:
     objectToPool: {fileID: 242514237211592103, guid: 161dc31fd820d42a6b2960a20921cfa8,
       type: 3}
     shouldExpand: 1
---- !u!114 &1945614840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1945614838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3696f0f77b5414e409cbd5cd6b2f8f22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentScore: 0
-  playerWordsMade: []
-  highScores: 
-  musicOn: 0
-  sfxOn: 0
 --- !u!1001 &8248761823660090856
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3046,7 +3029,7 @@ PrefabInstance:
     - target: {fileID: 8248761824448598275, guid: 40528680a418d4330b08b2b83cbaab92,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000030517578
+      value: -0.000030517578
       objectReference: {fileID: 0}
     - target: {fileID: 8248761824448598275, guid: 40528680a418d4330b08b2b83cbaab92,
         type: 3}
@@ -3086,7 +3069,7 @@ PrefabInstance:
     - target: {fileID: 8248761824130243543, guid: 40528680a418d4330b08b2b83cbaab92,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 0.000000059604645
       objectReference: {fileID: 0}
     - target: {fileID: 9053669923067903488, guid: 40528680a418d4330b08b2b83cbaab92,
         type: 3}
@@ -3112,6 +3095,11 @@ PrefabInstance:
         type: 3}
       propertyPath: subtitle
       value: All your current achievements
+      objectReference: {fileID: 0}
+    - target: {fileID: 8248761824448598278, guid: 40528680a418d4330b08b2b83cbaab92,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40528680a418d4330b08b2b83cbaab92, type: 3}
