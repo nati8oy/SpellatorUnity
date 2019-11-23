@@ -570,6 +570,7 @@ GameObject:
   - component: {fileID: 8248761824258920701}
   - component: {fileID: 8248761824258920703}
   - component: {fileID: 9053669923067903488}
+  - component: {fileID: 3264152899878192051}
   m_Layer: 5
   m_Name: ScrollList
   m_TagString: Untagged
@@ -691,8 +692,21 @@ MonoBehaviour:
   listLength: 10
   titleText: {fileID: 8248761823648957607}
   subtitleText: {fileID: 8248761824319383242}
+  achievementItem: []
   closeButton: {fileID: 8248761824261132989}
   closeButtonActive: 0
+--- !u!114 &3264152899878192051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8248761824258920699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a71894321449407aa0b2bf80ddaa567, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8248761824261132989
 GameObject:
   m_ObjectHideFlags: 0

@@ -1027,7 +1027,25 @@ PrefabInstance:
       propertyPath: m_Spacing
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3264152899878192051, guid: 40528680a418d4330b08b2b83cbaab92,
+        type: 3}
+      propertyPath: achievementsToLoad
+      value: 
+      objectReference: {fileID: 11400000, guid: 2d3b901f535594d83937e59d5780de48,
+        type: 2}
+    - target: {fileID: 3264152899878192051, guid: 40528680a418d4330b08b2b83cbaab92,
+        type: 3}
+      propertyPath: configSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 87f9af19399d249068769bd3553e5227,
+        type: 2}
+    - target: {fileID: 3264152899878192051, guid: 40528680a418d4330b08b2b83cbaab92,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3264152899878192051, guid: 40528680a418d4330b08b2b83cbaab92, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 40528680a418d4330b08b2b83cbaab92, type: 3}
 --- !u!1 &703871786
 GameObject:
@@ -3029,7 +3047,7 @@ PrefabInstance:
     - target: {fileID: 8248761824448598275, guid: 40528680a418d4330b08b2b83cbaab92,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000030517578
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8248761824448598275, guid: 40528680a418d4330b08b2b83cbaab92,
         type: 3}
@@ -3069,7 +3087,7 @@ PrefabInstance:
     - target: {fileID: 8248761824130243543, guid: 40528680a418d4330b08b2b83cbaab92,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.000000059604645
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9053669923067903488, guid: 40528680a418d4330b08b2b83cbaab92,
         type: 3}
@@ -3101,6 +3119,12 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3264152899878192051, guid: 40528680a418d4330b08b2b83cbaab92,
+        type: 3}
+      propertyPath: achievementsToLoad
+      value: 
+      objectReference: {fileID: 11400000, guid: 2d3b901f535594d83937e59d5780de48,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40528680a418d4330b08b2b83cbaab92, type: 3}
 --- !u!1001 &8459522149064952984

@@ -113,6 +113,13 @@ public class DictionaryManager : MonoBehaviour
 
     public GameObject[] allTilesArray;
 
+
+    [Space()]
+    [Header("Level Data")]
+    //set up the level class so it is accessible
+    public LevelClass levelData;
+
+
     //bool to check if all tiles can be replaced
     private bool resetBool;
 
@@ -281,9 +288,15 @@ public class DictionaryManager : MonoBehaviour
 
     public void CheckAndDeleteTiles()
     {
+        //level class constructor
+        levelData = new LevelClass();
 
+        levelData.LevelGoalCheck(WordBeingMade, "length");
+        
+        //play the particle effects for a correct word
         correctWordParticles.Play();
 
+        //reduce the age of all the remaining tiles on the board
         ReduceAge();
 
         //move the primary tile back to its starting position

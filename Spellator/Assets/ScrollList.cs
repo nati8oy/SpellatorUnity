@@ -27,6 +27,8 @@ public class ScrollList : MonoBehaviour
 
     public static TextMeshProUGUI wordText;
 
+    [Header("Achievements")]
+    public GameObject[] achievementItem;
 
 
     [SerializeField] private GameObject closeButton;
@@ -42,7 +44,6 @@ public class ScrollList : MonoBehaviour
         switch (listType)
         {
             case "word":
-                //Debug.Log("enum type: word");
 
 
                 for (int i = 0; i < configObject.uniqueWordsList.Count; i++)
@@ -68,7 +69,6 @@ public class ScrollList : MonoBehaviour
                 break;
 
             case "achievement":
-                //Debug.Log("enum type: achievement");
 
                 for (int i = 0; i < listLength; i++)
                 {
@@ -78,7 +78,6 @@ public class ScrollList : MonoBehaviour
 
                         listObject.transform.position = gameObject.transform.position;
                         listObject.transform.SetParent(listTransform.transform);
-                        //set the value of the text box in the prefab to be the word from the list
                         listObject.SetActive(true);
 
                     }
