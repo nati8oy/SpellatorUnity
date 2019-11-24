@@ -9,17 +9,21 @@ using UnityEngine;
 public class LevelManagerSO : ScriptableObject
 {
 
-    public enum Level {wordLength, firstLetter, lastLetter, specificWord }
+    //public enum Level {wordLength, firstLetter, lastLetter, specificWord }
 
     [Header("Level Data")]
     public int currentLevel;
     public List<int> allLevels = new List<int>();
-    public List<string> levelType = new List<string>();
+    public List<string> levelTypes = new List<string>();
     public int reward;
 
     //use this for tracking how many levels in they are.
     public int overallLevel;
 
-    public string levelDescription;
-    
+    public List<string> endingList = new List<string>();
+    public List<string> startingList = new List<string>();
+    public List<string> containingList = new List<string>();
+
+
+
 }

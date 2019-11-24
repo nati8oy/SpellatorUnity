@@ -14,11 +14,68 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLevel: 0
   allLevels: 
-  levelType:
-  - length
-  - containing
-  - ending
+  levelTypes:
   - starting
+  - ending
+  - contains
+  - length
   reward: 0
   overallLevel: 0
-  levelDescription: 
+  endingList:
+  - B
+  - D
+  - G
+  - H
+  - K
+  - L
+  - M
+  - N
+  - P
+  - R
+  - S
+  - T
+  - W
+  - A
+  - E
+  startingList:
+  - B
+  - C
+  - D
+  - F
+  - G
+  - H
+  - K
+  - L
+  - M
+  - N
+  - P
+  - R
+  - S
+  - T
+  - V
+  - W
+  - Y
+  containingList:
+  - A
+  - E
+  - I
+  - O
+  - U
+  - B
+  - C
+  - D
+  - F
+  - G
+  - H
+  - K
+  - L
+  - M
+  - N
+  - P
+  - R
+  - S
+  - T
+  - V
+  - W
+  - X
+  - Y

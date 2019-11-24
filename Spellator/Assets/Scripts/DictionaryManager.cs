@@ -120,7 +120,7 @@ public class DictionaryManager : MonoBehaviour
     [Space()]
     [Header("Level Data")]
     //set up the level class so it is accessible
-    public LevelClass levelData;
+   // public LevelClass levelData;
 
 
     //bool to check if all tiles can be replaced
@@ -295,10 +295,10 @@ public class DictionaryManager : MonoBehaviour
 
     public void CheckAndDeleteTiles()
     {
-        levelData = new LevelClass();
+        //levelData = new LevelClass();
         //access the level data function
         //RANDOM VERSION
-        levelData.LevelGoalCheck(WordBeingMade, LevelManager.Instance.randomLevelSelction);
+        LevelManager.Instance.LevelGoalCheck(WordBeingMade, LevelManager.Instance.randomLevelSelection);
 
         //SET VERSION
        // levelData.LevelGoalCheck(WordBeingMade, "starting");
