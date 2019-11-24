@@ -14,8 +14,11 @@ public class LevelManagerSO : ScriptableObject
     [Header("Level Data")]
     public int currentLevel;
     public List<int> allLevels = new List<int>();
-    public string levelType;
+    public List<string> levelType = new List<string>();
     public int reward;
+
+    //use this for tracking how many levels in they are.
+    public int overallLevel;
 
     public string levelDescription;
     

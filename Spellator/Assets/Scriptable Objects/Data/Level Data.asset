@@ -14,4 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLevel: 0
   allLevels: 
-  levelType: 
+  levelType:
+  - length
+  - containing
+  - ending
+  - starting
+  reward: 0
+  overallLevel: 0
+  levelDescription: 

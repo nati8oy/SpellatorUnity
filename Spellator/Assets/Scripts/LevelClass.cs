@@ -11,10 +11,15 @@ public class LevelClass
 
     public static string levelDescription;
 
+    public string lastLetter;
+    public string firstLetter;
 
 
-    public List<string> consonantList = new List<string>() { "B", "C", "D", "F", "G", "H", "J", "K", "L", "M", "N", "P", "Q", "R", "S", "T", "V", "W", "X", "Y", "Z" };
-    public List<string> vowelList = new List<string>() { "A", "E", "I", "O", "U" };
+    ///Various subsets of letters for use with level rules below
+    public List<string> endingList = new List<string>() { "B", "D", "G", "H", "K", "L", "M", "N", "P", "R", "S", "T", "W", "A", "E" };
+    public List<string> startingList= new List<string>() { "B", "C", "D", "F", "G", "H", "K", "L", "M", "N", "P", "R", "S", "T", "V", "W", "Y", "Z" };
+    public List<string> containingList = new List<string>() { "A", "E", "I", "O", "U", "B", "C", "D", "F", "G", "H", "K", "L", "M", "N", "P", "R", "S", "T", "V", "W", "X", "Y"};
+
 
     //sets the list for the int conditions below
     public List<int> conditionsList = new List<int>();
@@ -25,7 +30,7 @@ public class LevelClass
 
 
     //used for conditions requiring strings (containg, etc.)
-    public string letterCondition;
+    public static string letterCondition;
 
 
     public int numberOfConditions;
@@ -59,49 +64,43 @@ public class LevelClass
         secondCondition = 4;
 
         //choose the second condition randomly from the list
-        Debug.Log("Second condition updated: " + secondCondition);
+        //Debug.Log("Second condition updated: " + secondCondition);
 
         //choose the first condition randomly from the list
         firstCondition = conditionsList[Random.RandomRange(1, conditionsList.Count)];
 
-
-        
 
         switch (levelType)
         {
             case "length":
                 levelDescription = "Make " + firstCondition.ToString() + " words using " + secondCondition.ToString() + " letters";
 
-                //Debug.Log("Make " + firstCondition + " words using " + (secondCondition) + " letters");
-
-
                 break;
 
             case "ending":
 
                 //choose the letter randomly
-                letterCondition = consonantList[Random.Range(0, consonantList.Count)];
+                letterCondition = endingList[Random.Range(0, endingList.Count)];
 
-                Debug.Log("Make " + firstCondition + " words ending in " + letterCondition);
+                levelDescription = "Make " + firstCondition.ToString() + " words ending in " + letterCondition;
 
                 break;
 
             case "containing":
 
                 //choose the letter randomly
-                letterCondition = vowelList[Random.Range(0, vowelList.Count)];
+                letterCondition = containingList[Random.Range(0, containingList.Count)];
 
-
-                Debug.Log("Make " + firstCondition + " words containing " + letterCondition);
+                levelDescription = "Make " + firstCondition.ToString() + " words containing " + letterCondition;
 
                 break;
 
             case "starting":
              
                 //choose the letter randomly
-                letterCondition = consonantList[Random.Range(0, consonantList.Count)];
+                letterCondition = startingList[Random.Range(0, startingList.Count)];
 
-                Debug.Log("Make " + firstCondition + " words starting with " + letterCondition);
+                levelDescription = "Make " + firstCondition.ToString() + " words starting with " + letterCondition;
 
                 break;
         }
@@ -111,11 +110,7 @@ public class LevelClass
     public void LevelGoalCheck(string wordToCheck, string checkCriteria)
     {
 
-
-        //Debug.Log("Word being made: " + wordToCheck.Length + " Second condition: " + secondCondition);
-
-        
-        
+        //Debug.Log("current goal check is: " + checkCriteria);
 
 
         switch (checkCriteria)
@@ -127,7 +122,14 @@ public class LevelClass
 
                 if (wordToCheck.Length == secondCondition)
                 {
-                    firstCondition -= 1;
+                    //reduce the first condition by one (track changes to quota essentially) 
+                    //but only minus if the firstCondition is greater than 0
+                    if (firstCondition > 0)
+                    {
+                        
+                        firstCondition -= 1;
+
+                    }
                     Debug.Log("length rule matched! " + firstCondition + " words remaining" );
                 }
 
@@ -136,10 +138,93 @@ public class LevelClass
 
                 break;
             case "ending":
+
+                //Debug.Log("letter condition: " + letterCondition);
+
+
+                //split the lettters in the wordToCheck string and grab the last one
+                //
+                string[] endingCharacters = new string[wordToCheck.Length];
+                for (int i = 0; i < wordToCheck.Length; i++)
+                {
+
+                    endingCharacters[i] = System.Convert.ToString(wordToCheck[i]);
+
+                    //gets the start letter of the next word from the most recent word
+                    lastLetter = endingCharacters[i];
+                   // Debug.Log("Last letter: "+lastLetter);
+
+                }
+
+                //Debug.Log("letter condition: " + letterCondition + " last letter: " + lastLetter);
+
+                if (letterCondition == lastLetter)
+                {
+
+                    if (firstCondition > 0)
+                    {
+
+                        firstCondition -= 1;
+                        levelDescription = "Make " + firstCondition.ToString() + " words ending in " + letterCondition;
+
+                    }
+
+
+                    // Debug.Log("ending rule matched! " + firstCondition + " words remaining");
+                }
+
+
+
                 break;
             case "containing":
+
+                if (wordToCheck.Contains(letterCondition))
+                {
+
+                    if (firstCondition > 0)
+                    {
+
+                        firstCondition -= 1;
+                        levelDescription = "Make " + firstCondition.ToString() + " words containing " + letterCondition;
+
+                    }
+
+
+                }
+              
                 break;
+
             case "starting":
+
+                //split the lettters in the wordToCheck string and grab the last one
+                //
+                string[] startingCharacters = new string[wordToCheck.Length];
+                for (int i = 0; i < wordToCheck.Length; i++)
+                {
+
+                    startingCharacters[i] = System.Convert.ToString(wordToCheck[i]);
+
+                    //gets the start letter of the next word from the most recent word
+                    firstLetter = startingCharacters[0];
+
+                }
+
+
+                if (letterCondition == firstLetter)
+                {
+
+                    if (firstCondition > 0)
+                    {
+
+                        firstCondition -= 1;
+                        levelDescription = "Make " + firstCondition.ToString() + " words starting with " + letterCondition;
+
+                    }
+
+
+                    // Debug.Log("ending rule matched! " + firstCondition + " words remaining");
+                }
+
                 break;
         }
 

@@ -297,7 +297,11 @@ public class DictionaryManager : MonoBehaviour
     {
         levelData = new LevelClass();
         //access the level data function
-        levelData.LevelGoalCheck(WordBeingMade, "length");
+        //RANDOM VERSION
+        levelData.LevelGoalCheck(WordBeingMade, LevelManager.Instance.randomLevelSelction);
+
+        //SET VERSION
+       // levelData.LevelGoalCheck(WordBeingMade, "starting");
 
 
         //play the particle effects for a correct word
