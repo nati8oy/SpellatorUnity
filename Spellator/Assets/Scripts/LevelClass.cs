@@ -9,6 +9,8 @@ public class LevelClass
     public List<int> allLevels = new List<int>();
     public List<string> levelTypes = new List<string>();
 
+    public static string levelDescription;
+
 
 
     public List<string> consonantList = new List<string>() { "B", "C", "D", "F", "G", "H", "J", "K", "L", "M", "N", "P", "Q", "R", "S", "T", "V", "W", "X", "Y", "Z" };
@@ -18,8 +20,8 @@ public class LevelClass
     public List<int> conditionsList = new List<int>();
 
     //used for conditions containing ints (eg. word length)
-    public int firstCondition;
-    public int secondCondition;
+    public static int firstCondition;
+    public static int secondCondition;
 
 
     //used for conditions requiring strings (containg, etc.)
@@ -36,6 +38,7 @@ public class LevelClass
     public LevelClass()
     {
 
+
         //set up the params for the upcoming level rules
 
         numberOfConditions = 4;
@@ -46,22 +49,30 @@ public class LevelClass
             conditionsList.Add(i);
         }
 
+
+        
     }
 
     public void ConstructLevelParams(string levelType)
     {
 
+        secondCondition = 4;
+
+        //choose the second condition randomly from the list
+        Debug.Log("Second condition updated: " + secondCondition);
+
         //choose the first condition randomly from the list
         firstCondition = conditionsList[Random.RandomRange(1, conditionsList.Count)];
+
+
+        
 
         switch (levelType)
         {
             case "length":
+                levelDescription = "Make " + firstCondition.ToString() + " words using " + secondCondition.ToString() + " letters";
 
-                //choose the second condition randomly from the list
-                secondCondition = conditionsList[Random.RandomRange(2, conditionsList.Count)];
-
-                Debug.Log("Make " + firstCondition + " words using " + (secondCondition+1) + " letters");
+                //Debug.Log("Make " + firstCondition + " words using " + (secondCondition) + " letters");
 
 
                 break;
@@ -101,20 +112,28 @@ public class LevelClass
     {
 
 
-       
+        //Debug.Log("Word being made: " + wordToCheck.Length + " Second condition: " + secondCondition);
+
+        
+        
 
 
         switch (checkCriteria)
         {
+
+
             case "length":
                 //  Debug.Log(firstCondition + " words remaining!");
 
-            if (wordToCheck.Length == secondCondition)
-            {
-                firstCondition -= 1;
-                Debug.Log(wordToCheck.Length);
+                if (wordToCheck.Length == secondCondition)
+                {
+                    firstCondition -= 1;
+                    Debug.Log("length rule matched! " + firstCondition + " words remaining" );
+                }
 
-            }
+                levelDescription = "Make " + firstCondition.ToString() + " words using " + secondCondition.ToString() + " letters";
+
+
                 break;
             case "ending":
                 break;

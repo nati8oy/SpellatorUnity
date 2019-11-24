@@ -15,13 +15,8 @@ public class LevelManagerSO : ScriptableObject
     public int currentLevel;
     public List<int> allLevels = new List<int>();
     public string levelType;
+    public int reward;
 
-
-
-
-    public void LevelCompleteCheck()
-    {
-
-    }
+    public string levelDescription;
     
 }

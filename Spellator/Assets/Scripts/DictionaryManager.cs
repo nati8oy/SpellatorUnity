@@ -19,9 +19,12 @@ public class DictionaryManager : MonoBehaviour
 
     [Space()]
     [Header("Word Related Variables")]
-//    private WordData listOfWordsMade;
+    //    private WordData listOfWordsMade;
 
-	
+
+    [Space()]
+    [Header("Managers")]
+    public GameObject levelManager;
 
     //uses a scritable object to hold the array for on screen messages
     [SerializeField] private MessagingSO encouragementMessages;
@@ -219,7 +222,11 @@ public class DictionaryManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-     
+
+
+
+        //level class constructor
+ //       levelData = new LevelClass();
 
         //set the list of playerWordsMade to be that of the Scriptable object's uniqueWordList
         playerWordsMade = wordData.uniqueWordsList;
@@ -288,11 +295,11 @@ public class DictionaryManager : MonoBehaviour
 
     public void CheckAndDeleteTiles()
     {
-        //level class constructor
         levelData = new LevelClass();
-
+        //access the level data function
         levelData.LevelGoalCheck(WordBeingMade, "length");
-        
+
+
         //play the particle effects for a correct word
         correctWordParticles.Play();
 
@@ -451,6 +458,7 @@ public class DictionaryManager : MonoBehaviour
 
 
         }
+
 
     }
 
