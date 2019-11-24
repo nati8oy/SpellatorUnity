@@ -165,9 +165,6 @@ public class LevelManager : MonoBehaviour
     public void LevelGoalCheck(string wordToCheck, string checkCriteria)
     {
 
-        //Debug.Log("current goal check is: " + checkCriteria);
-
-
         switch (checkCriteria)
         {
 
@@ -280,6 +277,12 @@ public class LevelManager : MonoBehaviour
                 }
 
                 break;
+        }
+
+        if(firstCondition==0)
+        {
+            GameManager.Instance.LevelComplete();
+            Debug.Log("Gratz! Level Compelte!");
         }
 
 

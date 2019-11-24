@@ -21,8 +21,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private RectTransform pauseMenu;
     [SerializeField] private RectTransform wordList;
+    [SerializeField] private RectTransform levelCompleteMenu;
 
-  //  public string allLetters;
+    //  public string allLetters;
     [SerializeField] public TextAsset externalBagTXT;
 
     //the list for all the words currently that have been made
@@ -166,6 +167,12 @@ public class GameManager : MonoBehaviour
     {
 
         pauseMenu.gameObject.SetActive(true);
+    }
+
+    public void LevelComplete()
+    {
+        levelCompleteMenu.gameObject.SetActive(true);
+
     }
 
 
