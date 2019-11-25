@@ -101,6 +101,7 @@ public class LevelManager : MonoBehaviour
         //sets up the level parameters. eg. make 3 words that are 3 letters long.
         ConstructLevelParams(randomLevelSelection);
 
+        //set the var in the SO to be the same as what is being added here
 
     }
 
@@ -109,6 +110,7 @@ public class LevelManager : MonoBehaviour
     {
         //this is the data from the level
         levelDescriptionText.text = levelDescription;
+
 
     }
 
@@ -129,6 +131,7 @@ public class LevelManager : MonoBehaviour
         {
             case "length":
                 levelDescription = "Make " + firstCondition.ToString() + " words using " + secondCondition.ToString() + " letters";
+                levelDetails.levelRules = levelDescription;
 
                 break;
 
@@ -138,6 +141,7 @@ public class LevelManager : MonoBehaviour
                 letterCondition = _endingList[Random.Range(0, _endingList.Count)];
 
                 levelDescription = "Make " + firstCondition.ToString() + " words ending in " + letterCondition;
+                levelDetails.levelRules = levelDescription;
 
                 break;
 
@@ -147,6 +151,7 @@ public class LevelManager : MonoBehaviour
                 letterCondition = _containingList[Random.Range(0, _containingList.Count)];
 
                 levelDescription = "Make " + firstCondition.ToString() + " words containing " + letterCondition;
+                levelDetails.levelRules = levelDescription;
 
                 break;
 
@@ -156,6 +161,7 @@ public class LevelManager : MonoBehaviour
                 letterCondition = _startingList[Random.Range(0, _startingList.Count)];
 
                 levelDescription = "Make " + firstCondition.ToString() + " words starting with " + letterCondition;
+                levelDetails.levelRules = levelDescription;
 
                 break;
         }

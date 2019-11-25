@@ -13,24 +13,28 @@ public class GameManager : MonoBehaviour
     //public float audioTrackSelection;
     private AudioSource gameManagerAudioSource;
 
+
+    [Header("Scriptable objects")]
     public TileBagSO currentBag;
+    [Space]
 
 
     [SerializeField] private AudioClip gameOverAudio;
     [SerializeField] private AudioClip bigScore;
 
+
+    [Header("UI Panels")]
     [SerializeField] private RectTransform pauseMenu;
-    [SerializeField] private RectTransform wordList;
+    [SerializeField] private RectTransform ruleDetailPanel;
+    [SerializeField] private RectTransform gameOverPanel;
     [SerializeField] private RectTransform levelCompleteMenu;
 
+
+    [Space]
     //  public string allLetters;
     [SerializeField] public TextAsset externalBagTXT;
 
-    //the list for all the words currently that have been made
-    public WordData currentWordList;
 
-
-    [SerializeField] private RectTransform gameOverPanel;
 
   
     private SpecialMeterClass specialMeter = new SpecialMeterClass();
@@ -175,22 +179,16 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void BeginGame()
+    {
+
+        ruleDetailPanel.gameObject.SetActive(false);
+    }
 
     public void ResumeGame()
     {
         GameObject.Find("Pause Menu").SetActive(false);
 
-    }
-
-    public void ShowWordList()
-    {
-
-        wordList.gameObject.SetActive(true);
-    }
-
-    public void CloseWordList()
-    {
-        GameObject.Find("Word List").SetActive(false);
     }
 
     public void StartSetup()

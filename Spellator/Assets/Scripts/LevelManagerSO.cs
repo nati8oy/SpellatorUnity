@@ -19,6 +19,7 @@ public class LevelManagerSO : ScriptableObject
 
     //use this for tracking how many levels in they are.
     public int overallLevel;
+    public string levelRules;
 
     public List<string> endingList = new List<string>();
     public List<string> startingList = new List<string>();
