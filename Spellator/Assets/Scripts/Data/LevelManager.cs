@@ -30,6 +30,8 @@ public class LevelManager : MonoBehaviour
     public List<string> _startingList = new List<string>();
     public List<string> _containingList = new List<string>();
 
+    public bool _levelComplete;
+
 
     //sets the list for the int conditions below
     public List<int> conditionsList = new List<int>();
@@ -70,7 +72,7 @@ public class LevelManager : MonoBehaviour
     {
 
 
-        numberOfConditions = 4;
+        numberOfConditions = 6;
 
         //add the first condition to the rule
         for (int i = 0; i < numberOfConditions; i++)
@@ -88,20 +90,15 @@ public class LevelManager : MonoBehaviour
         _containingList = levelDetails.containingList;
 
 
+        _levelComplete = levelDetails.levelComplete;
 
 
         //RANDOM VERSION
          randomLevelSelection = _levelTypes[Random.Range(0, _levelTypes.Count)];
 
-
-        //IMPORTANT: Level class constructor.
-        //levelSetup = new LevelClass();
-
         //SET VERSION
         //sets up the level parameters. eg. make 3 words that are 3 letters long.
         ConstructLevelParams(randomLevelSelection);
-
-        //set the var in the SO to be the same as what is being added here
 
     }
 
@@ -110,15 +107,18 @@ public class LevelManager : MonoBehaviour
     {
         //this is the data from the level
         levelDescriptionText.text = levelDescription;
+        levelDetails.levelRules = levelDescription;
 
 
     }
 
 
+
+    //set up the rules for the level
     public void ConstructLevelParams(string levelType)
     {
-
-        secondCondition = 4;
+        //this sets the max number of letters in a word
+        secondCondition = conditionsList[Random.RandomRange(3, conditionsList.Count)]; ;
 
         //choose the second condition randomly from the list
         //Debug.Log("Second condition updated: " + secondCondition);
@@ -131,7 +131,6 @@ public class LevelManager : MonoBehaviour
         {
             case "length":
                 levelDescription = "Make " + firstCondition.ToString() + " words using " + secondCondition.ToString() + " letters";
-                levelDetails.levelRules = levelDescription;
 
                 break;
 
@@ -141,7 +140,6 @@ public class LevelManager : MonoBehaviour
                 letterCondition = _endingList[Random.Range(0, _endingList.Count)];
 
                 levelDescription = "Make " + firstCondition.ToString() + " words ending in " + letterCondition;
-                levelDetails.levelRules = levelDescription;
 
                 break;
 
@@ -151,7 +149,6 @@ public class LevelManager : MonoBehaviour
                 letterCondition = _containingList[Random.Range(0, _containingList.Count)];
 
                 levelDescription = "Make " + firstCondition.ToString() + " words containing " + letterCondition;
-                levelDetails.levelRules = levelDescription;
 
                 break;
 
@@ -161,7 +158,6 @@ public class LevelManager : MonoBehaviour
                 letterCondition = _startingList[Random.Range(0, _startingList.Count)];
 
                 levelDescription = "Make " + firstCondition.ToString() + " words starting with " + letterCondition;
-                levelDetails.levelRules = levelDescription;
 
                 break;
         }
@@ -288,7 +284,6 @@ public class LevelManager : MonoBehaviour
         if(firstCondition==0)
         {
             GameManager.Instance.LevelComplete();
-            Debug.Log("Gratz! Level Compelte!");
         }
 
 

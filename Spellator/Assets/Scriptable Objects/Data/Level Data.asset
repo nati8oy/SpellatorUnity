@@ -20,7 +20,9 @@ MonoBehaviour:
   - contains
   - length
   reward: 0
+  levelComplete: 1
   overallLevel: 0
+  levelRules: Make 2 words ending in N
   endingList:
   - B
   - D

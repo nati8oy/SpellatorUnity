@@ -11,6 +11,7 @@ public class Tile : MonoBehaviour
 
     public static TileDisplay tileDisplayAccess;
     public TileBagSO currentBag;
+    public LevelManagerSO levelManager;
     public Animator animator;
 
     //sets whether or not the tile can age
@@ -326,18 +327,26 @@ public class Tile : MonoBehaviour
     public void RemoveTileOnComplete()
     {
 
-
-
-        explosionObject = ObjectPooler.SharedInstance.GetPooledObject("Explosion");
-        if (explosionObject != null)
+        if (levelManager.levelComplete == false)
         {
-            explosionObject.transform.position = gameObject.transform.position;
-            explosionObject.SetActive(true);
 
+            explosionObject = ObjectPooler.SharedInstance.GetPooledObject("Explosion");
+            if (explosionObject != null)
+            {
+                explosionObject.transform.position = gameObject.transform.position;
+                explosionObject.SetActive(true);
+
+
+            }
+
+            popSounds.Play(popAudioSource);
 
         }
+        else
+        {
+            Debug.Log("animations not played");
+        }
 
-        popSounds.Play(popAudioSource);
 
         //set tiles back to inactive so that they can go back into the object pool
         gameObject.SetActive(false);
@@ -360,8 +369,8 @@ public class Tile : MonoBehaviour
 
 
     public void ReduceAge()
-    {
-        spawnedTile.age -= 1;
+    {        
+            spawnedTile.age -= 1;        
     }
 
     //this function needs to be on the tile as it has to have an oncomplete function run

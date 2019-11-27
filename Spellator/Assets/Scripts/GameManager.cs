@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
 
     [Header("Scriptable objects")]
     public TileBagSO currentBag;
+    public LevelManagerSO levelDetails;
+
     [Space]
 
 
@@ -109,9 +111,10 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        //start the game with the level description object active
+        //GameObject.Find("Level Description Screen").SetActive(true);
 
-
-
+        ruleDetailPanel.gameObject.SetActive(true);
         //Auto load the data from the Game State file when the game manager loads
         GetComponent<GameState>().LoadGameData();
         //SaveSystem.LoadGameData();
@@ -150,6 +153,9 @@ public class GameManager : MonoBehaviour
 
     public void ResetGame()
     {
+        //randomly reset the level
+        LevelManager.Instance.ConstructLevelParams(LevelManager.Instance.randomLevelSelection);
+
         TileBag.pointsDictionary.Clear();
         CountDown.timeLeft = 75;
         Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
@@ -175,14 +181,25 @@ public class GameManager : MonoBehaviour
 
     public void LevelComplete()
     {
+        //save the game data
+        GetComponent<GameState>().SaveGameData();
+
+        levelDetails.levelComplete = true;
+        //display the level complete panel
         levelCompleteMenu.gameObject.SetActive(true);
+        Debug.Log("Level complete = " + levelDetails.levelComplete);
 
     }
 
     public void BeginGame()
     {
+        //Debug.Log("button working");
+        GameObject.Find("Level Description Screen").SetActive(false);
+        //ruleDetailPanel.gameObject.SetActive(false);
 
-        ruleDetailPanel.gameObject.SetActive(false);
+
+        
+
     }
 
     public void ResumeGame()

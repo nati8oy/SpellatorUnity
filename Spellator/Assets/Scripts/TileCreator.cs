@@ -34,6 +34,7 @@ public class TileCreator : MonoBehaviour
 
     public void RefillTiles()
     {
+
         //Remember that the object pooler uses TAGS not names of objects to set them active, etc. here.
         newTile = ObjectPooler.SharedInstance.GetPooledObject("Tile");
 
@@ -46,20 +47,26 @@ public class TileCreator : MonoBehaviour
 
         }
 
-        //Remember that the object pooler uses TAGS not names of objects to set them active, etc. here.
-        starParticles = ObjectPooler.SharedInstance.GetPooledObject("Particles");
-        //starParticles.GetComponent<ParticleSystem>().Play();
-
-        if (starParticles != null)
+        if(LevelManager.Instance._levelComplete == true)
         {
-            starParticles.transform.position = gameObject.transform.position;
-           // starParticles.transform.SetParent(gameObject.transform);
-            starParticles.SetActive(true);
-            //available = false;
-            StartCoroutine("CheckIfAlive");
+
+            //Remember that the object pooler uses TAGS not names of objects to set them active, etc. here.
+            starParticles = ObjectPooler.SharedInstance.GetPooledObject("Particles");
+            //starParticles.GetComponent<ParticleSystem>().Play();
+
+
+
+            if (starParticles != null)
+            {
+                starParticles.transform.position = gameObject.transform.position;
+               // starParticles.transform.SetParent(gameObject.transform);
+                starParticles.SetActive(true);
+                //available = false;
+                StartCoroutine("CheckIfAlive");
+
+            }
 
         }
-
 
     }
 

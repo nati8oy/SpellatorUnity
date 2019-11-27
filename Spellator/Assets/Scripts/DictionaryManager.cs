@@ -14,7 +14,7 @@ public class DictionaryManager : MonoBehaviour
     public static DictionaryManager Instance;
     [Header("Scriptable Objects")]
     public ConfigSO wordData;
-
+    public LevelManagerSO levelManager;
 
 
     [Space()]
@@ -24,7 +24,6 @@ public class DictionaryManager : MonoBehaviour
 
     [Space()]
     [Header("Managers")]
-    public GameObject levelManager;
 
     //uses a scritable object to hold the array for on screen messages
     [SerializeField] private MessagingSO encouragementMessages;
@@ -199,19 +198,23 @@ public class DictionaryManager : MonoBehaviour
         selectedTilesArray[selectedTilesArray.Length - 1].tag = "Tile";
 
         //for each of the tiles set a delay and remove them from the screen
-        for (int i = 0; i<selectedTilesArray.Length-1; i++)
-        {
-            var randomY = Random.Range(100, 135);
 
-            //for each tile in the selectedTilesArray set the animator bool to be "true"
-            //selectedTilesArray[i].GetComponent<Tile>().animator.SetBool("clearTile", true);
+        
+            for (int i = 0; i < selectedTilesArray.Length - 1; i++)
+            {
+                var randomY = Random.Range(100, 135);
+
+                //for each tile in the selectedTilesArray set the animator bool to be "true"
+                //selectedTilesArray[i].GetComponent<Tile>().animator.SetBool("clearTile", true);
 
 
-            iTween.MoveBy(selectedTilesArray[i], iTween.Hash("y", randomY, "easetype", "spring", "time", 0.5f, "delay", (0.1f) * (i+1), "oncomplete", "RemoveTileOnComplete"));
+                iTween.MoveBy(selectedTilesArray[i], iTween.Hash("y", randomY, "easetype", "spring", "time", 0.5f, "delay", (0.1f) * (i + 1), "oncomplete", "RemoveTileOnComplete"));
 
-            //  iTween.RotateBy(selectedTilesArray[i], new Vector3(10, 10), 1);
+                //  iTween.RotateBy(selectedTilesArray[i], new Vector3(10, 10), 1);
 
-        }
+            }
+
+        
 
         yield return null;
 
@@ -223,7 +226,7 @@ public class DictionaryManager : MonoBehaviour
     void Start()
     {
 
-
+        //levelManager.levelComplete = false;
 
         //level class constructor
  //       levelData = new LevelClass();

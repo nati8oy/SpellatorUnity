@@ -572,11 +572,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -740,6 +740,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileBGImage: {fileID: 3855893996102124430}
   currentBag: {fileID: 11400000, guid: babe16195cfd0444ebfc431df8bb800d, type: 2}
+  levelManager: {fileID: 11400000, guid: da09913161474424f878bba5ba2d1f98, type: 2}
   animator: {fileID: 8052626522917010101}
   canAge: 1
   letter: {fileID: 781199010286186662}
