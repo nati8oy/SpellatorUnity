@@ -13,11 +13,11 @@ public class TileBagSO : ScriptableObject
 public void RemoveLetterUsed(string letterToRemove)
     {
 
-
         if (letterDictionary.ContainsKey(letterToRemove))
         {
             letterDictionary.Remove(letterToRemove);
             //Debug.Log(letterDictionary.Count + " tile was removed from bag");
+            Debug.Log("Letter removed from bag!" + "bag has" + bag.Count + " tiles remaining" );
 
             if (letterDictionary.Count < 10)
             {

@@ -231,12 +231,20 @@ public class Tile : MonoBehaviour
         } else if (CompareTag("Tile"))
         {
 
-            spawnedTile.letter = currentBag.bag[Random.Range(0, currentBag.bag.Count)];
+            //spawnedTile.letter = currentBag.bag[Random.Range(0, currentBag.bag.Count)];
+            spawnedTile.letter = TileBag.bag[Random.Range(0, TileBag.bag.Count)];
             spawnedTile.points = currentBag.letterDictionary[spawnedTile.letter];
 
-            //spawnedTile.letter = TileBag.bag[Random.Range(0, TileBag.bag.Count)];
+
+
+           //currentBag.bag.Remove(spawnedTile.letter);
+
+            //currentBag.RemoveLetterUsed(spawnedTile.letter);
+           // spawnedTile.letter = TileBag.bag[Random.Range(0, TileBag.bag.Count)];
             //spawnedTile.points = TileBag.pointsDictionary[spawnedTile.letter];
-            //RemoveLetterFromBag();
+            RemoveLetterFromBag();
+            Debug.Log(TileBag.bag.Count);
+
 
 
 
@@ -327,6 +335,9 @@ public class Tile : MonoBehaviour
     public void RemoveTileOnComplete()
     {
 
+        //check if levelComplete in the levelManager SO is true/false
+        //used to make sure that the animations don't play if the level is complete
+
         if (levelManager.levelComplete == false)
         {
 
@@ -344,7 +355,7 @@ public class Tile : MonoBehaviour
         }
         else
         {
-            Debug.Log("animations not played");
+           // Debug.Log("animations not played");
         }
 
 
@@ -362,6 +373,9 @@ public class Tile : MonoBehaviour
     {
         //removes the letters from the bag
         TileBag.bag.Remove(spawnedTile.letter);
+
+       
+
         //TileBag.usedLetters.Add(spawnedTile.letter);
 
 

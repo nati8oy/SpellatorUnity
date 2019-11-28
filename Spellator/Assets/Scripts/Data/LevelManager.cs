@@ -63,13 +63,7 @@ public class LevelManager : MonoBehaviour
         }
 
         Instance = this;
-    }
 
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
 
 
         numberOfConditions = 6;
@@ -88,13 +82,19 @@ public class LevelManager : MonoBehaviour
         _endingList = levelDetails.endingList;
         _startingList = levelDetails.startingList;
         _containingList = levelDetails.containingList;
-
-
         _levelComplete = levelDetails.levelComplete;
 
 
         //RANDOM VERSION
-         randomLevelSelection = _levelTypes[Random.Range(0, _levelTypes.Count)];
+        randomLevelSelection = _levelTypes[Random.Range(0, _levelTypes.Count)];
+
+
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+
 
         //SET VERSION
         //sets up the level parameters. eg. make 3 words that are 3 letters long.

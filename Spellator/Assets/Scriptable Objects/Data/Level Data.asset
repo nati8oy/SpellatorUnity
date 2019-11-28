@@ -22,21 +22,15 @@ MonoBehaviour:
   reward: 0
   levelComplete: 1
   overallLevel: 0
-  levelRules: Make 2 words ending in N
+  levelRules: 
   endingList:
-  - B
+  - L
   - D
   - G
-  - H
-  - K
-  - L
-  - M
   - N
-  - P
   - R
   - S
   - T
-  - W
   - A
   - E
   startingList:
@@ -46,7 +40,6 @@ MonoBehaviour:
   - F
   - G
   - H
-  - K
   - L
   - M
   - N
@@ -81,3 +74,30 @@ MonoBehaviour:
   - W
   - X
   - Y
+  fullList:
+  - A
+  - B
+  - C
+  - D
+  - E
+  - F
+  - G
+  - H
+  - I
+  - J
+  - K
+  - L
+  - M
+  - N
+  - O
+  - P
+  - Q
+  - R
+  - S
+  - T
+  - U
+  - V
+  - W
+  - X
+  - Y
+  - Z

@@ -37,6 +37,8 @@ public class LevelManagerSO : ScriptableObject
     //e.g. make 3 words ending in T
     public string levelRules;
 
+
+    
     //each of the lists from which to choose when a rule is set.
     //rules can only be set for words to end with these letters
     public List<string> endingList = new List<string>();
@@ -46,6 +48,9 @@ public class LevelManagerSO : ScriptableObject
 
     //rules can only be set for words to contain these letters
     public List<string> containingList = new List<string>();
+
+    //all the letters in the alphabet
+    public List<string> fullList = new List<string>();
 
 
 

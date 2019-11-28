@@ -111,6 +111,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+     
         //start the game with the level description object active
         //GameObject.Find("Level Description Screen").SetActive(true);
 
