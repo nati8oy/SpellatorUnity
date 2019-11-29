@@ -36,8 +36,8 @@ public class TileBag
         }
 
     }*/
-   
 
+     
 
     public void AddLettersToDictonary() { 
         pointsDictionary.Add("A", 1);

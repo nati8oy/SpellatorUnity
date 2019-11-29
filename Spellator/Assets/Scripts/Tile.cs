@@ -236,17 +236,14 @@ public class Tile : MonoBehaviour
             spawnedTile.points = currentBag.letterDictionary[spawnedTile.letter];
 
 
+          
 
-           //currentBag.bag.Remove(spawnedTile.letter);
+
+            //currentBag.bag.Remove(spawnedTile.letter);
 
             //currentBag.RemoveLetterUsed(spawnedTile.letter);
-           // spawnedTile.letter = TileBag.bag[Random.Range(0, TileBag.bag.Count)];
+            // spawnedTile.letter = TileBag.bag[Random.Range(0, TileBag.bag.Count)];
             //spawnedTile.points = TileBag.pointsDictionary[spawnedTile.letter];
-            RemoveLetterFromBag();
-            Debug.Log(TileBag.bag.Count);
-
-
-
 
         }
 
@@ -256,8 +253,10 @@ public class Tile : MonoBehaviour
         letter.text = spawnedTile.letter;
         points.text = spawnedTile.points.ToString();
         tilePointValue = spawnedTile.points;
-        
 
+        //remove the letter from the bag (which is removing it from the list)
+        TileBag.bag.Remove(spawnedTile.letter);
+        Debug.Log(TileBag.bag.Count + " Tiles remaining in bag");
 
     }
 
@@ -332,6 +331,7 @@ public class Tile : MonoBehaviour
             }
           //  animator.SetBool("clearTile", false);
     }
+
     public void RemoveTileOnComplete()
     {
 
@@ -368,19 +368,6 @@ public class Tile : MonoBehaviour
 
 
     }
-
-    public void RemoveLetterFromBag()
-    {
-        //removes the letters from the bag
-        TileBag.bag.Remove(spawnedTile.letter);
-
-       
-
-        //TileBag.usedLetters.Add(spawnedTile.letter);
-
-
-    }
-
 
     public void ReduceAge()
     {        

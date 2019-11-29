@@ -298,7 +298,9 @@ public class DictionaryManager : MonoBehaviour
 
     public void CheckAndDeleteTiles()
     {
-        //levelData = new LevelClass();
+
+        GameManager.Instance.CheckBagLevels();
+
         //access the level data function
         //RANDOM VERSION
         LevelManager.Instance.LevelGoalCheck(WordBeingMade, LevelManager.Instance.randomLevelSelection);
@@ -320,7 +322,12 @@ public class DictionaryManager : MonoBehaviour
         correctIcon.SetActive(false);
 
 
-       
+
+
+
+        /////////////////////////////////////////////////////////////////////////////
+        ////THIS IS WHERE THE WORDS ARE CHECKED TO SEE IF THEY ARE VALID OR NOT/////
+        ////////////////////////////////////////////////////////////////////////////
 
 
         if (dictionary.ContainsKey(WordBeingMade))

@@ -111,7 +111,10 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-     
+       
+
+        Debug.Log(TileBag.bag.Count);
+
         //start the game with the level description object active
         //GameObject.Find("Level Description Screen").SetActive(true);
 
@@ -197,8 +200,6 @@ public class GameManager : MonoBehaviour
         //Debug.Log("button working");
         GameObject.Find("Level Description Screen").SetActive(false);
         //ruleDetailPanel.gameObject.SetActive(false);
-
-
         
 
     }
@@ -215,6 +216,21 @@ public class GameManager : MonoBehaviour
         //add the letters to the bag List within the TileBag class
        // TileBag lettersBag = new TileBag();
         
+    }
+
+    public void CheckBagLevels()
+    {
+        // if there's only 20 tiles left, add 179 more from the SO
+        if (TileBag.bag.Count <= 20)
+        {
+            //grab all of the letters in the SO for the bag and put them into the bag
+            foreach (string letter in currentBag.bag)
+            {
+                TileBag.bag.Add(letter);
+                Debug.Log("Tiles have been refilled: " + TileBag.bag.Count + " remaining");
+            }
+        }
+       
     }
 
 
