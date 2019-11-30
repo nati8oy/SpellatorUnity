@@ -256,6 +256,8 @@ public class Tile : MonoBehaviour
 
         //remove the letter from the bag (which is removing it from the list)
         TileBag.bag.Remove(spawnedTile.letter);
+        //refill the tile bag
+        GameManager.Instance.CheckBagLevels();
         Debug.Log(TileBag.bag.Count + " Tiles remaining in bag");
 
     }
@@ -338,7 +340,7 @@ public class Tile : MonoBehaviour
         //check if levelComplete in the levelManager SO is true/false
         //used to make sure that the animations don't play if the level is complete
 
-        if (levelManager.levelComplete == false)
+        if (levelManager.levelComplete == true)
         {
 
             explosionObject = ObjectPooler.SharedInstance.GetPooledObject("Explosion");

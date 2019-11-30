@@ -157,14 +157,15 @@ public class GameManager : MonoBehaviour
 
     public void ResetGame()
     {
-        //randomly reset the level
-        LevelManager.Instance.ConstructLevelParams(LevelManager.Instance.randomLevelSelection);
+        
 
         TileBag.pointsDictionary.Clear();
         CountDown.timeLeft = 75;
         Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
         Points.liveScore = 0;
         Points.totalScore = 0;
+        //randomly reset the level
+        LevelManager.Instance.ConstructLevelParams(LevelManager.Instance.randomLevelSelection);
 
     }
 
@@ -227,7 +228,7 @@ public class GameManager : MonoBehaviour
             foreach (string letter in currentBag.bag)
             {
                 TileBag.bag.Add(letter);
-                Debug.Log("Tiles have been refilled: " + TileBag.bag.Count + " remaining");
+               // Debug.Log("Tiles have been refilled: " + TileBag.bag.Count + " remaining");
             }
         }
        

@@ -299,7 +299,7 @@ public class DictionaryManager : MonoBehaviour
     public void CheckAndDeleteTiles()
     {
 
-        GameManager.Instance.CheckBagLevels();
+       
 
         //access the level data function
         //RANDOM VERSION

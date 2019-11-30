@@ -22,7 +22,7 @@ MonoBehaviour:
   reward: 0
   levelComplete: 1
   overallLevel: 0
-  levelRules: 
+  levelRules: Make 3 words ending in S
   endingList:
   - L
   - D
@@ -47,7 +47,6 @@ MonoBehaviour:
   - R
   - S
   - T
-  - V
   - W
   - Y
   containingList:
