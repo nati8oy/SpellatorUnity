@@ -66,7 +66,7 @@ public class LevelManager : MonoBehaviour
 
 
 
-        numberOfConditions = 6;
+        numberOfConditions = 4;
 
         //add the first condition to the rule
         for (int i = 0; i < numberOfConditions; i++)
@@ -210,7 +210,7 @@ public class LevelManager : MonoBehaviour
 
                 }
 
-                //Debug.Log("letter condition: " + letterCondition + " last letter: " + lastLetter);
+                Debug.Log("letter condition: " + letterCondition + " last letter: " + lastLetter);
 
                 if (letterCondition == lastLetter)
                 {
