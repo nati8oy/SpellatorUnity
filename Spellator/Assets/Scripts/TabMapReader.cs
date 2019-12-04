@@ -48,7 +48,7 @@ public class TabMapReader : MonoBehaviour
                 tab3.SetActive(true);
                 tab4.SetActive(false);
                 break;
-            case "settings":
+            case "shop":
                 //Debug.Log("settings");
                 tab1.SetActive(false);
                 tab2.SetActive(false);

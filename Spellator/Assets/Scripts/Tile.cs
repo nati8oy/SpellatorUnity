@@ -103,27 +103,27 @@ public class Tile : MonoBehaviour
         {
             case 4:
                 //if the age is 4 then use the tiles from the scriptable object within the array
-               tileBGImage.sprite = tileDisplayAccess.tileSkin.TileAgeSprites[0];
+               tileBGImage.sprite = tileDisplayAccess.tileAgeSprites[0];
                 //set the colour of the tile text to be that of the default skin selected colour
                 //letter.color = Color.black;
-               letter.color = tileDisplayAccess.tileSkin.colourOfTileText;
-                points.color = tileDisplayAccess.tileSkin.colourOfTileText;
+               letter.color = tileDisplayAccess.tileTextColour;
+                points.color = tileDisplayAccess.tileTextColour;
                 break;
             case 3:
                 //if the age is 4 then use the tiles from the scriptable object within the array
-               tileBGImage.sprite = tileDisplayAccess.tileSkin.TileAgeSprites[1];
+               tileBGImage.sprite = tileDisplayAccess.tileAgeSprites[1];
                 break;
             case 2:
-                tileBGImage.sprite = tileDisplayAccess.tileSkin.TileAgeSprites[2];
+                tileBGImage.sprite = tileDisplayAccess.tileAgeSprites[2];
                 break;
             case 1:
-                tileBGImage.sprite = tileDisplayAccess.tileSkin.TileAgeSprites[3];
+                tileBGImage.sprite = tileDisplayAccess.tileAgeSprites[3];
                 break;
             case 0:
-                tileBGImage.sprite = tileDisplayAccess.tileSkin.TileAgeSprites[4];
+                tileBGImage.sprite = tileDisplayAccess.tileAgeSprites[4];
                 //set the colour of the tile text to be that of the inactive text within the scriptable object
-                letter.color = tileDisplayAccess.tileSkin.colourOfInactiveText;
-                points.color = tileDisplayAccess.tileSkin.colourOfInactiveText;
+                letter.color = tileDisplayAccess.tileDisabledColour;
+                points.color = tileDisplayAccess.tileDisabledColour;
                 break;
 
         }

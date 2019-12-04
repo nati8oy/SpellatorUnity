@@ -930,12 +930,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileSkin: {fileID: 11400000, guid: f3aef0eed6c3c46d4a9566d3bdae68dd, type: 2}
+  tileSkinType: 0
   tileTextColour: {r: 0, g: 0, b: 0, a: 0}
   tileDisabledColour: {r: 0, g: 0, b: 0, a: 0}
   doubleLetterColour: {r: 0, g: 0, b: 0, a: 0}
   correctWordTextColour: {r: 0, g: 0, b: 0, a: 0}
   tripleLetterColour: {r: 0, g: 0, b: 0, a: 0}
   doubleTileColour: {r: 0, g: 0, b: 0, a: 0}
+  tileAgeSprites: []
   letterText: {fileID: 781199010286186662}
   pointsText: {fileID: 7308423248976456831}
   particles: {fileID: 0}
