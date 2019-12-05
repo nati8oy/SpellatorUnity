@@ -8,7 +8,7 @@ public class TileDisplay : MonoBehaviour
 {
     public TileSkinSO tileSkin;
 
-    public enum TileSkinType{ original, dark};
+    public enum TileSkinType{ original, dark, wood};
 
     public TileSkinType tileSkinType;
 
@@ -42,7 +42,7 @@ public class TileDisplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("there are " + tileSkin.dark_tile_ages.Length + " tile age sprites");
+       // Debug.Log("there are " + tileSkin.dark_tile_ages.Length + " tile age sprites");
 
         switch (tileSkinType)
         {
@@ -79,6 +79,20 @@ public class TileDisplay : MonoBehaviour
                 pointsText.color = tileSkin.dark_tile_text_colour;
                 doubleLetterColour = tileSkin.dark_tile_double_colour;
                 tripleLetterColour = tileSkin.dark_tile_triple_colour;
+
+                break;
+
+            //if the enum is set to dark, use this skin
+            case TileSkinType.wood:
+
+                tileAgeSprites = tileSkin.wood_tile_ages;
+
+                tileDisabledColour = tileSkin.wood_tile_text_inactive;
+                tileTextColour = tileSkin.wood_tile_text_colour;
+                letterText.color = tileSkin.wood_tile_text_colour;
+                pointsText.color = tileSkin.wood_tile_text_colour;
+                doubleLetterColour = tileSkin.wood_tile_double_colour;
+                tripleLetterColour = tileSkin.wood_tile_triple_colour;
 
                 break;
         }

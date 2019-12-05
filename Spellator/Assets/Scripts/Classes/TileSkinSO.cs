@@ -30,13 +30,21 @@ public class TileSkinSO : ScriptableObject
    public Color tripleTileColour;
 
 
-    [Header("Dark Skin")]
+    [Header("Dark")]
     public Sprite[] dark_tile_ages;
     public string dark_tile_name;
     public Color dark_tile_text_colour;
     public Color dark_tile_text_inactive;
     public Color dark_tile_double_colour;
     public Color dark_tile_triple_colour;
+
+    [Header("Wood")]
+    public Sprite[] wood_tile_ages;
+    public string wood_tile_name;
+    public Color wood_tile_text_colour;
+    public Color wood_tile_text_inactive;
+    public Color wood_tile_double_colour;
+    public Color wood_tile_triple_colour;
 
 
 }

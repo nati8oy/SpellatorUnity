@@ -135,8 +135,8 @@ public class Tile : MonoBehaviour
                 break;
             case "double":
               
-                letter.color = tileDisplayAccess.tileSkin.doubleLetterColour;
-                tileBGImage.color = tileDisplayAccess.tileSkin.doubleTileColour;
+                letter.color = tileDisplayAccess.doubleLetterColour;
+                //tileBGImage.color = tileDisplayAccess.doubleTileColour;
 
                 //update the points value of the tile so that it is added correctly to the overall live score
                 adjustedPointValue = spawnedTile.points * 2;
@@ -146,8 +146,8 @@ public class Tile : MonoBehaviour
                 break;
             case "triple":
     
-                letter.color = tileDisplayAccess.tileSkin.tripleLetterColour;
-                tileBGImage.color = tileDisplayAccess.tileSkin.tripleTileColour;
+                letter.color = tileDisplayAccess.tripleLetterColour;
+                //tileBGImage.color = tileDisplayAccess.tripleTileColour;
 
                 //update the points value of the tile so that it is added correctly to the overall live score
                 adjustedPointValue = spawnedTile.points * 3;
@@ -258,7 +258,7 @@ public class Tile : MonoBehaviour
         TileBag.bag.Remove(spawnedTile.letter);
         //refill the tile bag
         GameManager.Instance.CheckBagLevels();
-        Debug.Log(TileBag.bag.Count + " Tiles remaining in bag");
+       // Debug.Log(TileBag.bag.Count + " Tiles remaining in bag");
 
     }
 

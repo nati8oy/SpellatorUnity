@@ -172,7 +172,7 @@ public class LevelManager : MonoBehaviour
 
 
             case "length":
-                //  Debug.Log(firstCondition + " words remaining!");
+                  Debug.Log(firstCondition + " words remaining!");
 
                 if (wordToCheck.Length == secondCondition)
                 {
@@ -193,7 +193,7 @@ public class LevelManager : MonoBehaviour
                 break;
             case "ending":
 
-                //Debug.Log("letter condition: " + letterCondition);
+                Debug.Log("letter condition: " + letterCondition);
 
 
                 //split the lettters in the wordToCheck string and grab the last one
@@ -206,7 +206,7 @@ public class LevelManager : MonoBehaviour
 
                     //gets the start letter of the next word from the most recent word
                     lastLetter = endingCharacters[i];
-                    // Debug.Log("Last letter: "+lastLetter);
+                     //Debug.Log("Last letter: "+lastLetter);
 
                 }
 
@@ -275,12 +275,13 @@ public class LevelManager : MonoBehaviour
                     }
 
 
-                    // Debug.Log("ending rule matched! " + firstCondition + " words remaining");
+                     Debug.Log("ending rule matched! " + firstCondition + " words remaining");
                 }
 
                 break;
         }
 
+        //if the first condition is met (how many words required) then the level is complete
         if(firstCondition==0)
         {
             GameManager.Instance.LevelComplete();
