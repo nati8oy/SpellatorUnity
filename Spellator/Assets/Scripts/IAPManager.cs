@@ -14,6 +14,7 @@ public class IAPManager : MonoBehaviour, IStoreListener
     public string GOLD_50 = "GOLD_50";
     public string GOLD_100 = "GOLD_100";
     public string NO_ADS = "NO_ADS";
+    public string dark_skin = "dark_skin";
 
     void Start()
     {
@@ -54,6 +55,8 @@ public class IAPManager : MonoBehaviour, IStoreListener
         builder.AddProduct(GOLD_50, ProductType.Consumable);
         builder.AddProduct(GOLD_100, ProductType.Consumable);
         // Continue adding the non-consumable product.
+
+        builder.AddProduct(dark_skin, ProductType.NonConsumable);
         builder.AddProduct(NO_ADS, ProductType.NonConsumable);
 
 
@@ -82,6 +85,12 @@ public class IAPManager : MonoBehaviour, IStoreListener
         // Buy the consumable product using its general identifier. Expect a response either 
         // through ProcessPurchase or OnPurchaseFailed asynchronously.
         BuyProductID(GOLD_100);
+    }
+
+    public void BuyDarkSkin()
+    {
+        BuyProductID(dark_skin);
+        
     }
 
     public void BuyNoAds()
@@ -215,6 +224,12 @@ public class IAPManager : MonoBehaviour, IStoreListener
         {
             Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", args.purchasedProduct.definition.id));
             DataManager.Instance.RemoveAds();
+        }
+
+        else if (String.Equals(args.purchasedProduct.definition.id, dark_skin, StringComparison.Ordinal))
+        {
+            Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", args.purchasedProduct.definition.id));
+            DataManager.Instance.BuyDarkSkin();
         }
         // Or ... an unknown product has been purchased by this user. Fill in additional products here....
         else

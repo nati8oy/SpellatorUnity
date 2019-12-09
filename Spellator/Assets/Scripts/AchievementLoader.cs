@@ -13,9 +13,11 @@ public class AchievementLoader : MonoBehaviour
 
         for (int i = 0; i < achievementsToLoad.achievements.Count; i++)
         {
+            //Debug.Log(achievementsToLoad.achievements.Count);
             if (configSO.uniqueWordsList.Count == 10)
             {
                 Debug.Log("10 achievement active");
+                
             }
 
             if (configSO.uniqueWordsList.Count == 20)

@@ -8,7 +8,7 @@ public class TileDisplay : MonoBehaviour
 {
     public TileSkinSO tileSkin;
 
-    public enum TileSkinType{ original, dark, wood};
+    public enum TileSkinType{original, dark, wood};
 
     public TileSkinType tileSkinType;
 

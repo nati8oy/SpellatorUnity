@@ -13,7 +13,12 @@ public class LevelManager : MonoBehaviour
     public TextMeshProUGUI levelDescriptionText;
     public string randomLevelSelection;
 
+    public enum LevelRuleType
+    {
+        wordLength, firstLetter, lastLetter, rhyming
+    }
 
+    public LevelRuleType levelRuleType; 
 
     public static int currentLevel;
     public List<int> allLevels = new List<int>();

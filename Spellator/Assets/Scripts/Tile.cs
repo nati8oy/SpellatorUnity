@@ -7,7 +7,7 @@ public class Tile : MonoBehaviour
 {
 
 
-    [SerializeField] private Image tileBGImage;
+     public Image tileBGImage;
 
     public static TileDisplay tileDisplayAccess;
     public TileBagSO currentBag;
@@ -75,8 +75,6 @@ public class Tile : MonoBehaviour
 
     void Start()
     {
-
-        //gameObject.transform.localScale = new Vector3 (1,1);
 
         //check to see if the tile is the first tile for chain mode words
         if (firstLetterTile == false)
@@ -297,7 +295,6 @@ public class Tile : MonoBehaviour
             if (DictionaryManager.Instance.chainFlag)
             {
                 iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x) + (tileOffset * DictionaryManager.Instance.WordBeingMade.Length)- tileOffset, "y", nextTileSpot.y, "time", 0.5f, "easetype", "easeInOut", "oncomplete", "CheckWordBeingSpelled"));
-
             } else
             {
                 iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x) + (tileOffset * DictionaryManager.Instance.WordBeingMade.Length), "y", nextTileSpot.y, "time", 0.5f, "easetype", "easeInOut", "oncomplete", "CheckWordBeingSpelled"));

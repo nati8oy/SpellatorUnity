@@ -18,7 +18,6 @@ public class GameConfig : MonoBehaviour
     public string longestWord;
     public  string favouriteWordLength;
 
-
     private void Awake()
     {
 

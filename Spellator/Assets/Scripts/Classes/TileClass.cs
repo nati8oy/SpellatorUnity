@@ -25,6 +25,7 @@ public class TileClass
     public static int specialChance;
 
 
+
     public TileClass (Vector3 _startPosition) {
 
         age = 4;

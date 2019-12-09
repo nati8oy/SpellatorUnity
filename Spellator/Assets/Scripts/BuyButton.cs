@@ -8,7 +8,8 @@ public class BuyButton : MonoBehaviour
     public enum ItemType{
         Gold50,
         Gold100,
-        NoAds
+        NoAds,
+        DarkSkin
     }
 
 
@@ -19,7 +20,7 @@ public class BuyButton : MonoBehaviour
     private void Start()
     {
 
-        defaultText = priceText.text;
+       // defaultText = priceText.text;
     }
 
     public void ClickBuy()
@@ -34,6 +35,9 @@ public class BuyButton : MonoBehaviour
                 break;
             case ItemType.NoAds:
                 IAPManager.Instance.BuyNoAds();
+                break;
+            case ItemType.DarkSkin:
+                IAPManager.Instance.BuyDarkSkin();
                 break;
         }
     }
@@ -57,10 +61,15 @@ public class BuyButton : MonoBehaviour
                 loadedPrice = IAPManager.Instance.GetProductPriceFromStore(IAPManager.Instance.NO_ADS);
                 break;
 
-                
+            case ItemType.DarkSkin:
+                loadedPrice = IAPManager.Instance.GetProductPriceFromStore(IAPManager.Instance.dark_skin);
+                break;
+
+
+
         }
 
-        priceText.text = defaultText + " " + loadedPrice; 
+        //priceText.text = defaultText + " " + loadedPrice; 
     }
 
 }

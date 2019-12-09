@@ -6,7 +6,7 @@ using TMPro;
 public class ScrollList : MonoBehaviour
 {
 
-
+    public enum ScrollListType { achievements, shop, words}
     [Header("Scriptable objects")]
     private GameObject listObject;
     public ConfigSO configObject;
@@ -34,6 +34,8 @@ public class ScrollList : MonoBehaviour
     [SerializeField] private GameObject closeButton;
     public bool closeButtonActive;
 
+    public ScrollListType scrollListType;
+
 
     // Start is called before the first frame update
     void Start()
@@ -41,9 +43,9 @@ public class ScrollList : MonoBehaviour
         //get the words out of the scriptable object
         mainWordList = configObject.uniqueWordsList;
 
-        switch (listType)
+        switch (scrollListType)
         {
-            case "word":
+            case ScrollListType.words:
 
 
                 for (int i = 0; i < configObject.uniqueWordsList.Count; i++)
@@ -68,11 +70,28 @@ public class ScrollList : MonoBehaviour
 
                 break;
 
-            case "achievement":
+            case ScrollListType.achievements:
 
                 for (int i = 0; i < listLength; i++)
                 {
                     listObject = ObjectPooler.SharedInstance.GetPooledObject("Achievement");
+                    if (listObject != null)
+                    {
+
+                        listObject.transform.position = gameObject.transform.position;
+                        listObject.transform.SetParent(listTransform.transform);
+                        listObject.SetActive(true);
+
+                    }
+                }
+
+                break;
+
+            case ScrollListType.shop:
+
+                for (int i = 0; i < listLength; i++)
+                {
+                    listObject = ObjectPooler.SharedInstance.GetPooledObject("Shop Item");
                     if (listObject != null)
                     {
 

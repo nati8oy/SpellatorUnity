@@ -33,6 +33,8 @@ public class DictionaryManager : MonoBehaviour
 
     private Text tileText;
 
+  
+
 
     //this sets up the field for which to add the external dictionary txt file
     [SerializeField]
@@ -488,10 +490,19 @@ public class DictionaryManager : MonoBehaviour
 
             //show the icon that indicates that a word is correct
             correctIcon.SetActive(true);
+
+           ///Debug.Log("colour set to red");
+           /*
+            foreach (GameObject selectedTile in selectedTilesArray)
+            {
+                selectedTile.GetComponent<Tile>().tileBGImage.color = Color.red;
+                Debug.Log("colour set to red");
+            }*/
         }
         else
         {
             sendButton.interactable = false;
+
 
             //hide the icon that indicates that a word is correct
             correctIcon.SetActive(false);
@@ -596,6 +607,9 @@ public class DictionaryManager : MonoBehaviour
 
                 //set getStartPos so that it can be used in the coroutine below
 
+                
+                
+
                 var getStartPos = tile.transform.parent.GetComponent<TileCreator>();
                 //connect to the script of each tile, get the startPos from there (which is the starting transform of each Pos holder)
                 //then run the Coroutine from the tile game object. Phew!
@@ -605,6 +619,7 @@ public class DictionaryManager : MonoBehaviour
 
                 //reset the tile tage to "Tile" so it's not "Selected" anymore.
                 tile.tag = "Tile";
+                //tile.GetComponent<Tile>().tileBGImage.color = Color.white;
 
             }
 

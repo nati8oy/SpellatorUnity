@@ -9,6 +9,7 @@ public class DataManager : MonoBehaviour
 
 	private int goldAmount;
 	private bool noAds = false;
+    private bool darkSkinPurchased = false;
 
     void Awake()
     {
@@ -31,4 +32,12 @@ public class DataManager : MonoBehaviour
 		noAds = true;
 		Debug.Log("Ads off: " + noAds);
 	}
+
+    public void BuyDarkSkin()
+    {
+        darkSkinPurchased = true;
+        Debug.Log("Dark Skin bought = " + darkSkinPurchased);
+    }
+
+
 }

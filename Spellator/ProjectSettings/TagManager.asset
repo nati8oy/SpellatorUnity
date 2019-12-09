@@ -17,6 +17,7 @@ TagManager:
   - Achievement
   - Word List
   - Explosion
+  - Shop Item
   layers:
   - Default
   - TransparentFX
