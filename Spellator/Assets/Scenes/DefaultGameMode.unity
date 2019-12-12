@@ -5151,6 +5151,7 @@ GameObject:
   - component: {fileID: 184758120}
   - component: {fileID: 184758119}
   - component: {fileID: 184758118}
+  - component: {fileID: 184758121}
   m_Layer: 5
   m_Name: Send Button
   m_TagString: Untagged
@@ -5228,6 +5229,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 184758121}
+        m_MethodName: TriggerEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &184758119
@@ -5267,6 +5279,65 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 184758116}
   m_CullTransparentMesh: 0
+--- !u!114 &184758121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184758116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -745406591, guid: 220224b43fc464c28bc0e8de8f54a432, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Trigger:
+    m_IsTriggerExpanded: 1
+    m_Type: 1
+    m_LifecycleEvent: 0
+    m_ApplyRules: 0
+    m_Rules:
+      m_Rules: []
+    m_TriggerBool: 0
+    m_InitTime: 5
+    m_RepeatTime: 5
+    m_Repetitions: 0
+    repetitionCount: 0
+  m_EventPayload:
+    m_IsEventExpanded: 1
+    m_StandardEventType: CustomEvent
+    m_Parameters:
+      m_Parameters:
+      - m_RequirementType: 0
+        m_GroupID: 
+        m_Tooltip: 
+        m_Name: Button Press
+        m_Value:
+          m_EditingCustomValue: 0
+          m_PopupIndex: 0
+          m_CustomValue: 
+          m_FixedType: 0
+          m_EnumType: 
+          m_EnumTypeIsCustomizable: 0
+          m_CanDisable: 0
+          m_PropertyType: 1
+          m_ValueType: System.String
+          m_Value: send
+          m_Target:
+            m_Target: {fileID: 0}
+            m_Path: 
+            m_ValidTypeNames:
+            - System.Int32
+            - System.Boolean
+            - System.Decimal
+            - System.Double
+            - System.Single
+            - System.Int64
+            - System.Int16
+            - System.String
+            m_Type: System.String
+            m_EnumType: 
+    m_Name: Send button
 --- !u!1 &363417288
 GameObject:
   m_ObjectHideFlags: 0
@@ -5279,6 +5350,7 @@ GameObject:
   - component: {fileID: 363417292}
   - component: {fileID: 363417291}
   - component: {fileID: 363417290}
+  - component: {fileID: 363417293}
   m_Layer: 5
   m_Name: Delete Button
   m_TagString: Untagged
@@ -5357,6 +5429,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 363417293}
+        m_MethodName: TriggerEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &363417291
@@ -5396,6 +5479,65 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 363417288}
   m_CullTransparentMesh: 0
+--- !u!114 &363417293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 363417288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -745406591, guid: 220224b43fc464c28bc0e8de8f54a432, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Trigger:
+    m_IsTriggerExpanded: 1
+    m_Type: 1
+    m_LifecycleEvent: 0
+    m_ApplyRules: 0
+    m_Rules:
+      m_Rules: []
+    m_TriggerBool: 0
+    m_InitTime: 5
+    m_RepeatTime: 5
+    m_Repetitions: 0
+    repetitionCount: 0
+  m_EventPayload:
+    m_IsEventExpanded: 1
+    m_StandardEventType: CustomEvent
+    m_Parameters:
+      m_Parameters:
+      - m_RequirementType: 0
+        m_GroupID: 
+        m_Tooltip: 
+        m_Name: Button Press
+        m_Value:
+          m_EditingCustomValue: 0
+          m_PopupIndex: 0
+          m_CustomValue: 
+          m_FixedType: 0
+          m_EnumType: 
+          m_EnumTypeIsCustomizable: 0
+          m_CanDisable: 0
+          m_PropertyType: 1
+          m_ValueType: System.String
+          m_Value: delete
+          m_Target:
+            m_Target: {fileID: 0}
+            m_Path: 
+            m_ValidTypeNames:
+            - System.Int32
+            - System.Boolean
+            - System.Decimal
+            - System.Double
+            - System.Single
+            - System.Int64
+            - System.Int16
+            - System.String
+            m_Type: System.String
+            m_EnumType: 
+    m_Name: Delete button
 --- !u!1 &451814312
 GameObject:
   m_ObjectHideFlags: 0
@@ -6417,6 +6559,7 @@ GameObject:
   - component: {fileID: 819426507}
   - component: {fileID: 819426506}
   - component: {fileID: 819426505}
+  - component: {fileID: 819426508}
   m_Layer: 5
   m_Name: Pause Button
   m_TagString: Untagged
@@ -6495,6 +6638,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 819426508}
+        m_MethodName: TriggerEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &819426506
@@ -6534,6 +6688,65 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 819426503}
   m_CullTransparentMesh: 0
+--- !u!114 &819426508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819426503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -745406591, guid: 220224b43fc464c28bc0e8de8f54a432, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Trigger:
+    m_IsTriggerExpanded: 1
+    m_Type: 1
+    m_LifecycleEvent: 0
+    m_ApplyRules: 0
+    m_Rules:
+      m_Rules: []
+    m_TriggerBool: 0
+    m_InitTime: 5
+    m_RepeatTime: 5
+    m_Repetitions: 0
+    repetitionCount: 0
+  m_EventPayload:
+    m_IsEventExpanded: 1
+    m_StandardEventType: CustomEvent
+    m_Parameters:
+      m_Parameters:
+      - m_RequirementType: 0
+        m_GroupID: 
+        m_Tooltip: 
+        m_Name: Button Press
+        m_Value:
+          m_EditingCustomValue: 0
+          m_PopupIndex: 0
+          m_CustomValue: 
+          m_FixedType: 0
+          m_EnumType: 
+          m_EnumTypeIsCustomizable: 0
+          m_CanDisable: 0
+          m_PropertyType: 1
+          m_ValueType: System.String
+          m_Value: pause
+          m_Target:
+            m_Target: {fileID: 0}
+            m_Path: 
+            m_ValidTypeNames:
+            - System.Int32
+            - System.Boolean
+            - System.Decimal
+            - System.Double
+            - System.Single
+            - System.Int64
+            - System.Int16
+            - System.String
+            m_Type: System.String
+            m_EnumType: 
+    m_Name: Pause
 --- !u!1 &857965734 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9158315934212890931, guid: 23c8e898c760d49ea8dc3cba193a3f90,
@@ -7069,7 +7282,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 7349431636452027360}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 7349431636452027361}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f79f7b51d295e4cb19eb237343666dc7, type: 3}
@@ -7680,7 +7893,118 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8813983386240386665, guid: aae49f9c275be46489035101b44b566d,
+        type: 3}
+      propertyPath: m_EventPayload.m_Parameters.m_Parameters.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8813983386240386665, guid: aae49f9c275be46489035101b44b566d,
+        type: 3}
+      propertyPath: m_EventPayload.m_Parameters.m_Parameters.Array.data[0].m_Value.m_Target.m_ValidTypeNames.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8813983386240386665, guid: aae49f9c275be46489035101b44b566d,
+        type: 3}
+      propertyPath: m_EventPayload.m_Parameters.m_Parameters.Array.data[1].m_Value.m_Target.m_ValidTypeNames.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8813983386240386665, guid: aae49f9c275be46489035101b44b566d,
+        type: 3}
+      propertyPath: m_EventPayload.m_Name
+      value: game_over
+      objectReference: {fileID: 0}
+    - target: {fileID: 8813983386240386665, guid: aae49f9c275be46489035101b44b566d,
+        type: 3}
+      propertyPath: m_EventPayload.m_StandardEventType
+      value: GameOver
+      objectReference: {fileID: 0}
+    - target: {fileID: 8813983386240386665, guid: aae49f9c275be46489035101b44b566d,
+        type: 3}
+      propertyPath: m_EventPayload.m_Parameters.m_Parameters.Array.data[0].m_RequirementType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8813983386240386665, guid: aae49f9c275be46489035101b44b566d,
+        type: 3}
+      propertyPath: m_EventPayload.m_Parameters.m_Parameters.Array.data[0].m_Tooltip
+      value: The order of this level within the game.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8813983386240386665, guid: aae49f9c275be46489035101b44b566d,
+        type: 3}
+      propertyPath: m_EventPayload.m_Parameters.m_Parameters.Array.data[0].m_Name
+      value: level_index
+      objectReference: {fileID: 0}
+    - target: {fileID: 8813983386240386665, guid: aae49f9c275be46489035101b44b566d,
+        type: 3}
+      propertyPath: m_EventPayload.m_Parameters.m_Parameters.Array.data[0].m_Value.m_FixedType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8813983386240386665, guid: aae49f9c275be46489035101b44b566d,
+        type: 3}
+      propertyPath: m_EventPayload.m_Parameters.m_Parameters.Array.data[0].m_Value.m_CanDisable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8813983386240386665, guid: aae49f9c275be46489035101b44b566d,
+        type: 3}
+      propertyPath: m_EventPayload.m_Parameters.m_Parameters.Array.data[0].m_Value.m_ValueType
+      value: System.Int32
+      objectReference: {fileID: 0}
+    - target: {fileID: 8813983386240386665, guid: aae49f9c275be46489035101b44b566d,
+        type: 3}
+      propertyPath: m_EventPayload.m_Parameters.m_Parameters.Array.data[0].m_Value.m_Target.m_ValidTypeNames.Array.data[0]
+      value: System.Int32
+      objectReference: {fileID: 0}
+    - target: {fileID: 8813983386240386665, guid: aae49f9c275be46489035101b44b566d,
+        type: 3}
+      propertyPath: m_EventPayload.m_Parameters.m_Parameters.Array.data[0].m_Value.m_Target.m_Type
+      value: System.Int32
+      objectReference: {fileID: 0}
+    - target: {fileID: 8813983386240386665, guid: aae49f9c275be46489035101b44b566d,
+        type: 3}
+      propertyPath: m_EventPayload.m_Parameters.m_Parameters.Array.data[1].m_RequirementType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8813983386240386665, guid: aae49f9c275be46489035101b44b566d,
+        type: 3}
+      propertyPath: m_EventPayload.m_Parameters.m_Parameters.Array.data[1].m_Tooltip
+      value: The level name.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8813983386240386665, guid: aae49f9c275be46489035101b44b566d,
+        type: 3}
+      propertyPath: m_EventPayload.m_Parameters.m_Parameters.Array.data[1].m_Name
+      value: level_name
+      objectReference: {fileID: 0}
+    - target: {fileID: 8813983386240386665, guid: aae49f9c275be46489035101b44b566d,
+        type: 3}
+      propertyPath: m_EventPayload.m_Parameters.m_Parameters.Array.data[1].m_Value.m_FixedType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8813983386240386665, guid: aae49f9c275be46489035101b44b566d,
+        type: 3}
+      propertyPath: m_EventPayload.m_Parameters.m_Parameters.Array.data[1].m_Value.m_CanDisable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8813983386240386665, guid: aae49f9c275be46489035101b44b566d,
+        type: 3}
+      propertyPath: m_EventPayload.m_Parameters.m_Parameters.Array.data[1].m_Value.m_PropertyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8813983386240386665, guid: aae49f9c275be46489035101b44b566d,
+        type: 3}
+      propertyPath: m_EventPayload.m_Parameters.m_Parameters.Array.data[1].m_Value.m_ValueType
+      value: System.String
+      objectReference: {fileID: 0}
+    - target: {fileID: 8813983386240386665, guid: aae49f9c275be46489035101b44b566d,
+        type: 3}
+      propertyPath: m_EventPayload.m_Parameters.m_Parameters.Array.data[1].m_Value.m_Target.m_ValidTypeNames.Array.data[0]
+      value: System.String
+      objectReference: {fileID: 0}
+    - target: {fileID: 8813983386240386665, guid: aae49f9c275be46489035101b44b566d,
+        type: 3}
+      propertyPath: m_EventPayload.m_Parameters.m_Parameters.Array.data[1].m_Value.m_Target.m_Type
+      value: System.String
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8813983386240386665, guid: aae49f9c275be46489035101b44b566d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: aae49f9c275be46489035101b44b566d, type: 3}
 --- !u!1 &1310124866
 GameObject:
@@ -9512,7 +9836,8 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1170923067224213837, guid: 8dd6b9770ec074f5db4b52fbf98d378a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8dd6b9770ec074f5db4b52fbf98d378a, type: 3}
 --- !u!1001 &6609693015708786247
 PrefabInstance:
@@ -9864,6 +10189,71 @@ PrefabInstance:
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf2cb441bcdc54fbba9fdd62fba05c37, type: 3}
+--- !u!1 &7349431636452027361 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7349431635441859142, guid: cf2cb441bcdc54fbba9fdd62fba05c37,
+    type: 3}
+  m_PrefabInstance: {fileID: 7349431636452027360}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7349431636452027362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7349431636452027361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -745406591, guid: 220224b43fc464c28bc0e8de8f54a432, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Trigger:
+    m_IsTriggerExpanded: 1
+    m_Type: 0
+    m_LifecycleEvent: 2
+    m_ApplyRules: 0
+    m_Rules:
+      m_Rules: []
+    m_TriggerBool: 0
+    m_InitTime: 5
+    m_RepeatTime: 5
+    m_Repetitions: 0
+    repetitionCount: 0
+  m_EventPayload:
+    m_IsEventExpanded: 1
+    m_StandardEventType: GameStart
+    m_Parameters:
+      m_Parameters:
+      - m_RequirementType: 0
+        m_GroupID: 
+        m_Tooltip: 
+        m_Name: Screen Loaded
+        m_Value:
+          m_EditingCustomValue: 0
+          m_PopupIndex: 0
+          m_CustomValue: 
+          m_FixedType: 0
+          m_EnumType: 
+          m_EnumTypeIsCustomizable: 0
+          m_CanDisable: 0
+          m_PropertyType: 1
+          m_ValueType: System.String
+          m_Value: game play screen
+          m_Target:
+            m_Target: {fileID: 0}
+            m_Path: 
+            m_ValidTypeNames:
+            - System.Int32
+            - System.Boolean
+            - System.Decimal
+            - System.Double
+            - System.Single
+            - System.Int64
+            - System.Int16
+            - System.String
+            m_Type: System.String
+            m_EnumType: 
+    m_Name: game_start
 --- !u!1001 &8565804046835275397
 PrefabInstance:
   m_ObjectHideFlags: 0

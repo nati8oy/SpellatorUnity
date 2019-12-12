@@ -5,6 +5,7 @@ using TMPro;
 
 public class ScrollList : MonoBehaviour
 {
+    
 
     public enum ScrollListType { achievements, shop, words}
     [Header("Scriptable objects")]
@@ -35,7 +36,6 @@ public class ScrollList : MonoBehaviour
     public bool closeButtonActive;
 
     public ScrollListType scrollListType;
-
 
     // Start is called before the first frame update
     void Start()

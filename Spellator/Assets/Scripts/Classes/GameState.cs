@@ -10,22 +10,24 @@ public class GameState : MonoBehaviour
 	//public Dictionary<string, int> playerWordsMade = new Dictionary<string, int>();
 	public List<string> playerWordsMade = new List<string>();
     public List<int> highScores = new List<int>();
-    public bool musicOn;
-    public bool sfxOn;
+    public bool audioToggle;
 
 
     public void SaveGameData()
     {
+        //get the toggle bool from the Game Manager
+        audioToggle = GameManager.Instance.toggle;
         currentScore = Points.totalScore;
+
 
         //musicOn = wordData.musicOn;
         //sfxOn = wordData.sfxOn;
 
-//        musicOn = GameConfig.Instance.musicOn;
-  //      sfxOn = GameConfig.Instance.sfxOn;
+        //        musicOn = GameConfig.Instance.musicOn;
+        //      sfxOn = GameConfig.Instance.sfxOn;
 
         //playerWordsMade = GameConfig.Instance.uniqueWordsList;
-		playerWordsMade = DictionaryManager.Instance.playerWordsMade;
+        playerWordsMade = DictionaryManager.Instance.playerWordsMade;
 
         //save the high scores
 //        highScores = GameConfig.Instance.highScores;
@@ -43,6 +45,8 @@ public class GameState : MonoBehaviour
     public void LoadGameData()
     {
         PlayerData data = SaveSystem.LoadGameData();
+
+        audioToggle = data.audioToggle;
 
         currentScore = data.currentScore;
 		playerWordsMade = data.playerWordsMade;

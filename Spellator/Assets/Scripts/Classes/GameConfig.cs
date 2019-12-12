@@ -12,6 +12,7 @@ public class GameConfig : MonoBehaviour
     public  bool musicOn;
     public  bool sfxOn;
     public  List<string> uniqueWordsList;
+    public string currentTileSkin;
 
     public List<int> highScores = new List<int>();
 

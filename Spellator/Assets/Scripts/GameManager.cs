@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     [Space]
     //  public string allLetters;
     [SerializeField] public TextAsset externalBagTXT;
+    public bool toggle;
 
 
 
@@ -114,6 +115,19 @@ public class GameManager : MonoBehaviour
        
 
         Debug.Log(TileBag.bag.Count);
+
+        //check if sound is on or not
+        if (toggle)
+        {
+            AudioListener.volume = 1f;
+
+        }
+
+        else
+        {
+            AudioListener.volume = 0f;
+        }
+
 
         //start the game with the level description object active
         //GameObject.Find("Level Description Screen").SetActive(true);
@@ -232,6 +246,22 @@ public class GameManager : MonoBehaviour
             }
         }
        
+    }
+
+    public void ToggleSound()
+    {
+        toggle = !toggle;
+
+        if (toggle)
+        {
+            AudioListener.volume = 1f;
+
+        }
+
+        else
+        {
+            AudioListener.volume = 0f;
+        }
     }
 
 

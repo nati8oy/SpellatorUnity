@@ -9,8 +9,7 @@ public class PlayerData
 
     public int currentScore;
     public List<string> playerWordsMade = new List<string>();
-    public bool musicOn;
-    public bool sfxOn;
+    public bool audioToggle;
     public List<int> highScores = new List<int>();
 
     public PlayerData (GameState gameState)
@@ -19,8 +18,8 @@ public class PlayerData
  
         currentScore = gameState.currentScore;
         playerWordsMade = gameState.playerWordsMade;
-        musicOn = gameState.musicOn;
-        sfxOn = gameState.sfxOn;
+        audioToggle = gameState.audioToggle;
+
     }
 }
     
