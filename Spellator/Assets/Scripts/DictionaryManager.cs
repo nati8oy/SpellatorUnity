@@ -52,7 +52,7 @@ public class DictionaryManager : MonoBehaviour
     private Dictionary<string, int> dictionary = new Dictionary<string, int>();
 
 
-    private Transitions fadeManager;
+//    private Transitions fadeManager;
 
     [Space()]
     [Header("Particle Systems")]
@@ -241,7 +241,7 @@ public class DictionaryManager : MonoBehaviour
       //  musicOn = wordData.musicOn;
        // sfxOn = wordData.sfxOn;
 
-        fadeManager = GameObject.Find("Fade Manager").GetComponent<Transitions>();
+//        fadeManager = GameObject.Find("Fade Manager").GetComponent<Transitions>();
 
         correctWordParticles.Stop();
         healthUpParticles.Stop();
@@ -290,7 +290,7 @@ public class DictionaryManager : MonoBehaviour
         }
 
         
-        currentLevel.text = playerWordsMade.Count.ToString();
+       currentLevel.text = playerWordsMade.Count.ToString();
 
 
 
@@ -388,7 +388,7 @@ public class DictionaryManager : MonoBehaviour
             {
                 ShowMessage("encouragement");
                 //this chooses the kind of cross fade or screen flash to use
-                fadeManager.FadeType(fadeManager._flashColour, fadeManager.pulseSpeed);
+               // fadeManager.FadeType(fadeManager._flashColour, fadeManager.pulseSpeed);
 
             }
 

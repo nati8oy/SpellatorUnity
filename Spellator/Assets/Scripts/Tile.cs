@@ -96,7 +96,7 @@ public class Tile : MonoBehaviour
 
     private void Update()
     {
-
+        
         switch (spawnedTile.age)
         {
             case 4:
@@ -125,7 +125,7 @@ public class Tile : MonoBehaviour
                 break;
 
         }
-
+        
         switch (spawnedTile.specialAttribute)
         {
             case "heart":
