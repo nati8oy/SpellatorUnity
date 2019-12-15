@@ -22,11 +22,22 @@ public class LevelChanger : MonoBehaviour
 
         Instance = this;
     }
+    
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.A))
+        {
+            FadeToLevel(1);
+        }
 
+    }
+    
 
     public void FadeToLevel(int levelIndex)
     {
         levelToLoad = levelIndex;
+        Debug.Log("faded to level");
+
         animator.SetTrigger("FadeOut");
     }
 
