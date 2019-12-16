@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelChanger : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class LevelChanger : MonoBehaviour
     public Animator animator;
 
 
+   // public Button startButton;
 
     void Awake()
     {
@@ -22,7 +24,13 @@ public class LevelChanger : MonoBehaviour
 
         Instance = this;
     }
-    
+
+    private void Start()
+    {
+//        startButton.onClick.AddListener(delegate { FadeToLevel(1); });
+
+    }
+
     private void Update()
     {
         if (Input.GetKey(KeyCode.A))
@@ -36,13 +44,25 @@ public class LevelChanger : MonoBehaviour
     public void FadeToLevel(int levelIndex)
     {
         levelToLoad = levelIndex;
-        Debug.Log("faded to level");
-
         animator.SetTrigger("FadeOut");
+
+        //Debug.Log("faded to level with the levelIndex of "  +   levelIndex) ;
+        //Debug.Log("level to load " + levelToLoad);
+
+
     }
 
     public void OnFadeComplete()
     {
+        Debug.Log("Level Loaded");
         SceneManager.LoadScene(levelToLoad);
+
+    }
+
+    public void LoadLevel(int levelIndex)
+    {
+        levelToLoad = levelIndex;
+       //animator.SetTrigger("StartFade");
+        SceneManager.LoadScene(levelIndex);
     }
 }

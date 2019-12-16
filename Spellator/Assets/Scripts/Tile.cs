@@ -17,6 +17,8 @@ public class Tile : MonoBehaviour
     //sets whether or not the tile can age
     public bool canAge = true;
 
+    public ParticleSystem tileParticles;
+
     public TextMeshProUGUI letter;
     public TextMeshProUGUI points;
 
@@ -72,9 +74,9 @@ public class Tile : MonoBehaviour
     private int positionInWord;
 
 
-
     void Start()
     {
+        tileParticles.Stop();
 
         //check to see if the tile is the first tile for chain mode words
         if (firstLetterTile == false)
@@ -198,8 +200,13 @@ public class Tile : MonoBehaviour
 
     private void OnEnable()
     {
+        animator.SetBool("clearTile", false);
 
-      //  animator.SetBool("clearTile", false);
+        if (animator.GetBool("clearTile") == true)
+        {
+            Debug.Log(animator.GetBool("clearTile"));
+        }
+
         
 
 
@@ -268,7 +275,13 @@ public class Tile : MonoBehaviour
     public void HandleClick()
 
 
+
     {
+        tileParticles.Play();
+
+        tileParticles.Play();
+
+
         AudioManager.Instance.PlayAudio(tileClick);
 
         //check if the tile is selected or not. If it's not tagged as "selected" then add it to the word being made.
@@ -377,6 +390,7 @@ public class Tile : MonoBehaviour
     //this oncomplete refills the tiles via the TileCreator
     public void DropTile()
     {
+
         var randomTime = Random.Range(0.5f, 1f);
         var randomDistance = Random.Range(-500, -800);
 
@@ -420,9 +434,6 @@ public class Tile : MonoBehaviour
 
         //reset the tile age
         spawnedTile.age = 4;
-
-
-
 
     }
 

@@ -57,7 +57,6 @@ public class DictionaryManager : MonoBehaviour
     [Space()]
     [Header("Particle Systems")]
     private ParticleSystem starParticles;
-    [SerializeField] private ParticleSystem correctWordParticles;
     private ParticleSystem heartParticles;
     [SerializeField] private ParticleSystem healthUpParticles;
 
@@ -206,11 +205,10 @@ public class DictionaryManager : MonoBehaviour
             {
                 var randomY = Random.Range(100, 135);
 
-                //for each tile in the selectedTilesArray set the animator bool to be "true"
-                //selectedTilesArray[i].GetComponent<Tile>().animator.SetBool("clearTile", true);
+            //for each tile in the selectedTilesArray set the animator bool to be "true"
+            //selectedTilesArray[i].GetComponent<Tile>().animator.SetBool("clearTile", true);
 
-
-                iTween.MoveBy(selectedTilesArray[i], iTween.Hash("y", randomY, "easetype", "spring", "time", 0.5f, "delay", (0.1f) * (i + 1), "oncomplete", "RemoveTileOnComplete"));
+            iTween.MoveBy(selectedTilesArray[i], iTween.Hash("y", randomY, "easetype", "spring", "time", 0.5f, "delay", (0.1f) * (i + 1), "oncomplete", "RemoveTileOnComplete"));
                 
                 //  iTween.RotateBy(selectedTilesArray[i], new Vector3(10, 10), 1);
 
@@ -243,7 +241,6 @@ public class DictionaryManager : MonoBehaviour
 
 //        fadeManager = GameObject.Find("Fade Manager").GetComponent<Transitions>();
 
-        correctWordParticles.Stop();
         healthUpParticles.Stop();
         //display the level which is the number of unique words made
         currentLevel = GameObject.Find("Level").GetComponent<TextMeshProUGUI>();
@@ -311,8 +308,6 @@ public class DictionaryManager : MonoBehaviour
        // levelData.LevelGoalCheck(WordBeingMade, "starting");
 
 
-        //play the particle effects for a correct word
-        correctWordParticles.Play();
 
         //reduce the age of all the remaining tiles on the board
         ReduceAge();
@@ -411,6 +406,9 @@ public class DictionaryManager : MonoBehaviour
                     //update the player health based on the tile points amount
                     healthBar.GetComponent<PlayerHealth>().Heal(tile.GetComponent<Tile>().spawnedTile.points);
                     healthUpParticles.Play();
+
+
+
                    
                 }
                 
@@ -684,18 +682,6 @@ public class DictionaryManager : MonoBehaviour
                 iTween.FadeTo(messageParentObject, iTween.Hash("alpha", 1, "amount",1, "easeType", "easeInOutExpo", "oncomplete", "DeactivateMessage"));;
 
                 break;
-
-            case "time":
-                //set the message text to be a random one from the EncouragementMessage list
-                message = "Time++";
-
-                messageObject.text = message;
-                //messageObject.color = Color.red;
-
-                //tween the parent object so that it moves up when spawned.
-                iTween.MoveBy(messageParentObject, iTween.Hash("y", 60, "easeType", "easeInOutExpo", "oncomplete", "DeactivateMessage"));
-                break;
-
 
         }
 
