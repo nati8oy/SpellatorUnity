@@ -13,6 +13,7 @@ public class Tile : MonoBehaviour
     public TileBagSO currentBag;
     public LevelManagerSO levelManager;
     public Animator animator;
+    public ParticleSystem twinkleParticles;
 
     //sets whether or not the tile can age
     public bool canAge = true;
@@ -75,7 +76,7 @@ public class Tile : MonoBehaviour
 
     void Start()
     {
-
+        twinkleParticles.Stop();
         //check to see if the tile is the first tile for chain mode words
         if (firstLetterTile == false)
         {
@@ -269,6 +270,7 @@ public class Tile : MonoBehaviour
 
 
     {
+        twinkleParticles.Play();
         AudioManager.Instance.PlayAudio(tileClick);
 
         //check if the tile is selected or not. If it's not tagged as "selected" then add it to the word being made.
