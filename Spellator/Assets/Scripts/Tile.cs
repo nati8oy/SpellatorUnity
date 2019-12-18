@@ -9,6 +9,8 @@ public class Tile : MonoBehaviour
 
      public Image tileBGImage;
 
+    private PlayerHealth healthHandler;
+
     public static TileDisplay tileDisplayAccess;
     public TileBagSO currentBag;
     public LevelManagerSO levelManager;
@@ -91,7 +93,7 @@ public class Tile : MonoBehaviour
         tileDisplayAccess = GetComponent<TileDisplay>();
 
 
-
+        healthHandler = GameObject.Find("HealthBar").GetComponent<PlayerHealth>();
 
     }
 
@@ -398,7 +400,9 @@ public class Tile : MonoBehaviour
 
         //Camera.main.GetComponent<PlayerHealth>().DealDamage(spawnedTile.points);
 
-        GameObject.Find("HealthBar").GetComponent<PlayerHealth>().DealDamage(spawnedTile.points);
+        //uses a cached reference for performance reasons 
+        healthHandler.DealDamage(spawnedTile.points);
+        //GameObject.Find("HealthBar").GetComponent<PlayerHealth>().DealDamage(spawnedTile.points);
 
         removeTileAudio.Play(smashAudioSource);
         //AudioManager.Instance.PlayAudio(smashSounds[Random.Range(0,smashSounds.Length)]);
