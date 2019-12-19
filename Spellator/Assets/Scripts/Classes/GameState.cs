@@ -17,6 +17,7 @@ public class GameState : MonoBehaviour
     {
         //get the toggle bool from the Game Manager
         audioToggle = GameManager.Instance.toggle;
+        Debug.Log("audio toggle being saved as " + GameManager.Instance.toggle);
         currentScore = Points.totalScore;
 
 

@@ -112,9 +112,11 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-       
+        //toggle = true;
+        //Auto load the data from the Game State file when the game manager loads
+        GetComponent<GameState>().LoadGameData();
 
-        Debug.Log(TileBag.bag.Count);
+        Debug.Log("audio toggle on load is " + toggle);
 
         //check if sound is on or not
         if (toggle)
@@ -127,14 +129,13 @@ public class GameManager : MonoBehaviour
         {
             AudioListener.volume = 0f;
         }
-
+        
 
         //start the game with the level description object active
         //GameObject.Find("Level Description Screen").SetActive(true);
 
         ruleDetailPanel.gameObject.SetActive(true);
-        //Auto load the data from the Game State file when the game manager loads
-        GetComponent<GameState>().LoadGameData();
+        
         //SaveSystem.LoadGameData();
 
 
@@ -252,6 +253,7 @@ public class GameManager : MonoBehaviour
     {
         toggle = !toggle;
 
+        Debug.Log("toggle is now " + toggle);
         if (toggle)
         {
             AudioListener.volume = 1f;
