@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using EZCameraShake;
 
 public class DictionaryManager : MonoBehaviour
 {
@@ -33,8 +34,9 @@ public class DictionaryManager : MonoBehaviour
 
     private Text tileText;
 
-  
 
+    public int starsTotal;
+    public TextMeshProUGUI starTotalText;
 
     //this sets up the field for which to add the external dictionary txt file
     [SerializeField]
@@ -288,10 +290,12 @@ public class DictionaryManager : MonoBehaviour
         {
             multiplierText.text = "";
         }
-
         
+        //set the current level (number of words) to be that of what is coming from the playerWordsMade var
         currentLevel.text = playerWordsMade.Count.ToString();
 
+        //set the text in the stars total text section to be the right amount.
+        starTotalText.text = starsTotal.ToString();
 
 
 
@@ -300,8 +304,9 @@ public class DictionaryManager : MonoBehaviour
 
     public void CheckAndDeleteTiles()
     {
+      
+        Debug.Log("Premium currency total: " + starsTotal);
 
-       
 
         //access the level data function
         //RANDOM VERSION
@@ -376,11 +381,11 @@ public class DictionaryManager : MonoBehaviour
 
 
 
-            else if (WordBeingMade.Length <= 3)
-        {
-            Points.multiplier = 1;
-            multiplierText.text = "";
-        }
+                else if (WordBeingMade.Length <= 3)
+            {
+                Points.multiplier = 1;
+                multiplierText.text = "";
+            }
 
 
             //add on screen encouragement for words above 5 letters

@@ -11,12 +11,14 @@ public class GameState : MonoBehaviour
 	public List<string> playerWordsMade = new List<string>();
     public List<int> highScores = new List<int>();
     public bool audioToggle;
+    public int premiumCurrency;
 
 
     public void SaveGameData()
     {
         //get the toggle bool from the Game Manager
         audioToggle = GameManager.Instance.toggle;
+        premiumCurrency = DictionaryManager.Instance.starsTotal;
         Debug.Log("audio toggle being saved as " + GameManager.Instance.toggle);
         currentScore = Points.totalScore;
 
@@ -51,21 +53,24 @@ public class GameState : MonoBehaviour
 
         currentScore = data.currentScore;
 		playerWordsMade = data.playerWordsMade;
+        premiumCurrency = data.premiumCurrency;
 
         //load the list of unique words
 
         DictionaryManager.Instance.playerWordsMade = data.playerWordsMade;
+        DictionaryManager.Instance.starsTotal = data.premiumCurrency;
         //GameConfig.Instance.uniqueWordsList = data.playerWordsMade;
 
         //load the high scores
 
-//        GameConfig.Instance.highScores = data.highScores;
+        //        GameConfig.Instance.highScores = data.highScores;
 
         // sfxOn = data.sfxOn;
         // musicOn = data.musicOn;
 
-        
+
         Debug.Log("Loaded dictionary length is " + data.playerWordsMade.Count);
+        Debug.Log("Premium currenct total: " + data.premiumCurrency);
 
         //Debug.Log("Audio state: " + "sfx = " + sfxOn + " music = " + musicOn);
 

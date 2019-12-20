@@ -69,6 +69,10 @@ public class LevelClass
         //choose the first condition randomly from the list
         firstCondition = conditionsList[Random.RandomRange(1, conditionsList.Count)];
 
+        //set the level reward to be the first condition
+        reward = firstCondition;
+        Debug.Log("level reward is " + reward);
+
 
         switch (levelType)
         {
@@ -112,10 +116,12 @@ public class LevelClass
 
         //Debug.Log("current goal check is: " + checkCriteria);
 
+      
 
         switch (checkCriteria)
         {
 
+            
 
             case "length":
                 //  Debug.Log(firstCondition + " words remaining!");
@@ -134,6 +140,8 @@ public class LevelClass
                 }
 
                 levelDescription = "Make " + firstCondition.ToString() + " words using " + secondCondition.ToString() + " letters";
+
+                
 
 
                 break;
