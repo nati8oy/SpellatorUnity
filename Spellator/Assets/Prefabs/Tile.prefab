@@ -5733,7 +5733,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileSkin: {fileID: 11400000, guid: f3aef0eed6c3c46d4a9566d3bdae68dd, type: 2}
-  tileSkinType: 1
+  tileSkinType: 0
   tileTextColour: {r: 0, g: 0, b: 0, a: 0}
   tileDisabledColour: {r: 0, g: 0, b: 0, a: 0}
   doubleLetterColour: {r: 0, g: 0, b: 0, a: 0}
