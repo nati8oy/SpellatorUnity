@@ -351,6 +351,7 @@ public class Tile : MonoBehaviour
                 explosionObject.SetActive(true);
 
 
+
             }
 
             popSounds.Play(popAudioSource);

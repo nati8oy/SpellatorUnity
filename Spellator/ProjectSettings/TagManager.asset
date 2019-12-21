@@ -18,6 +18,7 @@ TagManager:
   - Word List
   - Explosion
   - Shop Item
+  - Smoke
   layers:
   - Default
   - TransparentFX

@@ -201,6 +201,7 @@ public class GameManager : MonoBehaviour
 
     public void LevelComplete()
     {
+        //update the total stars in your kitty.
         DictionaryManager.Instance.starsTotal += 2;
         //save the game data
         GetComponent<GameState>().SaveGameData();

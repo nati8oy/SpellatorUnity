@@ -8,7 +8,7 @@ public class TileCreator : MonoBehaviour
     public Transform startPos;
     private TileSpawnerClass tileSpawner;
 
-    private GameObject starParticles;
+    private GameObject smokeParticles;
 
     private bool available = true;
 
@@ -52,16 +52,16 @@ public class TileCreator : MonoBehaviour
         {
 
             //Remember that the object pooler uses TAGS not names of objects to set them active, etc. here.
-            starParticles = ObjectPooler.SharedInstance.GetPooledObject("Particles");
-            //starParticles.GetComponent<ParticleSystem>().Play();
+            smokeParticles = ObjectPooler.SharedInstance.GetPooledObject("Smoke");
+            //smokeParticles.GetComponent<ParticleSystem>().Play();
 
 
 
-            if (starParticles != null)
+            if (smokeParticles != null)
             {
-                starParticles.transform.position = gameObject.transform.position;
-               // starParticles.transform.SetParent(gameObject.transform);
-                starParticles.SetActive(true);
+                smokeParticles.transform.position = gameObject.transform.position;
+               // smokeParticles.transform.SetParent(gameObject.transform);
+                smokeParticles.SetActive(true);
                 //available = false;
                 StartCoroutine("CheckIfAlive");
 
@@ -77,7 +77,7 @@ public class TileCreator : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(2f);
-            starParticles.SetActive(false);
+            smokeParticles.SetActive(false);
             StopCoroutine("CheckIfAlive");
         }
     }
