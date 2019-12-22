@@ -46,7 +46,7 @@ public class TileCreator : MonoBehaviour
             //available = false;
 
         }
-
+        Debug.Log(LevelManager.Instance._levelComplete);
         //don't add the particles if the level is complete
         if(LevelManager.Instance._levelComplete == true)
         {
@@ -54,8 +54,6 @@ public class TileCreator : MonoBehaviour
             //Remember that the object pooler uses TAGS not names of objects to set them active, etc. here.
             smokeParticles = ObjectPooler.SharedInstance.GetPooledObject("Smoke");
             //smokeParticles.GetComponent<ParticleSystem>().Play();
-
-
 
             if (smokeParticles != null)
             {

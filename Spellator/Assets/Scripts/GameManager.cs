@@ -37,9 +37,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] public TextAsset externalBagTXT;
     public bool toggle;
 
+    [SerializeField] private ParticleSystem levelCompleteParticles;
 
 
-  
+
+
+
     private SpecialMeterClass specialMeter = new SpecialMeterClass();
 
     public ConfigSO configData;
@@ -112,6 +115,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+
+        levelCompleteParticles.Stop();
+
         //toggle = true;
         //Auto load the data from the Game State file when the game manager loads
         GetComponent<GameState>().LoadGameData();
@@ -203,6 +209,8 @@ public class GameManager : MonoBehaviour
     {
         //update the total stars in your kitty.
         DictionaryManager.Instance.starsTotal += 2;
+        levelCompleteParticles.Play();
+
         //save the game data
         GetComponent<GameState>().SaveGameData();
 
