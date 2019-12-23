@@ -122,6 +122,7 @@ public class GameManager : MonoBehaviour
         //Auto load the data from the Game State file when the game manager loads
         GetComponent<GameState>().LoadGameData();
 
+        /*
         Debug.Log("audio toggle on load is " + toggle);
 
         //check if sound is on or not
@@ -135,7 +136,7 @@ public class GameManager : MonoBehaviour
         {
             AudioListener.volume = 0f;
         }
-        
+        */
 
         //start the game with the level description object active
         //GameObject.Find("Level Description Screen").SetActive(true);
@@ -172,7 +173,7 @@ public class GameManager : MonoBehaviour
     {
 
         gameOverPanel.gameObject.SetActive(true);
-        AudioManager.Instance.PlayAudio(gameOverAudio);
+        AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxGeneral[5]);
 
     }
 

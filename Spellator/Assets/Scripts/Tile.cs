@@ -20,6 +20,9 @@ public class Tile : MonoBehaviour
     //sets whether or not the tile can age
     public bool canAge = true;
 
+
+    public AudioSO audioScriptableObject; 
+
     public TextMeshProUGUI letter;
     public TextMeshProUGUI points;
 
@@ -40,7 +43,7 @@ public class Tile : MonoBehaviour
 
     private TileBag tileBag = new TileBag();
 
-    [SerializeField] private AudioClip tileClick;
+    //[SerializeField] private AudioClip tileClick;
     [SerializeField] private GameObject specialIcon;
 
     //public AudioClip[] popSounds;
@@ -273,7 +276,7 @@ public class Tile : MonoBehaviour
 
     {
         twinkleParticles.Play();
-        AudioManager.Instance.PlayAudio(tileClick);
+        AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxTilePops[3]);
 
         //check if the tile is selected or not. If it's not tagged as "selected" then add it to the word being made.
         if (CompareTag("Tile"))
@@ -354,7 +357,8 @@ public class Tile : MonoBehaviour
 
             }
 
-            popSounds.Play(popAudioSource);
+            AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxTilePops[Random.Range(0,6)]);
+            //popSounds.Play(popAudioSource);
 
         }
         else
@@ -405,7 +409,9 @@ public class Tile : MonoBehaviour
         healthHandler.DealDamage(spawnedTile.points);
         //GameObject.Find("HealthBar").GetComponent<PlayerHealth>().DealDamage(spawnedTile.points);
 
-        removeTileAudio.Play(smashAudioSource);
+        //removeTileAudio.Play(smashAudioSource);
+
+        AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxTileCrashes[Random.Range(0,6)]);
         //AudioManager.Instance.PlayAudio(smashSounds[Random.Range(0,smashSounds.Length)]);
 
         gameObject.SetActive(false);

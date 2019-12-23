@@ -5551,6 +5551,8 @@ MonoBehaviour:
   animator: {fileID: 8052626522917010101}
   twinkleParticles: {fileID: 8414099629685575350}
   canAge: 1
+  audioScriptableObject: {fileID: 11400000, guid: a03b5a1d54d67443bae10bdddb04d364,
+    type: 2}
   letter: {fileID: 781199010286186662}
   points: {fileID: 7308423248976456831}
   adjustedPointValue: 0
@@ -5559,7 +5561,6 @@ MonoBehaviour:
   smashAudioSource: {fileID: 2354001267598800883}
   popAudioSource: {fileID: 2354001267598800883}
   firstLetterTile: 0
-  tileClick: {fileID: 8300000, guid: ec0cf2de9da0741a08b887b79c11614c, type: 3}
   specialIcon: {fileID: 1494288407093416192}
   nextTileSpot: {x: 0, y: 0, z: 0}
 --- !u!114 &7629360241887565636

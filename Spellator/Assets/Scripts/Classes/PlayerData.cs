@@ -19,7 +19,7 @@ public class PlayerData
  
         currentScore = gameState.currentScore;
         playerWordsMade = gameState.playerWordsMade;
-       audioToggle = gameState.audioToggle;
+     // audioToggle = gameState.audioToggle;
         premiumCurrency = gameState.premiumCurrency;
 
     }

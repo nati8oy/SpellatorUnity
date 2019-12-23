@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b50191b44bd94e1cb8b5558cdb84eeb, type: 3}
+  m_Name: Audio Object
+  m_EditorClassIdentifier: 
+  volume: 1
+  musicBackgroundMusic:
+  - {fileID: 8300000, guid: 8ba7dae0e930f4ecd99e5af309148ee7, type: 3}
+  - {fileID: 8300000, guid: c6d77c13464264c9e9ca3d2cddd3e3a9, type: 3}
+  - {fileID: 8300000, guid: b12fd28f65aad4853807f27907887dcf, type: 3}
+  sfxGeneral:
+  - {fileID: 8300000, guid: 5a863d36171ec43ad8f28dee819c539c, type: 3}
+  - {fileID: 8300000, guid: fa9101c28edb646048855477a519f6a9, type: 3}
+  - {fileID: 8300000, guid: a5992ba9e416945ceb9a5f6384a97f7f, type: 3}
+  - {fileID: 8300000, guid: a2f9acc43f6a643aeb38807bd06707b9, type: 3}
+  - {fileID: 8300000, guid: fab89a4e75ee24539a3ad1f9106f514f, type: 3}
+  - {fileID: 8300000, guid: 199442004b5c14c4a9f6012ed4e5c602, type: 3}
+  - {fileID: 8300000, guid: 540952593469a45aa92dc621bc4f09a7, type: 3}
+  - {fileID: 8300000, guid: fd99d07e81ffd474bba1f756298fcc07, type: 3}
+  - {fileID: 8300000, guid: 67b32cf4eafd14cdd9e30630af110a71, type: 3}
+  - {fileID: 8300000, guid: c359a46bafd8245dd84e812c390562d3, type: 3}
+  - {fileID: 8300000, guid: df079aa2ff65f498f8996d6caf42c242, type: 3}
+  sfxBigScore: []
+  sfxTilePops:
+  - {fileID: 8300000, guid: be0bebc2341164f3baa2f1b634d10fee, type: 3}
+  - {fileID: 8300000, guid: d98271a2ef3ec4f94be8b03b1f3d4078, type: 3}
+  - {fileID: 8300000, guid: 2da4272e8e6b2474cb7472caa8a1db94, type: 3}
+  - {fileID: 8300000, guid: ec0cf2de9da0741a08b887b79c11614c, type: 3}
+  - {fileID: 8300000, guid: bc0828e099bbb4743b0d1703f2f03c2b, type: 3}
+  - {fileID: 8300000, guid: a650b463cd5814f20aebd28e8be33277, type: 3}
+  - {fileID: 8300000, guid: 35a20f933f020402e8486b5482a119ff, type: 3}
+  sfxTileCrashes:
+  - {fileID: 8300000, guid: 06119bc57ac00426886751d88f781867, type: 3}
+  - {fileID: 8300000, guid: 0a441d13bf39b41a59ab77249b4ae694, type: 3}
+  - {fileID: 8300000, guid: 82a216fa77b3c43f3b29fbb4844dc03e, type: 3}
+  - {fileID: 8300000, guid: 41c105bb6675043df8b85547c3f6d4bc, type: 3}
+  - {fileID: 8300000, guid: b3d07f003efbf4821abde7e226a7114d, type: 3}
+  - {fileID: 8300000, guid: 803a8dfcc312f4ee6bcf2da8b38278fa, type: 3}
+  - {fileID: 8300000, guid: 55c076fd0913348968225aa2053dd095, type: 3}
+  sfxUserInterface: []

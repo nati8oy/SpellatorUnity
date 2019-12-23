@@ -17,9 +17,9 @@ public class GameState : MonoBehaviour
     public void SaveGameData()
     {
         //get the toggle bool from the Game Manager
-        audioToggle = GameManager.Instance.toggle;
+       // audioToggle = GameManager.Instance.toggle;
         premiumCurrency = DictionaryManager.Instance.starsTotal;
-        Debug.Log("audio toggle being saved as " + GameManager.Instance.toggle);
+       // Debug.Log("audio toggle being saved as " + GameManager.Instance.toggle);
         currentScore = Points.totalScore;
 
 
@@ -49,7 +49,7 @@ public class GameState : MonoBehaviour
     {
         PlayerData data = SaveSystem.LoadGameData();
 
-        audioToggle = data.audioToggle;
+       // audioToggle = data.audioToggle;
 
         currentScore = data.currentScore;
 		playerWordsMade = data.playerWordsMade;
