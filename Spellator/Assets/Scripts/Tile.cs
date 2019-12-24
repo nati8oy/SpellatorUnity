@@ -357,7 +357,7 @@ public class Tile : MonoBehaviour
 
             }
 
-            AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxTilePops[Random.Range(0,6)]);
+            AudioManager.Instance.PlayAudioWithSource(AudioManager.Instance.sfxTilePops[Random.Range(0,6)], popAudioSource, Random.Range(0.1f, 1f));
             //popSounds.Play(popAudioSource);
 
         }
@@ -411,7 +411,12 @@ public class Tile : MonoBehaviour
 
         //removeTileAudio.Play(smashAudioSource);
 
-        AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxTileCrashes[Random.Range(0,6)]);
+       //AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxTileCrashes[Random.Range(0,6)]);
+
+        //play audio using a separate audio source and setting the volume on play
+        AudioManager.Instance.PlayAudioWithSource(AudioManager.Instance.sfxTileCrashes[Random.Range(0, 6)], smashAudioSource, Random.Range(0.05f, 0.1f));
+        Debug.Log("volume of sound: " + smashAudioSource.volume);
+
         //AudioManager.Instance.PlayAudio(smashSounds[Random.Range(0,smashSounds.Length)]);
 
         gameObject.SetActive(false);

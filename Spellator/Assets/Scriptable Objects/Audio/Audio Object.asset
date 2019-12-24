@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b50191b44bd94e1cb8b5558cdb84eeb, type: 3}
   m_Name: Audio Object
   m_EditorClassIdentifier: 
-  volume: 1
+  volume: 0.147
+  pitch: 0
   musicBackgroundMusic:
   - {fileID: 8300000, guid: 8ba7dae0e930f4ecd99e5af309148ee7, type: 3}
   - {fileID: 8300000, guid: c6d77c13464264c9e9ca3d2cddd3e3a9, type: 3}

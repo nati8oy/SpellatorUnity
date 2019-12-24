@@ -76,10 +76,10 @@ public class AudioManager : MonoBehaviour
         mainAudioSource.PlayOneShot(targetAudio);
     }
 
-    public void PlayAudioWithSource(AudioClip targetAudio, AudioSource source, int volumeLevel)
+    public void PlayAudioWithSource(AudioClip targetAudio, AudioSource source, float volumeLevel)
     {
         source.volume = volumeLevel;
-        source.pitch = volumeLevel;
+        //source.pitch = volumeLevel;
         mainAudioSource.PlayOneShot(targetAudio);
 
     }
