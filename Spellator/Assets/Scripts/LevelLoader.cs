@@ -27,7 +27,7 @@ public class LevelLoader : MonoBehaviour
 
             slider.value = progress;
 
-            Debug.Log("loading data: " + progress);
+            //Debug.Log("loading data: " + progress);
             yield return null;
         }
         //
