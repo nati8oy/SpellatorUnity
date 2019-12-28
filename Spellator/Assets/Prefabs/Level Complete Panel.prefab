@@ -214,6 +214,7 @@ GameObject:
   - component: {fileID: 6527844692808257452}
   - component: {fileID: 8769282958029406484}
   - component: {fileID: 1170923067224213837}
+  - component: {fileID: 1009211248136233596}
   m_Layer: 5
   m_Name: Level Complete Panel
   m_TagString: Untagged
@@ -433,6 +434,20 @@ MonoBehaviour:
             m_Type: System.String
             m_EnumType: 
     m_Name: Level complete
+--- !u!114 &1009211248136233596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5041740133230282087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9537d810b49894b92a39778a6fbff34a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelData: {fileID: 11400000, guid: da09913161474424f878bba5ba2d1f98, type: 2}
+  audioManager: {fileID: 11400000, guid: a03b5a1d54d67443bae10bdddb04d364, type: 2}
 --- !u!1 &6305428223991542038
 GameObject:
   m_ObjectHideFlags: 0

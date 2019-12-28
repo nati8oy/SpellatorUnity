@@ -110,12 +110,11 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
 
-
+    
 
 
     void Start()
     {
-
         levelCompleteParticles.Stop();
 
         //toggle = true;
@@ -212,6 +211,10 @@ public class GameManager : MonoBehaviour
         DictionaryManager.Instance.starsTotal += 2;
         levelCompleteParticles.Play();
 
+
+       
+
+
         //save the game data
         GetComponent<GameState>().SaveGameData();
 
@@ -219,6 +222,7 @@ public class GameManager : MonoBehaviour
         //display the level complete panel
         levelCompleteMenu.gameObject.SetActive(true);
         Debug.Log("Level complete = " + levelDetails.levelComplete);
+
 
     }
 

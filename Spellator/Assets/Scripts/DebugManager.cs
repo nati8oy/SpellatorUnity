@@ -19,24 +19,10 @@ public class DebugManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-
+            GameManager.Instance.LevelComplete();
         }
 
-            if (Input.GetKeyDown(KeyCode.Q))
-        {
-            Debug.Log("q pressed!");
-
-            foreach (GameObject tile in tiles)
-
-            {
-                currentSkin.nameOfSkin = "Dark";
-
-                //currentSkin = tile.GetComponent<TileSkinSO>().name;
-                Debug.Log("skin name is: " + tile.GetComponent<TileSkinSO>().name);
-
-                //tile.GetComponent<TileDisplay>().tileSkin = currentSkin;
-            }
-        }
+        
  
     }
 }

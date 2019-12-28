@@ -30,6 +30,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 67b32cf4eafd14cdd9e30630af110a71, type: 3}
   - {fileID: 8300000, guid: c359a46bafd8245dd84e812c390562d3, type: 3}
   - {fileID: 8300000, guid: df079aa2ff65f498f8996d6caf42c242, type: 3}
+  - {fileID: 8300000, guid: eed354b50b18a44179a9cfbf6a821f83, type: 3}
+  - {fileID: 8300000, guid: a61deb2d84e564b059115ab52a83962a, type: 3}
+  - {fileID: 8300000, guid: b7b74e574c67549cb8f1edee85f6695a, type: 3}
+  - {fileID: 8300000, guid: 221df6b0098a5427aad029c03b47f050, type: 3}
   sfxBigScore: []
   sfxTilePops:
   - {fileID: 8300000, guid: be0bebc2341164f3baa2f1b634d10fee, type: 3}

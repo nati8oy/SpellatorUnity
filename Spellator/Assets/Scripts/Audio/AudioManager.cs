@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour
     public AudioSO audioObject;
     public float volume;
 
+    public float delayAmount;
 
     [Header("General Audio")]
     public AudioClip[] musicBackgroundMusic;
@@ -50,6 +51,7 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
 
         //setup the vars from the SO
         musicBackgroundMusic = audioObject.musicBackgroundMusic;
@@ -83,4 +85,5 @@ public class AudioManager : MonoBehaviour
         mainAudioSource.PlayOneShot(targetAudio);
 
     }
+
 }
