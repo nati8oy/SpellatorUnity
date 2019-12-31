@@ -19,10 +19,10 @@ MonoBehaviour:
   - ending
   - contains
   - length
-  reward: 5
+  reward: 3
   levelComplete: 1
   overallLevel: 0
-  levelRules: Make 2 words starting with D
+  levelRules: Make 2 words ending in R
   endingList:
   - L
   - D

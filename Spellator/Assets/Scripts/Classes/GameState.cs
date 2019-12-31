@@ -57,9 +57,9 @@ public class GameState : MonoBehaviour
 
         //load the list of unique words
 
-        DictionaryManager.Instance.playerWordsMade = data.playerWordsMade;
+        //DictionaryManager.Instance.playerWordsMade = data.playerWordsMade;
         DictionaryManager.Instance.starsTotal = data.premiumCurrency;
-        //GameConfig.Instance.uniqueWordsList = data.playerWordsMade;
+        GameConfig.Instance.uniqueWordsList = data.playerWordsMade;
 
         //load the high scores
 
