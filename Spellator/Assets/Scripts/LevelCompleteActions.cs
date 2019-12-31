@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class LevelCompleteActions : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class LevelCompleteActions : MonoBehaviour
     public LevelManagerSO levelData;
     public AudioSO audioManager;
     private AudioClip starSound;
+
+    private GameObject starObject;
+    public TextMeshProUGUI rewardText;
 
     private void Start()
     {
@@ -31,6 +35,20 @@ public class LevelCompleteActions : MonoBehaviour
 
             
             Debug.Log("stars remaining " + starsEarned);
+
+
+            starObject = ObjectPooler.SharedInstance.GetPooledObject("Star");
+            if (starObject != null)
+            {
+                starObject.transform.position = rewardText.transform.position;
+                starObject.SetActive(true);
+
+
+
+            }
+
+
+
             yield return new WaitForSeconds(0.1f);
         }
 
