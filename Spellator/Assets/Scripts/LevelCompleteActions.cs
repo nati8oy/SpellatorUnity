@@ -10,6 +10,7 @@ public class LevelCompleteActions : MonoBehaviour
     public AudioSO audioManager;
     private AudioClip starSound;
     private int starPositionCalculator;
+    private float starAppearDelay;
 
     private GameObject starObject;
     public TextMeshProUGUI rewardText;
@@ -18,7 +19,8 @@ public class LevelCompleteActions : MonoBehaviour
     {
         //set the star sound to be a variable
         starSound = audioManager.sfxGeneral[14];
-        starPositionCalculator = 0;
+        //starPositionCalculator = 0;
+        starAppearDelay = 0.1f;
     }
 
     private void OnEnable()
@@ -36,27 +38,27 @@ public class LevelCompleteActions : MonoBehaviour
             starsEarned -= 1;
             AudioManager.Instance.PlayAudio(starSound);
 
-            
-            Debug.Log("stars remaining " + starsEarned);
-
-
+           
             starObject = ObjectPooler.SharedInstance.GetPooledObject("Star");
             if (starObject != null)
             {
-                
+
+                //set the start position var for the star being loaded
                 var starPos = new Vector3((Screen.width / 3)+ starPositionCalculator, Screen.height / 2);
                 starObject.transform.position = starPos;
+                //parent it to the rewardText game object so that it's visible as a UI element
                 starObject.transform.SetParent(rewardText.transform);
 
-
+                //update the position of the upcoming star
                 starPositionCalculator += 70;
+                //set the gameobject to be active
                 starObject.SetActive(true);
 
             }
 
 
-
-            yield return new WaitForSeconds(0.1f);
+            //delay before the next star is added.
+            yield return new WaitForSeconds(starAppearDelay);
         }
 
         yield return null;
