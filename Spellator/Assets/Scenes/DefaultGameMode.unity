@@ -271,7 +271,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 38, y: 0}
+  m_AnchoredPosition: {x: 33, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &62966390
@@ -2956,7 +2956,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 15.892029, y: 0, z: 100.73218, w: 0}
+  m_margin: {x: -18.378601, y: 0, z: 100.73218, w: 0}
   m_textInfo:
     textComponent: {fileID: 1087759642}
     characterCount: 2
@@ -10392,7 +10392,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 166281411, guid: cf2cb441bcdc54fbba9fdd62fba05c37, type: 3}
       propertyPath: itemsToPool.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 166281411, guid: cf2cb441bcdc54fbba9fdd62fba05c37, type: 3}
       propertyPath: m_Enabled
@@ -10429,6 +10429,19 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1991596454037002695, guid: af332fb4c0f9d4ae69ec04d67d7376d4,
         type: 3}
+    - target: {fileID: 166281411, guid: cf2cb441bcdc54fbba9fdd62fba05c37, type: 3}
+      propertyPath: itemsToPool.Array.data[5].amountToPool
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 166281411, guid: cf2cb441bcdc54fbba9fdd62fba05c37, type: 3}
+      propertyPath: itemsToPool.Array.data[5].objectToPool
+      value: 
+      objectReference: {fileID: 6647966700211534072, guid: 81676ca624b4243cf9eb238e32eb573e,
+        type: 3}
+    - target: {fileID: 166281411, guid: cf2cb441bcdc54fbba9fdd62fba05c37, type: 3}
+      propertyPath: itemsToPool.Array.data[5].shouldExpand
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 166281412, guid: cf2cb441bcdc54fbba9fdd62fba05c37, type: 3}
       propertyPath: defaultConfig
       value: 

@@ -353,8 +353,6 @@ public class Tile : MonoBehaviour
                 explosionObject.transform.position = gameObject.transform.position;
                 explosionObject.SetActive(true);
 
-
-
             }
 
             AudioManager.Instance.PlayAudioWithSource(AudioManager.Instance.sfxTilePops[Random.Range(0,6)], popAudioSource, Random.Range(0.1f, 1f));

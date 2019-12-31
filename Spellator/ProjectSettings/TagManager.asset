@@ -19,6 +19,7 @@ TagManager:
   - Explosion
   - Shop Item
   - Smoke
+  - Star
   layers:
   - Default
   - TransparentFX

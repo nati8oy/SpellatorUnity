@@ -9,13 +9,16 @@ public class LevelCompleteActions : MonoBehaviour
     public LevelManagerSO levelData;
     public AudioSO audioManager;
     private AudioClip starSound;
+    private int starPositionCalculator;
 
     private GameObject starObject;
     public TextMeshProUGUI rewardText;
 
     private void Start()
     {
+        //set the star sound to be a variable
         starSound = audioManager.sfxGeneral[14];
+        starPositionCalculator = 0;
     }
 
     private void OnEnable()
@@ -40,10 +43,14 @@ public class LevelCompleteActions : MonoBehaviour
             starObject = ObjectPooler.SharedInstance.GetPooledObject("Star");
             if (starObject != null)
             {
-                starObject.transform.position = rewardText.transform.position;
+                
+                var starPos = new Vector3((Screen.width / 3)+ starPositionCalculator, Screen.height / 2);
+                starObject.transform.position = starPos;
+                starObject.transform.SetParent(rewardText.transform);
+
+
+                starPositionCalculator += 70;
                 starObject.SetActive(true);
-
-
 
             }
 
