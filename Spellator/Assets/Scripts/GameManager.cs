@@ -209,11 +209,7 @@ public class GameManager : MonoBehaviour
     {
         //update the total stars in your kitty.
         DictionaryManager.Instance.starsTotal += 2;
-        levelCompleteParticles.Play();
-
-
-       
-
+        //levelCompleteParticles.Play();
 
         //save the game data
         GetComponent<GameState>().SaveGameData();
@@ -222,6 +218,7 @@ public class GameManager : MonoBehaviour
         //display the level complete panel
         levelCompleteMenu.gameObject.SetActive(true);
         Debug.Log("Level complete = " + levelDetails.levelComplete);
+        
 
 
     }
