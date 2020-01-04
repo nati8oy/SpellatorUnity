@@ -218,6 +218,8 @@ public class GameManager : MonoBehaviour
         DictionaryManager.Instance.starsTotal += 2;
         //levelCompleteParticles.Play();
 
+
+
         //save the game data
         GetComponent<GameState>().SaveGameData();
 

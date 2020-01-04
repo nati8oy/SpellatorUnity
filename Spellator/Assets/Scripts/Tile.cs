@@ -276,16 +276,10 @@ public class Tile : MonoBehaviour
 
 
     {
+        //play the tile animation  
+        animator.SetBool("correctWord", true);
 
-        if (animator.GetBool("correctWord"))
-        {
-            animator.SetBool("correctWord", false);
-        }
-        else
-        {
-            animator.SetBool("correctWord", true);
-
-        }
+        
 
         twinkleParticles.Play();
         AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxTilePops[3]);
