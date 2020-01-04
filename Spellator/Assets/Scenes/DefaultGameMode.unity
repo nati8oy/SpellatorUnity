@@ -222,8 +222,8 @@ RectTransform:
   - {fileID: 540659897}
   - {fileID: 722859414}
   - {fileID: 562919623}
-  - {fileID: 1647809393}
   - {fileID: 1274787608}
+  - {fileID: 1647809393}
   - {fileID: 857965735}
   - {fileID: 1099947657}
   - {fileID: 497189808}
@@ -3223,7 +3223,7 @@ RectTransform:
   m_LocalScale: {x: 170, y: 140, z: 1}
   m_Children: []
   m_Father: {fileID: 53077372}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9398,7 +9398,7 @@ PrefabInstance:
     - target: {fileID: 2423393580118125168, guid: ad9c87894e2f64ba1ba057f309e321f2,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2423393580118125168, guid: ad9c87894e2f64ba1ba057f309e321f2,
         type: 3}
@@ -9870,6 +9870,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DebugManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4337604481288094859, guid: 14cfc8804ecf2485a9b00a461b073157,
+        type: 3}
+      propertyPath: woodPanel
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14cfc8804ecf2485a9b00a461b073157, type: 3}
@@ -10564,6 +10569,11 @@ PrefabInstance:
       propertyPath: levelCompleteParticles
       value: 
       objectReference: {fileID: 1693621883}
+    - target: {fileID: 7349431635441859144, guid: cf2cb441bcdc54fbba9fdd62fba05c37,
+        type: 3}
+      propertyPath: woodPanel
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf2cb441bcdc54fbba9fdd62fba05c37, type: 3}
 --- !u!1 &7349431636452027361 stripped

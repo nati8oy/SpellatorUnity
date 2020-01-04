@@ -7,12 +7,14 @@ public class DebugManager : MonoBehaviour
 
     private GameObject[] tiles;
     private TileSkinSO currentSkin;
+   // public GameObject woodPanel;
     //private string currentSkin;
 
     private void Start()
     {
         tiles = GameObject.FindGameObjectsWithTag("Tile");
-    //    Debug.Log("tiles length: " + tiles.Length);
+       
+        //    Debug.Log("tiles length: " + tiles.Length);
     }
 
     void Update()
@@ -23,6 +25,7 @@ public class DebugManager : MonoBehaviour
         }
 
         
- 
+
+
     }
 }

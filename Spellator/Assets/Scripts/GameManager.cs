@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private ParticleSystem levelCompleteParticles;
 
 
-
+   // public GameObject woodPanel;
 
 
     private SpecialMeterClass specialMeter = new SpecialMeterClass();
@@ -120,6 +120,13 @@ public class GameManager : MonoBehaviour
         //toggle = true;
         //Auto load the data from the Game State file when the game manager loads
         GetComponent<GameState>().LoadGameData();
+
+  
+
+        //iTween.MoveTo(gameObject, new Vector3(woodPanel.transform.position.x, woodPanel.transform.position.y-1136), 1);
+
+
+
 
         /*
         Debug.Log("audio toggle on load is " + toggle);

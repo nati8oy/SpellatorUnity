@@ -81,6 +81,8 @@ public class Tile : MonoBehaviour
 
     void Start()
     {
+
+        
         twinkleParticles.Stop();
         //check to see if the tile is the first tile for chain mode words
         if (firstLetterTile == false)
@@ -205,9 +207,8 @@ public class Tile : MonoBehaviour
     private void OnEnable()
     {
 
-      //  animator.SetBool("clearTile", false);
-        
-
+        //  animator.SetBool("clearTile", false);
+      
 
         //create instance of the TileClass for use in the checks below
 
@@ -275,6 +276,17 @@ public class Tile : MonoBehaviour
 
 
     {
+
+        if (animator.GetBool("correctWord"))
+        {
+            animator.SetBool("correctWord", false);
+        }
+        else
+        {
+            animator.SetBool("correctWord", true);
+
+        }
+
         twinkleParticles.Play();
         AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxTilePops[3]);
 
@@ -403,7 +415,10 @@ public class Tile : MonoBehaviour
 
         //Camera.main.GetComponent<PlayerHealth>().DealDamage(spawnedTile.points);
 
-        //uses a cached reference for performance reasons 
+
+        //uses a cached reference for performance reasons
+
+
         healthHandler.DealDamage(spawnedTile.points);
         //GameObject.Find("HealthBar").GetComponent<PlayerHealth>().DealDamage(spawnedTile.points);
 

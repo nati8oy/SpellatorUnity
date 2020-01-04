@@ -366,7 +366,7 @@ public class DictionaryManager : MonoBehaviour
 				playerWordsMade.Add(WordBeingMade);
 
                 //add the word to the scriptable object as well so that it can be referenced elsewhere e.g. the main menu scene
-                wordData.uniqueWordsList.Add(WordBeingMade);
+                //wordData.uniqueWordsList.Add(WordBeingMade);
 
                 Debug.Log("Word added to list! " + "(" + playerWordsMade.Count + " words)");
 
@@ -559,7 +559,6 @@ public class DictionaryManager : MonoBehaviour
         correctIcon.SetActive(false);
 
 
-
         TileManager.Instance.SelectedTiles.Clear();
         //check if the reset bool is true. If it is, delete all the tiles in the rack
 
@@ -614,7 +613,12 @@ public class DictionaryManager : MonoBehaviour
                 //set getStartPos so that it can be used in the coroutine below
 
                 
+                if (tile.GetComponent<Tile>().animator.GetBool("correctWord"))
+                {
+                    tile.GetComponent<Tile>().animator.SetBool("correctWord", false);
+                }
                 
+
 
                 var getStartPos = tile.transform.parent.GetComponent<TileCreator>();
                 //connect to the script of each tile, get the startPos from there (which is the starting transform of each Pos holder)
