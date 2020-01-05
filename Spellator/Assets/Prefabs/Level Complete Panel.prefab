@@ -4930,6 +4930,7 @@ GameObject:
   - component: {fileID: 7393302605683613375}
   - component: {fileID: 2611527569538921163}
   - component: {fileID: 284201899528664811}
+  - component: {fileID: 2943277904740189867}
   m_Layer: 5
   m_Name: Next Level
   m_TagString: Untagged
@@ -5118,6 +5119,18 @@ MonoBehaviour:
             m_Type: System.String
             m_EnumType: 
     m_Name: next level
+--- !u!114 &2943277904740189867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4214654408748856302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43f7f7c0196854e4db1259e9b5cdc7ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5041740133230282087
 GameObject:
   m_ObjectHideFlags: 0

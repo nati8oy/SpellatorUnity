@@ -177,7 +177,7 @@ public class LevelManager : MonoBehaviour
 
 
             case "length":
-                  Debug.Log(firstCondition + " words remaining!");
+                 // Debug.Log(firstCondition + " words remaining!");
 
                 if (wordToCheck.Length == secondCondition)
                 {
@@ -198,7 +198,7 @@ public class LevelManager : MonoBehaviour
                 break;
             case "ending":
 
-                Debug.Log("letter condition: " + letterCondition);
+                //Debug.Log("letter condition: " + letterCondition);
 
 
                 //split the lettters in the wordToCheck string and grab the last one
@@ -215,7 +215,7 @@ public class LevelManager : MonoBehaviour
 
                 }
 
-                Debug.Log("letter condition: " + letterCondition + " last letter: " + lastLetter);
+                //Debug.Log("letter condition: " + letterCondition + " last letter: " + lastLetter);
 
                 if (letterCondition == lastLetter)
                 {

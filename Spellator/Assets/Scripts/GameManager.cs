@@ -226,7 +226,7 @@ public class GameManager : MonoBehaviour
         levelDetails.levelComplete = true;
         //display the level complete panel
         levelCompleteMenu.gameObject.SetActive(true);
-        Debug.Log("Level complete = " + levelDetails.levelComplete);
+//        Debug.Log("Level complete = " + levelDetails.levelComplete);
         
 
 
