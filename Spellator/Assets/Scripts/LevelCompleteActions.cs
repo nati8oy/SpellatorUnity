@@ -49,7 +49,7 @@ public class LevelCompleteActions : MonoBehaviour
             {
 
                 //set the start position var for the star being loaded
-                var starPos = new Vector3((Screen.width / 3)+ starPositionCalculator, Screen.height / 2);
+                var starPos = new Vector3((Screen.width / 3)+ starPositionCalculator, 500);
                 starObject.transform.position = starPos;
                 //parent it to the rewardText game object so that it's visible as a UI element
                 starObject.transform.SetParent(rewardText.transform);
