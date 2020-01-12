@@ -5528,7 +5528,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5976778401099106082}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f57e40c422c664030b7a4ff29cfc319b, type: 3}
   m_Name: 
@@ -5560,6 +5560,7 @@ MonoBehaviour:
   popSounds: {fileID: 11400000, guid: 855f2b9911c074e1f90962772638fe29, type: 2}
   smashAudioSource: {fileID: 2354001267598800883}
   popAudioSource: {fileID: 2354001267598800883}
+  levelUpText: {fileID: 0}
   firstLetterTile: 0
   specialIcon: {fileID: 1494288407093416192}
   nextTileSpot: {x: 0, y: 0, z: 0}
@@ -5734,7 +5735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileSkin: {fileID: 11400000, guid: f3aef0eed6c3c46d4a9566d3bdae68dd, type: 2}
-  tileSkinType: 1
+  tileSkinType: 0
   tileTextColour: {r: 0, g: 0, b: 0, a: 0}
   tileDisabledColour: {r: 0, g: 0, b: 0, a: 0}
   doubleLetterColour: {r: 0, g: 0, b: 0, a: 0}

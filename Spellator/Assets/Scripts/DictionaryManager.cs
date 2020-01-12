@@ -646,7 +646,7 @@ public class DictionaryManager : MonoBehaviour
 
         //reset the word being made to be the startLetter
 
-        if (startLetter!=null)
+        if (startLetter!=null&&chainFlag==true)
         { 
             WordBeingMade = startLetter; 
         } else

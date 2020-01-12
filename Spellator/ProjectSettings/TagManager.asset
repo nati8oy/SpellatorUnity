@@ -20,6 +20,7 @@ TagManager:
   - Shop Item
   - Smoke
   - Star
+  - Level Up Text
   layers:
   - Default
   - TransparentFX

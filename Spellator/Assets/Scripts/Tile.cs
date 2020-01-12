@@ -38,6 +38,7 @@ public class Tile : MonoBehaviour
     public AudioSource popAudioSource;
 
     public TileClass spawnedTile;
+    public GameObject levelUpText;
 
     public bool firstLetterTile;
 
@@ -274,18 +275,29 @@ public class Tile : MonoBehaviour
 
     public void HandleClick()
 
-
     {
+
+       
+
         //play the tile animation  
         animator.SetBool("correctWord", true);
 
-        
 
+        Debug.Log("word being spelled: " + DictionaryManager.Instance.WordBeingMade);
         twinkleParticles.Play();
         AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxTilePops[3]);
 
+        //check if this is a primary tile that is being clicked and thus removed
+        if (CompareTag("PrimaryTile"))
+        {
+            //Debug.Log("the primary tile has been clicked");
+            DictionaryManager.Instance.chainFlag = false;
+            DictionaryManager.Instance.WordBeingMade = "";
+            RemoveTileOnComplete();
+
+        }
         //check if the tile is selected or not. If it's not tagged as "selected" then add it to the word being made.
-        if (CompareTag("Tile"))
+        else if (CompareTag("Tile"))
         {
 
             //add this tile's Pos to the SelectedTiles list in TileManager
@@ -361,6 +373,15 @@ public class Tile : MonoBehaviour
 
             }
 
+            levelUpText = ObjectPooler.SharedInstance.GetPooledObject("Level Up Text");
+            if (levelUpText != null)
+            {
+                levelUpText.transform.position = gameObject.transform.position;
+                //levelUpText.transform.SetParent(mainCanvas);
+                levelUpText.SetActive(true);
+
+            }
+
             AudioManager.Instance.PlayAudioWithSource(AudioManager.Instance.sfxTilePops[Random.Range(0,6)], popAudioSource, Random.Range(0.1f, 1f));
             //popSounds.Play(popAudioSource);
 
@@ -422,7 +443,7 @@ public class Tile : MonoBehaviour
 
         //play audio using a separate audio source and setting the volume on play
         AudioManager.Instance.PlayAudioWithSource(AudioManager.Instance.sfxTileCrashes[Random.Range(0, 6)], smashAudioSource, Random.Range(0.05f, 0.1f));
-        Debug.Log("volume of sound: " + smashAudioSource.volume);
+//        Debug.Log("volume of sound: " + smashAudioSource.volume);
 
         //AudioManager.Instance.PlayAudio(smashSounds[Random.Range(0,smashSounds.Length)]);
 
