@@ -79,7 +79,7 @@ public class DictionaryManager : MonoBehaviour
 
     private GameObject healthBar;
 
-    private TextMeshProUGUI currentLevel;
+    //private TextMeshProUGUI currentLevel;
 
     //this section is for the on screen messages
     [SerializeField] private GameObject messageParentObject;
@@ -250,7 +250,7 @@ public class DictionaryManager : MonoBehaviour
         correctWordParticles.Stop();
         healthUpParticles.Stop();
         //display the level which is the number of unique words made
-        currentLevel = GameObject.Find("Level").GetComponent<TextMeshProUGUI>();
+        //currentLevel = GameObject.Find("Level").GetComponent<TextMeshProUGUI>();
 
         //find the current primary tile and add its x and y positions to these vars
         primaryPosX = GameObject.Find("Primary Tile").transform.position.x;
@@ -294,7 +294,7 @@ public class DictionaryManager : MonoBehaviour
         }
         
         //set the current level (number of words) to be that of what is coming from the playerWordsMade var
-        currentLevel.text = playerWordsMade.Count.ToString();
+        //currentLevel.text = playerWordsMade.Count.ToString();
 
         //set the text in the stars total text section to be the right amount.
         starTotalText.text = starsTotal.ToString();
@@ -371,6 +371,11 @@ public class DictionaryManager : MonoBehaviour
                 //wordData.uniqueWordsList.Add(WordBeingMade);
 
                 Debug.Log("Word added to list! " + "(" + playerWordsMade.Count + " words)");
+
+                //add the new word to the unique words per level 
+                GameManager.Instance.AddNewWord();
+
+
 
 			}
             /*

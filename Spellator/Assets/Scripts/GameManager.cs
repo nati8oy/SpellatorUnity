@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private ParticleSystem levelCompleteParticles;
 
+    // used to count unique words for each level
+    public int newWordCounter;
 
    // public GameObject woodPanel;
 
@@ -115,6 +117,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        //set the new word counter to 0 at the start of each level
+        newWordCounter = 0;
+
         levelCompleteParticles.Stop();
 
         //toggle = true;
@@ -227,8 +232,7 @@ public class GameManager : MonoBehaviour
         //display the level complete panel
         levelCompleteMenu.gameObject.SetActive(true);
 //        Debug.Log("Level complete = " + levelDetails.levelComplete);
-        
-
+       
 
     }
 
@@ -285,6 +289,11 @@ public class GameManager : MonoBehaviour
         {
             AudioListener.volume = 0f;
         }
+    }
+
+    public void AddNewWord()
+    {
+        newWordCounter += 1;
     }
 
 
