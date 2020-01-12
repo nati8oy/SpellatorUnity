@@ -400,6 +400,7 @@ public class DictionaryManager : MonoBehaviour
             if ((WordBeingMade.Length >= 5) || (Points.liveScore>=50))
             {
                 ShowMessage("encouragement");
+
                 //this chooses the kind of cross fade or screen flash to use
                 fadeManager.FadeType(fadeManager._flashColour, fadeManager.pulseSpeed);
 

@@ -282,17 +282,25 @@ public class Tile : MonoBehaviour
         //play the tile animation  
         animator.SetBool("correctWord", true);
 
-
-        Debug.Log("word being spelled: " + DictionaryManager.Instance.WordBeingMade);
+        //play the small twinkle particles
         twinkleParticles.Play();
         AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxTilePops[3]);
 
         //check if this is a primary tile that is being clicked and thus removed
         if (CompareTag("PrimaryTile"))
         {
-            //Debug.Log("the primary tile has been clicked");
+            //reset the flags for the first tile, etc.
             DictionaryManager.Instance.chainFlag = false;
             DictionaryManager.Instance.WordBeingMade = "";
+
+            //reset the multiplier
+            Points.multiplier = 1;
+
+            //play the lost multiplier sound
+            AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxGeneral[7]);
+
+
+            //remove the tile and play its animation
             RemoveTileOnComplete();
 
         }

@@ -36,6 +36,9 @@ public class GameManager : MonoBehaviour
     //  public string allLetters;
     [SerializeField] public TextAsset externalBagTXT;
     public bool toggle;
+    private Transitions fadeManager;
+    
+
 
     [SerializeField] private ParticleSystem levelCompleteParticles;
 
@@ -117,6 +120,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+
+        fadeManager = GameObject.Find("Fade Manager").GetComponent<Transitions>();
+
         //set the new word counter to 0 at the start of each level
         newWordCounter = 0;
 
@@ -182,6 +188,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOverMethod()
     {
+        fadeManager.FadeType(fadeManager._flashColour, fadeManager.pulseSpeed);
 
         gameOverPanel.gameObject.SetActive(true);
         AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxGeneral[5]);
@@ -219,6 +226,8 @@ public class GameManager : MonoBehaviour
 
     public void LevelComplete()
     {
+        fadeManager.FadeType(fadeManager._flashColour, fadeManager.pulseSpeed);
+
         //update the total stars in your kitty.
         DictionaryManager.Instance.starsTotal += 2;
         //levelCompleteParticles.Play();
