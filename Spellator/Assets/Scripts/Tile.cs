@@ -21,7 +21,10 @@ public class Tile : MonoBehaviour
     public bool canAge = true;
 
 
-    public AudioSO audioScriptableObject; 
+    public AudioSO audioScriptableObject;
+
+    private Transitions fadeManager;
+
 
     public TextMeshProUGUI letter;
     public TextMeshProUGUI points;
@@ -298,6 +301,9 @@ public class Tile : MonoBehaviour
 
             //play the lost multiplier sound
             AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxGeneral[7]);
+            fadeManager = GameObject.Find("Fade Manager").GetComponent<Transitions>();
+            fadeManager.FadeType(fadeManager._flashColour, fadeManager.pulseSpeed);
+
 
 
             //remove the tile and play its animation

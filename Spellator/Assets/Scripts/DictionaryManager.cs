@@ -206,13 +206,13 @@ public class DictionaryManager : MonoBehaviour
         
             for (int i = 0; i < selectedTilesArray.Length - 1; i++)
             {
-                var randomY = Random.Range(100, 135);
+                var randomY = Random.Range(150, 340);
 
                 //for each tile in the selectedTilesArray set the animator bool to be "true"
                 //selectedTilesArray[i].GetComponent<Tile>().animator.SetBool("clearTile", true);
 
 
-                iTween.MoveBy(selectedTilesArray[i], iTween.Hash("y", randomY, "easetype", "spring", "time", 0.5f, "delay", (0.1f) * (i + 1), "oncomplete", "RemoveTileOnComplete"));
+                iTween.MoveBy(selectedTilesArray[i], iTween.Hash("y", randomY, "easetype", "easeOutSine", "time", 0.5f, "delay", (0.1f) * (i + 1), "oncomplete", "RemoveTileOnComplete"));
 
 
                 
