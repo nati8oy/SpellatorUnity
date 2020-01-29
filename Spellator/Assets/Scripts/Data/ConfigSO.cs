@@ -9,17 +9,18 @@ public class ConfigSO : ScriptableObject
     public bool sfxOn;
     public bool musicOn;
 
-    public  string longestWord;
-    public  string favouriteWordLength;
+    public string longestWord;
+    public string favouriteWordLength;
     public int highScore;
+    public Vector3[] playedTilePositions;
 
     private List<int> wordLengths = new List<int>();
     public List<int> topTenHighScores = new List<int>();
 
-        
+
     public void FavouriteWordLength()
     {
-        foreach(string word in uniqueWordsList)
+        foreach (string word in uniqueWordsList)
         {
             wordLengths.Add(word.Length);
         }
@@ -62,7 +63,7 @@ public class ConfigSO : ScriptableObject
     {
         //Debug.Log(uniqueWordsList[1]);
 
-        
+
         foreach (string word in uniqueWordsList)
         {
             if (word.Length > longestWord.Length)

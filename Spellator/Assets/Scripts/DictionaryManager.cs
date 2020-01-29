@@ -197,7 +197,7 @@ public class DictionaryManager : MonoBehaviour
 
        
         //move the last tile of the word to the primary tile spot
-        iTween.MoveTo(selectedTilesArray[selectedTilesArray.Length - 1], iTween.Hash("x", primaryPosX, "easetype", "EaseInOutCirc", "delay", 0.1*wordBeingMade.Length, "time", 0.4f, "onComplete", "SetPrimaryTile"));
+        iTween.MoveTo(selectedTilesArray[selectedTilesArray.Length - 1], iTween.Hash("x", primaryPosX, "y", primaryPosY, "easetype", "EaseInOutCirc", "delay", 0.1*wordBeingMade.Length, "time", 0.4f, "onComplete", "SetPrimaryTile"));
         
         selectedTilesArray[selectedTilesArray.Length - 1].tag = "Tile";
 
@@ -523,7 +523,15 @@ public class DictionaryManager : MonoBehaviour
 
         }
 
+        switch (wordBeingMade.Length)
+        {
+            case 4:
 
+                break;
+        }
+
+
+        /*
         //check the length of the word being makde and move the whole word to that point.
 
         switch (wordBeingMade.Length)
@@ -541,6 +549,7 @@ public class DictionaryManager : MonoBehaviour
                 iTween.MoveTo(PrimaryTile, iTween.Hash("x", -500, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
                 break;
         }
+        */
 
 
 

@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class TileManager : MonoBehaviour
 {
-    //sets up an instance of the GameManager
+    //sets up an instance of the TileManager
     public static TileManager Instance;
 
     //array of rack positions

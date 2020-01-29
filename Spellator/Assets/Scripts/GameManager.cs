@@ -37,8 +37,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] public TextAsset externalBagTXT;
     public bool toggle;
     private Transitions fadeManager;
-    
 
+
+    [Header("Game Setup")]
+    public Transform[] tilePlayedPositions;
 
     [SerializeField] private ParticleSystem levelCompleteParticles;
 
@@ -231,7 +233,6 @@ public class GameManager : MonoBehaviour
         //update the total stars in your kitty.
         DictionaryManager.Instance.starsTotal += 2;
         //levelCompleteParticles.Play();
-
 
 
         //save the game data
