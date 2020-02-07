@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
 
     [Space]
 
+    public GameObject cameraObject;
 
     [SerializeField] private AudioClip gameOverAudio;
     [SerializeField] private AudioClip bigScore;
@@ -40,7 +41,7 @@ public class GameManager : MonoBehaviour
 
 
     [Header("Game Setup")]
-    public Transform[] tilePlayedPositions;
+    new Transform tiePlayedPositions;
 
     [SerializeField] private ParticleSystem levelCompleteParticles;
 
@@ -123,6 +124,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
 
+        CreateRandomBag();
+
         fadeManager = GameObject.Find("Fade Manager").GetComponent<Transitions>();
 
         //set the new word counter to 0 at the start of each level
@@ -134,47 +137,13 @@ public class GameManager : MonoBehaviour
         //Auto load the data from the Game State file when the game manager loads
         GetComponent<GameState>().LoadGameData();
 
-  
-
-        //iTween.MoveTo(gameObject, new Vector3(woodPanel.transform.position.x, woodPanel.transform.position.y-1136), 1);
-
-
-
-
-        /*
-        Debug.Log("audio toggle on load is " + toggle);
-
-        //check if sound is on or not
-        if (toggle)
-        {
-            AudioListener.volume = 1f;
-
-        }
-
-        else
-        {
-            AudioListener.volume = 0f;
-        }
-        */
 
         //start the game with the level description object active
         //GameObject.Find("Level Description Screen").SetActive(true);
 
         ruleDetailPanel.gameObject.SetActive(true);
         
-        //SaveSystem.LoadGameData();
-
-
-
-        //allLetters = externalBagTXT.text;
-
-        //add the letters to the bag List within the TileBag class
-        //TileBag lettersBag = new TileBag();
-        //lettersBag.AddLettersToDictonary();
-
-
-      
-
+     
 
         gameManagerAudioSource = GetComponent<AudioSource>();
 
@@ -261,6 +230,18 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void ShakeCamera(int shakeX, int shakeY, float duration)
+    {
+        iTween.PunchPosition(cameraObject, new Vector3(Random.Range(shakeX, shakeX + 10), shakeY, 0), duration);
+
+        //iTween.PunchRotation(cameraObject, new Vector3(0, 0, 10), duration);
+
+
+        //PunchRotation(GameObject target, Vector3 amount, float time)
+
+    }
+
+
     public void StartSetup()
     {
 
@@ -283,6 +264,24 @@ public class GameManager : MonoBehaviour
         }
        
     }
+
+
+    public void CreateRandomBag()
+    {
+        for (int i = 0; i < 40; i++)
+        {
+            TileBag.bag.Add(TileBag.consonantList[Random.Range(0, TileBag.consonantList.Count)]);
+
+        }
+
+        for (int i = 0; i < 60; i++)
+        {
+            TileBag.bag.Add(TileBag.vowelList[Random.Range(0, TileBag.vowelList.Count)]);
+
+        }
+        Debug.Log("bag length = " + TileBag.bag.Count);
+    }
+
 
     public void ToggleSound()
     {

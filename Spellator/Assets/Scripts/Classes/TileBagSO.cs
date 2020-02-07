@@ -6,10 +6,14 @@ using UnityEngine;
 
 public class TileBagSO : ScriptableObject
 {
+    //set up a dictionary of the letters
     public Dictionary<string, int> letterDictionary = new Dictionary<string, int>();
+
+    //set up a bag list. These are added manually via the inspector.
     public List<string> bag = new List<string>();
 
 
+    //removes the letters that has been used in the word
 public void RemoveLetterUsed(string letterToRemove)
     {
 

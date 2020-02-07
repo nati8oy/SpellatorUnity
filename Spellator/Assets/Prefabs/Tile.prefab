@@ -412,7 +412,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 3b4d6eda97ac0432bbd19fd35960efb1, type: 3}
-  m_Type: 0
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -5546,7 +5546,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileBGImage: {fileID: 3855893996102124430}
-  currentBag: {fileID: 11400000, guid: babe16195cfd0444ebfc431df8bb800d, type: 2}
+  currentBag: {fileID: 11400000, guid: ffcfd2bd4f56d433a89c76bdd1265301, type: 2}
   levelManager: {fileID: 11400000, guid: da09913161474424f878bba5ba2d1f98, type: 2}
   animator: {fileID: 8052626522917010101}
   twinkleParticles: {fileID: 8414099629685575350}

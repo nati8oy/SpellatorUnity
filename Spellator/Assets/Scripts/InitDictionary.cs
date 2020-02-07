@@ -49,28 +49,6 @@ public class InitDictionary : MonoBehaviour
         pointsDictionary.Add("Y", 4);
         pointsDictionary.Add("Z", 10);
 
-        /*
-        //add the list of words from an external txt file via the inspector
-        lettersToSplit = externalTextFile.text;
-
-        //get the dictionary list of words and split them on every comma
-        bag = new List<string>(lettersToSplit.Split(','));
-
-        //add each of the words within dictionaryList to the actual dictionary itself
-        for (int i = 0; i < bag.Count; i++)
-        {
-            dictionary.Add(bag[i], 1);
-        }
-
-        */
-        /*
-        //sets the letter and point text of each tile
-        letter.text = InitDictionary.Instance.bag[Random.Range(0, 95)];
-        points.text = InitDictionary.Instance.pointsDictionary[letter.text].ToString();
-
-        tilePointValue = InitDictionary.Instance.pointsDictionary[letter.text];
-        */
-
 
     }
 

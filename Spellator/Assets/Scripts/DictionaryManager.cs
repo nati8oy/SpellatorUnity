@@ -195,7 +195,6 @@ public class DictionaryManager : MonoBehaviour
 
         }
 
-       
         //move the last tile of the word to the primary tile spot
         iTween.MoveTo(selectedTilesArray[selectedTilesArray.Length - 1], iTween.Hash("x", primaryPosX, "y", primaryPosY, "easetype", "EaseInOutCirc", "delay", 0.1*wordBeingMade.Length, "time", 0.4f, "onComplete", "SetPrimaryTile"));
         
@@ -306,7 +305,44 @@ public class DictionaryManager : MonoBehaviour
 
     public void CheckAndDeleteTiles()
     {
-      
+        //check the word length and apply the correct amount of camera shake
+
+        switch (WordBeingMade.Length)
+        {
+            case 3:
+                GameManager.Instance.ShakeCamera(Random.Range(10, 15), Random.Range(30, 40) * WordBeingMade.Length, 0.75f);
+                break;
+            case 4:
+                GameManager.Instance.ShakeCamera(Random.Range(10, 15), Random.Range(30, 40) * WordBeingMade.Length, 0.75f);
+                break;
+            case 5:
+                GameManager.Instance.ShakeCamera(Random.Range(10, 15), Random.Range(30, 40) * WordBeingMade.Length, 0.75f);
+                break;
+            case 6:
+                GameManager.Instance.ShakeCamera(Random.Range(10, 15), Random.Range(30, 40) * WordBeingMade.Length, 0.75f);
+                break;
+            case 7:
+                GameManager.Instance.ShakeCamera(Random.Range(10, 15), Random.Range(30, 40) * WordBeingMade.Length, 0.75f);
+                break;
+            case 8:
+                GameManager.Instance.ShakeCamera(Random.Range(10, 15), Random.Range(30, 40) * WordBeingMade.Length, 0.75f);
+                break;
+            case 9:
+                GameManager.Instance.ShakeCamera(Random.Range(120, 140), Random.Range(100, 120), 1.8f);
+                break;
+            case 10:
+                GameManager.Instance.ShakeCamera(Random.Range(140, 180), Random.Range(160, 180), 2f);
+                break;
+            case 11:
+                GameManager.Instance.ShakeCamera(Random.Range(180, 200), Random.Range(200, 220), 2.2f);
+                break;
+        }
+         // iTween.MoveTo(tile, new Vector3(getStartPos.startPos.position.x, getStartPos.startPos.position.y, 0), 0.5f);
+
+
+        //PunchPosition(GameObject target, Hashtable args)
+
+
         Debug.Log("Premium currency total: " + starsTotal);
 
 
@@ -565,12 +601,18 @@ public class DictionaryManager : MonoBehaviour
 
     public void ClearWord()
     {
+
+        //shake screen
+        //shake the camera
+        GameManager.Instance.ShakeCamera(0, 40, 0.5f);
+
         //move the primary tile back to its starting position
         iTween.MoveTo(PrimaryTile, iTween.Hash("x", primaryPosX, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
 
         //reset the scores
         Points.resetScores();
         sendButton.interactable = false;
+
 
         //hide the icon that indicates that a word is correct
         correctIcon.SetActive(false);
@@ -732,6 +774,7 @@ public class DictionaryManager : MonoBehaviour
 
     public void ReduceAge()
     {
+
 
         //fill the array with all of the tiles that need to be aged i.e. the letters in the rack not included in the word.
         agingArray = GameObject.FindGameObjectsWithTag("Tile");

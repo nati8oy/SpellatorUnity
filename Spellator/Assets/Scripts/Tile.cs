@@ -242,9 +242,16 @@ public class Tile : MonoBehaviour
 
         } else if (CompareTag("Tile"))
         {
-
+            var n = TileBag.bag.Count;
             //spawnedTile.letter = currentBag.bag[Random.Range(0, currentBag.bag.Count)];
             spawnedTile.letter = TileBag.bag[Random.Range(0, TileBag.bag.Count)];
+
+
+
+
+            ////////////CONTINUE HERE////////
+
+            //spawnedTile.letter = TileBag.bag[n-1];
             spawnedTile.points = currentBag.letterDictionary[spawnedTile.letter];
 
 
