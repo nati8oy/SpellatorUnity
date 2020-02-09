@@ -69,8 +69,8 @@ public class GameState : MonoBehaviour
         // musicOn = data.musicOn;
 
 
-        Debug.Log("Loaded dictionary length is " + data.playerWordsMade.Count);
-        Debug.Log("Premium currenct total: " + data.premiumCurrency);
+        //Debug.Log("Loaded dictionary length is " + data.playerWordsMade.Count);
+        //Debug.Log("Premium currenct total: " + data.premiumCurrency);
 
         //Debug.Log("Audio state: " + "sfx = " + sfxOn + " music = " + musicOn);
 

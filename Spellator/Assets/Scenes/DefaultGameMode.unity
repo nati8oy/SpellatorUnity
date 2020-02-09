@@ -1292,7 +1292,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e8f1c3859799480e91b329fc142ab27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointsScored: 0
   pointsAdded: 0
   liveScoreText: {fileID: 2066190560}
   currentScoreText: {fileID: 62966392}
@@ -10851,6 +10850,12 @@ PrefabInstance:
       propertyPath: cameraObject
       value: 
       objectReference: {fileID: 519420028}
+    - target: {fileID: 7349431635441859144, guid: cf2cb441bcdc54fbba9fdd62fba05c37,
+        type: 3}
+      propertyPath: gameConfig
+      value: 
+      objectReference: {fileID: 6369276425517816409, guid: 283e72892091346bc8e67b689a7f1ae1,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf2cb441bcdc54fbba9fdd62fba05c37, type: 3}
 --- !u!1 &7349431636452027361 stripped

@@ -12,7 +12,7 @@ public class Points : MonoBehaviour
     public static int primaryTileScore;
     public static int mostRecentScore;
 
-    public int pointsScored;
+    public static int pointsScored;
     public int pointsAdded;
 
 
@@ -33,14 +33,22 @@ public class Points : MonoBehaviour
 
     public static void AddPoints (int incomingPoints)
     {
+
         if (multiplier > 2)
         {
             totalScore += (incomingPoints * multiplier);
+            pointsScored = (incomingPoints * multiplier);
+            //Debug.Log(pointsScored);
+
         }
         else
         {
             totalScore += incomingPoints;
+            pointsScored = incomingPoints;
+           // Debug.Log(pointsScored);
+
         }
+
     }
 
     private void Update()

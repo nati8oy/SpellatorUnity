@@ -33,11 +33,13 @@ public class GameConfig : MonoBehaviour
                 DontDestroyOnLoad(this);
             }
 
-        }
+    }
 
-        // Start is called before the first frame update
-        void Start()
+    // Start is called before the first frame update
+    void Start()
         {
+
+     
 
         uniqueWordsList = configScriptableObject.uniqueWordsList;
 //        GetComponent<GameState>().LoadGameData();
@@ -66,6 +68,12 @@ public class GameConfig : MonoBehaviour
             sfxOn = configScriptableObject.sfxOn;
             uniqueWordsList = configScriptableObject.uniqueWordsList;
 
+    }
+
+    public void ResetLevels()
+    {
+        levelData.currentLevel = 0;
+        Debug.Log("levels reset to " + levelData.currentLevel);
     }
 
 

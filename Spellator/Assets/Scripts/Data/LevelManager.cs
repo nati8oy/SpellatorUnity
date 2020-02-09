@@ -15,7 +15,7 @@ public class LevelManager : MonoBehaviour
 
     public enum LevelRuleType
     {
-        length, ending, containing, starting
+        length, ending, containing, starting, points
     }
 
     public LevelRuleType levelRuleType; 
@@ -48,6 +48,7 @@ public class LevelManager : MonoBehaviour
 
     //used for conditions requiring strings (containg, etc.)
     public static string letterCondition;
+    public static int pointsThreshold;
 
 
     public int numberOfConditions;
@@ -99,9 +100,15 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        //add 1 to the level each time it loads.
-        levelDetails.currentLevel += 1;
+        //add 1 to the level each time it loads but only if it's less than 13
+        //otherwise set it to 0
+        if (levelDetails.currentLevel < 13)
+        {
+            levelDetails.currentLevel += 1;
+        } else
+        {
+            levelDetails.currentLevel = 1;
+        }
 
         Debug.Log("You are playing level " + levelDetails.currentLevel);
 
@@ -109,36 +116,59 @@ public class LevelManager : MonoBehaviour
         {
             case 1:
                 levelRuleType = LevelRuleType.length;
-                ConstructLevelParams("length", 3, 3);
+                ConstructLevelParams("length", 3, 3, 0);
                 break;
             case 2:
                 levelRuleType = LevelRuleType.length;
-                ConstructLevelParams("length", 4, 3);
+                ConstructLevelParams("length", 4, 3, 0);
                 break;
             case 3:
                 levelRuleType = LevelRuleType.length;
-                ConstructLevelParams("length", 5, 3);
+                ConstructLevelParams("length", 5, 3, 0);
                 break;
             case 4:
                 levelRuleType = LevelRuleType.length;
-                ConstructLevelParams("length", 2, 4);
+                ConstructLevelParams("length", 2, 4, 0);
                 break;
             case 5:
                 levelRuleType = LevelRuleType.length;
-                ConstructLevelParams("length", 3, 4);
+                ConstructLevelParams("length", 3, 4, 0);
                 break;
             case 6:
-                levelRuleType = LevelRuleType.containing;
-                ConstructLevelParams("containing", 3, 0);
+                levelRuleType = LevelRuleType.points;
+                ConstructLevelParams("points", 3, 0, 20);
                 break;
             case 7:
-                levelRuleType = LevelRuleType.ending;
-                ConstructLevelParams("ending", 2, 0);
+                levelRuleType = LevelRuleType.containing;
+                ConstructLevelParams("containing", 3, 0, 0);
                 break;
             case 8:
                 levelRuleType = LevelRuleType.ending;
-                ConstructLevelParams("ending", 3, 0);
+                ConstructLevelParams("ending", 2, 0, 0);
                 break;
+            case 9:
+                levelRuleType = LevelRuleType.points;
+                ConstructLevelParams("points", 3, 0, 50);
+                break;
+            case 10:
+                levelRuleType = LevelRuleType.ending;
+                ConstructLevelParams("ending", 3, 0, 0);
+                break;
+            case 11:
+                levelRuleType = LevelRuleType.ending;
+                ConstructLevelParams("starting", 3, 0, 0);
+                break;
+            case 12:
+                levelRuleType = LevelRuleType.points;
+                ConstructLevelParams("points", 4, 0, 40);
+                break;
+            case 13:
+                levelRuleType = LevelRuleType.length;
+                ConstructLevelParams("length", 3, 5, 0);
+                break;
+
+
+
 
         }
 
@@ -162,7 +192,7 @@ public class LevelManager : MonoBehaviour
 
 
     //set up the rules for the level
-    public void ConstructLevelParams(string levelType, int numberOfWords, int minWordLength)
+    public void ConstructLevelParams(string levelType, int numberOfWords, int minWordLength, int pointsRequired)
     {
         //this sets the max number of letters in a word
         //secondCondition = conditionsList[Random.RandomRange(3, conditionsList.Count)]; ;
@@ -210,6 +240,17 @@ public class LevelManager : MonoBehaviour
                 levelDescription = "Make " + firstCondition.ToString() + " words starting with " + letterCondition;
 
                 break;
+            case "points":
+
+                //set the amount of points required to finish this level
+                pointsThreshold = pointsRequired;
+               // Debug.Log(levelDescription = "Make " + firstCondition.ToString() + " words worth " + pointsRequired + " points or more");
+
+                levelDescription = "Make " + firstCondition.ToString() + " words worth " + pointsRequired + " points or more" ;
+
+                break;
+
+
         }
 
     }
@@ -325,11 +366,25 @@ public class LevelManager : MonoBehaviour
                     }
 
 
-                     Debug.Log("ending rule matched! " + firstCondition + " words remaining");
+                     //Debug.Log("ending rule matched! " + firstCondition + " words remaining");
                 }
 
                 break;
+
+            case "points":
+                if (Points.pointsScored >= pointsThreshold)
+                {
+                    firstCondition -= 1;
+
+                    levelDescription = "Make " + firstCondition.ToString() + " words worth " + pointsThreshold + " points or more";
+
+                    ///Debug.Log("First condition is " + firstCondition);
+
+                }
+                break;
         }
+
+
 
         //if the first condition is met (how many words required) then the level is complete
         if(firstCondition==0)

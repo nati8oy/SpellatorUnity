@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
 
 
     [Header("Game Setup")]
-    new Transform tiePlayedPositions;
+    //new Transform tiePlayedPositions;
 
     [SerializeField] private ParticleSystem levelCompleteParticles;
 
@@ -123,8 +123,13 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        //reset all the game levels before the game starts
 
         CreateRandomBag();
+
+        //resets the current game level via the scriptable object 
+        ///levelDetails.currentLevel = 0;
+
 
         fadeManager = GameObject.Find("Fade Manager").GetComponent<Transitions>();
 
@@ -177,7 +182,7 @@ public class GameManager : MonoBehaviour
         Points.totalScore = 0;
 
         //reset the overall game level
-        levelDetails.currentLevel = 0;
+      //  gameConfig.ResetLevels();
         
 
         //randomly reset the level
@@ -286,7 +291,7 @@ public class GameManager : MonoBehaviour
             TileBag.bag.Add(TileBag.vowelList[Random.Range(0, TileBag.vowelList.Count)]);
 
         }
-        Debug.Log("bag length = " + TileBag.bag.Count);
+        //Debug.Log("bag length = " + TileBag.bag.Count);
     }
 
 

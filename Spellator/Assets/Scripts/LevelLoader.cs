@@ -34,7 +34,7 @@ public class LevelLoader : MonoBehaviour
 
             //Debug.Log("loading data: " + progress);
             yield return null;
-            Debug.Log("it did fade...");
+//            Debug.Log("it did fade...");
             levelChanger.FadeToLevel(0);
         }
         //

@@ -344,7 +344,7 @@ public class DictionaryManager : MonoBehaviour
         //PunchPosition(GameObject target, Hashtable args)
 
 
-        Debug.Log("Premium currency total: " + starsTotal);
+        //Debug.Log("Premium currency total: " + starsTotal);
 
 
         //access the level data function
@@ -499,10 +499,13 @@ public class DictionaryManager : MonoBehaviour
 
             }
 
-//            Debug.Log("Live score is: " + Points.liveScore);
+            //            Debug.Log("Live score is: " + Points.liveScore);
+
+            //Debug.Log("Points for word: " + Points.pointsScored);
             Points.AddPoints(Points.liveScore);
 
             scoreText.text = Points.totalScore.ToString();
+
 
 
             //Clear the WordBeingMade first before setting it to be the startLetter of the next word

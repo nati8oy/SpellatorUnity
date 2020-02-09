@@ -46,7 +46,7 @@ public class TileCreator : MonoBehaviour
             //available = false;
 
         }
-        Debug.Log(LevelManager.Instance._levelComplete);
+        //Debug.Log(LevelManager.Instance._levelComplete);
         //don't add the particles if the level is complete
         if(LevelManager.Instance._levelComplete == true)
         {
