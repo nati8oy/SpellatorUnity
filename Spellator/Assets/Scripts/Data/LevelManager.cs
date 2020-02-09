@@ -15,7 +15,7 @@ public class LevelManager : MonoBehaviour
 
     public enum LevelRuleType
     {
-        wordLength, firstLetter, lastLetter, rhyming
+        length, ending, containing, starting
     }
 
     public LevelRuleType levelRuleType; 
@@ -100,10 +100,52 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
 
+        //add 1 to the level each time it loads.
+        levelDetails.currentLevel += 1;
+
+        Debug.Log("You are playing level " + levelDetails.currentLevel);
+
+        switch (levelDetails.currentLevel)
+        {
+            case 1:
+                levelRuleType = LevelRuleType.length;
+                ConstructLevelParams("length", 3, 3);
+                break;
+            case 2:
+                levelRuleType = LevelRuleType.length;
+                ConstructLevelParams("length", 4, 3);
+                break;
+            case 3:
+                levelRuleType = LevelRuleType.length;
+                ConstructLevelParams("length", 5, 3);
+                break;
+            case 4:
+                levelRuleType = LevelRuleType.length;
+                ConstructLevelParams("length", 2, 4);
+                break;
+            case 5:
+                levelRuleType = LevelRuleType.length;
+                ConstructLevelParams("length", 3, 4);
+                break;
+            case 6:
+                levelRuleType = LevelRuleType.containing;
+                ConstructLevelParams("containing", 3, 0);
+                break;
+            case 7:
+                levelRuleType = LevelRuleType.ending;
+                ConstructLevelParams("ending", 2, 0);
+                break;
+            case 8:
+                levelRuleType = LevelRuleType.ending;
+                ConstructLevelParams("ending", 3, 0);
+                break;
+
+        }
 
         //SET VERSION
         //sets up the level parameters. eg. make 3 words that are 3 letters long.
-        ConstructLevelParams(randomLevelSelection);
+        //ConstructLevelParams(randomLevelSelection);
+
 
     }
 
@@ -120,16 +162,19 @@ public class LevelManager : MonoBehaviour
 
 
     //set up the rules for the level
-    public void ConstructLevelParams(string levelType)
+    public void ConstructLevelParams(string levelType, int numberOfWords, int minWordLength)
     {
         //this sets the max number of letters in a word
-        secondCondition = conditionsList[Random.RandomRange(3, conditionsList.Count)]; ;
+        //secondCondition = conditionsList[Random.RandomRange(3, conditionsList.Count)]; ;
+        secondCondition = minWordLength;
+
 
         //choose the second condition randomly from the list
         //Debug.Log("Second condition updated: " + secondCondition);
 
         //choose the first condition randomly from the list
-        firstCondition = conditionsList[Random.RandomRange(1, conditionsList.Count)];
+        //firstCondition = conditionsList[Random.RandomRange(1, conditionsList.Count)];
+        firstCondition = numberOfWords;
 
 
         switch (levelType)
@@ -177,7 +222,7 @@ public class LevelManager : MonoBehaviour
 
 
             case "length":
-                 // Debug.Log(firstCondition + " words remaining!");
+                  Debug.Log(firstCondition + " words remaining!");
 
                 if (wordToCheck.Length == secondCondition)
                 {

@@ -175,8 +175,13 @@ public class GameManager : MonoBehaviour
         Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
         Points.liveScore = 0;
         Points.totalScore = 0;
+
+        //reset the overall game level
+        levelDetails.currentLevel = 0;
+        
+
         //randomly reset the level
-        LevelManager.Instance.ConstructLevelParams(LevelManager.Instance.randomLevelSelection);
+        //LevelManager.Instance.ConstructLevelParams(LevelManager.Instance.randomLevelSelection);
 
     }
 
@@ -198,6 +203,8 @@ public class GameManager : MonoBehaviour
     public void LevelComplete()
     {
         fadeManager.FadeType(fadeManager._flashColour, fadeManager.pulseSpeed);
+
+
 
         //update the total stars in your kitty.
         DictionaryManager.Instance.starsTotal += 2;

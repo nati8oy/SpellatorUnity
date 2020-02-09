@@ -280,6 +280,7 @@ public class DictionaryManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
 
         if (Points.multiplier > 2)
         {
@@ -310,10 +311,10 @@ public class DictionaryManager : MonoBehaviour
         switch (WordBeingMade.Length)
         {
             case 3:
-                GameManager.Instance.ShakeCamera(Random.Range(10, 15), Random.Range(30, 40) * WordBeingMade.Length, 0.75f);
+                GameManager.Instance.ShakeCamera(0, Random.Range(30, 40), 0.75f);
                 break;
             case 4:
-                GameManager.Instance.ShakeCamera(Random.Range(10, 15), Random.Range(30, 40) * WordBeingMade.Length, 0.75f);
+                GameManager.Instance.ShakeCamera(0, Random.Range(30, 40) * 2, 0.75f);
                 break;
             case 5:
                 GameManager.Instance.ShakeCamera(Random.Range(10, 15), Random.Range(30, 40) * WordBeingMade.Length, 0.75f);
@@ -348,10 +349,13 @@ public class DictionaryManager : MonoBehaviour
 
         //access the level data function
         //RANDOM VERSION
-        LevelManager.Instance.LevelGoalCheck(WordBeingMade, LevelManager.Instance.randomLevelSelection);
+        //LevelManager.Instance.LevelGoalCheck(WordBeingMade, LevelManager.Instance.randomLevelSelection);
+        //LevelManager.Instance.LevelGoalCheck(WordBeingMade, LevelManager.Instance.levelRuleType);
+
+        //Debug.Log(LevelManager.Instance.levelRuleType.ToString());
 
         //SET VERSION
-       // levelData.LevelGoalCheck(WordBeingMade, "starting");
+        LevelManager.Instance.LevelGoalCheck(WordBeingMade, LevelManager.Instance.levelRuleType.ToString());
 
 
         //play the particle effects for a correct word

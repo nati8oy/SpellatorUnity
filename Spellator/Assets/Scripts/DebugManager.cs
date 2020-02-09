@@ -7,13 +7,15 @@ public class DebugManager : MonoBehaviour
 
     private GameObject[] tiles;
     private TileSkinSO currentSkin;
-   // public GameObject woodPanel;
+    // public GameObject woodPanel;
     //private string currentSkin;
+    public ParticleSystem particleTrigger;
+
 
     private void Start()
     {
         tiles = GameObject.FindGameObjectsWithTag("Tile");
-       
+
         //    Debug.Log("tiles length: " + tiles.Length);
     }
 
@@ -24,8 +26,11 @@ public class DebugManager : MonoBehaviour
             GameManager.Instance.LevelComplete();
         }
 
-        
-
+        //play particles
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            particleTrigger.Play();
+        }
 
     }
 }

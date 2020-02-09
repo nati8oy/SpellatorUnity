@@ -8,6 +8,7 @@ public class GameConfig : MonoBehaviour
 
     public static GameConfig Instance;
     public ConfigSO configScriptableObject;
+    public LevelManagerSO levelData;
 
     public  bool musicOn;
     public  bool sfxOn;
@@ -53,6 +54,10 @@ public class GameConfig : MonoBehaviour
         Debug.Log("game config says unique words list is " + uniqueWordsList.Count + " long");
 
         }
+
+
+    //set the level to 0 for each of the  
+   
 
         // Update is called once per frame
         void Update()
