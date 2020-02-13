@@ -85,7 +85,6 @@ public class Tile : MonoBehaviour
 
     void Start()
     {
-
         
         twinkleParticles.Stop();
         //check to see if the tile is the first tile for chain mode words

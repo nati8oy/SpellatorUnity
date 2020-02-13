@@ -7,6 +7,7 @@ public class LevelDescription : MonoBehaviour
 {
     public TextMeshProUGUI levelRules;
     public LevelManagerSO levelData;
+    public TextMeshProUGUI levelNumber;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,7 @@ public class LevelDescription : MonoBehaviour
     void Update()
     {
         levelRules.text = levelData.levelRules;
+        levelNumber.text = levelData.currentLevel.ToString();
 
     }
 
