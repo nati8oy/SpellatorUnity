@@ -21,7 +21,7 @@ public class DictionaryManager : MonoBehaviour
     [Space()]
     [Header("Word Related Variables")]
     //    private WordData listOfWordsMade;
-
+    
 
     [Space()]
     [Header("Managers")]
@@ -37,6 +37,8 @@ public class DictionaryManager : MonoBehaviour
 
     public int starsTotal;
     public TextMeshProUGUI starTotalText;
+
+    public GameObject healthParticles;
 
     //this sets up the field for which to add the external dictionary txt file
     [SerializeField] private TextAsset dictionaryTxtFile;
@@ -62,8 +64,8 @@ public class DictionaryManager : MonoBehaviour
 
     private ParticleSystem starParticles;
     //[SerializeField] private ParticleSystem correctWordParticles;
-    private ParticleSystem heartParticles;
-    [SerializeField] private ParticleSystem healthUpParticles;
+    //private ParticleSystem heartParticles;
+    //[SerializeField] private ParticleSystem healthUpParticles;
 
     public ParticleSystem pointParticles;
     public int maximumParticles;
@@ -237,10 +239,10 @@ public class DictionaryManager : MonoBehaviour
     void Start()
     {
 
-        //levelManager.levelComplete = false;
 
-        //level class constructor
- //       levelData = new LevelClass();
+        //Remember that the object pooler uses TAGS not names of objects to set them active, etc. here.
+        healthParticles = ObjectPooler.SharedInstance.GetPooledObject("Heart Particles");
+
 
         //set the list of playerWordsMade to be that of the Scriptable object's uniqueWordList
         playerWordsMade = wordData.uniqueWordsList;
@@ -253,7 +255,7 @@ public class DictionaryManager : MonoBehaviour
         fadeManager = GameObject.Find("Fade Manager").GetComponent<Transitions>();
 
        // correctWordParticles.Stop();
-        healthUpParticles.Stop();
+       // healthUpParticles.Stop();
         //display the level which is the number of unique words made
         //currentLevel = GameObject.Find("Level").GetComponent<TextMeshProUGUI>();
 
@@ -509,8 +511,26 @@ public class DictionaryManager : MonoBehaviour
                 {
                     //update the player health based on the tile points amount
                     healthBar.GetComponent<PlayerHealth>().Heal(tile.GetComponent<Tile>().spawnedTile.points);
-                    healthUpParticles.Play();
-                   
+
+
+                    //set the particle effects to play for a correct word with the heart attribute
+                    if (healthParticles != null)
+                    {
+                        healthParticles.transform.position = GameObject.Find("HealthBar").transform.position;
+
+                        healthParticles.transform.SetParent(gameObject.transform) ;
+
+                        healthParticles.SetActive(true);
+                        StartCoroutine("CheckIfAlive");
+                        Debug.Log("Check if alive Enumerator is working");
+                        //available = false;
+
+                    }
+
+
+
+                    //healthUpParticles.Play();
+
                 }
                 
 
@@ -873,6 +893,18 @@ public class DictionaryManager : MonoBehaviour
 
             }
 
+        }
+    }
+
+    //resets the particle systems to be inactive so they can be reused in the object pool
+    private IEnumerator CheckIfAlive()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(2f);
+            healthParticles.SetActive(false);
+            Debug.Log("heart particles inactive");
+            StopCoroutine("CheckIfAlive");
         }
     }
 

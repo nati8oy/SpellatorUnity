@@ -22,6 +22,7 @@ TagManager:
   - Star
   - Level Up Text
   - CorrectWord
+  - Heart Particles
   layers:
   - Default
   - TransparentFX
