@@ -39,8 +39,7 @@ public class DictionaryManager : MonoBehaviour
     public TextMeshProUGUI starTotalText;
 
     //this sets up the field for which to add the external dictionary txt file
-    [SerializeField]
-    private TextAsset dictionaryTxtFile;
+    [SerializeField] private TextAsset dictionaryTxtFile;
 
     //a list to store all of the values from the bag text file in
 
@@ -58,11 +57,18 @@ public class DictionaryManager : MonoBehaviour
 
     [Space()]
     [Header("Particle Systems")]
+
+    public GameObject newCorrectWordParticle;
+
     private ParticleSystem starParticles;
-    [SerializeField] private ParticleSystem correctWordParticles;
+    //[SerializeField] private ParticleSystem correctWordParticles;
     private ParticleSystem heartParticles;
     [SerializeField] private ParticleSystem healthUpParticles;
 
+    public ParticleSystem pointParticles;
+    public int maximumParticles;
+    public int particleSizes;
+    public int particleLifetime;
 
     [Space()]
     [Header("Sprites")]
@@ -246,7 +252,7 @@ public class DictionaryManager : MonoBehaviour
 
         fadeManager = GameObject.Find("Fade Manager").GetComponent<Transitions>();
 
-        correctWordParticles.Stop();
+       // correctWordParticles.Stop();
         healthUpParticles.Stop();
         //display the level which is the number of unique words made
         //currentLevel = GameObject.Find("Level").GetComponent<TextMeshProUGUI>();
@@ -298,6 +304,12 @@ public class DictionaryManager : MonoBehaviour
 
         //set the text in the stars total text section to be the right amount.
         starTotalText.text = starsTotal.ToString();
+
+        //set up the primary tile particle system
+        var main = pointParticles.main;
+        //set the max number of particles;
+        main.maxParticles = maximumParticles;
+        main.startLifetime = particleLifetime;
 
 
 
@@ -359,7 +371,24 @@ public class DictionaryManager : MonoBehaviour
 
 
         //play the particle effects for a correct word
-        correctWordParticles.Play();
+
+        //Remember that the object pooler uses TAGS not names of objects to set them active, etc. here.
+        newCorrectWordParticle = ObjectPooler.SharedInstance.GetPooledObject("CorrectWord");
+
+
+        //set the particle effects to play for a correct word
+        if (newCorrectWordParticle != null)
+        {
+            newCorrectWordParticle.transform.position = GameObject.Find("Primary Tile").transform.position;
+            
+            newCorrectWordParticle.transform.SetParent(gameObject.transform);
+            newCorrectWordParticle.SetActive(true);
+           // Debug.Log("particles for all!");
+            //available = false;
+
+        }
+
+       // correctWordParticles.Play();
 
         //reduce the age of all the remaining tiles on the board
         ReduceAge();
@@ -398,6 +427,21 @@ public class DictionaryManager : MonoBehaviour
             if (WordBeingMade.Length >= 4)
             {
                 Points.multiplier += 1;
+
+                //adjust the particles on the primary tile
+
+                if (maximumParticles < 55)
+                {
+                    maximumParticles += 10;
+
+                }
+
+
+               // particleLifetime = Random.Range(0.25 * Points.multiplier, 0.3 * Points.multiplier);
+                particleSizes = Random.Range(10* Points.multiplier,15*Points.multiplier);
+
+
+
             }
 
 
@@ -432,6 +476,7 @@ public class DictionaryManager : MonoBehaviour
                 else if (WordBeingMade.Length <= 3)
             {
                 Points.multiplier = 1;
+                maximumParticles = 5;
                 multiplierText.text = "";
             }
 
@@ -651,6 +696,7 @@ public class DictionaryManager : MonoBehaviour
             }
 
             Points.multiplier = 1;
+            maximumParticles = 5;
             multiplierText.text = "";
 
 

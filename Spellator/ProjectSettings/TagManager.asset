@@ -21,6 +21,7 @@ TagManager:
   - Smoke
   - Star
   - Level Up Text
+  - CorrectWord
   layers:
   - Default
   - TransparentFX
