@@ -14018,6 +14018,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 867643876402967888, guid: 9954841a39f6f441a99d2ffb76a65e03,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1750961601837996233, guid: 9954841a39f6f441a99d2ffb76a65e03,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1750961601837996234, guid: 9954841a39f6f441a99d2ffb76a65e03,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1750961601837996235, guid: 9954841a39f6f441a99d2ffb76a65e03,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14077,6 +14092,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LevelChanger
+      objectReference: {fileID: 0}
+    - target: {fileID: 1750961602258015548, guid: 9954841a39f6f441a99d2ffb76a65e03,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1750961602258015551, guid: 9954841a39f6f441a99d2ffb76a65e03,
         type: 3}

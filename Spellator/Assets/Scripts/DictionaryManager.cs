@@ -332,6 +332,7 @@ public class DictionaryManager : MonoBehaviour
                 break;
             case 5:
                 GameManager.Instance.ShakeCamera(Random.Range(10, 15), Random.Range(30, 40) * WordBeingMade.Length, 0.75f);
+
                 break;
             case 6:
                 GameManager.Instance.ShakeCamera(Random.Range(10, 15), Random.Range(30, 40) * WordBeingMade.Length, 0.75f);
