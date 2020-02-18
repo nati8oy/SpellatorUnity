@@ -53,7 +53,7 @@ public class GameConfig : MonoBehaviour
             highScores = configScriptableObject.topTenHighScores;
 
         configScriptableObject.FindLongestWord();
-        Debug.Log("game config says unique words list is " + uniqueWordsList.Count + " long");
+        //Debug.Log("game config says unique words list is " + uniqueWordsList.Count + " long");
 
         }
 

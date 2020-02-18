@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameState : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class GameState : MonoBehaviour
     public List<int> highScores = new List<int>();
     public bool audioToggle;
     public int premiumCurrency;
+    public Image mainBG;
 
 
     public void SaveGameData()

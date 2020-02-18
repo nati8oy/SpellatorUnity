@@ -31,15 +31,18 @@ public class TileDisplay : MonoBehaviour
     [HideInInspector]
     public Sprite[] tileAgeSprites;
 
+    [HideInInspector]
+
     //public Color tileTextColour;
 
     //public string skinName;
     public TextMeshProUGUI letterText;
     public TextMeshProUGUI pointsText;
     public ParticleSystem particles;
-    
 
-    
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -66,6 +69,12 @@ public class TileDisplay : MonoBehaviour
 
             //set the double tile background colour to whatever is in the scriptable object
             tripleLetterColour = tileSkin.tripleLetterColour;
+           
+
+                
+
+
+
             break;
 
 
@@ -94,6 +103,7 @@ public class TileDisplay : MonoBehaviour
                 pointsText.color = tileSkin.wood_tile_text_colour;
                 doubleLetterColour = tileSkin.wood_tile_double_colour;
                 tripleLetterColour = tileSkin.wood_tile_triple_colour;
+               
 
                 break;
         }
