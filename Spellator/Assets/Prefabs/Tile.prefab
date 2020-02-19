@@ -5735,8 +5735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileSkin: {fileID: 11400000, guid: f3aef0eed6c3c46d4a9566d3bdae68dd, type: 2}
-  tileSkinType: 0
-  gameBGImage: {fileID: 21300000, guid: a7fc483945fa6429c950617d1591f891, type: 3}
+  tileSkinType: 1
   tileTextColour: {r: 0, g: 0, b: 0, a: 0}
   tileDisabledColour: {r: 0, g: 0, b: 0, a: 0}
   doubleLetterColour: {r: 0, g: 0, b: 0, a: 0}
@@ -5747,7 +5746,6 @@ MonoBehaviour:
   letterText: {fileID: 781199010286186662}
   pointsText: {fileID: 7308423248976456831}
   particles: {fileID: 0}
-  mainBackground: {fileID: 21300000, guid: 96bdb0b6feb884f23a496fbd6193b7d1, type: 3}
 --- !u!212 &1292849995498640143
 SpriteRenderer:
   m_ObjectHideFlags: 0

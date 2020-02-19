@@ -9,6 +9,13 @@ public class GameManager : MonoBehaviour
     //sets up an instance of the GameManager
     public static GameManager Instance;
 
+
+    //this manages the game skins
+    public enum TileSkinType { original, dark, wood };
+    public TileSkinType tileSkinType;
+
+
+
     //[SerializeField] private AudioClip bgMusic;
     //public float audioTrackSelection;
     private AudioSource gameManagerAudioSource;

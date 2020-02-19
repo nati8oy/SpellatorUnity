@@ -8,9 +8,9 @@ public class TileDisplay : MonoBehaviour
 {
     public TileSkinSO tileSkin;
 
-    public enum TileSkinType{original, dark, wood};
+    //public enum TileSkinType{original, dark, wood};
 
-    public TileSkinType tileSkinType;
+    //public TileSkinType tileSkinType;
 
 
 //public Sprite tileBackground;
@@ -46,40 +46,43 @@ public class TileDisplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       // Debug.Log("there are " + tileSkin.dark_tile_ages.Length + " tile age sprites");
+        CheckTileSkin();
+    }
 
-        switch (tileSkinType)
+    public void CheckTileSkin()
+    {
+
+
+        switch (GameManager.Instance.tileSkinType)
         {
-            case TileSkinType.original:
+            case GameManager.TileSkinType.original:
 
-            tileAgeSprites = tileSkin.TileAgeSprites;
+                tileAgeSprites = tileSkin.TileAgeSprites;
 
-            correctWordTextColour = tileSkin.correctWordTextColour;
-            tileDisabledColour = tileSkin.colourOfInactiveText;
-            //tileBackground.sprite = tileSkin.tileBG;
-            tileTextColour = tileSkin.colourOfTileText;
-            letterText.color = tileTextColour;
-            pointsText.color = tileTextColour;
-            particles = tileSkin.particles;
-            doubleLetterColour = tileSkin.doubleLetterColour;
-            tripleLetterColour = tileSkin.tripleLetterColour;
+                correctWordTextColour = tileSkin.correctWordTextColour;
+                tileDisabledColour = tileSkin.colourOfInactiveText;
+                //tileBackground.sprite = tileSkin.tileBG;
+                tileTextColour = tileSkin.colourOfTileText;
+                letterText.color = tileTextColour;
+                pointsText.color = tileTextColour;
+                particles = tileSkin.particles;
+                doubleLetterColour = tileSkin.doubleLetterColour;
+                tripleLetterColour = tileSkin.tripleLetterColour;
 
-            //set the double tile background colour to whatever is in the scriptable object
-            doubleTileColour = tileSkin.doubleTileColour;
+                //set the double tile background colour to whatever is in the scriptable object
+                //            doubleTileColour = tileSkin.doubleTileColour;
 
-            //set the double tile background colour to whatever is in the scriptable object
-            tripleLetterColour = tileSkin.tripleLetterColour;
-           
-
-                
+                //set the double tile background colour to whatever is in the scriptable object
+                tripleLetterColour = tileSkin.tripleLetterColour;
 
 
 
-            break;
+
+                break;
 
 
             //if the enum is set to dark, use this skin
-            case TileSkinType.dark:
+            case GameManager.TileSkinType.dark:
 
                 tileAgeSprites = tileSkin.dark_tile_ages;
 
@@ -93,7 +96,7 @@ public class TileDisplay : MonoBehaviour
                 break;
 
             //if the enum is set to dark, use this skin
-            case TileSkinType.wood:
+            case GameManager.TileSkinType.wood:
 
                 tileAgeSprites = tileSkin.wood_tile_ages;
 
@@ -103,16 +106,10 @@ public class TileDisplay : MonoBehaviour
                 pointsText.color = tileSkin.wood_tile_text_colour;
                 doubleLetterColour = tileSkin.wood_tile_double_colour;
                 tripleLetterColour = tileSkin.wood_tile_triple_colour;
-               
+
 
                 break;
         }
-
-        //Debug.Log("tile skin type: " + tileSkinType);
-
-
-
-
     }
 
 
