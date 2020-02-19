@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     [Header("Scriptable objects")]
     public TileBagSO currentBag;
     public LevelManagerSO levelDetails;
+    public Sprite[] gameBackgrounds;
+    public Image mainBackground;
 
     [Space]
 
@@ -123,6 +125,10 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+
+        //set the game background randomly from the array
+        mainBackground.sprite = gameBackgrounds[Random.Range(0, gameBackgrounds.Length)];
+
         //reset all the game levels before the game starts
 
         CreateRandomBag();
