@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 [System.Serializable]
 
@@ -13,7 +12,6 @@ public class PlayerData
     public bool audioToggle;
     public List<int> highScores = new List<int>();
     public int premiumCurrency;
-    public Image bgImage;
 
     public PlayerData (GameState gameState)
     {
@@ -23,7 +21,6 @@ public class PlayerData
         playerWordsMade = gameState.playerWordsMade;
      // audioToggle = gameState.audioToggle;
         premiumCurrency = gameState.premiumCurrency;
-        bgImage = gameState.mainBG;
 
     }
 }

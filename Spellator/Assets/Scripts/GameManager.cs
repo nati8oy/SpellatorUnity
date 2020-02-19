@@ -45,10 +45,6 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private ParticleSystem levelCompleteParticles;
 
-    public Image gameBG;
-    public Sprite []bgArray;
-    
-
     // used to count unique words for each level
     public int newWordCounter;
 
@@ -130,8 +126,6 @@ public class GameManager : MonoBehaviour
         //reset all the game levels before the game starts
 
         CreateRandomBag();
-
-        gameBG.sprite = bgArray[Random.Range(0, 3)];
 
         //resets the current game level via the scriptable object 
         ///levelDetails.currentLevel = 0;

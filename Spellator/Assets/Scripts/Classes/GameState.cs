@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class GameState : MonoBehaviour
 {
@@ -13,7 +12,6 @@ public class GameState : MonoBehaviour
     public List<int> highScores = new List<int>();
     public bool audioToggle;
     public int premiumCurrency;
-    public Image mainBG;
 
 
     public void SaveGameData()
@@ -61,7 +59,7 @@ public class GameState : MonoBehaviour
 
         //DictionaryManager.Instance.playerWordsMade = data.playerWordsMade;
         DictionaryManager.Instance.starsTotal = data.premiumCurrency;
-        GameConfig.Instance.uniqueWordsList = data.playerWordsMade;
+       // GameConfig.Instance.uniqueWordsList = data.playerWordsMade;
 
         //load the high scores
 
