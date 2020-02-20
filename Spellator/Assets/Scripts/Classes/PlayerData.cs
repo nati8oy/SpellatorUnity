@@ -12,6 +12,7 @@ public class PlayerData
     public bool audioToggle;
     public List<int> highScores = new List<int>();
     public int premiumCurrency;
+    public int wordsPlayed;
 
     public PlayerData (GameState gameState)
     {
@@ -21,6 +22,7 @@ public class PlayerData
         playerWordsMade = gameState.playerWordsMade;
      // audioToggle = gameState.audioToggle;
         premiumCurrency = gameState.premiumCurrency;
+        wordsPlayed = gameState.wordsPlayed;
 
     }
 }

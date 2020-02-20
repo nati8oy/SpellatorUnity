@@ -68,6 +68,11 @@ public class GameConfig : MonoBehaviour
             sfxOn = configScriptableObject.sfxOn;
             uniqueWordsList = configScriptableObject.uniqueWordsList;
 
+        var test = DictionaryManager.Instance.totalWordsPlayed;
+
+        Debug.Log("test var is: " + test);
+
+
     }
 
     public void ResetLevels()

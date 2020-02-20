@@ -12,6 +12,7 @@ public class GameState : MonoBehaviour
     public List<int> highScores = new List<int>();
     public bool audioToggle;
     public int premiumCurrency;
+    public int wordsPlayed;
 
 
     public void SaveGameData()
@@ -31,14 +32,15 @@ public class GameState : MonoBehaviour
 
         //playerWordsMade = GameConfig.Instance.uniqueWordsList;
         playerWordsMade = DictionaryManager.Instance.playerWordsMade;
+        wordsPlayed = DictionaryManager.Instance.totalWordsPlayed;
 
         //save the high scores
-//        highScores = GameConfig.Instance.highScores;
+        //        highScores = GameConfig.Instance.highScores;
 
-        
 
-		//save the data
-		SaveSystem.SaveGameData(this);
+
+        //save the data
+        SaveSystem.SaveGameData(this);
 
 
         Debug.Log("Score saved " + "(" + currentScore + ")" + " Saved dictionary length is: " + playerWordsMade.Count);
@@ -59,6 +61,7 @@ public class GameState : MonoBehaviour
 
         //DictionaryManager.Instance.playerWordsMade = data.playerWordsMade;
         DictionaryManager.Instance.starsTotal = data.premiumCurrency;
+        DictionaryManager.Instance.totalWordsPlayed = data.wordsPlayed;
        // GameConfig.Instance.uniqueWordsList = data.playerWordsMade;
 
         //load the high scores

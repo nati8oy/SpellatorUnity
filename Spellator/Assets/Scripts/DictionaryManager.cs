@@ -21,7 +21,9 @@ public class DictionaryManager : MonoBehaviour
     [Space()]
     [Header("Word Related Variables")]
     //    private WordData listOfWordsMade;
-    
+
+    public int totalWordsPlayed;
+
 
     [Space()]
     [Header("Managers")]
@@ -320,6 +322,10 @@ public class DictionaryManager : MonoBehaviour
 
     public void CheckAndDeleteTiles()
     {
+        //update the number of words played overall
+        totalWordsPlayed += 1;
+
+
         //check the word length and apply the correct amount of camera shake
 
         switch (WordBeingMade.Length)

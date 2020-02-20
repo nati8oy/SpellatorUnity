@@ -15509,6 +15509,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 990fc03be7e234fdcb3a533b903e72bc,
         type: 3}
+    - target: {fileID: 7349431635441859144, guid: cf2cb441bcdc54fbba9fdd62fba05c37,
+        type: 3}
+      propertyPath: tileSkinType
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf2cb441bcdc54fbba9fdd62fba05c37, type: 3}
 --- !u!1 &7349431636452027361 stripped
