@@ -153,7 +153,8 @@ public class GameManager : MonoBehaviour
 
         //toggle = true;
         //Auto load the data from the Game State file when the game manager loads
-        GetComponent<GameState>().LoadGameData();
+
+        GameObject.Find("GameState").GetComponent<GameState>().LoadGameData();
 
 
         //start the game with the level description object active
@@ -207,7 +208,10 @@ public class GameManager : MonoBehaviour
     public void MainMenu()
     {
         //save before the game goes back to the main menu.
-        GetComponent<GameState>().SaveGameData();
+        //GetComponent<GameState>().SaveGameData();
+
+        GameObject.Find("GameState").GetComponent<GameState>().SaveGameData();
+
 
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
@@ -230,7 +234,9 @@ public class GameManager : MonoBehaviour
 
 
         //save the game data
-        GetComponent<GameState>().SaveGameData();
+        //        GetComponent<GameState>().SaveGameData();
+
+        GameObject.Find("GameState").GetComponent<GameState>().SaveGameData();
 
         levelDetails.levelComplete = true;
         //display the level complete panel

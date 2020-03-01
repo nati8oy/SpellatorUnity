@@ -190,6 +190,10 @@ public class DictionaryManager : MonoBehaviour
         }
 
         Instance = this;
+
+
+        totalWordsPlayed = wordData.totalWordsMade;
+        Debug.Log("total words made " + totalWordsPlayed);
     }
 
 
@@ -244,7 +248,6 @@ public class DictionaryManager : MonoBehaviour
 
         //Remember that the object pooler uses TAGS not names of objects to set them active, etc. here.
         healthParticles = ObjectPooler.SharedInstance.GetPooledObject("Heart Particles");
-
 
         //set the list of playerWordsMade to be that of the Scriptable object's uniqueWordList
         playerWordsMade = wordData.uniqueWordsList;
@@ -322,8 +325,8 @@ public class DictionaryManager : MonoBehaviour
 
     public void CheckAndDeleteTiles()
     {
-        //update the number of words played overall
-        totalWordsPlayed += 1;
+        //update the number of words played overall - not the unique words
+        wordData.totalWordsMade += 1;
 
 
         //check the word length and apply the correct amount of camera shake

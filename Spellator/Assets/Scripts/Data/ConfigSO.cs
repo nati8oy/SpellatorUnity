@@ -9,13 +9,20 @@ public class ConfigSO : ScriptableObject
     public bool sfxOn;
     public bool musicOn;
 
-    public string longestWord;
     public string favouriteWordLength;
-    public int highScore;
-    public Vector3[] playedTilePositions;
+
+    public int totalWordsMade;
+    public string currentStatus;
+    public string longestWord;
+    public int uniqueWords;
+
+
+    //public int highScore;
+    //public Vector3[] playedTilePositions;
 
     private List<int> wordLengths = new List<int>();
-    public List<int> topTenHighScores = new List<int>();
+    //public List<int> topTenHighScores = new List<int>();
+
 
 
     public void FavouriteWordLength()
@@ -26,6 +33,8 @@ public class ConfigSO : ScriptableObject
         }
     }
 
+
+    /*
     public void SetHighScores(int score)
     {
         //add the high scores to the top 10 list of high scores.
@@ -56,8 +65,11 @@ public class ConfigSO : ScriptableObject
                 topTenHighScores.Add(highScore);
                 Debug.Log(topTenHighScores);
             }
-        }*/
+        }
     }
+
+    */
+
 
     public void FindLongestWord()
     {

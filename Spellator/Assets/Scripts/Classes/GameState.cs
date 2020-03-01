@@ -14,6 +14,32 @@ public class GameState : MonoBehaviour
     public int premiumCurrency;
     public int wordsPlayed;
 
+    public ConfigSO configData;
+
+    [HideInInspector]
+    public GameState Instance;
+
+
+    private void Awake()
+    {
+
+        if (Instance != null)
+        {
+            Destroy(Instance);
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(this);
+        }
+
+    }
+
+    private void Start()
+    {
+        wordsPlayed = configData.totalWordsMade;
+    }
+
 
     public void SaveGameData()
     {
@@ -23,27 +49,30 @@ public class GameState : MonoBehaviour
        // Debug.Log("audio toggle being saved as " + GameManager.Instance.toggle);
         currentScore = Points.totalScore;
 
-
-        //musicOn = wordData.musicOn;
-        //sfxOn = wordData.sfxOn;
-
-        //        musicOn = GameConfig.Instance.musicOn;
-        //      sfxOn = GameConfig.Instance.sfxOn;
-
         //playerWordsMade = GameConfig.Instance.uniqueWordsList;
+
+
+        //this the list of uniqe words made
         playerWordsMade = DictionaryManager.Instance.playerWordsMade;
-        wordsPlayed = DictionaryManager.Instance.totalWordsPlayed;
+
+       // wordsPlayed = DictionaryManager.Instance.totalWordsPlayed;
+//        wordsPlayed = configData.totalWordsMade;
+
+       Debug.Log(wordsPlayed);
+
+       
 
         //save the high scores
         //        highScores = GameConfig.Instance.highScores;
 
 
+        Debug.Log("<color=red> Score saved </color>" + "(" + currentScore + ")" + " Saved dictionary: " + "(" + playerWordsMade.Count + ")" + " Words Played: " + wordsPlayed);
 
         //save the data
         SaveSystem.SaveGameData(this);
 
 
-        Debug.Log("Score saved " + "(" + currentScore + ")" + " Saved dictionary length is: " + playerWordsMade.Count);
+        
     }
 
 
@@ -53,16 +82,38 @@ public class GameState : MonoBehaviour
 
        // audioToggle = data.audioToggle;
 
-        currentScore = data.currentScore;
-		playerWordsMade = data.playerWordsMade;
-        premiumCurrency = data.premiumCurrency;
+
+
 
         //load the list of unique words
 
         //DictionaryManager.Instance.playerWordsMade = data.playerWordsMade;
-        DictionaryManager.Instance.starsTotal = data.premiumCurrency;
-        DictionaryManager.Instance.totalWordsPlayed = data.wordsPlayed;
-       // GameConfig.Instance.uniqueWordsList = data.playerWordsMade;
+
+        //check to see if the dictionary manager exists yet. If it's not null then load the vars associated with it.
+
+        if (DictionaryManager.Instance!=null)
+        {
+            DictionaryManager.Instance.starsTotal = data.premiumCurrency;
+            DictionaryManager.Instance.totalWordsPlayed = data.wordsPlayed;
+            //Debug.Log("loaded data from Dictionary Manager");
+
+        }
+        else
+        {
+           // Debug.Log("Dictonary manager doesn't exist yet!");
+        }
+
+
+
+        currentScore = data.currentScore;
+        playerWordsMade = data.playerWordsMade;
+        premiumCurrency = data.premiumCurrency;
+        wordsPlayed = data.wordsPlayed;
+
+        Debug.Log("total words made (" + wordsPlayed + ") configData words: (" + configData.totalWordsMade + ")");
+
+
+        // GameConfig.Instance.uniqueWordsList = data.playerWordsMade;
 
         //load the high scores
 

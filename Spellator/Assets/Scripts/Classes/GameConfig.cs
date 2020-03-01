@@ -39,7 +39,9 @@ public class GameConfig : MonoBehaviour
     void Start()
         {
 
-     
+        //load the game save data
+        GameObject.Find("GameState").GetComponent<GameState>().LoadGameData();
+
 
         uniqueWordsList = configScriptableObject.uniqueWordsList;
 //        GetComponent<GameState>().LoadGameData();
@@ -50,7 +52,7 @@ public class GameConfig : MonoBehaviour
             sfxOn = configScriptableObject.sfxOn;
             longestWord = configScriptableObject.longestWord;
             favouriteWordLength = configScriptableObject.favouriteWordLength;
-            highScores = configScriptableObject.topTenHighScores;
+            //highScores = configScriptableObject.topTenHighScores;
 
         configScriptableObject.FindLongestWord();
         //Debug.Log("game config says unique words list is " + uniqueWordsList.Count + " long");
@@ -68,9 +70,9 @@ public class GameConfig : MonoBehaviour
             sfxOn = configScriptableObject.sfxOn;
             uniqueWordsList = configScriptableObject.uniqueWordsList;
 
-        var test = DictionaryManager.Instance.totalWordsPlayed;
+//        var test = DictionaryManager.Instance.totalWordsPlayed;
 
-        Debug.Log("test var is: " + test);
+     //   Debug.Log("test var is: " + test);
 
 
     }
