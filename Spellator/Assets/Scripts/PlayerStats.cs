@@ -26,7 +26,7 @@ public class PlayerStats : MonoBehaviour
         //load the data
         gameDataObject.LoadGameData();
 
-        totalWordsMade.text = configData.totalWordsMade.ToString() + " words played";
+        //totalWordsMade.text = configData.totalWordsMade.ToString() + " words played";
         currentStatus.text = statuses[Random.Range(0, statuses.Length)];
 
         uniqueWords.text = gameDataObject.playerWordsMade.ToString();

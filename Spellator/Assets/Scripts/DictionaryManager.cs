@@ -532,7 +532,7 @@ public class DictionaryManager : MonoBehaviour
 
                         healthParticles.SetActive(true);
                         StartCoroutine("CheckIfAlive");
-                        Debug.Log("Check if alive Enumerator is working");
+                       // Debug.Log("Check if alive Enumerator is working");
                         //available = false;
 
                     }

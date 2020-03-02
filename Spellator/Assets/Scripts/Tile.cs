@@ -241,25 +241,32 @@ public class Tile : MonoBehaviour
 
         } else if (CompareTag("Tile"))
         {
-            var n = TileBag.bag.Count;
+            //var n = TileBag.bag.Count;
             //spawnedTile.letter = currentBag.bag[Random.Range(0, currentBag.bag.Count)];
             spawnedTile.letter = TileBag.bag[Random.Range(0, TileBag.bag.Count)];
 
 
 
-
-            ////////////CONTINUE HERE////////
-
-            //spawnedTile.letter = TileBag.bag[n-1];
+            //takes the last letter from the list and uses that tile.
+            //spawnedTile.letter = TileBag.bag[TileBag.bag.Count];
+            
+            //set the tile point amount
             spawnedTile.points = currentBag.letterDictionary[spawnedTile.letter];
+            TileBag.bag.Remove(spawnedTile.letter);
+            Debug.Log("tile count is: " + TileBag.bag.Count + " Tile removed: " + spawnedTile.letter);
 
 
-          
+            
+
+
+
 
 
             //currentBag.bag.Remove(spawnedTile.letter);
 
-            //currentBag.RemoveLetterUsed(spawnedTile.letter);
+
+            // currentBag.RemoveLetterUsed(TileBag.bag.Count.ToString());
+
             // spawnedTile.letter = TileBag.bag[Random.Range(0, TileBag.bag.Count)];
             //spawnedTile.points = TileBag.pointsDictionary[spawnedTile.letter];
 
@@ -272,8 +279,7 @@ public class Tile : MonoBehaviour
         points.text = spawnedTile.points.ToString();
         tilePointValue = spawnedTile.points;
 
-        //remove the letter from the bag (which is removing it from the list)
-        TileBag.bag.Remove(spawnedTile.letter);
+        
         //refill the tile bag
         GameManager.Instance.CheckBagLevels();
        // Debug.Log(TileBag.bag.Count + " Tiles remaining in bag");

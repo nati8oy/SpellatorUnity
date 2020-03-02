@@ -286,6 +286,9 @@ public class GameManager : MonoBehaviour
         // if there's only 20 tiles left, add 179 more from the SO
         if (TileBag.bag.Count <= 20)
         {
+
+           //Camera.main.GetComponent<CreateNewBag>().FillBag();
+            
             //grab all of the letters in the SO for the bag and put them into the bag
             foreach (string letter in currentBag.bag)
             {
@@ -299,17 +302,19 @@ public class GameManager : MonoBehaviour
 
     public void CreateRandomBag()
     {
+        /*
         for (int i = 0; i < 40; i++)
         {
             TileBag.bag.Add(TileBag.consonantList[Random.Range(0, TileBag.consonantList.Count)]);
+            Debug.Log("added consonants");
 
         }
 
         for (int i = 0; i < 60; i++)
         {
             TileBag.bag.Add(TileBag.vowelList[Random.Range(0, TileBag.vowelList.Count)]);
-
-        }
+            Debug.Log("added vowels");
+        }*/
         //Debug.Log("bag length = " + TileBag.bag.Count);
     }
 

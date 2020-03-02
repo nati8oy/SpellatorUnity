@@ -2124,7 +2124,7 @@ GameObject:
   - component: {fileID: 1046419389}
   - component: {fileID: 1046419388}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: UI Elements
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3321,6 +3321,49 @@ MonoBehaviour:
             m_Type: System.String
             m_EnumType: 
     m_Name: Home screen
+--- !u!1 &1468224729
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1468224731}
+  - component: {fileID: 1468224730}
+  m_Layer: 0
+  m_Name: VariableHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1468224730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468224729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce5afbabcc9ab431e8b07eec92b873b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1468224731
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468224729}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 422.17233, y: 561.6819, z: -214.60344}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1633045290
 GameObject:
   m_ObjectHideFlags: 0
@@ -3511,6 +3554,7 @@ MonoBehaviour:
   audioToggle: 0
   premiumCurrency: 0
   wordsPlayed: 0
+  configData: {fileID: 11400000, guid: 87f9af19399d249068769bd3553e5227, type: 2}
   Instance: {fileID: 0}
 --- !u!4 &1724631597
 Transform:

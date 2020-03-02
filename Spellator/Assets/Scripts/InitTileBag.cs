@@ -55,7 +55,7 @@ public class InitTileBag : MonoBehaviour
         tiles = tileBagData.letterDictionary;
 
     }
-
+    /*
     public void RemoveLetterUsed(string letterToRemove)
     {
 
@@ -69,6 +69,6 @@ public class InitTileBag : MonoBehaviour
 
 
         
-    }
+    }*/
 
 }
