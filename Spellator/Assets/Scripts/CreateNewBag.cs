@@ -10,6 +10,7 @@ public class CreateNewBag : MonoBehaviour
     public int consonantCount;
     public int vowelCount;
     public int rareConsonants;
+    public AnimationCurve mainAnimationCurve;
 
     // Start is called before the first frame update
 
@@ -20,8 +21,11 @@ public class CreateNewBag : MonoBehaviour
         vowelCount = 40;
         rareConsonants = 10;
 
+
         //clear the bag before adding any tiles
-        TileBag.bag.Clear();
+       // TileBag.bag.Clear();
+
+        /*
 
 
         for (int i = 0; i < consonantCount; i++)
@@ -43,9 +47,14 @@ public class CreateNewBag : MonoBehaviour
             TileBag.bag.Add(TileBag.rareConsonantList[Random.Range(0, TileBag.rareConsonantList.Count)]);
 
         }
+        */
 
 
         Debug.Log("bag length = " + TileBag.bag.Count);
+
+
+
+        
 
 
     }

@@ -1028,7 +1028,6 @@ GameObject:
   - component: {fileID: 519420030}
   - component: {fileID: 519420032}
   - component: {fileID: 519420033}
-  - component: {fileID: 519420035}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1226,24 +1225,6 @@ RectTransform:
   m_AnchoredPosition: {x: 320, y: 568}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &519420035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8edbd0730656849d994e7b6ae3f931ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  allTiles: []
-  tileScriptableObject: {fileID: 11400000, guid: ffcfd2bd4f56d433a89c76bdd1265301,
-    type: 2}
-  consonantCount: 0
-  vowelCount: 0
-  rareConsonants: 0
 --- !u!1 &540659896
 GameObject:
   m_ObjectHideFlags: 0
@@ -2908,7 +2889,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 7349431636452027360}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 7349431636452027361}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f79f7b51d295e4cb19eb237343666dc7, type: 3}
@@ -15408,3 +15389,51 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 166281412, guid: cf2cb441bcdc54fbba9fdd62fba05c37, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cf2cb441bcdc54fbba9fdd62fba05c37, type: 3}
+--- !u!1 &7349431636452027361 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7349431635441859142, guid: cf2cb441bcdc54fbba9fdd62fba05c37,
+    type: 3}
+  m_PrefabInstance: {fileID: 7349431636452027360}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7349431636452027362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7349431636452027361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8edbd0730656849d994e7b6ae3f931ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allTiles: []
+  tileScriptableObject: {fileID: 11400000, guid: ffcfd2bd4f56d433a89c76bdd1265301,
+    type: 2}
+  consonantCount: 0
+  vowelCount: 0
+  rareConsonants: 0
+  mainAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

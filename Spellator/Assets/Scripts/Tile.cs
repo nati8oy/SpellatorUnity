@@ -85,7 +85,10 @@ public class Tile : MonoBehaviour
 
     void Start()
     {
-        
+
+
+
+            //stop the twinkle particle effect
         twinkleParticles.Stop();
         //check to see if the tile is the first tile for chain mode words
         if (firstLetterTile == false)
@@ -213,8 +216,24 @@ public class Tile : MonoBehaviour
     private void OnEnable()
     {
 
+
+        //this is the code that chooses the random value from the curve.
+        //The curve can be adjusted in the inspector
+        float CurveWeightedRandom(AnimationCurve curve)
+        {
+            //multiply the float that is returned by the length of the bag
+            return curve.Evaluate(Random.value)*TileBag.bag.Count;
+        }
+
+
+        //CurveWeightedRandom(mainAnimationCurve);
+
+        Debug.Log("<color=red>curve weighted random</color> " + CurveWeightedRandom(GameManager.Instance.GetComponent<CreateNewBag>().mainAnimationCurve));
+
+
+
         //  animator.SetBool("clearTile", false);
-      
+
 
         //create instance of the TileClass for use in the checks below
 
@@ -241,19 +260,20 @@ public class Tile : MonoBehaviour
 
         } else if (CompareTag("Tile"))
         {
+
+
             //var n = TileBag.bag.Count;
             //spawnedTile.letter = currentBag.bag[Random.Range(0, currentBag.bag.Count)];
-            spawnedTile.letter = TileBag.bag[Random.Range(0, TileBag.bag.Count)];
+            //spawnedTile.letter = TileBag.bag[Random.Range(0, TileBag.bag.Count)];
 
+            //get the spawned letter by grabbing the value from the animation curve (which has been multiplied by length of the bag
+            //then converted to a whole number via Mathf.RoundToInt
+            spawnedTile.letter = TileBag.bag[Mathf.RoundToInt(CurveWeightedRandom(GameManager.Instance.GetComponent<CreateNewBag>().mainAnimationCurve))];
 
-
-            //takes the last letter from the list and uses that tile.
-            //spawnedTile.letter = TileBag.bag[TileBag.bag.Count];
-            
             //set the tile point amount
             spawnedTile.points = currentBag.letterDictionary[spawnedTile.letter];
-            TileBag.bag.Remove(spawnedTile.letter);
-            Debug.Log("tile count is: " + TileBag.bag.Count + " Tile removed: " + spawnedTile.letter);
+           // TileBag.bag.Remove(spawnedTile.letter);
+            Debug.Log("tile count is: " + TileBag.bag.Count + " Tile spawned: " + spawnedTile.letter);
 
 
             
