@@ -261,22 +261,31 @@ public class Tile : MonoBehaviour
         } else if (CompareTag("Tile"))
         {
 
-
             //var n = TileBag.bag.Count;
             //spawnedTile.letter = currentBag.bag[Random.Range(0, currentBag.bag.Count)];
             //spawnedTile.letter = TileBag.bag[Random.Range(0, TileBag.bag.Count)];
 
-            //get the spawned letter by grabbing the value from the animation curve (which has been multiplied by length of the bag
-            //then converted to a whole number via Mathf.RoundToInt
-            spawnedTile.letter = TileBag.bag[Mathf.RoundToInt(CurveWeightedRandom(GameManager.Instance.GetComponent<CreateNewBag>().mainAnimationCurve))];
+            //get the spawned letter by grabbing the value from the animation curve (which has been multiplied by the length of the bag
+            //then converted to a whole number via Mathf.CeilToInt
+            spawnedTile.letter = TileBag.bag[Mathf.CeilToInt(CurveWeightedRandom(GameManager.Instance.GetComponent<CreateNewBag>().mainAnimationCurve))];
 
-            //set the tile point amount
-            spawnedTile.points = currentBag.letterDictionary[spawnedTile.letter];
-           // TileBag.bag.Remove(spawnedTile.letter);
-            Debug.Log("tile count is: " + TileBag.bag.Count + " Tile spawned: " + spawnedTile.letter);
+            //check that the letter actually exists in the bag before using it
+            if (TileBag.bag.Contains(spawnedTile.letter))
+            {
+                //set the tile point amount
+                spawnedTile.points = currentBag.letterDictionary[spawnedTile.letter];
+                // TileBag.bag.Remove(spawnedTile.letter);
+                Debug.Log(" Tile spawned: " + spawnedTile.letter + " tile points: " + spawnedTile.points);
+
+            }
+
+            else
+            {
+                Debug.Log("<color=green> You're missing a tile letter!<color>");
+            }
 
 
-            
+
 
 
 
