@@ -228,7 +228,7 @@ public class Tile : MonoBehaviour
 
         //CurveWeightedRandom(mainAnimationCurve);
 
-        Debug.Log("<color=red>curve weighted random</color> " + CurveWeightedRandom(GameManager.Instance.GetComponent<CreateNewBag>().mainAnimationCurve));
+//        Debug.Log("<color=red>curve weighted random</color> " + CurveWeightedRandom(GameManager.Instance.GetComponent<CreateNewBag>().mainAnimationCurve));
 
 
 
@@ -324,10 +324,8 @@ public class Tile : MonoBehaviour
 
     {
 
-       
-
         //play the tile animation  
-        animator.SetBool("correctWord", true);
+       // animator.SetBool("correctWord", true);
 
         //play the small twinkle particles
         twinkleParticles.Play();
@@ -382,9 +380,12 @@ public class Tile : MonoBehaviour
                 {
                     case 1:
                         iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x) + (tileOffset * DictionaryManager.Instance.WordBeingMade.Length) - tileOffset, "y", nextTileSpot.y, "time", 0.5f, "easetype", "easeInOut", "oncomplete", "CheckWordBeingSpelled"));
+                      //  iTween.ScaleTo(gameObject, iTween.Hash("scale", new Vector3(tileScaleSize, tileScaleSize, 1), "time", 0.5f));
+
                         break;
                     case 2:
                         iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x) + (tileOffset * DictionaryManager.Instance.WordBeingMade.Length) - tileOffset, "y", nextTileSpot.y, "time", 0.5f, "easetype", "easeInOut", "oncomplete", "CheckWordBeingSpelled"));
+
                         break;
                     case 3:
                         iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x) + (tileOffset * DictionaryManager.Instance.WordBeingMade.Length) - tileOffset, "y", nextTileSpot.y, "time", 0.5f, "easetype", "easeInOut", "oncomplete", "CheckWordBeingSpelled"));

@@ -202,6 +202,7 @@ public class DictionaryManager : MonoBehaviour
         //create a local var from the tile TAGGED with "PrimaryTile"
         var currentPrimary = GameObject.FindGameObjectWithTag("PrimaryTile");
 
+
         //if the current primary tile exists then remove it.
         if (currentPrimary)
         {
@@ -362,21 +363,7 @@ public class DictionaryManager : MonoBehaviour
                 GameManager.Instance.ShakeCamera(Random.Range(180, 200), Random.Range(200, 220), 2.2f);
                 break;
         }
-         // iTween.MoveTo(tile, new Vector3(getStartPos.startPos.position.x, getStartPos.startPos.position.y, 0), 0.5f);
-
-
-        //PunchPosition(GameObject target, Hashtable args)
-
-
-        //Debug.Log("Premium currency total: " + starsTotal);
-
-
-        //access the level data function
-        //RANDOM VERSION
-        //LevelManager.Instance.LevelGoalCheck(WordBeingMade, LevelManager.Instance.randomLevelSelection);
-        //LevelManager.Instance.LevelGoalCheck(WordBeingMade, LevelManager.Instance.levelRuleType);
-
-        //Debug.Log(LevelManager.Instance.levelRuleType.ToString());
+       
 
         //SET VERSION
         LevelManager.Instance.LevelGoalCheck(WordBeingMade, LevelManager.Instance.levelRuleType.ToString());
@@ -395,12 +382,9 @@ public class DictionaryManager : MonoBehaviour
             
             newCorrectWordParticle.transform.SetParent(gameObject.transform);
             newCorrectWordParticle.SetActive(true);
-           // Debug.Log("particles for all!");
-            //available = false;
 
         }
 
-       // correctWordParticles.Play();
 
         //reduce the age of all the remaining tiles on the board
         ReduceAge();
@@ -422,6 +406,16 @@ public class DictionaryManager : MonoBehaviour
 
         if (dictionary.ContainsKey(WordBeingMade))
         {
+
+
+            /*
+            foreach (var tile in selectedTilesArray)
+            {
+                tile.GetComponent<Tile>().animator.SetBool("correctWord", true);
+                Debug.Log("that's a word!");
+
+            }*/
+
             //play "ding" sound
             // AudioManager.Instance.PlayAudio(allAudioClips[3]);
 
@@ -511,9 +505,11 @@ public class DictionaryManager : MonoBehaviour
 
             foreach (GameObject tile in selectedTilesArray)
             {
+               //the function that checks the animation status
+                CheckAnimationStatus(false);
 
                 //access the script on each of the tile creators/spawners and refill the tiles
-               tile.transform.parent.GetComponent<TileCreator>().RefillTiles();
+                tile.transform.parent.GetComponent<TileCreator>().RefillTiles();
 
                 //checks the tile type and adds whatever the special tile bonus is
                 
@@ -612,6 +608,8 @@ public class DictionaryManager : MonoBehaviour
 
     public void CheckWord()
     {
+        //updates the selected tile array to be the right length
+        selectedTilesArray = GameObject.FindGameObjectsWithTag("TileSelected");
 
 
         //check to see if the word is in the dictionary. If it is then clear the word being made and add points, etc. 
@@ -620,32 +618,28 @@ public class DictionaryManager : MonoBehaviour
             sendButton.interactable = true;
             AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxGeneral[2]);
 
+            //change tiles to be in the right animation state.
+            CheckAnimationStatus(true);
+
+
+            Debug.Log("selected tile array length is: " + selectedTilesArray.Length);
+
+
             //show the icon that indicates that a word is correct
             correctIcon.SetActive(true);
 
-           ///Debug.Log("colour set to red");
-           /*
-            foreach (GameObject selectedTile in selectedTilesArray)
-            {
-                selectedTile.GetComponent<Tile>().tileBGImage.color = Color.red;
-                Debug.Log("colour set to red");
-            }*/
         }
         else
         {
             sendButton.interactable = false;
 
+            //change tiles to be in the right animation state.
+            CheckAnimationStatus(false);
+
 
             //hide the icon that indicates that a word is correct
             correctIcon.SetActive(false);
 
-        }
-
-        switch (wordBeingMade.Length)
-        {
-            case 4:
-
-                break;
         }
 
 
@@ -746,22 +740,13 @@ public class DictionaryManager : MonoBehaviour
             //go through and get the parent transform (which is the position game object)
             //then reset the position to that 
 
+            //reset the animations
+            CheckAnimationStatus(false);
+
             foreach (GameObject tile in selectedTilesArray)
 
             {
-                //set the animator of each tile to revert to the idle animation when the word is cleared
-                //tile.GetComponent<Tile>().animator.SetBool("clearTile", false);
-
-                //set getStartPos so that it can be used in the coroutine below
-
-                
-                if (tile.GetComponent<Tile>().animator.GetBool("correctWord"))
-                {
-                    tile.GetComponent<Tile>().animator.SetBool("correctWord", false);
-                }
-                
-
-
+         
                 var getStartPos = tile.transform.parent.GetComponent<TileCreator>();
                 //connect to the script of each tile, get the startPos from there (which is the starting transform of each Pos holder)
                 //then run the Coroutine from the tile game object. Phew!
@@ -905,6 +890,19 @@ public class DictionaryManager : MonoBehaviour
 
         }
     }
+
+
+    //this function checks the animation status and sets it to be whatever is incoming in the "correctWord" bool
+
+    private void CheckAnimationStatus (bool correctWord)
+    {
+        foreach (var tile in selectedTilesArray)
+        {
+            tile.GetComponent<Tile>().animator.SetBool("correctWord", correctWord);
+        }           
+        
+    }
+
 
     //resets the particle systems to be inactive so they can be reused in the object pool
     private IEnumerator CheckIfAlive()

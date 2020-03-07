@@ -50,7 +50,7 @@ public class CreateNewBag : MonoBehaviour
         */
 
 
-        Debug.Log("bag length = " + TileBag.bag.Count);
+//        Debug.Log("bag length = " + TileBag.bag.Count);
 
 
 

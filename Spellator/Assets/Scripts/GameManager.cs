@@ -154,7 +154,12 @@ public class GameManager : MonoBehaviour
         //toggle = true;
         //Auto load the data from the Game State file when the game manager loads
 
-        GameObject.Find("GameState").GetComponent<GameState>().LoadGameData();
+
+        if(GameObject.Find("GameState"))
+        {
+            GameObject.Find("GameState").GetComponent<GameState>().LoadGameData();
+        }
+        
 
 
         //start the game with the level description object active
