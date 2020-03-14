@@ -275,7 +275,7 @@ public class Tile : MonoBehaviour
                 //set the tile point amount
                 spawnedTile.points = currentBag.letterDictionary[spawnedTile.letter];
                 // TileBag.bag.Remove(spawnedTile.letter);
-                Debug.Log(" Tile spawned: " + spawnedTile.letter + " tile points: " + spawnedTile.points);
+                //Debug.Log(" Tile spawned: " + spawnedTile.letter + " tile points: " + spawnedTile.points);
 
             }
 
@@ -497,12 +497,12 @@ public class Tile : MonoBehaviour
         if (levelManager.levelComplete == true)
         {
 
-            explosionObject = ObjectPooler.SharedInstance.GetPooledObject("Explosion");
+            explosionObject = ObjectPooler.SharedInstance.GetPooledObject("Remove Tile");
             if (explosionObject != null)
             {
                 explosionObject.transform.position = gameObject.transform.position;
                 explosionObject.SetActive(true);
-
+                Debug.Log("explosions worked!");
             }
 
             levelUpText = ObjectPooler.SharedInstance.GetPooledObject("Level Up Text");

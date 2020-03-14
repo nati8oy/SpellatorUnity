@@ -12,6 +12,7 @@ public class PlayerStats : MonoBehaviour
     public TextMeshProUGUI currentStatus;
     public TextMeshProUGUI longestWord;
     public TextMeshProUGUI uniqueWords;
+    public TextMeshProUGUI wordsPlayed;
 
 
     public GameState gameDataObject;
@@ -21,16 +22,19 @@ public class PlayerStats : MonoBehaviour
     void Start()
     {
         //set the variable
-        gameDataObject = GameObject.Find("GameState").GetComponent<GameState>();
+       // gameDataObject = GameObject.Find("GameState").GetComponent<GameState>();
 
         //load the data
         gameDataObject.LoadGameData();
 
+        longestWord.text = configData.longestWord;
+
         //totalWordsMade.text = configData.totalWordsMade.ToString() + " words played";
         currentStatus.text = statuses[Random.Range(0, statuses.Length)];
 
-        uniqueWords.text = gameDataObject.playerWordsMade.ToString();
+        uniqueWords.text = gameDataObject.playerWordsMade.Count.ToString();
 
+        wordsPlayed.text = gameDataObject.wordsPlayed.ToString() + " words made";
 
 
     }

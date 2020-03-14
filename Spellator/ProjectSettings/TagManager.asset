@@ -23,6 +23,7 @@ TagManager:
   - Level Up Text
   - CorrectWord
   - Heart Particles
+  - Remove Tile
   layers:
   - Default
   - TransparentFX

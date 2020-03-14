@@ -715,10 +715,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac5e1cc36c1dd459588b12a3806a37d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  configData: {fileID: 0}
   totalWordsMade: {fileID: 7337610080465137310}
   currentStatus: {fileID: 7337610078881572788}
   longestWord: {fileID: 7337610079361928480}
   uniqueWords: {fileID: 7337610080665554051}
+  wordsPlayed: {fileID: 7337610080465137310}
   gameDataObject: {fileID: 0}
   statuses:
   - CADET
@@ -1250,10 +1252,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 100 tiles played
+  m_text: Tiles played
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1a473cbc432f34370b6b3ef1676a97a5, type: 2}
-  m_sharedMaterial: {fileID: 21340382691566880, guid: 1a473cbc432f34370b6b3ef1676a97a5,
+  m_fontAsset: {fileID: 11400000, guid: 54dcc2803250b443ab9022bc6be9a6bf, type: 2}
+  m_sharedMaterial: {fileID: 21601728745053340, guid: 54dcc2803250b443ab9022bc6be9a6bf,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1320,10 +1322,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -131.04034, w: -27.838165}
   m_textInfo:
     textComponent: {fileID: 7337610080449295057}
-    characterCount: 16
+    characterCount: 12
     spriteCount: 0
-    spaceCount: 2
-    wordCount: 3
+    spaceCount: 1
+    wordCount: 2
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -1406,10 +1408,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 100 words made
+  m_text: Words made
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1a473cbc432f34370b6b3ef1676a97a5, type: 2}
-  m_sharedMaterial: {fileID: 21340382691566880, guid: 1a473cbc432f34370b6b3ef1676a97a5,
+  m_fontAsset: {fileID: 11400000, guid: 54dcc2803250b443ab9022bc6be9a6bf, type: 2}
+  m_sharedMaterial: {fileID: 21601728745053340, guid: 54dcc2803250b443ab9022bc6be9a6bf,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1476,10 +1478,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -131.04034, w: -27.838165}
   m_textInfo:
     textComponent: {fileID: 7337610080465137310}
-    characterCount: 14
+    characterCount: 10
     spriteCount: 0
-    spaceCount: 2
-    wordCount: 3
+    spaceCount: 1
+    wordCount: 2
     linkCount: 0
     lineCount: 1
     pageCount: 1

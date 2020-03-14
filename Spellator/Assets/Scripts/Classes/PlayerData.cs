@@ -13,6 +13,7 @@ public class PlayerData
     public List<int> highScores = new List<int>();
     public int premiumCurrency;
     public int wordsPlayed;
+    public string longestWord;
 
     public PlayerData (GameState gameState)
     {
@@ -23,6 +24,7 @@ public class PlayerData
      // audioToggle = gameState.audioToggle;
         premiumCurrency = gameState.premiumCurrency;
         wordsPlayed = gameState.wordsPlayed;
+        longestWord = gameState.longestWord;
 
     }
 }

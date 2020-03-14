@@ -23,6 +23,7 @@ public class DictionaryManager : MonoBehaviour
     //    private WordData listOfWordsMade;
 
     public int totalWordsPlayed;
+    public string longestWord;
 
 
     [Space()]
@@ -180,6 +181,8 @@ public class DictionaryManager : MonoBehaviour
         }
     }
 
+    
+
     //this is the singleton code to ensure there's not more than one instance running
     void Awake()
     {
@@ -191,10 +194,14 @@ public class DictionaryManager : MonoBehaviour
 
         Instance = this;
 
-
+        //set total words played to that in the SO
         totalWordsPlayed = wordData.totalWordsMade;
+        
+
         Debug.Log("total words made " + totalWordsPlayed);
     }
+
+    
 
 
     private IEnumerator TileCompleteSequence() {
@@ -245,7 +252,7 @@ public class DictionaryManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        longestWord = wordData.longestWord;
 
         //Remember that the object pooler uses TAGS not names of objects to set them active, etc. here.
         healthParticles = ObjectPooler.SharedInstance.GetPooledObject("Heart Particles");
@@ -884,8 +891,6 @@ public class DictionaryManager : MonoBehaviour
 
                 tile.GetComponent<Tile>().DropTile();
                
-
-
             }
 
         }

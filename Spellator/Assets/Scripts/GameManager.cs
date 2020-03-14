@@ -134,11 +134,10 @@ public class GameManager : MonoBehaviour
     {
 
         //set the game background randomly from the array
-        mainBackground.sprite = gameBackgrounds[Random.Range(0, gameBackgrounds.Length)];
+       // mainBackground.sprite = gameBackgrounds[Random.Range(0, gameBackgrounds.Length)];
 
         //reset all the game levels before the game starts
 
-        CreateRandomBag();
 
         //resets the current game level via the scriptable object 
         ///levelDetails.currentLevel = 0;
@@ -305,23 +304,6 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void CreateRandomBag()
-    {
-        /*
-        for (int i = 0; i < 40; i++)
-        {
-            TileBag.bag.Add(TileBag.consonantList[Random.Range(0, TileBag.consonantList.Count)]);
-            Debug.Log("added consonants");
-
-        }
-
-        for (int i = 0; i < 60; i++)
-        {
-            TileBag.bag.Add(TileBag.vowelList[Random.Range(0, TileBag.vowelList.Count)]);
-            Debug.Log("added vowels");
-        }*/
-        //Debug.Log("bag length = " + TileBag.bag.Count);
-    }
 
 
     public void ToggleSound()

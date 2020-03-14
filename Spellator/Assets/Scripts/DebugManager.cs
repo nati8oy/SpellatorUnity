@@ -10,6 +10,7 @@ public class DebugManager : MonoBehaviour
     // public GameObject woodPanel;
     //private string currentSkin;
     public ParticleSystem particleTrigger;
+    public GameObject explosion;
 
 
     private void Start()
@@ -24,6 +25,11 @@ public class DebugManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             GameManager.Instance.LevelComplete();
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            explosion.SetActive(true);
         }
 
         //play particles

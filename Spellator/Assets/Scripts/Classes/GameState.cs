@@ -13,6 +13,8 @@ public class GameState : MonoBehaviour
     public bool audioToggle;
     public int premiumCurrency;
     public int wordsPlayed;
+    public string longestWord;
+
 
     public ConfigSO configData;
 
@@ -51,16 +53,21 @@ public class GameState : MonoBehaviour
 
         //playerWordsMade = GameConfig.Instance.uniqueWordsList;
 
+        //get the longest word out of the SO
+        longestWord = DictionaryManager.Instance.longestWord;
 
         //this the list of uniqe words made
         playerWordsMade = DictionaryManager.Instance.playerWordsMade;
 
-       // wordsPlayed = DictionaryManager.Instance.totalWordsPlayed;
-//        wordsPlayed = configData.totalWordsMade;
+        //Debug.Log(playerWordsMade);
 
-       Debug.Log(wordsPlayed);
+        // wordsPlayed = DictionaryManager.Instance.totalWordsPlayed;
+        wordsPlayed = configData.totalWordsMade;
 
-       
+
+        //Debug.Log("words played " +  wordsPlayed);
+        //wordsPlayed = playerWordsMade.Count;
+
 
         //save the high scores
         //        highScores = GameConfig.Instance.highScores;
@@ -70,7 +77,6 @@ public class GameState : MonoBehaviour
 
         //save the data
         SaveSystem.SaveGameData(this);
-
 
         
     }
@@ -103,15 +109,16 @@ public class GameState : MonoBehaviour
            // Debug.Log("Dictonary manager doesn't exist yet!");
         }
 
-
-
         currentScore = data.currentScore;
         playerWordsMade = data.playerWordsMade;
         premiumCurrency = data.premiumCurrency;
         wordsPlayed = data.wordsPlayed;
+        longestWord = data.longestWord;
 
-        Debug.Log("total words made (" + wordsPlayed + ") configData words: (" + configData.totalWordsMade + ")");
 
+
+        //Debug.Log("total words made (" + wordsPlayed + ") configData words: (" + configData.totalWordsMade + ")");
+       //Debug.Log("longest word is currently: " + longestWord);
 
         // GameConfig.Instance.uniqueWordsList = data.playerWordsMade;
 
