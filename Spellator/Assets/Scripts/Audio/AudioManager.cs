@@ -38,6 +38,7 @@ public class AudioManager : MonoBehaviour
     //this is the singleton code to ensure there's not more than one instance running
     void Awake()
     {
+        /*
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -45,6 +46,19 @@ public class AudioManager : MonoBehaviour
         }
 
         Instance = this;
+
+        */
+
+
+        if (Instance != null)
+        {
+            Destroy(Instance);
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(this);
+        }
     }
 
 

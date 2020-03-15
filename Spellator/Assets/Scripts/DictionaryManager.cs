@@ -426,14 +426,22 @@ public class DictionaryManager : MonoBehaviour
             //play "ding" sound
             // AudioManager.Instance.PlayAudio(allAudioClips[3]);
 
-            AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxGeneral[3]);
+            if (AudioManager.Instance)
+            {
+                AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxGeneral[3]);
+
+            }
 
             //add the word to the overall list of words being made
 
             //check if the multiplier is going to be broken with a 3 letter word. If so, play the sound.
             if ((multiplier >= 3) && (WordBeingMade.Length <= 3))
             {
-                AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxGeneral[7]);
+
+                if (AudioManager.Instance)
+                {
+                    AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxGeneral[7]);
+                }
             }
 
             //add to the multiplier
@@ -623,7 +631,12 @@ public class DictionaryManager : MonoBehaviour
         if (dictionary.ContainsKey(WordBeingMade))
         {
             sendButton.interactable = true;
-            AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxGeneral[2]);
+
+            if (AudioManager.Instance)
+            {
+                AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxGeneral[2]);
+
+            }
 
             //change tiles to be in the right animation state.
             CheckAnimationStatus(true);
@@ -721,7 +734,7 @@ public class DictionaryManager : MonoBehaviour
             
 
             //remove multiplier
-            if (Points.multiplier >= 3)
+            if (Points.multiplier >= 3 && AudioManager.Instance)
             {
                 AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxGeneral[7]);
             }
@@ -854,7 +867,11 @@ public class DictionaryManager : MonoBehaviour
         //fill the array with all of the tiles that need to be aged i.e. the letters in the rack not included in the word.
         agingArray = GameObject.FindGameObjectsWithTag("Tile");
 
-        AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxGeneral[6]);
+        if (AudioManager.Instance)
+        {
+            AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxGeneral[6]);
+
+        }
         //check which tiles aren't in the selected tiles array and age them accordingly
         foreach (GameObject tile in agingArray)
         {

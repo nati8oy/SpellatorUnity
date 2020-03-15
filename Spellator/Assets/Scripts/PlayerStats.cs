@@ -13,6 +13,8 @@ public class PlayerStats : MonoBehaviour
     public TextMeshProUGUI longestWord;
     public TextMeshProUGUI uniqueWords;
     public TextMeshProUGUI wordsPlayed;
+    public Image trophy;
+    public Sprite[] allTrophies;
 
 
     public GameState gameDataObject;
@@ -21,6 +23,8 @@ public class PlayerStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        trophy.sprite = allTrophies[Random.Range(0,4)];
+        Debug.Log("current trophy is " + trophy.sprite);
         //set the variable
        // gameDataObject = GameObject.Find("GameState").GetComponent<GameState>();
 

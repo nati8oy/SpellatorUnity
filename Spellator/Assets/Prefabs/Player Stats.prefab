@@ -715,12 +715,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac5e1cc36c1dd459588b12a3806a37d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  configData: {fileID: 0}
+  configData: {fileID: 11400000, guid: 87f9af19399d249068769bd3553e5227, type: 2}
   totalWordsMade: {fileID: 7337610080465137310}
   currentStatus: {fileID: 7337610078881572788}
   longestWord: {fileID: 7337610079361928480}
   uniqueWords: {fileID: 7337610080665554051}
   wordsPlayed: {fileID: 7337610080465137310}
+  trophy: {fileID: 7337610079822481947}
+  allTrophies:
+  - {fileID: 21300000, guid: 82e42c685c3574d6d8bb26cfae1f233c, type: 3}
+  - {fileID: 21300000, guid: 96f1d9d358d6d4870a19965809abacda, type: 3}
+  - {fileID: 21300000, guid: 9316cd369b2c44e82888776580747ef7, type: 3}
+  - {fileID: 21300000, guid: 0239ec8c03f2444428b330543ec8922a, type: 3}
   gameDataObject: {fileID: 0}
   statuses:
   - CADET
@@ -728,6 +734,7 @@ MonoBehaviour:
   - PROLIFIC
   - MASTER
   - LEGENDARY
+  - INTERN
 --- !u!1 &7337610079822481945
 GameObject:
   m_ObjectHideFlags: 0

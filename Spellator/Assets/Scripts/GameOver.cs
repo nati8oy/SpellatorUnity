@@ -9,6 +9,7 @@ public class GameOver : MonoBehaviour
     [SerializeField] private Text Score;
     [SerializeField] private Text WordsMade;
     public ConfigSO configData;
+    public GameObject gameState;
 
     // Start is called before the first frame update
     void Start()
@@ -25,11 +26,9 @@ public class GameOver : MonoBehaviour
     }
     private void OnEnable()
     {
-        //adds the highscore the to config data scriptable object
-//        configData.SetHighScores(Points.totalScore);
-        //saves the game automatically so the words you have made are saved.
-        GameManager.Instance.GetComponent<GameState>().SaveGameData();
-
+        //save the game when the game over panel shows
+        gameState.GetComponent<GameState>().SaveGameData();
+     
 
     }
 }

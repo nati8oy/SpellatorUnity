@@ -10,6 +10,7 @@ public class TabMapReader : MonoBehaviour
     public GameObject tab2;
     public GameObject tab3;
     public GameObject tab4;
+    public AudioSO audioObject;
 
     public GameObject mainCamera;
 
@@ -31,6 +32,10 @@ public class TabMapReader : MonoBehaviour
 
     public void TabSelector(string tabName)
     {
+        //AudioManager.Instance.PlayAudio(audioObject.sfxUserInterface[0]);
+
+        
+
         switch (tabName)
         {
             case "home":
@@ -39,6 +44,8 @@ public class TabMapReader : MonoBehaviour
                 tab2.SetActive(false);
                 tab3.SetActive(false);
                 tab4.SetActive(false);
+
+
 
 
                 break;

@@ -329,7 +329,11 @@ public class Tile : MonoBehaviour
 
         //play the small twinkle particles
         twinkleParticles.Play();
-        AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxTilePops[3]);
+
+        if (AudioManager.Instance)
+        {
+            AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxTilePops[3]);
+        }
 
         //check if this is a primary tile that is being clicked and thus removed
         if (CompareTag("PrimaryTile"))
@@ -514,7 +518,11 @@ public class Tile : MonoBehaviour
 
             }
 
-            AudioManager.Instance.PlayAudioWithSource(AudioManager.Instance.sfxTilePops[Random.Range(0,6)], popAudioSource, Random.Range(0.1f, 1f));
+            if (AudioManager.Instance)
+            {
+                AudioManager.Instance.PlayAudioWithSource(AudioManager.Instance.sfxTilePops[Random.Range(0, 6)], popAudioSource, Random.Range(0.1f, 1f));
+
+            }
             //popSounds.Play(popAudioSource);
 
         }
@@ -571,11 +579,16 @@ public class Tile : MonoBehaviour
 
         //removeTileAudio.Play(smashAudioSource);
 
-       //AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxTileCrashes[Random.Range(0,6)]);
+        //AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxTileCrashes[Random.Range(0,6)]);
 
         //play audio using a separate audio source and setting the volume on play
-        AudioManager.Instance.PlayAudioWithSource(AudioManager.Instance.sfxTileCrashes[Random.Range(0, 6)], smashAudioSource, Random.Range(0.05f, 0.1f));
-//        Debug.Log("volume of sound: " + smashAudioSource.volume);
+
+        if (AudioManager.Instance)
+        {
+            AudioManager.Instance.PlayAudioWithSource(AudioManager.Instance.sfxTileCrashes[Random.Range(0, 6)], smashAudioSource, Random.Range(0.05f, 0.1f));
+
+        }
+        //        Debug.Log("volume of sound: " + smashAudioSource.volume);
 
         //AudioManager.Instance.PlayAudio(smashSounds[Random.Range(0,smashSounds.Length)]);
 

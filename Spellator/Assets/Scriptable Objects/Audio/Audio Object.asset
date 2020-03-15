@@ -51,4 +51,5 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b3d07f003efbf4821abde7e226a7114d, type: 3}
   - {fileID: 8300000, guid: 803a8dfcc312f4ee6bcf2da8b38278fa, type: 3}
   - {fileID: 8300000, guid: 55c076fd0913348968225aa2053dd095, type: 3}
-  sfxUserInterface: []
+  sfxUserInterface:
+  - {fileID: 8300000, guid: 221df6b0098a5427aad029c03b47f050, type: 3}
