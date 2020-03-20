@@ -16,6 +16,11 @@ public class PlayerStats : MonoBehaviour
     public Image trophy;
     public Sprite[] allTrophies;
 
+    public RangeInt level1 = new RangeInt(1,100);
+    public RangeInt leve12 = new RangeInt(101, 200);
+
+    public int currentMedal;
+
 
     public GameState gameDataObject;
     public string[] statuses;
@@ -23,6 +28,8 @@ public class PlayerStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+
         trophy.sprite = allTrophies[Random.Range(0,4)];
         Debug.Log("current trophy is " + trophy.sprite);
         //set the variable
@@ -41,11 +48,5 @@ public class PlayerStats : MonoBehaviour
         wordsPlayed.text = gameDataObject.wordsPlayed.ToString() + " words made";
 
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

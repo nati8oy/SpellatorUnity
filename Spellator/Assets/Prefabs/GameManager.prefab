@@ -236,6 +236,9 @@ MonoBehaviour:
   audioToggle: 0
   premiumCurrency: 0
   wordsPlayed: 0
+  longestWord: 
+  configData: {fileID: 0}
+  Instance: {fileID: 0}
 --- !u!114 &1026342681
 MonoBehaviour:
   m_ObjectHideFlags: 0

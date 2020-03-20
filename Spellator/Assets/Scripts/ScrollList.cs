@@ -7,11 +7,13 @@ public class ScrollList : MonoBehaviour
 {
     
 
+
     public enum ScrollListType { achievements, shop, words}
     [Header("Scriptable objects")]
     private GameObject listObject;
     public ConfigSO configObject;
     public Transform listTransform;
+    public ShopSO shopObject;
 
     public string listType;
     public List<string> mainWordList = new List<string>();
@@ -100,7 +102,12 @@ public class ScrollList : MonoBehaviour
                         listObject.SetActive(true);
 
                     }
+
+
+
                 }
+
+
 
                 break;
         }
