@@ -100,16 +100,8 @@ public class ScrollList : MonoBehaviour
                         listObject.transform.SetParent(listTransform.transform);
                         listObject.SetActive(true);
 
+                        //adds the content via a function in the shop item prefab
                         listObject.GetComponent<ShopItem>().AddContent(i);
-
-                        //listObject.GetComponent<ShopItem>().itemImage.sprite = shopObject.shopSkinArray[i].itemImage;
-                        //listObject.GetComponent<ShopItem>().itemPriceText.text = shopObject.shopSkinArray[i].itemPrice.ToString();
-
-
-                        //itemPriceText.text = shopArray[i].itemPrice.ToString();
-                        //itemNameText.text = shopArray[i].itemName;
-
-
                     }
 
 

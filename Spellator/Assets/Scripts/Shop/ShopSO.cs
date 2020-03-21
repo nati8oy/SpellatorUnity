@@ -10,7 +10,4 @@ public class ShopSO : ScriptableObject
 {
     public ShopSkinSO[] shopSkinArray;
 
-
-
-
 }

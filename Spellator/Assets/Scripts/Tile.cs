@@ -11,7 +11,9 @@ public class Tile : MonoBehaviour
 
     private PlayerHealth healthHandler;
 
-    public static TileDisplay tileDisplayAccess;
+    //public static TileDisplay tileDisplayAccess;
+    public static TileSkinSelection tileDisplayAccess;
+
     public TileBagSO currentBag;
     public LevelManagerSO levelManager;
     public Animator animator;
@@ -101,7 +103,9 @@ public class Tile : MonoBehaviour
         }
 
         //used for Scriptable Object access
-        tileDisplayAccess = GetComponent<TileDisplay>();
+        //tileDisplayAccess = GetComponent<TileDisplay>();
+
+        tileDisplayAccess = GetComponent<TileSkinSelection>();
 
 
         healthHandler = GameObject.Find("HealthBar").GetComponent<PlayerHealth>();
@@ -132,7 +136,7 @@ public class Tile : MonoBehaviour
                 tileBGImage.sprite = tileDisplayAccess.tileAgeSprites[3];
                 break;
             case 0:
-                tileBGImage.sprite = tileDisplayAccess.tileAgeSprites[4];
+                tileBGImage.sprite = tileDisplayAccess.tileAgeSprites[3];
                 //set the colour of the tile text to be that of the inactive text within the scriptable object
                 letter.color = tileDisplayAccess.tileDisabledColour;
                 points.color = tileDisplayAccess.tileDisabledColour;

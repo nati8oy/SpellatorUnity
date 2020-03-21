@@ -51,8 +51,7 @@ public class TileDisplay : MonoBehaviour
 
     public void CheckTileSkin()
     {
-
-
+       
         switch (GameManager.Instance.tileSkinType)
         {
             case GameManager.TileSkinType.original:
@@ -74,9 +73,6 @@ public class TileDisplay : MonoBehaviour
 
                 //set the double tile background colour to whatever is in the scriptable object
                 tripleLetterColour = tileSkin.tripleLetterColour;
-
-
-
 
                 break;
 
