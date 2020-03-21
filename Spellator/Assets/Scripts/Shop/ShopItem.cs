@@ -13,20 +13,14 @@ public class ShopItem : MonoBehaviour
     public Image itemImage;
 
 
-    private void Start()
+    //Adds all of the content to the shop that is required for each of the tile types (shop items)
+    public void AddContent(int arrayNumber)
     {
-
         shopArray = shopObject.shopSkinArray;
 
-        for (int i = 0; i < 8; i++)
-        {
-            itemImage.sprite = shopArray[i].itemImage;
-            itemPriceText.text = shopArray[i].itemPrice.ToString();
-            itemNameText.text = shopArray[i].itemName;
-        }
-    }
-
-
-      
+        itemImage.sprite = shopArray[arrayNumber].itemImage;
+        itemPriceText.text = shopArray[arrayNumber].itemPrice.ToString();
+        itemNameText.text = shopArray[arrayNumber].itemName;
+    }      
 
 }

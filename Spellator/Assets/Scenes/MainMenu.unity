@@ -393,6 +393,12 @@ PrefabInstance:
       propertyPath: scrollListType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9053669923067903488, guid: 40528680a418d4330b08b2b83cbaab92,
+        type: 3}
+      propertyPath: shopObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 6423e908571a640eca1855efe7b71f95,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40528680a418d4330b08b2b83cbaab92, type: 3}
 --- !u!1 &191614780

@@ -91,15 +91,24 @@ public class ScrollList : MonoBehaviour
 
             case ScrollListType.shop:
 
-                for (int i = 0; i < listLength; i++)
+                for (int i = 0; i < shopObject.shopSkinArray.Length; i++)
                 {
                     listObject = ObjectPooler.SharedInstance.GetPooledObject("Shop Item");
                     if (listObject != null)
                     {
-
                         listObject.transform.position = gameObject.transform.position;
                         listObject.transform.SetParent(listTransform.transform);
                         listObject.SetActive(true);
+
+                        listObject.GetComponent<ShopItem>().AddContent(i);
+
+                        //listObject.GetComponent<ShopItem>().itemImage.sprite = shopObject.shopSkinArray[i].itemImage;
+                        //listObject.GetComponent<ShopItem>().itemPriceText.text = shopObject.shopSkinArray[i].itemPrice.ToString();
+
+
+                        //itemPriceText.text = shopArray[i].itemPrice.ToString();
+                        //itemNameText.text = shopArray[i].itemName;
+
 
                     }
 
