@@ -11,4 +11,6 @@ public class ShopSkinSO : ScriptableObject
 	public int itemPrice;
 	public string itemName;
 	public Sprite itemImage;
+    public string skinID;
+    public int skinIDNumber;
 }

@@ -10,10 +10,13 @@ public class GameState : MonoBehaviour
 	//public Dictionary<string, int> playerWordsMade = new Dictionary<string, int>();
 	public List<string> playerWordsMade = new List<string>();
     public List<int> highScores = new List<int>();
+    public ShopSO shop;
+
     public bool audioToggle;
     public int premiumCurrency;
     public int wordsPlayed;
     public string longestWord;
+    public int skinSelection;
 
 
     public ConfigSO configData;
@@ -40,13 +43,18 @@ public class GameState : MonoBehaviour
     private void Start()
     {
         wordsPlayed = configData.totalWordsMade;
+        skinSelection = shop.currentSkin;
+
+
     }
 
 
     public void SaveGameData()
     {
+
+        skinSelection = shop.currentSkin;
         //get the toggle bool from the Game Manager
-       // audioToggle = GameManager.Instance.toggle;
+        // audioToggle = GameManager.Instance.toggle;
         premiumCurrency = DictionaryManager.Instance.starsTotal;
        // Debug.Log("audio toggle being saved as " + GameManager.Instance.toggle);
         currentScore = Points.totalScore;
@@ -88,9 +96,6 @@ public class GameState : MonoBehaviour
 
        // audioToggle = data.audioToggle;
 
-
-
-
         //load the list of unique words
 
         //DictionaryManager.Instance.playerWordsMade = data.playerWordsMade;
@@ -115,10 +120,12 @@ public class GameState : MonoBehaviour
         wordsPlayed = data.wordsPlayed;
         longestWord = data.longestWord;
 
+        skinSelection = data.skinSelection;
+
 
 
         //Debug.Log("total words made (" + wordsPlayed + ") configData words: (" + configData.totalWordsMade + ")");
-       //Debug.Log("longest word is currently: " + longestWord);
+        //Debug.Log("longest word is currently: " + longestWord);
 
         // GameConfig.Instance.uniqueWordsList = data.playerWordsMade;
 

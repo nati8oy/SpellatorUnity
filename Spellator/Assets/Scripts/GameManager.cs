@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public enum TileSkinType { original, dark, wood };
     public TileSkinType tileSkinType;
 
+    public int tileSkinSelection;
 
 
     //[SerializeField] private AudioClip bgMusic;
@@ -132,9 +133,18 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        /*
+        if (GameObject.Find("GameState"))
+        {
+            tileSkinSelection = GameObject.Find("GameState").GetComponent<GameState>().skinSelection;
+
+
+        }*/
+        //selects the skin for the tiles
+       // tileSkinSelection = GameState.skinSelection;
 
         //set the game background randomly from the array
-       // mainBackground.sprite = gameBackgrounds[Random.Range(0, gameBackgrounds.Length)];
+        // mainBackground.sprite = gameBackgrounds[Random.Range(0, gameBackgrounds.Length)];
 
         //reset all the game levels before the game starts
 

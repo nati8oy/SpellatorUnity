@@ -14,10 +14,12 @@ public class PlayerData
     public int premiumCurrency;
     public int wordsPlayed;
     public string longestWord;
+    public int skinSelection;
 
     public PlayerData (GameState gameState)
     {
         highScores = gameState.highScores;
+        skinSelection = gameState.skinSelection;
  
         currentScore = gameState.currentScore;
         playerWordsMade = gameState.playerWordsMade;

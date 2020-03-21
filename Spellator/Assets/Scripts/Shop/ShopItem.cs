@@ -11,6 +11,7 @@ public class ShopItem : MonoBehaviour
     public TextMeshProUGUI itemPriceText;
     public TextMeshProUGUI itemNameText;
     public Image itemImage;
+    
 
 
     //Adds all of the content to the shop that is required for each of the tile types (shop items)
@@ -21,6 +22,12 @@ public class ShopItem : MonoBehaviour
         itemImage.sprite = shopArray[arrayNumber].itemImage;
         itemPriceText.text = shopArray[arrayNumber].itemPrice.ToString();
         itemNameText.text = shopArray[arrayNumber].itemName;
-    }      
+    }
+
+    public void UpdateSkin(int skinID)
+    {
+        shopObject.currentSkin = skinID;
+    }
+
 
 }

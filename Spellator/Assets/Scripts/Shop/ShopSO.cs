@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class ShopSO : ScriptableObject
 {
+    public int currentSkin;
     public ShopSkinSO[] shopSkinArray;
 
 }

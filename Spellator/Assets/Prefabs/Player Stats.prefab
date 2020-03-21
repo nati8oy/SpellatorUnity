@@ -727,6 +727,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 96f1d9d358d6d4870a19965809abacda, type: 3}
   - {fileID: 21300000, guid: 9316cd369b2c44e82888776580747ef7, type: 3}
   - {fileID: 21300000, guid: 0239ec8c03f2444428b330543ec8922a, type: 3}
+  currentMedal: 0
   gameDataObject: {fileID: 0}
   statuses:
   - CADET
@@ -746,6 +747,7 @@ GameObject:
   - component: {fileID: 7337610079822481946}
   - component: {fileID: 7337610079822482916}
   - component: {fileID: 7337610079822481947}
+  - component: {fileID: 8034116863279614727}
   m_Layer: 5
   m_Name: trophy
   m_TagString: Untagged
@@ -808,6 +810,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &8034116863279614727
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7337610079822481945}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a455504045af0434a8a9ca9ee327f016, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7337610079835110969
 GameObject:
   m_ObjectHideFlags: 0

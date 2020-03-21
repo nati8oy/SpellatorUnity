@@ -674,6 +674,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   configObject: {fileID: 11400000, guid: 87f9af19399d249068769bd3553e5227, type: 2}
   listTransform: {fileID: 8248761824448598275}
+  shopObject: {fileID: 0}
   listType: 
   mainWordList: []
   listTitle: Word list

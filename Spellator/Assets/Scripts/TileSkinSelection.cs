@@ -7,6 +7,8 @@ public class TileSkinSelection : MonoBehaviour
 {
     public TileSkinDefinition skinSelectionObject;
     public SkinSelectorSO currentSkin;
+    public ShopSkinSO currentlyActiveSkin;
+    public ShopSO shop;
 
     public Color tileTextColour;
     public Color tileDisabledColour;
@@ -25,8 +27,9 @@ public class TileSkinSelection : MonoBehaviour
     void Start()
     {
         skinArray = currentSkin.skinList;
+        //currentlyActiveSkin = shop.currentSkin;
 
-        skinSelectionObject = currentSkin.skinList[0];
+        skinSelectionObject = currentSkin.skinList[shop.currentSkin];
 
         tileTextColour = skinSelectionObject.tileTextColour;
         tileDisabledColour =skinSelectionObject.tileDisabledColour;
@@ -34,7 +37,8 @@ public class TileSkinSelection : MonoBehaviour
         correctWordTextColour= skinSelectionObject.correctWordTextColour;
         tripleLetterColour = skinSelectionObject.tripleLetterColour;
         tileAgeSprites = skinSelectionObject.tileAgeSprites;
-}
+    }
 
+   
     
 }

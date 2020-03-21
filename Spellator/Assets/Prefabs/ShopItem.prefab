@@ -92,6 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopObject: {fileID: 11400000, guid: 6423e908571a640eca1855efe7b71f95, type: 2}
+  shopArray: []
   itemPriceText: {fileID: 1377707129097281222}
   itemNameText: {fileID: 4064474688646031047}
   itemImage: {fileID: 810370981309066589}
@@ -434,8 +435,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 191.2, y: 5}
-  m_SizeDelta: {x: 127.7, y: 90.1}
+  m_AnchoredPosition: {x: 195.1, y: 8}
+  m_SizeDelta: {x: 119.9, y: 53.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2978170470618319907
 CanvasRenderer:
@@ -519,6 +520,17 @@ MonoBehaviour:
       - m_Target: {fileID: 6378827812121145891}
         m_MethodName: ClickBuy
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3934782021397155838}
+        m_MethodName: UpdateSkin
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
