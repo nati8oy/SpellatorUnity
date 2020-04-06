@@ -37,7 +37,9 @@ public class ObjectPooler : MonoBehaviour
                 obj.SetActive(false);
                 pooledObjects.Add(obj);
             }
+            
         }
+        
     }
 
 
@@ -60,6 +62,7 @@ public class ObjectPooler : MonoBehaviour
                     obj.SetActive(false);
                     pooledObjects.Add(obj);
                     return obj;
+                    
                 }
             }
         }

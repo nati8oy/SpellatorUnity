@@ -11,7 +11,7 @@ public class TileSpawnerClass
     public TileSpawnerClass()
     {
        newTile = ObjectPooler.SharedInstance.GetPooledObject("Tile");
-        available = true;
+       available = true;
     }
 
 

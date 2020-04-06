@@ -11,6 +11,7 @@ public class ShopItem : MonoBehaviour
     public TextMeshProUGUI itemPriceText;
     public TextMeshProUGUI itemNameText;
     public Image itemImage;
+    public GameState currentGameState;
     
 
 
@@ -24,9 +25,13 @@ public class ShopItem : MonoBehaviour
         itemNameText.text = shopArray[arrayNumber].itemName;
     }
 
-    public void UpdateSkin(int skinID)
+    public void UpdateSkin(int skinID, int price)
     {
         shopObject.currentSkin = skinID;
+
+        currentGameState.premiumCurrency -= price;
+        Debug.Log("premium currency remaining"  + currentGameState.premiumCurrency);
+
     }
 
 
