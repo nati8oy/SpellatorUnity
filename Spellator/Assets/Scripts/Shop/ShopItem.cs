@@ -25,11 +25,11 @@ public class ShopItem : MonoBehaviour
         itemNameText.text = shopArray[arrayNumber].itemName;
     }
 
-    public void UpdateSkin(int skinID, int price)
+    public void UpdateSkin(int skinID)
     {
         shopObject.currentSkin = skinID;
 
-        currentGameState.premiumCurrency -= price;
+        currentGameState.premiumCurrency -= shopArray[0].itemPrice;
         Debug.Log("premium currency remaining"  + currentGameState.premiumCurrency);
 
     }

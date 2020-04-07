@@ -96,6 +96,7 @@ MonoBehaviour:
   itemPriceText: {fileID: 1377707129097281222}
   itemNameText: {fileID: 4064474688646031047}
   itemImage: {fileID: 810370981309066589}
+  currentGameState: {fileID: 0}
 --- !u!1 &844287333773397345
 GameObject:
   m_ObjectHideFlags: 0
