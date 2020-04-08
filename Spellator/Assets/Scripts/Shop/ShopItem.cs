@@ -12,6 +12,7 @@ public class ShopItem : MonoBehaviour
     public TextMeshProUGUI itemNameText;
     public Image itemImage;
     public GameState currentGameState;
+    public int skinID;
     
 
 
@@ -23,14 +24,17 @@ public class ShopItem : MonoBehaviour
         itemImage.sprite = shopArray[arrayNumber].itemImage;
         itemPriceText.text = shopArray[arrayNumber].itemPrice.ToString();
         itemNameText.text = shopArray[arrayNumber].itemName;
+        skinID = arrayNumber;
     }
 
-    public void UpdateSkin(int skinID)
+
+    //this is the function to select the new skin.
+    public void UpdateSkin()
     {
         shopObject.currentSkin = skinID;
 
-        currentGameState.premiumCurrency -= shopArray[0].itemPrice;
-        Debug.Log("premium currency remaining"  + currentGameState.premiumCurrency);
+//        currentGameState.premiumCurrency -= shopArray[skinID].itemPrice;
+  //      Debug.Log("premium currency remaining"  + currentGameState.premiumCurrency);
 
     }
 

@@ -89,6 +89,7 @@ public class ScrollList : MonoBehaviour
 
                 break;
 
+                //this sets up the shop object with all of the shopItem prefabs
             case ScrollListType.shop:
 
                 for (int i = 0; i < shopObject.shopSkinArray.Length; i++)
@@ -102,6 +103,7 @@ public class ScrollList : MonoBehaviour
 
                         //adds the content via a function in the shop item prefab
                         listObject.GetComponent<ShopItem>().AddContent(i);
+                        //listObject.GetComponent<ShopItem>().skinID = shopObject.shopSkinArray.Length;
                     }
 
 
