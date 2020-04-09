@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour
     public enum TileSkinType { original, dark, wood };
     public TileSkinType tileSkinType;
 
+    //public GameObject purchaseConfirm;
+
+
     public int tileSkinSelection;
 
 

@@ -52,7 +52,12 @@ public class GameState : MonoBehaviour
     public void SaveGameData()
     {
 
+
+        //Debug.Log(shop.currentSkin);
         skinSelection = shop.currentSkin;
+
+        Debug.Log("saved skin selection: " + skinSelection);
+
         //get the toggle bool from the Game Manager
         // audioToggle = GameManager.Instance.toggle;
         premiumCurrency = DictionaryManager.Instance.starsTotal;
@@ -120,8 +125,19 @@ public class GameState : MonoBehaviour
         wordsPlayed = data.wordsPlayed;
         longestWord = data.longestWord;
 
-        skinSelection = data.skinSelection;
+        //check if the current skin is not equal to null first. Then assign it whatever was saved in the save file.
+        if (shop.currentSkin != null)
+        {
+            skinSelection = data.skinSelection;
+            Debug.Log("loaded skin selection: " + skinSelection);
+        }
 
+       
+
+        
+
+        //set the current skin in the shop to be the one that was saved
+        //shop.currentSkin = skinSelection;
 
 
         //Debug.Log("total words made (" + wordsPlayed + ") configData words: (" + configData.totalWordsMade + ")");

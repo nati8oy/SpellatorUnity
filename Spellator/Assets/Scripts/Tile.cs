@@ -510,7 +510,7 @@ public class Tile : MonoBehaviour
             {
                 explosionObject.transform.position = gameObject.transform.position;
                 explosionObject.SetActive(true);
-                Debug.Log("explosions worked!");
+//                Debug.Log("explosions worked!");
             }
 
             levelUpText = ObjectPooler.SharedInstance.GetPooledObject("Level Up Text");

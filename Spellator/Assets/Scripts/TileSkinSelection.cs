@@ -22,6 +22,7 @@ public class TileSkinSelection : MonoBehaviour
     public TextMeshProUGUI letterText;
     public TextMeshProUGUI pointsText;
     public ParticleSystem particles;
+    public int SkinID;
 
     // Start is called before the first frame update
     void Start()
