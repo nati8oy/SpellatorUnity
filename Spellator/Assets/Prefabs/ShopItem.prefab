@@ -101,6 +101,7 @@ MonoBehaviour:
   skinID: 0
   purchaseObject: {fileID: 9167116109896954529, guid: 395fd84ee4ffd4abebe8193cb835a81c,
     type: 3}
+  currentPremiumCurrency: 0
 --- !u!1 &844287333773397345
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,12 +552,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6508425278632363198}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f0c76b42b3f04084a3c823e931e9fee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 3
+  itemType: 0
   priceText: {fileID: 2114674255411870363}
 --- !u!1 &8102235865466370523
 GameObject:

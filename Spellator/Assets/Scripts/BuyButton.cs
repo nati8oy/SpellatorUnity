@@ -8,8 +8,7 @@ public class BuyButton : MonoBehaviour
     public enum ItemType{
         Gold50,
         Gold100,
-        NoAds,
-        DarkSkin
+        NoAds
     }
 
 
@@ -37,9 +36,7 @@ public class BuyButton : MonoBehaviour
             case ItemType.NoAds:
                 IAPManager.Instance.BuyNoAds();
                 break;
-            case ItemType.DarkSkin:
-                IAPManager.Instance.BuyDarkSkin();
-                break;
+      
         }
     }
 
@@ -62,11 +59,7 @@ public class BuyButton : MonoBehaviour
                 loadedPrice = IAPManager.Instance.GetProductPriceFromStore(IAPManager.Instance.NO_ADS);
                 break;
 
-            case ItemType.DarkSkin:
-                loadedPrice = IAPManager.Instance.GetProductPriceFromStore(IAPManager.Instance.dark_skin);
-                break;
-
-
+           
 
         }
 
