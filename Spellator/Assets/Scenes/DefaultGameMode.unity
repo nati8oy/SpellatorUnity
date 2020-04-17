@@ -3295,6 +3295,7 @@ MonoBehaviour:
   levelDetails: {fileID: 11400000, guid: da09913161474424f878bba5ba2d1f98, type: 2}
   levelDescriptionText: {fileID: 1736780741}
   randomLevelSelection: 
+  difficulty: {fileID: 11400000, guid: 1e5b5726e36b04e978e42ba2264994c5, type: 2}
   levelRuleType: 0
   allLevels: 
   _levelTypes: []
@@ -15784,6 +15785,12 @@ PrefabInstance:
       propertyPath: liveScoreText
       value: 
       objectReference: {fileID: 2066190560}
+    - target: {fileID: 7349431635441859144, guid: cf2cb441bcdc54fbba9fdd62fba05c37,
+        type: 3}
+      propertyPath: difficulty
+      value: 
+      objectReference: {fileID: 11400000, guid: 1e5b5726e36b04e978e42ba2264994c5,
+        type: 2}
     m_RemovedComponents:
     - {fileID: 166281412, guid: cf2cb441bcdc54fbba9fdd62fba05c37, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cf2cb441bcdc54fbba9fdd62fba05c37, type: 3}

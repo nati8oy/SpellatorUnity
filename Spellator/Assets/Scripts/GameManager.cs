@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+using System.Collections.Generic;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -30,6 +31,8 @@ public class GameManager : MonoBehaviour
     public LevelManagerSO levelDetails;
     public Sprite[] gameBackgrounds;
     public Image mainBackground;
+
+    public DifficultyGradientSO difficulty;
 
     [Space]
 
@@ -61,13 +64,15 @@ public class GameManager : MonoBehaviour
     // used to count unique words for each level
     public int newWordCounter;
 
-   // public GameObject woodPanel;
+    // public GameObject woodPanel;
 
 
     private SpecialMeterClass specialMeter = new SpecialMeterClass();
 
     public ConfigSO configData;
 
+    public GameObject[] currentRack;
+    public string ruleLetter = "P";
 
     public RectTransform GameOverPanel
     {
@@ -136,6 +141,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+
+
+        StartCoroutine(GetTilesOnRack());
         /*
         if (GameObject.Find("GameState"))
         {
@@ -144,7 +152,7 @@ public class GameManager : MonoBehaviour
 
         }*/
         //selects the skin for the tiles
-       // tileSkinSelection = GameState.skinSelection;
+        // tileSkinSelection = GameState.skinSelection;
 
         //set the game background randomly from the array
         // mainBackground.sprite = gameBackgrounds[Random.Range(0, gameBackgrounds.Length)];
@@ -289,6 +297,25 @@ public class GameManager : MonoBehaviour
 
     }
 
+    //gets all the letter values of the tiles on the rack and puts them into "currentRack"
+    public IEnumerator GetTilesOnRack()
+    {
+
+        yield return new WaitForSeconds(2f);
+        currentRack = GameObject.FindGameObjectsWithTag("Tile");
+//        Debug.Log("current rack contains " + currentRack.Length + " tiles");
+
+
+        if(currentRack[0].GetComponent<Tile>().letter.text != difficulty.focusLetter)
+        {
+            currentRack[0].GetComponent<Tile>().letter.text = difficulty.focusLetter;
+            currentRack[0].GetComponent<Tile>().spawnedTile.points = TileBag.pointsDictionary[currentRack[0].GetComponent<Tile>().spawnedTile.letter];
+
+        }
+        yield return null;   
+
+    }
+
 
     public void StartSetup()
     {
@@ -316,8 +343,7 @@ public class GameManager : MonoBehaviour
        
     }
 
-
-
+   
 
     public void ToggleSound()
     {
@@ -341,7 +367,6 @@ public class GameManager : MonoBehaviour
         newWordCounter += 1;
     }
 
-
-
-
+   
+    
 }

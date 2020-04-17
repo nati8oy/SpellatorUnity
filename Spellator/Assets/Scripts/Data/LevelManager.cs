@@ -13,6 +13,8 @@ public class LevelManager : MonoBehaviour
     public TextMeshProUGUI levelDescriptionText;
     public string randomLevelSelection;
 
+    public DifficultyGradientSO difficulty;
+
     public enum LevelRuleType
     {
         length, ending, containing, starting, points
@@ -167,10 +169,14 @@ public class LevelManager : MonoBehaviour
                 ConstructLevelParams("length", 3, 5, 0);
                 break;
 
-
-
-
         }
+
+
+
+        //set the letter in the difficulty SO so that it's available at the start of each level
+        difficulty.focusLetter = letterCondition;
+        Debug.Log("letter condition is: " + letterCondition);
+
 
         //SET VERSION
         //sets up the level parameters. eg. make 3 words that are 3 letters long.
@@ -209,6 +215,7 @@ public class LevelManager : MonoBehaviour
 
         switch (levelType)
         {
+
             case "length":
                 levelDescription = "Make " + firstCondition.ToString() + " words using " + secondCondition.ToString() + " letters";
 
@@ -250,8 +257,9 @@ public class LevelManager : MonoBehaviour
 
                 break;
 
-
         }
+
+        
 
     }
 

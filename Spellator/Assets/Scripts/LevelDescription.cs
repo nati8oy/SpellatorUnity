@@ -8,11 +8,6 @@ public class LevelDescription : MonoBehaviour
     public TextMeshProUGUI levelRules;
     public LevelManagerSO levelData;
     public TextMeshProUGUI levelNumber;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()

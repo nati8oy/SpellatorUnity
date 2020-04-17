@@ -246,7 +246,6 @@ public class Tile : MonoBehaviour
         //resets the special type of a tile when it loads
         spawnedTile.AllocateSpecialType();
 
-
         //Debug.Log(TileBag.pointsDictionary.Count);
 
         //if the tag is PrimaryTile then set the tile letter and points to be that of the StartLetter
