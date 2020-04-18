@@ -206,6 +206,8 @@ public class GameManager : MonoBehaviour
         fadeManager.FadeType(fadeManager._flashColour, fadeManager.pulseSpeed);
 
         gameOverPanel.gameObject.SetActive(true);
+        //
+        AdController.Instance.RunInterstitial();
         AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxGeneral[5]);
 
     }
