@@ -13,6 +13,12 @@ public class IAPManager : MonoBehaviour, IStoreListener
 
     public string GOLD_50 = "GOLD_50";
     public string GOLD_100 = "GOLD_100";
+    public string GOLD_250 = "GOLD_250";
+    public string GOLD_500 = "GOLD_500";
+    public string GOLD_1000 = "GOLD_1000";
+    public string GOLD_2000 = "GOLD_2000";
+
+
     public string NO_ADS = "NO_ADS";
 
     void Start()
@@ -53,6 +59,11 @@ public class IAPManager : MonoBehaviour, IStoreListener
         // with its store-specific identifiers.
         builder.AddProduct(GOLD_50, ProductType.Consumable);
         builder.AddProduct(GOLD_100, ProductType.Consumable);
+        builder.AddProduct(GOLD_250, ProductType.Consumable);
+        builder.AddProduct(GOLD_500, ProductType.Consumable);
+        builder.AddProduct(GOLD_1000, ProductType.Consumable);
+        builder.AddProduct(GOLD_2000, ProductType.Consumable);
+
         // Continue adding the non-consumable product.
 
         builder.AddProduct(NO_ADS, ProductType.NonConsumable);
@@ -85,6 +96,33 @@ public class IAPManager : MonoBehaviour, IStoreListener
         BuyProductID(GOLD_100);
     }
 
+    public void Buy250Gold()
+    {
+        // Buy the consumable product using its general identifier. Expect a response either 
+        // through ProcessPurchase or OnPurchaseFailed asynchronously.
+        BuyProductID(GOLD_250);
+    }
+
+    public void Buy500Gold()
+    {
+        // Buy the consumable product using its general identifier. Expect a response either 
+        // through ProcessPurchase or OnPurchaseFailed asynchronously.
+        BuyProductID(GOLD_500);
+    }
+
+    public void Buy1000Gold()
+    {
+        // Buy the consumable product using its general identifier. Expect a response either 
+        // through ProcessPurchase or OnPurchaseFailed asynchronously.
+        BuyProductID(GOLD_1000);
+    }
+
+    public void Buy2000Gold()
+    {
+        // Buy the consumable product using its general identifier. Expect a response either 
+        // through ProcessPurchase or OnPurchaseFailed asynchronously.
+        BuyProductID(GOLD_2000);
+    }
 
     public void BuyNoAds()
     {
@@ -212,6 +250,37 @@ public class IAPManager : MonoBehaviour, IStoreListener
             Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", args.purchasedProduct.definition.id));
             DataManager.Instance.AddGold(100);
         }
+
+        // Or ... a non-consumable product has been purchased by this user.
+        else if (String.Equals(args.purchasedProduct.definition.id, GOLD_250, StringComparison.Ordinal))
+        {
+            Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", args.purchasedProduct.definition.id));
+            DataManager.Instance.AddGold(250);
+        }
+
+        // Or ... a non-consumable product has been purchased by this user.
+        else if (String.Equals(args.purchasedProduct.definition.id, GOLD_500, StringComparison.Ordinal))
+        {
+            Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", args.purchasedProduct.definition.id));
+            DataManager.Instance.AddGold(500);
+        }
+
+        // Or ... a non-consumable product has been purchased by this user.
+        else if (String.Equals(args.purchasedProduct.definition.id, GOLD_1000, StringComparison.Ordinal))
+        {
+            Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", args.purchasedProduct.definition.id));
+            DataManager.Instance.AddGold(1000);
+        }
+
+        // Or ... a non-consumable product has been purchased by this user.
+        else if (String.Equals(args.purchasedProduct.definition.id, GOLD_2000, StringComparison.Ordinal))
+        {
+            Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", args.purchasedProduct.definition.id));
+            DataManager.Instance.AddGold(2000);
+        }
+
+
+
         // Or ... a subscription product has been purchased by this user.
         else if (String.Equals(args.purchasedProduct.definition.id, NO_ADS, StringComparison.Ordinal))
         {
