@@ -34,8 +34,8 @@ public class ScrollList : MonoBehaviour
     public GameObject[] achievementItem;
 
 
-    [SerializeField] private GameObject closeButton;
-    public bool closeButtonActive;
+    //[SerializeField] private GameObject closeButton;
+ //   public bool closeButtonActive;
 
     public ScrollListType scrollListType;
 
@@ -121,7 +121,7 @@ public class ScrollList : MonoBehaviour
         subtitleText.text = subtitle;
 
         //set the close button to active or inactive
-        closeButton.SetActive(closeButtonActive);
+       // closeButton.SetActive(closeButtonActive);
 
         
     }
