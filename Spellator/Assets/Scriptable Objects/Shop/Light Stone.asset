@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Light Stone
   m_EditorClassIdentifier: 
   itemPrice: 35
-  itemName: Light Stone
+  itemName: Stone
   itemImage: {fileID: 21300000, guid: e1524eb98a6704cebb210eb6e9b8dd59, type: 3}
+  skinID: 
+  skinIDNumber: 0

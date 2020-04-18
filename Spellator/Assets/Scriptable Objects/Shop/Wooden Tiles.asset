@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wooden Tiles
   m_EditorClassIdentifier: 
   itemPrice: 5
-  itemName: Wooden Tiles
+  itemName: Wood
   itemImage: {fileID: 21300000, guid: 03d676f9c544c4df193cc6972634fe0c, type: 3}
   skinID: 
   skinIDNumber: 2

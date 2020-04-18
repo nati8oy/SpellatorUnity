@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Pink Tiles
   m_EditorClassIdentifier: 
   itemPrice: 30
-  itemName: Pink Tiles
+  itemName: Pink
   itemImage: {fileID: 21300000, guid: 0c14db58392a24793be0d971d48e518f, type: 3}
+  skinID: 
+  skinIDNumber: 0

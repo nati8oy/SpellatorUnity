@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Voodoo Tiles
   m_EditorClassIdentifier: 
   itemPrice: 45
-  itemName: Voodoo Tiles
+  itemName: Voodoo
   itemImage: {fileID: 21300000, guid: f6c2f3b9e2b734789a57880c06840e2c, type: 3}
+  skinID: 
+  skinIDNumber: 0
