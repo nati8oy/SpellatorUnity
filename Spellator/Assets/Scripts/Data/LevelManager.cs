@@ -13,6 +13,8 @@ public class LevelManager : MonoBehaviour
     public TextMeshProUGUI levelDescriptionText;
     public string randomLevelSelection;
 
+    public GameObject[] currentRack;
+
     public DifficultyGradientSO difficulty;
 
     public enum LevelRuleType
@@ -102,6 +104,8 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+       
+
         //add 1 to the level each time it loads but only if it's less than 13
         //otherwise set it to 0
         if (levelDetails.currentLevel < 13)
@@ -174,6 +178,7 @@ public class LevelManager : MonoBehaviour
 
 
         //set the letter in the difficulty SO so that it's available at the start of each level
+
         difficulty.focusLetter = letterCondition;
         Debug.Log("letter condition is: " + letterCondition);
 
@@ -184,6 +189,41 @@ public class LevelManager : MonoBehaviour
 
 
     }
+
+
+    //gets all the letter values of the tiles on the rack and puts them into "currentRack"
+    public IEnumerator GetTilesOnRack(string levelType)
+    {
+
+        yield return new WaitForSeconds(2f);
+
+        //set the currentRack array to be 
+        currentRack = GameObject.FindGameObjectsWithTag("Tile");
+        Debug.Log("Coroutine started");
+        //        Debug.Log("current rack contains " + currentRack.Length + " tiles");
+
+
+        //check that the rack tile letter isn't "focus letter".
+        //Also check the level type doesn't equal "points". The reason being that any other type of level rule will require a specific letter to be available
+
+        //check if the rule is "points"
+        if (levelType != "points")
+        {
+
+            //check if the letter is the one from the level rule
+            if (currentRack[0].GetComponent<Tile>().letter.text != difficulty.focusLetter)
+            {
+                currentRack[0].GetComponent<Tile>().letter.text = difficulty.focusLetter;
+                currentRack[0].GetComponent<Tile>().spawnedTile.points = TileBag.pointsDictionary[currentRack[0].GetComponent<Tile>().spawnedTile.letter];
+
+            }
+        }
+         
+
+        yield return null;
+
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -212,6 +252,14 @@ public class LevelManager : MonoBehaviour
         //firstCondition = conditionsList[Random.RandomRange(1, conditionsList.Count)];
         firstCondition = numberOfWords;
 
+        //check if the letter is on the rack or not.
+        StartCoroutine(GetTilesOnRack(levelType));
+
+
+        if (levelType!="points")
+        {
+            difficulty.focusLetter = letterCondition;
+        }
 
         switch (levelType)
         {
@@ -259,7 +307,12 @@ public class LevelManager : MonoBehaviour
 
         }
 
+
+        //set the level type for the Inumerator so that it can use the string and make sure there is a letter of that type on the rack
+       // GetTilesOnRack(levelType);
         
+
+
 
     }
 

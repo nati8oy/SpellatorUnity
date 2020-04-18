@@ -88,6 +88,7 @@ public class LevelClass
 
                 levelDescription = "Make " + firstCondition.ToString() + " words ending in " + letterCondition;
 
+
                 break;
 
             case "containing":

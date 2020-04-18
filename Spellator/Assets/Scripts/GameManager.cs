@@ -143,7 +143,7 @@ public class GameManager : MonoBehaviour
     {
 
 
-        StartCoroutine(GetTilesOnRack());
+       // StartCoroutine(GetTilesOnRack());
         /*
         if (GameObject.Find("GameState"))
         {
