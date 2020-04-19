@@ -38,7 +38,7 @@ public class DictionaryManager : MonoBehaviour
     private Text tileText;
 
 
-    public int starsTotal;
+    public int goldTotal;
     public TextMeshProUGUI starTotalText;
 
     public GameObject healthParticles;
@@ -318,7 +318,7 @@ public class DictionaryManager : MonoBehaviour
         //currentLevel.text = playerWordsMade.Count.ToString();
 
         //set the text in the stars total text section to be the right amount.
-        starTotalText.text = starsTotal.ToString();
+        starTotalText.text = goldTotal.ToString();
 
         //set up the primary tile particle system
         var main = pointParticles.main;

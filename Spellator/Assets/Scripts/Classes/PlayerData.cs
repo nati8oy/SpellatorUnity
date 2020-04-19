@@ -11,7 +11,7 @@ public class PlayerData
     public List<string> playerWordsMade = new List<string>();
     public bool audioToggle;
     public List<int> highScores = new List<int>();
-    public int premiumCurrency;
+    public int goldAmount;
     public int wordsPlayed;
     public string longestWord;
     public int skinSelection;
@@ -20,11 +20,11 @@ public class PlayerData
     {
         highScores = gameState.highScores;
         skinSelection = gameState.skinSelection;
- 
+
         currentScore = gameState.currentScore;
         playerWordsMade = gameState.playerWordsMade;
-     // audioToggle = gameState.audioToggle;
-        premiumCurrency = gameState.premiumCurrency;
+        // audioToggle = gameState.audioToggle;
+        goldAmount = gameState.gold;
         wordsPlayed = gameState.wordsPlayed;
         longestWord = gameState.longestWord;
 

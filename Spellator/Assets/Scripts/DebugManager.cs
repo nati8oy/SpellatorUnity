@@ -11,6 +11,7 @@ public class DebugManager : MonoBehaviour
     //private string currentSkin;
     public ParticleSystem particleTrigger;
     public GameObject explosion;
+    public ConfigSO configData;
 
 
     private void Start()
@@ -32,10 +33,11 @@ public class DebugManager : MonoBehaviour
             explosion.SetActive(true);
         }
 
-        //play particles
+        //add gold
         if (Input.GetKeyDown(KeyCode.W))
         {
-            particleTrigger.Play();
+            configData.totalGoldAmount += 10;
+            Debug.Log("10 gold added");
         }
 
     }

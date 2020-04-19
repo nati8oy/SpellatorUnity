@@ -15,6 +15,7 @@ public class ConfigSO : ScriptableObject
     public string currentStatus;
     public string longestWord;
     public int uniqueWords;
+    public int totalGoldAmount;
 
 
     //public int highScore;

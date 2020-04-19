@@ -256,7 +256,7 @@ public class GameManager : MonoBehaviour
 
 
         //update the total stars in your kitty.
-        DictionaryManager.Instance.starsTotal += 2;
+        DictionaryManager.Instance.goldTotal += 2;
         //levelCompleteParticles.Play();
 
 

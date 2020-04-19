@@ -13,7 +13,7 @@ public class GameState : MonoBehaviour
     public ShopSO shop;
 
     public bool audioToggle;
-    public int premiumCurrency;
+    public int gold;
     public int wordsPlayed;
     public string longestWord;
     public int skinSelection;
@@ -21,8 +21,7 @@ public class GameState : MonoBehaviour
 
     public ConfigSO configData;
 
-    [HideInInspector]
-    public GameState Instance;
+    public static GameState Instance;
 
 
     private void Awake()
@@ -51,39 +50,28 @@ public class GameState : MonoBehaviour
 
     public void SaveGameData()
     {
-
-
-        //Debug.Log(shop.currentSkin);
+        //set the tile skin to whatever the current skin in the shop is
         skinSelection = shop.currentSkin;
 
         Debug.Log("saved skin selection: " + skinSelection);
 
-        //get the toggle bool from the Game Manager
-        // audioToggle = GameManager.Instance.toggle;
-        premiumCurrency = DictionaryManager.Instance.starsTotal;
-       // Debug.Log("audio toggle being saved as " + GameManager.Instance.toggle);
         currentScore = Points.totalScore;
-
-        //playerWordsMade = GameConfig.Instance.uniqueWordsList;
-
-        //get the longest word out of the SO
-        longestWord = DictionaryManager.Instance.longestWord;
-
-        //this the list of uniqe words made
-        playerWordsMade = DictionaryManager.Instance.playerWordsMade;
-
-        //Debug.Log(playerWordsMade);
 
         // wordsPlayed = DictionaryManager.Instance.totalWordsPlayed;
         wordsPlayed = configData.totalWordsMade;
 
+        //saves the total gold amount
+        gold = configData.totalGoldAmount;
 
-        //Debug.Log("words played " +  wordsPlayed);
-        //wordsPlayed = playerWordsMade.Count;
 
+        if (DictionaryManager.Instance!=null)
+        {
+            //get the longest word out of the SO
+            longestWord = DictionaryManager.Instance.longestWord;
 
-        //save the high scores
-        //        highScores = GameConfig.Instance.highScores;
+            //this the list of uniqe words made
+            playerWordsMade = DictionaryManager.Instance.playerWordsMade;
+        }
 
 
         Debug.Log("<color=red> Score saved </color>" + "(" + currentScore + ")" + " Saved dictionary: " + "(" + playerWordsMade.Count + ")" + " Words Played: " + wordsPlayed);
@@ -109,7 +97,7 @@ public class GameState : MonoBehaviour
 
         if (DictionaryManager.Instance!=null)
         {
-            DictionaryManager.Instance.starsTotal = data.premiumCurrency;
+            DictionaryManager.Instance.goldTotal = data.goldAmount;
             DictionaryManager.Instance.totalWordsPlayed = data.wordsPlayed;
             //Debug.Log("loaded data from Dictionary Manager");
 
@@ -121,7 +109,7 @@ public class GameState : MonoBehaviour
 
         currentScore = data.currentScore;
         playerWordsMade = data.playerWordsMade;
-        premiumCurrency = data.premiumCurrency;
+        gold = data.goldAmount;
         wordsPlayed = data.wordsPlayed;
         longestWord = data.longestWord;
 
@@ -154,7 +142,7 @@ public class GameState : MonoBehaviour
 
 
         //Debug.Log("Loaded dictionary length is " + data.playerWordsMade.Count);
-        //Debug.Log("Premium currenct total: " + data.premiumCurrency);
+        //Debug.Log("Premium currenct total: " + data.gold);
 
         //Debug.Log("Audio state: " + "sfx = " + sfxOn + " music = " + musicOn);
 

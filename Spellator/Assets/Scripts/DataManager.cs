@@ -7,8 +7,8 @@ public class DataManager : MonoBehaviour
 
     public static DataManager Instance;
 
-	private int goldAmount;
 	private bool noAds = false;
+    public ConfigSO configData;
 
     void Awake()
     {
@@ -23,8 +23,8 @@ public class DataManager : MonoBehaviour
 
     public void AddGold(int amount)
 	{
-		goldAmount += amount;
-		Debug.Log("Gold: " + goldAmount);
+        configData.totalGoldAmount += amount;
+		Debug.Log("Gold: " + amount);
 	}
 	public void RemoveAds()
 	{
