@@ -100,6 +100,7 @@ MonoBehaviour:
   purchaseObject: {fileID: 9167116109896954529, guid: 395fd84ee4ffd4abebe8193cb835a81c,
     type: 3}
   goldAmount: 0
+  configData: {fileID: 11400000, guid: 87f9af19399d249068769bd3553e5227, type: 2}
 --- !u!1 &844287333773397345
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,6 +15,7 @@ public class ShopItem : MonoBehaviour
     public int skinID;
     public GameObject purchaseObject;
     public int goldAmount;
+    public ConfigSO configData;
 
 
     private void Start()
@@ -36,19 +37,15 @@ public class ShopItem : MonoBehaviour
         skinID = arrayNumber;
     }
 
-
     //this is the function to select the new skin.
     public void UpdateSkin()
     {
        
 
-
         //check if the GameState object exists
         if (GameObject.Find("GameState"))
         {
-            goldAmount = GameObject.Find("GameState").GetComponent<GameState>().gold;
-
-
+            goldAmount = configData.totalGoldAmount;
             //check if the price is less than the amount of currency available
             if (shopArray[skinID].itemPrice < goldAmount)
             {
@@ -61,7 +58,9 @@ public class ShopItem : MonoBehaviour
 
                 //reduce the total currency by the item price. 
                 goldAmount -= shopArray[skinID].itemPrice;
-                Debug.Log("skin bought for " + shopArray[skinID].itemPrice + ". Premium currency remaining: " + goldAmount);
+                Debug.Log("skin bought for " + shopArray[skinID].itemPrice + ". Gold remaining: " + goldAmount);
+
+                configData.totalGoldAmount = goldAmount;
                 GameState.Instance.SaveGameData();
             }
             else

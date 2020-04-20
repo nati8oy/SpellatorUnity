@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class TabMapReader : MonoBehaviour
 {
@@ -11,15 +12,17 @@ public class TabMapReader : MonoBehaviour
     public GameObject tab3;
     public GameObject tab4;
     public AudioSO audioObject;
+    public TextMeshProUGUI goldAmount;
+    public ConfigSO configObject;
 
     public GameObject mainCamera;
 
 
     //public GameObject activeTab;
     // Start is called before the first frame update
-    private void Start()
+    private void Update()
     {
-       // Debug.Log(tab1);
+        goldAmount.text = configObject.totalGoldAmount.ToString();
 
     }
 
@@ -49,7 +52,7 @@ public class TabMapReader : MonoBehaviour
 
 
                 break;
-            case "word list":
+            case "stats":
                 //Debug.Log("word list");
                tab1.SetActive(false);
                 tab2.SetActive(true);
