@@ -23,6 +23,8 @@ public class ShopItem : MonoBehaviour
     public Image coinSprite;
     public Text buttonText;
 
+    public bool productPurchased;
+
 
     //Adds all of the content to the shop that is required for each of the tile types (shop items)
     public void AddContent(int arrayNumber)
@@ -41,8 +43,6 @@ public class ShopItem : MonoBehaviour
             buttonText.text = "select";
             
             //buyButton.interactable = false;
-            
-
             Debug.Log("you already bought this skin " + skinID);
 
         } 

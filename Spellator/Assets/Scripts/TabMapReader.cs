@@ -14,6 +14,7 @@ public class TabMapReader : MonoBehaviour
     public AudioSO audioObject;
     public TextMeshProUGUI goldAmount;
     public ConfigSO configObject;
+    public GameObject goldObject;
 
     public GameObject mainCamera;
 
@@ -43,6 +44,8 @@ public class TabMapReader : MonoBehaviour
         {
             case "home":
                 //Debug.Log("home");
+                goldObject.SetActive(false);
+
                 tab1.SetActive(true);
                 tab2.SetActive(false);
                 tab3.SetActive(false);
@@ -54,7 +57,9 @@ public class TabMapReader : MonoBehaviour
                 break;
             case "stats":
                 //Debug.Log("word list");
-               tab1.SetActive(false);
+                goldObject.SetActive(false);
+
+                tab1.SetActive(false);
                 tab2.SetActive(true);
                 tab3.SetActive(false);
                 tab4.SetActive(false);
@@ -65,6 +70,8 @@ public class TabMapReader : MonoBehaviour
 
                 break;
             case "achievements":
+                goldObject.SetActive(false);
+
                 //Debug.Log("achievements");
                 tab1.SetActive(false);
                 tab2.SetActive(false);
@@ -73,6 +80,8 @@ public class TabMapReader : MonoBehaviour
                 break;
             case "shop":
                 //Debug.Log("settings");
+                goldObject.SetActive(true);
+
                 tab1.SetActive(false);
                 tab2.SetActive(false);
                 tab3.SetActive(false);
