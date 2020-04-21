@@ -17,6 +17,8 @@ public class ConfigSO : ScriptableObject
     public int uniqueWords;
     public int totalGoldAmount;
 
+    public List<int> skinsPurchased = new List<int>();
+
 
     //public int highScore;
     //public Vector3[] playedTilePositions;

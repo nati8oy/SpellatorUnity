@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro; 
+using TMPro;
 
 public class ShopItem : MonoBehaviour
 {
@@ -17,12 +17,11 @@ public class ShopItem : MonoBehaviour
     public int goldAmount;
     public ConfigSO configData;
 
-
-    private void Start()
-    {
-        //purchaseObject = GameObject.Find("purchase confirmation");
-        
-    }
+    [Header("Button Items")]
+    public Button buyButton;
+    public TextMeshProUGUI goldText;
+    public Image coinSprite;
+    public Text buttonText;
 
 
     //Adds all of the content to the shop that is required for each of the tile types (shop items)
@@ -35,18 +34,32 @@ public class ShopItem : MonoBehaviour
         itemNameText.text = shopArray[arrayNumber].itemName;
 
         skinID = arrayNumber;
+
+        //checks in the configData object if the skin has been purchased already
+        if (configData.skinsPurchased.Contains(skinID))
+        {
+            buttonText.text = "select";
+            
+            //buyButton.interactable = false;
+            
+
+            Debug.Log("you already bought this skin " + skinID);
+
+        } 
+
     }
 
     //this is the function to select the new skin.
     public void UpdateSkin()
     {
-       
+
 
         //check if the GameState object exists
         if (GameObject.Find("GameState"))
         {
             goldAmount = configData.totalGoldAmount;
             //check if the price is less than the amount of currency available
+            //and check if the item has already been purchased or not
             if (shopArray[skinID].itemPrice < goldAmount)
             {
 
@@ -60,17 +73,26 @@ public class ShopItem : MonoBehaviour
                 goldAmount -= shopArray[skinID].itemPrice;
                 Debug.Log("skin bought for " + shopArray[skinID].itemPrice + ". Gold remaining: " + goldAmount);
 
+                //set the gold amount in the SO to be the correct amount
                 configData.totalGoldAmount = goldAmount;
+
+                //add the skin to the ones that have been purchased List.
+                configData.skinsPurchased.Add(skinID);
+                Debug.Log(configData.skinsPurchased.Count);
+
+                //save the game
                 GameState.Instance.SaveGameData();
+
+              
             }
+
             else
             {
                 Debug.Log("not enough money");
+
             }
 
         }
-      //GameManager.Instance.purchaseConfirm.SetActive(true);
-        // Debug.Log("current skin ID: " + shopObject.currentSkin);
 
     }
 

@@ -101,6 +101,10 @@ MonoBehaviour:
     type: 3}
   goldAmount: 0
   configData: {fileID: 11400000, guid: 87f9af19399d249068769bd3553e5227, type: 2}
+  buyButton: {fileID: 7979250324296042052}
+  goldText: {fileID: 1377707129097281222}
+  coinSprite: {fileID: 3178846318637056591}
+  buttonText: {fileID: 2114674255411870363}
 --- !u!1 &844287333773397345
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,7 +419,6 @@ GameObject:
   - component: {fileID: 2978170470618319907}
   - component: {fileID: 5906472976702802259}
   - component: {fileID: 7979250324296042052}
-  - component: {fileID: 6378827812121145891}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -503,9 +506,9 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 0.41960785, b: 0.33333334, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 1}
+    m_PressedColor: {r: 0.972549, g: 0.34901962, b: 0.34901962, a: 0.70980394}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.972549, g: 0.34901962, b: 0.34901962, a: 0.22745098}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -535,20 +538,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6378827812121145891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6508425278632363198}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f0c76b42b3f04084a3c823e931e9fee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemType: 0
-  priceText: {fileID: 2114674255411870363}
 --- !u!1 &8102235865466370523
 GameObject:
   m_ObjectHideFlags: 0
