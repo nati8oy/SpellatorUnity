@@ -105,6 +105,7 @@ MonoBehaviour:
   goldText: {fileID: 1377707129097281222}
   coinSprite: {fileID: 3178846318637056591}
   buttonText: {fileID: 2114674255411870363}
+  productPurchased: 0
 --- !u!1 &844287333773397345
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,6 +530,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3934782021397155838}
         m_MethodName: UpdateSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 909077638138378081, guid: c8d954bfbe79c459980a5ec0bdbe9da5,
+          type: 3}
+        m_MethodName: Save
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

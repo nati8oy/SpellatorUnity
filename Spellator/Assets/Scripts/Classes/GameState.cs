@@ -55,6 +55,8 @@ public class GameState : MonoBehaviour
 
         Debug.Log("saved skin selection: " + skinSelection);
 
+
+
         currentScore = Points.totalScore;
 
         // wordsPlayed = DictionaryManager.Instance.totalWordsPlayed;
@@ -113,13 +115,14 @@ public class GameState : MonoBehaviour
         wordsPlayed = data.wordsPlayed;
         longestWord = data.longestWord;
 
+        /*
         //check if the current skin is not equal to null first. Then assign it whatever was saved in the save file.
         if (shop.currentSkin != null)
         {
             skinSelection = data.skinSelection;
             Debug.Log("loaded skin selection: " + skinSelection);
         }
-
+        */
        
 
         

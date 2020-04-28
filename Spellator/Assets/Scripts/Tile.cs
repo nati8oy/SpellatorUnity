@@ -327,6 +327,8 @@ public class Tile : MonoBehaviour
 
     {
 
+        //Debug.Log(GameManager.Instance.testList.Count);
+
         //play the tile animation  
        // animator.SetBool("correctWord", true);
 

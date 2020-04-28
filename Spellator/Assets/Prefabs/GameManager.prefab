@@ -50,6 +50,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileSkinType: 0
+  tileSkinSelection: 0
+  gameManagerAudioSource: {fileID: 166281410}
   currentBag: {fileID: 0}
   levelDetails: {fileID: 11400000, guid: da09913161474424f878bba5ba2d1f98, type: 2}
   gameBackgrounds:
@@ -57,6 +59,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 05b88d275f1aa4841aa6a2d7aae8dbde, type: 3}
   - {fileID: 21300000, guid: 990fc03be7e234fdcb3a533b903e72bc, type: 3}
   mainBackground: {fileID: 0}
+  difficulty: {fileID: 0}
   cameraObject: {fileID: 0}
   gameOverAudio: {fileID: 8300000, guid: 199442004b5c14c4a9f6012ed4e5c602, type: 3}
   bigScore: {fileID: 8300000, guid: 5a863d36171ec43ad8f28dee819c539c, type: 3}
@@ -69,6 +72,8 @@ MonoBehaviour:
   levelCompleteParticles: {fileID: 0}
   newWordCounter: 0
   configData: {fileID: 11400000, guid: 87f9af19399d249068769bd3553e5227, type: 2}
+  currentRack: []
+  ruleLetter: P
   mostRecentScore: 0
   liveScoreText: {fileID: 0}
 --- !u!82 &166281410
@@ -83,10 +88,10 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
-  Mute: 0
+  Mute: 1
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -233,12 +238,13 @@ MonoBehaviour:
   currentScore: 0
   playerWordsMade: []
   highScores: 
+  shop: {fileID: 0}
   audioToggle: 0
-  premiumCurrency: 0
+  gold: 0
   wordsPlayed: 0
   longestWord: 
+  skinSelection: 0
   configData: {fileID: 0}
-  Instance: {fileID: 0}
 --- !u!114 &1026342681
 MonoBehaviour:
   m_ObjectHideFlags: 0

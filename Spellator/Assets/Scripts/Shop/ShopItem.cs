@@ -78,11 +78,10 @@ public class ShopItem : MonoBehaviour
 
                 //add the skin to the ones that have been purchased List.
                 configData.skinsPurchased.Add(skinID);
-                Debug.Log(configData.skinsPurchased.Count);
+                //Debug.Log(configData.skinsPurchased.Count);
 
                 //save the game
-                GameState.Instance.SaveGameData();
-
+               // GameState.Instance.SaveGameData();
               
             }
 

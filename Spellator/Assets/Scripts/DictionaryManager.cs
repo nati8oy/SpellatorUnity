@@ -318,13 +318,13 @@ public class DictionaryManager : MonoBehaviour
         //currentLevel.text = playerWordsMade.Count.ToString();
 
         //set the text in the stars total text section to be the right amount.
-        starTotalText.text = goldTotal.ToString();
+        //starTotalText.text = goldTotal.ToString();
 
         //set up the primary tile particle system
-        var main = pointParticles.main;
+       // var main = pointParticles.main;
         //set the max number of particles;
-        main.maxParticles = maximumParticles;
-        main.startLifetime = particleLifetime;
+//        main.maxParticles = maximumParticles;
+  //      main.startLifetime = particleLifetime;
 
 
 
@@ -451,11 +451,12 @@ public class DictionaryManager : MonoBehaviour
 
                 //adjust the particles on the primary tile
 
+                /*
                 if (maximumParticles < 55)
                 {
                     maximumParticles += 10;
 
-                }
+                }*/
 
 
                // particleLifetime = Random.Range(0.25 * Points.multiplier, 0.3 * Points.multiplier);

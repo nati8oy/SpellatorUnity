@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Word Data", menuName = "Word List")]
+
+
 public class ConfigSO : ScriptableObject
 {
     public List<string> uniqueWordsList;

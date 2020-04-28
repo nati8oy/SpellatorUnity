@@ -23,7 +23,8 @@ public class GameManager : MonoBehaviour
 
     //[SerializeField] private AudioClip bgMusic;
     //public float audioTrackSelection;
-    private AudioSource gameManagerAudioSource;
+    public AudioSource gameManagerAudioSource;
+
 
 
     [Header("Scriptable objects")]
@@ -143,6 +144,9 @@ public class GameManager : MonoBehaviour
     {
 
 
+        //GameEvents.SaveInitiated += Save;
+
+
        // StartCoroutine(GetTilesOnRack());
         /*
         if (GameObject.Find("GameState"))
@@ -186,10 +190,10 @@ public class GameManager : MonoBehaviour
         //GameObject.Find("Level Description Screen").SetActive(true);
 
         ruleDetailPanel.gameObject.SetActive(true);
-        
-     
 
-        gameManagerAudioSource = GetComponent<AudioSource>();
+
+
+        //gameManagerAudioSource.volume = 0;
 
         gameManagerAudioSource.loop = true;
 
@@ -237,7 +241,7 @@ public class GameManager : MonoBehaviour
         //save before the game goes back to the main menu.
         //GetComponent<GameState>().SaveGameData();
 
-        GameObject.Find("GameState").GetComponent<GameState>().SaveGameData();
+        //GameObject.Find("GameState").GetComponent<GameState>().SaveGameData();
 
 
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
@@ -349,6 +353,42 @@ public class GameManager : MonoBehaviour
 
     public void ToggleSound()
     {
+       // gameManagerAudioSource.volume = 0;
+
+
+
+        if (gameManagerAudioSource.volume == 0.5f)
+        {
+            gameManagerAudioSource.volume = 0;
+            Debug.Log("the volume is set to " + gameManagerAudioSource.volume);
+
+        }
+        else if (gameManagerAudioSource.volume == 0)
+        {
+            gameManagerAudioSource.volume = 0.5f;
+            Debug.Log("the volume is set to " + gameManagerAudioSource.volume);
+
+        }
+
+        //gameManagerAudioSource.volume = 0 !gameManagerAudioSource.volume =1;
+
+        //gameManagerAudioSource.mute = !gameManagerAudioSource.mute;
+
+        /*
+
+        if (gameManagerAudioSource.volume > 0)
+        {
+            gameManagerAudioSource.volume = 0;
+            Debug.Log(" audio off");
+
+        }
+        else {
+            gameManagerAudioSource.volume = 1;
+            Debug.Log(" audio on");
+        }*/
+
+
+        /*
         toggle = !toggle;
 
         Debug.Log("toggle is now " + toggle);
@@ -361,7 +401,7 @@ public class GameManager : MonoBehaviour
         else
         {
             AudioListener.volume = 0f;
-        }
+        }*/
     }
 
     public void AddNewWord()
@@ -369,6 +409,4 @@ public class GameManager : MonoBehaviour
         newWordCounter += 1;
     }
 
-   
-    
 }

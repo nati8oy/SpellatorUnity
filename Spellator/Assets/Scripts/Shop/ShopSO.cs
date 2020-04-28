@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "Shop Data", menuName = "Shop")]
 
+[System.Serializable]
 
 public class ShopSO : ScriptableObject
 {
