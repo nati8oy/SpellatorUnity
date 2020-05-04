@@ -13,6 +13,9 @@ public class SaveLoadManager : MonoBehaviour
     public int wordsPlayed;
     public string longestWord;
     public int skinSelection { get; private set; }
+    public List<string> uniqueWordsList = new List<string>();
+    public int uniqueWordAmount;
+
     public bool audioOn;
     
 
@@ -42,11 +45,16 @@ public class SaveLoadManager : MonoBehaviour
 
     void Start()
     {
-
+        //set all vars to be the ones from the scriptable object
         gold = configData.totalGoldAmount;
         wordsPlayed = configData.totalWordsMade;
         longestWord = configData.longestWord;
         skinSelection = shop.currentSkin;
+        uniqueWordsList = configData.uniqueWordsList;
+        uniqueWordAmount = uniqueWordsList.Count;
+
+
+
         Debug.Log("shop skin selection " + shop.currentSkin);
 
 
@@ -72,21 +80,32 @@ public class SaveLoadManager : MonoBehaviour
         //create a saveLoadData object and update its properties
         // saveLoadData = new PlayerSaveLoadData(gold,wordsPlayed,longestWord,skinSelection, true);
 
+
+        //set all the vars to their current state from the scriptable object
         gold = configData.totalGoldAmount;
         wordsPlayed = configData.totalWordsMade;
         longestWord = configData.longestWord;
         skinSelection = shop.currentSkin;
+        uniqueWordsList = configData.uniqueWordsList;
+        uniqueWordAmount = uniqueWordsList.Count;
 
         //SaveLoad.Save<PlayerSaveLoadData>(saveLoadData, "Save Game");
         SaveLoad.Save<int>(gold, "Total Gold");
         SaveLoad.Save<int>(wordsPlayed, "Words Played");
         SaveLoad.Save<string>(longestWord, "Longest Word Made");
         SaveLoad.Save<int>(skinSelection, "Skin Selection");
+        SaveLoad.Save<List<string>>(uniqueWordsList, "Unique words made");
+        SaveLoad.Save<int>(uniqueWordAmount, "Unique words made (int)");
+
+
+
+
+
 
         Debug.Log("Game Saved!!");
     }
 
-     void Load()
+    void Load()
     {
 
         //skin selection
@@ -98,7 +117,7 @@ public class SaveLoadManager : MonoBehaviour
         }
 
         //load words played
-        if (SaveLoad.SaveExists("Skin Selection"))
+        if (SaveLoad.SaveExists("Words Played"))
         {
             wordsPlayed = SaveLoad.Load<int>("Words Played");
             //set the skin selection in the shopSO back to the skinSelection var
@@ -121,40 +140,20 @@ public class SaveLoadManager : MonoBehaviour
             shop.currentSkin = skinSelection;
         }
 
-
-
-        /*
-                else
-                {
-                    Debug.Log("No save found");
-                }
-                */
-
-
-    }
-
-    /*
-
-    public HashSet<string> CollectedItems { get; private set; } = new HashSet<string>();
-
-    private void Awake()
-    {
-        GameEvents.SaveInitiated += Save;
-        Load();
-    }
-
-    void Save()
-    {
-        SaveLoad.Save(CollectedItems, "CollectedItems");
-    }
-
-    void Load()
-    {
-        if (SaveLoad.SaveExists("CollectedItems"))
+        //the list of unique words made
+        if (SaveLoad.SaveExists("Unique words made"))
         {
-            CollectedItems = SaveLoad.Load<HashSet<string>>("CollectedItems");
+            uniqueWordsList = SaveLoad.Load<List<string>>("Unique words made");
+            //set the skin selection in the shopSO back to the skinSelection var
+            configData.uniqueWordsList = uniqueWordsList;
+        }
+
+        //the number of unique words made
+        if (SaveLoad.SaveExists("Unique words made (int)"))
+        {
+            uniqueWordAmount = SaveLoad.Load<int>("Unique words made (int)");
+            //set the skin selection in the shopSO back to the skinSelection var
+            configData.uniqueWords =  uniqueWordsList.Count;
         }
     }
-
-    */
 }

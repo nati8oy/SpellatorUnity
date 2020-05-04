@@ -31,6 +31,17 @@ public class PlayerStats : MonoBehaviour
         GameEvents.OnLoadInitiated();
 
 
+        longestWord.text = configData.longestWord;
+
+        //totalWordsMade.text = configData.totalWordsMade.ToString() + " words played";
+        currentStatus.text = statuses[Random.Range(0, statuses.Length)];
+
+        uniqueWords.text = configData.uniqueWordsList.Count.ToString();
+
+        wordsPlayed.text = configData.totalWordsMade.ToString() + " words made";
+
+
+
         trophy.sprite = allTrophies[Random.Range(0,4)];
         Debug.Log("current trophy is " + trophy.sprite);
 

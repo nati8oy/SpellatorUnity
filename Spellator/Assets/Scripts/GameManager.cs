@@ -144,7 +144,7 @@ public class GameManager : MonoBehaviour
     {
 
 
-        GameEvents.OnLoadInitiated();
+        //GameEvents.OnLoadInitiated();
 
         //GameEvents.SaveInitiated += Save;
 
@@ -271,7 +271,10 @@ public class GameManager : MonoBehaviour
         //save the game data
         //        GetComponent<GameState>().SaveGameData();
 
-        GameObject.Find("GameState").GetComponent<GameState>().SaveGameData();
+
+        GameEvents.OnSaveInitiated();
+
+        //GameObject.Find("GameState").GetComponent<GameState>().SaveGameData();
 
         levelDetails.levelComplete = true;
         //display the level complete panel

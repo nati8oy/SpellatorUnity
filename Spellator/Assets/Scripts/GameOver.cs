@@ -27,8 +27,9 @@ public class GameOver : MonoBehaviour
     private void OnEnable()
     {
         //save the game when the game over panel shows
-        gameState.GetComponent<GameState>().SaveGameData();
-     
+        //gameState.GetComponent<GameState>().SaveGameData();
+        GameEvents.OnSaveInitiated();
+
 
     }
 }
