@@ -47,6 +47,7 @@ public class SaveLoadManager : MonoBehaviour
         wordsPlayed = configData.totalWordsMade;
         longestWord = configData.longestWord;
         skinSelection = shop.currentSkin;
+        Debug.Log("shop skin selection " + shop.currentSkin);
 
 
 
@@ -69,9 +70,17 @@ public class SaveLoadManager : MonoBehaviour
      
         */
         //create a saveLoadData object and update its properties
-       // saveLoadData = new PlayerSaveLoadData(gold,wordsPlayed,longestWord,skinSelection, true);
+        // saveLoadData = new PlayerSaveLoadData(gold,wordsPlayed,longestWord,skinSelection, true);
+
+        gold = configData.totalGoldAmount;
+        wordsPlayed = configData.totalWordsMade;
+        longestWord = configData.longestWord;
+        skinSelection = shop.currentSkin;
 
         //SaveLoad.Save<PlayerSaveLoadData>(saveLoadData, "Save Game");
+        SaveLoad.Save<int>(gold, "Total Gold");
+        SaveLoad.Save<int>(wordsPlayed, "Words Played");
+        SaveLoad.Save<string>(longestWord, "Longest Word Made");
         SaveLoad.Save<int>(skinSelection, "Skin Selection");
 
         Debug.Log("Game Saved!!");
@@ -81,20 +90,47 @@ public class SaveLoadManager : MonoBehaviour
     {
 
         //skin selection
+        if (SaveLoad.SaveExists("Total Gold"))
+        {
+            gold = SaveLoad.Load<int>("Total Gold");
+            //set the skin selection in the shopSO back to the skinSelection var
+            configData.totalGoldAmount = gold;
+        }
+
+        //load words played
         if (SaveLoad.SaveExists("Skin Selection"))
         {
-
-
-            skinSelection = SaveLoad.Load<int>("Skin Selection");
-            //shop.currentSkin = skinSelection;
-            //LoadSkin(SaveLoad.Load<int>("Skin Selection"));
-            Debug.Log("loaded data!" + " skin selection is:" + skinSelection);
-            
+            wordsPlayed = SaveLoad.Load<int>("Words Played");
+            //set the skin selection in the shopSO back to the skinSelection var
+            configData.totalWordsMade = wordsPlayed;
         }
-        else
+
+        //load Longest Word
+        if (SaveLoad.SaveExists("Longest Word Made"))
         {
-            Debug.Log("No save found");
+            longestWord = SaveLoad.Load<string>("Longest Word Made");
+            //set the skin selection in the shopSO back to the skinSelection var
+            configData.longestWord = longestWord;
         }
+
+        //skin selection
+        if (SaveLoad.SaveExists("Skin Selection"))
+        {
+            skinSelection = SaveLoad.Load<int>("Skin Selection");
+            //set the skin selection in the shopSO back to the skinSelection var
+            shop.currentSkin = skinSelection;
+        }
+
+
+
+        /*
+                else
+                {
+                    Debug.Log("No save found");
+                }
+                */
+
+
     }
 
     /*

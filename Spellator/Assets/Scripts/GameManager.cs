@@ -144,10 +144,12 @@ public class GameManager : MonoBehaviour
     {
 
 
+        GameEvents.OnLoadInitiated();
+
         //GameEvents.SaveInitiated += Save;
 
 
-       // StartCoroutine(GetTilesOnRack());
+        // StartCoroutine(GetTilesOnRack());
         /*
         if (GameObject.Find("GameState"))
         {
@@ -179,11 +181,13 @@ public class GameManager : MonoBehaviour
         //Auto load the data from the Game State file when the game manager loads
 
 
+        /*
+
         if(GameObject.Find("GameState"))
         {
             GameObject.Find("GameState").GetComponent<GameState>().LoadGameData();
         }
-        
+        */
 
 
         //start the game with the level description object active

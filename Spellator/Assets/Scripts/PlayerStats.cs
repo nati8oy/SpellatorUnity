@@ -28,13 +28,19 @@ public class PlayerStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameEvents.OnLoadInitiated();
 
 
         trophy.sprite = allTrophies[Random.Range(0,4)];
         Debug.Log("current trophy is " + trophy.sprite);
-        //set the variable
-       // gameDataObject = GameObject.Find("GameState").GetComponent<GameState>();
 
+
+        //set the variable
+        // gameDataObject = GameObject.Find("GameState").GetComponent<GameState>();
+
+
+
+        /*
         //load the data
         gameDataObject.LoadGameData();
 
@@ -46,7 +52,7 @@ public class PlayerStats : MonoBehaviour
         uniqueWords.text = gameDataObject.playerWordsMade.Count.ToString();
 
         wordsPlayed.text = gameDataObject.wordsPlayed.ToString() + " words made";
-
+        */
 
     }
 }

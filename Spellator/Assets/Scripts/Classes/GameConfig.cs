@@ -39,7 +39,7 @@ public class GameConfig : MonoBehaviour
         {
 
         //load the game save data
-        GameObject.Find("GameState").GetComponent<GameState>().LoadGameData();
+        //GameObject.Find("GameState").GetComponent<GameState>().LoadGameData();
 
 
         uniqueWordsList = configScriptableObject.uniqueWordsList;

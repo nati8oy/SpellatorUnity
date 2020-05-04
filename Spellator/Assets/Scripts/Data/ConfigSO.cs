@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Word Data", menuName = "Word List")]
-
+[System.Serializable]
 
 public class ConfigSO : ScriptableObject
 {
