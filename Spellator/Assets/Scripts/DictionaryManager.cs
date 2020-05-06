@@ -252,6 +252,8 @@ public class DictionaryManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+      
+
         longestWord = wordData.longestWord;
 
         //Remember that the object pooler uses TAGS not names of objects to set them active, etc. here.
@@ -604,7 +606,6 @@ public class DictionaryManager : MonoBehaviour
             //SetStartTile();
 
             sendButton.interactable = false;
-
             //add the scores to the screen after adding the ints together
             //GameManager.Instance.CalculateScores();
 

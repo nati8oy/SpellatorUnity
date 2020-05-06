@@ -15,6 +15,7 @@ public class SaveLoadManager : MonoBehaviour
     public int skinSelection { get; private set; }
     public List<string> uniqueWordsList = new List<string>();
     public int uniqueWordAmount;
+    public string currentPlayerRank;
 
     public bool audioOn;
     
@@ -52,12 +53,11 @@ public class SaveLoadManager : MonoBehaviour
         skinSelection = shop.currentSkin;
         uniqueWordsList = configData.uniqueWordsList;
         uniqueWordAmount = uniqueWordsList.Count;
+        currentPlayerRank = configData.currentRank;
 
 
 
         Debug.Log("shop skin selection " + shop.currentSkin);
-
-
 
 
         //create a new saveLoadData object
@@ -88,6 +88,8 @@ public class SaveLoadManager : MonoBehaviour
         skinSelection = shop.currentSkin;
         uniqueWordsList = configData.uniqueWordsList;
         uniqueWordAmount = uniqueWordsList.Count;
+        currentPlayerRank = configData.currentRank;
+
 
         //SaveLoad.Save<PlayerSaveLoadData>(saveLoadData, "Save Game");
         SaveLoad.Save<int>(gold, "Total Gold");
@@ -96,9 +98,7 @@ public class SaveLoadManager : MonoBehaviour
         SaveLoad.Save<int>(skinSelection, "Skin Selection");
         SaveLoad.Save<List<string>>(uniqueWordsList, "Unique words made");
         SaveLoad.Save<int>(uniqueWordAmount, "Unique words made (int)");
-
-
-
+        SaveLoad.Save<string>(currentPlayerRank, "Player Rank");
 
 
 
@@ -154,6 +154,14 @@ public class SaveLoadManager : MonoBehaviour
             uniqueWordAmount = SaveLoad.Load<int>("Unique words made (int)");
             //set the skin selection in the shopSO back to the skinSelection var
             configData.uniqueWords =  uniqueWordsList.Count;
+        }
+
+        //the number of unique words made
+        if (SaveLoad.SaveExists("Player Rank"))
+        {
+            currentPlayerRank = SaveLoad.Load<string>("Player Rank");
+            //set the skin selection in the shopSO back to the skinSelection var
+            configData.currentRank = currentPlayerRank;
         }
     }
 }

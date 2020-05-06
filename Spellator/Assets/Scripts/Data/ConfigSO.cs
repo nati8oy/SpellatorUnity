@@ -18,6 +18,7 @@ public class ConfigSO : ScriptableObject
     public string longestWord;
     public int uniqueWords;
     public int totalGoldAmount;
+    public string currentRank;
 
     public List<int> skinsPurchased = new List<int>();
 
@@ -78,8 +79,6 @@ public class ConfigSO : ScriptableObject
 
     public void FindLongestWord()
     {
-        //Debug.Log(uniqueWordsList[1]);
-
 
         foreach (string word in uniqueWordsList)
         {

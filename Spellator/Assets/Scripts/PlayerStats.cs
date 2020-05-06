@@ -34,15 +34,45 @@ public class PlayerStats : MonoBehaviour
         longestWord.text = configData.longestWord;
 
         //totalWordsMade.text = configData.totalWordsMade.ToString() + " words played";
-        currentStatus.text = statuses[Random.Range(0, statuses.Length)];
+        //currentStatus.text = statuses[Random.Range(0, statuses.Length)];
 
         uniqueWords.text = configData.uniqueWordsList.Count.ToString();
 
         wordsPlayed.text = configData.totalWordsMade.ToString() + " words made";
 
+        Debug.Log("total words made: " + configData.totalWordsMade);
 
+        if(configData.totalWordsMade > 55 && configData.totalWordsMade < 61)
+        {
+            configData.currentRank = statuses[0];
+            currentStatus.text = configData.currentRank;
+            trophy.sprite = allTrophies[0];
 
-        trophy.sprite = allTrophies[Random.Range(0,4)];
+        }  else if(configData.totalWordsMade > 61 && configData.totalWordsMade < 63)
+        {
+            configData.currentRank = statuses[1];
+            currentStatus.text = configData.currentRank;
+            trophy.sprite = allTrophies[1];
+        }
+        else if (configData.totalWordsMade > 63 && configData.totalWordsMade < 66)
+        {
+            configData.currentRank = statuses[2];
+            currentStatus.text = configData.currentRank;
+            trophy.sprite = allTrophies[2];
+        }
+        else if (configData.totalWordsMade > 66 && configData.totalWordsMade < 68)
+        {
+            configData.currentRank = statuses[3];
+            currentStatus.text = configData.currentRank;
+            trophy.sprite = allTrophies[3];
+        }
+        else
+        {
+            configData.currentRank = statuses[3];
+            currentStatus.text = configData.currentRank;
+            trophy.sprite = allTrophies[3];
+        }
+
         Debug.Log("current trophy is " + trophy.sprite);
 
 
