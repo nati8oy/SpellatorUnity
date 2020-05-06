@@ -215,6 +215,8 @@ public class DictionaryManager : MonoBehaviour
         {
             iTween.MoveBy(currentPrimary, iTween.Hash("y", 125, "easetype", "EaseInQuad", "time", 0.3f, "oncomplete", "RemoveTileOnComplete"));
 
+
+
         }
 
         //move the last tile of the word to the primary tile spot
@@ -229,19 +231,20 @@ public class DictionaryManager : MonoBehaviour
             {
                 var randomY = Random.Range(150, 340);
 
-                //for each tile in the selectedTilesArray set the animator bool to be "true"
-                //selectedTilesArray[i].GetComponent<Tile>().animator.SetBool("clearTile", true);
+            //for each tile in the selectedTilesArray set the animator bool to be "true"
+            //selectedTilesArray[i].GetComponent<Tile>().animator.SetBool("clearTile", true);
 
 
-                iTween.MoveBy(selectedTilesArray[i], iTween.Hash("y", randomY, "easetype", "easeOutSine", "time", 0.5f, "delay", (0.1f) * (i + 1), "oncomplete", "RemoveTileOnComplete"));
+            //GameObject bonus = GameObject.Find("bonus");
+                //iTween.MoveBy(selectedTilesArray[i], iTween.Hash("y", randomY, "easetype", "easeOutSine", "time", 0.5f, "delay", (0.1f) * (i + 1), "oncomplete", "RemoveTileOnComplete"));
+            iTween.MoveTo(selectedTilesArray[i], iTween.Hash("y", 0, "x", 0, "easetype", "easeOutSine", "time", 0.5f, "delay", (0.1f) * (i + 1), "oncomplete", "RemoveTileOnComplete"));;
 
 
-                
-                //  iTween.RotateBy(selectedTilesArray[i], new Vector3(10, 10), 1);
+            //  iTween.RotateBy(selectedTilesArray[i], new Vector3(10, 10), 1);
 
         }
 
-        
+
 
         yield return null;
 
