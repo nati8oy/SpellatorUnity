@@ -338,6 +338,9 @@ public class DictionaryManager : MonoBehaviour
 
     public void CheckAndDeleteTiles()
     {
+
+
+        ShowMessage();
         //update the number of words played overall - not the unique words
         wordData.totalWordsMade += 1;
 
@@ -511,7 +514,7 @@ public class DictionaryManager : MonoBehaviour
             //add on screen encouragement for words above 5 letters
             if ((WordBeingMade.Length >= 5) || (Points.liveScore>=50))
             {
-                ShowMessage("encouragement");
+                ShowMessage();
 
                 //this chooses the kind of cross fade or screen flash to use
                 fadeManager.FadeType(fadeManager._flashColour, fadeManager.pulseSpeed);
@@ -527,7 +530,7 @@ public class DictionaryManager : MonoBehaviour
             foreach (GameObject tile in selectedTilesArray)
             {
                //the function that checks the animation status
-                CheckAnimationStatus(false);
+                //CheckAnimationStatus(false);
 
                 //access the script on each of the tile creators/spawners and refill the tiles
                 tile.transform.parent.GetComponent<TileCreator>().RefillTiles();
@@ -644,7 +647,7 @@ public class DictionaryManager : MonoBehaviour
             }
 
             //change tiles to be in the right animation state.
-            CheckAnimationStatus(true);
+            //CheckAnimationStatus(true);
 
 
             Debug.Log("selected tile array length is: " + selectedTilesArray.Length);
@@ -659,7 +662,7 @@ public class DictionaryManager : MonoBehaviour
             sendButton.interactable = false;
 
             //change tiles to be in the right animation state.
-            CheckAnimationStatus(false);
+            //CheckAnimationStatus(false);
 
 
             //hide the icon that indicates that a word is correct
@@ -766,7 +769,7 @@ public class DictionaryManager : MonoBehaviour
             //then reset the position to that 
 
             //reset the animations
-            CheckAnimationStatus(false);
+            //CheckAnimationStatus(false);
 
             foreach (GameObject tile in selectedTilesArray)
 
@@ -820,7 +823,7 @@ public class DictionaryManager : MonoBehaviour
     }
 
 
-    public void ShowMessage(string messageType)
+    public void ShowMessage()
     {
 
 
@@ -830,38 +833,23 @@ public class DictionaryManager : MonoBehaviour
             messageParentObject.SetActive(true);
         }
 
-        //show different messages for different types
+        //set the message text to be a random one from the EncouragementMessage list
+        message = encouragementMessages.OnScreenMessages[Random.Range(0, encouragementMessages.OnScreenMessages.Length)];
 
-        switch (messageType)
-        {
-            case "encouragement":
-                //set the message text to be a random one from the EncouragementMessage list
-                message = encouragementMessages.OnScreenMessages[Random.Range(0, encouragementMessages.OnScreenMessages.Length)];
+        messageObject.text = message;
+        //messageObject.color = Color.red;
 
-                messageObject.text = message;
-                //messageObject.color = Color.red;
+        //iTween.PunchScale(messageParentObject, iTween.Hash("amount", 1.1f,"time", 1, "oncomplete", "DeactivateMessage")); ;
 
+        //tween the parent object so that it moves up when spawned.
+        //iTween.FadeTo(messageParentObject, iTween.Hash("alpha", 1, "amount",1, "easeType", "easeInOutExpo", "oncomplete", "DeactivateMessage"));;
+        StartCoroutine(removeMessages());
+    }
 
-                //tween the parent object so that it moves up when spawned.
-                iTween.FadeTo(messageParentObject, iTween.Hash("alpha", 1, "amount",1, "easeType", "easeInOutExpo", "oncomplete", "DeactivateMessage"));;
-
-                break;
-
-            case "time":
-                //set the message text to be a random one from the EncouragementMessage list
-                message = "Time++";
-
-                messageObject.text = message;
-                //messageObject.color = Color.red;
-
-                //tween the parent object so that it moves up when spawned.
-                iTween.MoveBy(messageParentObject, iTween.Hash("y", 60, "easeType", "easeInOutExpo", "oncomplete", "DeactivateMessage"));
-                break;
-
-
-        }
-
-
+    public IEnumerator removeMessages()
+    {
+        yield return new WaitForSeconds(2f);
+        messageParentObject.SetActive(false);
     }
     
 
@@ -920,7 +908,7 @@ public class DictionaryManager : MonoBehaviour
 
 
     //this function checks the animation status and sets it to be whatever is incoming in the "correctWord" bool
-
+    /*
     private void CheckAnimationStatus (bool correctWord)
     {
         foreach (var tile in selectedTilesArray)
@@ -929,7 +917,7 @@ public class DictionaryManager : MonoBehaviour
         }           
         
     }
-
+    */
 
     //resets the particle systems to be inactive so they can be reused in the object pool
     private IEnumerator CheckIfAlive()

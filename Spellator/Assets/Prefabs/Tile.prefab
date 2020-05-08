@@ -5810,6 +5810,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skinSelectionObject: {fileID: 0}
   currentSkin: {fileID: 11400000, guid: 44dbae08f88fe44f99865914f616f489, type: 2}
+  currentlyActiveSkin: {fileID: 0}
   shop: {fileID: 11400000, guid: 6423e908571a640eca1855efe7b71f95, type: 2}
   tileTextColour: {r: 0, g: 0, b: 0, a: 0}
   tileDisabledColour: {r: 0, g: 0, b: 0, a: 0}
@@ -5821,3 +5822,4 @@ MonoBehaviour:
   letterText: {fileID: 781199010286186662}
   pointsText: {fileID: 7308423248976456831}
   particles: {fileID: 0}
+  SkinID: 0
