@@ -79,7 +79,6 @@ public class ScrollList : MonoBehaviour
                     listObject = ObjectPooler.SharedInstance.GetPooledObject("Achievement");
                     if (listObject != null)
                     {
-
                         listObject.transform.position = gameObject.transform.position;
                         listObject.transform.SetParent(listTransform.transform);
                         listObject.SetActive(true);

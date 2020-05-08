@@ -22,7 +22,7 @@ public class LevelCompleteActions : MonoBehaviour
         //set the star sound to be a variable
         starSound = audioManager.sfxGeneral[14];
         //starPositionCalculator = 0;
-        AppearDelay = 0.1f;
+        AppearDelay = 0.3f;
         wordsMade = 0;
 
     }
@@ -41,10 +41,10 @@ public class LevelCompleteActions : MonoBehaviour
         while (starsEarned>0)
         {
             starsEarned -= 1;
-            AudioManager.Instance.PlayAudio(starSound);
+//            AudioManager.Instance.PlayAudio(starSound);
 
            
-            starObject = ObjectPooler.SharedInstance.GetPooledObject("Star");
+            starObject = ObjectPooler.SharedInstance.GetPooledObject("Gold");
             if (starObject != null)
             {
 

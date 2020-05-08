@@ -24,7 +24,8 @@ public class GameManager : MonoBehaviour
     //[SerializeField] private AudioClip bgMusic;
     //public float audioTrackSelection;
     public AudioSource gameManagerAudioSource;
-
+    public GameObject bgPattern1;
+    public GameObject bgPattern2;
 
 
     [Header("Scriptable objects")]
@@ -142,6 +143,10 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+
+        iTween.MoveBy(bgPattern1, iTween.Hash("x", 500, "easetype", "linear", "time", 30f, "loopType", "pingPong"));
+        //iTween.MoveBy(bgPattern2, iTween.Hash("x", -32, "easetype", "linear", "time", 40f, "loopType", "pingPong"));
+
 
 
         //GameEvents.OnLoadInitiated();

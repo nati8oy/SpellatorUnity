@@ -24,6 +24,7 @@ TagManager:
   - CorrectWord
   - Heart Particles
   - Remove Tile
+  - Gold
   layers:
   - Default
   - TransparentFX
