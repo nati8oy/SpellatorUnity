@@ -85,6 +85,12 @@ public class ShopItem : MonoBehaviour
                 //save the game
                 // GameState.Instance.SaveGameData();
 
+                if (AudioManager.Instance)
+                {
+                    AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxUserInterface[1]);
+
+                }
+
             }
 
             else

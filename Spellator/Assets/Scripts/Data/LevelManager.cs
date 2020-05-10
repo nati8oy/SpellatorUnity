@@ -199,6 +199,7 @@ public class LevelManager : MonoBehaviour
 
         //set the currentRack array to be the tile 
         currentRack = GameObject.FindGameObjectsWithTag("Tile");
+
         Debug.Log("Coroutine started");
         //        Debug.Log("current rack contains " + currentRack.Length + " tiles");
 
