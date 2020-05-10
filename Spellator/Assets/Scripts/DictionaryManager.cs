@@ -208,12 +208,14 @@ public class DictionaryManager : MonoBehaviour
 
         //create a local var from the tile TAGGED with "PrimaryTile"
         var currentPrimary = GameObject.FindGameObjectWithTag("PrimaryTile");
+        GameObject scoreObject = GameObject.Find("Score");
 
 
         //if the current primary tile exists then remove it.
         if (currentPrimary)
         {
-            iTween.MoveBy(currentPrimary, iTween.Hash("y", 125, "easetype", "EaseInQuad", "time", 0.3f, "oncomplete", "RemoveTileOnComplete"));
+            // iTween.MoveBy(currentPrimary, iTween.Hash("y", 125, "easetype", "EaseInQuad", "time", 0.3f, "oncomplete", "RemoveTileOnComplete"));
+            iTween.MoveTo(currentPrimary, iTween.Hash("y", scoreObject.transform.position.y, "x", scoreObject.transform.position.x, "easetype", "EaseInQuad", "time", 0.3f, "oncomplete", "RemoveTileOnComplete"));
 
 
 
@@ -234,10 +236,10 @@ public class DictionaryManager : MonoBehaviour
             //for each tile in the selectedTilesArray set the animator bool to be "true"
             //selectedTilesArray[i].GetComponent<Tile>().animator.SetBool("clearTile", true);
 
+             
 
-            //GameObject bonus = GameObject.Find("bonus");
                 //iTween.MoveBy(selectedTilesArray[i], iTween.Hash("y", randomY, "easetype", "easeOutSine", "time", 0.5f, "delay", (0.1f) * (i + 1), "oncomplete", "RemoveTileOnComplete"));
-            iTween.MoveTo(selectedTilesArray[i], iTween.Hash("y", 0, "x", 0, "easetype", "easeOutSine", "time", 0.5f, "delay", (0.1f) * (i + 1), "oncomplete", "RemoveTileOnComplete"));;
+            iTween.MoveTo(selectedTilesArray[i], iTween.Hash("y", scoreObject.transform.position.y, "x", scoreObject.transform.position.x, "easetype", "easeOutSine", "time", 0.5f, "delay", (0.1f) * (i + 1), "oncomplete", "RemoveTileOnComplete"));;
 
 
             //  iTween.RotateBy(selectedTilesArray[i], new Vector3(10, 10), 1);

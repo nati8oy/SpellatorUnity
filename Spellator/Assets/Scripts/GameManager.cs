@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
     [Header("Game Setup")]
     //new Transform tiePlayedPositions;
 
-    [SerializeField] private ParticleSystem levelCompleteParticles;
+    //[SerializeField] private ParticleSystem levelCompleteParticles;
 
     // used to count unique words for each level
     public int newWordCounter;
@@ -180,7 +180,7 @@ public class GameManager : MonoBehaviour
         //set the new word counter to 0 at the start of each level
         newWordCounter = 0;
 
-        levelCompleteParticles.Stop();
+        //levelCompleteParticles.Stop();
 
         //toggle = true;
         //Auto load the data from the Game State file when the game manager loads
@@ -262,26 +262,21 @@ public class GameManager : MonoBehaviour
         pauseMenu.gameObject.SetActive(true);
     }
 
-    public void LevelComplete()
+    public IEnumerator LevelComplete()
     {
+        
         fadeManager.FadeType(fadeManager._flashColour, fadeManager.pulseSpeed);
-
+        yield return new WaitForSeconds(0.2f);
 
 
         //update the total stars in your kitty.
         DictionaryManager.Instance.goldTotal += 2;
-        //levelCompleteParticles.Play();
-
-
-        //save the game data
-        //        GetComponent<GameState>().SaveGameData();
-
-
+ 
         GameEvents.OnSaveInitiated();
-
-        //GameObject.Find("GameState").GetComponent<GameState>().SaveGameData();
-
         levelDetails.levelComplete = true;
+
+
+
         //display the level complete panel
         levelCompleteMenu.gameObject.SetActive(true);
 //        Debug.Log("Level complete = " + levelDetails.levelComplete);

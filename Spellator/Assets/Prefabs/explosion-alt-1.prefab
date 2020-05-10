@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5348800322805410022}
   m_Layer: 5
   m_Name: explosion-alt-1
-  m_TagString: Remove Tile
+  m_TagString: Explosion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

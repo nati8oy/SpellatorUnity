@@ -506,7 +506,7 @@ public class Tile : MonoBehaviour
         if (levelManager.levelComplete == true)
         {
 
-            explosionObject = ObjectPooler.SharedInstance.GetPooledObject("Remove Tile");
+            explosionObject = ObjectPooler.SharedInstance.GetPooledObject("CorrectWord");
             if (explosionObject != null)
             {
                 explosionObject.transform.position = gameObject.transform.position;

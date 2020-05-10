@@ -97,7 +97,7 @@ MonoBehaviour:
   gameStateObject: {fileID: 2559536296670514709, guid: 3be73746ed05c40d9b3f371a7d32ea19,
     type: 3}
   skinID: 0
-  purchaseObject: {fileID: 9167116109896954529, guid: 395fd84ee4ffd4abebe8193cb835a81c,
+  purchaseObject: {fileID: 8124146370339604019, guid: 1d0cc4c00088e401bb7698206fea5960,
     type: 3}
   goldAmount: 0
   configData: {fileID: 11400000, guid: 87f9af19399d249068769bd3553e5227, type: 2}
