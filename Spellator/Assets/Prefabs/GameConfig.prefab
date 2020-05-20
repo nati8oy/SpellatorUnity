@@ -43,8 +43,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6705a6a074a724345941f14bf2dc080f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  configScriptableObject: {fileID: 0}
+  levelData: {fileID: 11400000, guid: da09913161474424f878bba5ba2d1f98, type: 2}
   musicOn: 0
   sfxOn: 0
   uniqueWordsList: []
+  currentTileSkin: 
+  highScores: 
   longestWord: 
   favouriteWordLength: 

@@ -10,6 +10,7 @@ public class LevelManager : MonoBehaviour
 
     public LevelClass levelSetup;
     public LevelManagerSO levelDetails;
+    public GameConfig gameConfig;
     public TextMeshProUGUI levelDescriptionText;
     public string randomLevelSelection;
 
@@ -104,28 +105,42 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
 
-        //add 1 to the level each time it loads but only if it's less than 13
-        //otherwise set it to 0
-        if (levelDetails.currentLevel < 13)
-        {
-            levelDetails.currentLevel += 1;
-        } else
-        {
-            levelDetails.currentLevel = 1;
-        }
+      
 
         Debug.Log("You are playing level " + levelDetails.currentLevel);
 
 
-
-  
-                levelRuleType = LevelRuleType.containing;
-        ConstructLevelParams("containing", 3, 0, 0);
-
+        //set up the levels via the function below
+        SetLevels();
 
         /*
+        //set the letter in the difficulty SO so that it's available at the start of each level
+
+        difficulty.focusLetter = letterCondition;
+        Debug.Log("letter condition is: " + letterCondition);
+        */
+
+        //SET VERSION
+        //sets up the level parameters. eg. make 3 words that are 3 letters long.
+        //ConstructLevelParams(randomLevelSelection);
+
+
+    }
+
+
+    public void SetLevels()
+    {
+
+        //update the current level. This is set within the gameConfig file
+        if (levelDetails.currentLevel < 13)
+        {
+            levelDetails.currentLevel += 1;
+                    Debug.Log("current level is: " + levelDetails.currentLevel);
+
+        }
+
+
         switch (levelDetails.currentLevel)
         {
             case 1:
@@ -182,23 +197,8 @@ public class LevelManager : MonoBehaviour
                 break;
 
         }
-        */
-
-
-        /*
-        //set the letter in the difficulty SO so that it's available at the start of each level
-
-        difficulty.focusLetter = letterCondition;
-        Debug.Log("letter condition is: " + letterCondition);
-        */
-
-        //SET VERSION
-        //sets up the level parameters. eg. make 3 words that are 3 letters long.
-        //ConstructLevelParams(randomLevelSelection);
-
 
     }
-
 
     //gets all the letter values of the tiles on the rack and puts them into "currentRack"
     public IEnumerator GetTilesOnRack(string levelType)
