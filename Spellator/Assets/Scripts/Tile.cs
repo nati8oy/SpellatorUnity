@@ -499,6 +499,7 @@ public class Tile : MonoBehaviour
 
     public void RemoveTileOnComplete()
     {
+        GameManager.Instance.ShakeCamera(6,6,0.5f);
 
         //check if levelComplete in the levelManager SO is true/false
         //used to make sure that the animations don't play if the level is complete

@@ -349,6 +349,7 @@ public class DictionaryManager : MonoBehaviour
 
         //check the word length and apply the correct amount of camera shake
 
+
         switch (WordBeingMade.Length)
         {
             case 3:

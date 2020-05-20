@@ -118,6 +118,11 @@ public class LevelManager : MonoBehaviour
 
         Debug.Log("You are playing level " + levelDetails.currentLevel);
 
+
+        levelRuleType = LevelRuleType.length;
+        ConstructLevelParams("length", 1, 3, 0);
+
+        /*
         switch (levelDetails.currentLevel)
         {
             case 1:
@@ -174,6 +179,7 @@ public class LevelManager : MonoBehaviour
                 break;
 
         }
+        */
 
 
 
@@ -451,7 +457,9 @@ public class LevelManager : MonoBehaviour
         //if the first condition is met (how many words required) then the level is complete
         if(firstCondition==0)
         {
-            GameManager.Instance.LevelComplete();
+            GameManager.Instance.StartCoroutine(GameManager.Instance.LevelComplete());
+            //GameManager.Instance.LevelComplete();
+            Debug.Log("Level has been completed");
         }
 
 
