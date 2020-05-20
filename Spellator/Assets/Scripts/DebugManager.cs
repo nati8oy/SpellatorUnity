@@ -40,5 +40,10 @@ public class DebugManager : MonoBehaviour
             Debug.Log("10 gold added");
         }
 
+        //animation test
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+        }
+
     }
 }

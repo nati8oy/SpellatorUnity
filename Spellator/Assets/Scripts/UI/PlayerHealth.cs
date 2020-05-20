@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
 
     private float CurrentHealth;
     private float MaxHealth;
+    public Animator anim;
 
     public Slider healthBar;
 
@@ -46,6 +47,7 @@ public class PlayerHealth : MonoBehaviour
     {
         CurrentHealth -= damageValue;
         healthBar.value = CalculateHealth();
+        anim.SetBool("HealthAdjust", true);
 
        
     }
@@ -57,6 +59,11 @@ public class PlayerHealth : MonoBehaviour
             CurrentHealth += healValue;
             healthBar.value = CalculateHealth();
         }
+
+        anim.SetBool("HealthAdjust", true);
+
+
+
 
     }
 

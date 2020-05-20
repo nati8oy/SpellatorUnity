@@ -120,6 +120,8 @@ GameObject:
   - component: {fileID: 3610566464583773382}
   - component: {fileID: 3610566464583773385}
   - component: {fileID: 3610566464583773384}
+  - component: {fileID: 1842540369491882092}
+  - component: {fileID: 3609633181253899743}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -211,7 +213,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76f57751355ce406b88b255789f76903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 1842540369491882092}
   healthBar: {fileID: 3610566464583773385}
+--- !u!95 &1842540369491882092
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3610566464583773383}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2113f2d34371a41c98edce925d1b38d5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3609633181253899743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3610566464583773383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b03fcd38a6e044c098acb1c8c9cb74b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 1842540369491882092}
 --- !u!1 &3610566464621598525
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,7 +332,7 @@ GameObject:
   - component: {fileID: 6312033691867035891}
   - component: {fileID: 3222417707333375367}
   m_Layer: 5
-  m_Name: BG image
+  m_Name: heart image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

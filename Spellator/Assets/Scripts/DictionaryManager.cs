@@ -487,7 +487,7 @@ public class DictionaryManager : MonoBehaviour
                 //add the word to the scriptable object as well so that it can be referenced elsewhere e.g. the main menu scene
                 //wordData.uniqueWordsList.Add(WordBeingMade);
 
-                Debug.Log("Word added to list! " + "(" + playerWordsMade.Count + " words)");
+//                Debug.Log("Word added to list! " + "(" + playerWordsMade.Count + " words)");
 
                 //add the new word to the unique words per level 
                 GameManager.Instance.AddNewWord();
@@ -544,7 +544,7 @@ public class DictionaryManager : MonoBehaviour
                 {
                     //update the player health based on the tile points amount
                     healthBar.GetComponent<PlayerHealth>().Heal(tile.GetComponent<Tile>().spawnedTile.points);
-
+                    
 
                     //set the particle effects to play for a correct word with the heart attribute
                     if (healthParticles != null)
@@ -653,7 +653,7 @@ public class DictionaryManager : MonoBehaviour
             //CheckAnimationStatus(true);
 
 
-            Debug.Log("selected tile array length is: " + selectedTilesArray.Length);
+//            Debug.Log("selected tile array length is: " + selectedTilesArray.Length);
 
 
             //show the icon that indicates that a word is correct
