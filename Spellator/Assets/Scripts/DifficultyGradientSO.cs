@@ -9,4 +9,5 @@ public class DifficultyGradientSO : ScriptableObject
 {
     //this is the letter that is the focus of the 
     public string focusLetter;
+    public int focusLetterPoints;
 }

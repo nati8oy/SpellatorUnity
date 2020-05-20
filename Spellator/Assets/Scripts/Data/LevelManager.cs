@@ -119,8 +119,11 @@ public class LevelManager : MonoBehaviour
         Debug.Log("You are playing level " + levelDetails.currentLevel);
 
 
-        levelRuleType = LevelRuleType.length;
-        ConstructLevelParams("length", 1, 3, 0);
+
+  
+                levelRuleType = LevelRuleType.containing;
+        ConstructLevelParams("containing", 3, 0, 0);
+
 
         /*
         switch (levelDetails.currentLevel)
@@ -182,12 +185,12 @@ public class LevelManager : MonoBehaviour
         */
 
 
-
+        /*
         //set the letter in the difficulty SO so that it's available at the start of each level
 
         difficulty.focusLetter = letterCondition;
         Debug.Log("letter condition is: " + letterCondition);
-
+        */
 
         //SET VERSION
         //sets up the level parameters. eg. make 3 words that are 3 letters long.
@@ -221,7 +224,9 @@ public class LevelManager : MonoBehaviour
             if (currentRack[0].GetComponent<Tile>().letter.text != difficulty.focusLetter)
             {
                 currentRack[0].GetComponent<Tile>().letter.text = difficulty.focusLetter;
-                currentRack[0].GetComponent<Tile>().spawnedTile.points = TileBag.pointsDictionary[currentRack[0].GetComponent<Tile>().spawnedTile.letter];
+                //currentRack[0].GetComponent<Tile>().spawnedTile.points = TileBag.pointsDictionary[currentRack[0].GetComponent<Tile>().spawnedTile.letter];
+               // currentRack[0].GetComponent<Tile>().spawnedTile.points = difficulty.focusLetterPoints;
+                //currentRack[0].GetComponent<Tile>().spawnedTile.points = TileBag.pointsDictionary[difficulty.focusLetter];
 
             }
         }
@@ -262,12 +267,6 @@ public class LevelManager : MonoBehaviour
         //check if the letter is on the rack or not.
         StartCoroutine(GetTilesOnRack(levelType));
 
-
-        if (levelType!="points")
-        {
-            difficulty.focusLetter = letterCondition;
-        }
-
         switch (levelType)
         {
 
@@ -282,6 +281,8 @@ public class LevelManager : MonoBehaviour
                 letterCondition = _endingList[Random.Range(0, _endingList.Count)];
 
                 levelDescription = "Make " + firstCondition.ToString() + " words ending in " + letterCondition;
+                difficulty.focusLetter = letterCondition;
+               // difficulty.focusLetterPoints = TileBag.pointsDictionary[letterCondition];
 
                 break;
 
@@ -291,6 +292,8 @@ public class LevelManager : MonoBehaviour
                 letterCondition = _containingList[Random.Range(0, _containingList.Count)];
 
                 levelDescription = "Make " + firstCondition.ToString() + " words containing " + letterCondition;
+                difficulty.focusLetter = letterCondition;
+               // difficulty.focusLetterPoints = TileBag.pointsDictionary[letterCondition];
 
                 break;
 
@@ -300,6 +303,8 @@ public class LevelManager : MonoBehaviour
                 letterCondition = _startingList[Random.Range(0, _startingList.Count)];
 
                 levelDescription = "Make " + firstCondition.ToString() + " words starting with " + letterCondition;
+                difficulty.focusLetter = letterCondition;
+                //difficulty.focusLetterPoints = TileBag.pointsDictionary[letterCondition];
 
                 break;
             case "points":

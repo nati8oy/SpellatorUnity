@@ -73,7 +73,6 @@ public class GameManager : MonoBehaviour
 
     public ConfigSO configData;
 
-    public GameObject[] currentRack;
     public string ruleLetter = "P";
 
     public RectTransform GameOverPanel
@@ -146,7 +145,6 @@ public class GameManager : MonoBehaviour
 
         iTween.MoveBy(bgPattern1, iTween.Hash("x", 500, "easetype", "linear", "time", 30f, "loopType", "pingPong"));
         //iTween.MoveBy(bgPattern2, iTween.Hash("x", -32, "easetype", "linear", "time", 40f, "loopType", "pingPong"));
-
 
 
         //GameEvents.OnLoadInitiated();
@@ -266,7 +264,7 @@ public class GameManager : MonoBehaviour
     {
         
         fadeManager.FadeType(fadeManager._flashColour, fadeManager.pulseSpeed);
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(1f);
 
 
         //update the total stars in your kitty.
@@ -274,8 +272,6 @@ public class GameManager : MonoBehaviour
  
         GameEvents.OnSaveInitiated();
         levelDetails.levelComplete = true;
-
-
 
         //display the level complete panel
         levelCompleteMenu.gameObject.SetActive(true);
@@ -307,25 +303,6 @@ public class GameManager : MonoBehaviour
 
 
         //PunchRotation(GameObject target, Vector3 amount, float time)
-
-    }
-
-    //gets all the letter values of the tiles on the rack and puts them into "currentRack"
-    public IEnumerator GetTilesOnRack()
-    {
-
-        yield return new WaitForSeconds(2f);
-        currentRack = GameObject.FindGameObjectsWithTag("Tile");
-//        Debug.Log("current rack contains " + currentRack.Length + " tiles");
-
-
-        if(currentRack[0].GetComponent<Tile>().letter.text != difficulty.focusLetter)
-        {
-            currentRack[0].GetComponent<Tile>().letter.text = difficulty.focusLetter;
-            currentRack[0].GetComponent<Tile>().spawnedTile.points = TileBag.pointsDictionary[currentRack[0].GetComponent<Tile>().spawnedTile.letter];
-
-        }
-        yield return null;   
 
     }
 

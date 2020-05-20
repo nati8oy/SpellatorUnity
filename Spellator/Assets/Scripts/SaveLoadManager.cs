@@ -57,7 +57,7 @@ public class SaveLoadManager : MonoBehaviour
 
 
 
-        Debug.Log("shop skin selection " + shop.currentSkin);
+//        Debug.Log("shop skin selection " + shop.currentSkin);
 
 
         //create a new saveLoadData object
@@ -68,7 +68,7 @@ public class SaveLoadManager : MonoBehaviour
     public void LoadSkin(int skin)
     {
         skinSelection = skin;
-        Debug.Log("skin selection is" + skinSelection);
+      //  Debug.Log("skin selection is" + skinSelection);
     }
 
 

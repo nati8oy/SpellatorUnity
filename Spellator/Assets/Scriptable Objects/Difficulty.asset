@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdcb0c4cfc4584d9dac1e48ae56bb104, type: 3}
   m_Name: Difficulty
   m_EditorClassIdentifier: 
-  focusLetter: R
+  focusLetter: T
+  focusLetterPoints: 2
