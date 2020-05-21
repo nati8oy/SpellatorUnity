@@ -66,6 +66,9 @@ public class LevelCompleteActions : MonoBehaviour
             yield return new WaitForSeconds(AppearDelay);
         }
 
+
+        yield return new WaitForSeconds(1);
+
         yield return null;
 
     }

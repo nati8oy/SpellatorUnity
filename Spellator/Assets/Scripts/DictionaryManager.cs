@@ -38,7 +38,6 @@ public class DictionaryManager : MonoBehaviour
     private Text tileText;
 
 
-    public int goldTotal;
     public TextMeshProUGUI starTotalText;
 
     public GameObject healthParticles;

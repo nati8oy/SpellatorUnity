@@ -25,6 +25,7 @@ TagManager:
   - Heart Particles
   - Remove Tile
   - Gold
+  - Default Click
   layers:
   - Default
   - TransparentFX

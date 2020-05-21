@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.SocialPlatforms.GameCenter;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,7 +16,11 @@ public class GameManager : MonoBehaviour
     public enum TileSkinType { original, dark, wood };
     public TileSkinType tileSkinType;
 
+
     //public GameObject purchaseConfirm;
+
+    public GameObject explosionClip;
+    public RectTransform mainCanvas;
 
 
     public int tileSkinSelection;
@@ -26,6 +31,9 @@ public class GameManager : MonoBehaviour
     public AudioSource gameManagerAudioSource;
     public GameObject bgPattern1;
     public GameObject bgPattern2;
+
+    public Vector2 mousePos;
+    public Vector2 touchPos;
 
 
     [Header("Scriptable objects")]
@@ -38,6 +46,7 @@ public class GameManager : MonoBehaviour
 
     [Space]
 
+    public Camera mainCamera;
     public GameObject cameraObject;
 
     [SerializeField] private AudioClip gameOverAudio;
@@ -147,6 +156,13 @@ public class GameManager : MonoBehaviour
         //iTween.MoveBy(bgPattern2, iTween.Hash("x", -32, "easetype", "linear", "time", 40f, "loopType", "pingPong"));
 
 
+        mainCamera = Camera.main;
+
+
+     
+
+
+
         //GameEvents.OnLoadInitiated();
 
         //GameEvents.SaveInitiated += Save;
@@ -208,9 +224,67 @@ public class GameManager : MonoBehaviour
         //set scores to blank
         liveScoreText.text = "";
 
+
+
+     
+
         //make the send button inactive on start up
         DictionaryManager.Instance.sendButton.interactable = false;
     }
+
+
+    private void Update()
+    {
+
+        //get the ID of the touch (first touch)
+        Touch touch = Input.GetTouch(0);
+
+        touchPos = mainCamera.WorldToScreenPoint(new Vector3(touch.position.x, touch.position.y, 0));
+        
+        //touch controls to add click animation
+        if((touch.phase == TouchPhase.Began))
+        {
+            Debug.Log("touch" + touchPos);
+
+
+            //Remember that the object pooler uses TAGS not names of objects to set them active, etc. here.
+            explosionClip = ObjectPooler.SharedInstance.GetPooledObject("Default Click");
+
+            if (explosionClip != null)
+            {
+                explosionClip.transform.position = new Vector3(touchPos.x, touchPos.y);
+                explosionClip.transform.SetParent(mainCanvas.transform);
+                explosionClip.SetActive(true);
+
+            }
+        }
+
+
+
+
+        //mouse controls to add click animation
+        mousePos = mainCamera.WorldToScreenPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y,0));
+
+        /*
+        if (Input.GetMouseButtonUp(0))
+        {
+            
+            Debug.Log("mouse position" + mousePos);
+
+
+            //Remember that the object pooler uses TAGS not names of objects to set them active, etc. here.
+            explosionClip = ObjectPooler.SharedInstance.GetPooledObject("Default Click");
+
+            if (explosionClip != null)
+            {
+                explosionClip.transform.position = new Vector3(mousePos.x, mousePos.y);
+                explosionClip.transform.SetParent(mainCanvas.transform);
+                explosionClip.SetActive(true);
+
+            }
+        }     */
+    }
+
 
     public void GameOverMethod()
     {
@@ -268,7 +342,7 @@ public class GameManager : MonoBehaviour
 
 
         //update the total stars in your kitty.
-        DictionaryManager.Instance.goldTotal += 2;
+        configData.totalGoldAmount += 10;
  
         GameEvents.OnSaveInitiated();
         levelDetails.levelComplete = true;

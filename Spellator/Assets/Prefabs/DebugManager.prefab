@@ -43,3 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d7956ade67bb47349d9969df71a6a09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particleTrigger: {fileID: 0}
+  explosion: {fileID: 0}
+  configData: {fileID: 0}

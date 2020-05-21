@@ -45,11 +45,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerWordsMade: []
   wordData: {fileID: 11400000, guid: 87f9af19399d249068769bd3553e5227, type: 2}
+  levelManager: {fileID: 11400000, guid: da09913161474424f878bba5ba2d1f98, type: 2}
+  totalWordsPlayed: 0
+  longestWord: 
   encouragementMessages: {fileID: 11400000, guid: 250a7d87c3cfc44a296c52447dfafc90,
     type: 2}
+  starTotalText: {fileID: 0}
+  healthParticles: {fileID: 0}
   dictionaryTxtFile: {fileID: 4900000, guid: 7c382be831dd04dd5832d2f7e1219647, type: 3}
-  correctWordParticles: {fileID: 0}
-  healthUpParticles: {fileID: 0}
+  newCorrectWordParticle: {fileID: 0}
+  pointParticles: {fileID: 0}
+  maximumParticles: 5
+  particleSizes: 0
+  particleLifetime: 0
   correctIcon: {fileID: 0}
   allAudioClips:
   - {fileID: 8300000, guid: a5992ba9e416945ceb9a5f6384a97f7f, type: 3}

@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5073374701167392269}
   - component: {fileID: 6369276425517816409}
+  - component: {fileID: 1945614839}
+  - component: {fileID: 4135885583922677634}
   m_Layer: 0
   m_Name: GameConfig
   m_TagString: Untagged
@@ -43,7 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6705a6a074a724345941f14bf2dc080f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  configScriptableObject: {fileID: 0}
+  configScriptableObject: {fileID: 11400000, guid: 87f9af19399d249068769bd3553e5227,
+    type: 2}
   levelData: {fileID: 11400000, guid: da09913161474424f878bba5ba2d1f98, type: 2}
   musicOn: 0
   sfxOn: 0
@@ -52,3 +55,41 @@ MonoBehaviour:
   highScores: 
   longestWord: 
   favouriteWordLength: 
+--- !u!114 &1945614839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1156407296786756407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 946b9fe3e882542d0b6db79582ac24cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObjects: []
+  itemsToPool:
+  - amountToPool: 20
+    objectToPool: {fileID: 2460552311766433753, guid: 3c23c229efff249b28172dc318ac9227,
+      type: 3}
+    shouldExpand: 1
+  - amountToPool: 20
+    objectToPool: {fileID: 242514237211592103, guid: 161dc31fd820d42a6b2960a20921cfa8,
+      type: 3}
+    shouldExpand: 1
+  - amountToPool: 10
+    objectToPool: {fileID: 657531757573637612, guid: bf9adc06192c744ee80eeca1a65dd3ef,
+      type: 3}
+    shouldExpand: 1
+--- !u!114 &4135885583922677634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1156407296786756407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc8cce366e9b4634909f428982d22f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -99,7 +99,7 @@ public class GameState : MonoBehaviour
 
         if (DictionaryManager.Instance!=null)
         {
-            DictionaryManager.Instance.goldTotal = data.goldAmount;
+//            DictionaryManager.Instance.goldTotal = data.goldAmount;
             DictionaryManager.Instance.totalWordsPlayed = data.wordsPlayed;
             //Debug.Log("loaded data from Dictionary Manager");
 

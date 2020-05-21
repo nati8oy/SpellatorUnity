@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 7349431635441859144}
   - component: {fileID: 166281410}
   - component: {fileID: 166281411}
-  - component: {fileID: 166281412}
   - component: {fileID: 1026342681}
   - component: {fileID: 7349431636452027362}
   - component: {fileID: 7349431636452027368}
+  - component: {fileID: 761818878724394127}
   m_Layer: 9
   m_Name: GameManager
   m_TagString: Untagged
@@ -52,6 +52,9 @@ MonoBehaviour:
   tileSkinType: 0
   tileSkinSelection: 0
   gameManagerAudioSource: {fileID: 166281410}
+  bgPattern1: {fileID: 0}
+  bgPattern2: {fileID: 0}
+  mousePos: {x: 0, y: 0}
   currentBag: {fileID: 0}
   levelDetails: {fileID: 11400000, guid: da09913161474424f878bba5ba2d1f98, type: 2}
   gameBackgrounds:
@@ -59,7 +62,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 05b88d275f1aa4841aa6a2d7aae8dbde, type: 3}
   - {fileID: 21300000, guid: 990fc03be7e234fdcb3a533b903e72bc, type: 3}
   mainBackground: {fileID: 0}
-  difficulty: {fileID: 0}
+  difficulty: {fileID: 11400000, guid: 1e5b5726e36b04e978e42ba2264994c5, type: 2}
+  mainCamera: {fileID: 0}
   cameraObject: {fileID: 0}
   gameOverAudio: {fileID: 8300000, guid: 199442004b5c14c4a9f6012ed4e5c602, type: 3}
   bigScore: {fileID: 8300000, guid: 5a863d36171ec43ad8f28dee819c539c, type: 3}
@@ -69,10 +73,8 @@ MonoBehaviour:
   levelCompleteMenu: {fileID: 0}
   externalBagTXT: {fileID: 4900000, guid: 9d6146cddd6ef4ea78ce7418d4c646a7, type: 3}
   toggle: 0
-  levelCompleteParticles: {fileID: 0}
   newWordCounter: 0
   configData: {fileID: 11400000, guid: 87f9af19399d249068769bd3553e5227, type: 2}
-  currentRack: []
   ruleLetter: P
   mostRecentScore: 0
   liveScoreText: {fileID: 0}
@@ -86,7 +88,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: c6d77c13464264c9e9ca3d2cddd3e3a9, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
@@ -200,7 +202,7 @@ MonoBehaviour:
       type: 3}
     shouldExpand: 1
   - amountToPool: 10
-    objectToPool: {fileID: 805593367772713409, guid: e263fd3e48d1945b3a2df52e2e2f0346,
+    objectToPool: {fileID: 5175015465723292351, guid: 8d2f776b06da14e60893630c6d6c5b11,
       type: 3}
     shouldExpand: 1
   - amountToPool: 10
@@ -219,32 +221,18 @@ MonoBehaviour:
     objectToPool: {fileID: 8126376950543683738, guid: cfb954765853547f6a237e17616c2320,
       type: 3}
     shouldExpand: 1
-  - amountToPool: 2
-    objectToPool: {fileID: 8565804046637329787, guid: cc57f52b4cd28492b84f3e51dedd3bc1,
+  - amountToPool: 10
+    objectToPool: {fileID: 6582407710769130838, guid: 18fd4425d3b8542d69fff4a59c50bd72,
       type: 3}
     shouldExpand: 0
---- !u!114 &166281412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7349431635441859142}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3696f0f77b5414e409cbd5cd6b2f8f22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentScore: 0
-  playerWordsMade: []
-  highScores: 
-  shop: {fileID: 0}
-  audioToggle: 0
-  gold: 0
-  wordsPlayed: 0
-  longestWord: 
-  skinSelection: 0
-  configData: {fileID: 0}
+  - amountToPool: 5
+    objectToPool: {fileID: 8565804046637329787, guid: cc57f52b4cd28492b84f3e51dedd3bc1,
+      type: 3}
+    shouldExpand: 1
+  - amountToPool: 3
+    objectToPool: {fileID: 4831521125200869780, guid: 9119cdf06d3f94a9889ca6ede01cc689,
+      type: 3}
+    shouldExpand: 1
 --- !u!114 &1026342681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,3 +318,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c3639e8353914634a762f8d38f5fba6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &761818878724394127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7349431635441859142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8edbd0730656849d994e7b6ae3f931ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allTiles: []
+  tileScriptableObject: {fileID: 11400000, guid: ffcfd2bd4f56d433a89c76bdd1265301,
+    type: 2}
+  consonantCount: 0
+  vowelCount: 0
+  rareConsonants: 0
+  mainAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

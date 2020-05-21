@@ -22,6 +22,7 @@ public class Tile : MonoBehaviour
     //sets whether or not the tile can age
     public bool canAge = true;
 
+    public GameObject explosionClip;
 
     public AudioSO audioScriptableObject;
 
@@ -503,6 +504,19 @@ public class Tile : MonoBehaviour
 
         //check if levelComplete in the levelManager SO is true/false
         //used to make sure that the animations don't play if the level is complete
+
+
+        //Remember that the object pooler uses TAGS not names of objects to set them active, etc. here.
+        explosionClip = ObjectPooler.SharedInstance.GetPooledObject("Explosion");
+
+        if (explosionClip != null)
+        {
+            explosionClip.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y);
+            explosionClip.transform.SetParent(GameManager.Instance.mainCanvas.transform);
+            explosionClip.SetActive(true);
+            //available = false;
+
+        }
 
         if (levelManager.levelComplete == true)
         {
