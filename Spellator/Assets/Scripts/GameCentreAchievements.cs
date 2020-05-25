@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 using UnityEngine.SocialPlatforms.GameCenter;
 
 public class GameCentreAchievements : MonoBehaviour
@@ -18,6 +19,29 @@ public class GameCentreAchievements : MonoBehaviour
             else
                 Debug.Log("Failed to authenticate");
         });
+
+
+        Social.LoadAchievements(achievements => {
+            if (achievements.Length > 0)
+            {
+                Debug.Log("Got " + achievements.Length + " achievement instances");
+                string myAchievements = "My achievements:\n";
+                foreach (IAchievement achievement in achievements)
+                {
+                    myAchievements += "\t" +
+                        achievement.id + " " +
+                        achievement.percentCompleted + " " +
+                        achievement.completed + " " +
+                        achievement.lastReportedDate + "\n";
+                }
+                Debug.Log(myAchievements);
+            }
+            else
+                Debug.Log("No achievements returned");
+        });
+
+        Social.ShowAchievementsUI();
+
     }
 
     public void ReportAchievement()
@@ -30,6 +54,8 @@ public class GameCentreAchievements : MonoBehaviour
                 Debug.Log(result ? "Reported achievement" : "Failed to report achievement");
             });
         }
+
+
        
     }
 

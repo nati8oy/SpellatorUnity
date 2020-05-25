@@ -19,6 +19,7 @@ public class ConfigSO : ScriptableObject
     public int uniqueWords;
     public int totalGoldAmount;
     public string currentRank;
+    public int levelProgressXP;
 
     public List<int> skinsPurchased = new List<int>();
 

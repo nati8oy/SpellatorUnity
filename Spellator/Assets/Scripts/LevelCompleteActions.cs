@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class LevelCompleteActions : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class LevelCompleteActions : MonoBehaviour
     private AudioClip starSound;
     private int starPositionCalculator;
     private float AppearDelay;
+    public Slider progressSlider;
+    public ConfigSO configData;
 
     private GameObject starObject;
     public TextMeshProUGUI rewardText;
@@ -32,6 +35,21 @@ public class LevelCompleteActions : MonoBehaviour
         //grab the reward value from the SO
         StartCoroutine(LevelCompleteCheck(levelData.reward));
         StartCoroutine(CountUpWords());
+
+        /*
+        if (configData.levelProgressXP == 0)
+        {
+            configData.levelProgressXP = Points.totalScore;
+        }
+         else if (configData.levelProgressXP != 0)
+        {
+            configData.levelProgressXP = configData.levelProgressXP + Points.totalScore;
+        }*/
+    }
+
+    private void Update()
+    {
+        
     }
 
     //coroutine to count down the star reward for each level
@@ -84,6 +102,14 @@ public class LevelCompleteActions : MonoBehaviour
             //delay before the next star is added.
             yield return new WaitForSeconds(AppearDelay);
         }
+
+        while (progressSlider.value != Points.totalScore)
+        {
+            progressSlider.value += 1;
+            Debug.Log("counting up");
+        }
+
+
 
         yield return null;
 

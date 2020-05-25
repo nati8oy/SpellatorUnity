@@ -336,7 +336,10 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator LevelComplete()
     {
-        
+        Debug.Log("total score: " + Points.totalScore);
+
+
+
         fadeManager.FadeType(fadeManager._flashColour, fadeManager.pulseSpeed);
         yield return new WaitForSeconds(1f);
 

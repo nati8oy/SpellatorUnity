@@ -594,7 +594,7 @@ public class Tile : MonoBehaviour
         //uses a cached reference for performance reasons
 
 
-        healthHandler.DealDamage(spawnedTile.points);
+        healthHandler.DealDamage(spawnedTile.points*2);
         //GameObject.Find("HealthBar").GetComponent<PlayerHealth>().DealDamage(spawnedTile.points);
 
         //removeTileAudio.Play(smashAudioSource);
