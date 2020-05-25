@@ -105,10 +105,11 @@ public class LevelCompleteActions : MonoBehaviour
 
         while (progressSlider.value != Points.totalScore)
         {
-            progressSlider.value += 1;
+            progressSlider.value += 1f;
             Debug.Log("counting up");
-        }
+            yield return new WaitForSeconds(0.1f);
 
+        }
 
 
         yield return null;
