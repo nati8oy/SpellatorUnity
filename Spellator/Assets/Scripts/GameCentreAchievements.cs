@@ -40,6 +40,11 @@ public class GameCentreAchievements : MonoBehaviour
                 Debug.Log("No achievements returned");
         });
 
+        ShowAchievements();
+    }
+
+    public void ShowAchievements()
+    {
         Social.ShowAchievementsUI();
 
     }
@@ -55,8 +60,64 @@ public class GameCentreAchievements : MonoBehaviour
             });
         }
 
+        //check for 25 words
+        if (saveLoad.uniqueWordAmount >= 25)
+        {
+            GameCenterPlatform.ShowDefaultAchievementCompletionBanner(true);
+            Social.ReportProgress("70792029", 100, (result) => {
 
-       
+               // Debug.Log(result ? "Reported achievement" : "Failed to report achievement");
+            });
+        }
+        // check for 50 words
+         if (saveLoad.uniqueWordAmount >= 50)
+        {
+            GameCenterPlatform.ShowDefaultAchievementCompletionBanner(true);
+            Social.ReportProgress("70792030", 100, (result) => {
+
+                // Debug.Log(result ? "Reported achievement" : "Failed to report achievement");
+            });
+        }
+        // check for 100 words
+        if (saveLoad.uniqueWordAmount >= 100)
+        {
+            GameCenterPlatform.ShowDefaultAchievementCompletionBanner(true);
+            Social.ReportProgress("70792031", 100, (result) => {
+
+                // Debug.Log(result ? "Reported achievement" : "Failed to report achievement");
+            });
+        }
+        // check for 250 words
+        if (saveLoad.uniqueWordAmount >= 250)
+        {
+            GameCenterPlatform.ShowDefaultAchievementCompletionBanner(true);
+            Social.ReportProgress("70792032", 100, (result) => {
+
+                // Debug.Log(result ? "Reported achievement" : "Failed to report achievement");
+            });
+        }
+        // check for 500 words
+        if (saveLoad.uniqueWordAmount >= 500)
+        {
+            GameCenterPlatform.ShowDefaultAchievementCompletionBanner(true);
+            Social.ReportProgress("70792033", 100, (result) => {
+
+                // Debug.Log(result ? "Reported achievement" : "Failed to report achievement");
+            });
+        }
+
+        // check for 1000 words
+        if (saveLoad.uniqueWordAmount >= 1000)
+        {
+            GameCenterPlatform.ShowDefaultAchievementCompletionBanner(true);
+            Social.ReportProgress("70791927", 100, (result) => {
+
+                // Debug.Log(result ? "Reported achievement" : "Failed to report achievement");
+            });
+        }
+
+
+
     }
 
 }
