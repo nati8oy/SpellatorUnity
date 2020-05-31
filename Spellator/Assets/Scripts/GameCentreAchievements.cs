@@ -8,6 +8,7 @@ public class GameCentreAchievements : MonoBehaviour
 {
 
     public GameConfig gameConfig;
+    public ConfigSO configData;
     public SaveLoadManager saveLoad;
 
     // Start is called before the first frame update
@@ -51,7 +52,8 @@ public class GameCentreAchievements : MonoBehaviour
 
     public void ReportAchievement()
     {
-        if (saveLoad.longestWord.Length > 4)
+        //check for 25 words
+        if (configData.uniqueWordsList.Count >= 10)
         {
             GameCenterPlatform.ShowDefaultAchievementCompletionBanner(true);
             Social.ReportProgress("70790857", 100, (result) => {
@@ -61,7 +63,7 @@ public class GameCentreAchievements : MonoBehaviour
         }
 
         //check for 25 words
-        if (saveLoad.uniqueWordAmount >= 25)
+        if (configData.uniqueWordsList.Count >= 25)
         {
             GameCenterPlatform.ShowDefaultAchievementCompletionBanner(true);
             Social.ReportProgress("70792029", 100, (result) => {
@@ -70,7 +72,7 @@ public class GameCentreAchievements : MonoBehaviour
             });
         }
         // check for 50 words
-         if (saveLoad.uniqueWordAmount >= 50)
+         if (configData.uniqueWordsList.Count >= 50)
         {
             GameCenterPlatform.ShowDefaultAchievementCompletionBanner(true);
             Social.ReportProgress("70792030", 100, (result) => {
@@ -79,7 +81,7 @@ public class GameCentreAchievements : MonoBehaviour
             });
         }
         // check for 100 words
-        if (saveLoad.uniqueWordAmount >= 100)
+        if (configData.uniqueWordsList.Count >= 100)
         {
             GameCenterPlatform.ShowDefaultAchievementCompletionBanner(true);
             Social.ReportProgress("70792031", 100, (result) => {
@@ -88,7 +90,7 @@ public class GameCentreAchievements : MonoBehaviour
             });
         }
         // check for 250 words
-        if (saveLoad.uniqueWordAmount >= 250)
+        if (configData.uniqueWordsList.Count >= 250)
         {
             GameCenterPlatform.ShowDefaultAchievementCompletionBanner(true);
             Social.ReportProgress("70792032", 100, (result) => {
@@ -97,7 +99,7 @@ public class GameCentreAchievements : MonoBehaviour
             });
         }
         // check for 500 words
-        if (saveLoad.uniqueWordAmount >= 500)
+        if (configData.uniqueWordsList.Count >= 500)
         {
             GameCenterPlatform.ShowDefaultAchievementCompletionBanner(true);
             Social.ReportProgress("70792033", 100, (result) => {
@@ -107,7 +109,7 @@ public class GameCentreAchievements : MonoBehaviour
         }
 
         // check for 1000 words
-        if (saveLoad.uniqueWordAmount >= 1000)
+        if (configData.uniqueWordsList.Count >= 1000)
         {
             GameCenterPlatform.ShowDefaultAchievementCompletionBanner(true);
             Social.ReportProgress("70791927", 100, (result) => {
