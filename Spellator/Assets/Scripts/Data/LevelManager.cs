@@ -20,7 +20,7 @@ public class LevelManager : MonoBehaviour
 
     public enum LevelRuleType
     {
-        length, ending, containing, starting, points
+        length, ending, containing, starting, points, tiles
     }
 
     public LevelRuleType levelRuleType; 
@@ -144,57 +144,81 @@ public class LevelManager : MonoBehaviour
         switch (levelDetails.currentLevel)
         {
             case 1:
-                levelRuleType = LevelRuleType.length;
-                ConstructLevelParams("length", 3, 3, 0);
+                levelRuleType = LevelRuleType.tiles;
+                ConstructLevelParams("tiles", 10, 0, 0);
                 break;
             case 2:
-                levelRuleType = LevelRuleType.length;
-                ConstructLevelParams("length", 4, 3, 0);
+                levelRuleType = LevelRuleType.tiles;
+                ConstructLevelParams("tiles", 25, 0, 0);
                 break;
             case 3:
                 levelRuleType = LevelRuleType.length;
-                ConstructLevelParams("length", 5, 3, 0);
+                ConstructLevelParams("length", 3, 3, 0);
                 break;
             case 4:
                 levelRuleType = LevelRuleType.length;
-                ConstructLevelParams("length", 2, 4, 0);
+                ConstructLevelParams("length", 4, 3, 0);
                 break;
             case 5:
                 levelRuleType = LevelRuleType.length;
                 ConstructLevelParams("length", 3, 4, 0);
                 break;
             case 6:
-                levelRuleType = LevelRuleType.points;
-                ConstructLevelParams("points", 3, 0, 20);
+                levelRuleType = LevelRuleType.length;
+                ConstructLevelParams("length", 4, 4, 0);
                 break;
+
             case 7:
-                levelRuleType = LevelRuleType.containing;
-                ConstructLevelParams("containing", 3, 0, 0);
+                levelRuleType = LevelRuleType.length;
+                ConstructLevelParams("length", 5, 3, 0);
                 break;
+
+            case 8:
+                levelRuleType = LevelRuleType.length;
+                ConstructLevelParams("length", 5, 4, 0);
+                break;
+
+            case 9:
+                levelRuleType = LevelRuleType.tiles;
+                ConstructLevelParams("tiles", 40, 0, 0);
+                break;
+
+            case 10:
+                levelRuleType = LevelRuleType.length;
+                ConstructLevelParams("length", 10, 3, 0);
+                break;
+
+            case 11:
+                levelRuleType = LevelRuleType.tiles;
+                ConstructLevelParams("tiles", 55, 0, 0);
+                break;
+
+            case 12:
+                levelRuleType = LevelRuleType.length;
+                ConstructLevelParams("length", 10, 4, 0);
+                break;
+
+            case 13:
+                levelRuleType = LevelRuleType.points;
+                ConstructLevelParams("points", 2, 0, 10);
+                break;
+            case 14:
+                levelRuleType = LevelRuleType.points;
+                ConstructLevelParams("points", 2, 0, 20);
+                break;
+
+            case 15:
+                levelRuleType = LevelRuleType.containing;
+                ConstructLevelParams("containing", 2, 2, 0);
+                break;
+
+                /*
             case 8:
                 levelRuleType = LevelRuleType.ending;
                 ConstructLevelParams("ending", 2, 0, 0);
                 break;
-            case 9:
-                levelRuleType = LevelRuleType.points;
-                ConstructLevelParams("points", 3, 0, 50);
-                break;
-            case 10:
-                levelRuleType = LevelRuleType.ending;
-                ConstructLevelParams("ending", 3, 0, 0);
-                break;
-            case 11:
-                levelRuleType = LevelRuleType.ending;
-                ConstructLevelParams("starting", 3, 0, 0);
-                break;
-            case 12:
-                levelRuleType = LevelRuleType.points;
-                ConstructLevelParams("points", 4, 0, 40);
-                break;
-            case 13:
-                levelRuleType = LevelRuleType.length;
-                ConstructLevelParams("length", 3, 5, 0);
-                break;
+            */
+           
 
         }
 
@@ -270,6 +294,10 @@ public class LevelManager : MonoBehaviour
         switch (levelType)
         {
 
+            case "tiles":
+                levelDescription = "Play " + firstCondition.ToString() + " tiles in total"; 
+                break;
+
             case "length":
                 levelDescription = "Make " + firstCondition.ToString() + " words using " + secondCondition.ToString() + " letters";
 
@@ -334,9 +362,28 @@ public class LevelManager : MonoBehaviour
         switch (checkCriteria)
         {
 
+            case "tiles":
+
+                 
+                foreach(char letter in wordToCheck)
+                {
+                    //Debug.Log("1 point added");
+                    if (firstCondition > 0)
+                    {
+
+                        firstCondition -= 1;
+
+                    }
+                }
+
+                levelDescription = "Play " + firstCondition.ToString() + " tiles in total";
+
+
+                break;
+
 
             case "length":
-                  Debug.Log(firstCondition + " words remaining!");
+                  //Debug.Log(firstCondition + " words remaining!");
 
                 if (wordToCheck.Length == secondCondition)
                 {
