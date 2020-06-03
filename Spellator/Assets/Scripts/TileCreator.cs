@@ -48,7 +48,7 @@ public class TileCreator : MonoBehaviour
         }
         //Debug.Log(LevelManager.Instance._levelComplete);
         //don't add the particles if the level is complete
-        if(LevelManager.Instance._levelComplete == true)
+        if(LevelManager.Instance._levelComplete != true)
         {
 
             //Remember that the object pooler uses TAGS not names of objects to set them active, etc. here.
