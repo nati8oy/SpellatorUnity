@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad412a648c364c90992b71caee0ebe1, type: 3}
   m_Name: Level Data
   m_EditorClassIdentifier: 
-  currentLevel: 0
+  currentLevel: 10
   allLevels: 
   levelTypes:
   - starting
@@ -22,7 +22,7 @@ MonoBehaviour:
   reward: 3
   levelComplete: 1
   overallLevel: 0
-  levelRules: Make 2 words ending in R
+  levelRules: Play 60 tiles in total
   endingList:
   - L
   - D
@@ -69,10 +69,6 @@ MonoBehaviour:
   - R
   - S
   - T
-  - V
-  - W
-  - X
-  - Y
   fullList:
   - A
   - B

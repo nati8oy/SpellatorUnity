@@ -271,6 +271,7 @@ public class Tile : MonoBehaviour
 
             //get the spawned letter by grabbing the value from the animation curve (which has been multiplied by the length of the bag
             //then converted to a whole number via Mathf.CeilToInt
+
             spawnedTile.letter = TileBag.bag[Mathf.CeilToInt(CurveWeightedRandom(GameManager.Instance.GetComponent<CreateNewBag>().mainAnimationCurve))];
 
             //check that the letter actually exists in the bag before using it
@@ -328,10 +329,11 @@ public class Tile : MonoBehaviour
 
     {
 
+
         //Debug.Log(GameManager.Instance.testList.Count);
 
         //play the tile animation  
-       // animator.SetBool("correctWord", true);
+        // animator.SetBool("correctWord", true);
 
         //play the small twinkle particles
         twinkleParticles.Play();
@@ -484,6 +486,9 @@ public class Tile : MonoBehaviour
 
         }
 
+        Debug.Log("tile letter: " + spawnedTile.letter + " points: " + spawnedTile.points);
+
+
 
     }
 
@@ -501,6 +506,8 @@ public class Tile : MonoBehaviour
     public void RemoveTileOnComplete()
     {
         GameManager.Instance.ShakeCamera(6,6,0.5f);
+
+
 
         //check if levelComplete in the levelManager SO is true/false
         //used to make sure that the animations don't play if the level is complete

@@ -197,7 +197,7 @@ public class DictionaryManager : MonoBehaviour
         totalWordsPlayed = wordData.totalWordsMade;
         
 
-        Debug.Log("total words made " + totalWordsPlayed);
+//        Debug.Log("total words made " + totalWordsPlayed);
     }
 
     
@@ -897,12 +897,18 @@ public class DictionaryManager : MonoBehaviour
 
 
 
-            }  if (tile.GetComponent<Tile>().spawnedTile.age == 0)
+            }  if ((tile.GetComponent<Tile>().spawnedTile.age == 0) && (levelManager.levelComplete != true))
             {
                 //if the tile age == 0 then run the DropTile function on the tile
 
                 tile.GetComponent<Tile>().DropTile();
+                Debug.Log("tile dropped");
                
+            }
+
+            else
+            {
+                Debug.Log("end of level!");
             }
 
         }
@@ -928,7 +934,7 @@ public class DictionaryManager : MonoBehaviour
         {
             yield return new WaitForSeconds(2f);
             healthParticles.SetActive(false);
-            Debug.Log("heart particles inactive");
+//            Debug.Log("heart particles inactive");
             StopCoroutine("CheckIfAlive");
         }
     }

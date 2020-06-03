@@ -93,8 +93,10 @@ public class LevelManager : MonoBehaviour
         _endingList = levelDetails.endingList;
         _startingList = levelDetails.startingList;
         _containingList = levelDetails.containingList;
-        _levelComplete = levelDetails.levelComplete;
+        //_levelComplete = levelDetails.levelComplete;
 
+        //set the level complete to be "false". This is so that we can trigger the game over animations,etc.
+        levelDetails.levelComplete = false;
 
         //RANDOM VERSION
         randomLevelSelection = _levelTypes[Random.Range(0, _levelTypes.Count)];
@@ -108,7 +110,7 @@ public class LevelManager : MonoBehaviour
 
       
 
-        Debug.Log("You are playing level " + levelDetails.currentLevel);
+//        Debug.Log("You are playing level " + levelDetails.currentLevel);
 
 
         //set up the levels via the function below
@@ -131,12 +133,14 @@ public class LevelManager : MonoBehaviour
 
     public void SetLevels()
     {
+        //set menu manually
+        //levelDetails.currentLevel = 14;
 
         //update the current level. This is set within the gameConfig file
         if (levelDetails.currentLevel < 13)
         {
             levelDetails.currentLevel += 1;
-                    Debug.Log("current level is: " + levelDetails.currentLevel);
+//                    Debug.Log("current level is: " + levelDetails.currentLevel);
 
         }
 
@@ -144,72 +148,85 @@ public class LevelManager : MonoBehaviour
         switch (levelDetails.currentLevel)
         {
             case 1:
+                //use 10 tiles
                 levelRuleType = LevelRuleType.tiles;
                 ConstructLevelParams("tiles", 10, 0, 0);
                 break;
             case 2:
+                //use 25 tiles
                 levelRuleType = LevelRuleType.tiles;
                 ConstructLevelParams("tiles", 25, 0, 0);
                 break;
             case 3:
+                //make 3 x 3 letter words
                 levelRuleType = LevelRuleType.length;
                 ConstructLevelParams("length", 3, 3, 0);
                 break;
             case 4:
+                //make 4 x 3 letter words
                 levelRuleType = LevelRuleType.length;
                 ConstructLevelParams("length", 4, 3, 0);
                 break;
             case 5:
+                //make 3 x 4 letter words
                 levelRuleType = LevelRuleType.length;
                 ConstructLevelParams("length", 3, 4, 0);
                 break;
             case 6:
+                //make 4 x 4 letter words
                 levelRuleType = LevelRuleType.length;
                 ConstructLevelParams("length", 4, 4, 0);
                 break;
 
             case 7:
+                //make 5 x 3 letter words
                 levelRuleType = LevelRuleType.length;
                 ConstructLevelParams("length", 5, 3, 0);
                 break;
 
             case 8:
+                //make 5 x 4 letter words
                 levelRuleType = LevelRuleType.length;
                 ConstructLevelParams("length", 5, 4, 0);
                 break;
 
             case 9:
+                //use 40 tiles
                 levelRuleType = LevelRuleType.tiles;
                 ConstructLevelParams("tiles", 40, 0, 0);
                 break;
-
             case 10:
-                levelRuleType = LevelRuleType.length;
-                ConstructLevelParams("length", 10, 3, 0);
+                //use 60 tiles
+                levelRuleType = LevelRuleType.tiles;
+                ConstructLevelParams("tiles", 60, 0, 0);
                 break;
 
             case 11:
-                levelRuleType = LevelRuleType.tiles;
-                ConstructLevelParams("tiles", 55, 0, 0);
+                //make 6 x 4 letter words
+                levelRuleType = LevelRuleType.length;
+                ConstructLevelParams("length", 6, 4, 0);
                 break;
 
             case 12:
-                levelRuleType = LevelRuleType.length;
-                ConstructLevelParams("length", 10, 4, 0);
-                break;
-
-            case 13:
+                //make 2 words worth 10XP 
                 levelRuleType = LevelRuleType.points;
                 ConstructLevelParams("points", 2, 0, 10);
                 break;
-            case 14:
-                levelRuleType = LevelRuleType.points;
+            case 13:
+                // make 2 words worth 20XP
+                 levelRuleType = LevelRuleType.points;
                 ConstructLevelParams("points", 2, 0, 20);
                 break;
 
-            case 15:
+            case 14:
+                //make 2 x words containing "letter"
                 levelRuleType = LevelRuleType.containing;
-                ConstructLevelParams("containing", 2, 2, 0);
+                ConstructLevelParams("containing", 3, 2, 0);
+                break;
+            case 15:
+                //make 2 x words containing "letter"
+                levelRuleType = LevelRuleType.starting;
+                ConstructLevelParams("starting", 3, 2, 0);
                 break;
 
                 /*
@@ -218,7 +235,7 @@ public class LevelManager : MonoBehaviour
                 ConstructLevelParams("ending", 2, 0, 0);
                 break;
             */
-           
+
 
         }
 
@@ -233,7 +250,7 @@ public class LevelManager : MonoBehaviour
         //set the currentRack array to be the tile 
         currentRack = GameObject.FindGameObjectsWithTag("Tile");
 
-        Debug.Log("Coroutine started");
+//        Debug.Log("Coroutine started");
         //        Debug.Log("current rack contains " + currentRack.Length + " tiles");
 
 
@@ -511,6 +528,7 @@ public class LevelManager : MonoBehaviour
         {
             GameManager.Instance.StartCoroutine(GameManager.Instance.LevelComplete());
             //GameManager.Instance.LevelComplete();
+            levelDetails.levelComplete = true;
             Debug.Log("Level has been completed");
         }
 
