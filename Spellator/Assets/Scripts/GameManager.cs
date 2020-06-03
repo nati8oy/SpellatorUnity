@@ -235,6 +235,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        /*
 
         //get the ID of the touch (first touch)
         Touch touch = Input.GetTouch(0);
@@ -258,7 +259,7 @@ public class GameManager : MonoBehaviour
 
             }
         }
-
+        */
 
 
 

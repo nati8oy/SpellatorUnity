@@ -358,6 +358,18 @@ public class Tile : MonoBehaviour
             fadeManager = GameObject.Find("Fade Manager").GetComponent<Transitions>();
             fadeManager.FadeType(fadeManager._flashColour, fadeManager.pulseSpeed);
 
+            //Remember that the object pooler uses TAGS not names of objects to set them active, etc. here.
+            explosionClip = ObjectPooler.SharedInstance.GetPooledObject("Explosion");
+
+            if (explosionClip != null)
+            {
+                explosionClip.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y);
+                explosionClip.transform.SetParent(GameManager.Instance.mainCanvas.transform);
+                explosionClip.SetActive(true);
+                //available = false;
+
+            }
+
 
 
             //remove the tile and play its animation
