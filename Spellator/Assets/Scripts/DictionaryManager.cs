@@ -222,12 +222,15 @@ public class DictionaryManager : MonoBehaviour
 
         //move the last tile of the word to the primary tile spot
         iTween.MoveTo(selectedTilesArray[selectedTilesArray.Length - 1], iTween.Hash("x", primaryPosX, "y", primaryPosY, "easetype", "EaseInOutCirc", "delay", 0.1*wordBeingMade.Length, "time", 0.4f, "onComplete", "SetPrimaryTile"));
-        
+
+
+
         selectedTilesArray[selectedTilesArray.Length - 1].tag = "Tile";
 
         //for each of the tiles set a delay and remove them from the screen
 
-        
+
+
             for (int i = 0; i < selectedTilesArray.Length - 1; i++)
             {
                 var randomY = Random.Range(150, 340);
@@ -240,6 +243,7 @@ public class DictionaryManager : MonoBehaviour
                 //iTween.MoveBy(selectedTilesArray[i], iTween.Hash("y", randomY, "easetype", "easeOutSine", "time", 0.5f, "delay", (0.1f) * (i + 1), "oncomplete", "RemoveTileOnComplete"));
             iTween.MoveTo(selectedTilesArray[i], iTween.Hash("y", scoreObject.transform.position.y, "x", scoreObject.transform.position.x, "easetype", "easeOutSine", "time", 0.5f, "delay", (0.1f) * (i + 1), "oncomplete", "RemoveTileOnComplete"));;
 
+            
 
             //  iTween.RotateBy(selectedTilesArray[i], new Vector3(10, 10), 1);
 
@@ -902,6 +906,7 @@ public class DictionaryManager : MonoBehaviour
                 //if the tile age == 0 then run the DropTile function on the tile
 
                 tile.GetComponent<Tile>().DropTile();
+               
                 Debug.Log("tile dropped");
                
             }

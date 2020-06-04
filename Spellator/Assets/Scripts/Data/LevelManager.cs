@@ -245,7 +245,7 @@ public class LevelManager : MonoBehaviour
     public IEnumerator GetTilesOnRack(string levelType)
     {
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.5f);
 
         //set the currentRack array to be the tile 
         currentRack = GameObject.FindGameObjectsWithTag("Tile");
@@ -304,6 +304,8 @@ public class LevelManager : MonoBehaviour
         //choose the first condition randomly from the list
         //firstCondition = conditionsList[Random.RandomRange(1, conditionsList.Count)];
         firstCondition = numberOfWords;
+
+
 
         //check if the letter is on the rack or not.
         StartCoroutine(GetTilesOnRack(levelType));

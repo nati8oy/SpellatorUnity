@@ -18,6 +18,7 @@ public class Tile : MonoBehaviour
     public LevelManagerSO levelManager;
     public Animator animator;
     public ParticleSystem twinkleParticles;
+    public ParticleSystem glowParticles;
 
     //sets whether or not the tile can age
     public bool canAge = true;
@@ -42,6 +43,7 @@ public class Tile : MonoBehaviour
     public AudioEvent popSounds;
     public AudioSource smashAudioSource;
     public AudioSource popAudioSource;
+    public AudioSource swishAudioSource;
 
     public TileClass spawnedTile;
     public GameObject levelUpText;
@@ -88,8 +90,7 @@ public class Tile : MonoBehaviour
 
     void Start()
     {
-
-
+        glowParticles.Stop();
 
             //stop the twinkle particle effect
         twinkleParticles.Stop();
@@ -115,6 +116,7 @@ public class Tile : MonoBehaviour
 
     private void Update()
     {
+
 
         switch (spawnedTile.age)
         {
@@ -151,7 +153,8 @@ public class Tile : MonoBehaviour
                 specialIcon.SetActive(true);
                 break;
             case "double":
-              
+                
+               
                 letter.color = tileDisplayAccess.doubleLetterColour;
                 //tileBGImage.color = tileDisplayAccess.doubleTileColour;
 
@@ -162,7 +165,7 @@ public class Tile : MonoBehaviour
 
                 break;
             case "triple":
-    
+               
                 letter.color = tileDisplayAccess.tripleLetterColour;
                 //tileBGImage.color = tileDisplayAccess.tripleTileColour;
 
@@ -175,6 +178,7 @@ public class Tile : MonoBehaviour
             case "none":
                 specialIcon.SetActive(false);
                 adjustedPointValue = spawnedTile.points;
+
 
                 break;
         }
@@ -220,6 +224,9 @@ public class Tile : MonoBehaviour
 
     private void OnEnable()
     {
+        //stop the particles that were playing when this was the primary tile
+        glowParticles.Stop();
+
 
 
         //this is the code that chooses the random value from the curve.
@@ -341,6 +348,10 @@ public class Tile : MonoBehaviour
         if (AudioManager.Instance)
         {
             AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxTilePops[3]);
+            //AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxUserInterface[3]);
+            AudioManager.Instance.PlayAudioWithSource(AudioManager.Instance.sfxUserInterface[3], swishAudioSource, 0.1f);
+
+
         }
 
         //check if this is a primary tile that is being clicked and thus removed
@@ -519,7 +530,11 @@ public class Tile : MonoBehaviour
     {
         GameManager.Instance.ShakeCamera(6,6,0.5f);
 
+        if (AudioManager.Instance)
+        {
+            AudioManager.Instance.PlayAudioWithSource(AudioManager.Instance.sfxTilePops[Random.Range(0, 6)], popAudioSource, Random.Range(0.4f, 1f));
 
+        }
 
         //check if levelComplete in the levelManager SO is true/false
         //used to make sure that the animations don't play if the level is complete
@@ -557,11 +572,7 @@ public class Tile : MonoBehaviour
 
             }
 
-            if (AudioManager.Instance)
-            {
-                AudioManager.Instance.PlayAudioWithSource(AudioManager.Instance.sfxTilePops[Random.Range(0, 6)], popAudioSource, Random.Range(0.1f, 1f));
-
-            }
+           
             //popSounds.Play(popAudioSource);
 
         }
@@ -645,6 +656,13 @@ public class Tile : MonoBehaviour
 
         Points.primaryTileScore = spawnedTile.points;
         Points.liveScore = Points.primaryTileScore;
+
+        //play the particles that are for the primary tile
+
+        if (levelManager.levelComplete != true)
+        {
+            glowParticles.Play();
+        }
 
         //Debug.Log("the primary tile is worth " + spawnedTile.points + "points.");
 
