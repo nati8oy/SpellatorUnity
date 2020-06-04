@@ -16,6 +16,8 @@ public class SaveLoadManager : MonoBehaviour
     public List<string> uniqueWordsList = new List<string>();
     public int uniqueWordAmount;
     public string currentPlayerRank;
+    public List<int> skinsPurchased = new List<int>();
+
 
     public bool audioOn;
     
@@ -54,6 +56,7 @@ public class SaveLoadManager : MonoBehaviour
         uniqueWordsList = configData.uniqueWordsList;
         uniqueWordAmount = uniqueWordsList.Count;
         currentPlayerRank = configData.currentRank;
+        skinsPurchased = configData.skinsPurchased;
 
 
 
@@ -89,9 +92,13 @@ public class SaveLoadManager : MonoBehaviour
         uniqueWordsList = configData.uniqueWordsList;
         uniqueWordAmount = uniqueWordsList.Count;
         currentPlayerRank = configData.currentRank;
+        skinsPurchased = configData.skinsPurchased;
+
 
 
         //SaveLoad.Save<PlayerSaveLoadData>(saveLoadData, "Save Game");
+
+        //saves the data to the correct type and names the save game
         SaveLoad.Save<int>(gold, "Total Gold");
         SaveLoad.Save<int>(wordsPlayed, "Words Played");
         SaveLoad.Save<string>(longestWord, "Longest Word Made");
@@ -99,6 +106,7 @@ public class SaveLoadManager : MonoBehaviour
         SaveLoad.Save<List<string>>(uniqueWordsList, "Unique words made");
         SaveLoad.Save<int>(uniqueWordAmount, "Unique words made (int)");
         SaveLoad.Save<string>(currentPlayerRank, "Player Rank");
+        SaveLoad.Save<List<int>>(skinsPurchased, "Skins Purchased");
 
 
 
@@ -162,6 +170,14 @@ public class SaveLoadManager : MonoBehaviour
             currentPlayerRank = SaveLoad.Load<string>("Player Rank");
             //set the skin selection in the shopSO back to the skinSelection var
             configData.currentRank = currentPlayerRank;
+        }
+
+        //the number of unique words made
+        if (SaveLoad.SaveExists("Skins Purchased"))
+        {
+            skinsPurchased = SaveLoad.Load<List<int>>("Skins Purchased");
+            //set the skin selection in the shopSO back to the skinSelection var
+            configData.skinsPurchased = skinsPurchased;
         }
     }
 }

@@ -5332,8 +5332,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 0
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 54
+  m_fontSizeBase: 54
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5552,6 +5552,7 @@ MonoBehaviour:
   animator: {fileID: 8052626522917010101}
   twinkleParticles: {fileID: 8414099629685575350}
   canAge: 1
+  explosionClip: {fileID: 0}
   audioScriptableObject: {fileID: 11400000, guid: a03b5a1d54d67443bae10bdddb04d364,
     type: 2}
   letter: {fileID: 781199010286186662}

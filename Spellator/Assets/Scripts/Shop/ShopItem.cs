@@ -53,10 +53,6 @@ public class ShopItem : MonoBehaviour
     public void UpdateSkin()
     {
 
-
-        //check if the GameState object exists
-        if (GameObject.Find("GameState"))
-        {
             goldAmount = configData.totalGoldAmount;
             //check if the price is less than the amount of currency available
             //and check if the item has already been purchased or not
@@ -99,7 +95,6 @@ public class ShopItem : MonoBehaviour
 
             }
 
-        }
 
     }
 
