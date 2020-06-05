@@ -18,6 +18,8 @@ public class LevelCompleteActions : MonoBehaviour
     private GameObject starObject;
     public TextMeshProUGUI rewardText;
     public TextMeshProUGUI wordsMadeText;
+    public TextMeshProUGUI nextLevelTally;
+
     public int wordsMade;
 
     private void Start()
@@ -25,8 +27,10 @@ public class LevelCompleteActions : MonoBehaviour
         //set the star sound to be a variable
         starSound = audioManager.sfxGeneral[14];
         //starPositionCalculator = 0;
-        AppearDelay = 0.3f;
+        AppearDelay = 0.4f;
         wordsMade = 0;
+
+        configData.levelProgressXP = 0;
 
     }
 
@@ -35,6 +39,9 @@ public class LevelCompleteActions : MonoBehaviour
         //grab the reward value from the SO
         StartCoroutine(LevelCompleteCheck(levelData.reward));
         StartCoroutine(CountUpWords());
+
+        progressSlider.maxValue = 100;
+        //progressSlider.value = configData.levelProgressXP + Points.totalScore;
 
         /*
         if (configData.levelProgressXP == 0)
@@ -76,8 +83,10 @@ public class LevelCompleteActions : MonoBehaviour
                 starPositionCalculator += 70;
                 //set the gameobject to be active
                 starObject.SetActive(true);
-
             }
+
+            iTween.MoveFrom(starObject, iTween.Hash("y", 750, "easetype", "EaseOutQuad", "time", 0.6f));
+
 
 
             //delay before the next star is added.
@@ -103,14 +112,21 @@ public class LevelCompleteActions : MonoBehaviour
             yield return new WaitForSeconds(AppearDelay);
         }
 
-        while (progressSlider.value != Points.totalScore)
+        while (progressSlider.value != (Points.totalScore))
         {
             progressSlider.value += 1f;
-            Debug.Log("counting up");
+            AudioManager.Instance.PlayAudio(audioManager.sfxUserInterface[4]);
+
+            //add to the overall level XP 
+            configData.levelProgressXP += 1;
+
+            nextLevelTally.text = progressSlider.value.ToString() + " / " + progressSlider.maxValue.ToString();
+           // Debug.Log("progress: " + progressSlider.value);
+            Debug.Log("progress:" + configData.levelProgressXP);
             yield return new WaitForSeconds(0.1f);
 
         }
-
+        Points.totalScore = 0;
 
         yield return null;
 

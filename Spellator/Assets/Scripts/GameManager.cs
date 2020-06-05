@@ -251,7 +251,7 @@ public class GameManager : MonoBehaviour
             //Remember that the object pooler uses TAGS not names of objects to set them active, etc. here.
             explosionClip = ObjectPooler.SharedInstance.GetPooledObject("Default Click");
 
-            if (explosionClip != null)
+            if (explosionClip != null)a
             {
                 explosionClip.transform.position = new Vector3(touchPos.x, touchPos.y);
                 explosionClip.transform.SetParent(mainCanvas.transform);
