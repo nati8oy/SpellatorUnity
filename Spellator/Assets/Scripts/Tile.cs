@@ -349,6 +349,7 @@ public class Tile : MonoBehaviour
         {
             AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxTilePops[3]);
             //AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxUserInterface[3]);
+            swishAudioSource.volume = 0.4f;
             AudioManager.Instance.PlayAudioWithSource(AudioManager.Instance.sfxUserInterface[3], swishAudioSource, 0.1f);
 
 

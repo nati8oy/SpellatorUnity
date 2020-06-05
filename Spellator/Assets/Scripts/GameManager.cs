@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     //[SerializeField] private AudioClip bgMusic;
     //public float audioTrackSelection;
     public AudioSource gameManagerAudioSource;
+    public AudioSource gameManagerAudioSource2;
     public GameObject bgPattern1;
     public GameObject bgPattern2;
 
@@ -153,6 +154,10 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        gameManagerAudioSource2.Stop();
+        gameManagerAudioSource.Play();
+
+        gameManagerAudioSource.loop = true;
 
         iTween.MoveBy(bgPattern1, iTween.Hash("x", 500, "easetype", "linear", "time", 30f, "loopType", "pingPong"));
         //iTween.MoveBy(bgPattern2, iTween.Hash("x", -32, "easetype", "linear", "time", 40f, "loopType", "pingPong"));
@@ -161,67 +166,15 @@ public class GameManager : MonoBehaviour
         mainCamera = Camera.main;
 
 
-     
-
-
-
-        //GameEvents.OnLoadInitiated();
-
-        //GameEvents.SaveInitiated += Save;
-
-
-        // StartCoroutine(GetTilesOnRack());
-        /*
-        if (GameObject.Find("GameState"))
-        {
-            tileSkinSelection = GameObject.Find("GameState").GetComponent<GameState>().skinSelection;
-
-
-        }*/
-        //selects the skin for the tiles
-        // tileSkinSelection = GameState.skinSelection;
-
-        //set the game background randomly from the array
-        // mainBackground.sprite = gameBackgrounds[Random.Range(0, gameBackgrounds.Length)];
-
-        //reset all the game levels before the game starts
-
-
-        //resets the current game level via the scriptable object 
-        ///levelDetails.currentLevel = 0;
-
-
         fadeManager = GameObject.Find("Fade Manager").GetComponent<Transitions>();
 
         //set the new word counter to 0 at the start of each level
         newWordCounter = 0;
 
-        //levelCompleteParticles.Stop();
-
-        //toggle = true;
-        //Auto load the data from the Game State file when the game manager loads
-
-
-        /*
-
-        if(GameObject.Find("GameState"))
-        {
-            GameObject.Find("GameState").GetComponent<GameState>().LoadGameData();
-        }
-        */
-
-
-        //start the game with the level description object active
-        //GameObject.Find("Level Description Screen").SetActive(true);
-
+        //show the rules detail object
         ruleDetailPanel.gameObject.SetActive(true);
 
-
-
-        //gameManagerAudioSource.volume = 0;
-
-        gameManagerAudioSource.loop = true;
-
+        
 
         //set scores to blank
         liveScoreText.text = "";
@@ -302,7 +255,7 @@ public class GameManager : MonoBehaviour
 
     public void ResetGame()
     {
-        
+        //levelDetails.currentLevel = 0;
 
         TileBag.pointsDictionary.Clear();
         CountDown.timeLeft = 75;
@@ -341,7 +294,8 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("total score: " + Points.totalScore);
 
-
+        gameManagerAudioSource2.volume = 1;
+        gameManagerAudioSource.volume = 0 ;
 
         fadeManager.FadeType(fadeManager._flashColour, fadeManager.pulseSpeed);
         yield return new WaitForSeconds(1f);
