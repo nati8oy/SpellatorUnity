@@ -22,6 +22,9 @@ public class AudioManager : MonoBehaviour
     public AudioClip[] sfxTileCrashes;
 
     public AudioClip[] sfxUserInterface;
+    public AudioClip[] sfxTileCracks;
+
+
 
     public AudioSource crashAudioSource;
     public AudioSource popAudioSource;
@@ -74,6 +77,8 @@ public class AudioManager : MonoBehaviour
         sfxTilePops = audioObject.sfxTilePops;
         sfxTileCrashes = audioObject.sfxTileCrashes;
         sfxUserInterface = audioObject.sfxUserInterface;
+        sfxTileCracks = audioObject.sfxTileCracks;
+
 
 
 

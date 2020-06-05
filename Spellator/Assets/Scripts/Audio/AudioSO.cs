@@ -22,8 +22,10 @@ public class AudioSO : ScriptableObject
 
     public AudioClip[] sfxTileCrashes;
     public AudioClip[] sfxUserInterface;
+    public AudioClip[] sfxTileCracks;
 
- 
+
+
 
 
 

@@ -906,14 +906,13 @@ public class DictionaryManager : MonoBehaviour
                 //if the tile age == 0 then run the DropTile function on the tile
 
                 tile.GetComponent<Tile>().DropTile();
-               
-                Debug.Log("tile dropped");
-               
-            }
+                if (AudioManager.Instance)
+                {
+                    AudioManager.Instance.PlayAudioWithSource(AudioManager.Instance.sfxTileCracks[Random.Range(0, 4)], gameObject.GetComponent<AudioSource>(), Random.Range(0.4f, 1f));
 
-            else
-            {
-                Debug.Log("end of level!");
+                }
+                //Debug.Log("tile dropped");
+               
             }
 
         }

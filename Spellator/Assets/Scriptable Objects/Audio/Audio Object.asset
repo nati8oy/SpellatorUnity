@@ -57,3 +57,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 300855e9f58754c06b0a5aef6f031a06, type: 3}
   - {fileID: 8300000, guid: d239215bb9df14566a8d1218794ecdae, type: 3}
   - {fileID: 8300000, guid: db96a9113539f4d38b54a8b1d18ac35e, type: 3}
+  sfxTileCracks:
+  - {fileID: 8300000, guid: cb57cbb42b2054ec2aa0688e3ba97a6c, type: 3}
+  - {fileID: 8300000, guid: 97945b1101d224c00a01ead910f3a68a, type: 3}
+  - {fileID: 8300000, guid: 92a860d96a41241ada6c79d9f2014128, type: 3}
+  - {fileID: 8300000, guid: 1086171964f0e4f278f646a3dbfefec6, type: 3}
+  - {fileID: 8300000, guid: d86c7169cd5fc4254a8e3496c6d83e20, type: 3}
