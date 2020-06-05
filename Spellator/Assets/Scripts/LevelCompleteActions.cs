@@ -20,6 +20,10 @@ public class LevelCompleteActions : MonoBehaviour
     public TextMeshProUGUI wordsMadeText;
     public TextMeshProUGUI nextLevelTally;
 
+    public GameObject explosionClip;
+
+    public GameObject[] remainingTiles;
+
     public int wordsMade;
 
     private void Start()
@@ -52,6 +56,8 @@ public class LevelCompleteActions : MonoBehaviour
         {
             configData.levelProgressXP = configData.levelProgressXP + Points.totalScore;
         }*/
+
+
     }
 
     private void Update()
@@ -122,7 +128,6 @@ public class LevelCompleteActions : MonoBehaviour
 
             nextLevelTally.text = progressSlider.value.ToString() + " / " + progressSlider.maxValue.ToString();
            // Debug.Log("progress: " + progressSlider.value);
-            Debug.Log("progress:" + configData.levelProgressXP);
             yield return new WaitForSeconds(0.1f);
 
         }

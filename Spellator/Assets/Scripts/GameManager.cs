@@ -35,6 +35,8 @@ public class GameManager : MonoBehaviour
     public Vector2 mousePos;
     public Vector2 touchPos;
 
+    public GameObject[] remainingTiles;
+
 
     [Header("Scriptable objects")]
     public TileBagSO currentBag;
@@ -350,6 +352,41 @@ public class GameManager : MonoBehaviour
  
         GameEvents.OnSaveInitiated();
         levelDetails.levelComplete = true;
+
+
+        remainingTiles = GameObject.FindGameObjectsWithTag("Tile");
+
+
+        //remove each of the remaining tiles on the screen one by one 
+        for (int i = 0; i < remainingTiles.Length; i++)
+        {
+            Points.totalScore += remainingTiles[i].GetComponent<Tile>().spawnedTile.points;
+            remainingTiles[i].SetActive(false);
+
+
+            //Remember that the object pooler uses TAGS not names of objects to set them active, etc. here.
+            explosionClip = ObjectPooler.SharedInstance.GetPooledObject("Explosion");
+
+            if (explosionClip != null)
+            {
+                explosionClip.transform.position = new Vector3(remainingTiles[i].transform.position.x, remainingTiles[i].transform.position.y);
+                //explosionClip.transform.SetParent(GameManager.Instance.mainCanvas.transform);
+                explosionClip.SetActive(true);
+                //available = false;
+
+                if (AudioManager.Instance)
+                {
+                    AudioManager.Instance.PlayAudioWithSource(AudioManager.Instance.sfxTilePops[Random.Range(0, 6)], gameObject.GetComponent<AudioSource>(), Random.Range(0.4f, 1f));
+
+                }
+            }
+            yield return new WaitForSeconds(0.1f);
+
+        }
+
+        yield return new WaitForSeconds(0.8f);
+
+        ShakeCamera(0, Random.Range(30, 40), 0.75f);
 
         //display the level complete panel
         levelCompleteMenu.gameObject.SetActive(true);
