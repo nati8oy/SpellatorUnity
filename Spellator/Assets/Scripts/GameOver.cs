@@ -16,7 +16,8 @@ public class GameOver : MonoBehaviour
     {
         Score.text = Points.totalScore.ToString();
         WordsMade.text = DictionaryManager.Instance.TotalWordsMade.ToString();
-      
+       
+
     }
 
     // Update is called once per frame

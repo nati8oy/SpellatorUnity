@@ -9880,35 +9880,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 53077372}
     m_Modifications:
-    - target: {fileID: 262373171311087576, guid: 8dd6b9770ec074f5db4b52fbf98d378a,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: c359a46bafd8245dd84e812c390562d3, type: 3}
-    - target: {fileID: 262373171311087576, guid: 8dd6b9770ec074f5db4b52fbf98d378a,
-        type: 3}
-      propertyPath: m_Volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 262373171311087577, guid: 8dd6b9770ec074f5db4b52fbf98d378a,
-        type: 3}
-      propertyPath: audioClips.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 262373171311087577, guid: 8dd6b9770ec074f5db4b52fbf98d378a,
-        type: 3}
-      propertyPath: audioClips.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: d3bb8e2dc75c441acaa3539068d2ed3a, type: 3}
     - target: {fileID: 262373171311087578, guid: 8dd6b9770ec074f5db4b52fbf98d378a,
         type: 3}
       propertyPath: m_Name
       value: Level Complete Panel
-      objectReference: {fileID: 0}
-    - target: {fileID: 262373171311087578, guid: 8dd6b9770ec074f5db4b52fbf98d378a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2303012087366593991, guid: 8dd6b9770ec074f5db4b52fbf98d378a,
         type: 3}
@@ -10014,11 +9989,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4749762410392313771, guid: 8dd6b9770ec074f5db4b52fbf98d378a,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8dd6b9770ec074f5db4b52fbf98d378a, type: 3}

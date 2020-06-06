@@ -14,6 +14,8 @@ public class LevelCompleteActions : MonoBehaviour
     private float AppearDelay;
     public Slider progressSlider;
     public ConfigSO configData;
+    public Transitions fadeManager;
+    
 
     private GameObject starObject;
     public TextMeshProUGUI rewardText;
@@ -45,6 +47,11 @@ public class LevelCompleteActions : MonoBehaviour
         StartCoroutine(CountUpWords());
 
         progressSlider.maxValue = 100;
+
+        fadeManager = GameObject.Find("Fade Manager").GetComponent<Transitions>();
+        fadeManager.FadeType(fadeManager._flashColour, fadeManager.pulseSpeed);
+
+
         //progressSlider.value = configData.levelProgressXP + Points.totalScore;
 
         /*
@@ -121,7 +128,7 @@ public class LevelCompleteActions : MonoBehaviour
         while (progressSlider.value != (Points.totalScore))
         {
             progressSlider.value += 1f;
-            AudioManager.Instance.PlayAudio(audioManager.sfxUserInterface[4]);
+            AudioManager.Instance.PlayAudio(audioManager.sfxTilePops[4]);
 
             //add to the overall level XP 
             configData.levelProgressXP += 1;

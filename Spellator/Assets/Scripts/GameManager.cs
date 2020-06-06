@@ -249,7 +249,7 @@ public class GameManager : MonoBehaviour
         gameOverPanel.gameObject.SetActive(true);
         //
         AdController.Instance.RunInterstitial();
-        AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxGeneral[5]);
+        AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxGeneral[7]);
 
     }
 
