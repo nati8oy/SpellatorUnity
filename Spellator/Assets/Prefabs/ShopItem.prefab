@@ -32,6 +32,7 @@ RectTransform:
   m_Children:
   - {fileID: 7879924546953942960}
   - {fileID: 2561297597638312817}
+  - {fileID: 8460105182491925397}
   - {fileID: 3151948387836405764}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -104,7 +105,11 @@ MonoBehaviour:
   buyButton: {fileID: 7979250324296042052}
   goldText: {fileID: 1377707129097281222}
   coinSprite: {fileID: 3178846318637056591}
+  button: {fileID: 6508425278632363198}
+  checkMark: {fileID: 5487782585381626200}
   buttonText: {fileID: 2114674255411870363}
+  coin: {fileID: 6093142182247945959}
+  price: {fileID: 8180588180559733675}
   productPurchased: 0
 --- !u!1 &844287333773397345
 GameObject:
@@ -335,6 +340,79 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &5487782585381626200
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8460105182491925397}
+  - component: {fileID: 925111338476008191}
+  - component: {fileID: 6085872406781011549}
+  m_Layer: 5
+  m_Name: Check Mark
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &8460105182491925397
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5487782585381626200}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3755349424336260001}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -114}
+  m_SizeDelta: {x: 59, y: 46.7}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &925111338476008191
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5487782585381626200}
+  m_CullTransparentMesh: 0
+--- !u!114 &6085872406781011549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5487782585381626200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.9568628, g: 0.80392164, b: 0.21176472, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 310a1b5c97cd14f56b6d063afa6c4478, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &6093142182247945959
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,7 +425,7 @@ GameObject:
   - component: {fileID: 5481413235832316480}
   - component: {fileID: 3178846318637056591}
   m_Layer: 5
-  m_Name: Star
+  m_Name: Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -370,7 +448,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -24.700012, y: 58.200012}
-  m_SizeDelta: {x: 60, y: 60}
+  m_SizeDelta: {x: 35.587, y: 35.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5481413235832316480
 CanvasRenderer:
@@ -398,7 +476,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 83cfc88e9fa414879a1f7a1e199908a1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: aba90337356e646fea9d0b22d842d1f4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -442,7 +520,7 @@ RectTransform:
   - {fileID: 62797841608180613}
   - {fileID: 2767710544258229436}
   m_Father: {fileID: 3755349424336260001}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

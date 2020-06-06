@@ -17,11 +17,20 @@ public class ShopItem : MonoBehaviour
     public int goldAmount;
     public ConfigSO configData;
 
+
     [Header("Button Items")]
     public Button buyButton;
     public TextMeshProUGUI goldText;
     public Image coinSprite;
+
+
+    //public Text buttonText;
+    public GameObject button;
+    public GameObject checkMark;
     public Text buttonText;
+    public GameObject coin;
+    public GameObject price;
+
 
     public bool productPurchased;
 
@@ -37,15 +46,31 @@ public class ShopItem : MonoBehaviour
 
         skinID = arrayNumber;
 
-        //checks in the configData object if the skin has been purchased already
-        if (configData.skinsPurchased.Contains(skinID))
+        if (shopObject.currentSkin == skinID)
         {
+            buttonText.text = "current";
+            button.SetActive(false);
+            checkMark.SetActive(true);
+        }
+
+        //checks in the configData object if the skin has been purchased already
+        else if (configData.skinsPurchased.Contains(skinID))
+        {
+
+            //if it's been purchased then just make the button say "select" and make the coin and price text invisible
+            button.SetActive(true);
             buttonText.text = "select";
+            coin.SetActive(false);
+            price.SetActive(false);
             
             //buyButton.interactable = false;
             Debug.Log("you already bought this skin " + skinID);
 
-        } 
+           
+
+        }
+
+
 
     }
 
