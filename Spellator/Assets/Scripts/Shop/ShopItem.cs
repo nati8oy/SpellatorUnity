@@ -45,7 +45,11 @@ public class ShopItem : MonoBehaviour
         itemNameText.text = shopArray[arrayNumber].itemName;
 
         skinID = arrayNumber;
+        SkinStatusCheck();
+    }
 
+    private void Update()
+    {
         if (shopObject.currentSkin == skinID)
         {
             buttonText.text = "current";
@@ -62,16 +66,16 @@ public class ShopItem : MonoBehaviour
             buttonText.text = "select";
             coin.SetActive(false);
             price.SetActive(false);
-            
-            //buyButton.interactable = false;
-            Debug.Log("you already bought this skin " + skinID);
 
-           
+            //buyButton.interactable = false;
+           // Debug.Log("you already bought this skin " + skinID);
 
         }
+    }
 
-
-
+    public void SkinStatusCheck()
+    {
+        
     }
 
     //this is the function to select the new skin.
@@ -108,9 +112,10 @@ public class ShopItem : MonoBehaviour
 
                 if (AudioManager.Instance)
                 {
-                    AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxUserInterface[1]);
-
+                    AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxGeneral[15]);
                 }
+
+                SkinStatusCheck();
 
             }
 
