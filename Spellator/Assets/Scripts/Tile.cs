@@ -262,12 +262,12 @@ public class Tile : MonoBehaviour
         {
 
             spawnedTile.letter = DictionaryManager.Instance.StartLetter;
-            spawnedTile.points = TileBag.pointsDictionary[spawnedTile.letter];
+            spawnedTile.points = currentBag.letterDictionary[spawnedTile.letter];
 
-           /*
-            //set the primary tile score to be that of this tile
-            Points.primaryTileScore = spawnedTile.points;'
-            */
+            /*
+             //set the primary tile score to be that of this tile
+             Points.primaryTileScore = spawnedTile.points;'
+             */
 
         } else if (CompareTag("Tile"))
         {

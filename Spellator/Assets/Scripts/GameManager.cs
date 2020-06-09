@@ -257,7 +257,9 @@ public class GameManager : MonoBehaviour
     {
         //levelDetails.currentLevel = 0;
 
-        TileBag.pointsDictionary.Clear();
+//        TileBag.pointsDictionary.Clear();
+
+        currentBag.letterDictionary.Clear();
         CountDown.timeLeft = 75;
         Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
         Points.liveScore = 0;
