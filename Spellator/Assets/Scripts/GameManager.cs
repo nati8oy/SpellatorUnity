@@ -157,7 +157,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         //set up the tile bag with all the consonants and vowels 
-        tileBag = new TileBag(44, 46);
+        tileBag = new TileBag(55, 40);
 
         gameManagerAudioSource2.Stop();
         gameManagerAudioSource.Play();

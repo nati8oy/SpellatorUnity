@@ -82,7 +82,7 @@ public class TileBag
         foreach(string rareConsonantLetter in rareConsonants)
         {
             bag.Add(rareConsonantLetter);
-            Debug.Log("rare consonant added: " + rareConsonantLetter);
+//            Debug.Log("rare consonant added: " + rareConsonantLetter);
         }
 
         /*
