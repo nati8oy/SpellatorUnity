@@ -50,7 +50,7 @@ public class Tile : MonoBehaviour
 
     public bool firstLetterTile;
 
-    private TileBag tileBag = new TileBag();
+    //private TileBag tileBag;
 
     //[SerializeField] private AudioClip tileClick;
     [SerializeField] private GameObject specialIcon;
@@ -227,7 +227,7 @@ public class Tile : MonoBehaviour
         //stop the particles that were playing when this was the primary tile
         glowParticles.Stop();
 
-
+        /*
 
         //this is the code that chooses the random value from the curve.
         //The curve can be adjusted in the inspector
@@ -236,7 +236,7 @@ public class Tile : MonoBehaviour
             //multiply the float that is returned by the length of the bag
             return curve.Evaluate(Random.value)*TileBag.bag.Count;
         }
-
+        */
 
         //CurveWeightedRandom(mainAnimationCurve);
 
@@ -272,14 +272,15 @@ public class Tile : MonoBehaviour
         } else if (CompareTag("Tile"))
         {
 
-            //var n = TileBag.bag.Count;
-            //spawnedTile.letter = currentBag.bag[Random.Range(0, currentBag.bag.Count)];
-            //spawnedTile.letter = TileBag.bag[Random.Range(0, TileBag.bag.Count)];
-
             //get the spawned letter by grabbing the value from the animation curve (which has been multiplied by the length of the bag
             //then converted to a whole number via Mathf.CeilToInt
 
-            spawnedTile.letter = TileBag.bag[Mathf.CeilToInt(CurveWeightedRandom(GameManager.Instance.GetComponent<CreateNewBag>().mainAnimationCurve))];
+            // spawnedTile.letter = TileBag.bag[Mathf.CeilToInt(CurveWeightedRandom(GameManager.Instance.GetComponent<CreateNewBag>().mainAnimationCurve))];
+
+           
+                spawnedTile.letter = TileBag.bag[Random.Range(0,TileBag.bag.Count)];
+            
+            
 
             //check that the letter actually exists in the bag before using it
             if (TileBag.bag.Contains(spawnedTile.letter))
@@ -322,7 +323,7 @@ public class Tile : MonoBehaviour
 
         
         //refill the tile bag
-        GameManager.Instance.CheckBagLevels();
+       // GameManager.Instance.CheckBagLevels();
        // Debug.Log(TileBag.bag.Count + " Tiles remaining in bag");
 
     }

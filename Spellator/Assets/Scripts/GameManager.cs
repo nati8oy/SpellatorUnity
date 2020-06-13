@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour
     public Vector2 mousePos;
     public Vector2 touchPos;
 
+    public TileBag tileBag;
+
     public GameObject[] remainingTiles;
 
 
@@ -154,6 +156,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        //set up the tile bag with all the consonants and vowels 
+        tileBag = new TileBag(44, 46);
+
         gameManagerAudioSource2.Stop();
         gameManagerAudioSource.Play();
 
@@ -386,6 +391,7 @@ public class GameManager : MonoBehaviour
         
     }
 
+    /*
     public void CheckBagLevels()
     {
         // if there's only 20 tiles left, add 179 more from the SO
@@ -403,6 +409,7 @@ public class GameManager : MonoBehaviour
         }
        
     }
+    */
 
    
 
