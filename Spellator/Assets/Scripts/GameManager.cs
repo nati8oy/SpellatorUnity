@@ -29,7 +29,6 @@ public class GameManager : MonoBehaviour
     //[SerializeField] private AudioClip bgMusic;
     //public float audioTrackSelection;
     public AudioSource gameManagerAudioSource;
-    public AudioSource gameManagerAudioSource2;
     public GameObject bgPattern1;
     public GameObject bgPattern2;
 
@@ -159,7 +158,6 @@ public class GameManager : MonoBehaviour
         //set up the tile bag with all the consonants and vowels 
         tileBag = new TileBag(55, 40);
 
-        gameManagerAudioSource2.Stop();
         gameManagerAudioSource.Play();
 
         gameManagerAudioSource.loop = true;
@@ -301,8 +299,9 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("total score: " + Points.totalScore);
 
-        gameManagerAudioSource2.volume = 1;
-        gameManagerAudioSource.volume = 0 ;
+        //play level complete audio
+        AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxGeneral[16]);
+
 
         fadeManager.FadeType(fadeManager._flashColour, fadeManager.pulseSpeed);
         yield return new WaitForSeconds(1f);
