@@ -12,8 +12,15 @@ public class TileClass
     public string letter;
     public int points;
     public Color correctWord;
-    public int randomSelector;
+    //    public int randomSelector;
+    public float randomSelector;
+
+    //public static float Range(float min, float max);
+
     public int age;
+
+    public float randomTypeSelector;
+    public int specialChanceSelector;
 
     //this list holds the different special types
     public List<string> specialTypes;
@@ -28,17 +35,23 @@ public class TileClass
 
     public TileClass (Vector3 _startPosition) {
 
+
+        //specialChanceSelector = 100;
+
         age = 4;
         startPosition = _startPosition;
 
         specialTypes = new List<string>();
 
-        specialChance = 5;
+       // specialChance = 5;
 
         //add special types on initialisaton
         specialTypes.Add("heart");
         specialTypes.Add("double");
         specialTypes.Add("triple");
+
+
+        
 
         AllocateSpecialType();
 
@@ -50,9 +63,32 @@ public class TileClass
     public void AllocateSpecialType()
     {
 
+        //this is the chance of getting a special tile in the first place. 
+        specialChance = 3;
 
+        //select a random number
+        randomSelector = Random.Range(0, specialChance+1);
+
+        Debug.Log("random selector " + randomSelector);
+
+            if(randomSelector == specialChance)
+        {
+            tileType = "special";
+            Debug.Log("match");
+            specialAttribute = specialTypes[0];
+
+        }
+        else
+        {
+            tileType = "default";
+            Debug.Log("no match");
+            specialAttribute = "none";
+
+        }
+
+        /*
         //choose a random number for special probability
-        randomSelector = Random.Range(0, 6);
+        randomSelector = Random.Range(0, specialChance);
         //  Debug.Log("Random Selector is: " + randomSelector);
 
         if (randomSelector == specialChance)
@@ -72,8 +108,21 @@ public class TileClass
             specialAttribute = "none";
         }
 
+        */
+        /*
+        float CurveWeightedRandom(AnimationCurve curve)
+        {
+            //multiply the float that is returned by 100
+            return curve.Evaluate(Random.value) * specialChanceSelector;
+        }
 
 
+        randomTypeSelector =  Mathf.CeilToInt(CurveWeightedRandom(GameManager.Instance.mainAnimationCurve));
+
+
+        //CurveWeightedRandom(mainAnimationCurve);
+
+    */
     }
 
 

@@ -55,7 +55,6 @@ MonoBehaviour:
   mainCanvas: {fileID: 0}
   tileSkinSelection: 0
   gameManagerAudioSource: {fileID: 166281410}
-  gameManagerAudioSource2: {fileID: 1281948494}
   bgPattern1: {fileID: 0}
   bgPattern2: {fileID: 0}
   mousePos: {x: 0, y: 0}
@@ -335,7 +334,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7349431635441859142}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8edbd0730656849d994e7b6ae3f931ce, type: 3}
   m_Name: 

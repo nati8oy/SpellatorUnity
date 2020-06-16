@@ -35,6 +35,8 @@ public class GameManager : MonoBehaviour
     public Vector2 mousePos;
     public Vector2 touchPos;
 
+    public AnimationCurve mainAnimationCurve;
+
     public TileBag tileBag;
 
     public GameObject[] remainingTiles;
@@ -133,6 +135,9 @@ public class GameManager : MonoBehaviour
         set { LiveScoreText = value; }
     }
 
+
+    //this is the probability for the amount of special tiles that are appearing
+    public int specialTileProbability = 5;
 
 
   //  public GameObject[] rackSpots;

@@ -20,6 +20,8 @@ public class Tile : MonoBehaviour
     public ParticleSystem twinkleParticles;
     public ParticleSystem glowParticles;
 
+    public int specialChance;
+
     //sets whether or not the tile can age
     public bool canAge = true;
 
@@ -28,7 +30,7 @@ public class Tile : MonoBehaviour
     public AudioSO audioScriptableObject;
 
     private Transitions fadeManager;
-
+    public AnimationCurve mainAnimationCurve;
 
     public TextMeshProUGUI letter;
     public TextMeshProUGUI points;
@@ -152,34 +154,27 @@ public class Tile : MonoBehaviour
             case "heart":
                 specialIcon.SetActive(true);
                 break;
+
             case "double":
-                
                
                 letter.color = tileDisplayAccess.doubleLetterColour;
-                //tileBGImage.color = tileDisplayAccess.doubleTileColour;
 
                 //update the points value of the tile so that it is added correctly to the overall live score
                 adjustedPointValue = spawnedTile.points * 2;
                 points.text = adjustedPointValue.ToString();
-   
-
                 break;
             case "triple":
                
                 letter.color = tileDisplayAccess.tripleLetterColour;
-                //tileBGImage.color = tileDisplayAccess.tripleTileColour;
 
                 //update the points value of the tile so that it is added correctly to the overall live score
                 adjustedPointValue = spawnedTile.points * 3;
                 points.text = (spawnedTile.points * 3).ToString();
-
                 break;
 
             case "none":
                 specialIcon.SetActive(false);
                 adjustedPointValue = spawnedTile.points;
-
-
                 break;
         }
 
@@ -227,20 +222,24 @@ public class Tile : MonoBehaviour
         //stop the particles that were playing when this was the primary tile
         glowParticles.Stop();
 
-        /*
+        
 
         //this is the code that chooses the random value from the curve.
         //The curve can be adjusted in the inspector
         float CurveWeightedRandom(AnimationCurve curve)
         {
-            //multiply the float that is returned by the length of the bag
-            return curve.Evaluate(Random.value)*TileBag.bag.Count;
+            //multiply the float that is returned by 100
+            return curve.Evaluate(Random.value)* GameManager.Instance.specialTileProbability;
         }
-        */
 
+        //this is the curve
         //CurveWeightedRandom(mainAnimationCurve);
 
-//        Debug.Log("<color=red>curve weighted random</color> " + CurveWeightedRandom(GameManager.Instance.GetComponent<CreateNewBag>().mainAnimationCurve));
+        specialChance = Mathf.CeilToInt(CurveWeightedRandom(mainAnimationCurve));
+
+        Debug.Log("curve number: " + Mathf.CeilToInt(CurveWeightedRandom(mainAnimationCurve)));
+
+        //        Debug.Log("<color=red>curve weighted random</color> " + CurveWeightedRandom(GameManager.Instance.GetComponent<CreateNewBag>().mainAnimationCurve));
 
 
 
@@ -511,7 +510,7 @@ public class Tile : MonoBehaviour
 
         }
 
-        Debug.Log("tile letter: " + spawnedTile.letter + " points: " + spawnedTile.points);
+//        Debug.Log("tile letter: " + spawnedTile.letter + " points: " + spawnedTile.points);
 
 
 
