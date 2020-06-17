@@ -556,6 +556,8 @@ public class DictionaryManager : MonoBehaviour
 
                         healthParticles.transform.SetParent(gameObject.transform) ;
 
+                       
+
                         healthParticles.SetActive(true);
                         StartCoroutine("CheckIfAlive");
                        // Debug.Log("Check if alive Enumerator is working");
@@ -564,7 +566,11 @@ public class DictionaryManager : MonoBehaviour
                     }
 
 
+                    if (AudioManager.Instance)
+                    {
+                        AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxGeneral[17]);
 
+                    }
                     //healthUpParticles.Play();
 
                 }

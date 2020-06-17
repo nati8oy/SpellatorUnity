@@ -78,7 +78,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -27.96}
+  m_AnchoredPosition: {x: 35, y: -30.400002}
   m_SizeDelta: {x: 0, y: -55.92}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1014440007308666114
@@ -5249,7 +5249,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1, y: 8}
+  m_AnchoredPosition: {x: 1, y: 16.3}
   m_SizeDelta: {x: 94.7, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4020480188255890427
@@ -5508,6 +5508,7 @@ MonoBehaviour:
   animator: {fileID: 8052626522917010101}
   twinkleParticles: {fileID: 8414099629685575350}
   glowParticles: {fileID: 1072198184491386551}
+  specialChance: 0
   canAge: 1
   explosionClip: {fileID: 0}
   audioScriptableObject: {fileID: 11400000, guid: a03b5a1d54d67443bae10bdddb04d364,
