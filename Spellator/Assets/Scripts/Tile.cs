@@ -35,6 +35,8 @@ public class Tile : MonoBehaviour
     public TextMeshProUGUI letter;
     public TextMeshProUGUI points;
 
+    
+
     private GameObject explosionObject;
 
     //used to adding double and triple points to the overall score
@@ -56,6 +58,7 @@ public class Tile : MonoBehaviour
 
     //[SerializeField] private AudioClip tileClick;
     [SerializeField] private GameObject specialIcon;
+
 
     //public AudioClip[] popSounds;
     //public AudioClip[] smashSounds;
@@ -143,16 +146,15 @@ public class Tile : MonoBehaviour
             case 0:
                 tileBGImage.sprite = tileDisplayAccess.tileAgeSprites[4];
 
-                if (levelManager.levelComplete != true)
-                {
-                    //set the colour of the tile text to be that of the inactive text within the scriptable object
-                    letter.color = tileDisplayAccess.tileDisabledColour;
-                    points.color = tileDisplayAccess.tileDisabledColour;
-                }
-               
+                //set the colour of the tile text to be that of the inactive text within the scriptable object
+                letter.color = tileDisplayAccess.tileDisabledColour;
+                points.color = tileDisplayAccess.tileDisabledColour;
+              
                 break;
 
         }
+
+
 
         switch (spawnedTile.specialAttribute)
         {
@@ -175,6 +177,11 @@ public class Tile : MonoBehaviour
                 //update the points value of the tile so that it is added correctly to the overall live score
                 adjustedPointValue = spawnedTile.points * 3;
                 points.text = (spawnedTile.points * 3).ToString();
+                break;
+
+            case "stubborn":
+                canAge = false;
+                tileBGImage.sprite = tileDisplayAccess.tileAgeSprites[5];
                 break;
 
             case "none":

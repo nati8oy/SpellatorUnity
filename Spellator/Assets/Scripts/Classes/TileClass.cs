@@ -49,9 +49,7 @@ public class TileClass
         specialTypes.Add("heart");
         specialTypes.Add("double");
         specialTypes.Add("triple");
-
-
-        
+        specialTypes.Add("stubborn");
 
         AllocateSpecialType();
 
@@ -64,24 +62,26 @@ public class TileClass
     {
 
         //this is the chance of getting a special tile in the first place. 
-        specialChance = 3;
+        specialChance = specialTypes.Count;
 
         //select a random number
         randomSelector = Random.Range(0, specialChance+1);
 
         Debug.Log("random selector " + randomSelector);
 
-            if(randomSelector == specialChance)
-        {
-            tileType = "special";
-            Debug.Log("match");
-            specialAttribute = specialTypes[0];
+           // if(randomSelector == specialChance && Points.multiplier>3)
 
+            if (randomSelector == specialChance)
+            {
+            tileType = "special";
+            //Debug.Log("match");
+            specialAttribute = specialTypes[Random.Range(0,specialChance)];
+            
         }
         else
         {
             tileType = "default";
-            Debug.Log("no match");
+            //Debug.Log("no match");
             specialAttribute = "none";
 
         }
