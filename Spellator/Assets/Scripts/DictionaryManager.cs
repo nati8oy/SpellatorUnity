@@ -880,16 +880,19 @@ public class DictionaryManager : MonoBehaviour
         //check which tiles aren't in the selected tiles array and age them accordingly
         foreach (GameObject tile in agingArray)
         {
-           
 
-            if (tile.GetComponent<Tile>().spawnedTile.age > 0)
+            //check if the level is complete first before doing all of this.
+            if ((tile.GetComponent<Tile>().spawnedTile.age > 0) && (levelManager.levelComplete != true))
             {
+                
+
                 //reduce tile age
                 tile.GetComponent<Tile>().spawnedTile.age -= 1;
 
                 var randomTime = Random.Range(0.5f, 1f);
 
-                switch (tile.GetComponent<Tile>().spawnedTile.age){
+                switch (tile.GetComponent<Tile>().spawnedTile.age)
+                {
 
                     //if the tile's age is 3, 2 or 1 then shake it accordingly
                     case 3:
@@ -903,6 +906,8 @@ public class DictionaryManager : MonoBehaviour
                         break;
 
                 }
+                
+
                  
 
 
