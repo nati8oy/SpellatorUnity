@@ -70,19 +70,19 @@ public class TileClass
         //select a random number
         randomSelector = Random.Range(0, specialChance+1);
 
-        Debug.Log("random selector " + randomSelector);
+//        Debug.Log("random selector " + randomSelector);
 
             if(randomSelector == specialChance)
         {
             tileType = "special";
-            Debug.Log("match");
+           // Debug.Log("match");
             specialAttribute = specialTypes[Random.Range(0, specialChance)];
 
         }
         else
         {
             tileType = "default";
-            Debug.Log("no match");
+            //Debug.Log("no match");
             specialAttribute = "none";
 
         }

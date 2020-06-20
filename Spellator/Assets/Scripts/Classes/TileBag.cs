@@ -91,6 +91,6 @@ public class TileBag
             bag.Add(rareConsonants[Random.Range(0, rareConsonants.Count)]);
         }*/
 
-        Debug.Log("Bag total: " + bag.Count);
+//        Debug.Log("Bag total: " + bag.Count);
     }
 }

@@ -87,7 +87,7 @@ public class DictionaryManager : MonoBehaviour
     [Space()]
     [Header("UI Elements")]
 
-    private GameObject healthBar;
+    public GameObject healthBar;
 
     //private TextMeshProUGUI currentLevel;
 
@@ -542,6 +542,9 @@ public class DictionaryManager : MonoBehaviour
                 tile.transform.parent.GetComponent<TileCreator>().RefillTiles();
 
                 //checks the tile type and adds whatever the special tile bonus is
+
+
+                /*
                 
                 if (tile.GetComponent<Tile>().spawnedTile.specialAttribute == "heart")
                 {
@@ -574,7 +577,7 @@ public class DictionaryManager : MonoBehaviour
                     //healthUpParticles.Play();
 
                 }
-                
+                */
 
                 //set the tag back to "Tile"
                 tile.tag = "Tile";
@@ -942,17 +945,6 @@ public class DictionaryManager : MonoBehaviour
         
     }
     */
-
-    //resets the particle systems to be inactive so they can be reused in the object pool
-    private IEnumerator CheckIfAlive()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(2f);
-            healthParticles.SetActive(false);
-//            Debug.Log("heart particles inactive");
-            StopCoroutine("CheckIfAlive");
-        }
-    }
+ 
 
 }

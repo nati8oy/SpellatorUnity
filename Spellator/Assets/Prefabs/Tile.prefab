@@ -5548,6 +5548,7 @@ MonoBehaviour:
   levelUpText: {fileID: 0}
   firstLetterTile: 0
   specialIcon: {fileID: 1494288407093416192}
+  healthParticles: {fileID: 0}
   nextTileSpot: {x: 0, y: 0, z: 0}
 --- !u!114 &7629360241887565636
 MonoBehaviour:

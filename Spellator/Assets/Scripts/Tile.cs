@@ -60,6 +60,7 @@ public class Tile : MonoBehaviour
     //public AudioClip[] popSounds;
     //public AudioClip[] smashSounds;
 
+    public GameObject healthParticles;
 
     public Vector3 nextTileSpot;
 
@@ -92,6 +93,8 @@ public class Tile : MonoBehaviour
 
     void Start()
     {
+
+        
         glowParticles.Stop();
 
             //stop the twinkle particle effect
@@ -233,7 +236,7 @@ public class Tile : MonoBehaviour
         //stop the particles that were playing when this was the primary tile
         glowParticles.Stop();
 
-        
+        healthParticles = ObjectPooler.SharedInstance.GetPooledObject("Heart Particles");
 
         //this is the code that chooses the random value from the curve.
         //The curve can be adjusted in the inspector
@@ -248,7 +251,7 @@ public class Tile : MonoBehaviour
 
         specialChance = Mathf.CeilToInt(CurveWeightedRandom(mainAnimationCurve));
 
-        Debug.Log("curve number: " + Mathf.CeilToInt(CurveWeightedRandom(mainAnimationCurve)));
+//        Debug.Log("curve number: " + Mathf.CeilToInt(CurveWeightedRandom(mainAnimationCurve)));
 
         //        Debug.Log("<color=red>curve weighted random</color> " + CurveWeightedRandom(GameManager.Instance.GetComponent<CreateNewBag>().mainAnimationCurve));
 
@@ -548,6 +551,30 @@ public class Tile : MonoBehaviour
 
         }
 
+        Debug.Log(spawnedTile.specialAttribute);
+
+        if (healthParticles != null && spawnedTile.specialAttribute == "heart")
+        {
+            healthParticles.transform.position = GameObject.Find("HealthBar").transform.position;
+
+            healthParticles.transform.SetParent(DictionaryManager.Instance.healthBar.transform);
+
+            healthParticles.SetActive(true);
+            Debug.Log("added health particles");
+            //StartCoroutine("CheckIfAlive");
+            // Debug.Log("Check if alive Enumerator is working");
+            //available = false;
+            if (AudioManager.Instance)
+            {
+                AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxGeneral[17]);
+
+            }
+
+            StartCoroutine(CheckIfAlive());
+        }
+
+
+        
         //check if levelComplete in the levelManager SO is true/false
         //used to make sure that the animations don't play if the level is complete
 
@@ -681,9 +708,18 @@ public class Tile : MonoBehaviour
         //reset the tile age
         spawnedTile.age = 4;
 
+    }
 
-
-
+    //resets the particle systems to be inactive so they can be reused in the object pool
+    private IEnumerator CheckIfAlive()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(2f);
+            healthParticles.SetActive(false);
+            //            Debug.Log("heart particles inactive");
+            StopCoroutine("CheckIfAlive");
+        }
     }
 
 }

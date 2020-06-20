@@ -10972,6 +10972,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 166281411, guid: cf2cb441bcdc54fbba9fdd62fba05c37, type: 3}
+      propertyPath: itemsToPool.Array.data[9].amountToPool
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 761818878724394127, guid: cf2cb441bcdc54fbba9fdd62fba05c37,
         type: 3}
       propertyPath: mainAnimationCurve.m_Curve.Array.data[0].inSlope
