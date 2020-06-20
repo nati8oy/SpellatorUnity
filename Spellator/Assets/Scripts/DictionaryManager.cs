@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using EZCameraShake;
+//using EZCameraShake;
 
 public class DictionaryManager : MonoBehaviour
 {
@@ -626,7 +626,7 @@ public class DictionaryManager : MonoBehaviour
             //sets the start letter of the next word
             //SetStartTile();
 
-            sendButton.interactable = false;
+           // sendButton.interactable = false;
            
             //add the scores to the screen after adding the ints together
             //GameManager.Instance.CalculateScores();
