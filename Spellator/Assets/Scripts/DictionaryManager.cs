@@ -624,6 +624,7 @@ public class DictionaryManager : MonoBehaviour
             //SetStartTile();
 
             sendButton.interactable = false;
+           
             //add the scores to the screen after adding the ints together
             //GameManager.Instance.CalculateScores();
 
@@ -882,7 +883,7 @@ public class DictionaryManager : MonoBehaviour
         {
 
             //check if the level is complete first before doing all of this.
-            if ((tile.GetComponent<Tile>().spawnedTile.age > 0) && (levelManager.levelComplete != true))
+            if ((tile.GetComponent<Tile>().spawnedTile.age > 0) && (levelManager.levelComplete != true) && (tile.GetComponent<Tile>().canAge==true))
             {
                 
 

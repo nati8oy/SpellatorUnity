@@ -177,6 +177,12 @@ public class Tile : MonoBehaviour
                 points.text = (spawnedTile.points * 3).ToString();
                 break;
 
+            case "stubborn":
+
+                tileBGImage.sprite = tileDisplayAccess.tileAgeSprites[5];
+                canAge = false;
+                break;
+
             case "none":
                 specialIcon.SetActive(false);
                 adjustedPointValue = spawnedTile.points;

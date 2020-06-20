@@ -6,6 +6,7 @@ public class GameEvents : MonoBehaviour
 {
     public static System.Action SaveInitiated;
     public static System.Action LoadInitiated;
+    public static System.Action TutorialItemInitiated;
 
 
     public static void OnSaveInitiated()
@@ -17,6 +18,13 @@ public class GameEvents : MonoBehaviour
     {
         LoadInitiated?.Invoke();
     }
+
+    public static void OnTutorialItemInitiated()
+    {
+        TutorialItemInitiated?.Invoke();
+    }
+
+
 }
 
 
