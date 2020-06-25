@@ -551,11 +551,12 @@ public class Tile : MonoBehaviour
 
         }
 
-        Debug.Log(spawnedTile.specialAttribute);
+//        Debug.Log(spawnedTile.specialAttribute);
 
+        /*
         if (healthParticles != null && spawnedTile.specialAttribute == "heart")
         {
-            healthParticles.transform.position = GameObject.Find("HealthBar").transform.position;
+            //healthParticles.transform.position = GameObject.Find("HealthBar").transform.position;
 
             healthParticles.transform.SetParent(DictionaryManager.Instance.healthBar.transform);
 
@@ -571,7 +572,7 @@ public class Tile : MonoBehaviour
             }
 
             StartCoroutine(CheckIfAlive());
-        }
+        }*/
 
 
         

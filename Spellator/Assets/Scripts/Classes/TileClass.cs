@@ -77,6 +77,8 @@ public class TileClass
             tileType = "special";
            // Debug.Log("match");
             specialAttribute = specialTypes[Random.Range(0, specialChance)];
+            TutorialActions.OnTutorialItemInitiated("stubborn tiles");
+
 
         }
         else
@@ -86,6 +88,8 @@ public class TileClass
             specialAttribute = "none";
 
         }
+
+
 
         /*
         //choose a random number for special probability

@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class GameEvents : MonoBehaviour
 {
-    public static System.Action SaveInitiated;
-    public static System.Action LoadInitiated;
-    public static System.Action TutorialItemInitiated;
-
+    public static Action SaveInitiated;
+    public static Action LoadInitiated;
+    public static Action TutorialItemInitiated;
 
     public static void OnSaveInitiated()
     {

@@ -544,7 +544,7 @@ public class DictionaryManager : MonoBehaviour
                 //checks the tile type and adds whatever the special tile bonus is
 
 
-                /*
+                
                 
                 if (tile.GetComponent<Tile>().spawnedTile.specialAttribute == "heart")
                 {
@@ -577,7 +577,7 @@ public class DictionaryManager : MonoBehaviour
                     //healthUpParticles.Play();
 
                 }
-                */
+                
 
                 //set the tag back to "Tile"
                 tile.tag = "Tile";

@@ -50,6 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f79f7b51d295e4cb19eb237343666dc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TutorialOn: 1
   tileSkinType: 0
   explosionClip: {fileID: 0}
   mainCanvas: {fileID: 0}
@@ -59,6 +60,12 @@ MonoBehaviour:
   bgPattern2: {fileID: 0}
   mousePos: {x: 0, y: 0}
   touchPos: {x: 0, y: 0}
+  mainAnimationCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   remainingTiles: []
   currentBag: {fileID: 11400000, guid: ffcfd2bd4f56d433a89c76bdd1265301, type: 2}
   levelDetails: {fileID: 11400000, guid: da09913161474424f878bba5ba2d1f98, type: 2}
@@ -83,6 +90,7 @@ MonoBehaviour:
   ruleLetter: P
   mostRecentScore: 0
   liveScoreText: {fileID: 0}
+  specialTileProbability: 5
 --- !u!82 &166281410
 AudioSource:
   m_ObjectHideFlags: 0
