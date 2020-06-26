@@ -64,6 +64,8 @@ public class TileClass
     public void AllocateSpecialType()
     {
 
+     
+
         //this is the chance of getting a special tile in the first place. 
         specialChance = 4;
 
@@ -77,7 +79,6 @@ public class TileClass
             tileType = "special";
            // Debug.Log("match");
             specialAttribute = specialTypes[Random.Range(0, specialChance)];
-            TutorialActions.OnTutorialItemInitiated("stubborn tiles");
 
 
         }
@@ -89,6 +90,26 @@ public class TileClass
 
         }
 
+
+        switch (specialAttribute)
+        {
+            case "stubborn":
+                TutorialActions.OnTutorialItemInitiated("stubborn tiles");
+                break;
+
+            case "heart":
+                TutorialActions.OnTutorialItemInitiated("heart tiles");
+                break;
+
+            case "double":
+                TutorialActions.OnTutorialItemInitiated("double tiles");
+                break;
+
+            case "triple":
+                TutorialActions.OnTutorialItemInitiated("triple tiles");
+                break;
+
+        }
 
 
         /*
@@ -129,6 +150,8 @@ public class TileClass
 
     */
     }
+
+
 
 
 }

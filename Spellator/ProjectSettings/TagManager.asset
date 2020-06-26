@@ -26,6 +26,7 @@ TagManager:
   - Remove Tile
   - Gold
   - Default Click
+  - Tutorial Bubble
   layers:
   - Default
   - TransparentFX

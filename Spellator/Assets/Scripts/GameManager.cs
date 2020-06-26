@@ -169,8 +169,9 @@ public class GameManager : MonoBehaviour
 
         gameManagerAudioSource.loop = true;
 
-        iTween.MoveBy(bgPattern1, iTween.Hash("x", 500, "easetype", "linear", "time", 30f, "loopType", "pingPong"));
+        //iTween.MoveBy(bgPattern1, iTween.Hash("x", 500, "easetype", "linear", "time", 30f, "loopType", "pingPong"));
         //iTween.MoveBy(bgPattern2, iTween.Hash("x", -32, "easetype", "linear", "time", 40f, "loopType", "pingPong"));
+
 
 
         mainCamera = Camera.main;
@@ -229,7 +230,7 @@ public class GameManager : MonoBehaviour
 
 
         //mouse controls to add click animation
-        mousePos = mainCamera.WorldToScreenPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y,0));
+        //mousePos = mainCamera.WorldToScreenPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y,0));
 
         /*
         if (Input.GetMouseButtonUp(0))

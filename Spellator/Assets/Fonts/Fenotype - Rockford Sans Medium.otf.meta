@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 099e1b5fc1a7a415d9d6ee1e9638dcb5
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Rockford Sans
+  fontNames:
+  - Rockford Sans
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 1844cd55a2ff246919691e4542d85464, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
