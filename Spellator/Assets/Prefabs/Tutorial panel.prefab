@@ -298,6 +298,7 @@ GameObject:
   - component: {fileID: 6664626739216393474}
   - component: {fileID: 6664626739216393472}
   - component: {fileID: 6664626739216393473}
+  - component: {fileID: 370688419395411678}
   m_Layer: 0
   m_Name: Tutorial panel
   m_TagString: Untagged
@@ -363,6 +364,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &370688419395411678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6664626739216393475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aacf180b757574504bb87bcd470cd114, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tipImage: {fileID: 4692832767378108630}
+  tipDescription: {fileID: 6014336818319490527}
+  tutorialSO: {fileID: 11400000, guid: b9c4a75af295045f09685de1d4b7d544, type: 2}
 --- !u!1 &7019290748905988124
 GameObject:
   m_ObjectHideFlags: 0

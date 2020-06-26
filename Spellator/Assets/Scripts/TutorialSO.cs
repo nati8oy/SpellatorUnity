@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class TutorialSO : ScriptableObject
 {
-    public GameObject[] speechBubbles;
-    public string stepDescription;
+    //public GameObject[] speechBubbles;
+    public string currentTip;
+    public Sprite tutorialTipImage;
 
 }
