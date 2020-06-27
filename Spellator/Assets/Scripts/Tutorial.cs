@@ -40,7 +40,7 @@ public class Tutorial : MonoBehaviour
                 Debug.Log("stubborn tile tutorial point");
 
                 ShowInfoPanel(0);
-                tutorialSO.currentTip = "Stubborn tiles don't age. They need to be used.";
+                tutorialSO.currentTip = "Stubborn tiles don't age at all.";
 
                 break;
             case "heart tiles":
