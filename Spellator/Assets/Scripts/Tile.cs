@@ -201,7 +201,7 @@ public class Tile : MonoBehaviour
         nextTileSpot = GameObject.Find("Primary Tile").transform.position;
 
 
-        /*CONTENT REMOVED FROM HERE FOR TILE POSITIONING
+        //CONTENT REMOVED FROM HERE FOR TILE POSITIONING
         //make sure both the primary tile and the selected tiles move in relation to the Primary Tile game object
         if (CompareTag("TileSelected"))
         {
@@ -210,12 +210,12 @@ public class Tile : MonoBehaviour
             //check if a word has been made before this
             if (DictionaryManager.Instance.chainFlag)
             {
-                //iTween.MoveUpdate(gameObject, new Vector3((nextTileSpot.x) + (tileOffset * positionInWord)- tileOffset, nextTileSpot.y), 1);
+                iTween.MoveUpdate(gameObject, new Vector3((nextTileSpot.x) + (tileOffset * positionInWord)- tileOffset, nextTileSpot.y), 1);
 
             }
             else
             {
-               // iTween.MoveUpdate(gameObject, new Vector3((nextTileSpot.x) + (tileOffset * positionInWord), nextTileSpot.y), 1);
+                iTween.MoveUpdate(gameObject, new Vector3((nextTileSpot.x) + (tileOffset * positionInWord), nextTileSpot.y), 1);
 
             }
 
@@ -226,7 +226,7 @@ public class Tile : MonoBehaviour
             iTween.MoveUpdate(gameObject, new Vector3(nextTileSpot.x, nextTileSpot.y), 1);
 
         }
-        */
+        
 
     }
 
@@ -424,90 +424,10 @@ public class Tile : MonoBehaviour
             //iTween.MoveTo(gameObject, iTween.Hash("x", TileManager.Instance.NextFreePos.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time", 0.5f, "easetype", "easeOut", "oncomplete", "CheckWordBeingSpelled"));
 
             //use the chainFlag to see if there's an active primary tile
-            if (DictionaryManager.Instance.chainFlag)
-            {
+            
                 //iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x) + (tileOffset * DictionaryManager.Instance.WordBeingMade.Length)- tileOffset, "y", nextTileSpot.y, "time", 0.5f, "easetype", "easeInOut", "oncomplete", "CheckWordBeingSpelled"));
-                switch (DictionaryManager.Instance.WordBeingMade.Length)
-                {
-                    case 1:
-                        iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x) + (tileOffset * DictionaryManager.Instance.WordBeingMade.Length) - tileOffset, "y", nextTileSpot.y, "time", 0.5f, "easetype", "easeInOut", "oncomplete", "CheckWordBeingSpelled"));
-                      //  iTween.ScaleTo(gameObject, iTween.Hash("scale", new Vector3(tileScaleSize, tileScaleSize, 1), "time", 0.5f));
+            iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x) + (tileOffset * DictionaryManager.Instance.WordBeingMade.Length) - tileOffset, "y", nextTileSpot.y, "time", 0.5f, "easetype", "easeInOut", "oncomplete", "CheckWordBeingSpelled"));
 
-                        break;
-                    case 2:
-                        iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x) + (tileOffset * DictionaryManager.Instance.WordBeingMade.Length) - tileOffset, "y", nextTileSpot.y, "time", 0.5f, "easetype", "easeInOut", "oncomplete", "CheckWordBeingSpelled"));
-
-                        break;
-                    case 3:
-                        iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x) + (tileOffset * DictionaryManager.Instance.WordBeingMade.Length) - tileOffset, "y", nextTileSpot.y, "time", 0.5f, "easetype", "easeInOut", "oncomplete", "CheckWordBeingSpelled"));
-                        break;
-                    case 4:
-                        iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x) + (tileOffset * DictionaryManager.Instance.WordBeingMade.Length) - tileOffset, "y", nextTileSpot.y, "time", 0.5f, "easetype", "easeInOut", "oncomplete", "CheckWordBeingSpelled"));
-                        break;
-                    case 5:
-                        iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x) + (tileOffset * DictionaryManager.Instance.WordBeingMade.Length) - tileOffset, "y", nextTileSpot.y, "time", 0.5f, "easetype", "easeInOut", "oncomplete", "CheckWordBeingSpelled"));
-                        break;
-                    case 6:
-                        iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x + tileOffset) - tileOffset, "y", nextTileSpot.y - tileOffset, "time", 0.5f, "easetype", "easeInOut", "oncomplete", "CheckWordBeingSpelled"));
-                        break;
-                    case 7:
-                        iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x + tileOffset * 2) - tileOffset, "y", nextTileSpot.y - tileOffset, "time", 0.5f, "easetype", "easeInOut", "oncomplete", "CheckWordBeingSpelled"));
-                        break;
-                    case 8:
-                        iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x + tileOffset * 3) - tileOffset, "y", nextTileSpot.y - tileOffset, "time", 0.5f, "easetype", "easeInOut", "oncomplete", "CheckWordBeingSpelled"));
-                        break;
-                    case 9:
-                        iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x + tileOffset * 4) - tileOffset, "y", nextTileSpot.y - tileOffset, "time", 0.5f, "easetype", "easeInOut", "oncomplete", "CheckWordBeingSpelled"));
-                        break;
-                    case 10:
-                        iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x + tileOffset * 5) - tileOffset, "y", nextTileSpot.y - tileOffset, "time", 0.5f, "easetype", "easeInOut", "oncomplete", "CheckWordBeingSpelled"));
-                        break;
-                    case 11:
-                        iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x + tileOffset) - tileOffset, "y", (nextTileSpot.y - tileOffset * 2), "time", 0.5f, "easetype", "easeInOut", "oncomplete", "CheckWordBeingSpelled"));
-                        break;
-                }
-
-
-            } else
-            {
-                switch (DictionaryManager.Instance.WordBeingMade.Length)
-                {
-                    case 1:
-                        iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x) + (tileOffset * DictionaryManager.Instance.WordBeingMade.Length), "y", nextTileSpot.y, "time", 0.5f, "easetype", "easeInOut", "oncomplete", "CheckWordBeingSpelled"));
-                        break;
-                    case 2:
-                        iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x) + (tileOffset * DictionaryManager.Instance.WordBeingMade.Length), "y", nextTileSpot.y, "time", 0.5f, "easetype", "easeInOut", "oncomplete", "CheckWordBeingSpelled"));
-                        break;
-                    case 3:
-                        iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x) + (tileOffset * DictionaryManager.Instance.WordBeingMade.Length), "y", nextTileSpot.y, "time", 0.5f, "easetype", "easeInOut", "oncomplete", "CheckWordBeingSpelled"));
-                        break;
-                    case 4:
-                        iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x) + (tileOffset * DictionaryManager.Instance.WordBeingMade.Length), "y", nextTileSpot.y, "time", 0.5f, "easetype", "easeInOut", "oncomplete", "CheckWordBeingSpelled"));
-                        break;
-                    case 5:
-                        iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x) + (tileOffset * DictionaryManager.Instance.WordBeingMade.Length), "y", nextTileSpot.y, "time", 0.5f, "easetype", "easeInOut", "oncomplete", "CheckWordBeingSpelled"));
-                        break;
-                    case 6:
-                        iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x+ tileOffset), "y", nextTileSpot.y - tileOffset, "time", 0.5f, "easetype", "easeInOut", "oncomplete", "CheckWordBeingSpelled"));
-                        break;
-                    case 7:
-                        iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x + tileOffset * 2), "y", nextTileSpot.y - tileOffset, "time", 0.5f, "easetype", "easeInOut", "oncomplete", "CheckWordBeingSpelled"));
-                        break;
-                    case 8:
-                        iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x + tileOffset * 3), "y", nextTileSpot.y - tileOffset, "time", 0.5f, "easetype", "easeInOut", "oncomplete", "CheckWordBeingSpelled"));
-                        break;
-                    case 9:
-                        iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x + tileOffset * 4), "y", nextTileSpot.y - tileOffset, "time", 0.5f, "easetype", "easeInOut", "oncomplete", "CheckWordBeingSpelled"));
-                        break;
-                    case 10:
-                        iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x + tileOffset * 5), "y", nextTileSpot.y - tileOffset, "time", 0.5f, "easetype", "easeInOut", "oncomplete", "CheckWordBeingSpelled"));
-                        break;
-                    case 11:
-                        iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x + tileOffset), "y", (nextTileSpot.y - tileOffset*2), "time", 0.5f, "easetype", "easeInOut", "oncomplete", "CheckWordBeingSpelled"));
-                        break;
-                }
-
-            }
 
             //sets the next free position to the TileManager.Instance.selectedTiles length
 

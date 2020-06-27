@@ -260,7 +260,9 @@ public class DictionaryManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      
+
+        //add MoveWordToPoint to the listener
+        GameEvents.WordLengthCheckInitiated += MoveWordToPoint;
 
         longestWord = wordData.longestWord;
 
@@ -686,6 +688,7 @@ public class DictionaryManager : MonoBehaviour
 
         }
 
+        GameEvents.OnWordLengthCheckInitiated();
 
         /*
         //check the length of the word being makde and move the whole word to that point.
@@ -706,6 +709,8 @@ public class DictionaryManager : MonoBehaviour
                 break;
         }
         */
+
+
 
 
 
@@ -945,6 +950,31 @@ public class DictionaryManager : MonoBehaviour
         
     }
     */
- 
+
+
+    public void MoveWordToPoint()
+    {
+        if (wordBeingMade.Length == 4)
+        {
+            iTween.MoveTo(PrimaryTile, iTween.Hash("x", -150, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
+        }
+
+        if (wordBeingMade.Length == 6)
+        {
+            iTween.MoveTo(PrimaryTile, iTween.Hash("x", -300, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
+        }
+
+        if (wordBeingMade.Length == 8)
+        {
+            iTween.MoveTo(PrimaryTile, iTween.Hash("x", -450, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
+        }
+
+        if (wordBeingMade.Length == 10)
+        {
+            iTween.MoveTo(PrimaryTile, iTween.Hash("x", -600, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
+        }
+
+
+    }
 
 }

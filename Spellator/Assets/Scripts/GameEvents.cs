@@ -8,6 +8,7 @@ public class GameEvents : MonoBehaviour
     public static Action SaveInitiated;
     public static Action LoadInitiated;
     public static Action TutorialItemInitiated;
+    public static Action WordLengthCheckInitiated;
 
     public static void OnSaveInitiated()
     {
@@ -24,7 +25,10 @@ public class GameEvents : MonoBehaviour
         TutorialItemInitiated?.Invoke();
     }
 
-
+    public static void OnWordLengthCheckInitiated()
+    {
+        WordLengthCheckInitiated?.Invoke();
+    }
 }
 
 
