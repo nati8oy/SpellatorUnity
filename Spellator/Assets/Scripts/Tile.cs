@@ -335,27 +335,6 @@ public class Tile : MonoBehaviour
         // GameManager.Instance.CheckBagLevels();
         // Debug.Log(TileBag.bag.Count + " Tiles remaining in bag");
 
-
-        switch (spawnedTile.specialAttribute)
-        {
-            case "stubborn":
-                TutorialActions.OnTutorialItemInitiated("stubborn tiles");
-                break;
-
-            case "heart":
-                TutorialActions.OnTutorialItemInitiated("heart tiles");
-                break;
-
-            case "double":
-                TutorialActions.OnTutorialItemInitiated("double tiles");
-                break;
-
-            case "triple":
-                TutorialActions.OnTutorialItemInitiated("triple tiles");
-                break;
-
-        }
-
     }
 
 
@@ -366,6 +345,9 @@ public class Tile : MonoBehaviour
     public void HandleClick()
 
     {
+        //TutorialActions.OnTutorialItemInitiated("stubborn tiles");
+        //for tutorial only
+        CheckTileTutorial();
 
 
         //Debug.Log(GameManager.Instance.testList.Count);
@@ -657,6 +639,36 @@ public class Tile : MonoBehaviour
             healthParticles.SetActive(false);
             //            Debug.Log("heart particles inactive");
             StopCoroutine("CheckIfAlive");
+        }
+    }
+
+
+    public void CheckTileTutorial()
+    {
+        switch (spawnedTile.specialAttribute)
+        {
+            case "stubborn":
+                TutorialActions.OnTutorialItemInitiated("stubborn tiles");
+                Debug.Log("stubborn tile tutorial");
+
+                break;
+
+            case "heart":
+                TutorialActions.OnTutorialItemInitiated("heart tiles");
+                Debug.Log("heart tile tutorial");
+                break;
+
+            case "double":
+                TutorialActions.OnTutorialItemInitiated("double tiles");
+                Debug.Log("double tile tutorial");
+                break;
+
+            case "triple":
+                TutorialActions.OnTutorialItemInitiated("triple tiles");
+                Debug.Log("triple tile tutorial");
+
+                break;
+
         }
     }
 

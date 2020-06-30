@@ -43,9 +43,10 @@ public class Tutorial : MonoBehaviour
         }
     }
 
+    
     private void Update()
     {
-            if(levelDetails.levelComplete == false)
+            if(levelDetails.levelComplete == true)
         {
             TutorialActions.TutorialItemInitiated -= CheckTutorialItem;
         }
@@ -59,29 +60,53 @@ public class Tutorial : MonoBehaviour
         switch (tutorialItem)
         {
             case "stubborn tiles":
-                Debug.Log("stubborn tile tutorial point");
 
-                ShowInfoPanel(0);
-                tutorialSO.currentTip = "Stubborn tiles don't age at all.";
+                if (stubbornTileFlag != true)
+                {
+                    Debug.Log("stubborn tile tutorial point");
+
+                    ShowInfoPanel(0);
+                    tutorialSO.currentTip = "Stubborn tiles don't age at all.";
+                    stubbornTileFlag = true;
+                }
 
                 break;
             case "heart tiles":
-                Debug.Log("heart tile tutorial point");
-                ShowInfoPanel(1);
-                tutorialSO.currentTip = "Use heart tiles to replenish health";
+
+                if (heartTileFlag != true)
+                {
+                    Debug.Log("heart tile tutorial point");
+                    ShowInfoPanel(1);
+                    tutorialSO.currentTip = "Use heart tiles to replenish health";
+                    heartTileFlag = true;
+                }
 
                 break;
             case "double tiles":
-                Debug.Log("double tile tutorial point");
 
-                ShowInfoPanel(2);
-                tutorialSO.currentTip = "Double tiles score double points";
+                if (doubleTileFlag != true)
+                {
+                    Debug.Log("double tile tutorial point");
+
+                    ShowInfoPanel(2);
+                    tutorialSO.currentTip = "Double tiles score double points";
+                    doubleTileFlag = true;
+                }
+
+
                 break;
             case "triple tiles":
-                Debug.Log("triple tile tutorial point");
 
-                ShowInfoPanel(3);
-                tutorialSO.currentTip = "Triple tiles score triple points";
+                if (tripleTileFlag != true)
+                {
+
+                    Debug.Log("triple tile tutorial point");
+
+                    ShowInfoPanel(3);
+                    tutorialSO.currentTip = "Triple tiles score triple points";
+                    tripleTileFlag = true;
+                }
+
                 break;
 
         }
@@ -91,13 +116,13 @@ public class Tutorial : MonoBehaviour
 
     private void ShowInfoPanel(int infoPanelImage)
     {
-        iTween.MoveBy(tutorialPanel, iTween.Hash("y", -300, "easetype", "easeInOut", "time", 0.5f));
+        iTween.MoveTo(tutorialPanel, iTween.Hash("y", 1000, "easetype", "easeInOut", "time", 0.5f));
         tutorialSO.tutorialTipImage = tutorialTipImages[infoPanelImage];
     }
 
     public void CloseInfoPanel()
     {
-        iTween.MoveBy(tutorialPanel, iTween.Hash("y", 300, "easetype", "easeInOut", "time", 0.5f));
+        iTween.MoveTo(tutorialPanel, iTween.Hash("y", 1300, "easetype", "easeInOut", "time", 0.5f));
     }
 
 }
