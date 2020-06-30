@@ -8,5 +8,7 @@ public class TutorialSO : ScriptableObject
     //public GameObject[] speechBubbles;
     public string currentTip;
     public Sprite tutorialTipImage;
+    public string[] endOfLevelTips;
+
 
 }

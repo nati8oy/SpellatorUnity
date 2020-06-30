@@ -15,9 +15,12 @@ public class LevelCompleteActions : MonoBehaviour
     public Slider progressSlider;
     public ConfigSO configData;
     public Transitions fadeManager;
-    
+    public Transform goldMovePoint;
+    public TutorialSO tutorial;
+    public TextMeshProUGUI tipText;
 
-    private GameObject starObject;
+
+    private GameObject goldCoinObject;
     public TextMeshProUGUI rewardText;
     public TextMeshProUGUI wordsMadeText;
     public TextMeshProUGUI nextLevelTally;
@@ -51,6 +54,9 @@ public class LevelCompleteActions : MonoBehaviour
         fadeManager = GameObject.Find("Fade Manager").GetComponent<Transitions>();
         fadeManager.FadeType(fadeManager._flashColour, fadeManager.pulseSpeed);
 
+        //randomly show a tip from the tutorial scriptable object
+        tipText.text = tutorial.endOfLevelTips[Random.Range(0, tutorial.endOfLevelTips.Length)];
+
 
         //progressSlider.value = configData.levelProgressXP + Points.totalScore;
 
@@ -82,23 +88,23 @@ public class LevelCompleteActions : MonoBehaviour
 //            AudioManager.Instance.PlayAudio(starSound);
 
            
-            starObject = ObjectPooler.SharedInstance.GetPooledObject("Gold");
-            if (starObject != null)
+            goldCoinObject = ObjectPooler.SharedInstance.GetPooledObject("Gold");
+            if (goldCoinObject != null)
             {
 
                 //set the start position var for the star being loaded
-                var starPos = new Vector3((Screen.width / 3)+ starPositionCalculator, 500);
-                starObject.transform.position = starPos;
+                var starPos = goldMovePoint.position;
+                goldCoinObject.transform.position = starPos;
                 //parent it to the rewardText game object so that it's visible as a UI element
-                starObject.transform.SetParent(rewardText.transform);
+                goldCoinObject.transform.SetParent(goldMovePoint);
 
                 //update the position of the upcoming star
                 starPositionCalculator += 70;
                 //set the gameobject to be active
-                starObject.SetActive(true);
+                goldCoinObject.SetActive(true);
             }
 
-            iTween.MoveFrom(starObject, iTween.Hash("y", 750, "easetype", "EaseOutQuad", "time", 0.6f));
+            iTween.MoveFrom(goldCoinObject, iTween.Hash("y", 750, "easetype", "EaseOutQuad", "time", 0.6f));
 
 
 

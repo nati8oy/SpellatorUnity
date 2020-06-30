@@ -90,7 +90,7 @@ public class TileClass
 
         }
 
-
+            /*
         switch (specialAttribute)
         {
             case "stubborn":
@@ -111,7 +111,7 @@ public class TileClass
 
         }
 
-
+            */
         /*
         //choose a random number for special probability
         randomSelector = Random.Range(0, specialChance);

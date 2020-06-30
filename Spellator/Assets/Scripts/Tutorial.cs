@@ -8,6 +8,10 @@ public class Tutorial : MonoBehaviour
     public GameObject tutorialPanel;
     public Sprite[] tutorialTipImages;
     public LevelManagerSO levelDetails;
+    public bool doubleTileFlag;
+    public bool tripleTileFlag;
+    public bool stubbornTileFlag;
+    public bool heartTileFlag;
 
 
     public TutorialSO tutorialSO;
@@ -18,6 +22,24 @@ public class Tutorial : MonoBehaviour
         if (GameManager.Instance.TutorialOn)
         {
             TutorialActions.TutorialItemInitiated += CheckTutorialItem;
+        }
+
+        //set the flags based on the GameManager TutorialOn boolean
+        if (GameManager.Instance.TutorialOn)
+        {
+            //set the flags to true if the tutorial is on so that they don't show
+            doubleTileFlag = false;
+            tripleTileFlag = false;
+            stubbornTileFlag = false;
+            heartTileFlag = false;
+        }
+        else
+        {
+            //set the flags to true if the tutorial is on so that they don't show
+            doubleTileFlag = true;
+            tripleTileFlag = true;
+            stubbornTileFlag = true;
+            heartTileFlag = true;
         }
     }
 

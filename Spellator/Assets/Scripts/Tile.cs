@@ -313,11 +313,6 @@ public class Tile : MonoBehaviour
 
 
 
-
-
-
-
-
             //currentBag.bag.Remove(spawnedTile.letter);
 
 
@@ -335,10 +330,31 @@ public class Tile : MonoBehaviour
         points.text = spawnedTile.points.ToString();
         tilePointValue = spawnedTile.points;
 
-        
+
         //refill the tile bag
-       // GameManager.Instance.CheckBagLevels();
-       // Debug.Log(TileBag.bag.Count + " Tiles remaining in bag");
+        // GameManager.Instance.CheckBagLevels();
+        // Debug.Log(TileBag.bag.Count + " Tiles remaining in bag");
+
+
+        switch (spawnedTile.specialAttribute)
+        {
+            case "stubborn":
+                TutorialActions.OnTutorialItemInitiated("stubborn tiles");
+                break;
+
+            case "heart":
+                TutorialActions.OnTutorialItemInitiated("heart tiles");
+                break;
+
+            case "double":
+                TutorialActions.OnTutorialItemInitiated("double tiles");
+                break;
+
+            case "triple":
+                TutorialActions.OnTutorialItemInitiated("triple tiles");
+                break;
+
+        }
 
     }
 

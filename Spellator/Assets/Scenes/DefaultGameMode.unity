@@ -2652,6 +2652,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 14650a6bd90a74f0a9b8d9793dabd46a, type: 3}
   - {fileID: 21300000, guid: df94c268ef98547219803299d6cc8e52, type: 3}
   levelDetails: {fileID: 11400000, guid: da09913161474424f878bba5ba2d1f98, type: 2}
+  doubleTileFlag: 0
+  tripleTileFlag: 0
+  stubbornTileFlag: 0
+  heartTileFlag: 0
   tutorialSO: {fileID: 11400000, guid: b9c4a75af295045f09685de1d4b7d544, type: 2}
 --- !u!4 &1015755746
 Transform:
@@ -9598,6 +9602,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level Complete Panel
       objectReference: {fileID: 0}
+    - target: {fileID: 262373171311087578, guid: 8dd6b9770ec074f5db4b52fbf98d378a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2303012087366593991, guid: 8dd6b9770ec074f5db4b52fbf98d378a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9702,6 +9711,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749762410392313771, guid: 8dd6b9770ec074f5db4b52fbf98d378a,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8dd6b9770ec074f5db4b52fbf98d378a, type: 3}
