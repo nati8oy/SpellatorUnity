@@ -118,6 +118,7 @@ public class Tutorial : MonoBehaviour
     {
         iTween.MoveTo(tutorialPanel, iTween.Hash("y", 1000, "easetype", "easeInOut", "time", 0.5f));
         tutorialSO.tutorialTipImage = tutorialTipImages[infoPanelImage];
+        AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxUserInterface[5]);
     }
 
     public void CloseInfoPanel()

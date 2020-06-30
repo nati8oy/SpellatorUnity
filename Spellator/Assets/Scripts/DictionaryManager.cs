@@ -954,14 +954,14 @@ public class DictionaryManager : MonoBehaviour
 
     public void MoveWordToPoint()
     {
-        if (wordBeingMade.Length == 4)
+        if (wordBeingMade.Length == 5)
         {
             iTween.MoveTo(PrimaryTile, iTween.Hash("x", -150, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
         }
 
         if (wordBeingMade.Length == 6)
         {
-            iTween.MoveTo(PrimaryTile, iTween.Hash("x", -300, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
+            iTween.MoveTo(PrimaryTile, iTween.Hash("x", -200, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
         }
 
         if (wordBeingMade.Length == 8)
