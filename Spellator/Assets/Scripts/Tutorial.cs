@@ -15,6 +15,9 @@ public class Tutorial : MonoBehaviour
     private bool heartTileFlag;
     private bool defaultTileFlag;
     private bool deleteButtonFlag;
+    private bool tileAgeFlag;
+    private bool validWordFlag;
+    private bool initialInstructionsFlag;
 
 
     public TutorialSO tutorialSO;
@@ -37,7 +40,10 @@ public class Tutorial : MonoBehaviour
             heartTileFlag = false;
             defaultTileFlag = false;
             deleteButtonFlag = false;
-        }
+            tileAgeFlag = false;
+            validWordFlag = false;
+            initialInstructionsFlag = false;
+}
         else
         {
             //set the flags to true if the tutorial is on so that they don't show
@@ -47,6 +53,9 @@ public class Tutorial : MonoBehaviour
             heartTileFlag = true;
             defaultTileFlag = true;
             deleteButtonFlag = true;
+            tileAgeFlag = true;
+            validWordFlag = true;
+            initialInstructionsFlag = true;
         }
     }
 
@@ -132,6 +141,40 @@ public class Tutorial : MonoBehaviour
                 }
 
                 break;
+
+            case "age tiles":
+
+                if (tileAgeFlag != true)
+                {
+                    ShowInfoPanel(6);
+                    tutorialSO.currentTip = "Tiles age each turn. Try use them before they turn red and fall off";
+                    tileAgeFlag = true;
+                }
+
+                break;
+
+            case "valid words":
+
+                if (validWordFlag != true)
+                {
+                    ShowInfoPanel(7);
+                    tutorialSO.currentTip = "When the lightbulb comes on it means a word is valid";
+                    validWordFlag = true;
+                }
+
+                break;
+
+            case "initial instructions":
+
+                if (initialInstructionsFlag != true)
+                {
+                    ShowInfoPanel(8);
+                    tutorialSO.currentTip = "Tap letters to make words using 3 or more letters";
+                    initialInstructionsFlag = true;
+                }
+
+                break;
+
 
 
         }

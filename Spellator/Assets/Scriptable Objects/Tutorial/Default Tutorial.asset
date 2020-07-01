@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e1921f16c21f4fb68bfe24bda9f40bf, type: 3}
   m_Name: Default Tutorial
   m_EditorClassIdentifier: 
-  currentTip: Triple tiles score triple points
-  tutorialTipImage: {fileID: 21300000, guid: df94c268ef98547219803299d6cc8e52, type: 3}
+  currentTip: Delete words or shake your rack to remove tiles.
+  tutorialTipImage: {fileID: 21300000, guid: f959c4fd6920b4becb38d1740f0fc84a, type: 3}
   endOfLevelTips:
   - "Stubborn tiles don\u2019t age at all. You just have to use them! "
   - Consecutive 4 letter words build combo!
   - The higher you score, the more chance you have of getting double tiles.
   - When tiles fall off they reduce your health by their point value amount.
   - Tiles age with each turn. After 3 turns, they fall off and are replaced.
+  - Can't make a word? Click on the primary tile to start again
+  - Each word has to start with the last letter of the previous word
+  tutorialOn: 1

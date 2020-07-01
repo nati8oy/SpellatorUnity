@@ -11,9 +11,8 @@ public class GameManager : MonoBehaviour
     //sets up an instance of the GameManager
     public static GameManager Instance;
 
-    public bool TutorialOn;
 
-    public TutorialSO tutorialSO;
+    public TutorialSO tutorial;
 
 
     //this manages the game skins
@@ -165,7 +164,12 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         //turn tutorial on/off
-        TutorialOn = false;
+        if (tutorial.tutorialOn)
+        {
+            TutorialActions.OnTutorialItemInitiated("initial instructions");
+
+        }
+
 
         //set up the tile bag with all the consonants and vowels 
         tileBag = new TileBag(55, 40);

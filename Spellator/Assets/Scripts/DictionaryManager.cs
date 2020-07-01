@@ -348,6 +348,13 @@ public class DictionaryManager : MonoBehaviour
     public void CheckAndDeleteTiles()
     {
 
+        /*
+        if (tutorial.tutorialOn)
+        {
+            TutorialActions.OnTutorialItemInitiated("age tiles");
+
+        }
+        */
 
         ShowMessage();
         //update the number of words played overall - not the unique words
@@ -651,6 +658,10 @@ public class DictionaryManager : MonoBehaviour
 
     public void CheckWord()
     {
+
+       
+
+
         //updates the selected tile array to be the right length
         selectedTilesArray = GameObject.FindGameObjectsWithTag("TileSelected");
 
@@ -666,11 +677,17 @@ public class DictionaryManager : MonoBehaviour
 
             }
 
+            if (tutorial.tutorialOn)
+            {
+                TutorialActions.OnTutorialItemInitiated("valid words");
+
+            }
+
             //change tiles to be in the right animation state.
             //CheckAnimationStatus(true);
 
 
-//            Debug.Log("selected tile array length is: " + selectedTilesArray.Length);
+            //            Debug.Log("selected tile array length is: " + selectedTilesArray.Length);
 
 
             //show the icon that indicates that a word is correct
