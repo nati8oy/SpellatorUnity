@@ -19,6 +19,7 @@ public class Tutorial : MonoBehaviour
     private bool validWordFlag;
     private bool initialInstructionsFlag;
 
+    private bool primaryTileFlag;
 
     public TutorialSO tutorialSO;
     // Start is called before the first frame update
@@ -43,6 +44,7 @@ public class Tutorial : MonoBehaviour
             tileAgeFlag = false;
             validWordFlag = false;
             initialInstructionsFlag = false;
+            primaryTileFlag = false;
 }
         else
         {
@@ -56,6 +58,7 @@ public class Tutorial : MonoBehaviour
             tileAgeFlag = true;
             validWordFlag = true;
             initialInstructionsFlag = true;
+            primaryTileFlag = true;
         }
     }
 
@@ -171,6 +174,16 @@ public class Tutorial : MonoBehaviour
                     ShowInfoPanel(8);
                     tutorialSO.currentTip = "Tap letters to make words using 3 or more letters";
                     initialInstructionsFlag = true;
+                }
+
+                break;
+            case "primary tile":
+
+                if (primaryTileFlag != true)
+                {
+                    ShowInfoPanel(9);
+                    tutorialSO.currentTip = "Your next word must always start with the letter in this box";
+                    primaryTileFlag = true;
                 }
 
                 break;

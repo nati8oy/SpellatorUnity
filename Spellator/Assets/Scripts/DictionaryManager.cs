@@ -348,13 +348,14 @@ public class DictionaryManager : MonoBehaviour
     public void CheckAndDeleteTiles()
     {
 
-        /*
+
+        
         if (tutorial.tutorialOn)
         {
-            TutorialActions.OnTutorialItemInitiated("age tiles");
+            TutorialActions.OnTutorialItemInitiated("primary tile");
 
         }
-        */
+        
 
         ShowMessage();
         //update the number of words played overall - not the unique words
