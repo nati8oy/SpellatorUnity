@@ -5503,6 +5503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileBGImage: {fileID: 3855893996102124430}
+  tutorial: {fileID: 11400000, guid: b9c4a75af295045f09685de1d4b7d544, type: 2}
   currentBag: {fileID: 11400000, guid: ffcfd2bd4f56d433a89c76bdd1265301, type: 2}
   levelManager: {fileID: 11400000, guid: da09913161474424f878bba5ba2d1f98, type: 2}
   animator: {fileID: 8052626522917010101}

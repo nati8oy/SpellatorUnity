@@ -17,6 +17,8 @@ public class DictionaryManager : MonoBehaviour
     public ConfigSO wordData;
     public LevelManagerSO levelManager;
 
+    public TutorialSO tutorial;
+
 
     [Space()]
     [Header("Word Related Variables")]
@@ -726,6 +728,11 @@ public class DictionaryManager : MonoBehaviour
 
     public void ClearWord()
     {
+        if (tutorial.tutorialOn)
+        {
+            TutorialActions.OnTutorialItemInitiated("delete button");
+
+        }
 
         //shake screen
         //shake the camera

@@ -9,6 +9,7 @@ public class TutorialSO : ScriptableObject
     public string currentTip;
     public Sprite tutorialTipImage;
     public string[] endOfLevelTips;
+    public bool tutorialOn;
 
 
 }

@@ -14,6 +14,9 @@ public class Tile : MonoBehaviour
     //public static TileDisplay tileDisplayAccess;
     public static TileSkinSelection tileDisplayAccess;
 
+
+    public TutorialSO tutorial;
+
     public TileBagSO currentBag;
     public LevelManagerSO levelManager;
     public Animator animator;
@@ -347,7 +350,12 @@ public class Tile : MonoBehaviour
     {
         //TutorialActions.OnTutorialItemInitiated("stubborn tiles");
         //for tutorial only
-        CheckTileTutorial();
+        if (tutorial.tutorialOn)
+        {
+            CheckTileTutorial();
+
+        }
+
 
 
         //Debug.Log(GameManager.Instance.testList.Count);
@@ -649,26 +657,22 @@ public class Tile : MonoBehaviour
         {
             case "stubborn":
                 TutorialActions.OnTutorialItemInitiated("stubborn tiles");
-                Debug.Log("stubborn tile tutorial");
-
                 break;
 
             case "heart":
                 TutorialActions.OnTutorialItemInitiated("heart tiles");
-                Debug.Log("heart tile tutorial");
                 break;
-
             case "double":
                 TutorialActions.OnTutorialItemInitiated("double tiles");
-                Debug.Log("double tile tutorial");
                 break;
 
             case "triple":
                 TutorialActions.OnTutorialItemInitiated("triple tiles");
-                Debug.Log("triple tile tutorial");
-
                 break;
 
+            case "none":
+                TutorialActions.OnTutorialItemInitiated("default tiles");
+                break;
         }
     }
 

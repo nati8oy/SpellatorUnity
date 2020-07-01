@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Tutorial : MonoBehaviour
 {
@@ -8,10 +9,12 @@ public class Tutorial : MonoBehaviour
     public GameObject tutorialPanel;
     public Sprite[] tutorialTipImages;
     public LevelManagerSO levelDetails;
-    public bool doubleTileFlag;
-    public bool tripleTileFlag;
-    public bool stubbornTileFlag;
-    public bool heartTileFlag;
+    private bool doubleTileFlag;
+    private bool tripleTileFlag;
+    private bool stubbornTileFlag;
+    private bool heartTileFlag;
+    private bool defaultTileFlag;
+    private bool deleteButtonFlag;
 
 
     public TutorialSO tutorialSO;
@@ -19,19 +22,21 @@ public class Tutorial : MonoBehaviour
 
     void Start()
     {
-        if (GameManager.Instance.TutorialOn)
-        {
-            TutorialActions.TutorialItemInitiated += CheckTutorialItem;
-        }
+       
 
         //set the flags based on the GameManager TutorialOn boolean
-        if (GameManager.Instance.TutorialOn)
+        if (tutorialSO.tutorialOn)
         {
+            TutorialActions.TutorialItemInitiated += CheckTutorialItem;
+
+
             //set the flags to true if the tutorial is on so that they don't show
             doubleTileFlag = false;
             tripleTileFlag = false;
             stubbornTileFlag = false;
             heartTileFlag = false;
+            defaultTileFlag = false;
+            deleteButtonFlag = false;
         }
         else
         {
@@ -40,6 +45,8 @@ public class Tutorial : MonoBehaviour
             tripleTileFlag = true;
             stubbornTileFlag = true;
             heartTileFlag = true;
+            defaultTileFlag = true;
+            deleteButtonFlag = true;
         }
     }
 
@@ -86,8 +93,6 @@ public class Tutorial : MonoBehaviour
 
                 if (doubleTileFlag != true)
                 {
-                    Debug.Log("double tile tutorial point");
-
                     ShowInfoPanel(2);
                     tutorialSO.currentTip = "Double tiles score double points";
                     doubleTileFlag = true;
@@ -99,15 +104,35 @@ public class Tutorial : MonoBehaviour
 
                 if (tripleTileFlag != true)
                 {
-
-                    Debug.Log("triple tile tutorial point");
-
                     ShowInfoPanel(3);
                     tutorialSO.currentTip = "Triple tiles score triple points";
                     tripleTileFlag = true;
                 }
 
                 break;
+
+            case "default tiles":
+
+                if (defaultTileFlag != true)
+                {
+                    ShowInfoPanel(4);
+                    tutorialSO.currentTip = "Tile scores are shown below the letter";
+                    defaultTileFlag = true;
+                }
+
+                break;
+
+            case "delete button":
+
+                if (deleteButtonFlag != true)
+                {
+                    ShowInfoPanel(5);
+                    tutorialSO.currentTip = "Delete words or shake your rack to remove tiles.";
+                    deleteButtonFlag = true;
+                }
+
+                break;
+
 
         }
     }
@@ -118,12 +143,20 @@ public class Tutorial : MonoBehaviour
     {
         iTween.MoveTo(tutorialPanel, iTween.Hash("y", 1000, "easetype", "easeInOut", "time", 0.5f));
         tutorialSO.tutorialTipImage = tutorialTipImages[infoPanelImage];
-        AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxUserInterface[5]);
+
+        //play audio
+        if (AudioManager.Instance)
+        {
+            AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxUserInterface[5]);
+
+        }
     }
 
     public void CloseInfoPanel()
     {
         iTween.MoveTo(tutorialPanel, iTween.Hash("y", 1300, "easetype", "easeInOut", "time", 0.5f));
     }
+
+   
 
 }

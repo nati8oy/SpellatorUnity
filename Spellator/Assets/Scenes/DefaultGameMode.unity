@@ -1964,7 +1964,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -214, y: 89}
+  m_AnchoredPosition: {x: -214, y: 67}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!1 &739806362
@@ -2647,15 +2647,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorialPanel: {fileID: 208798236}
   tutorialTipImages:
-  - {fileID: 21300000, guid: 715c8bc05dc384b41b978e12cdecc29a, type: 3}
+  - {fileID: 21300000, guid: 9befebc4af8354194b1a3679a9f0c73f, type: 3}
   - {fileID: 21300000, guid: 17ad17c7f0f9349ebb1361ed0a75e07e, type: 3}
-  - {fileID: 21300000, guid: 14650a6bd90a74f0a9b8d9793dabd46a, type: 3}
+  - {fileID: 21300000, guid: bc1f0975b90264cf5a8f93b611896909, type: 3}
   - {fileID: 21300000, guid: df94c268ef98547219803299d6cc8e52, type: 3}
+  - {fileID: 21300000, guid: bc1f0975b90264cf5a8f93b611896909, type: 3}
+  - {fileID: 21300000, guid: f959c4fd6920b4becb38d1740f0fc84a, type: 3}
+  - {fileID: 21300000, guid: 668175ea4e494439db3506a2809de087, type: 3}
   levelDetails: {fileID: 11400000, guid: da09913161474424f878bba5ba2d1f98, type: 2}
-  doubleTileFlag: 0
-  tripleTileFlag: 0
-  stubbornTileFlag: 0
-  heartTileFlag: 0
   tutorialSO: {fileID: 11400000, guid: b9c4a75af295045f09685de1d4b7d544, type: 2}
 --- !u!4 &1015755746
 Transform:
@@ -3210,7 +3209,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 312}
+  m_AnchoredPosition: {x: 0, y: 346}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1306707216
@@ -8365,7 +8364,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 029e6cfd15a9146aea29c1374ab8f991, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0c8baa32d9f8a45869743e9869cbd6cc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8470,6 +8469,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1361137017}
   m_CullTransparentMesh: 0
+--- !u!114 &1367147991 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6249024390730867689, guid: ad9c87894e2f64ba1ba057f309e321f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 2423393581760821505}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1445958739 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5976778401099106081, guid: 62493d6093b174721b8a10a5964d4855,
@@ -8885,7 +8896,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -113}
-  m_SizeDelta: {x: 180, y: 109}
+  m_SizeDelta: {x: 545.3, y: 109}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1736780741
 MonoBehaviour:
@@ -10840,6 +10851,12 @@ PrefabInstance:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 62966392}
+    - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
+        type: 3}
+      propertyPath: tutorial
+      value: 
+      objectReference: {fileID: 11400000, guid: b9c4a75af295045f09685de1d4b7d544,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc08af2b56d9c45b3af66e59305a1835, type: 3}
 --- !u!1001 &6664626739288876831
@@ -10877,7 +10894,7 @@ PrefabInstance:
     - target: {fileID: 6664626739216393474, guid: d25eeb043c88d4604820d30f28bea772,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.000061035156
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6664626739216393474, guid: d25eeb043c88d4604820d30f28bea772,
         type: 3}
@@ -10922,22 +10939,22 @@ PrefabInstance:
     - target: {fileID: 6664626739216393474, guid: d25eeb043c88d4604820d30f28bea772,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.000061035156
+      value: 315
       objectReference: {fileID: 0}
     - target: {fileID: 6664626739216393474, guid: d25eeb043c88d4604820d30f28bea772,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 732
+      value: 1307
       objectReference: {fileID: 0}
     - target: {fileID: 6664626739216393474, guid: d25eeb043c88d4604820d30f28bea772,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 621
       objectReference: {fileID: 0}
     - target: {fileID: 6664626739216393474, guid: d25eeb043c88d4604820d30f28bea772,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: -992.9
+      value: 216
       objectReference: {fileID: 0}
     - target: {fileID: 6664626739216393474, guid: d25eeb043c88d4604820d30f28bea772,
         type: 3}
@@ -10952,12 +10969,12 @@ PrefabInstance:
     - target: {fileID: 6664626739216393474, guid: d25eeb043c88d4604820d30f28bea772,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6664626739216393474, guid: d25eeb043c88d4604820d30f28bea772,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6664626739216393474, guid: d25eeb043c88d4604820d30f28bea772,
         type: 3}
@@ -11174,5 +11191,16 @@ PrefabInstance:
       propertyPath: tutorialPanel
       value: 
       objectReference: {fileID: 208798236}
+    - target: {fileID: 7349431635441859144, guid: cf2cb441bcdc54fbba9fdd62fba05c37,
+        type: 3}
+      propertyPath: tutorialSO
+      value: 
+      objectReference: {fileID: 11400000, guid: b9c4a75af295045f09685de1d4b7d544,
+        type: 2}
+    - target: {fileID: 7349431635441859144, guid: cf2cb441bcdc54fbba9fdd62fba05c37,
+        type: 3}
+      propertyPath: tutorialToggle
+      value: 
+      objectReference: {fileID: 1367147991}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf2cb441bcdc54fbba9fdd62fba05c37, type: 3}
