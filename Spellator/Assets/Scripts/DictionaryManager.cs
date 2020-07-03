@@ -17,6 +17,8 @@ public class DictionaryManager : MonoBehaviour
     public ConfigSO wordData;
     public LevelManagerSO levelManager;
 
+    public ParticleSystem lightbulbParticles;
+
     public TutorialSO tutorial;
 
 
@@ -263,6 +265,10 @@ public class DictionaryManager : MonoBehaviour
     void Start()
     {
 
+
+        //stop the lightbulb particles on load
+        lightbulbParticles.Stop();
+
         //add MoveWordToPoint to the listener
         GameEvents.WordLengthCheckInitiated += MoveWordToPoint;
 
@@ -439,6 +445,8 @@ public class DictionaryManager : MonoBehaviour
 
         if (dictionary.ContainsKey(WordBeingMade))
         {
+            //stop the lightbulb particles from playing
+            lightbulbParticles.Stop();
 
 
             /*
@@ -660,7 +668,52 @@ public class DictionaryManager : MonoBehaviour
     public void CheckWord()
     {
 
-       
+        var emission = lightbulbParticles.emission;
+
+        switch (wordBeingMade.Length)
+        {
+            case 0:
+
+                lightbulbParticles.Stop();
+                emission.rateOverTime = 0;
+                break;
+
+            case 1:
+
+                lightbulbParticles.Stop();
+                emission.rateOverTime = 0;
+                break;
+            case 2:
+
+                lightbulbParticles.Play();
+                emission.rateOverTime = 10;
+                break;
+            case 3:
+
+                lightbulbParticles.Play();
+                emission.rateOverTime = 15;
+                break;
+            case 4:
+
+                lightbulbParticles.Play();
+                emission.rateOverTime = 20;
+                break;
+            case 5:
+
+                lightbulbParticles.Play();
+                emission.rateOverTime = 30;
+                break;
+            case 6:
+
+                lightbulbParticles.Play();
+                emission.rateOverTime = 40;
+                break;
+            case 7:
+
+                lightbulbParticles.Play();
+                emission.rateOverTime = 50;
+                break;
+        }
 
 
         //updates the selected tile array to be the right length
@@ -683,6 +736,8 @@ public class DictionaryManager : MonoBehaviour
                 TutorialActions.OnTutorialItemInitiated("valid words");
 
             }
+
+
 
             //change tiles to be in the right animation state.
             //CheckAnimationStatus(true);
@@ -746,6 +801,9 @@ public class DictionaryManager : MonoBehaviour
 
     public void ClearWord()
     {
+        //stop the lightbulb particles
+        lightbulbParticles.Stop();
+
         if (tutorial.tutorialOn)
         {
             TutorialActions.OnTutorialItemInitiated("delete button");
