@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e1921f16c21f4fb68bfe24bda9f40bf, type: 3}
   m_Name: Default Tutorial
   m_EditorClassIdentifier: 
-  currentTip: Tile scores are shown below the letter
+  currentTip: Tap letters to make words using 3 or more letters
   tutorialTipImage: {fileID: 21300000, guid: bc1f0975b90264cf5a8f93b611896909, type: 3}
   endOfLevelTips:
   - "Stubborn tiles don\u2019t age at all. You just have to use them! "
@@ -22,4 +22,4 @@ MonoBehaviour:
   - Tiles age with each turn. After 3 turns, they fall off and are replaced.
   - Can't make a word? Click on the primary tile to start again
   - Each word has to start with the last letter of the previous word
-  tutorialOn: 1
+  tutorialOn: 0

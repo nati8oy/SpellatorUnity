@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8df13e8a232134167b2ac5ac6819fa67, type: 3}
   m_Name: Shop
   m_EditorClassIdentifier: 
-  currentSkin: 2
+  currentSkin: 3
   shopSkinArray:
-  - {fileID: 11400000, guid: b2b9bb6dc20414ccaadb0eb25a6d0f18, type: 2}
   - {fileID: 11400000, guid: 8c4da6b717d6640238525d505afd3377, type: 2}
+  - {fileID: 11400000, guid: b2b9bb6dc20414ccaadb0eb25a6d0f18, type: 2}
   - {fileID: 11400000, guid: 66d470fe1a27b40bcae2b16ece6760c8, type: 2}
-  - {fileID: 11400000, guid: d269a27259e0f41e8b8e73994ec0df7f, type: 2}
+  - {fileID: 11400000, guid: 238872aba46f64643b5e65a281bd25ee, type: 2}
   - {fileID: 11400000, guid: 19bee1bb9b4d94a3884e55ffabf871d4, type: 2}
   - {fileID: 11400000, guid: 5fcce737b47ad46db950ed31389a49cd, type: 2}
-  - {fileID: 11400000, guid: 238872aba46f64643b5e65a281bd25ee, type: 2}
+  - {fileID: 11400000, guid: d269a27259e0f41e8b8e73994ec0df7f, type: 2}

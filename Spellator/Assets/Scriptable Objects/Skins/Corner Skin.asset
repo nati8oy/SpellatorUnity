@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d23270e7bddd44b24a4942b11c044c6f, type: 3}
+  m_Name: Corner Skin
+  m_EditorClassIdentifier: 
+  tileTextColour: {r: 1, g: 1, b: 1, a: 1}
+  tileDisabledColour: {r: 1, g: 1, b: 1, a: 0.27058825}
+  doubleLetterColour: {r: 0.9568628, g: 0.80392164, b: 0.21176472, a: 1}
+  correctWordTextColour: {r: 1, g: 1, b: 1, a: 1}
+  tripleLetterColour: {r: 1, g: 1, b: 1, a: 1}
+  tileAgeSprites:
+  - {fileID: 21300000, guid: 8173c4917e6374e4d9a0e4b45a1ab70f, type: 3}
+  - {fileID: 21300000, guid: 998812b6b385a41ec8e3d828358f4c26, type: 3}
+  - {fileID: 21300000, guid: 68e3335137cf940b3af2e42b8abe367c, type: 3}
+  - {fileID: 21300000, guid: 15b2278fec8bd449b9b6b57a39c4db98, type: 3}
+  - {fileID: 21300000, guid: 1168e814134444e5f8bb4c389d265d34, type: 3}
+  - {fileID: 21300000, guid: 715c8bc05dc384b41b978e12cdecc29a, type: 3}
