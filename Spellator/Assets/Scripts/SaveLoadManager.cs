@@ -110,7 +110,7 @@ public class SaveLoadManager : MonoBehaviour
 
 
 
-        Debug.Log("Game Saved!!");
+//        Debug.Log("Game Saved!!");
     }
 
     void Load()

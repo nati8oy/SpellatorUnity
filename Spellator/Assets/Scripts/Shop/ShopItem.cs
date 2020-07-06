@@ -13,9 +13,10 @@ public class ShopItem : MonoBehaviour
     public Image itemImage;
     public GameObject gameStateObject;
     public int skinID;
-    public GameObject purchaseObject;
+    //public GameObject purchaseObject;
     public int goldAmount;
     public ConfigSO configData;
+    public GameObject purchasedAnimaton;
 
 
     [Header("Button Items")]
@@ -82,17 +83,24 @@ public class ShopItem : MonoBehaviour
     public void UpdateSkin()
     {
 
-            goldAmount = configData.totalGoldAmount;
-            //check if the price is less than the amount of currency available
-            //and check if the item has already been purchased or not
-            if (shopArray[skinID].itemPrice < goldAmount)
+        goldAmount = configData.totalGoldAmount;
+        //check if the price is less than the amount of currency available
+        //and check if the item has already been purchased or not
+        if (shopArray[skinID].itemPrice < goldAmount)
+        {
+
+            //set the current skin object to SkinID so that it can be accessed for the prices below
+            shopObject.currentSkin = skinID;
+
+            //add the purchased animation
+            //Instantiate(purchaseObject, Camera.main.transform);
+
+            //add the purchase animation from the object pooler
+            purchasedAnimaton = ObjectPooler.SharedInstance.GetPooledObject("Purchase Title");
+            if (purchasedAnimaton != null)
             {
-
-                //set the current skin object to SkinID so that it can be accessed for the prices below
-                shopObject.currentSkin = skinID;
-
-                //add the purchased animation
-                Instantiate(purchaseObject, Camera.main.transform);
+                purchasedAnimaton.transform.position = new Vector3 (344, 648);
+                purchasedAnimaton.SetActive(true);
 
                 //reduce the total currency by the item price. 
                 goldAmount -= shopArray[skinID].itemPrice;
@@ -126,7 +134,8 @@ public class ShopItem : MonoBehaviour
             }
 
 
+        }
+
+
     }
-
-
 }

@@ -21,7 +21,7 @@ public class Tile : MonoBehaviour
     public LevelManagerSO levelManager;
     public Animator animator;
     public ParticleSystem twinkleParticles;
-    public ParticleSystem glowParticles;
+   // public ParticleSystem glowParticles;
 
     public int specialChance;
 
@@ -98,7 +98,7 @@ public class Tile : MonoBehaviour
     {
 
         
-        glowParticles.Stop();
+        //glowParticles.Stop();
 
             //stop the twinkle particle effect
         twinkleParticles.Stop();
@@ -237,7 +237,7 @@ public class Tile : MonoBehaviour
     private void OnEnable()
     {
         //stop the particles that were playing when this was the primary tile
-        glowParticles.Stop();
+        //glowParticles.Stop();
 
         healthParticles = ObjectPooler.SharedInstance.GetPooledObject("Heart Particles");
 
@@ -626,10 +626,11 @@ public class Tile : MonoBehaviour
 
         //play the particles that are for the primary tile
 
+        /*
         if (levelManager.levelComplete != true)
         {
             glowParticles.Play();
-        }
+        }*/
 
         //Debug.Log("the primary tile is worth " + spawnedTile.points + "points.");
 

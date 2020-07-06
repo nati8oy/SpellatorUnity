@@ -16,7 +16,7 @@ public class SaveLoad : MonoBehaviour
         {
             formatter.Serialize(fileStream, objectToSave);
         }
-        Debug.Log("saved!");
+//        Debug.Log("saved!");
     }
 
 
