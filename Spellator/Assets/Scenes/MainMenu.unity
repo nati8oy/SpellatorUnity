@@ -7400,6 +7400,23 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1945614839, guid: 283e72892091346bc8e67b689a7f1ae1, type: 3}
+      propertyPath: itemsToPool.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1945614839, guid: 283e72892091346bc8e67b689a7f1ae1, type: 3}
+      propertyPath: itemsToPool.Array.data[3].amountToPool
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1945614839, guid: 283e72892091346bc8e67b689a7f1ae1, type: 3}
+      propertyPath: itemsToPool.Array.data[3].objectToPool
+      value: 
+      objectReference: {fileID: 8124146370339604019, guid: 1d0cc4c00088e401bb7698206fea5960,
+        type: 3}
+    - target: {fileID: 1945614839, guid: 283e72892091346bc8e67b689a7f1ae1, type: 3}
+      propertyPath: itemsToPool.Array.data[3].shouldExpand
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1156407296786756407, guid: 283e72892091346bc8e67b689a7f1ae1,
         type: 3}
       propertyPath: m_Name

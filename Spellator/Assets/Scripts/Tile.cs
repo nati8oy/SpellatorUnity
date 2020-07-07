@@ -14,7 +14,6 @@ public class Tile : MonoBehaviour
     //public static TileDisplay tileDisplayAccess;
     public static TileSkinSelection tileDisplayAccess;
 
-
     public TutorialSO tutorial;
 
     public TileBagSO currentBag;
@@ -96,11 +95,11 @@ public class Tile : MonoBehaviour
 
     void Start()
     {
+        healthParticles = ObjectPooler.SharedInstance.GetPooledObject("Heart Particles");
 
-        
         //glowParticles.Stop();
 
-            //stop the twinkle particle effect
+        //stop the twinkle particle effect
         twinkleParticles.Stop();
         //check to see if the tile is the first tile for chain mode words
         if (firstLetterTile == false)
@@ -160,12 +159,20 @@ public class Tile : MonoBehaviour
 
         }
 
+        if (spawnedTile.tilePower == "heal")
+        {
+            specialIcon.SetActive(true);
+
+            //Debug.Log("tile power is: " + TileClass.TilePower.heal);
+        }
+
         switch (spawnedTile.specialAttribute)
         {
+            /*
             case "heart":
                 specialIcon.SetActive(true);
                 break;
-
+            */
             case "double":
                
                 letter.color = tileDisplayAccess.doubleLetterColour;
@@ -239,7 +246,7 @@ public class Tile : MonoBehaviour
         //stop the particles that were playing when this was the primary tile
         //glowParticles.Stop();
 
-        healthParticles = ObjectPooler.SharedInstance.GetPooledObject("Heart Particles");
+//        healthParticles = ObjectPooler.SharedInstance.GetPooledObject("Heart Particles");
 
         //this is the code that chooses the random value from the curve.
         //The curve can be adjusted in the inspector
@@ -266,7 +273,7 @@ public class Tile : MonoBehaviour
         //create instance of the TileClass for use in the checks below
 
         spawnedTile = new TileClass(gameObject.transform.position);
-
+//        Debug.Log("spawned tile attribute: " + spawnedTile.specialAttribute);
         //resets the special type of a tile when it loads
         spawnedTile.AllocateSpecialType();
 
@@ -356,6 +363,7 @@ public class Tile : MonoBehaviour
 
         }
 
+        Debug.Log(spawnedTile.specialAttribute);
 
 
         //Debug.Log(GameManager.Instance.testList.Count);
@@ -368,12 +376,13 @@ public class Tile : MonoBehaviour
 
         if (AudioManager.Instance)
         {
-            AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxTilePops[3]);
+            AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxTilePops[7]);
             //AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxUserInterface[3]);
+            /*
             swishAudioSource.volume = 0.4f;
             AudioManager.Instance.PlayAudioWithSource(AudioManager.Instance.sfxUserInterface[3], swishAudioSource, 0.1f);
 
-
+            */
         }
 
         //check if this is a primary tile that is being clicked and thus removed
@@ -477,29 +486,31 @@ public class Tile : MonoBehaviour
             AudioManager.Instance.PlayAudioWithSource(AudioManager.Instance.sfxTilePops[Random.Range(0, 6)], popAudioSource, Random.Range(0.4f, 1f));
 
         }
+        else
+        {
 
-//        Debug.Log(spawnedTile.specialAttribute);
+        }
 
-        /*
-        if (healthParticles != null && spawnedTile.specialAttribute == "heart")
+        if (spawnedTile.tilePower == "heal")
         {
             //healthParticles.transform.position = GameObject.Find("HealthBar").transform.position;
-
-            healthParticles.transform.SetParent(DictionaryManager.Instance.healthBar.transform);
-
+            //healthParticles.transform.SetParent(DictionaryManager.Instance.healthBar.transform);
+            healthParticles.transform.position = gameObject.transform.position;
             healthParticles.SetActive(true);
-            Debug.Log("added health particles");
-            //StartCoroutine("CheckIfAlive");
-            // Debug.Log("Check if alive Enumerator is working");
-            //available = false;
+
+            //heal if it's a heart tile
+            DictionaryManager.Instance.healthBar.GetComponent<PlayerHealth>().Heal(spawnedTile.points);
+
             if (AudioManager.Instance)
             {
                 AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxGeneral[17]);
 
             }
+        }
+        
+     
 
-            StartCoroutine(CheckIfAlive());
-        }*/
+        
 
 
         
@@ -590,8 +601,9 @@ public class Tile : MonoBehaviour
 
         //uses a cached reference for performance reasons
 
+        //multiply the health so that it decreases by a factor of 1.25 (rounded up)
 
-        healthHandler.DealDamage(spawnedTile.points*2);
+        healthHandler.DealDamage(Mathf.CeilToInt(spawnedTile.points*1.25f));
         //GameObject.Find("HealthBar").GetComponent<PlayerHealth>().DealDamage(spawnedTile.points);
 
         //removeTileAudio.Play(smashAudioSource);
@@ -660,9 +672,11 @@ public class Tile : MonoBehaviour
                 TutorialActions.OnTutorialItemInitiated("stubborn tiles");
                 break;
 
+                /*
             case "heart":
                 TutorialActions.OnTutorialItemInitiated("heart tiles");
                 break;
+                */
             case "double":
                 TutorialActions.OnTutorialItemInitiated("double tiles");
                 break;

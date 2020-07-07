@@ -5,15 +5,16 @@ using UnityEngine;
 public class HeartParticlesController : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
-        KillParticles();
+       StartCoroutine (KillParticles());
 
     }
 
-    IEnumerator KillParticles()
+    private IEnumerator KillParticles()
     {
         yield return new WaitForSeconds(2f);
         gameObject.SetActive(false);
+        Debug.Log("set heart particles inactive");
     }
 }

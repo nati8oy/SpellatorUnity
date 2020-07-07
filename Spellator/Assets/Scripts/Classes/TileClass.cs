@@ -15,6 +15,8 @@ public class TileClass
     //    public int randomSelector;
     public float randomSelector;
 
+    public string tilePower;
+
     //public static float Range(float min, float max);
 
     public int age;
@@ -46,14 +48,10 @@ public class TileClass
        // specialChance = 5;
 
         //add special types on initialisaton
-        specialTypes.Add("heart");
+       // specialTypes.Add("heart");
         specialTypes.Add("double");
         specialTypes.Add("triple");
         specialTypes.Add("stubborn");
-
-
-
-
         AllocateSpecialType();
 
 
@@ -63,11 +61,8 @@ public class TileClass
 
     public void AllocateSpecialType()
     {
-
-     
-
         //this is the chance of getting a special tile in the first place. 
-        specialChance = 4;
+        specialChance = 3;
 
         //select a random number
         randomSelector = Random.Range(0, specialChance+1);
@@ -77,7 +72,9 @@ public class TileClass
             if(randomSelector == specialChance)
         {
             tileType = "special";
-           // Debug.Log("match");
+            // Debug.Log("match");
+            tilePower = "heal";
+
             specialAttribute = specialTypes[Random.Range(0, specialChance)];
 
 
@@ -89,6 +86,8 @@ public class TileClass
             specialAttribute = "none";
 
         }
+
+
 
             /*
         switch (specialAttribute)

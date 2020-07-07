@@ -44,7 +44,7 @@ public class DictionaryManager : MonoBehaviour
 
     public TextMeshProUGUI starTotalText;
 
-    public GameObject healthParticles;
+   // public GameObject healthParticles;
 
     //this sets up the field for which to add the external dictionary txt file
     [SerializeField] private TextAsset dictionaryTxtFile;
@@ -275,7 +275,7 @@ public class DictionaryManager : MonoBehaviour
         longestWord = wordData.longestWord;
 
         //Remember that the object pooler uses TAGS not names of objects to set them active, etc. here.
-        healthParticles = ObjectPooler.SharedInstance.GetPooledObject("Heart Particles");
+        //healthParticles = ObjectPooler.SharedInstance.GetPooledObject("Heart Particles");
 
         //set the list of playerWordsMade to be that of the Scriptable object's uniqueWordList
         playerWordsMade = wordData.uniqueWordsList;
@@ -561,43 +561,6 @@ public class DictionaryManager : MonoBehaviour
                 //access the script on each of the tile creators/spawners and refill the tiles
                 tile.transform.parent.GetComponent<TileCreator>().RefillTiles();
 
-                //checks the tile type and adds whatever the special tile bonus is
-
-
-                
-                
-                if (tile.GetComponent<Tile>().spawnedTile.specialAttribute == "heart")
-                {
-                    //update the player health based on the tile points amount
-                    healthBar.GetComponent<PlayerHealth>().Heal(tile.GetComponent<Tile>().spawnedTile.points);
-                    
-
-                    //set the particle effects to play for a correct word with the heart attribute
-                    if (healthParticles != null)
-                    {
-                        healthParticles.transform.position = GameObject.Find("HealthBar").transform.position;
-
-                        healthParticles.transform.SetParent(gameObject.transform) ;
-
-                       
-
-                        healthParticles.SetActive(true);
-                       // StartCoroutine("CheckIfAlive");
-                       // Debug.Log("Check if alive Enumerator is working");
-                        //available = false;
-
-                    }
-
-
-                    if (AudioManager.Instance)
-                    {
-                        AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxGeneral[17]);
-
-                    }
-                    //healthUpParticles.Play();
-
-                }
-                
 
                 //set the tag back to "Tile"
                 tile.tag = "Tile";
@@ -882,6 +845,7 @@ public class DictionaryManager : MonoBehaviour
                 var getStartPos = tile.transform.parent.GetComponent<TileCreator>();
                 //connect to the script of each tile, get the startPos from there (which is the starting transform of each Pos holder)
                 //then run the Coroutine from the tile game object. Phew!
+
                 iTween.MoveTo(tile, new Vector3(getStartPos.startPos.position.x, getStartPos.startPos.position.y, 0), 0.5f);
                 //iTween.MoveTo(gameObject, iTween.Hash("x", TileManager.Instance.NextFreePos.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time",0.5f, "easeType", "EaseOutQuint"));
 

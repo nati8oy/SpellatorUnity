@@ -48,7 +48,6 @@ public class PlayerHealth : MonoBehaviour
         CurrentHealth -= damageValue;
         healthBar.value = CalculateHealth();
         anim.SetBool("HealthAdjust", true);
-
        
     }
 
@@ -61,7 +60,7 @@ public class PlayerHealth : MonoBehaviour
         }
 
         anim.SetBool("HealthAdjust", true);
-
+        Debug.Log("healed " +healValue + " points");
 
 
 
