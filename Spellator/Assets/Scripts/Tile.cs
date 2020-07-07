@@ -58,6 +58,8 @@ public class Tile : MonoBehaviour
 
     //[SerializeField] private AudioClip tileClick;
     [SerializeField] private GameObject specialIcon;
+    [SerializeField] private GameObject pointsIcon;
+    [SerializeField] private GameObject circleBG;
 
     //public AudioClip[] popSounds;
     //public AudioClip[] smashSounds;
@@ -174,16 +176,22 @@ public class Tile : MonoBehaviour
                 break;
             */
             case "double":
-               
-                letter.color = tileDisplayAccess.doubleLetterColour;
+
+                pointsIcon.SetActive(true);
+                circleBG.SetActive(true);
+                pointsIcon.GetComponent<Image>().color = tileDisplayAccess.doubleLetterColour;
+                //letter.color = tileDisplayAccess.doubleLetterColour;
 
                 //update the points value of the tile so that it is added correctly to the overall live score
                 adjustedPointValue = spawnedTile.points * 2;
                 points.text = adjustedPointValue.ToString();
                 break;
             case "triple":
-               
-                letter.color = tileDisplayAccess.tripleLetterColour;
+
+                pointsIcon.SetActive(true);
+                circleBG.SetActive(true);
+                pointsIcon.GetComponent<Image>().color = tileDisplayAccess.tripleLetterColour;
+                //letter.color = tileDisplayAccess.tripleLetterColour;
 
                 //update the points value of the tile so that it is added correctly to the overall live score
                 adjustedPointValue = spawnedTile.points * 3;
@@ -194,10 +202,13 @@ public class Tile : MonoBehaviour
 
                 tileBGImage.sprite = tileDisplayAccess.tileAgeSprites[5];
                 canAge = false;
+
                 break;
 
             case "none":
                 specialIcon.SetActive(false);
+                pointsIcon.SetActive(false);
+                circleBG.SetActive(false);
                 adjustedPointValue = spawnedTile.points;
                 break;
         }
@@ -499,7 +510,7 @@ public class Tile : MonoBehaviour
             healthParticles.SetActive(true);
 
             //heal if it's a heart tile
-            DictionaryManager.Instance.healthBar.GetComponent<PlayerHealth>().Heal(spawnedTile.points);
+            DictionaryManager.Instance.healthBar.GetComponent<PlayerHealth>().Heal(adjustedPointValue);
 
             if (AudioManager.Instance)
             {
