@@ -14,6 +14,7 @@ public class TileClass
     public Color correctWord;
     //    public int randomSelector;
     public float randomSelector;
+    public float randomTilePowerSelector;
 
     public string tilePower;
 
@@ -66,14 +67,16 @@ public class TileClass
 
         //select a random number
         randomSelector = Random.Range(0, specialChance+1);
+        randomTilePowerSelector = Random.Range(0, specialChance + 1);
 
-//        Debug.Log("random selector " + randomSelector);
+        Debug.Log(randomSelector + randomTilePowerSelector);
 
-            if(randomSelector == specialChance)
+        //        Debug.Log("random selector " + randomSelector);
+
+        if (randomSelector == specialChance)
         {
             tileType = "special";
             // Debug.Log("match");
-            tilePower = "heal";
 
             specialAttribute = specialTypes[Random.Range(0, specialChance)];
 
@@ -87,7 +90,10 @@ public class TileClass
 
         }
 
-
+            if(randomTilePowerSelector == specialChance)
+        {
+            tilePower = "heal";
+        }
 
             /*
         switch (specialAttribute)

@@ -167,6 +167,10 @@ public class Tile : MonoBehaviour
 
             //Debug.Log("tile power is: " + TileClass.TilePower.heal);
         }
+        else
+        {
+            specialIcon.SetActive(false);
+        }
 
         switch (spawnedTile.specialAttribute)
         {
@@ -202,6 +206,10 @@ public class Tile : MonoBehaviour
 
                 tileBGImage.sprite = tileDisplayAccess.tileAgeSprites[5];
                 canAge = false;
+
+                specialIcon.SetActive(false);
+                pointsIcon.SetActive(false);
+                circleBG.SetActive(false);
 
                 break;
 
@@ -375,7 +383,6 @@ public class Tile : MonoBehaviour
         }
 
         Debug.Log(spawnedTile.specialAttribute);
-
 
         //Debug.Log(GameManager.Instance.testList.Count);
 

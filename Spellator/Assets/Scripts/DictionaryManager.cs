@@ -792,7 +792,7 @@ public class DictionaryManager : MonoBehaviour
         TileManager.Instance.SelectedTiles.Clear();
         //check if the reset bool is true. If it is, delete all the tiles in the rack
 
-        if (wordBeingMade == startLetter)
+        if (wordBeingMade == startLetter || wordBeingMade =="")
         {
             resetBool = true;
         }
