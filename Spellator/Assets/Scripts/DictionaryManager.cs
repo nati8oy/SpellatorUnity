@@ -114,7 +114,7 @@ public class DictionaryManager : MonoBehaviour
     [Space()]
     [Header("Tile Elements")]
 
-    [SerializeField] private GameObject PrimaryTile;
+    private GameObject PrimaryTile;
     private float primaryPosX;
     private float primaryPosY;
 
@@ -264,7 +264,8 @@ public class DictionaryManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        //find the primary tile object. This is set here so that the object doesn't get cleared away when the level/game is reset
+        PrimaryTile = GameObject.Find("Primary Tile");
 
         //stop the lightbulb particles on load
         lightbulbParticles.Stop();
@@ -818,7 +819,7 @@ public class DictionaryManager : MonoBehaviour
             maximumParticles = 5;
             multiplierText.text = "";
 
-
+            sendButton.interactable = false;
 
 
 
