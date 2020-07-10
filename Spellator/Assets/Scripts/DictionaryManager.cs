@@ -366,7 +366,7 @@ public class DictionaryManager : MonoBehaviour
         }
         
 
-        ShowMessage();
+        //ShowMessage();
         //update the number of words played overall - not the unique words
         wordData.totalWordsMade += 1;
 
@@ -560,7 +560,7 @@ public class DictionaryManager : MonoBehaviour
             //add on screen encouragement for words above 5 letters
             if ((WordBeingMade.Length >= 5) || (Points.liveScore>=50))
             {
-                ShowMessage();
+                //ShowMessage();
 
                 //this chooses the kind of cross fade or screen flash to use
                 fadeManager.FadeType(fadeManager._flashColour, fadeManager.pulseSpeed);
