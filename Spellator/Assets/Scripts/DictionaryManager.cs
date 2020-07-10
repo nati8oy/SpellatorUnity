@@ -20,6 +20,7 @@ public class DictionaryManager : MonoBehaviour
     public ParticleSystem lightbulbParticles;
 
     public TutorialSO tutorial;
+    public Transform HUD;
 
 
     [Space()]
@@ -28,6 +29,8 @@ public class DictionaryManager : MonoBehaviour
 
     public int totalWordsPlayed;
     public string longestWord;
+
+    public GameObject multiplierClip;
 
 
     [Space()]
@@ -264,6 +267,7 @@ public class DictionaryManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         //find the primary tile object. This is set here so that the object doesn't get cleared away when the level/game is reset
         PrimaryTile = GameObject.Find("Primary Tile");
 
@@ -355,8 +359,6 @@ public class DictionaryManager : MonoBehaviour
     public void CheckAndDeleteTiles()
     {
 
-
-        
         if (tutorial.tutorialOn)
         {
             TutorialActions.OnTutorialItemInitiated("primary tile");
@@ -472,17 +474,34 @@ public class DictionaryManager : MonoBehaviour
             //check if the multiplier is going to be broken with a 3 letter word. If so, play the sound.
             if ((multiplier >= 3) && (WordBeingMade.Length <= 3))
             {
+                
 
                 if (AudioManager.Instance)
                 {
                     AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxGeneral[7]);
                 }
+
+                Points.multiplier = 1;
             }
 
             //add to the multiplier
             if (WordBeingMade.Length >= 4)
             {
                 Points.multiplier += 1;
+
+                multiplierClip = ObjectPooler.SharedInstance.GetPooledObject("Multiplier");
+
+
+                if (multiplierClip != null)
+                {
+                    multiplierClip.transform.SetParent(HUD);
+                    multiplierClip.transform.position = new Vector3(106, 760);
+                    multiplierClip.SetActive(true);
+                    //available = false;
+
+                }
+
+
 
                 //adjust the particles on the primary tile
 
@@ -494,7 +513,7 @@ public class DictionaryManager : MonoBehaviour
                 }*/
 
 
-               // particleLifetime = Random.Range(0.25 * Points.multiplier, 0.3 * Points.multiplier);
+                // particleLifetime = Random.Range(0.25 * Points.multiplier, 0.3 * Points.multiplier);
                 particleSizes = Random.Range(10* Points.multiplier,15*Points.multiplier);
 
 

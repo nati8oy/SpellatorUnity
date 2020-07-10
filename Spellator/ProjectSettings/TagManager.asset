@@ -28,6 +28,7 @@ TagManager:
   - Default Click
   - Tutorial Bubble
   - Purchase Title
+  - Multiplier
   layers:
   - Default
   - TransparentFX

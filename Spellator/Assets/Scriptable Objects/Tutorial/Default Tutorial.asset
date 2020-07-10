@@ -22,4 +22,5 @@ MonoBehaviour:
   - Tiles age with each turn. After 3 turns, they fall off and are replaced.
   - Can't make a word? Click on the primary tile to start again
   - Each word has to start with the last letter of the previous word
+  - Spend all your hard-earned gold on new skins in the shop!
   tutorialOn: 0

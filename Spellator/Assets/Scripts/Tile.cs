@@ -58,8 +58,7 @@ public class Tile : MonoBehaviour
 
     //[SerializeField] private AudioClip tileClick;
     [SerializeField] private GameObject specialIcon;
-    [SerializeField] private GameObject pointsIcon;
-    [SerializeField] private GameObject circleBG;
+    [SerializeField] private GameObject tileOutline;
 
     //public AudioClip[] popSounds;
     //public AudioClip[] smashSounds;
@@ -181,9 +180,7 @@ public class Tile : MonoBehaviour
             */
             case "double":
 
-                pointsIcon.SetActive(true);
-                circleBG.SetActive(true);
-                pointsIcon.GetComponent<Image>().color = tileDisplayAccess.doubleLetterColour;
+                tileOutline.SetActive(true);
                 //letter.color = tileDisplayAccess.doubleLetterColour;
 
                 //update the points value of the tile so that it is added correctly to the overall live score
@@ -192,9 +189,7 @@ public class Tile : MonoBehaviour
                 break;
             case "triple":
 
-                pointsIcon.SetActive(true);
-                circleBG.SetActive(true);
-                pointsIcon.GetComponent<Image>().color = tileDisplayAccess.tripleLetterColour;
+                tileOutline.SetActive(true);
                 //letter.color = tileDisplayAccess.tripleLetterColour;
 
                 //update the points value of the tile so that it is added correctly to the overall live score
@@ -208,15 +203,13 @@ public class Tile : MonoBehaviour
                 canAge = false;
 
                 specialIcon.SetActive(false);
-                pointsIcon.SetActive(false);
-                circleBG.SetActive(false);
+                tileOutline.SetActive(false);
 
                 break;
 
             case "none":
                 specialIcon.SetActive(false);
-                pointsIcon.SetActive(false);
-                circleBG.SetActive(false);
+                tileOutline.SetActive(false);
                 adjustedPointValue = spawnedTile.points;
                 break;
         }
