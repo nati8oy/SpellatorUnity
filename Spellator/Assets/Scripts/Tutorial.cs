@@ -85,7 +85,7 @@ public class Tutorial : MonoBehaviour
                     Debug.Log("stubborn tile tutorial point");
 
                     ShowInfoPanel(0);
-                    tutorialSO.currentTip = "Stubborn tiles don't age at all.";
+                    tutorialSO.currentTip = "Use stubborn tiles in words to get rid of them.";
                     stubbornTileFlag = true;
                 }
 
@@ -96,7 +96,7 @@ public class Tutorial : MonoBehaviour
                 {
                     Debug.Log("heart tile tutorial point");
                     ShowInfoPanel(1);
-                    tutorialSO.currentTip = "Use heart tiles to replenish health";
+                    tutorialSO.currentTip = "Use heart tiles in words to replenish health.";
                     heartTileFlag = true;
                 }
 
@@ -106,7 +106,7 @@ public class Tutorial : MonoBehaviour
                 if (doubleTileFlag != true)
                 {
                     ShowInfoPanel(2);
-                    tutorialSO.currentTip = "Double tiles score double points";
+                    tutorialSO.currentTip = "Double tiles score double the amount of points.";
                     doubleTileFlag = true;
                 }
 
@@ -117,7 +117,7 @@ public class Tutorial : MonoBehaviour
                 if (tripleTileFlag != true)
                 {
                     ShowInfoPanel(3);
-                    tutorialSO.currentTip = "Triple tiles score triple points";
+                    tutorialSO.currentTip = "Triple tiles score triple the amount of points.";
                     tripleTileFlag = true;
                 }
 
@@ -128,7 +128,7 @@ public class Tutorial : MonoBehaviour
                 if (defaultTileFlag != true)
                 {
                     ShowInfoPanel(4);
-                    tutorialSO.currentTip = "Tile scores are shown below the letter";
+                    tutorialSO.currentTip = "The small number under each letter is it’s tile score.";
                     defaultTileFlag = true;
                 }
 
@@ -139,7 +139,7 @@ public class Tutorial : MonoBehaviour
                 if (deleteButtonFlag != true)
                 {
                     ShowInfoPanel(5);
-                    tutorialSO.currentTip = "Delete words or shake your rack to remove tiles.";
+                    tutorialSO.currentTip = "Use this button to shake your rack or clear a word.";
                     deleteButtonFlag = true;
                 }
 
@@ -150,7 +150,7 @@ public class Tutorial : MonoBehaviour
                 if (tileAgeFlag != true)
                 {
                     ShowInfoPanel(6);
-                    tutorialSO.currentTip = "Tiles age each turn. Try use them before they turn red and fall off";
+                    tutorialSO.currentTip = "Tiles age each turn. Red tiles will fall in the next turn.";
                     tileAgeFlag = true;
                 }
 
@@ -161,7 +161,7 @@ public class Tutorial : MonoBehaviour
                 if (validWordFlag != true)
                 {
                     ShowInfoPanel(7);
-                    tutorialSO.currentTip = "When the lightbulb comes on it means a word is valid";
+                    tutorialSO.currentTip = "When the lightbulb comes on it means a word is valid.";
                     validWordFlag = true;
                 }
 
@@ -172,7 +172,7 @@ public class Tutorial : MonoBehaviour
                 if (initialInstructionsFlag != true)
                 {
                     ShowInfoPanel(8);
-                    tutorialSO.currentTip = "Tap letters to make words using 3 or more letters";
+                    tutorialSO.currentTip = "Tap tiles to make words. Words must have at least 3 letters.";
                     initialInstructionsFlag = true;
                 }
 
@@ -182,7 +182,7 @@ public class Tutorial : MonoBehaviour
                 if (primaryTileFlag != true)
                 {
                     ShowInfoPanel(9);
-                    tutorialSO.currentTip = "Your next word must always start with the letter in this box";
+                    tutorialSO.currentTip = "Your next word must always start with the letter in this box.";
                     primaryTileFlag = true;
                 }
 

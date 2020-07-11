@@ -18,14 +18,15 @@ public class LevelCompleteActions : MonoBehaviour
     public Transform goldMovePoint;
     public TutorialSO tutorial;
     public TextMeshProUGUI tipText;
+    public int totalLevelXP;
+    public int localLevelProgressXP;
+    public int currentLevel;
 
 
     private GameObject goldCoinObject;
     public TextMeshProUGUI rewardText;
     public TextMeshProUGUI wordsMadeText;
     public TextMeshProUGUI nextLevelTally;
-
-    public GameObject explosionClip;
 
     public GameObject[] remainingTiles;
 
@@ -39,17 +40,58 @@ public class LevelCompleteActions : MonoBehaviour
         AppearDelay = 0.4f;
         wordsMade = 0;
 
-        configData.levelProgressXP = 0;
+        //Debug.Log("Current XP: " + configData.levelProgressXP);
+        //localLevelProgressXP = configData.levelProgressXP;
 
     }
 
     private void OnEnable()
     {
+
+        //assign a variable for the config data XP progress
+        localLevelProgressXP = configData.levelProgressXP;
+
+        currentLevel = configData.levelXP[3];
+
+
+        /*
+        if (configData.levelProgressXP<= configData.levelXP[0])
+        {
+            Debug.Log("Current Level XP: " + currentLevel);
+        }
+        */
+
+        /*
+        else if ((configData.levelProgressXP > configData.levelXP[0]) && (configData.levelProgressXP < configData.levelXP[1]))
+        {
+            currentLevel = configData.levelXP[1];
+        }
+        else if ((configData.levelProgressXP > configData.levelXP[1]) && (configData.levelProgressXP < configData.levelXP[2]))
+        {
+            currentLevel = configData.levelXP[2];
+        }
+        else if ((configData.levelProgressXP > configData.levelXP[2]) && (configData.levelProgressXP < configData.levelXP[3]))
+        {
+            currentLevel = configData.levelXP[3];
+        }
+        else if ((configData.levelProgressXP > configData.levelXP[3]) && (configData.levelProgressXP < configData.levelXP[4]))
+        {
+            currentLevel = configData.levelXP[4];
+        }
+
+        */
+
+
+        //localLevelProgressXP = configData.levelProgressXP + Points.totalScore;
+
+        Debug.Log("Current XP: " + configData.levelProgressXP + " XP earned: " + Points.totalScore);
+
+        totalLevelXP = configData.levelProgressXP;
         //grab the reward value from the SO
         StartCoroutine(LevelCompleteCheck(levelData.reward));
         StartCoroutine(CountUpWords());
 
-        progressSlider.maxValue = 100;
+        progressSlider.maxValue = currentLevel;
 
         fadeManager = GameObject.Find("Fade Manager").GetComponent<Transitions>();
         fadeManager.FadeType(fadeManager._flashColour, fadeManager.pulseSpeed);
@@ -57,25 +99,11 @@ public class LevelCompleteActions : MonoBehaviour
         //randomly show a tip from the tutorial scriptable object
         tipText.text = tutorial.endOfLevelTips[Random.Range(0, tutorial.endOfLevelTips.Length)];
 
-
-        //progressSlider.value = configData.levelProgressXP + Points.totalScore;
-
-        /*
-        if (configData.levelProgressXP == 0)
-        {
-            configData.levelProgressXP = Points.totalScore;
-        }
-         else if (configData.levelProgressXP != 0)
-        {
-            configData.levelProgressXP = configData.levelProgressXP + Points.totalScore;
-        }*/
+     
+        //set the slider to be the value of level XP from the SO
+        progressSlider.value = configData.levelProgressXP;
 
 
-    }
-
-    private void Update()
-    {
-        
     }
 
     //coroutine to count down the star reward for each level
@@ -131,13 +159,17 @@ public class LevelCompleteActions : MonoBehaviour
             yield return new WaitForSeconds(AppearDelay);
         }
 
+        //progress slider code
         while (progressSlider.value != (Points.totalScore))
         {
             progressSlider.value += 1f;
+            localLevelProgressXP += 1;
+            
+
             AudioManager.Instance.PlayAudio(audioManager.sfxTilePops[4]);
 
             //add to the overall level XP 
-            configData.levelProgressXP += 1;
+            totalLevelXP += 1;
 
             nextLevelTally.text = progressSlider.value.ToString() + " / " + progressSlider.maxValue.ToString();
            // Debug.Log("progress: " + progressSlider.value);

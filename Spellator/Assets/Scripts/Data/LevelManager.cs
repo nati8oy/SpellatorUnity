@@ -314,11 +314,11 @@ public class LevelManager : MonoBehaviour
         {
 
             case "tiles":
-                levelDescription = "Play " + firstCondition.ToString() + " tiles in total"; 
+                levelDescription = "Make words using " + firstCondition.ToString() + " tiles in total"; 
                 break;
 
             case "length":
-                levelDescription = "Make " + firstCondition.ToString() + " words using " + secondCondition.ToString() + " letters";
+                levelDescription = "Make " + firstCondition.ToString() + "x " + secondCondition.ToString() + " letter words";
 
                 break;
 
@@ -395,7 +395,7 @@ public class LevelManager : MonoBehaviour
                     }
                 }
 
-                levelDescription = "Play " + firstCondition.ToString() + " tiles in total";
+                levelDescription = firstCondition.ToString() + " tiles left to play";
 
 
                 break;
@@ -414,7 +414,7 @@ public class LevelManager : MonoBehaviour
                         firstCondition -= 1;
 
                     }
-                    Debug.Log("length rule matched! " + firstCondition + " words remaining");
+                    //Debug.Log("length rule matched! " + firstCondition + " words remaining");
                 }
 
                 levelDescription = "Make " + firstCondition.ToString() + " words using " + secondCondition.ToString() + " letters";
@@ -531,7 +531,7 @@ public class LevelManager : MonoBehaviour
             GameManager.Instance.StartCoroutine(GameManager.Instance.LevelComplete());
             //GameManager.Instance.LevelComplete();
             levelDetails.levelComplete = true;
-            Debug.Log("Level has been completed");
+            //Debug.Log("Level has been completed");
         }
 
 

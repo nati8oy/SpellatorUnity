@@ -17,6 +17,7 @@ public class SaveLoadManager : MonoBehaviour
     public int uniqueWordAmount;
     public string currentPlayerRank;
     public List<int> skinsPurchased = new List<int>();
+    public int currentXPTotal;
 
 
     public bool audioOn;
@@ -57,6 +58,7 @@ public class SaveLoadManager : MonoBehaviour
         uniqueWordAmount = uniqueWordsList.Count;
         currentPlayerRank = configData.currentRank;
         skinsPurchased = configData.skinsPurchased;
+        currentXPTotal = configData.levelProgressXP;
 
 
 
@@ -93,6 +95,7 @@ public class SaveLoadManager : MonoBehaviour
         uniqueWordAmount = uniqueWordsList.Count;
         currentPlayerRank = configData.currentRank;
         skinsPurchased = configData.skinsPurchased;
+        currentXPTotal = configData.levelProgressXP;
 
 
 
@@ -107,6 +110,7 @@ public class SaveLoadManager : MonoBehaviour
         SaveLoad.Save<int>(uniqueWordAmount, "Unique words made (int)");
         SaveLoad.Save<string>(currentPlayerRank, "Player Rank");
         SaveLoad.Save<List<int>>(skinsPurchased, "Skins Purchased");
+        SaveLoad.Save<int>(currentXPTotal, "Current XP Level");
 
 
 
@@ -178,6 +182,14 @@ public class SaveLoadManager : MonoBehaviour
             skinsPurchased = SaveLoad.Load<List<int>>("Skins Purchased");
             //set the skin selection in the shopSO back to the skinSelection var
             configData.skinsPurchased = skinsPurchased;
+        }
+
+        //the number of unique words made
+        if (SaveLoad.SaveExists("Current XP Level"))
+        {
+            currentXPTotal = SaveLoad.Load<int>("Current XP Level");
+            //set the skin selection in the shopSO back to the skinSelection var
+            configData.levelProgressXP = currentXPTotal;
         }
     }
 }

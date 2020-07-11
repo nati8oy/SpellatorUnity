@@ -25,7 +25,7 @@ public class DebugManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            GameManager.Instance.LevelComplete();
+            //GameManager.Instance.StartCoroutine(GameManager.Instance.LevelComplete());
         }
 
         if (Input.GetKeyDown(KeyCode.E))

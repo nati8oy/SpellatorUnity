@@ -1033,7 +1033,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   configData: {fileID: 11400000, guid: 87f9af19399d249068769bd3553e5227, type: 2}
-  gameState: {fileID: 0}
   tipText: {fileID: 5432621275919196561}
   tipData: {fileID: 11400000, guid: b9c4a75af295045f09685de1d4b7d544, type: 2}
 --- !u!114 &8813983386240386665

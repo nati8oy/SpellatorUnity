@@ -608,10 +608,78 @@ MonoBehaviour:
   - SHOE
   - ROGUE
   - DEALS
+  - CHEST
+  - BOOTS
+  - SPAT
+  - TAILED
+  - MOONS
+  - SOOT
+  - TEC
+  - CAB
+  - BIND
+  - DOGMA
+  - AIL
+  - TOO
+  - OUT
+  - TROD
+  - DOON
+  - NOW
+  - BATHS
+  - SOFTY
+  - YOUR
+  - RET
+  - TEER
+  - ROC
+  - CUB
+  - RED
+  - DON
+  - NUT
+  - TILS
+  - SIRS
+  - ROUT
+  - THE
+  - EBB
+  - BUG
+  - GULP
+  - LEAN
+  - WAT
+  - CAY
+  - GEE
+  - HATS
+  - SWAT
+  - GOB
+  - BLOG
+  - PITY
+  - TEAS
+  - POINTS
+  - SHIRE
+  - BOOT
+  - TONG
+  - GIVE
+  - EPIC
+  - VAN
+  - MOB
+  - BUNT
+  - TAPED
+  - FOOT
+  - PINKED
+  - GINS
+  - VOLT
+  - TOGS
+  - SAY
+  - YUK
+  - KEA
+  - WET
+  - POON
   sfxOn: 1
   musicOn: 1
   favouriteWordLength: 
-  totalWordsMade: 46
+  totalWordsMade: 125
   currentStatus: 
   longestWord: SICKENERS
-  uniqueWords: 0
+  uniqueWords: 645
+  totalGoldAmount: 155
+  currentRank: MASTER
+  levelProgressXP: 0
+  levelXP: 32000000960000002c01000090010000f4010000
+  skinsPurchased: 01000000
