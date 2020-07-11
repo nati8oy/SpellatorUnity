@@ -46,7 +46,6 @@ public class ShopItem : MonoBehaviour
         itemNameText.text = shopArray[arrayNumber].itemName;
 
         skinID = arrayNumber;
-        SkinStatusCheck();
     }
 
     private void Update()
@@ -74,10 +73,6 @@ public class ShopItem : MonoBehaviour
         }
     }
 
-    public void SkinStatusCheck()
-    {
-        
-    }
 
     //this is the function to select the new skin.
     public void UpdateSkin()
@@ -95,35 +90,34 @@ public class ShopItem : MonoBehaviour
             //add the purchased animation
             //Instantiate(purchaseObject, Camera.main.transform);
 
-            //add the purchase animation from the object pooler
-            purchasedAnimaton = ObjectPooler.SharedInstance.GetPooledObject("Purchase Title");
-            if (purchasedAnimaton != null)
+
+            //check if the skin has been purchased before playing the animation and adding the audio
+            if (!configData.skinsPurchased.Contains(skinID))
             {
-                purchasedAnimaton.transform.position = new Vector3 (344, 648);
-                purchasedAnimaton.SetActive(true);
+                //add the purchase animation from the object pooler
+                purchasedAnimaton = ObjectPooler.SharedInstance.GetPooledObject("Purchase Title");
+                if (purchasedAnimaton != null)
+                {
+                    purchasedAnimaton.transform.position = new Vector3(344, 648);
+                    purchasedAnimaton.SetActive(true);
 
-                //reduce the total currency by the item price. 
-                goldAmount -= shopArray[skinID].itemPrice;
-                Debug.Log("skin bought for " + shopArray[skinID].itemPrice + ". Gold remaining: " + goldAmount);
+                    //reduce the total currency by the item price. 
+                    goldAmount -= shopArray[skinID].itemPrice;
+                    Debug.Log("skin bought for " + shopArray[skinID].itemPrice + ". Gold remaining: " + goldAmount);
 
-                //set the gold amount in the SO to be the correct amount
-                configData.totalGoldAmount = goldAmount;
+                    //set the gold amount in the SO to be the correct amount
+                    configData.totalGoldAmount = goldAmount;
 
-                //add the skin to the ones that have been purchased List.
-                configData.skinsPurchased.Add(skinID);
-                GameEvents.OnSaveInitiated();
+                    //add the skin to the ones that have been purchased List.
+                    configData.skinsPurchased.Add(skinID);
+                    GameEvents.OnSaveInitiated();
 
-                //Debug.Log(configData.skinsPurchased.Count);
-
-                //save the game
-                // GameState.Instance.SaveGameData();
+                }
 
                 if (AudioManager.Instance)
                 {
                     AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxGeneral[15]);
                 }
-
-                SkinStatusCheck();
 
             }
 

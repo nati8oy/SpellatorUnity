@@ -180,6 +180,7 @@ public class Tile : MonoBehaviour
             */
             case "double":
 
+                tileOutline.GetComponent<Image>().color = tileDisplayAccess.doubleLetterColour;
                 tileOutline.SetActive(true);
                 //letter.color = tileDisplayAccess.doubleLetterColour;
 
@@ -188,7 +189,7 @@ public class Tile : MonoBehaviour
                 points.text = adjustedPointValue.ToString();
                 break;
             case "triple":
-
+                tileOutline.GetComponent<Image>().color = tileDisplayAccess.tripleLetterColour;
                 tileOutline.SetActive(true);
                 //letter.color = tileDisplayAccess.tripleLetterColour;
 
@@ -397,7 +398,7 @@ public class Tile : MonoBehaviour
         }
 
         //check if this is a primary tile that is being clicked and thus removed
-        if (CompareTag("PrimaryTile"))
+        if (CompareTag("PrimaryTile") && (DictionaryManager.Instance.selectedTilesArray.Length<=0))
         {
             //reset the flags for the first tile, etc.
             DictionaryManager.Instance.chainFlag = false;
