@@ -21,6 +21,7 @@ public class ConfigSO : ScriptableObject
     public string currentRank;
     public int levelProgressXP;
     public int[] levelXP;
+    public List<int> listOfWordLengths;
    
 
     public List<int> skinsPurchased = new List<int>();

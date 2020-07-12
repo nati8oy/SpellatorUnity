@@ -18,6 +18,7 @@ public class SaveLoadManager : MonoBehaviour
     public string currentPlayerRank;
     public List<int> skinsPurchased = new List<int>();
     public int currentXPTotal;
+    public List<int> wordsByLength;
 
 
     public bool audioOn;
@@ -59,6 +60,7 @@ public class SaveLoadManager : MonoBehaviour
         currentPlayerRank = configData.currentRank;
         skinsPurchased = configData.skinsPurchased;
         currentXPTotal = configData.levelProgressXP;
+        wordsByLength = configData.listOfWordLengths;
 
 
 
@@ -96,6 +98,8 @@ public class SaveLoadManager : MonoBehaviour
         currentPlayerRank = configData.currentRank;
         skinsPurchased = configData.skinsPurchased;
         currentXPTotal = configData.levelProgressXP;
+        wordsByLength = configData.listOfWordLengths;
+
 
 
 
@@ -111,10 +115,13 @@ public class SaveLoadManager : MonoBehaviour
         SaveLoad.Save<string>(currentPlayerRank, "Player Rank");
         SaveLoad.Save<List<int>>(skinsPurchased, "Skins Purchased");
         SaveLoad.Save<int>(currentXPTotal, "Current XP Level");
+        SaveLoad.Save<List<int>>(wordsByLength, "Number of words by length");
 
 
 
-//        Debug.Log("Game Saved!!");
+
+
+        //        Debug.Log("Game Saved!!");
     }
 
     void Load()
@@ -190,6 +197,14 @@ public class SaveLoadManager : MonoBehaviour
             currentXPTotal = SaveLoad.Load<int>("Current XP Level");
             //set the skin selection in the shopSO back to the skinSelection var
             configData.levelProgressXP = currentXPTotal;
+        }
+
+        //the number of unique words made
+        if (SaveLoad.SaveExists("Number of words by length"))
+        {
+            wordsByLength = SaveLoad.Load<List<int>>("Number of words by length");
+            //set the skin selection in the shopSO back to the skinSelection var
+            configData.listOfWordLengths = wordsByLength;
         }
     }
 }

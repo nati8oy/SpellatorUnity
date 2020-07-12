@@ -8526,49 +8526,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1046419391}
     m_Modifications:
-    - target: {fileID: 1153024527204764327, guid: 01e647ffbd9814622ac7a25084abb6c6,
-        type: 3}
-      propertyPath: allTrophies.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1153024527204764327, guid: 01e647ffbd9814622ac7a25084abb6c6,
-        type: 3}
-      propertyPath: gameDataObject
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1153024527204764327, guid: 01e647ffbd9814622ac7a25084abb6c6,
-        type: 3}
-      propertyPath: allTrophies.Array.data[0]
-      value: 
-      objectReference: {fileID: 271426600780745483, guid: 1a487eba4e4be41f99b213c8469b47bc,
-        type: 3}
-    - target: {fileID: 1153024527204764327, guid: 01e647ffbd9814622ac7a25084abb6c6,
-        type: 3}
-      propertyPath: allTrophies.Array.data[1]
-      value: 
-      objectReference: {fileID: 6728613158726471044, guid: 1a487eba4e4be41f99b213c8469b47bc,
-        type: 3}
-    - target: {fileID: 1153024527204764327, guid: 01e647ffbd9814622ac7a25084abb6c6,
-        type: 3}
-      propertyPath: allTrophies.Array.data[2]
-      value: 
-      objectReference: {fileID: 7888873562736537362, guid: 1a487eba4e4be41f99b213c8469b47bc,
-        type: 3}
-    - target: {fileID: 1153024527204764327, guid: 01e647ffbd9814622ac7a25084abb6c6,
-        type: 3}
-      propertyPath: allTrophies.Array.data[3]
-      value: 
-      objectReference: {fileID: -2794806096025398641, guid: 1a487eba4e4be41f99b213c8469b47bc,
-        type: 3}
     - target: {fileID: 7337610079769381772, guid: 01e647ffbd9814622ac7a25084abb6c6,
         type: 3}
       propertyPath: m_Name
       value: Player Stats
-      objectReference: {fileID: 0}
-    - target: {fileID: 7337610079769381772, guid: 01e647ffbd9814622ac7a25084abb6c6,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7337610079769381773, guid: 01e647ffbd9814622ac7a25084abb6c6,
         type: 3}
