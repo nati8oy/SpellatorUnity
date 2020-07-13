@@ -376,29 +376,22 @@ public class Tile : MonoBehaviour
 
         }
 
-        Debug.Log(spawnedTile.specialAttribute);
+       // Debug.Log(spawnedTile.specialAttribute);
 
         //Debug.Log(GameManager.Instance.testList.Count);
 
         //play the tile animation  
         // animator.SetBool("correctWord", true);
 
-        //play the small twinkle particles
-        twinkleParticles.Play();
-
+        
         if (AudioManager.Instance)
         {
             AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxTilePops[7]);
-            //AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxUserInterface[3]);
-            /*
-            swishAudioSource.volume = 0.4f;
-            AudioManager.Instance.PlayAudioWithSource(AudioManager.Instance.sfxUserInterface[3], swishAudioSource, 0.1f);
-
-            */
+           // Debug.Log("played tile click"); 
         }
 
         //check if this is a primary tile that is being clicked and thus removed
-        if (CompareTag("PrimaryTile") && (DictionaryManager.Instance.selectedTilesArray.Length<=0))
+        if (CompareTag("PrimaryTile") && (DictionaryManager.Instance.WordBeingMade.Length==1))
         {
             //reset the flags for the first tile, etc.
             DictionaryManager.Instance.chainFlag = false;
@@ -433,6 +426,9 @@ public class Tile : MonoBehaviour
         //check if the tile is selected or not. If it's not tagged as "selected" then add it to the word being made.
         else if (CompareTag("Tile"))
         {
+            //play the small twinkle particles
+            twinkleParticles.Play();
+
 
             //add this tile's Pos to the SelectedTiles list in TileManager
             TileManager.Instance.SelectedTiles.Add(transform.parent);

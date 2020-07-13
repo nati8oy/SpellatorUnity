@@ -137,7 +137,7 @@ public class LevelManager : MonoBehaviour
         //levelDetails.currentLevel = 14;
 
         //update the current level. This is set within the gameConfig file
-        if (levelDetails.currentLevel < 13)
+        if (levelDetails.currentLevel < 14)
         {
             levelDetails.currentLevel += 1;
 //                    Debug.Log("current level is: " + levelDetails.currentLevel);
@@ -158,73 +158,63 @@ public class LevelManager : MonoBehaviour
                 ConstructLevelParams("tiles", 25, 0, 0);
                 break;
             case 3:
-                //make 3 x 3 letter words
-                levelRuleType = LevelRuleType.length;
-                ConstructLevelParams("length", 3, 3, 0);
-                break;
-            case 4:
-                //make 4 x 3 letter words
-                levelRuleType = LevelRuleType.length;
-                ConstructLevelParams("length", 4, 3, 0);
-                break;
-            case 5:
                 //make 3 x 4 letter words
                 levelRuleType = LevelRuleType.length;
                 ConstructLevelParams("length", 3, 4, 0);
                 break;
-            case 6:
-                //make 4 x 4 letter words
-                levelRuleType = LevelRuleType.length;
-                ConstructLevelParams("length", 4, 4, 0);
-                break;
-
-            case 7:
-                //make 5 x 3 letter words
-                levelRuleType = LevelRuleType.length;
-                ConstructLevelParams("length", 5, 3, 0);
-                break;
-
-            case 8:
-                //make 5 x 4 letter words
-                levelRuleType = LevelRuleType.length;
-                ConstructLevelParams("length", 5, 4, 0);
-                break;
-
-            case 9:
+        
+            case 4:
                 //use 40 tiles
                 levelRuleType = LevelRuleType.tiles;
                 ConstructLevelParams("tiles", 40, 0, 0);
                 break;
-            case 10:
+            case 5:
                 //use 60 tiles
                 levelRuleType = LevelRuleType.tiles;
                 ConstructLevelParams("tiles", 60, 0, 0);
                 break;
 
-            case 11:
-                //make 6 x 4 letter words
+            case 6:
+                //make 3 x 5 letter words
                 levelRuleType = LevelRuleType.length;
-                ConstructLevelParams("length", 6, 4, 0);
+                ConstructLevelParams("length", 3, 5, 0);
+                break;
+ 
+            case 7:
+                //make 2 x words starting with "letter"
+                levelRuleType = LevelRuleType.starting;
+                ConstructLevelParams("starting", 3, 2, 0);
                 break;
 
-            case 12:
+            case 8:
                 //make 2 words worth 10XP 
                 levelRuleType = LevelRuleType.points;
                 ConstructLevelParams("points", 2, 0, 10);
                 break;
-            case 13:
+            case 9:
                 // make 2 words worth 20XP
                  levelRuleType = LevelRuleType.points;
                 ConstructLevelParams("points", 2, 0, 20);
                 break;
 
-            case 14:
+            case 10:
+                //make 2 x 6 letter words
+                levelRuleType = LevelRuleType.length;
+                ConstructLevelParams("length", 2, 6, 0);
+                break;
+
+            case 11:
                 //make 2 x words containing "letter"
                 levelRuleType = LevelRuleType.containing;
                 ConstructLevelParams("containing", 3, 2, 0);
                 break;
-            case 15:
-                //make 2 x words containing "letter"
+            case 12:
+                //make 2 x words starting with "letter"
+                levelRuleType = LevelRuleType.starting;
+                ConstructLevelParams("starting", 3, 2, 0);
+                break;
+            case 13:
+                //make 2 x words starting with "letter"
                 levelRuleType = LevelRuleType.starting;
                 ConstructLevelParams("starting", 3, 2, 0);
                 break;

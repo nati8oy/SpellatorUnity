@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f79f7b51d295e4cb19eb237343666dc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TutorialOn: 1
+  tutorial: {fileID: 0}
   tileSkinType: 0
   explosionClip: {fileID: 0}
   mainCanvas: {fileID: 0}

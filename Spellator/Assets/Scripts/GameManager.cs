@@ -302,7 +302,6 @@ public class GameManager : MonoBehaviour
 
         //GameObject.Find("GameState").GetComponent<GameState>().SaveGameData();
 
-
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 

@@ -44,6 +44,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec6fc6c1af5074e61b5cebb6d5cca7ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioObject: {fileID: 11400000, guid: a03b5a1d54d67443bae10bdddb04d364, type: 2}
+  volume: 0
+  delayAmount: 0
+  musicBackgroundMusic: []
+  sfxGeneral: []
+  sfxBigScore: []
+  sfxTilePops: []
+  sfxTileCrashes: []
+  sfxUserInterface: []
+  sfxTileCracks: []
+  crashAudioSource: {fileID: 0}
+  popAudioSource: {fileID: 0}
 --- !u!82 &7287963920263316321
 AudioSource:
   m_ObjectHideFlags: 0
