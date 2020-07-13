@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Points : MonoBehaviour
 {
@@ -17,8 +18,10 @@ public class Points : MonoBehaviour
 
 
     public static int totalScore;
-    public Text liveScoreText;
-    public Text currentScoreText;
+    public TextMeshProUGUI liveScoreText;
+    //public Text liveScoreText;
+    public TextMeshProUGUI currentScoreText;
+    //public Text currentScoreText;
 
 
     private void Start()

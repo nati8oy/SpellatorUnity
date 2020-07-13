@@ -127,7 +127,8 @@ public class DictionaryManager : MonoBehaviour
     private GameObject[] agingArray;
 
 
-    [SerializeField] private Text scoreText;
+   //[SerializeField] private Text scoreText;
+    [SerializeField] private TextMeshProUGUI scoreText;
 
 
     public GameObject[] selectedTilesArray;
@@ -365,7 +366,6 @@ public class DictionaryManager : MonoBehaviour
 
         }
         
-
         //ShowMessage();
         //update the number of words played overall - not the unique words
         wordData.totalWordsMade += 1;
@@ -452,13 +452,6 @@ public class DictionaryManager : MonoBehaviour
             lightbulbParticles.Stop();
 
 
-            /*
-            foreach (var tile in selectedTilesArray)
-            {
-                tile.GetComponent<Tile>().animator.SetBool("correctWord", true);
-                Debug.Log("that's a word!");
-
-            }*/
 
             //play "ding" sound
             // AudioManager.Instance.PlayAudio(allAudioClips[3]);
@@ -502,17 +495,6 @@ public class DictionaryManager : MonoBehaviour
                 }
 
 
-
-                //adjust the particles on the primary tile
-
-                /*
-                if (maximumParticles < 55)
-                {
-                    maximumParticles += 10;
-
-                }*/
-
-
                 // particleLifetime = Random.Range(0.25 * Points.multiplier, 0.3 * Points.multiplier);
                 particleSizes = Random.Range(10* Points.multiplier,15*Points.multiplier);
 
@@ -530,24 +512,12 @@ public class DictionaryManager : MonoBehaviour
                 //add the word to the scriptable object as well so that it can be referenced elsewhere e.g. the main menu scene
                 //wordData.uniqueWordsList.Add(WordBeingMade);
 
-//                Debug.Log("Word added to list! " + "(" + playerWordsMade.Count + " words)");
-
                 //add the new word to the unique words per level 
                 GameManager.Instance.AddNewWord();
 
 
 
 			}
-            /*
-
-			if (!playerWordsMade.ContainsKey(WordBeingMade))
-            {
-                playerWordsMade.Add(WordBeingMade,1);
-                Debug.Log("Word added! ");
-
-            }*/
-
-
 
                 else if (WordBeingMade.Length <= 3)
             {
@@ -612,7 +582,6 @@ public class DictionaryManager : MonoBehaviour
 
             }
 
-            //            Debug.Log("Live score is: " + Points.liveScore);
 
             //Debug.Log("Points for word: " + Points.pointsScored);
             Points.AddPoints(Points.liveScore);

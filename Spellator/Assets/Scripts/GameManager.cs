@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System.Collections;
+using TMPro;
 using UnityEngine.SocialPlatforms.GameCenter;
 
 public class GameManager : MonoBehaviour
@@ -129,10 +130,11 @@ public class GameManager : MonoBehaviour
         set { TotalScore = value; }
     }
 
-//    [SerializeField] private Text scoreText;
-    [SerializeField] private Text liveScoreText;
+    //    [SerializeField] private Text scoreText;
+    //[SerializeField] private Text liveScoreText;
+    [SerializeField] private TextMeshProUGUI liveScoreText;
 
-    public Text LiveScoreText
+    public TextMeshProUGUI LiveScoreText
     {
         get { return liveScoreText; }
         set { LiveScoreText = value; }
@@ -163,6 +165,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+
+        AdController.Instance.RunInterstitial();
         //turn tutorial on/off
         if (tutorial.tutorialOn)
         {
