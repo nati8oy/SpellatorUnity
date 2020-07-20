@@ -43,6 +43,10 @@ public class LevelManager : MonoBehaviour
     public bool _levelComplete;
 
 
+    //this flag is used to see if there has been a tile that matches the "containing" or "starting" condition.
+    //it's used so that the levelmanager can check if the tile type matches. If it does, then you can flick it off.
+    public static bool tileSpawnFlag;
+
     //sets the list for the int conditions below
     public List<int> conditionsList = new List<int>();
 
@@ -62,6 +66,8 @@ public class LevelManager : MonoBehaviour
     //reward for complettion of the level
     public int reward;
 
+
+    public TileBag tileBag;
 
 
     //set up singleton
@@ -107,15 +113,35 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-      
-
-//        Debug.Log("You are playing level " + levelDetails.currentLevel);
-
-
         //set up the levels via the function below
         SetLevels();
 
+
+        switch (levelRuleType)
+        {
+            case LevelRuleType.containing:
+                tileBag = new TileBag(55, 40, 18);
+                break;
+
+            case LevelRuleType.starting:
+                tileBag = new TileBag(55, 40, 18);
+                break;
+            case LevelRuleType.tiles:
+                tileBag = new TileBag(55, 40);
+                break;
+            case LevelRuleType.length:
+                tileBag = new TileBag(55, 40);
+                break;
+            case LevelRuleType.points:
+                tileBag = new TileBag(55, 40);
+                break;
+        }
+
+
+        //        Debug.Log("You are playing level " + levelDetails.currentLevel);
+
+
+   
         /*
         //set the letter in the difficulty SO so that it's available at the start of each level
 
@@ -133,6 +159,7 @@ public class LevelManager : MonoBehaviour
 
     public void SetLevels()
     {
+
         //set menu manually
         //levelDetails.currentLevel = 14;
 
@@ -148,11 +175,17 @@ public class LevelManager : MonoBehaviour
         switch (levelDetails.currentLevel)
         {
             case 1:
+                /*
+                //make 2 x words containing "letter"
+                levelRuleType = LevelRuleType.containing;
+                ConstructLevelParams("containing", 3, 2, 0);
+                break;
+                */
                 //use 10 tiles
                 levelRuleType = LevelRuleType.tiles;
                 ConstructLevelParams("tiles", 10, 0, 0);
                 break;
-            case 2:
+                case 2:
                 //use 25 tiles
                 levelRuleType = LevelRuleType.tiles;
                 ConstructLevelParams("tiles", 25, 0, 0);
@@ -216,15 +249,8 @@ public class LevelManager : MonoBehaviour
             case 13:
                 //make 2 x words starting with "letter"
                 levelRuleType = LevelRuleType.starting;
-                ConstructLevelParams("starting", 3, 2, 0);
+                ConstructLevelParams("starting", 3, 4, 0);
                 break;
-
-                /*
-            case 8:
-                levelRuleType = LevelRuleType.ending;
-                ConstructLevelParams("ending", 2, 0, 0);
-                break;
-            */
 
 
         }

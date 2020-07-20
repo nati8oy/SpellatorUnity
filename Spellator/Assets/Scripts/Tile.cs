@@ -96,6 +96,10 @@ public class Tile : MonoBehaviour
 
     void Start()
     {
+
+
+      
+
         healthParticles = ObjectPooler.SharedInstance.GetPooledObject("Heart Particles");
 
         //glowParticles.Stop();
@@ -256,10 +260,24 @@ public class Tile : MonoBehaviour
 
     private void OnEnable()
     {
+
+        /*
+        var testFlag = false;
+
+        if ( testFlag != true && spawnedTile.letter != LevelManager.letterCondition)
+        {
+            spawnedTile.letter = LevelManager.letterCondition;
+            spawnedTile.points = currentBag.letterDictionary[spawnedTile.letter];
+            testFlag = true; 
+        }
+        */
+
+
+
         //stop the particles that were playing when this was the primary tile
         //glowParticles.Stop();
 
-//        healthParticles = ObjectPooler.SharedInstance.GetPooledObject("Heart Particles");
+        //        healthParticles = ObjectPooler.SharedInstance.GetPooledObject("Heart Particles");
 
         //this is the code that chooses the random value from the curve.
         //The curve can be adjusted in the inspector

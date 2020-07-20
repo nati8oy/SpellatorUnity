@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
 
     public AnimationCurve mainAnimationCurve;
 
-    public TileBag tileBag;
+    //public TileBag tileBag;
 
     public GameObject[] remainingTiles;
 
@@ -166,7 +166,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
 
-        AdController.Instance.RunInterstitial();
+        //AdController.Instance.RunInterstitial();
         //turn tutorial on/off
         if (tutorial.tutorialOn)
         {
@@ -176,7 +176,7 @@ public class GameManager : MonoBehaviour
 
 
         //set up the tile bag with all the consonants and vowels 
-        tileBag = new TileBag(55, 40);
+        //tileBag = new TileBag(55, 40);
 
         gameManagerAudioSource.Play();
 

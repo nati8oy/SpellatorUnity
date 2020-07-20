@@ -13,6 +13,7 @@ public class TileBag
     public int consonantCount;
     public int vowelCount;
     public int rareConsonantCount;
+    public string letterCondition;
 
     public static List<string> bag = new List<string>(); 
 
@@ -93,4 +94,21 @@ public class TileBag
 
 //        Debug.Log("Bag total: " + bag.Count);
     }
+
+    //alternative constructor for the bag
+    public TileBag(int _consonantCount, int _vowelCount, int _additionalLetters)
+    {
+        consonantCount = _consonantCount;
+        vowelCount = _vowelCount;
+        letterCondition = LevelManager.letterCondition;
+
+        for (int i = 0; i < 12; i++)
+        {
+            bag.Add(letterCondition);
+            Debug.Log("Added " + _additionalLetters + " lettercondition");
+        }
+
+        SetupBag();
+
+    }   
 }
