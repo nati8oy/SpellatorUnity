@@ -11,6 +11,7 @@ public class TutorialSlider : MonoBehaviour
     public GameObject backButton;
     public GameObject nextButton;
     public GameObject playButton;
+    public TutorialSO tutorialSO;
 
     public int slideNumber;
 
@@ -67,5 +68,6 @@ public class TutorialSlider : MonoBehaviour
     public void HideTutorial()
     {
         gameObject.SetActive(false);
+        tutorialSO.tutorialOn = false;
     }
 }

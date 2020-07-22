@@ -247,10 +247,22 @@ public class LevelManager : MonoBehaviour
                 ConstructLevelParams("starting", 3, 2, 0);
                 break;
             case 13:
-                //make 2 x words starting with "letter"
+                //make 4 x words starting with "letter"
                 levelRuleType = LevelRuleType.starting;
                 ConstructLevelParams("starting", 3, 4, 0);
                 break;
+
+            case 14:
+                //use 60 tiles
+                levelRuleType = LevelRuleType.tiles;
+                ConstructLevelParams("tiles", 75, 0, 0);
+                break;
+            case 15:
+                //use 60 tiles
+                levelRuleType = LevelRuleType.tiles;
+                ConstructLevelParams("tiles", 75, 0, 0);
+                break;
+
 
 
         }

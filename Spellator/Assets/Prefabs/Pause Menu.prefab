@@ -2018,7 +2018,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &6118252417176152995
 GameObject:
   m_ObjectHideFlags: 0

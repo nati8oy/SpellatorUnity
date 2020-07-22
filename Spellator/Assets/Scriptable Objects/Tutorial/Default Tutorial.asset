@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e1921f16c21f4fb68bfe24bda9f40bf, type: 3}
   m_Name: Default Tutorial
   m_EditorClassIdentifier: 
-  currentTip: Triple tiles score triple points the amount of points.
+  currentTip: Triple tiles score triple the amount of points.
   tutorialTipImage: {fileID: 21300000, guid: df94c268ef98547219803299d6cc8e52, type: 3}
   endOfLevelTips:
   - "Stubborn tiles don\u2019t age at all. You just have to use them! "
@@ -23,4 +23,4 @@ MonoBehaviour:
   - Can't make a word? Click on the primary tile to start again
   - Each word has to start with the last letter of the previous word
   - Spend all your hard-earned gold on new skins in the shop!
-  tutorialOn: 0
+  tutorialOn: 1

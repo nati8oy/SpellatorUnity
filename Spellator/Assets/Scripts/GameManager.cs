@@ -489,8 +489,6 @@ public class GameManager : MonoBehaviour
     {
         newWordCounter += 1;
     }
-
-
     
 
 }

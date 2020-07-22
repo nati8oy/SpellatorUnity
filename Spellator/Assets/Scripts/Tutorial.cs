@@ -19,6 +19,8 @@ public class Tutorial : MonoBehaviour
     private bool validWordFlag;
     private bool initialInstructionsFlag;
 
+    public GameObject tutorialSlider;
+
     private bool primaryTileFlag;
 
     public TutorialSO tutorialSO;
@@ -26,41 +28,49 @@ public class Tutorial : MonoBehaviour
 
     void Start()
     {
-       
 
-        //set the flags based on the GameManager TutorialOn boolean
         if (tutorialSO.tutorialOn)
         {
-            TutorialActions.TutorialItemInitiated += CheckTutorialItem;
+            tutorialSlider.SetActive(true);
 
-
-            //set the flags to true if the tutorial is on so that they don't show
-            doubleTileFlag = false;
-            tripleTileFlag = false;
-            stubbornTileFlag = false;
-            heartTileFlag = false;
-            defaultTileFlag = false;
-            deleteButtonFlag = false;
-            tileAgeFlag = false;
-            validWordFlag = false;
-            initialInstructionsFlag = false;
-            primaryTileFlag = false;
-}
-        else
-        {
-            //set the flags to true if the tutorial is on so that they don't show
-            doubleTileFlag = true;
-            tripleTileFlag = true;
-            stubbornTileFlag = true;
-            heartTileFlag = true;
-            defaultTileFlag = true;
-            deleteButtonFlag = true;
-            tileAgeFlag = true;
-            validWordFlag = true;
-            initialInstructionsFlag = true;
-            primaryTileFlag = true;
         }
+
+            /*
+            //set the flags based on the GameManager TutorialOn boolean
+            if (tutorialSO.tutorialOn)
+            {
+                TutorialActions.TutorialItemInitiated += CheckTutorialItem;
+
+
+                //set the flags to true if the tutorial is on so that they don't show
+                doubleTileFlag = false;
+                tripleTileFlag = false;
+                stubbornTileFlag = false;
+                heartTileFlag = false;
+                defaultTileFlag = false;
+                deleteButtonFlag = false;
+                tileAgeFlag = false;
+                validWordFlag = false;
+                initialInstructionsFlag = false;
+                primaryTileFlag = false;
     }
+            else
+            {
+                //set the flags to true if the tutorial is on so that they don't show
+                doubleTileFlag = true;
+                tripleTileFlag = true;
+                stubbornTileFlag = true;
+                heartTileFlag = true;
+                defaultTileFlag = true;
+                deleteButtonFlag = true;
+                tileAgeFlag = true;
+                validWordFlag = true;
+                initialInstructionsFlag = true;
+                primaryTileFlag = true;
+            }
+
+            */
+        }
 
     
     private void Update()
