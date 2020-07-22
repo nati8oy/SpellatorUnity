@@ -19,6 +19,7 @@ public class SaveLoadManager : MonoBehaviour
     public List<int> skinsPurchased = new List<int>();
     public int currentXPTotal;
     public List<int> wordsByLength;
+    public int currentLevel;
 
 
     public bool audioOn;
@@ -28,6 +29,7 @@ public class SaveLoadManager : MonoBehaviour
 
     public ShopSO shop;
     public ConfigSO configData;
+    public LevelManagerSO levelData;
 
 
     private void Awake()
@@ -61,6 +63,7 @@ public class SaveLoadManager : MonoBehaviour
         skinsPurchased = configData.skinsPurchased;
         currentXPTotal = configData.levelProgressXP;
         wordsByLength = configData.listOfWordLengths;
+        currentLevel = levelData.currentLevel;
 
 
 
@@ -99,6 +102,7 @@ public class SaveLoadManager : MonoBehaviour
         skinsPurchased = configData.skinsPurchased;
         currentXPTotal = configData.levelProgressXP;
         wordsByLength = configData.listOfWordLengths;
+        currentLevel = levelData.currentLevel;
 
 
 
@@ -116,6 +120,7 @@ public class SaveLoadManager : MonoBehaviour
         SaveLoad.Save<List<int>>(skinsPurchased, "Skins Purchased");
         SaveLoad.Save<int>(currentXPTotal, "Current XP Level");
         SaveLoad.Save<List<int>>(wordsByLength, "Number of words by length");
+        SaveLoad.Save<int>(currentLevel, "Current level");
 
 
 
@@ -206,5 +211,16 @@ public class SaveLoadManager : MonoBehaviour
             //set the skin selection in the shopSO back to the skinSelection var
             configData.listOfWordLengths = wordsByLength;
         }
+
+
+
+        //skin selection
+        if (SaveLoad.SaveExists("Current level"))
+        {
+            gold = SaveLoad.Load<int>("Current level");
+            //set the skin selection in the shopSO back to the skinSelection var
+            levelData.currentLevel = currentLevel;
+        }
+
     }
 }

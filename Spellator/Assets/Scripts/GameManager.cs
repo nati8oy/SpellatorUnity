@@ -279,9 +279,6 @@ public class GameManager : MonoBehaviour
 
     public void ResetGame()
     {
-        //levelDetails.currentLevel = 0;
-
-//        TileBag.pointsDictionary.Clear();
 
         currentBag.letterDictionary.Clear();
         CountDown.timeLeft = 75;

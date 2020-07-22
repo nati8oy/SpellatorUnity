@@ -160,17 +160,6 @@ public class LevelManager : MonoBehaviour
     public void SetLevels()
     {
 
-        //set menu manually
-        //levelDetails.currentLevel = 14;
-
-        //update the current level. This is set within the gameConfig file
-        if (levelDetails.currentLevel < 14)
-        {
-            levelDetails.currentLevel += 1;
-//                    Debug.Log("current level is: " + levelDetails.currentLevel);
-
-        }
-
 
         switch (levelDetails.currentLevel)
         {
@@ -560,6 +549,15 @@ public class LevelManager : MonoBehaviour
             //GameManager.Instance.LevelComplete();
             levelDetails.levelComplete = true;
             //Debug.Log("Level has been completed");
+
+            //if you passed the level then increment the level
+
+            //update the current level. This is set within the gameConfig file
+            if (levelDetails.currentLevel < 15)
+            {
+                levelDetails.currentLevel += 1;
+            }
+
         }
 
 

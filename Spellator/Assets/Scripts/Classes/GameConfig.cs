@@ -38,12 +38,7 @@ public class GameConfig : MonoBehaviour
     void Start()
         {
 
-        //load the game save data
-        //GameObject.Find("GameState").GetComponent<GameState>().LoadGameData();
-
-
         uniqueWordsList = configScriptableObject.uniqueWordsList;
-//        GetComponent<GameState>().LoadGameData();
 
 
         //all of this data is being read out of the scriptable object
@@ -51,37 +46,28 @@ public class GameConfig : MonoBehaviour
             sfxOn = configScriptableObject.sfxOn;
             longestWord = configScriptableObject.longestWord;
             favouriteWordLength = configScriptableObject.favouriteWordLength;
-            //highScores = configScriptableObject.topTenHighScores;
 
         configScriptableObject.FindLongestWord();
-        //Debug.Log("game config says unique words list is " + uniqueWordsList.Count + " long");
-
-        levelData.currentLevel = 0;
-
-        }
 
 
-    //set the level to 0 for each of the  
-   
+        /*
+        //set the level from the SO
+        if(levelData.currentLevel==0)
 
-        // Update is called once per frame
+        {
+            levelData.currentLevel = 1;
+
+        }*/
+
+
+    }
+
+
         void Update()
         {
             musicOn = configScriptableObject.musicOn;
             sfxOn = configScriptableObject.sfxOn;
             uniqueWordsList = configScriptableObject.uniqueWordsList;
-
-//        var test = DictionaryManager.Instance.totalWordsPlayed;
-
-     //   Debug.Log("test var is: " + test);
-
-
-    }
-
-    public void ResetLevels()
-    {
-        levelData.currentLevel = 0;
-        Debug.Log("levels reset to " + levelData.currentLevel);
     }
 
 

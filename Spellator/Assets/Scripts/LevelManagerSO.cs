@@ -14,6 +14,7 @@ public class LevelManagerSO : ScriptableObject
     [Header("Level Data")]
     //what the current level or difficulty of the game is
     public int currentLevel;
+    public int testIntForLevels;
 
     //public int numberOfWordsToMake;
     //public int numberOflettersToUse;
@@ -29,9 +30,6 @@ public class LevelManagerSO : ScriptableObject
 
     //check to see if the level is complete or not
     public bool levelComplete;
-
-    //use this for tracking how many levels in they are.
-    public int overallLevel;
 
     //the description text that tells you how to win a level
     //e.g. make 3 words ending in T

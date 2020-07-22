@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad412a648c364c90992b71caee0ebe1, type: 3}
   m_Name: Level Data
   m_EditorClassIdentifier: 
-  currentLevel: 4
+  currentLevel: 2
+  testIntForLevels: 1
   allLevels: 
   levelTypes:
   - starting
@@ -20,9 +21,8 @@ MonoBehaviour:
   - contains
   - length
   reward: 3
-  levelComplete: 1
-  overallLevel: 0
-  levelRules: Make 0 words using 3 letters
+  levelComplete: 0
+  levelRules: Make words using 25 tiles in total
   endingList:
   - L
   - D

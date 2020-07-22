@@ -46,7 +46,14 @@ MonoBehaviour:
   gold: 0
   wordsPlayed: 0
   longestWord: 
-  skinSelection: 0
+  uniqueWordsList: []
+  uniqueWordAmount: 0
+  currentPlayerRank: 
+  skinsPurchased: 
+  currentXPTotal: 0
+  wordsByLength: 
+  currentLevel: 0
   audioOn: 0
   shop: {fileID: 11400000, guid: 6423e908571a640eca1855efe7b71f95, type: 2}
   configData: {fileID: 11400000, guid: 87f9af19399d249068769bd3553e5227, type: 2}
+  levelData: {fileID: 11400000, guid: da09913161474424f878bba5ba2d1f98, type: 2}
