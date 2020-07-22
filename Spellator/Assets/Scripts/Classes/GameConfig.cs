@@ -50,14 +50,14 @@ public class GameConfig : MonoBehaviour
         configScriptableObject.FindLongestWord();
 
 
-        /*
+        
         //set the level from the SO
         if(levelData.currentLevel==0)
 
         {
             levelData.currentLevel = 1;
 
-        }*/
+        }
 
 
     }

@@ -525,7 +525,7 @@ public class Tile : MonoBehaviour
             healthParticles.SetActive(true);
 
             //heal if it's a heart tile
-            DictionaryManager.Instance.healthBar.GetComponent<PlayerHealth>().Heal(adjustedPointValue);
+            DictionaryManager.Instance.healthBar.GetComponent<PlayerHealth>().Heal(adjustedPointValue*1.2f);
 
             if (AudioManager.Instance)
             {

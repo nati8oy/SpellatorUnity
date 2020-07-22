@@ -217,7 +217,7 @@ public class SaveLoadManager : MonoBehaviour
         //skin selection
         if (SaveLoad.SaveExists("Current level"))
         {
-            gold = SaveLoad.Load<int>("Current level");
+            currentLevel = SaveLoad.Load<int>("Current level");
             //set the skin selection in the shopSO back to the skinSelection var
             levelData.currentLevel = currentLevel;
         }
