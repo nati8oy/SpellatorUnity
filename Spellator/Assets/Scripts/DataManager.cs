@@ -24,7 +24,7 @@ public class DataManager : MonoBehaviour
     public void AddGold(int amount)
 	{
         configData.totalGoldAmount += amount;
-		Debug.Log("Gold: " + amount);
+		//Debug.Log("Gold: " + amount);
 	}
 	public void RemoveAds()
 	{
