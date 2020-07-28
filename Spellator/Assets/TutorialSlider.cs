@@ -20,6 +20,7 @@ public class TutorialSlider : MonoBehaviour
     void Start()
     {
         slideNumber = 1;
+
     }
 
     // Update is called once per frame
@@ -54,7 +55,7 @@ public class TutorialSlider : MonoBehaviour
       
         if (direction == "next")
         {
-            iTween.MoveBy(sliderPanel, new Vector3(-640, 0, 0), 0.2f);
+            iTween.MoveBy(sliderPanel, new Vector3(Screen.width * -1, 0, 0), 0.2f);
             slideNumber += 1;
         }
          else if(slideNumber>1)
