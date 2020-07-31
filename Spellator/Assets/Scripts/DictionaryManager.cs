@@ -929,7 +929,7 @@ public class DictionaryManager : MonoBehaviour
             //check if the level is complete first before doing all of this.
             if ((tile.GetComponent<Tile>().spawnedTile.age > 0) && (levelManager.levelComplete != true) && (tile.GetComponent<Tile>().canAge==true))
             {
-                
+                var tileScale = tile.transform.localScale;
 
                 //reduce tile age
                 tile.GetComponent<Tile>().spawnedTile.age -= 1;
@@ -942,6 +942,8 @@ public class DictionaryManager : MonoBehaviour
                     //if the tile's age is 3, 2 or 1 then shake it accordingly
                     case 3:
                         iTween.ShakePosition(tile, iTween.Hash("x", 2, "y", 2, "time", randomTime, "easetype", "easeOutQuint"));
+
+                       // iTween.ShakeScale(gameObject, , 0.5f);
                         break;
                     case 2:
                         iTween.ShakePosition(tile, iTween.Hash("x", 4, "y", 4, "time", randomTime, "easetype", "easeOutQuint"));

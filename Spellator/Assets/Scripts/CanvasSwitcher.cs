@@ -20,11 +20,48 @@ public class CanvasSwitcher : MonoBehaviour
         m_Canvas = GetComponent<Canvas>();
 
         deviceModelString = SystemInfo.deviceModel;
+        
 
         Debug.Log("device type: " + SystemInfo.deviceModel);
         Debug.Log("device generaton " + deviceGeneration);
 
 
+        //check devices type and see if it's an iPhone, iPad or iPod and adjust the content appropriately
+        if (SystemInfo.deviceModel.Contains("iPhoneX"))
+        {
+            Debug.Log("this is an iPhoneX");
+            SetScreenSpaceCanvas();
+
+        }
+        if (SystemInfo.deviceModel.Contains("iPhone11"))
+        {
+            Debug.Log("this is an iPhone11");
+            SetScreenSpaceCanvas();
+
+        }
+
+        
+        else if (SystemInfo.deviceModel.Contains("iPhone4"))
+        {
+            Debug.Log("this is an iPhone4");
+        }
+        else if (SystemInfo.deviceModel.Contains("iPhone"))
+        {
+            Debug.Log("this is an iPhone5");
+        }
+        else if (SystemInfo.deviceModel.Contains("iPod"))
+        {
+            Debug.Log("this is an iPod");
+        }
+
+        else if (SystemInfo.deviceModel.Contains("iPad"))
+        {
+            Debug.Log("this is an iPad");
+
+        }
+
+
+        /*
         //check the device type and change the canvas type accordingly
 
         switch (deviceGeneration)
@@ -115,10 +152,11 @@ public class CanvasSwitcher : MonoBehaviour
             case DeviceGeneration.iPadUnknown:
                 SetWorldSpaceCanvas();
                 break;
-        }
+        }*/
+
     }
 
-    
+
     // Update is called once per frame
     void Update()
     {
@@ -134,18 +172,23 @@ public class CanvasSwitcher : MonoBehaviour
     {
         m_Canvas.renderMode = RenderMode.WorldSpace;
         m_RenderModeStates = RenderModeStates.camera;
+        Debug.Log("canvas set to world space");
     }
 
     public void SetScreenSpaceCanvas()
     {
         m_Canvas.renderMode = RenderMode.ScreenSpaceCamera;
         m_RenderModeStates = RenderModeStates.overlay;
+        Debug.Log("canvas set to screen space");
+
     }
 
     public void SetScreenSpaceOverlayCanvas()
     {
         m_Canvas.renderMode = RenderMode.ScreenSpaceOverlay;
         m_RenderModeStates = RenderModeStates.world;
+        Debug.Log("canvas set to overlay");
+
     }
 
 

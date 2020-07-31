@@ -386,6 +386,11 @@ public class Tile : MonoBehaviour
     public void HandleClick()
 
     {
+        //iTween.ShakePosition(game, iTween.Hash("x", 2, "y", 2, "time", randomTime, "easetype", "easeOutQuint"));
+
+
+        //iTween.ShakeScale(gameObject, new Vector3(50, 50, 50), 2f);
+
         //TutorialActions.OnTutorialItemInitiated("stubborn tiles");
         //for tutorial only
         if (tutorial.tutorialOn)
