@@ -942,11 +942,12 @@ public class DictionaryManager : MonoBehaviour
                     //if the tile's age is 3, 2 or 1 then shake it accordingly
                     case 3:
                         iTween.ShakePosition(tile, iTween.Hash("x", 2, "y", 2, "time", randomTime, "easetype", "easeOutQuint"));
-
-                       // iTween.ShakeScale(gameObject, , 0.5f);
+                        //tile.GetComponentInParent<Transform>().transform.localScale = new Vector3(0.2f, 0, 0);
+                        // iTween.ShakeScale(gameObject, , 0.5f);
                         break;
                     case 2:
                         iTween.ShakePosition(tile, iTween.Hash("x", 4, "y", 4, "time", randomTime, "easetype", "easeOutQuint"));
+
                         break;
                     case 1:
                         iTween.ShakePosition(tile, iTween.Hash("x", 8, "y", 8, "time", randomTime, "easetype", "easeOutQuint"));
