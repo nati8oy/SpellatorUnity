@@ -45,7 +45,7 @@ public class TileCreator : MonoBehaviour
     public void RefillTiles()
     {
 
-        iTween.ScaleTo(gameObject, new Vector3((gameObject.transform.localScale.x+ 0.1f), (gameObject.transform.localScale.x + 0.1f), 1), 1);
+      //  iTween.ScaleTo(gameObject, new Vector3((gameObject.transform.localScale.x+ 0.1f), (gameObject.transform.localScale.x + 0.1f), 1), 1);
 
         //localScale = gameObject.transform.localScale.x;
         //gameObject.transform.localScale = new Vector3(1.5f, 1.5f, 1);
