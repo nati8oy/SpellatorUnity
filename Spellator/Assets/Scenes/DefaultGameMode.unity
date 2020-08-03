@@ -14696,6 +14696,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1902959358}
   m_CullTransparentMesh: 0
+--- !u!1 &1952709178 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2441374413880693043, guid: d280f95e1bad644dba45e66668d6d851,
+    type: 3}
+  m_PrefabInstance: {fileID: 1761313057}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1997246113
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16816,5 +16822,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: b9c4a75af295045f09685de1d4b7d544,
         type: 2}
+    - target: {fileID: 7349431635441859144, guid: cf2cb441bcdc54fbba9fdd62fba05c37,
+        type: 3}
+      propertyPath: tutorialSlider
+      value: 
+      objectReference: {fileID: 1952709178}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf2cb441bcdc54fbba9fdd62fba05c37, type: 3}

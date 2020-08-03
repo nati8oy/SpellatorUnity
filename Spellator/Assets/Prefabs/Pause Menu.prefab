@@ -2006,8 +2006,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7349431635441859144, guid: cf2cb441bcdc54fbba9fdd62fba05c37,
-          type: 3}
+      - m_Target: {fileID: 3319577221695807614}
         m_MethodName: ToggleCheck
         m_Mode: 1
         m_Arguments:
@@ -2018,7 +2017,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  m_IsOn: 0
+  m_IsOn: 1
 --- !u!1 &6118252417176152995
 GameObject:
   m_ObjectHideFlags: 0

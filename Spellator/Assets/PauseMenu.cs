@@ -32,14 +32,14 @@ public class PauseMenu : MonoBehaviour
         if (tutorialToggle.isOn)
         {
             tutorialSO.tutorialOn = true;
-            Debug.Log(tutorialSO.tutorialOn);
+            //Debug.Log(tutorialSO.tutorialOn);
 
             //add the action if the toggle is on
         }
         else
         {
             tutorialSO.tutorialOn = false;
-            Debug.Log(tutorialSO.tutorialOn);
+           // Debug.Log(tutorialSO.tutorialOn);
         }
 
     }

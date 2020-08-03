@@ -52,6 +52,8 @@ public class SaveLoadManager : MonoBehaviour
 
     void Start()
     {
+       // ClearAllData();
+
         //set all vars to be the ones from the scriptable object
         gold = configData.totalGoldAmount;
         wordsPlayed = configData.totalWordsMade;
@@ -222,5 +224,19 @@ public class SaveLoadManager : MonoBehaviour
             levelData.currentLevel = currentLevel;
         }
 
+    }
+
+    public void ClearAllData()
+    {
+        configData.levelProgressXP = 0;
+        configData.levelProgressXP = 0;
+        configData.skinsPurchased.Clear();
+        uniqueWordsList.Clear();
+        configData.uniqueWordsList.Clear();
+        shop.currentSkin = 0;
+        configData.longestWord = null;
+        configData.totalWordsMade = 0;
+        configData.totalGoldAmount = 0;
+        levelData.currentLevel = 1;
     }
 }

@@ -8607,6 +8607,46 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1153024527204764327, guid: 01e647ffbd9814622ac7a25084abb6c6,
+        type: 3}
+      propertyPath: statuses.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1153024527204764327, guid: 01e647ffbd9814622ac7a25084abb6c6,
+        type: 3}
+      propertyPath: statuses.Array.data[6]
+      value: LEGENDARY
+      objectReference: {fileID: 0}
+    - target: {fileID: 1153024527204764327, guid: 01e647ffbd9814622ac7a25084abb6c6,
+        type: 3}
+      propertyPath: statuses.Array.data[4]
+      value: PROLIFIC
+      objectReference: {fileID: 0}
+    - target: {fileID: 1153024527204764327, guid: 01e647ffbd9814622ac7a25084abb6c6,
+        type: 3}
+      propertyPath: statuses.Array.data[5]
+      value: MASTER
+      objectReference: {fileID: 0}
+    - target: {fileID: 1153024527204764327, guid: 01e647ffbd9814622ac7a25084abb6c6,
+        type: 3}
+      propertyPath: statuses.Array.data[3]
+      value: WORDSMITH
+      objectReference: {fileID: 0}
+    - target: {fileID: 1153024527204764327, guid: 01e647ffbd9814622ac7a25084abb6c6,
+        type: 3}
+      propertyPath: statuses.Array.data[2]
+      value: PROFESSIONAL
+      objectReference: {fileID: 0}
+    - target: {fileID: 1153024527204764327, guid: 01e647ffbd9814622ac7a25084abb6c6,
+        type: 3}
+      propertyPath: statuses.Array.data[1]
+      value: CADET
+      objectReference: {fileID: 0}
+    - target: {fileID: 1153024527204764327, guid: 01e647ffbd9814622ac7a25084abb6c6,
+        type: 3}
+      propertyPath: statuses.Array.data[0]
+      value: INTERN
+      objectReference: {fileID: 0}
     - target: {fileID: 7337610079769381772, guid: 01e647ffbd9814622ac7a25084abb6c6,
         type: 3}
       propertyPath: m_Name

@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 
 
     public TutorialSO tutorial;
+    public GameObject tutorialSlider;
 
 
     //this manages the game skins
@@ -170,8 +171,7 @@ public class GameManager : MonoBehaviour
         //turn tutorial on/off
         if (tutorial.tutorialOn)
         {
-            TutorialActions.OnTutorialItemInitiated("initial instructions");
-
+            //  TutorialActions.OnTutorialItemInitiated("initial instructions");
         }
 
 
@@ -214,6 +214,14 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+
+
+        if (tutorial.tutorialOn)
+        {
+            tutorialSlider.SetActive(true);
+        }
+
+
         /*
 
         //get the ID of the touch (first touch)

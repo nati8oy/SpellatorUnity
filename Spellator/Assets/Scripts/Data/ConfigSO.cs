@@ -33,7 +33,7 @@ public class ConfigSO : ScriptableObject
     private List<int> wordLengths = new List<int>();
     //public List<int> topTenHighScores = new List<int>();
 
-
+  
 
     public void FavouriteWordLength()
     {
