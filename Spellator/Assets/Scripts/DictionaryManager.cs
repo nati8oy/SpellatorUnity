@@ -23,6 +23,9 @@ public class DictionaryManager : MonoBehaviour
     public Transform HUD;
 
 
+    public GameObject pointsScreen;
+
+
     [Space()]
     [Header("Word Related Variables")]
     //    private WordData listOfWordsMade;
@@ -365,7 +368,11 @@ public class DictionaryManager : MonoBehaviour
             TutorialActions.OnTutorialItemInitiated("primary tile");
 
         }
-        
+
+
+        pointsScreen.GetComponent<Animator>().SetBool("playPulse",true);
+
+
         //ShowMessage();
         //update the number of words played overall - not the unique words
         wordData.totalWordsMade += 1;
@@ -1015,5 +1022,7 @@ public class DictionaryManager : MonoBehaviour
 
 
     }
+
+  
 
 }
