@@ -23,8 +23,6 @@ public class TileCreator : MonoBehaviour
     {
        
 
-
-
         //Remember that the object pooler uses TAGS not names of objects to set them active, etc. here.
         newTile = ObjectPooler.SharedInstance.GetPooledObject("Tile");
         startPos = gameObject.transform;
@@ -34,7 +32,7 @@ public class TileCreator : MonoBehaviour
         tileSpawner.GetNewPooledObject(gameObject.transform.position, gameObject.transform);
 
       
-    }
+    }                                                                                   
     private void Update()
     {
         // localScale -= 0.05f;

@@ -10318,7 +10318,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 640, y: 1136}
+  m_SizeDelta: {x: 828, y: 1792}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &262373171311086630
 CanvasRenderer:
@@ -10472,10 +10472,12 @@ MonoBehaviour:
   goldMovePoint: {fileID: 2617324712200025877}
   tutorial: {fileID: 11400000, guid: b9c4a75af295045f09685de1d4b7d544, type: 2}
   tipText: {fileID: 5264254713004314756}
+  totalLevelXP: 0
+  localLevelProgressXP: 0
+  currentLevel: 0
   rewardText: {fileID: 262373170845138992}
   wordsMadeText: {fileID: 262373171165435267}
   nextLevelTally: {fileID: 8652048929120363363}
-  explosionClip: {fileID: 0}
   remainingTiles: []
   wordsMade: 0
 --- !u!1 &262373171476946506

@@ -96,7 +96,7 @@ public class Tile : MonoBehaviour
 
     void Start()
     {
-        var scaleSize = gameObject.transform.localScale.x;
+        var scaleSize = gameObject.transform.localScale.x;  
 
 //        Debug.Log("local scale: " + scaleSize);
         //scaleSize =  0.3f;
