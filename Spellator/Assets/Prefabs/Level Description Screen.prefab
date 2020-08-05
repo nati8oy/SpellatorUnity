@@ -132,7 +132,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 0
       - m_Target: {fileID: 1665647628}
-        m_MethodName: MoveOffScreen
+        m_MethodName: RemoveThis
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -566,8 +566,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279881461
-  m_fontColor: {r: 0.9607843, g: 0.80784315, b: 0.09803922, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -723,6 +723,7 @@ MonoBehaviour:
   levelRules: {fileID: 5290442043544360730}
   levelData: {fileID: 11400000, guid: da09913161474424f878bba5ba2d1f98, type: 2}
   levelNumber: {fileID: 663860775489680505}
+  fadeManager: {fileID: 0}
 --- !u!82 &5660389624770642578
 AudioSource:
   m_ObjectHideFlags: 0
