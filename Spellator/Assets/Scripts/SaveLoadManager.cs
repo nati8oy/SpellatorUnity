@@ -52,8 +52,13 @@ public class SaveLoadManager : MonoBehaviour
 
     void Start()
     {
-       // ClearAllData();
+        // ClearAllData();
 
+
+        if (levelData.currentLevel == null)
+        {
+            levelData.currentLevel = 1;
+        }
         //set all vars to be the ones from the scriptable object
         gold = configData.totalGoldAmount;
         wordsPlayed = configData.totalWordsMade;

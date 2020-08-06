@@ -14,6 +14,7 @@ public class TileBag
     public int vowelCount;
     public int rareConsonantCount;
     public string letterCondition;
+    public int bagSize;
 
     public static List<string> bag = new List<string>(); 
 
@@ -32,6 +33,43 @@ public class TileBag
         SetupBag();
 
     }
+
+
+
+    //alternative constructor for the bag
+    public TileBag(int _consonantCount, int _vowelCount, int _additionalLetters)
+    {
+        consonantCount = _consonantCount;
+        vowelCount = _vowelCount;
+        letterCondition = LevelManager.letterCondition;
+
+        for (int i = 0; i < 12; i++)
+        {
+            bag.Add(letterCondition);
+            Debug.Log("Added " + _additionalLetters + " lettercondition");
+        }
+
+        SetupBag();
+
+    }
+
+    //constructor for the 100 tiles mode
+    public TileBag(bool limitedMode, int _consonantCount, int _vowelCount, int _bagSize)
+    {
+
+        if (limitedMode)
+        {
+            consonantCount = _consonantCount;
+            vowelCount = _vowelCount;
+            letterCondition = LevelManager.letterCondition;
+            bagSize = _bagSize;
+
+        }
+
+        SetupBag();
+
+    }
+
 
     public void SetupBag()
     {
@@ -95,20 +133,4 @@ public class TileBag
 //        Debug.Log("Bag total: " + bag.Count);
     }
 
-    //alternative constructor for the bag
-    public TileBag(int _consonantCount, int _vowelCount, int _additionalLetters)
-    {
-        consonantCount = _consonantCount;
-        vowelCount = _vowelCount;
-        letterCondition = LevelManager.letterCondition;
-
-        for (int i = 0; i < 12; i++)
-        {
-            bag.Add(letterCondition);
-            Debug.Log("Added " + _additionalLetters + " lettercondition");
-        }
-
-        SetupBag();
-
-    }   
 }

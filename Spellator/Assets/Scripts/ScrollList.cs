@@ -98,6 +98,7 @@ public class ScrollList : MonoBehaviour
                     {
                         listObject.transform.position = gameObject.transform.position;
                         listObject.transform.SetParent(listTransform.transform);
+                        listObject.transform.localScale = Vector3.one;
                         listObject.SetActive(true);
 
                         //adds the content via a function in the shop item prefab
