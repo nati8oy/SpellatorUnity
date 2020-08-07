@@ -21508,6 +21508,11 @@ PrefabInstance:
       propertyPath: LiveScorePosition
       value: 
       objectReference: {fileID: 359124591}
+    - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
+        type: 3}
+      propertyPath: lightbulb
+      value: 
+      objectReference: {fileID: 381665199}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc08af2b56d9c45b3af66e59305a1835, type: 3}
 --- !u!1001 &6664626739288876831

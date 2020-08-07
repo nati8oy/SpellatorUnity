@@ -88,7 +88,7 @@ public class DictionaryManager : MonoBehaviour
 
     [Space()]
     [Header("Sprites")]
-    [SerializeField] private GameObject correctIcon;
+    [SerializeField] private GameObject lightbulb;
 
     [Space()]
     [Header("Audio")]
@@ -274,6 +274,9 @@ public class DictionaryManager : MonoBehaviour
     void Start()
     {
 
+        //set the lightbulb object to in invisible
+        lightbulb.SetActive(false);
+
         //find the primary tile object. This is set here so that the object doesn't get cleared away when the level/game is reset
         PrimaryTile = GameObject.Find("Primary Tile");
 
@@ -444,7 +447,7 @@ public class DictionaryManager : MonoBehaviour
         iTween.MoveTo(PrimaryTile, iTween.Hash("x", primaryPosX, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
 
         //hide the icon that indicates that a word is correct
-        correctIcon.SetActive(false);
+        lightbulb.SetActive(false);
 
 
 
@@ -646,7 +649,7 @@ public class DictionaryManager : MonoBehaviour
 
     public void CheckWord()
     {
-
+        //setup the lightbulb particles and adjust them based on the length of the word.
         var emission = lightbulbParticles.emission;
 
         switch (wordBeingMade.Length)
@@ -710,6 +713,7 @@ public class DictionaryManager : MonoBehaviour
 
             }
 
+            //add the valid word tool tip for tutorials
             if (tutorial.tutorialOn)
             {
                 TutorialActions.OnTutorialItemInitiated("valid words");
@@ -726,7 +730,7 @@ public class DictionaryManager : MonoBehaviour
 
 
             //show the icon that indicates that a word is correct
-            correctIcon.SetActive(true);
+            lightbulb.SetActive(true);
 
         }
         else
@@ -738,7 +742,7 @@ public class DictionaryManager : MonoBehaviour
 
 
             //hide the icon that indicates that a word is correct
-            correctIcon.SetActive(false);
+            lightbulb.SetActive(false);
 
         }
 
@@ -802,7 +806,7 @@ public class DictionaryManager : MonoBehaviour
 
 
         //hide the icon that indicates that a word is correct
-        correctIcon.SetActive(false);
+        lightbulb.SetActive(false);
 
 
         TileManager.Instance.SelectedTiles.Clear();
