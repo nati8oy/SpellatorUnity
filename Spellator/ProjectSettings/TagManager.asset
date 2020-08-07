@@ -29,6 +29,7 @@ TagManager:
   - Tutorial Bubble
   - Purchase Title
   - Multiplier
+  - Lightening
   layers:
   - Default
   - TransparentFX

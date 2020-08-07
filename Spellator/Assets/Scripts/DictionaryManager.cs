@@ -22,6 +22,8 @@ public class DictionaryManager : MonoBehaviour
     public TutorialSO tutorial;
     public Transform HUD;
 
+    public GameObject lighteningClip;
+
 
     public GameObject pointsScreen;
 
@@ -482,6 +484,8 @@ public class DictionaryManager : MonoBehaviour
                 }
 
                 Points.multiplier = 1;
+
+
             }
 
             //add to the multiplier
@@ -506,13 +510,29 @@ public class DictionaryManager : MonoBehaviour
                 particleSizes = Random.Range(10* Points.multiplier,15*Points.multiplier);
 
 
+                //show the lightening clip
+                lighteningClip = ObjectPooler.SharedInstance.GetPooledObject("Lightening");
+
+
+                /*
+                if (lighteningClip != null)
+                {
+                    lighteningClip.transform.SetParent(HUD);
+                    lighteningClip.transform.position = LiveScorePosition.transform.position;
+                    lighteningClip.SetActive(true);
+
+                    //available = false;
+
+                }*/
+
+
 
             }
 
 
-			//if the word doesn't exist in the current list, add it to the playerWordsMade list
+            //if the word doesn't exist in the current list, add it to the playerWordsMade list
 
-			if (!playerWordsMade.Contains(WordBeingMade))
+            if (!playerWordsMade.Contains(WordBeingMade))
 			{
 				playerWordsMade.Add(WordBeingMade);
 
