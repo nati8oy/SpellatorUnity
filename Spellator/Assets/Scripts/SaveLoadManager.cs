@@ -52,7 +52,7 @@ public class SaveLoadManager : MonoBehaviour
 
     void Start()
     {
-        // ClearAllData();
+        ClearAllData();
 
 
         if (levelData.currentLevel == null)

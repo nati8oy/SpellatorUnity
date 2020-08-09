@@ -20,7 +20,7 @@ public class LevelManager : MonoBehaviour
 
     public enum LevelRuleType
     {
-        length, ending, containing, starting, points, tiles
+        length, ending, containing, starting, points, tiles, tileCount
     }
 
     public LevelRuleType levelRuleType; 
@@ -116,7 +116,7 @@ public class LevelManager : MonoBehaviour
         //set up the levels via the function below
         SetLevels();
 
-
+        //this looks at the LevelRuleType enum value and creates the appropriate bag style for them.
         switch (levelRuleType)
         {
             case LevelRuleType.containing:
@@ -134,6 +134,11 @@ public class LevelManager : MonoBehaviour
                 break;
             case LevelRuleType.points:
                 tileBag = new TileBag(55, 40);
+                break;
+                //this is the limited version of the game with a st number of tiles.
+                //this constructor adds the tile number as the last one here
+            case LevelRuleType.tileCount:
+                tileBag = new TileBag(true, 55, 40, 100);
                 break;
         }
 
@@ -174,6 +179,7 @@ public class LevelManager : MonoBehaviour
                 levelRuleType = LevelRuleType.tiles;
                 ConstructLevelParams("tiles", 10, 0, 0);
                 break;
+
                 case 2:
                 //use 25 tiles
                 levelRuleType = LevelRuleType.tiles;

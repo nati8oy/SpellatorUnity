@@ -98,10 +98,11 @@ MonoBehaviour:
   itemImage: {fileID: 810370981309066589}
   gameStateObject: {fileID: 2559536296670514709, guid: 3be73746ed05c40d9b3f371a7d32ea19,
     type: 3}
-  skinID: 0
+  skinID: 2
   goldAmount: 0
   configData: {fileID: 11400000, guid: 87f9af19399d249068769bd3553e5227, type: 2}
-  purchasedAnimaton: {fileID: 0}
+  purchasedAnimaton: {fileID: 8124146370339604019, guid: 1d0cc4c00088e401bb7698206fea5960,
+    type: 3}
   buyButton: {fileID: 7979250324296042052}
   goldText: {fileID: 1377707129097281222}
   coinSprite: {fileID: 3178846318637056591}

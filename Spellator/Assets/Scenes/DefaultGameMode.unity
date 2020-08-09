@@ -20603,6 +20603,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2423393580276480403, guid: ad9c87894e2f64ba1ba057f309e321f2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -2.4299622
+      objectReference: {fileID: 0}
     - target: {fileID: 3623755426835670166, guid: ad9c87894e2f64ba1ba057f309e321f2,
         type: 3}
       propertyPath: m_textInfo.characterCount
