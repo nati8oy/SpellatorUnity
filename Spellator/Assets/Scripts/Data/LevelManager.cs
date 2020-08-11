@@ -185,77 +185,98 @@ public class LevelManager : MonoBehaviour
                 levelRuleType = LevelRuleType.tiles;
                 ConstructLevelParams("tiles", 25, 0, 0);
                 break;
+
             case 3:
-                //make 3 x 4 letter words
+                //make 10 x 3 letter words
+                levelRuleType = LevelRuleType.length;
+                ConstructLevelParams("length", 10, 3, 0);
+                break;
+
+            case 4:
+                //make 4 x 4 letter words
                 levelRuleType = LevelRuleType.length;
                 ConstructLevelParams("length", 3, 4, 0);
                 break;
         
-            case 4:
+            case 5:
                 //use 40 tiles
                 levelRuleType = LevelRuleType.tiles;
                 ConstructLevelParams("tiles", 40, 0, 0);
                 break;
-            case 5:
+            case 6:
                 //use 60 tiles
                 levelRuleType = LevelRuleType.tiles;
                 ConstructLevelParams("tiles", 60, 0, 0);
                 break;
 
-            case 6:
-                //make 3 x 5 letter words
-                levelRuleType = LevelRuleType.length;
-                ConstructLevelParams("length", 3, 5, 0);
-                break;
- 
             case 7:
                 //make 2 x words starting with "letter"
                 levelRuleType = LevelRuleType.starting;
                 ConstructLevelParams("starting", 3, 2, 0);
                 break;
-
             case 8:
                 //make 2 words worth 10XP 
                 levelRuleType = LevelRuleType.points;
                 ConstructLevelParams("points", 2, 0, 10);
                 break;
+
             case 9:
+                //make 5 x 4 letter words
+                levelRuleType = LevelRuleType.length;
+                ConstructLevelParams("length", 5, 4, 0);
+                break;
+
+            case 10:
+                //make 2 x 5 letter words
+                levelRuleType = LevelRuleType.length;
+                ConstructLevelParams("length", 2, 5, 0);
+                break;
+           
+            case 11:
                 // make 2 words worth 20XP
                  levelRuleType = LevelRuleType.points;
                 ConstructLevelParams("points", 2, 0, 20);
                 break;
 
-            case 10:
+            case 12:
                 //make 2 x 6 letter words
                 levelRuleType = LevelRuleType.length;
                 ConstructLevelParams("length", 2, 6, 0);
                 break;
 
-            case 11:
+            case 13:
                 //make 2 x words containing "letter"
                 levelRuleType = LevelRuleType.containing;
                 ConstructLevelParams("containing", 3, 2, 0);
                 break;
-            case 12:
-                //make 2 x words starting with "letter"
-                levelRuleType = LevelRuleType.starting;
-                ConstructLevelParams("starting", 3, 2, 0);
-                break;
-            case 13:
+         
+            case 14:
                 //make 4 x words starting with "letter"
                 levelRuleType = LevelRuleType.starting;
                 ConstructLevelParams("starting", 3, 4, 0);
                 break;
 
-            case 14:
+            case 15:
+                //use 75 tiles
+                levelRuleType = LevelRuleType.tiles;
+                ConstructLevelParams("tiles", 75, 0, 0);
+                break;
+            case 16:
                 //use 60 tiles
                 levelRuleType = LevelRuleType.tiles;
                 ConstructLevelParams("tiles", 75, 0, 0);
                 break;
-            case 15:
-                //use 60 tiles
-                levelRuleType = LevelRuleType.tiles;
-                ConstructLevelParams("tiles", 75, 0, 0);
+
+            case 17:
+                //make 3 x 5 letter words
+                levelRuleType = LevelRuleType.length;
+                ConstructLevelParams("length", 3, 5, 0);
+                break;
+
+            case 18:
+                //make 3 x 6 letter words
+                levelRuleType = LevelRuleType.length;
+                ConstructLevelParams("length", 3, 6, 0);
                 break;
 
 
@@ -559,7 +580,7 @@ public class LevelManager : MonoBehaviour
             //if you passed the level then increment the level
 
             //update the current level. This is set within the gameConfig file
-            if (levelDetails.currentLevel < 15)
+            if (levelDetails.currentLevel < 18)
             {
                 levelDetails.currentLevel += 1;
             }
