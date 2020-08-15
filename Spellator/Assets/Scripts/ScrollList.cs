@@ -101,11 +101,14 @@ public class ScrollList : MonoBehaviour
                         listObject.transform.localScale = Vector3.one;
                         listObject.SetActive(true);
 
-                        //adds the content via a function in the shop item prefab
-                        listObject.GetComponent<ShopItem>().AddContent(i);
-                        //listObject.GetComponent<ShopItem>().skinID = shopObject.shopSkinArray.Length;
+                        //adds the content via a function in the shop item prefab                       
+
+
                     }
 
+                    //Debug.Log("skin ID is " + shopObject.shopSkinArray.Length);
+                    listObject.GetComponent<ShopItem>().AddContent(i);
+//                    Debug.Log("SkinID " + shopObject.shopSkinArray.Length + " added");
 
 
                 }

@@ -46,6 +46,9 @@ public class ShopItem : MonoBehaviour
         itemNameText.text = shopArray[arrayNumber].itemName;
 
         skinID = arrayNumber;
+
+        //Debug.Log("item price: " + (shopArray[skinID].itemPrice));
+
     }
 
     private void Update()
@@ -78,6 +81,7 @@ public class ShopItem : MonoBehaviour
     public void UpdateSkin()
     {
 
+       
         goldAmount = configData.totalGoldAmount;
         //check if the price is less than the amount of currency available
         //and check if the item has already been purchased or not
