@@ -22,8 +22,8 @@ public class CanvasSwitcher : MonoBehaviour
         deviceModelString = SystemInfo.deviceModel;
         
 
-        Debug.Log("device type: " + SystemInfo.deviceModel);
-        Debug.Log("device generaton " + deviceGeneration);
+//        Debug.Log("device type: " + SystemInfo.deviceModel);
+     //   Debug.Log("device generaton " + deviceGeneration);
 
 
         //check devices type and see if it's an iPhone, iPad or iPod and adjust the content appropriately

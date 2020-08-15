@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8df13e8a232134167b2ac5ac6819fa67, type: 3}
   m_Name: Shop
   m_EditorClassIdentifier: 
-  currentSkin: 0
+  currentSkin: 4
   shopSkinArray:
   - {fileID: 11400000, guid: 8c4da6b717d6640238525d505afd3377, type: 2}
   - {fileID: 11400000, guid: b2b9bb6dc20414ccaadb0eb25a6d0f18, type: 2}
   - {fileID: 11400000, guid: 66d470fe1a27b40bcae2b16ece6760c8, type: 2}
   - {fileID: 11400000, guid: a32970b18668046099f599ed2e2a7189, type: 2}
+  - {fileID: 11400000, guid: f0ae33a45fd3b4460bde83e0da42ed4e, type: 2}

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileTextColour: {r: 1, g: 1, b: 1, a: 1}
   tileDisabledColour: {r: 1, g: 1, b: 1, a: 0.46666667}
-  doubleLetterColour: {r: 1, g: 1, b: 1, a: 1}
+  doubleLetterColour: {r: 0.9622642, g: 0, b: 0, a: 1}
   correctWordTextColour: {r: 1, g: 1, b: 1, a: 1}
   tripleLetterColour: {r: 1, g: 1, b: 1, a: 1}
   tileAgeSprites:
@@ -23,4 +23,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 464a2c44f2c44414eabce52dec7cd5ea, type: 3}
   - {fileID: 21300000, guid: 26e38bd012cfc4bfaac56995f76f926c, type: 3}
   - {fileID: 21300000, guid: 301a96f57c73d4bbe952931159d4cc92, type: 3}
-  - {fileID: 21300000, guid: 715c8bc05dc384b41b978e12cdecc29a, type: 3}
+  - {fileID: 21300000, guid: 41fd67f5d423b42618ad7e0081374957, type: 3}
