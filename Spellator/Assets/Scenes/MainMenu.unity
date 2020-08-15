@@ -7854,8 +7854,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -309}
-  m_SizeDelta: {x: 600, y: 162}
+  m_AnchoredPosition: {x: 0, y: -300}
+  m_SizeDelta: {x: 489.4, y: 132.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1727483946
 MonoBehaviour:
@@ -10507,7 +10507,7 @@ PrefabInstance:
     - target: {fileID: 1153024527204764327, guid: 01e647ffbd9814622ac7a25084abb6c6,
         type: 3}
       propertyPath: statuses.Array.data[6]
-      value: LEGENDARY
+      value: LEGEND
       objectReference: {fileID: 0}
     - target: {fileID: 1153024527204764327, guid: 01e647ffbd9814622ac7a25084abb6c6,
         type: 3}
@@ -10527,7 +10527,7 @@ PrefabInstance:
     - target: {fileID: 1153024527204764327, guid: 01e647ffbd9814622ac7a25084abb6c6,
         type: 3}
       propertyPath: statuses.Array.data[2]
-      value: PROFESSIONAL
+      value: PRO
       objectReference: {fileID: 0}
     - target: {fileID: 1153024527204764327, guid: 01e647ffbd9814622ac7a25084abb6c6,
         type: 3}
