@@ -664,7 +664,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &239785111
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5120,6 +5120,21 @@ PrefabInstance:
       propertyPath: goldObject
       value: 
       objectReference: {fileID: 239785110}
+    - target: {fileID: 7505744519241277055, guid: 668d832b3085043c0a353fa1e63869a2,
+        type: 3}
+      propertyPath: shopTabIcon
+      value: 
+      objectReference: {fileID: 1922560885}
+    - target: {fileID: 7505744519241277055, guid: 668d832b3085043c0a353fa1e63869a2,
+        type: 3}
+      propertyPath: statsTabIcon
+      value: 
+      objectReference: {fileID: 1853873432}
+    - target: {fileID: 7505744519241277055, guid: 668d832b3085043c0a353fa1e63869a2,
+        type: 3}
+      propertyPath: achievementTabIcon
+      value: 
+      objectReference: {fileID: 464065272}
     - target: {fileID: 8756629831164566151, guid: 668d832b3085043c0a353fa1e63869a2,
         type: 3}
       propertyPath: m_Name

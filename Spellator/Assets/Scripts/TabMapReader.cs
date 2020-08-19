@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class TabMapReader : MonoBehaviour
 {
@@ -15,10 +16,29 @@ public class TabMapReader : MonoBehaviour
     public TextMeshProUGUI goldAmount;
     public ConfigSO configObject;
     public GameObject goldObject;
+    public Color inactiveTabColour;
+    public Color activeTabColour;
+
+    public Image statsTabIcon;
+    public Image achievementTabIcon;
+    public Image shopTabIcon;
+
 
     public GameObject mainCamera;
 
+    private void Start()
+    {
+        //define the colour of the icons
+        inactiveTabColour = new Color(244, 205, 54, 0.4f); 
+        activeTabColour = new Color(244, 205, 54, 1f);
 
+        //set the icons to the right colours on start up
+        statsTabIcon.color = activeTabColour;
+        achievementTabIcon.color = inactiveTabColour;
+        shopTabIcon.color = inactiveTabColour;
+
+
+    }
     //public GameObject activeTab;
     // Start is called before the first frame update
     private void Update()
@@ -42,19 +62,10 @@ public class TabMapReader : MonoBehaviour
 
         switch (tabName)
         {
-            case "home":
-                //Debug.Log("home");
-                goldObject.SetActive(false);
-
-                tab1.SetActive(true);
-                tab2.SetActive(false);
-                tab3.SetActive(false);
-                tab4.SetActive(false);
 
 
 
 
-                break;
             case "stats":
                 //Debug.Log("word list");
                 goldObject.SetActive(false);
@@ -63,8 +74,10 @@ public class TabMapReader : MonoBehaviour
                 tab2.SetActive(true);
                 tab3.SetActive(false);
                 tab4.SetActive(false);
-                
 
+                statsTabIcon.color = activeTabColour;
+                achievementTabIcon.color = inactiveTabColour;
+                shopTabIcon.color = inactiveTabColour;
                 //iTween.MoveTo(mainCamera, iTween.Hash("x", 960, "time", 1f));
 
 
@@ -77,6 +90,11 @@ public class TabMapReader : MonoBehaviour
                 tab2.SetActive(false);
                 tab3.SetActive(true);
                 tab4.SetActive(false);
+
+
+                statsTabIcon.color = inactiveTabColour;
+                achievementTabIcon.color = activeTabColour;
+                shopTabIcon.color = inactiveTabColour;
                 break;
             case "shop":
                 //Debug.Log("settings");
@@ -86,6 +104,10 @@ public class TabMapReader : MonoBehaviour
                 tab2.SetActive(false);
                 tab3.SetActive(false);
                 tab4.SetActive(true);
+
+                statsTabIcon.color = inactiveTabColour;
+                achievementTabIcon.color = inactiveTabColour;
+                shopTabIcon.color = activeTabColour;
                 break;
         }
 
