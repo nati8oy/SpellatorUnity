@@ -21564,6 +21564,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealthBar
       objectReference: {fileID: 0}
+    - target: {fileID: 3610566464583773384, guid: a87cff12692e64faf9dc89c7ffb09f2e,
+        type: 3}
+      propertyPath: hearts.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3610566464583773384, guid: a87cff12692e64faf9dc89c7ffb09f2e,
+        type: 3}
+      propertyPath: hearts.Array.data[0]
+      value: 
+      objectReference: {fileID: 885949944}
+    - target: {fileID: 3610566464583773384, guid: a87cff12692e64faf9dc89c7ffb09f2e,
+        type: 3}
+      propertyPath: hearts.Array.data[1]
+      value: 
+      objectReference: {fileID: 556106159}
+    - target: {fileID: 3610566464583773384, guid: a87cff12692e64faf9dc89c7ffb09f2e,
+        type: 3}
+      propertyPath: hearts.Array.data[2]
+      value: 
+      objectReference: {fileID: 1122762850}
+    - target: {fileID: 3610566464583773384, guid: a87cff12692e64faf9dc89c7ffb09f2e,
+        type: 3}
+      propertyPath: hearts.Array.data[3]
+      value: 
+      objectReference: {fileID: 793159470}
+    - target: {fileID: 3610566464583773384, guid: a87cff12692e64faf9dc89c7ffb09f2e,
+        type: 3}
+      propertyPath: hearts.Array.data[4]
+      value: 
+      objectReference: {fileID: 1349529398}
     - target: {fileID: 3610566464621598524, guid: a87cff12692e64faf9dc89c7ffb09f2e,
         type: 3}
       propertyPath: m_AnchorMax.x

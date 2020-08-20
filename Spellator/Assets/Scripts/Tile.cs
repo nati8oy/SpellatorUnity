@@ -177,7 +177,7 @@ public class Tile : MonoBehaviour
         }
         else
         {
-            specialIcon.SetActive(false);
+           //specialIcon.SetActive(false);
         }
 
         switch (spawnedTile.specialAttribute)

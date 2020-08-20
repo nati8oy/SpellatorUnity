@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
 
     public int heartsRemaining;
     public int maxHearts;
+    public GameObject[] hearts;
 
     private float CurrentHealth;
     private float MaxHealth;
@@ -32,11 +33,7 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //using the heart system
-        if(heartsRemaining <= 0)
-        {
-            GameManager.Instance.GameOverMethod();
-        }
+     
 
 
 
@@ -63,6 +60,7 @@ public class PlayerHealth : MonoBehaviour
         //check the incoming string and if it's "add heart" add health. Otherwise remove a heart.
         if(function=="add heart" && heartsRemaining< maxHearts)
         {
+            hearts[heartsRemaining].SetActive(true);
             heartsRemaining += 1;
             Debug.Log("heart added " + heartsRemaining + " total");
         }
@@ -70,7 +68,14 @@ public class PlayerHealth : MonoBehaviour
         else if(function == "remove heart" && heartsRemaining > 0)
         {
             heartsRemaining -= 1;
+            hearts[heartsRemaining].SetActive(false);
             Debug.Log("heart removed! " + heartsRemaining + " remaining");
+        }
+
+        //using the heart system
+        if (heartsRemaining <= 0)
+        {
+            GameManager.Instance.GameOverMethod();
         }
     }
     
