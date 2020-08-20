@@ -547,7 +547,7 @@ public class Tile : MonoBehaviour
     public void CheckWordBeingSpelled()
     {
 
-        Debug.Log(DictionaryManager.Instance.WordBeingMade);
+//        Debug.Log(DictionaryManager.Instance.WordBeingMade);
 
         //if the word is longer than 3 letters, check if it's in the dictionary
         if (DictionaryManager.Instance.WordBeingMade.Length >= 3)
@@ -576,6 +576,9 @@ public class Tile : MonoBehaviour
 
         if (spawnedTile.tilePower == "heal")
         {
+            //use the heart system
+            healthHandler.UpdateHearts("add heart");
+
             //healthParticles.transform.position = GameObject.Find("HealthBar").transform.position;
             //healthParticles.transform.SetParent(DictionaryManager.Instance.healthBar.transform);
             healthParticles.transform.position = gameObject.transform.position;
@@ -583,7 +586,7 @@ public class Tile : MonoBehaviour
 
             //heal if it's a heart tile
 
-            DictionaryManager.Instance.healthBar.GetComponent<PlayerHealth>().Heal(adjustedPointValue*1.2f);
+             // DictionaryManager.Instance.healthBar.GetComponent<PlayerHealth>().Heal(adjustedPointValue*1.2f);
 
             if (AudioManager.Instance)
             {
@@ -678,6 +681,10 @@ public class Tile : MonoBehaviour
     public void SetTileInactive()
     {
 
+
+        //heart system
+        healthHandler.UpdateHearts("remove heart");
+
         //decreases the health meter by the amount of the points on this tile
 
         //Camera.main.GetComponent<PlayerHealth>().DealDamage(spawnedTile.points);
@@ -687,7 +694,7 @@ public class Tile : MonoBehaviour
 
         //multiply the health so that it decreases by a factor of 1.25 (rounded up)
 
-        healthHandler.DealDamage(Mathf.CeilToInt(spawnedTile.points*1.25f));
+        //healthHandler.DealDamage(Mathf.CeilToInt(spawnedTile.points*1.25f));
         //GameObject.Find("HealthBar").GetComponent<PlayerHealth>().DealDamage(spawnedTile.points);
 
         //removeTileAudio.Play(smashAudioSource);

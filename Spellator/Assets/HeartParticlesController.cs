@@ -15,6 +15,6 @@ public class HeartParticlesController : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         gameObject.SetActive(false);
-        Debug.Log("set heart particles inactive");
+//        Debug.Log("set heart particles inactive");
     }
 }
