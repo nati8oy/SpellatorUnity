@@ -62,12 +62,13 @@ public class PlayerHealth : MonoBehaviour
         anim.SetBool("HealthAdjust", true);
         Debug.Log("healed " +healValue + " points");
 
-
-
     }
 
     float CalculateHealth()
     {
         return CurrentHealth / MaxHealth;
     }
+
+
+
 }

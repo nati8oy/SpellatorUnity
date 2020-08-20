@@ -20,7 +20,9 @@ public class Tile : MonoBehaviour
     public LevelManagerSO levelManager;
     public Animator animator;
     public ParticleSystem twinkleParticles;
-   // public ParticleSystem glowParticles;
+
+    public GameObject[] selectedTilesArray;
+    // public ParticleSystem glowParticles;
 
     public int specialChance;
 
@@ -68,6 +70,7 @@ public class Tile : MonoBehaviour
     public Vector3 nextTileSpot;
 
 
+    private GameObject primaryTileObject;
     private int positionInRack;
 
     //use as a unit of measurement for offsetting tiles
@@ -489,11 +492,53 @@ public class Tile : MonoBehaviour
 
             GameManager.Instance.LiveScoreText.text = Points.liveScore.ToString();
 
+            //sets the position in the word in which the letter is currently
             positionInWord = DictionaryManager.Instance.WordBeingMade.Length;
 
         }
 
-//        Debug.Log("tile letter: " + spawnedTile.letter + " points: " + spawnedTile.points);
+        //if the tile has already been selected then do this
+        else if (CompareTag("TileSelected"))
+        {
+            gameObject.tag = "Tile";
+
+            Debug.Log("the position in the word is: " + positionInWord);
+
+            selectedTilesArray = GameObject.FindGameObjectsWithTag("TileSelected");
+
+
+           //DictionaryManager.Instance.WordBeingMade.Substring(0, positionInWord-1);
+
+            DictionaryManager.Instance.WordBeingMade.Remove(1,1);
+
+            iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x) + (tileOffset * DictionaryManager.Instance.WordBeingMade.Length) - tileOffset, "y", nextTileSpot.y, "time", 0.5f, "easetype", "easeInOut", "oncomplete", "CheckWordBeingSpelled"));
+
+            foreach (GameObject tile in selectedTilesArray)
+            {
+
+                 //check if it's a positive number before reducing it.
+                 //also check if the letter comes after the point at which the word has been 
+                if (tile.GetComponent<Tile>().positionInWord > 0 && tile.GetComponent<Tile>().positionInWord> positionInWord)
+                {
+                    tile.GetComponent<Tile>().positionInWord -= 1;
+                }
+
+
+                //DictionaryManager.Instance.WordBeingMade = "";
+
+                // DictionaryManager.Instance.WordBeingMade.ToCharArray()
+
+            }
+
+
+            //returns the tile to the rack
+            ReturnTileToRack();
+
+            //Debug.Log("word is now " + DictionaryManager.Instance.WordBeingMade);
+
+        }
+
+        //        Debug.Log("tile letter: " + spawnedTile.letter + " points: " + spawnedTile.points);
 
 
 
@@ -501,8 +546,11 @@ public class Tile : MonoBehaviour
 
     public void CheckWordBeingSpelled()
     {
-         //if the word is longer than 3 letters, check if it's in the dictionary
-            if (DictionaryManager.Instance.WordBeingMade.Length >= 3)
+
+        Debug.Log(DictionaryManager.Instance.WordBeingMade);
+
+        //if the word is longer than 3 letters, check if it's in the dictionary
+        if (DictionaryManager.Instance.WordBeingMade.Length >= 3)
             {
                 DictionaryManager.Instance.CheckWord();
 
@@ -524,6 +572,8 @@ public class Tile : MonoBehaviour
 
         }
 
+
+
         if (spawnedTile.tilePower == "heal")
         {
             //healthParticles.transform.position = GameObject.Find("HealthBar").transform.position;
@@ -532,6 +582,7 @@ public class Tile : MonoBehaviour
             healthParticles.SetActive(true);
 
             //heal if it's a heart tile
+
             DictionaryManager.Instance.healthBar.GetComponent<PlayerHealth>().Heal(adjustedPointValue*1.2f);
 
             if (AudioManager.Instance)
@@ -722,6 +773,50 @@ public class Tile : MonoBehaviour
                 TutorialActions.OnTutorialItemInitiated("default tiles");
                 break;
         }
+    }
+
+    //this functions is for returning the tile back to its position when tapped and has already been selected
+    public void ReturnTileToRack()
+    {
+
+        var getStartPos = gameObject.transform.parent.GetComponent<TileCreator>();
+        //connect to the script of each tile, get the startPos from there (which is the starting transform of each Pos holder)
+        //then run the Coroutine from the tile game object. Phew!
+
+        iTween.MoveTo(gameObject, new Vector3(getStartPos.startPos.position.x, getStartPos.startPos.position.y, 0), 0.5f);
+        //iTween.MoveTo(gameObject, iTween.Hash("x", TileManager.Instance.NextFreePos.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time",0.5f, "easeType", "EaseOutQuint"));
+
+
+        //clear the word being made so it can be recreated with the remaining letters
+        DictionaryManager.Instance.WordBeingMade = "";
+
+        //check if a tile with the "Primary Tile" tag exists
+        if(GameObject.FindGameObjectWithTag("PrimaryTile"))
+        {
+
+            DictionaryManager.Instance.WordBeingMade = GameObject.FindGameObjectWithTag("PrimaryTile").GetComponent<Tile>().letter.text;
+            //set the word being made to be that of the primary tile
+            //DictionaryManager.Instance.WordBeingMade = GameObject.FindGameObjectWithTag("Primary Tile").GetComponent<Tile>().letter.text;
+
+        }
+
+        //set the selectedTilesArray so it can by looped through below in the foreach loop
+        selectedTilesArray = GameObject.FindGameObjectsWithTag("TileSelected");
+
+        //cycle through all of the selected tiles and recreate the word without the letter that has just been removed
+        foreach (GameObject tile in selectedTilesArray)
+        {
+            DictionaryManager.Instance.CreateWord(tile.GetComponent<Tile>().letter.text);
+            Debug.Log("cleared and reset word is: " +  DictionaryManager.Instance.WordBeingMade);
+        }
+
+        //check if the word is valid still after all of the above has happened
+        DictionaryManager.Instance.CheckWord();
+
+        //move the word to the right position horizontally
+        DictionaryManager.Instance.MoveWordToPoint();
+
+
     }
 
 }

@@ -1024,6 +1024,17 @@ public class DictionaryManager : MonoBehaviour
 
     public void MoveWordToPoint()
     {
+
+       
+        if (wordBeingMade.Length <= 3)
+        {
+            iTween.MoveTo(PrimaryTile, iTween.Hash("x", 0, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
+        }
+        if (wordBeingMade.Length == 4)
+        {
+            iTween.MoveTo(PrimaryTile, iTween.Hash("x", -50, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
+        }
+
         if (wordBeingMade.Length == 5)
         {
             iTween.MoveTo(PrimaryTile, iTween.Hash("x", -150, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));

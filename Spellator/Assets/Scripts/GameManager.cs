@@ -338,6 +338,9 @@ public class GameManager : MonoBehaviour
         GameEvents.OnSaveInitiated();
         levelDetails.levelComplete = true;
 
+        //remove the listener for the DictionaryManager.Instance.MoveToPoint() function
+        GameEvents.WordLengthCheckInitiated -= DictionaryManager.Instance.MoveWordToPoint;
+
 
         remainingTiles = GameObject.FindGameObjectsWithTag("Tile");
 
