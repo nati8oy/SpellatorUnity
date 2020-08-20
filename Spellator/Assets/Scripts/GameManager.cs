@@ -287,6 +287,8 @@ public class GameManager : MonoBehaviour
 
     public void ResetGame()
     {
+        //remove the listener for the DictionaryManager.Instance.MoveToPoint() function
+        GameEvents.WordLengthCheckInitiated -= DictionaryManager.Instance.MoveWordToPoint;
 
         currentBag.letterDictionary.Clear();
         CountDown.timeLeft = 75;
@@ -310,6 +312,9 @@ public class GameManager : MonoBehaviour
         //GetComponent<GameState>().SaveGameData();
 
         //GameObject.Find("GameState").GetComponent<GameState>().SaveGameData();
+
+        //remove the listener for the DictionaryManager.Instance.MoveToPoint() function
+        GameEvents.WordLengthCheckInitiated -= DictionaryManager.Instance.MoveWordToPoint;
 
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }

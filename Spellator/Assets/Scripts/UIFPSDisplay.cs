@@ -16,6 +16,7 @@ public class UIFPSDisplay : MonoBehaviour
 		deltaTime += (Time.unscaledDeltaTime - deltaTime) * 0.1f;
 	}
 
+	/*
 	void OnGUI()
 	{
 		int w = Screen.width, h = Screen.height;
@@ -31,5 +32,5 @@ public class UIFPSDisplay : MonoBehaviour
 		//string text = string.Format("{0:0.0} ms ({1:0.} fps)", msec, fps);
 		string text = string.Format("{1:0.} fps", msec, fps);
 		GUI.Label(rect, text, style);
-	}
+	}*/
 }
