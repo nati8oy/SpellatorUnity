@@ -67,7 +67,7 @@ public class TileClass
 
         //select a random number
         randomSelector = Random.Range(0, specialChance+1);
-        randomTilePowerSelector = Random.Range(0, specialChance + 1);
+        randomTilePowerSelector = Random.Range(0, 10);
 
 //        Debug.Log(randomSelector + randomTilePowerSelector);
 

@@ -96,6 +96,8 @@ public class Tile : MonoBehaviour
     private int positionInWord;
 
 
+    //select random number
+    public int randomHeartSpawnChance;
 
     void Start()
     {
@@ -169,12 +171,22 @@ public class Tile : MonoBehaviour
 
         }
 
+        /*
         if (spawnedTile.tilePower == "heal")
         {
             specialIcon.SetActive(true);
 
             //Debug.Log("tile power is: " + TileClass.TilePower.heal);
         }
+        */
+
+        //set the special icon active if the special chance is equal to 1
+        if (randomHeartSpawnChance == 1)
+        {
+            specialIcon.SetActive(true);
+        }
+
+
         else
         {
            //specialIcon.SetActive(false);
@@ -265,6 +277,9 @@ public class Tile : MonoBehaviour
 
     private void OnEnable()
     {
+        //choose a random number
+        randomHeartSpawnChance = Random.Range(0, 1);
+        Debug.Log("heart chance number is " + randomHeartSpawnChance);
 
         /*
         var testFlag = false;
@@ -573,8 +588,8 @@ public class Tile : MonoBehaviour
         }
 
 
-
-        if (spawnedTile.tilePower == "heal")
+        //just check if the special icon is visible and if it is then use that to play the heart particles and add health, etc.
+        if (specialIcon.activeInHierarchy == true)
         {
             //use the heart system
             healthHandler.UpdateHearts("add heart");
@@ -586,7 +601,7 @@ public class Tile : MonoBehaviour
 
             //heal if it's a heart tile
 
-             // DictionaryManager.Instance.healthBar.GetComponent<PlayerHealth>().Heal(adjustedPointValue*1.2f);
+            // DictionaryManager.Instance.healthBar.GetComponent<PlayerHealth>().Heal(adjustedPointValue*1.2f);
 
             if (AudioManager.Instance)
             {
@@ -594,7 +609,14 @@ public class Tile : MonoBehaviour
 
             }
         }
-        
+
+        /*
+
+        if (spawnedTile.tilePower == "heal")
+        {
+           
+        }
+        */
      
 
         
