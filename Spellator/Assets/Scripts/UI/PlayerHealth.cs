@@ -62,14 +62,16 @@ public class PlayerHealth : MonoBehaviour
         {
             hearts[heartsRemaining].SetActive(true);
             heartsRemaining += 1;
-            Debug.Log("heart added " + heartsRemaining + " total");
+            //Debug.Log("heart added " + heartsRemaining + " total");
         }
 
         else if(function == "remove heart" && heartsRemaining > 0)
         {
             heartsRemaining -= 1;
-            hearts[heartsRemaining].SetActive(false);
-            Debug.Log("heart removed! " + heartsRemaining + " remaining");
+
+            hearts[heartsRemaining].GetComponent<Animator>().SetBool("RemoveHeart", true);
+            //hearts[heartsRemaining].SetActive(false);
+            //Debug.Log("heart removed! " + heartsRemaining + " remaining");
         }
 
         //using the heart system
