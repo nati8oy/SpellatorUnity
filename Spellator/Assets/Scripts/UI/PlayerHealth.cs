@@ -16,6 +16,11 @@ public class PlayerHealth : MonoBehaviour
 
     public Slider healthBar;
 
+    public GameObject[] shazams;
+    public int maxShazams;
+    public int shazamsRemaining;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +31,9 @@ public class PlayerHealth : MonoBehaviour
         //maximum hearts available
         maxHearts = 5;
         heartsRemaining = maxHearts;
+
+        maxShazams = 3;
+        shazamsRemaining = maxShazams;
         
     }
 
@@ -34,9 +42,6 @@ public class PlayerHealth : MonoBehaviour
     void Update()
     {
      
-
-
-
 
         if (CurrentHealth <= 0)
         {
@@ -55,10 +60,37 @@ public class PlayerHealth : MonoBehaviour
 
     }
 
-    public void UpdateHearts(string function)
+    public void UpdateShazams()
     {
+
+    }
+
+    public void UpdateUIItem(string function)
+    {
+
+
+
+
         //check the incoming string and if it's "add heart" add health. Otherwise remove a heart.
-        if(function=="add heart" && heartsRemaining< maxHearts)
+        if (function == "add shazam" && shazamsRemaining < maxShazams)
+        {
+            shazams[shazamsRemaining].SetActive(true);
+            shazamsRemaining += 1;
+            //Debug.Log("heart added " + heartsRemaining + " total");
+        }
+
+        else if (function == "remove shazam" && shazamsRemaining > 0)
+        {
+            shazamsRemaining -= 1;
+
+            shazams[shazamsRemaining].GetComponent<Animator>().SetBool("RemoveHeart", true);
+            //hearts[heartsRemaining].SetActive(false);
+            //Debug.Log("heart removed! " + heartsRemaining + " remaining");
+        }
+
+
+        //check the incoming string and if it's "add heart" add health. Otherwise remove a heart.
+        if (function=="add heart" && heartsRemaining< maxHearts)
         {
             hearts[heartsRemaining].SetActive(true);
             heartsRemaining += 1;

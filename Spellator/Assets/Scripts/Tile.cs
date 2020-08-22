@@ -434,8 +434,13 @@ public class Tile : MonoBehaviour
         }
 
         //check if this is a primary tile that is being clicked and thus removed
-        if (CompareTag("PrimaryTile") && (DictionaryManager.Instance.WordBeingMade.Length==1))
+        //also check if you have enough shazams remaining and if the word being made already has a primary tile or not
+        if (CompareTag("PrimaryTile") && (DictionaryManager.Instance.WordBeingMade.Length==1) && healthHandler.shazamsRemaining > 0)
         {
+
+            //update shazam amount
+            healthHandler.UpdateUIItem("remove shazam");
+
             //reset the flags for the first tile, etc.
             DictionaryManager.Instance.chainFlag = false;
             DictionaryManager.Instance.WordBeingMade = "";
@@ -592,7 +597,7 @@ public class Tile : MonoBehaviour
         if (specialIcon.activeInHierarchy == true)
         {
             //use the heart system
-            healthHandler.UpdateHearts("add heart");
+            healthHandler.UpdateUIItem("add heart");
 
             //healthParticles.transform.position = GameObject.Find("HealthBar").transform.position;
             //healthParticles.transform.SetParent(DictionaryManager.Instance.healthBar.transform);
@@ -705,7 +710,7 @@ public class Tile : MonoBehaviour
 
 
         //heart system
-        healthHandler.UpdateHearts("remove heart");
+        healthHandler.UpdateUIItem("remove heart");
 
         //decreases the health meter by the amount of the points on this tile
 
