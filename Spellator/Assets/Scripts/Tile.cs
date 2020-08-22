@@ -30,6 +30,7 @@ public class Tile : MonoBehaviour
     public bool canAge = true;
 
     public GameObject explosionClip;
+    public GameObject shazamClip;
 
     public AudioSO audioScriptableObject;
 
@@ -461,6 +462,18 @@ public class Tile : MonoBehaviour
                 explosionClip.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y);
                 explosionClip.transform.SetParent(GameManager.Instance.mainCanvas.transform);
                 explosionClip.SetActive(true);
+                //available = false;
+
+            }
+
+            //Remember that the object pooler uses TAGS not names of objects to set them active, etc. here.
+            shazamClip = ObjectPooler.SharedInstance.GetPooledObject("Shazam");
+
+            if (shazamClip != null)
+            {
+                shazamClip.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y);
+                shazamClip.transform.SetParent(GameManager.Instance.mainCanvas.transform);
+                shazamClip.SetActive(true);
                 //available = false;
 
             }

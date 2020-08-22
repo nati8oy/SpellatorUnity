@@ -30,6 +30,7 @@ TagManager:
   - Purchase Title
   - Multiplier
   - Lightening
+  - Shazam
   layers:
   - Default
   - TransparentFX
