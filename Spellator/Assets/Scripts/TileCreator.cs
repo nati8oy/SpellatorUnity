@@ -11,8 +11,6 @@ public class TileCreator : MonoBehaviour
     private GameObject smokeParticles;
 
     private bool available = true;
-    public float localScale;
-
     public bool Available
     {
         get { return available; }
@@ -33,20 +31,10 @@ public class TileCreator : MonoBehaviour
 
       
     }                                                                                   
-    private void Update()
-    {
-        // localScale -= 0.05f;
-       //gameObject.transform.localScale += new Vector3(0.1f, 0.1f, 0);
-    }
 
 
     public void RefillTiles()
     {
-
-      //  iTween.ScaleTo(gameObject, new Vector3((gameObject.transform.localScale.x+ 0.1f), (gameObject.transform.localScale.x + 0.1f), 1), 1);
-
-        //localScale = gameObject.transform.localScale.x;
-        //gameObject.transform.localScale = new Vector3(1.5f, 1.5f, 1);
 
         //Remember that the object pooler uses TAGS not names of objects to set them active, etc. here.
         newTile = ObjectPooler.SharedInstance.GetPooledObject("Tile");
