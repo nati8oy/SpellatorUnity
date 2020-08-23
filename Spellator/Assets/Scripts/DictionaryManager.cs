@@ -513,20 +513,27 @@ public class DictionaryManager : MonoBehaviour
                 particleSizes = Random.Range(10* Points.multiplier,15*Points.multiplier);
 
 
+                /*
                 //show the lightening clip
                 lighteningClip = ObjectPooler.SharedInstance.GetPooledObject("Lightening");
 
 
-                /*
+                
                 if (lighteningClip != null)
                 {
-                    lighteningClip.transform.SetParent(HUD);
-                    lighteningClip.transform.position = LiveScorePosition.transform.position;
+                    lighteningClip.transform.SetParent(pointsScreen.transform);
+                    lighteningClip.transform.position = new Vector3(Screen.width/2, pointsScreen.transform.position.y);
+
+                    
                     lighteningClip.SetActive(true);
 
                     //available = false;
 
-                }*/
+                }
+                */
+
+               // levelCompleteClip.transform.position = 
+               // levelCompleteClip.transform.SetParent(mainCanvas.transform);
 
 
 

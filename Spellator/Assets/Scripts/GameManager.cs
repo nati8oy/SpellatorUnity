@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     //public GameObject purchaseConfirm;
 
     public GameObject explosionClip;
+    public GameObject levelCompleteClip;
     public RectTransform mainCanvas;
 
 
@@ -166,6 +167,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+
+     
 
         //AdController.Instance.RunInterstitial();
         //turn tutorial on/off
@@ -327,7 +330,19 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator LevelComplete()
     {
-        Debug.Log("total score: " + Points.totalScore);
+
+        //add the level complete title
+        levelCompleteClip = ObjectPooler.SharedInstance.GetPooledObject("Level Complete");
+
+        if (levelCompleteClip != null)
+        {
+            levelCompleteClip.transform.position = new Vector3(320, 700);
+            levelCompleteClip.transform.SetParent(mainCanvas.transform);
+            levelCompleteClip.SetActive(true);
+            //available = false;
+        }
+
+
 
         //play level complete audio
         AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxGeneral[16]);
