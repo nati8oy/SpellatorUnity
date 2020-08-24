@@ -126,14 +126,8 @@ public class LevelManager : MonoBehaviour
     {
         LevelThemeManager();
 
-        //choose the music from the audio object scriptable object
-        bgMusic = audioObject.musicBackgroundMusic[Random.Range(0,3)];
-        //set the audio source audio clip
-        mainCamera.GetComponent<AudioSource>().clip = bgMusic;
-        //play the audio clip via the source
-        mainCamera.GetComponent<AudioSource>().Play();
-        //loop the music
-        mainCamera.GetComponent<AudioSource>().loop = true;
+
+        
 
         //set up the levels via the function below
         SetLevels();
@@ -143,16 +137,26 @@ public class LevelManager : MonoBehaviour
         {
             case LevelRuleType.containing:
                 tileBag = new TileBag(55, 40, 18);
+                bgImage.sprite = levelTheme.bgImage[2];
+                //choose the music from the audio object scriptable object
+                bgMusic = audioObject.musicBackgroundMusic[1];
+
                 break;
 
             case LevelRuleType.starting:
                 tileBag = new TileBag(55, 40, 18);
+                bgImage.sprite = levelTheme.bgImage[2];
+                bgMusic = audioObject.musicBackgroundMusic[1];
                 break;
             case LevelRuleType.tiles:
                 tileBag = new TileBag(55, 40);
+                bgImage.sprite = levelTheme.bgImage[0];
+                bgMusic = audioObject.musicBackgroundMusic[2];
                 break;
             case LevelRuleType.length:
                 tileBag = new TileBag(55, 40);
+                bgImage.sprite = levelTheme.bgImage[1];
+                bgMusic = audioObject.musicBackgroundMusic[4];
                 break;
             case LevelRuleType.points:
                 tileBag = new TileBag(55, 40);
@@ -160,15 +164,24 @@ public class LevelManager : MonoBehaviour
                 //this is the limited version of the game with a st number of tiles.
                 //this constructor adds the tile number as the last one here
             case LevelRuleType.tileCount:
+                bgImage.sprite = levelTheme.bgImage[0];
+                bgMusic = audioObject.musicBackgroundMusic[0];
                 tileBag = new TileBag(true, 55, 40, 100);
                 break;
         }
 
 
+        //set the audio source audio clip
+        mainCamera.GetComponent<AudioSource>().clip = bgMusic;
+        //play the audio clip via the source
+        mainCamera.GetComponent<AudioSource>().Play();
+        //loop the music
+        mainCamera.GetComponent<AudioSource>().loop = true;
+
         //        Debug.Log("You are playing level " + levelDetails.currentLevel);
 
 
-   
+
         /*
         //set the letter in the difficulty SO so that it's available at the start of each level
 
@@ -186,7 +199,7 @@ public class LevelManager : MonoBehaviour
     public void LevelThemeManager()
     {
         // bgImage.sprite = levelTheme.bgImage[Random.Range(0,2)];
-        bgImage.sprite = levelTheme.bgImage[1];
+        
 
 
         
