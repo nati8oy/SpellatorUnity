@@ -76,6 +76,9 @@ public class LevelManager : MonoBehaviour
     public Image bgImage;
 
     public LevelTheme levelTheme;
+    public Camera mainCamera;
+    public AudioSO audioObject;
+    public AudioClip bgMusic;
 
 
     //set up singleton
@@ -122,6 +125,16 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         LevelThemeManager();
+
+        //choose the music from the audio object scriptable object
+        bgMusic = audioObject.musicBackgroundMusic[Random.Range(0,3)];
+        //set the audio source audio clip
+        mainCamera.GetComponent<AudioSource>().clip = bgMusic;
+        //play the audio clip via the source
+        mainCamera.GetComponent<AudioSource>().Play();
+        //loop the music
+        mainCamera.GetComponent<AudioSource>().loop = true;
+
         //set up the levels via the function below
         SetLevels();
 
@@ -174,6 +187,11 @@ public class LevelManager : MonoBehaviour
     {
         // bgImage.sprite = levelTheme.bgImage[Random.Range(0,2)];
         bgImage.sprite = levelTheme.bgImage[1];
+
+
+        
+        
+
 
     }
 

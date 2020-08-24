@@ -79,6 +79,10 @@ public class GameManager : MonoBehaviour
     private Transitions fadeManager;
 
 
+    public AudioClip bgMusic;
+    public AudioSO audioObject;
+
+
     [Header("Game Setup")]
     //new Transform tiePlayedPositions;
 
@@ -330,6 +334,17 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator LevelComplete()
     {
+
+
+        //choose the music from the audio object scriptable object
+        bgMusic = audioObject.musicBackgroundMusic[3];
+        //set the audio source audio clip
+        mainCamera.GetComponent<AudioSource>().clip = bgMusic;
+        //play the audio clip via the source
+        mainCamera.GetComponent<AudioSource>().Play();
+        //loop the music
+        //mainCamera.GetComponent<AudioSource>().loop = true;
+
 
         //add the level complete title
         levelCompleteClip = ObjectPooler.SharedInstance.GetPooledObject("Level Complete");

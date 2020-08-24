@@ -280,7 +280,7 @@ public class Tile : MonoBehaviour
     {
         //choose a random number
         randomHeartSpawnChance = Random.Range(0, 1);
-        Debug.Log("heart chance number is " + randomHeartSpawnChance);
+//        Debug.Log("heart chance number is " + randomHeartSpawnChance);
 
         /*
         var testFlag = false;
@@ -445,12 +445,13 @@ public class Tile : MonoBehaviour
             //reset the flags for the first tile, etc.
             DictionaryManager.Instance.chainFlag = false;
             DictionaryManager.Instance.WordBeingMade = "";
-
+        
             //reset the multiplier
             Points.multiplier = 1;
 
             //play the lost multiplier sound
             AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxGeneral[7]);
+            AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxGeneral[18]);
             fadeManager = GameObject.Find("Fade Manager").GetComponent<Transitions>();
             fadeManager.FadeType(fadeManager._flashColour, fadeManager.pulseSpeed);
 

@@ -11,5 +11,6 @@ public class LevelTheme : ScriptableObject
 {
     public Sprite[] bgImage;
     public Sprite[] pointScreenImage;
+    public AudioClip bgMusic;
 
 }

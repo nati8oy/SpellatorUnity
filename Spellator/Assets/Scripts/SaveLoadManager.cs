@@ -235,11 +235,10 @@ public class SaveLoadManager : MonoBehaviour
     public void ClearAllData()
     {
         configData.levelProgressXP = 0;
-        configData.levelProgressXP = 0;
-        configData.skinsPurchased.Clear();
+        //configData.skinsPurchased.Clear();
         uniqueWordsList.Clear();
         configData.uniqueWordsList.Clear();
-        shop.currentSkin = 0;
+        shop.currentSkin = configData.skinsPurchased[0];
         configData.longestWord = null;
         configData.totalWordsMade = 0;
         configData.totalGoldAmount = 0;
@@ -255,8 +254,7 @@ public class SaveLoadManager : MonoBehaviour
 
         }
         */
-        //reset to the default skin
-        shop.currentSkin = 0;
+        
 
     }
 }

@@ -21,6 +21,9 @@ public class LevelCompleteActions : MonoBehaviour
     public int totalLevelXP;
     public int localLevelProgressXP;
     public int currentLevel;
+    public Camera mainCamera;
+
+  
 
 
     private GameObject goldCoinObject;
@@ -80,6 +83,9 @@ public class LevelCompleteActions : MonoBehaviour
         }
 
         */
+
+
+
 
 
         //localLevelProgressXP = configData.levelProgressXP + Points.totalScore;

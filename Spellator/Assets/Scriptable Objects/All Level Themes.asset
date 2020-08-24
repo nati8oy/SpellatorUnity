@@ -16,3 +16,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f2142ec0fdcc34f4e8a7dc23e5456dc1, type: 3}
   - {fileID: 21300000, guid: 4671df47034944969a0438edd6505507, type: 3}
   pointScreenImage: []
+  bgMusic:
+  - {fileID: 8300000, guid: df9074361734543ae915017b82537335, type: 3}
+  - {fileID: 8300000, guid: ed6ee674f94544b9fba445f52fcc847c, type: 3}
+  - {fileID: 8300000, guid: 8f0c9af91576843d8b46bf8bf415e4e6, type: 3}
+  - {fileID: 8300000, guid: 996354ec9ba2b446fa07fa9b481852a5, type: 3}
