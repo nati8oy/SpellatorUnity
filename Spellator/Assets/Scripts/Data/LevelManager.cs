@@ -167,14 +167,13 @@ public class LevelManager : MonoBehaviour
         //sets up the level parameters. eg. make 3 words that are 3 letters long.
         //ConstructLevelParams(randomLevelSelection);
 
-
     }
 
     //this function manages the themes for the point screen and the backgrounds
     public void LevelThemeManager()
     {
         // bgImage.sprite = levelTheme.bgImage[Random.Range(0,2)];
-        bgImage.sprite = levelTheme.bgImage[2];
+        bgImage.sprite = levelTheme.bgImage[1];
 
     }
 
