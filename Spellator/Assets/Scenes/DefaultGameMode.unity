@@ -13652,6 +13652,8 @@ MonoBehaviour:
   conditionsList: 
   numberOfConditions: 0
   reward: 0
+  bgImage: {fileID: 1329258516}
+  levelTheme: {fileID: 11400000, guid: a6cf11c4e301949efb4c8afe86a362f5, type: 2}
 --- !u!4 &1183106927
 Transform:
   m_ObjectHideFlags: 0

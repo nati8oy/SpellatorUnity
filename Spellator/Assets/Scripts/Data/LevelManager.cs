@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
@@ -70,6 +71,13 @@ public class LevelManager : MonoBehaviour
     public TileBag tileBag;
 
 
+
+    [Header("Level Theme")]
+    public Image bgImage;
+
+    public LevelTheme levelTheme;
+
+
     //set up singleton
     void Awake()
     {
@@ -113,6 +121,7 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        LevelThemeManager();
         //set up the levels via the function below
         SetLevels();
 
@@ -161,11 +170,17 @@ public class LevelManager : MonoBehaviour
 
     }
 
+    //this function manages the themes for the point screen and the backgrounds
+    public void LevelThemeManager()
+    {
+        // bgImage.sprite = levelTheme.bgImage[Random.Range(0,2)];
+        bgImage.sprite = levelTheme.bgImage[2];
+
+    }
+
 
     public void SetLevels()
     {
-
-
         switch (levelDetails.currentLevel)
         {
             case 1:
