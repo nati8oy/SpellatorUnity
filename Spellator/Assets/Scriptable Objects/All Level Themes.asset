@@ -15,5 +15,5 @@ MonoBehaviour:
   bgImage:
   - {fileID: 21300000, guid: f2142ec0fdcc34f4e8a7dc23e5456dc1, type: 3}
   - {fileID: 21300000, guid: c101cd65d958f4292b9d747031c14a1b, type: 3}
-  - {fileID: 21300000, guid: 2e7c6f9b6dc2d4ae2a60beb5d24d757c, type: 3}
+  - {fileID: 21300000, guid: 5bd094da812614425915ff4ec9005ca5, type: 3}
   pointScreenImage: []
