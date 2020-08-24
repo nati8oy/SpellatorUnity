@@ -137,34 +137,29 @@ public class LevelManager : MonoBehaviour
         {
             case LevelRuleType.containing:
                 tileBag = new TileBag(55, 40, 18);
-                bgImage.sprite = levelTheme.bgImage[2];
                 //choose the music from the audio object scriptable object
                 bgMusic = audioObject.musicBackgroundMusic[1];
-
                 break;
 
             case LevelRuleType.starting:
                 tileBag = new TileBag(55, 40, 18);
-                bgImage.sprite = levelTheme.bgImage[2];
                 bgMusic = audioObject.musicBackgroundMusic[1];
                 break;
             case LevelRuleType.tiles:
                 tileBag = new TileBag(55, 40);
-                bgImage.sprite = levelTheme.bgImage[0];
                 bgMusic = audioObject.musicBackgroundMusic[2];
                 break;
             case LevelRuleType.length:
                 tileBag = new TileBag(55, 40);
-                bgImage.sprite = levelTheme.bgImage[1];
                 bgMusic = audioObject.musicBackgroundMusic[4];
                 break;
             case LevelRuleType.points:
                 tileBag = new TileBag(55, 40);
+                bgMusic = audioObject.musicBackgroundMusic[5];
                 break;
                 //this is the limited version of the game with a st number of tiles.
                 //this constructor adds the tile number as the last one here
             case LevelRuleType.tileCount:
-                bgImage.sprite = levelTheme.bgImage[0];
                 bgMusic = audioObject.musicBackgroundMusic[0];
                 tileBag = new TileBag(true, 55, 40, 100);
                 break;
@@ -223,105 +218,128 @@ public class LevelManager : MonoBehaviour
                 //use 10 tiles
                 levelRuleType = LevelRuleType.tiles;
                 ConstructLevelParams("tiles", 10, 0, 0);
+                bgImage.sprite = levelTheme.bgImage[0];
+
                 break;
 
-                case 2:
+            case 2:
                 //use 25 tiles
                 levelRuleType = LevelRuleType.tiles;
                 ConstructLevelParams("tiles", 25, 0, 0);
+                bgImage.sprite = levelTheme.bgImage[0];
+
                 break;
 
             case 3:
                 //make 10 x 3 letter words
                 levelRuleType = LevelRuleType.length;
                 ConstructLevelParams("length", 10, 3, 0);
+                bgImage.sprite = levelTheme.bgImage[0];
+
                 break;
 
             case 4:
                 //make 4 x 4 letter words
                 levelRuleType = LevelRuleType.length;
                 ConstructLevelParams("length", 3, 4, 0);
+                bgImage.sprite = levelTheme.bgImage[0];
+
                 break;
         
             case 5:
                 //use 40 tiles
                 levelRuleType = LevelRuleType.tiles;
                 ConstructLevelParams("tiles", 40, 0, 0);
+                bgImage.sprite = levelTheme.bgImage[1];
+
                 break;
             case 6:
                 //use 60 tiles
                 levelRuleType = LevelRuleType.tiles;
                 ConstructLevelParams("tiles", 60, 0, 0);
+                bgImage.sprite = levelTheme.bgImage[1];
                 break;
 
             case 7:
                 //make 2 x words starting with "letter"
                 levelRuleType = LevelRuleType.starting;
                 ConstructLevelParams("starting", 3, 2, 0);
+                bgImage.sprite = levelTheme.bgImage[1];
                 break;
             case 8:
                 //make 2 words worth 10XP 
                 levelRuleType = LevelRuleType.points;
                 ConstructLevelParams("points", 2, 0, 10);
+                bgImage.sprite = levelTheme.bgImage[1];
                 break;
 
             case 9:
                 //make 5 x 4 letter words
                 levelRuleType = LevelRuleType.length;
                 ConstructLevelParams("length", 5, 4, 0);
+                bgImage.sprite = levelTheme.bgImage[1];
                 break;
 
             case 10:
                 //make 2 x 5 letter words
                 levelRuleType = LevelRuleType.length;
                 ConstructLevelParams("length", 2, 5, 0);
+                bgImage.sprite = levelTheme.bgImage[2];
                 break;
            
             case 11:
                 // make 2 words worth 20XP
                  levelRuleType = LevelRuleType.points;
                 ConstructLevelParams("points", 2, 0, 20);
+                bgImage.sprite = levelTheme.bgImage[2];
                 break;
 
             case 12:
                 //make 2 x 6 letter words
                 levelRuleType = LevelRuleType.length;
                 ConstructLevelParams("length", 2, 6, 0);
+                bgImage.sprite = levelTheme.bgImage[2];
                 break;
 
             case 13:
                 //make 2 x words containing "letter"
                 levelRuleType = LevelRuleType.containing;
                 ConstructLevelParams("containing", 3, 2, 0);
+                bgImage.sprite = levelTheme.bgImage[2];
                 break;
          
             case 14:
                 //make 4 x words starting with "letter"
                 levelRuleType = LevelRuleType.starting;
                 ConstructLevelParams("starting", 3, 4, 0);
+                bgImage.sprite = levelTheme.bgImage[2];
                 break;
 
             case 15:
                 //use 75 tiles
                 levelRuleType = LevelRuleType.tiles;
                 ConstructLevelParams("tiles", 75, 0, 0);
+                bgImage.sprite = levelTheme.bgImage[3];
                 break;
             case 16:
                 //use 60 tiles
                 levelRuleType = LevelRuleType.tiles;
                 ConstructLevelParams("tiles", 75, 0, 0);
+                bgImage.sprite = levelTheme.bgImage[3];
                 break;
 
             case 17:
                 //make 3 x 5 letter words
                 levelRuleType = LevelRuleType.length;
                 ConstructLevelParams("length", 3, 5, 0);
+                bgImage.sprite = levelTheme.bgImage[3];
                 break;
 
             case 18:
                 //make 3 x 6 letter words
                 levelRuleType = LevelRuleType.length;
                 ConstructLevelParams("length", 3, 6, 0);
+                bgImage.sprite = levelTheme.bgImage[3];
                 break;
 
 

@@ -20,6 +20,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 996354ec9ba2b446fa07fa9b481852a5, type: 3}
   - {fileID: 8300000, guid: a46d1102d42fa4590a2528796b4c290b, type: 3}
   - {fileID: 8300000, guid: 4a8d91c4ef2f64a84b9aa83aa392eb6b, type: 3}
+  - {fileID: 8300000, guid: 8f0c9af91576843d8b46bf8bf415e4e6, type: 3}
   sfxGeneral:
   - {fileID: 8300000, guid: 5a863d36171ec43ad8f28dee819c539c, type: 3}
   - {fileID: 8300000, guid: fa9101c28edb646048855477a519f6a9, type: 3}

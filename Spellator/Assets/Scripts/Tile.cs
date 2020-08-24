@@ -407,6 +407,8 @@ public class Tile : MonoBehaviour
     public void HandleClick()
 
     {
+
+        DictionaryManager.Instance.deleteTileBool = true;
         //iTween.ShakePosition(game, iTween.Hash("x", 2, "y", 2, "time", randomTime, "easetype", "easeOutQuint"));
 
 

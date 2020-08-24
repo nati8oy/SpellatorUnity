@@ -116,6 +116,10 @@ public class DictionaryManager : MonoBehaviour
 
     //reference to the send button 
     [SerializeField] public Button sendButton;
+    [SerializeField] public Button deleteButton;
+    public Sprite deleteButtonImage;
+    public Sprite shakeButtonImage;
+    public bool deleteTileBool;
 
 
 
@@ -347,7 +351,18 @@ public class DictionaryManager : MonoBehaviour
         {
             multiplierText.text = "";
         }
-        
+
+        //change the delete button image according to whether or not a word is being made
+        if (deleteTileBool==false)
+        {
+            var buttonImage = deleteButton.GetComponent<Image>();
+            buttonImage.sprite = shakeButtonImage;
+        } else
+        {
+            var buttonImage = deleteButton.GetComponent<Image>();
+            buttonImage.sprite = deleteButtonImage;
+        }
+
         //set the current level (number of words) to be that of what is coming from the playerWordsMade var
         //currentLevel.text = playerWordsMade.Count.ToString();
 
@@ -367,6 +382,8 @@ public class DictionaryManager : MonoBehaviour
 
     public void CheckAndDeleteTiles()
     {
+
+        deleteTileBool = false;
 
         if (tutorial.tutorialOn)
         {
@@ -791,6 +808,7 @@ public class DictionaryManager : MonoBehaviour
 
     public void ClearWord()
     {
+        deleteTileBool = false;
         //stop the lightbulb particles
         lightbulbParticles.Stop();
 

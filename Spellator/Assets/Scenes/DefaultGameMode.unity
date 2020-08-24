@@ -23808,6 +23808,23 @@ PrefabInstance:
       propertyPath: lightbulb
       value: 
       objectReference: {fileID: 381665199}
+    - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
+        type: 3}
+      propertyPath: deleteButton
+      value: 
+      objectReference: {fileID: 363417290}
+    - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
+        type: 3}
+      propertyPath: shakeButtonImage
+      value: 
+      objectReference: {fileID: 21300000, guid: f959c4fd6920b4becb38d1740f0fc84a,
+        type: 3}
+    - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
+        type: 3}
+      propertyPath: deleteButtonImage
+      value: 
+      objectReference: {fileID: 21300000, guid: e5414fda01fce462f917b1dae3df6875,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc08af2b56d9c45b3af66e59305a1835, type: 3}
 --- !u!1001 &6664626739288876831

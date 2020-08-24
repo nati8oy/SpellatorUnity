@@ -234,6 +234,10 @@ public class SaveLoadManager : MonoBehaviour
     //function to reset all save data
     public void ClearAllData()
     {
+
+        levelData.currentLevel = 1;
+
+        /*
         configData.levelProgressXP = 0;
         //configData.skinsPurchased.Clear();
         uniqueWordsList.Clear();
@@ -241,8 +245,8 @@ public class SaveLoadManager : MonoBehaviour
         shop.currentSkin = configData.skinsPurchased[0];
         configData.longestWord = null;
         configData.totalWordsMade = 0;
-        configData.totalGoldAmount = 0;
-        levelData.currentLevel = 1;
+        //configData.totalGoldAmount = 0;
+       */
 
         //reset the skins that have been purchased
 
