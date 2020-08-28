@@ -341,6 +341,12 @@ public class LevelManager : MonoBehaviour
                 ConstructLevelParams("length", 3, 6, 0);
                 bgImage.sprite = levelTheme.bgImage[3];
                 break;
+            case 19:
+                //make 1 x 6 letter words
+                levelRuleType = LevelRuleType.length;
+                ConstructLevelParams("length", 1, 7, 0);
+                bgImage.sprite = levelTheme.bgImage[3];
+                break;
 
 
 
@@ -643,7 +649,7 @@ public class LevelManager : MonoBehaviour
             //if you passed the level then increment the level
 
             //update the current level. This is set within the gameConfig file
-            if (levelDetails.currentLevel < 18)
+            if (levelDetails.currentLevel < 19)
             {
                 levelDetails.currentLevel += 1;
             }

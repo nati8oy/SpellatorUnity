@@ -67,6 +67,7 @@ public class Tile : MonoBehaviour
     //public AudioClip[] smashSounds;
 
     public GameObject healthParticles;
+    public GameObject smallSmokeParticles;
 
     public Vector3 nextTileSpot;
 
@@ -102,7 +103,7 @@ public class Tile : MonoBehaviour
 
     void Start()
     {
-        var scaleSize = gameObject.transform.localScale.x;  
+        //var scaleSize = gameObject.transform.localScale.x;  
 
 //        Debug.Log("local scale: " + scaleSize);
         //scaleSize =  0.3f;
@@ -251,7 +252,7 @@ public class Tile : MonoBehaviour
         if (CompareTag("TileSelected"))
         {
 
-            
+           
             //check if a word has been made before this
             if (DictionaryManager.Instance.chainFlag)
             {
@@ -280,6 +281,9 @@ public class Tile : MonoBehaviour
     {
         //choose a random number
         randomHeartSpawnChance = Random.Range(0, 1);
+
+       // Debug.Log("tile scale: " + gameObject.transform.localScale);
+        //
 //        Debug.Log("heart chance number is " + randomHeartSpawnChance);
 
         /*
@@ -474,9 +478,22 @@ public class Tile : MonoBehaviour
 
             if (shazamClip != null)
             {
-                shazamClip.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y);
+                shazamClip.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -90);
                 shazamClip.transform.SetParent(GameManager.Instance.mainCanvas.transform);
                 shazamClip.SetActive(true);
+                //available = false;
+
+            }
+
+
+            //Remember that the object pooler uses TAGS not names of objects to set them active, etc. here.
+            smallSmokeParticles = ObjectPooler.SharedInstance.GetPooledObject("Small Smoke");
+
+            if (smallSmokeParticles != null)
+            {
+                smallSmokeParticles.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y);
+                smallSmokeParticles.transform.SetParent(GameManager.Instance.mainCanvas.transform);
+                smallSmokeParticles.SetActive(true);
                 //available = false;
 
             }

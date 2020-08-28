@@ -32,6 +32,7 @@ TagManager:
   - Lightening
   - Shazam
   - Level Complete
+  - Small Smoke
   layers:
   - Default
   - TransparentFX

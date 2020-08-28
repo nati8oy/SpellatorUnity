@@ -9,6 +9,7 @@ public class CanvasSwitcher : MonoBehaviour
     RenderModeStates m_RenderModeStates;
 
     public string deviceModelString;
+    private float screenRatio;
 
     Canvas m_Canvas;
 
@@ -20,17 +21,47 @@ public class CanvasSwitcher : MonoBehaviour
         m_Canvas = GetComponent<Canvas>();
 
         deviceModelString = SystemInfo.deviceModel;
-        
 
-//        Debug.Log("device type: " + SystemInfo.deviceModel);
-     //   Debug.Log("device generaton " + deviceGeneration);
+
+        //        Debug.Log("device type: " + SystemInfo.deviceModel);
+        //   Debug.Log("device generaton " + deviceGeneration);
+
+
+
+
+        // 1.Check that the device is an iPhone:
+
+        //2.1 < screenRatio < 2.2   // 19.5:9 iPhones - models X, Xs,  Xr, Xsmax
+
+
+        screenRatio = (1.0f * Screen.height)/ (1.0f * Screen.width);
+        // Debug.Log("screen width: " + Screen.width + " screen height: " + Screen.height + " screen ratio: " + screenRatio);
+
+
+        if ((2.1f < screenRatio) && (screenRatio < 2.2f))
+        {
+            Debug.Log("screen ratio is " + screenRatio);
+
+            Debug.Log("this is an iPhoneXr or Xs");
+           // SetWorldSpaceCanvas();
+            //SetScreenSpaceOverlayCanvas();
+            SetScreenSpaceCanvas();
+        }
 
 
         //check devices type and see if it's an iPhone, iPad or iPod and adjust the content appropriately
         if (SystemInfo.deviceModel.Contains("iPhoneX"))
         {
-            Debug.Log("this is an iPhoneX");
-            SetScreenSpaceCanvas();
+           
+            screenRatio = (1.0f * Screen.width) / (1.0f * Screen.height);
+            if ((2.1f < screenRatio) && (screenRatio < 2.2f))
+            {
+                Debug.Log("screen ratio is " + screenRatio);
+
+                Debug.Log("this is an iPhoneX");
+                SetScreenSpaceCanvas();
+            }            
+
 
         }
         if (SystemInfo.deviceModel.Contains("iPhone11"))

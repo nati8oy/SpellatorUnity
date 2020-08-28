@@ -22,6 +22,7 @@ public class TabMapReader : MonoBehaviour
     public Image statsTabIcon;
     public Image achievementTabIcon;
     public Image shopTabIcon;
+    public Image cogIcon;
 
 
     public GameObject mainCamera;
@@ -37,6 +38,7 @@ public class TabMapReader : MonoBehaviour
         achievementTabIcon.color = inactiveTabColour;
         shopTabIcon.color = inactiveTabColour;
 
+        TabSelector("home");
 
     }
     //public GameObject activeTab;
@@ -64,9 +66,7 @@ public class TabMapReader : MonoBehaviour
         {
 
 
-
-
-            case "stats":
+            case "home":
                 //Debug.Log("word list");
                 goldObject.SetActive(false);
 
@@ -78,6 +78,7 @@ public class TabMapReader : MonoBehaviour
                 statsTabIcon.color = activeTabColour;
                 achievementTabIcon.color = inactiveTabColour;
                 shopTabIcon.color = inactiveTabColour;
+                cogIcon.color = inactiveTabColour;
                 //iTween.MoveTo(mainCamera, iTween.Hash("x", 960, "time", 1f));
 
 
@@ -95,6 +96,7 @@ public class TabMapReader : MonoBehaviour
                 statsTabIcon.color = inactiveTabColour;
                 achievementTabIcon.color = activeTabColour;
                 shopTabIcon.color = inactiveTabColour;
+                cogIcon.color = inactiveTabColour;
                 break;
             case "shop":
                 //Debug.Log("settings");
@@ -108,6 +110,7 @@ public class TabMapReader : MonoBehaviour
                 statsTabIcon.color = inactiveTabColour;
                 achievementTabIcon.color = inactiveTabColour;
                 shopTabIcon.color = activeTabColour;
+                cogIcon.color = inactiveTabColour;
                 break;
         }
 

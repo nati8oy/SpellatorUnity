@@ -168,7 +168,7 @@ public class LevelCompleteActions : MonoBehaviour
         //progress slider code
         while (progressSlider.value != (Points.totalScore))
         {
-            progressSlider.value += 1f;
+            progressSlider.value += 2f;
             localLevelProgressXP += 1;
             
 
@@ -179,7 +179,7 @@ public class LevelCompleteActions : MonoBehaviour
 
             nextLevelTally.text = progressSlider.value.ToString() + " / " + progressSlider.maxValue.ToString();
            // Debug.Log("progress: " + progressSlider.value);
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
 
         }
         Points.totalScore = 0;

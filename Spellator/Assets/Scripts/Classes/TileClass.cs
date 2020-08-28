@@ -55,6 +55,7 @@ public class TileClass
         specialTypes.Add("stubborn");
         AllocateSpecialType();
 
+  
 
 
         //Debug.Log("Tile type is: " + tileType + " Special type: " + specialAttribute);

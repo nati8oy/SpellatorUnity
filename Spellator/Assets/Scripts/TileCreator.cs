@@ -29,6 +29,7 @@ public class TileCreator : MonoBehaviour
         TileSpawnerClass tileSpawner = new TileSpawnerClass();
         tileSpawner.GetNewPooledObject(gameObject.transform.position, gameObject.transform);
 
+
       
     }                                                                                   
 
@@ -44,6 +45,7 @@ public class TileCreator : MonoBehaviour
             newTile.transform.position = gameObject.transform.position;
             newTile.transform.SetParent(gameObject.transform);
             newTile.SetActive(true);
+           
             //available = false;
 
         }

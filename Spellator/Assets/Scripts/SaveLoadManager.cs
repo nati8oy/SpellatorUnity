@@ -236,12 +236,17 @@ public class SaveLoadManager : MonoBehaviour
     {
 
         levelData.currentLevel = 1;
-
-        /*
         configData.levelProgressXP = 0;
-        //configData.skinsPurchased.Clear();
         uniqueWordsList.Clear();
         configData.uniqueWordsList.Clear();
+        configData.longestWord = "";
+        configData.totalGoldAmount = 0;
+        configData.totalWordsMade = 0;
+        /*
+        
+        //configData.skinsPurchased.Clear();
+        
+       
         shop.currentSkin = configData.skinsPurchased[0];
         configData.longestWord = null;
         configData.totalWordsMade = 0;
@@ -258,7 +263,7 @@ public class SaveLoadManager : MonoBehaviour
 
         }
         */
-        
+
 
     }
 }

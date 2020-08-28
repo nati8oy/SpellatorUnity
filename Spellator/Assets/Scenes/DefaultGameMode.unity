@@ -363,7 +363,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 53077368}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c6f6777ed6d2477ea0b1a4e78cdad5a, type: 3}
   m_Name: 
@@ -20285,7 +20285,13 @@ PrefabInstance:
     - target: {fileID: 2441374413548878446, guid: d280f95e1bad644dba45e66668d6d851,
         type: 3}
       propertyPath: m_fontSize
-      value: 43.1
+      value: 37.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 2441374413548878446, guid: d280f95e1bad644dba45e66668d6d851,
+        type: 3}
+      propertyPath: m_text
+      value: Can't make a word? Press this to shake the tile rack. Tiles will age
+        by one. You have unlimited shakes.
       objectReference: {fileID: 0}
     - target: {fileID: 2441374413587627512, guid: d280f95e1bad644dba45e66668d6d851,
         type: 3}
@@ -20570,13 +20576,13 @@ PrefabInstance:
     - target: {fileID: 2441374414891786001, guid: d280f95e1bad644dba45e66668d6d851,
         type: 3}
       propertyPath: m_text
-      value: Tiles age each turn, changing colour. When a tile falls off it reduces
-        your health. Take too much damage and it's game over.
+      value: Tiles age each turn, changing colour. When a tile falls off you lose
+        a heart. When all your hearts are gone it's game over.
       objectReference: {fileID: 0}
     - target: {fileID: 2441374414891786001, guid: d280f95e1bad644dba45e66668d6d851,
         type: 3}
       propertyPath: m_fontSize
-      value: 36.35
+      value: 34.85
       objectReference: {fileID: 0}
     - target: {fileID: 2441374415179586856, guid: d280f95e1bad644dba45e66668d6d851,
         type: 3}
@@ -23970,7 +23976,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 166281411, guid: cf2cb441bcdc54fbba9fdd62fba05c37, type: 3}
       propertyPath: itemsToPool.Array.size
-      value: 17
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 166281411, guid: cf2cb441bcdc54fbba9fdd62fba05c37, type: 3}
       propertyPath: itemsToPool.Array.data[9].amountToPool
@@ -24039,6 +24045,19 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 166281411, guid: cf2cb441bcdc54fbba9fdd62fba05c37, type: 3}
       propertyPath: itemsToPool.Array.data[16].shouldExpand
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 166281411, guid: cf2cb441bcdc54fbba9fdd62fba05c37, type: 3}
+      propertyPath: itemsToPool.Array.data[17].amountToPool
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 166281411, guid: cf2cb441bcdc54fbba9fdd62fba05c37, type: 3}
+      propertyPath: itemsToPool.Array.data[17].objectToPool
+      value: 
+      objectReference: {fileID: 4593639294678505349, guid: 5797d596d023b4a67a6987fd869ec6f0,
+        type: 3}
+    - target: {fileID: 166281411, guid: cf2cb441bcdc54fbba9fdd62fba05c37, type: 3}
+      propertyPath: itemsToPool.Array.data[17].shouldExpand
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 761818878724394127, guid: cf2cb441bcdc54fbba9fdd62fba05c37,

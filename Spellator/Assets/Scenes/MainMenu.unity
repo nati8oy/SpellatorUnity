@@ -1512,7 +1512,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -188, y: -25}
+  m_AnchoredPosition: {x: -182, y: -25}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &499764759
@@ -2611,7 +2611,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 12, y: -32}
+  m_AnchoredPosition: {x: 168, y: -32}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &703871788
@@ -5409,6 +5409,11 @@ PrefabInstance:
       propertyPath: achievementTabIcon
       value: 
       objectReference: {fileID: 464065272}
+    - target: {fileID: 7505744519241277055, guid: 668d832b3085043c0a353fa1e63869a2,
+        type: 3}
+      propertyPath: cogIcon
+      value: 
+      objectReference: {fileID: 623280774}
     - target: {fileID: 8756629831164566151, guid: 668d832b3085043c0a353fa1e63869a2,
         type: 3}
       propertyPath: m_Name
@@ -7162,7 +7167,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -188, y: -25}
+  m_AnchoredPosition: {x: -335, y: -25}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1843730197
@@ -7216,7 +7221,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: stats
+          m_StringArgument: home
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1843730200}
@@ -9066,6 +9071,16 @@ PrefabInstance:
       propertyPath: statuses.Array.data[0]
       value: INTERN
       objectReference: {fileID: 0}
+    - target: {fileID: 7337610078881572779, guid: 01e647ffbd9814622ac7a25084abb6c6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 421
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337610078881572779, guid: 01e647ffbd9814622ac7a25084abb6c6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 74.00001
+      objectReference: {fileID: 0}
     - target: {fileID: 7337610079769381772, guid: 01e647ffbd9814622ac7a25084abb6c6,
         type: 3}
       propertyPath: m_Name
@@ -9180,6 +9195,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337610080302595663, guid: 01e647ffbd9814622ac7a25084abb6c6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 463
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337610080302595663, guid: 01e647ffbd9814622ac7a25084abb6c6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337610080477578195, guid: 01e647ffbd9814622ac7a25084abb6c6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 211
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337610080477578195, guid: 01e647ffbd9814622ac7a25084abb6c6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 189.00002
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01e647ffbd9814622ac7a25084abb6c6, type: 3}

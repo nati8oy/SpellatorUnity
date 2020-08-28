@@ -891,7 +891,11 @@ public class DictionaryManager : MonoBehaviour
                 //connect to the script of each tile, get the startPos from there (which is the starting transform of each Pos holder)
                 //then run the Coroutine from the tile game object. Phew!
 
-                iTween.MoveTo(tile, new Vector3(getStartPos.startPos.position.x, getStartPos.startPos.position.y, 0), 0.5f);
+                //iTween.MoveTo(tile, new Vector3(getStartPos.startPos.position.x, getStartPos.startPos.position.y, 0), 0.5f);
+                iTween.MoveTo(tile, iTween.Hash("x", getStartPos.startPos.position.x, "y", getStartPos.startPos.position.y, "easetype", "EaseInOutCirc", "delay", Random.Range(0,0.4f), "time", 0.4f));; ;
+
+                ///AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxTilePops[8]);
+
                 //iTween.MoveTo(gameObject, iTween.Hash("x", TileManager.Instance.NextFreePos.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time",0.5f, "easeType", "EaseOutQuint"));
 
 
