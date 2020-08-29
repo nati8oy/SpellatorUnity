@@ -33,6 +33,7 @@ TagManager:
   - Shazam
   - Level Complete
   - Small Smoke
+  - Streak
   layers:
   - Default
   - TransparentFX

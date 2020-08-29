@@ -277,7 +277,7 @@ public class DictionaryManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+      
         //set the lightbulb object to in invisible
         lightbulb.SetActive(false);
 

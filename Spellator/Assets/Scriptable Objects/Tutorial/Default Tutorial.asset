@@ -15,7 +15,7 @@ MonoBehaviour:
   currentTip: Triple tiles score triple the amount of points.
   tutorialTipImage: {fileID: 21300000, guid: df94c268ef98547219803299d6cc8e52, type: 3}
   endOfLevelTips:
-  - "Stubborn tiles don\u2019t age at all. You just have to use them! "
+  - 'Grey stubborn tiles do not age at all. You just have to use them! '
   - Consecutive 4 letter words build combo!
   - The higher you score, the more chance you have of getting double tiles.
   - When tiles fall off they reduce your health by their point value amount.
@@ -23,4 +23,4 @@ MonoBehaviour:
   - Can't make a word? Click on the primary tile to start again
   - Each word has to start with the last letter of the previous word
   - Spend all your hard-earned gold on new skins in the shop!
-  tutorialOn: 1
+  tutorialOn: 0
