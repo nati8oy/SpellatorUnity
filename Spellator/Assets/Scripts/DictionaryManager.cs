@@ -892,7 +892,7 @@ public class DictionaryManager : MonoBehaviour
                 //then run the Coroutine from the tile game object. Phew!
 
                 //iTween.MoveTo(tile, new Vector3(getStartPos.startPos.position.x, getStartPos.startPos.position.y, 0), 0.5f);
-                iTween.MoveTo(tile, iTween.Hash("x", getStartPos.startPos.position.x, "y", getStartPos.startPos.position.y, "easetype", "EaseInOutCirc", "delay", Random.Range(0,0.4f), "time", 0.4f));; ;
+                iTween.MoveTo(tile, iTween.Hash("x", getStartPos.startPos.position.x, "y", getStartPos.startPos.position.y, "easetype", "EaseOutCirc", "time", 0.4f));; ;
 
                 ///AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxTilePops[8]);
 

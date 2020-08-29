@@ -7,7 +7,7 @@ public class Tile : MonoBehaviour
 {
 
 
-     public Image tileBGImage;
+    public Image tileBGImage;
 
     private PlayerHealth healthHandler;
 
@@ -103,9 +103,11 @@ public class Tile : MonoBehaviour
 
     void Start()
     {
+        //start the coroutine that sets the position of the primary tile. This position is then used for relative positioning of tiles.
+       // StartCoroutine(UpdateNextTileSpot());
         //var scaleSize = gameObject.transform.localScale.x;  
 
-//        Debug.Log("local scale: " + scaleSize);
+        //        Debug.Log("local scale: " + scaleSize);
         //scaleSize =  0.3f;
 
         healthParticles = ObjectPooler.SharedInstance.GetPooledObject("Heart Particles");
@@ -143,15 +145,15 @@ public class Tile : MonoBehaviour
         {
             case 4:
                 //if the age is 4 then use the tiles from the scriptable object within the array
-               tileBGImage.sprite = tileDisplayAccess.tileAgeSprites[0];
+                tileBGImage.sprite = tileDisplayAccess.tileAgeSprites[0];
                 //set the colour of the tile text to be that of the default skin selected colour
                 //letter.color = Color.black;
-               letter.color = tileDisplayAccess.tileTextColour;
+                letter.color = tileDisplayAccess.tileTextColour;
                 points.color = tileDisplayAccess.tileTextColour;
                 break;
             case 3:
                 //if the age is 4 then use the tiles from the scriptable object within the array
-               tileBGImage.sprite = tileDisplayAccess.tileAgeSprites[1];
+                tileBGImage.sprite = tileDisplayAccess.tileAgeSprites[1];
                 break;
             case 2:
                 tileBGImage.sprite = tileDisplayAccess.tileAgeSprites[2];
@@ -168,7 +170,7 @@ public class Tile : MonoBehaviour
                     letter.color = tileDisplayAccess.tileDisabledColour;
                     points.color = tileDisplayAccess.tileDisabledColour;
                 }
-               
+
                 break;
 
         }
@@ -191,7 +193,7 @@ public class Tile : MonoBehaviour
 
         else
         {
-           //specialIcon.SetActive(false);
+            //specialIcon.SetActive(false);
         }
 
         switch (spawnedTile.specialAttribute)
@@ -247,32 +249,35 @@ public class Tile : MonoBehaviour
         nextTileSpot = GameObject.Find("Primary Tile").transform.position;
 
 
+
+
         //CONTENT REMOVED FROM HERE FOR TILE POSITIONING
         //make sure both the primary tile and the selected tiles move in relation to the Primary Tile game object
         if (CompareTag("TileSelected"))
         {
 
-           
+
             //check if a word has been made before this
             if (DictionaryManager.Instance.chainFlag)
             {
-                iTween.MoveUpdate(gameObject, new Vector3((nextTileSpot.x) + (tileOffset * positionInWord)- tileOffset, nextTileSpot.y), 1);
-
+                iTween.MoveUpdate(gameObject, new Vector3((nextTileSpot.x) + (tileOffset * positionInWord) - tileOffset, nextTileSpot.y), 1);
+               // gameObject.transform.position = new Vector3((nextTileSpot.x) + (tileOffset * positionInWord) - tileOffset, nextTileSpot.y);
             }
             else
             {
                 iTween.MoveUpdate(gameObject, new Vector3((nextTileSpot.x) + (tileOffset * positionInWord), nextTileSpot.y), 1);
 
+               //gameObject.transform.position = new Vector3((nextTileSpot.x) + (tileOffset * positionInWord), nextTileSpot.y);
             }
 
         }
 
-        else if(CompareTag("PrimaryTile"))
+        else if (CompareTag("PrimaryTile"))
         {
             iTween.MoveUpdate(gameObject, new Vector3(nextTileSpot.x, nextTileSpot.y), 1);
 
         }
-        
+
 
     }
 
@@ -282,9 +287,9 @@ public class Tile : MonoBehaviour
         //choose a random number
         randomHeartSpawnChance = Random.Range(0, 1);
 
-       // Debug.Log("tile scale: " + gameObject.transform.localScale);
+        // Debug.Log("tile scale: " + gameObject.transform.localScale);
         //
-//        Debug.Log("heart chance number is " + randomHeartSpawnChance);
+        //        Debug.Log("heart chance number is " + randomHeartSpawnChance);
 
         /*
         var testFlag = false;
@@ -309,7 +314,7 @@ public class Tile : MonoBehaviour
         float CurveWeightedRandom(AnimationCurve curve)
         {
             //multiply the float that is returned by 100
-            return curve.Evaluate(Random.value)* GameManager.Instance.specialTileProbability;
+            return curve.Evaluate(Random.value) * GameManager.Instance.specialTileProbability;
         }
 
         //this is the curve
@@ -317,7 +322,7 @@ public class Tile : MonoBehaviour
 
         specialChance = Mathf.CeilToInt(CurveWeightedRandom(mainAnimationCurve));
 
-//        Debug.Log("curve number: " + Mathf.CeilToInt(CurveWeightedRandom(mainAnimationCurve)));
+        //        Debug.Log("curve number: " + Mathf.CeilToInt(CurveWeightedRandom(mainAnimationCurve)));
 
         //        Debug.Log("<color=red>curve weighted random</color> " + CurveWeightedRandom(GameManager.Instance.GetComponent<CreateNewBag>().mainAnimationCurve));
 
@@ -329,7 +334,7 @@ public class Tile : MonoBehaviour
         //create instance of the TileClass for use in the checks below
 
         spawnedTile = new TileClass(gameObject.transform.position);
-//        Debug.Log("spawned tile attribute: " + spawnedTile.specialAttribute);
+        //        Debug.Log("spawned tile attribute: " + spawnedTile.specialAttribute);
         //resets the special type of a tile when it loads
         spawnedTile.AllocateSpecialType();
 
@@ -357,10 +362,10 @@ public class Tile : MonoBehaviour
 
             // spawnedTile.letter = TileBag.bag[Mathf.CeilToInt(CurveWeightedRandom(GameManager.Instance.GetComponent<CreateNewBag>().mainAnimationCurve))];
 
-           
-                spawnedTile.letter = TileBag.bag[Random.Range(0,TileBag.bag.Count)];
-            
-            
+
+            spawnedTile.letter = TileBag.bag[Random.Range(0, TileBag.bag.Count)];
+
+
 
             //check that the letter actually exists in the bag before using it
             if (TileBag.bag.Contains(spawnedTile.letter))
@@ -426,23 +431,23 @@ public class Tile : MonoBehaviour
 
         }
 
-       // Debug.Log(spawnedTile.specialAttribute);
+        // Debug.Log(spawnedTile.specialAttribute);
 
         //Debug.Log(GameManager.Instance.testList.Count);
 
         //play the tile animation  
         // animator.SetBool("correctWord", true);
 
-        
+
         if (AudioManager.Instance)
         {
             AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxTilePops[7]);
-           // Debug.Log("played tile click"); 
+            // Debug.Log("played tile click"); 
         }
 
         //check if this is a primary tile that is being clicked and thus removed
         //also check if you have enough shazams remaining and if the word being made already has a primary tile or not
-        if (CompareTag("PrimaryTile") && (DictionaryManager.Instance.WordBeingMade.Length==1) && healthHandler.shazamsRemaining > 0)
+        if (CompareTag("PrimaryTile") && (DictionaryManager.Instance.WordBeingMade.Length == 1) && healthHandler.shazamsRemaining > 0)
         {
 
             //update shazam amount
@@ -451,7 +456,7 @@ public class Tile : MonoBehaviour
             //reset the flags for the first tile, etc.
             DictionaryManager.Instance.chainFlag = false;
             DictionaryManager.Instance.WordBeingMade = "";
-        
+
             //reset the multiplier
             Points.multiplier = 1;
 
@@ -528,8 +533,8 @@ public class Tile : MonoBehaviour
             //iTween.MoveTo(gameObject, iTween.Hash("x", TileManager.Instance.NextFreePos.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time", 0.5f, "easetype", "easeOut", "oncomplete", "CheckWordBeingSpelled"));
 
             //use the chainFlag to see if there's an active primary tile
-            
-                //iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x) + (tileOffset * DictionaryManager.Instance.WordBeingMade.Length)- tileOffset, "y", nextTileSpot.y, "time", 0.5f, "easetype", "easeInOut", "oncomplete", "CheckWordBeingSpelled"));
+
+            //iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x) + (tileOffset * DictionaryManager.Instance.WordBeingMade.Length)- tileOffset, "y", nextTileSpot.y, "time", 0.5f, "easetype", "easeInOut", "oncomplete", "CheckWordBeingSpelled"));
             iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x) + (tileOffset * DictionaryManager.Instance.WordBeingMade.Length) - tileOffset, "y", nextTileSpot.y, "time", 0.5f, "easetype", "easeInOut", "oncomplete", "CheckWordBeingSpelled"));
 
 
@@ -539,9 +544,9 @@ public class Tile : MonoBehaviour
 
             //add the score to the live score
 
-                Points.AddToLiveScore(adjustedPointValue);
+            Points.AddToLiveScore(adjustedPointValue);
 
-       
+
 
             GameManager.Instance.LiveScoreText.text = Points.liveScore.ToString();
 
@@ -560,18 +565,18 @@ public class Tile : MonoBehaviour
             selectedTilesArray = GameObject.FindGameObjectsWithTag("TileSelected");
 
 
-           //DictionaryManager.Instance.WordBeingMade.Substring(0, positionInWord-1);
+            //DictionaryManager.Instance.WordBeingMade.Substring(0, positionInWord-1);
 
-            DictionaryManager.Instance.WordBeingMade.Remove(1,1);
+            DictionaryManager.Instance.WordBeingMade.Remove(1, 1);
 
             iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x) + (tileOffset * DictionaryManager.Instance.WordBeingMade.Length) - tileOffset, "y", nextTileSpot.y, "time", 0.5f, "easetype", "easeInOut", "oncomplete", "CheckWordBeingSpelled"));
 
             foreach (GameObject tile in selectedTilesArray)
             {
 
-                 //check if it's a positive number before reducing it.
-                 //also check if the letter comes after the point at which the word has been 
-                if (tile.GetComponent<Tile>().positionInWord > 0 && tile.GetComponent<Tile>().positionInWord> positionInWord)
+                //check if it's a positive number before reducing it.
+                //also check if the letter comes after the point at which the word has been 
+                if (tile.GetComponent<Tile>().positionInWord > 0 && tile.GetComponent<Tile>().positionInWord > positionInWord)
                 {
                     tile.GetComponent<Tile>().positionInWord -= 1;
                 }
@@ -600,20 +605,20 @@ public class Tile : MonoBehaviour
     public void CheckWordBeingSpelled()
     {
 
-//        Debug.Log(DictionaryManager.Instance.WordBeingMade);
+        //        Debug.Log(DictionaryManager.Instance.WordBeingMade);
 
         //if the word is longer than 3 letters, check if it's in the dictionary
         if (DictionaryManager.Instance.WordBeingMade.Length >= 3)
-            {
-                DictionaryManager.Instance.CheckWord();
+        {
+            DictionaryManager.Instance.CheckWord();
 
-            }
-          //  animator.SetBool("clearTile", false);
+        }
+        //  animator.SetBool("clearTile", false);
     }
 
     public void RemoveTileOnComplete()
     {
-        GameManager.Instance.ShakeCamera(6,6,0.5f);
+        GameManager.Instance.ShakeCamera(6, 6, 0.5f);
 
         if (AudioManager.Instance)
         {
@@ -655,12 +660,12 @@ public class Tile : MonoBehaviour
            
         }
         */
-     
-
-        
 
 
-        
+
+
+
+
         //check if levelComplete in the levelManager SO is true/false
         //used to make sure that the animations don't play if the level is complete
 
@@ -685,7 +690,7 @@ public class Tile : MonoBehaviour
             {
                 explosionObject.transform.position = gameObject.transform.position;
                 explosionObject.SetActive(true);
-//                Debug.Log("explosions worked!");
+                //                Debug.Log("explosions worked!");
             }
 
             levelUpText = ObjectPooler.SharedInstance.GetPooledObject("Level Up Text");
@@ -697,20 +702,20 @@ public class Tile : MonoBehaviour
 
             }
 
-           
+
             //popSounds.Play(popAudioSource);
 
         }
         else
         {
-           // Debug.Log("animations not played");
+            // Debug.Log("animations not played");
         }
 
 
         //set tiles back to inactive so that they can go back into the object pool
         gameObject.SetActive(false);
         // AudioManager.Instance.PlayAudio(popSounds[Random.Range(0, 3)]);
-       // Debug.Log("remove sound played");
+        // Debug.Log("remove sound played");
 
 
 
@@ -718,8 +723,8 @@ public class Tile : MonoBehaviour
     }
 
     public void ReduceAge()
-    {        
-            spawnedTile.age -= 1;        
+    {
+        spawnedTile.age -= 1;
     }
 
     //this function needs to be on the tile as it has to have an oncomplete function run
@@ -731,7 +736,7 @@ public class Tile : MonoBehaviour
 
         iTween.MoveBy(gameObject, iTween.Hash("y", randomDistance, "time", randomTime, "easetype", "easeInExpo", "delay", randomTime, "oncomplete", "SetTileInactive"));
 
-        
+
 
 
         //Debug.Log("Meter Percent: " + SpecialMeterClass.meterPercent + " Reduced by: " + spawnedTile.points + " Remaining Meter: " + SpecialMeterClass.meterRemaining);
@@ -823,11 +828,11 @@ public class Tile : MonoBehaviour
                 TutorialActions.OnTutorialItemInitiated("stubborn tiles");
                 break;
 
-                /*
-            case "heart":
-                TutorialActions.OnTutorialItemInitiated("heart tiles");
-                break;
-                */
+            /*
+        case "heart":
+            TutorialActions.OnTutorialItemInitiated("heart tiles");
+            break;
+            */
             case "double":
                 TutorialActions.OnTutorialItemInitiated("double tiles");
                 break;
@@ -858,7 +863,7 @@ public class Tile : MonoBehaviour
         DictionaryManager.Instance.WordBeingMade = "";
 
         //check if a tile with the "Primary Tile" tag exists
-        if(GameObject.FindGameObjectWithTag("PrimaryTile"))
+        if (GameObject.FindGameObjectWithTag("PrimaryTile"))
         {
 
             DictionaryManager.Instance.WordBeingMade = GameObject.FindGameObjectWithTag("PrimaryTile").GetComponent<Tile>().letter.text;
@@ -874,7 +879,7 @@ public class Tile : MonoBehaviour
         foreach (GameObject tile in selectedTilesArray)
         {
             DictionaryManager.Instance.CreateWord(tile.GetComponent<Tile>().letter.text);
-            Debug.Log("cleared and reset word is: " +  DictionaryManager.Instance.WordBeingMade);
+            Debug.Log("cleared and reset word is: " + DictionaryManager.Instance.WordBeingMade);
         }
 
         //check if the word is valid still after all of the above has happened
@@ -883,7 +888,18 @@ public class Tile : MonoBehaviour
         //move the word to the right position horizontally
         DictionaryManager.Instance.MoveWordToPoint();
 
+    }
 
+    private IEnumerator UpdateNextTileSpot()
+    {
+        while (gameObject.activeInHierarchy)
+        {
+            nextTileSpot = GameObject.Find("Primary Tile").transform.position;
+            yield return new WaitForSeconds(0.2f);
+            Debug.Log("Coroutine run");
+        }
+      
+       
     }
 
 }
