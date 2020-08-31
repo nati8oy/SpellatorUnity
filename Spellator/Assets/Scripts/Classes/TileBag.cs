@@ -16,11 +16,16 @@ public class TileBag
     public string letterCondition;
     public int bagSize;
 
-    public static List<string> bag = new List<string>(); 
+    public static List<string> bag = new List<string>();
 
     //public List<string> bag = new List<string>();
 
-   //public static List<string> bag = new List<string>() { "A", "A", "A", "A", "A", "A", "A", "A", "A", "S", "S", "S", " S", "T", "T", "T", "T", "T", "T", "B", "B",  "D", "D", "D", "D", "E", "E", "E", "E", "E", "E", "E", "E", "E", "E", "E", "E", "I", "I", "I", "I", "I", "I", "I", "I", "I", "O", "O", "O", "O", "O", "O", "O", "O", "R", "R", "R", "R", "R", "R", "N", "N", "N", "N", "N", "N", "G", "G", "G", "L", "L", "L", "L", "F", "F", "C", "C", "Y", "Y", "H", "H",  "P", "P","U", "U", "U", "U", "V", "V", "W", "W", "Z", "J", "K","Q", "X" };
+    //public static List<string> bag = new List<string>() { "A", "A", "A", "A", "A", "A", "A", "A", "A", "S", "S", "S", " S", "T", "T", "T", "T", "T", "T", "B", "B",  "D", "D", "D", "D", "E", "E", "E", "E", "E", "E", "E", "E", "E", "E", "E", "E", "I", "I", "I", "I", "I", "I", "I", "I", "I", "O", "O", "O", "O", "O", "O", "O", "O", "R", "R", "R", "R", "R", "R", "N", "N", "N", "N", "N", "N", "G", "G", "G", "L", "L", "L", "L", "F", "F", "C", "C", "Y", "Y", "H", "H",  "P", "P","U", "U", "U", "U", "V", "V", "W", "W", "Z", "J", "K","Q", "X" };
+
+    //these two lists are only for external use. The other consonant and vowel lists below are  
+    public static List<string> consonantListForExternalUse = new List<string>() { "B", "C", "D", "F", "G", "H", "L", "M", "N", "P", "R", "S", "T", "V", "W", "Y", "X", "J", "Q", "K", "Z" };
+    public static List<string> vowelListForExternalUse = new List<string>() {"A", "E","I","O","U"};
+
 
 
     public Dictionary<string, int> pointsDictionary = new Dictionary<string, int>();

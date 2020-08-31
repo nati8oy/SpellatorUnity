@@ -29,7 +29,9 @@ public class TileCreator : MonoBehaviour
         TileSpawnerClass tileSpawner = new TileSpawnerClass();
         tileSpawner.GetNewPooledObject(gameObject.transform.position, gameObject.transform);
 
-
+        //add this game object to the list of objects in the rack
+       // LevelManager.Instance.currentRackTileTypes.Add(gameObject);
+        //Debug.Log(LevelManager.Instance.currentRackTileTypes.Count);
       
     }                                                                                   
 

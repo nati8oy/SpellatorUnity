@@ -81,6 +81,8 @@ public class LevelManager : MonoBehaviour
     public AudioClip bgMusic;
 
 
+  
+
     //set up singleton
     void Awake()
     {
@@ -124,10 +126,15 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+
+
+        //currentRackTileTypes = GameObject.FindGameObjectsWithTag("Tile");
+       // Debug.Log(currentRackTileTypes.Count);
+        //checks the level type and then applies a theme
         LevelThemeManager();
 
-
-        
+   
 
         //set up the levels via the function below
         SetLevels();
@@ -655,8 +662,6 @@ public class LevelManager : MonoBehaviour
             }
 
         }
-
-
     }
 
 }

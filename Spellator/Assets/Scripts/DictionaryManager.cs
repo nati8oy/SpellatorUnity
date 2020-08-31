@@ -162,6 +162,17 @@ public class DictionaryManager : MonoBehaviour
     private string mostRecentWord;
     private string startLetter;
 
+
+    [Header("Rack Balancing")]
+    public List<GameObject> currentRackTileTypes = new List<GameObject>();
+    public int currentRackVowelCount;
+    public int currentRackConsonantCount;
+    public float tileValueRatio;
+    public List<string> firstRackLetters = new List<string>();
+
+    public GameObject[] tileObjects;
+
+
     public string StartLetter
     {
         get { return startLetter; }
@@ -277,7 +288,14 @@ public class DictionaryManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      
+        /*
+        //choose the first rack of letters randomly and then assess them
+        for (int i = 0; i < 9; i++)
+        {
+            firstRackLetters.Add(TileBag.bag[Random.Range(0, 98)]);
+            Debug.Log("random letter: " + i + " is " + firstRackLetters[i]);
+        }*/
+
         //set the lightbulb object to in invisible
         lightbulb.SetActive(false);
 
@@ -1084,6 +1102,74 @@ public class DictionaryManager : MonoBehaviour
             iTween.MoveTo(PrimaryTile, iTween.Hash("x", -600, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
         }
 
+
+    }
+
+
+
+    //function used for rebalancing the rack regarding vowels and consonants
+    public void BalanceRack()
+    {
+
+        tileObjects = GameObject.FindGameObjectsWithTag("Tile");
+        Debug.Log("tile object length: " + tileObjects.Length);
+
+
+        //set the count of each of these to 0 to start with
+        //currentRackVowelCount = 0;
+        //currentRackConsonantCount = 0;
+
+
+
+        foreach (GameObject tileItem in tileObjects)
+        {
+            if (tileItem.GetComponent<Tile>().tileType == Tile.TileType.consonant)
+            {
+                currentRackConsonantCount += 1;
+                //Debug.Log("added consonant");
+            }
+            else
+            {
+                currentRackVowelCount += 1;
+                //  Debug.Log("added vowel");
+            }
+        }
+
+
+        /*
+        //check what kind of tiles are in the rack
+        foreach (GameObject tile in currentRackTileTypes)
+        {
+          
+        }*/
+
+        //divide the number of vowels by the number of consonants to create a ratio.
+        //if the ratio is too low then do something about it
+        //tileValueRatio = currentRackVowelCount / 10;
+
+        //Debug.Log("tile ratio: " + currentRackVowelCount / 10);
+        //Debug.Log(tileValueRatio +" = " + currentRackVowelCount + "/" + " 10") ;
+
+        //Debug.Log("ratio of vowels to consonants: " + tileValueRatio);
+
+
+
+        if (currentRackVowelCount < 2)
+        {
+            Debug.Log("too few vowels! (" + currentRackVowelCount + ")");
+
+            foreach (GameObject tile in tileObjects)
+            {
+                tile.SetActive(false);
+            }
+        }
+        else
+        {
+            Debug.Log("there's enough vowels (" + currentRackVowelCount + ")");
+
+            
+
+        }
 
     }
 

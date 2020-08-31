@@ -6,7 +6,6 @@ using TMPro;
 public class Tile : MonoBehaviour
 {
 
-
     public Image tileBGImage;
 
     private PlayerHealth healthHandler;
@@ -80,6 +79,11 @@ public class Tile : MonoBehaviour
 
     private Vector3 currentSpot;
 
+    //this enum identifies the tile type as a vowel or a consonant
+    public enum TileType {consonant, vowel};
+    public TileType tileType;
+
+
     public int PositionInRack
 
     {
@@ -103,6 +107,7 @@ public class Tile : MonoBehaviour
 
     void Start()
     {
+        
         //start the coroutine that sets the position of the primary tile. This position is then used for relative positioning of tiles.
        // StartCoroutine(UpdateNextTileSpot());
         //var scaleSize = gameObject.transform.localScale.x;  
@@ -134,6 +139,21 @@ public class Tile : MonoBehaviour
 
 
         healthHandler = GameObject.Find("HealthBar").GetComponent<PlayerHealth>();
+
+        //add the game object to a list in the dictionary manager. Just so that it counts the number of tiles and only runs BalanceRack() once
+
+       
+        DictionaryManager.Instance.currentRackTileTypes.Add(gameObject);
+
+        if (DictionaryManager.Instance.currentRackTileTypes.Count == 9)
+        {
+           DictionaryManager.Instance.BalanceRack();
+
+        }
+        
+
+
+
 
     }
 
@@ -284,6 +304,7 @@ public class Tile : MonoBehaviour
 
     private void OnEnable()
     {
+
         //choose a random number
         randomHeartSpawnChance = Random.Range(0, 1);
 
@@ -365,6 +386,7 @@ public class Tile : MonoBehaviour
 
             spawnedTile.letter = TileBag.bag[Random.Range(0, TileBag.bag.Count)];
 
+            //spawnedTile.letter = "A";
 
 
             //check that the letter actually exists in the bag before using it
@@ -400,6 +422,20 @@ public class Tile : MonoBehaviour
         letter.text = spawnedTile.letter;
         points.text = spawnedTile.points.ToString();
         tilePointValue = spawnedTile.points;
+
+
+        ///check if the letter on the tile is contained within the consonant or vowel list in the TileBag script.
+        ///set the enum appropriately.
+        if (TileBag.consonantListForExternalUse.Contains(spawnedTile.letter))
+        {
+            tileType = TileType.consonant;
+        } else
+        {
+            tileType = TileType.vowel;
+        }
+
+//        Debug.Log(spawnedTile.letter + " is a " + tileType);
+
 
 
         //refill the tile bag
