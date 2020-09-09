@@ -23,7 +23,9 @@ public class LevelCompleteActions : MonoBehaviour
     public int currentLevel;
     public Camera mainCamera;
 
-  
+    public GameObject coinStartPos;
+    public GameObject coinEndPos;
+
 
 
     private GameObject goldCoinObject;
@@ -40,7 +42,7 @@ public class LevelCompleteActions : MonoBehaviour
         //set the star sound to be a variable
         starSound = audioManager.sfxGeneral[14];
         //starPositionCalculator = 0;
-        AppearDelay = 0.4f;
+        AppearDelay = 0.3f;
         wordsMade = 0;
 
         //Debug.Log("Current XP: " + configData.levelProgressXP);
@@ -113,24 +115,35 @@ public class LevelCompleteActions : MonoBehaviour
     }
 
     //coroutine to count down the star reward for each level
-    public IEnumerator LevelCompleteCheck(int starsEarned)
+    public IEnumerator LevelCompleteCheck(int goldEarned)
     {
 
-        while (starsEarned>0)
+        while (goldEarned>0)
         {
-            starsEarned -= 1;
+            goldEarned -= 1;
 //            AudioManager.Instance.PlayAudio(starSound);
 
            
             goldCoinObject = ObjectPooler.SharedInstance.GetPooledObject("Gold");
             if (goldCoinObject != null)
             {
-
+                /*
                 //set the start position var for the star being loaded
-                var starPos = goldMovePoint.position;
-                goldCoinObject.transform.position = starPos;
+                var startPosY = goldMovePoint.position.y;
+                var coinStartX = goldMovePoint.position.x;
+                var coinStartY = goldMovePoint.position.y;
+
+
+                goldCoinObject.transform.position.y = startPosY;
+                */
+
+
+
+
                 //parent it to the rewardText game object so that it's visible as a UI element
-                goldCoinObject.transform.SetParent(goldMovePoint);
+                goldCoinObject.transform.SetParent(coinStartPos.transform);
+
+                goldCoinObject.transform.position = coinStartPos.transform.position;
 
                 //update the position of the upcoming star
                 starPositionCalculator += 70;
@@ -138,8 +151,9 @@ public class LevelCompleteActions : MonoBehaviour
                 goldCoinObject.SetActive(true);
             }
 
-            iTween.MoveFrom(goldCoinObject, iTween.Hash("y", 750, "easetype", "EaseOutQuad", "time", 0.6f));
+            iTween.MoveTo(goldCoinObject, iTween.Hash("y", coinEndPos.transform.position.y, "x", coinEndPos.transform.position.x, "easetype", "EaseOutQuad", "time", 1f));
 
+           /// coinEndPos += 15;
 
 
             //delay before the next star is added.
@@ -148,6 +162,7 @@ public class LevelCompleteActions : MonoBehaviour
 
 
         yield return new WaitForSeconds(1);
+        goldCoinObject.SetActive(false);
 
         yield return null;
 

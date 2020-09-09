@@ -67,6 +67,11 @@ public class LevelManager : MonoBehaviour
     //reward for complettion of the level
     public int reward;
 
+    //reward levels
+    public int lowReward = 5;
+    public int medReward = 10;
+    public int highReward = 20;
+    public int superHighReward = 50;
 
     public TileBag tileBag;
 
@@ -226,6 +231,7 @@ public class LevelManager : MonoBehaviour
                 levelRuleType = LevelRuleType.tiles;
                 ConstructLevelParams("tiles", 10, 0, 0);
                 bgImage.sprite = levelTheme.bgImage[0];
+                levelDetails.reward = lowReward;
 
                 break;
 
@@ -234,6 +240,7 @@ public class LevelManager : MonoBehaviour
                 levelRuleType = LevelRuleType.tiles;
                 ConstructLevelParams("tiles", 25, 0, 0);
                 bgImage.sprite = levelTheme.bgImage[0];
+                levelDetails.reward = lowReward;
 
                 break;
 
@@ -242,6 +249,7 @@ public class LevelManager : MonoBehaviour
                 levelRuleType = LevelRuleType.length;
                 ConstructLevelParams("length", 10, 3, 0);
                 bgImage.sprite = levelTheme.bgImage[0];
+                levelDetails.reward = lowReward;
 
                 break;
 
@@ -250,6 +258,7 @@ public class LevelManager : MonoBehaviour
                 levelRuleType = LevelRuleType.length;
                 ConstructLevelParams("length", 3, 4, 0);
                 bgImage.sprite = levelTheme.bgImage[0];
+                levelDetails.reward = medReward;
 
                 break;
         
@@ -258,6 +267,7 @@ public class LevelManager : MonoBehaviour
                 levelRuleType = LevelRuleType.tiles;
                 ConstructLevelParams("tiles", 40, 0, 0);
                 bgImage.sprite = levelTheme.bgImage[1];
+                levelDetails.reward = medReward;
 
                 break;
             case 6:
@@ -265,6 +275,7 @@ public class LevelManager : MonoBehaviour
                 levelRuleType = LevelRuleType.tiles;
                 ConstructLevelParams("tiles", 60, 0, 0);
                 bgImage.sprite = levelTheme.bgImage[1];
+                levelDetails.reward = medReward;
                 break;
 
             case 7:
@@ -272,12 +283,14 @@ public class LevelManager : MonoBehaviour
                 levelRuleType = LevelRuleType.starting;
                 ConstructLevelParams("starting", 3, 2, 0);
                 bgImage.sprite = levelTheme.bgImage[1];
+                levelDetails.reward = lowReward;
                 break;
             case 8:
                 //make 2 words worth 10XP 
                 levelRuleType = LevelRuleType.points;
                 ConstructLevelParams("points", 2, 0, 10);
                 bgImage.sprite = levelTheme.bgImage[1];
+                levelDetails.reward = medReward;
                 break;
 
             case 9:
@@ -285,6 +298,7 @@ public class LevelManager : MonoBehaviour
                 levelRuleType = LevelRuleType.length;
                 ConstructLevelParams("length", 5, 4, 0);
                 bgImage.sprite = levelTheme.bgImage[1];
+                levelDetails.reward = highReward;
                 break;
 
             case 10:
@@ -292,6 +306,7 @@ public class LevelManager : MonoBehaviour
                 levelRuleType = LevelRuleType.length;
                 ConstructLevelParams("length", 2, 5, 0);
                 bgImage.sprite = levelTheme.bgImage[2];
+                levelDetails.reward = highReward;
                 break;
            
             case 11:
@@ -299,6 +314,7 @@ public class LevelManager : MonoBehaviour
                  levelRuleType = LevelRuleType.points;
                 ConstructLevelParams("points", 2, 0, 20);
                 bgImage.sprite = levelTheme.bgImage[2];
+                levelDetails.reward = medReward;
                 break;
 
             case 12:
@@ -306,6 +322,8 @@ public class LevelManager : MonoBehaviour
                 levelRuleType = LevelRuleType.length;
                 ConstructLevelParams("length", 2, 6, 0);
                 bgImage.sprite = levelTheme.bgImage[2];
+                levelDetails.reward = highReward;
+
                 break;
 
             case 13:
@@ -313,6 +331,7 @@ public class LevelManager : MonoBehaviour
                 levelRuleType = LevelRuleType.containing;
                 ConstructLevelParams("containing", 3, 2, 0);
                 bgImage.sprite = levelTheme.bgImage[2];
+                levelDetails.reward = medReward;
                 break;
          
             case 14:
@@ -320,6 +339,7 @@ public class LevelManager : MonoBehaviour
                 levelRuleType = LevelRuleType.starting;
                 ConstructLevelParams("starting", 3, 4, 0);
                 bgImage.sprite = levelTheme.bgImage[2];
+                levelDetails.reward = highReward;
                 break;
 
             case 15:
@@ -327,12 +347,14 @@ public class LevelManager : MonoBehaviour
                 levelRuleType = LevelRuleType.tiles;
                 ConstructLevelParams("tiles", 75, 0, 0);
                 bgImage.sprite = levelTheme.bgImage[3];
+                levelDetails.reward = highReward;
                 break;
             case 16:
                 //use 60 tiles
                 levelRuleType = LevelRuleType.tiles;
                 ConstructLevelParams("tiles", 75, 0, 0);
                 bgImage.sprite = levelTheme.bgImage[3];
+                levelDetails.reward = highReward;
                 break;
 
             case 17:
@@ -340,6 +362,7 @@ public class LevelManager : MonoBehaviour
                 levelRuleType = LevelRuleType.length;
                 ConstructLevelParams("length", 3, 5, 0);
                 bgImage.sprite = levelTheme.bgImage[3];
+                levelDetails.reward = highReward;
                 break;
 
             case 18:
@@ -347,12 +370,14 @@ public class LevelManager : MonoBehaviour
                 levelRuleType = LevelRuleType.length;
                 ConstructLevelParams("length", 3, 6, 0);
                 bgImage.sprite = levelTheme.bgImage[3];
+                levelDetails.reward = superHighReward;
                 break;
             case 19:
-                //make 1 x 6 letter words
+                //make 1 x 7 letter words
                 levelRuleType = LevelRuleType.length;
                 ConstructLevelParams("length", 1, 7, 0);
                 bgImage.sprite = levelTheme.bgImage[3];
+                levelDetails.reward = superHighReward;
                 break;
 
 

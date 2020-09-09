@@ -34,6 +34,7 @@ TagManager:
   - Level Complete
   - Small Smoke
   - Streak
+  - coin3D
   layers:
   - Default
   - TransparentFX

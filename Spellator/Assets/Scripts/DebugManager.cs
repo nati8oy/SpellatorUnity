@@ -30,7 +30,7 @@ public class DebugManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            explosion.SetActive(true);
+           // explosion.SetActive(true);
         }
 
         //add gold
@@ -43,6 +43,7 @@ public class DebugManager : MonoBehaviour
         //animation test
         if (Input.GetKeyDown(KeyCode.R))
         {
+            GameManager.Instance.LevelComplete();
         }
 
     }

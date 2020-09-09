@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad412a648c364c90992b71caee0ebe1, type: 3}
   m_Name: Level Data
   m_EditorClassIdentifier: 
-  currentLevel: 0
+  currentLevel: 2
   testIntForLevels: 1
   allLevels: 
   levelTypes:
@@ -20,9 +20,9 @@ MonoBehaviour:
   - ending
   - contains
   - length
-  reward: 3
+  reward: 5
   levelComplete: 0
-  levelRules: 37 tiles left to play
+  levelRules: Make words using 25 tiles in total
   endingList:
   - L
   - D
