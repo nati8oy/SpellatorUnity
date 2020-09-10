@@ -267,13 +267,15 @@ public class DictionaryManager : MonoBehaviour
             //selectedTilesArray[i].GetComponent<Tile>().animator.SetBool("clearTile", true);
 
              
+            //move the tiles towards the position of the points object
 
                 //iTween.MoveBy(selectedTilesArray[i], iTween.Hash("y", randomY, "easetype", "easeOutSine", "time", 0.5f, "delay", (0.1f) * (i + 1), "oncomplete", "RemoveTileOnComplete"));
             iTween.MoveTo(selectedTilesArray[i], iTween.Hash("y", scoreObject.transform.position.y, "x", scoreObject.transform.position.x, "easetype", "easeOutSine", "time", 0.5f, "delay", (0.1f) * (i + 1), "oncomplete", "RemoveTileOnComplete"));;
 
-            
 
-            //  iTween.RotateBy(selectedTilesArray[i], new Vector3(10, 10), 1);
+            //iTween.RotateBy(selectedTilesArray[i], iTween.Hash("amount", 1, "time", 1f, "delay", (0.1f) * (i + 1)));
+
+             iTween.PunchRotation(selectedTilesArray[i], new Vector3(0, 0,60), 2);
 
         }
 
