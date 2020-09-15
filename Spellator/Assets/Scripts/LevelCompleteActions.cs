@@ -23,6 +23,8 @@ public class LevelCompleteActions : MonoBehaviour
     public int currentLevel;
     public Camera mainCamera;
 
+    public TextMeshProUGUI totalGoldAmount;
+
     public GameObject coinStartPos;
     public GameObject coinEndPos;
 
@@ -50,9 +52,16 @@ public class LevelCompleteActions : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        //keep the amount of gold displayed updated
+        totalGoldAmount.text = configData.totalGoldAmount.ToString();
+    }
+
     private void OnEnable()
     {
-
+        
+        
         //assign a variable for the config data XP progress
         localLevelProgressXP = configData.levelProgressXP;
 

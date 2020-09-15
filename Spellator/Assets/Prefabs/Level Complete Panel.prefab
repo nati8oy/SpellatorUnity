@@ -10478,6 +10478,7 @@ MonoBehaviour:
   localLevelProgressXP: 0
   currentLevel: 0
   mainCamera: {fileID: 0}
+  totalGoldAmount: {fileID: 4106853808824660262}
   coinStartPos: {fileID: 1315621773735238657}
   coinEndPos: {fileID: 7490767522001540381}
   rewardText: {fileID: 262373170845138992}
@@ -17117,7 +17118,7 @@ ParticleSystem:
     flipU: 0
     flipV: 0
   VelocityModule:
-    enabled: 0
+    enabled: 1
     x:
       serializedVersion: 2
       minMaxState: 0
@@ -17869,7 +17870,7 @@ ParticleSystem:
     z:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 20
       minScalar: 0
       maxCurve:
         serializedVersion: 2

@@ -172,6 +172,8 @@ public class DictionaryManager : MonoBehaviour
 
     public GameObject[] tileObjects;
 
+    public GameObject streakClip;
+
 
     public string StartLetter
     {
@@ -501,7 +503,6 @@ public class DictionaryManager : MonoBehaviour
             lightbulbParticles.Stop();
 
 
-
             //play "ding" sound
             // AudioManager.Instance.PlayAudio(allAudioClips[3]);
 
@@ -544,6 +545,18 @@ public class DictionaryManager : MonoBehaviour
                     //available = false;
 
                 }
+
+                //add the streak clip
+                streakClip = ObjectPooler.SharedInstance.GetPooledObject("Streak");
+                if (streakClip != null)
+                {
+                    streakClip.transform.SetParent(HUD.transform);
+                    streakClip.transform.position = new Vector3(320, 760);
+                    streakClip.SetActive(true);
+                    //available = false;
+
+                }
+
 
 
                 // particleLifetime = Random.Range(0.25 * Points.multiplier, 0.3 * Points.multiplier);
