@@ -344,10 +344,10 @@ RectTransform:
   - {fileID: 497189808}
   - {fileID: 1665647625}
   - {fileID: 1647809393}
+  - {fileID: 992922545}
   - {fileID: 2040643316148352992}
   - {fileID: 186965409}
   - {fileID: 2078433048}
-  - {fileID: 992922545}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6879,7 +6879,7 @@ PrefabInstance:
     - target: {fileID: 4884074864846678570, guid: 8d2f776b06da14e60893630c6d6c5b11,
         type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 4884074864846678570, guid: 8d2f776b06da14e60893630c6d6c5b11,
         type: 3}
@@ -8338,7 +8338,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 53077372}
-  m_RootOrder: 18
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -13478,7 +13478,7 @@ GameObject:
   - component: {fileID: 1151121278}
   - component: {fileID: 1151121277}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Dotted Line
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22289,7 +22289,7 @@ PrefabInstance:
     - target: {fileID: 2303012087366593991, guid: 8dd6b9770ec074f5db4b52fbf98d378a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 2303012087366593991, guid: 8dd6b9770ec074f5db4b52fbf98d378a,
         type: 3}
@@ -23612,7 +23612,7 @@ PrefabInstance:
     - target: {fileID: 6582407710769130839, guid: 18fd4425d3b8542d69fff4a59c50bd72,
         type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 6582407710769130839, guid: 18fd4425d3b8542d69fff4a59c50bd72,
         type: 3}
