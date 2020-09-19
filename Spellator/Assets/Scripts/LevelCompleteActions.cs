@@ -56,51 +56,38 @@ public class LevelCompleteActions : MonoBehaviour
     {
         //keep the amount of gold displayed updated
         totalGoldAmount.text = configData.totalGoldAmount.ToString();
+
+        //if the value of the slider matches that of the level then play a sound and check the level to update it.
+        if (progressSlider.value == progressSlider.maxValue)
+        {
+
+            GameEvents.OnLevelUpInitiated();
+
+            //progressSlider.value = currentLevel =
+            CheckLevel();
+            //progressSlider.value += 1;
+        }
     }
 
     private void OnEnable()
     {
+        //add the DisplayLevelUp function to the LevelUp game events
+        GameEvents.LevelUp += DisplayLevelUp;
+
         
-        
+
+        CheckLevel();
+
         //assign a variable for the config data XP progress
-        localLevelProgressXP = configData.levelProgressXP;
 
-        currentLevel = configData.levelXP[3];
-
-
-        /*
-        if (configData.levelProgressXP<= configData.levelXP[0])
-        {
-            Debug.Log("Current Level XP: " + currentLevel);
-        }
-        */
-
-        /*
-        else if ((configData.levelProgressXP > configData.levelXP[0]) && (configData.levelProgressXP < configData.levelXP[1]))
-        {
-            currentLevel = configData.levelXP[1];
-        }
-        else if ((configData.levelProgressXP > configData.levelXP[1]) && (configData.levelProgressXP < configData.levelXP[2]))
-        {
-            currentLevel = configData.levelXP[2];
-        }
-        else if ((configData.levelProgressXP > configData.levelXP[2]) && (configData.levelProgressXP < configData.levelXP[3]))
-        {
-            currentLevel = configData.levelXP[3];
-        }
-        else if ((configData.levelProgressXP > configData.levelXP[3]) && (configData.levelProgressXP < configData.levelXP[4]))
-        {
-            currentLevel = configData.levelXP[4];
-        }
-
-        */
-
-
-
+//        Debug.Log("level progress XP is " + configData.levelProgressXP);
+        //localLevelProgressXP = configData.levelProgressXP;
 
 
         //localLevelProgressXP = configData.levelProgressXP + Points.totalScore;
 
+
+        localLevelProgressXP = configData.levelProgressXP + Points.totalScore;
         Debug.Log("Current XP: " + configData.levelProgressXP + " XP earned: " + Points.totalScore);
 
         totalLevelXP = configData.levelProgressXP;
@@ -116,10 +103,16 @@ public class LevelCompleteActions : MonoBehaviour
         //randomly show a tip from the tutorial scriptable object
         tipText.text = tutorial.endOfLevelTips[Random.Range(0, tutorial.endOfLevelTips.Length)];
 
-     
-        //set the slider to be the value of level XP from the SO
-        progressSlider.value = configData.levelProgressXP;
 
+        //set the slider to be the value of level XP from the SO
+        //progressSlider.value = configData.levelProgressXP;
+        progressSlider.value = localLevelProgressXP - Points.totalScore;
+
+        //set the levelProgressXP straight away so that it's saved
+        configData.levelProgressXP = localLevelProgressXP;
+
+        //set the display of the level tally
+        //nextLevelTally.text = progressSlider.value.ToString() + " / " + progressSlider.maxValue.ToString();
 
     }
 
@@ -190,7 +183,7 @@ public class LevelCompleteActions : MonoBehaviour
         }
 
         //progress slider code
-        while (progressSlider.value != (Points.totalScore))
+        while ((progressSlider.value != (localLevelProgressXP)) &&(progressSlider.value<progressSlider.maxValue))
         {
             progressSlider.value += 2f;
             localLevelProgressXP += 1;
@@ -207,9 +200,52 @@ public class LevelCompleteActions : MonoBehaviour
 
         }
         Points.totalScore = 0;
-
+        
         yield return null;
 
     }
+
+    public void CheckLevel()
+    {
+        if (configData.levelProgressXP <= configData.levelXP[0])
+        {
+            Debug.Log("Current Level XP: " + currentLevel);
+        }
+
+
+        else if ((configData.levelProgressXP > configData.levelXP[0]) && (configData.levelProgressXP < configData.levelXP[1]))
+        {
+            currentLevel = configData.levelXP[1];
+            progressSlider.maxValue = configData.levelXP[1];
+        }
+        else if ((configData.levelProgressXP > configData.levelXP[1]) && (configData.levelProgressXP < configData.levelXP[2]))
+        {
+            currentLevel = configData.levelXP[2];
+            progressSlider.maxValue = configData.levelXP[2];
+        }
+        else if ((configData.levelProgressXP > configData.levelXP[2]) && (configData.levelProgressXP < configData.levelXP[3]))
+        {
+            currentLevel = configData.levelXP[3];
+            progressSlider.maxValue = configData.levelXP[3];
+        }
+        else if ((configData.levelProgressXP > configData.levelXP[3]) && (configData.levelProgressXP < configData.levelXP[4]))
+        {
+            currentLevel = configData.levelXP[4];
+            progressSlider.maxValue = configData.levelXP[4];
+        }
+
+
+    }
+
+
+    public void DisplayLevelUp()
+    {
+        AudioManager.Instance.PlayAudio(audioManager.sfxGeneral[5]);
+
+        Debug.Log("level up!");
+        GameEvents.LevelUp -= DisplayLevelUp;
+
+    }
+
 
 }

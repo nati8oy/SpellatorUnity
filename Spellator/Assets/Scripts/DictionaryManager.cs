@@ -27,6 +27,8 @@ public class DictionaryManager : MonoBehaviour
 
     public GameObject pointsScreen;
 
+    public ConfigSO configData;
+
 
     [Space()]
     [Header("Word Related Variables")]
@@ -534,6 +536,8 @@ public class DictionaryManager : MonoBehaviour
             {
                 Points.multiplier += 1;
 
+
+                /*
                 multiplierClip = ObjectPooler.SharedInstance.GetPooledObject("Multiplier");
 
 
@@ -545,6 +549,7 @@ public class DictionaryManager : MonoBehaviour
                     //available = false;
 
                 }
+                */
 
                 //add the streak clip
                 streakClip = ObjectPooler.SharedInstance.GetPooledObject("Streak");
@@ -554,7 +559,6 @@ public class DictionaryManager : MonoBehaviour
                     streakClip.transform.position = new Vector3(320, 760);
                     streakClip.SetActive(true);
                     //available = false;
-
                 }
 
 
@@ -672,6 +676,9 @@ public class DictionaryManager : MonoBehaviour
 
             //Debug.Log("Points for word: " + Points.pointsScored);
             Points.AddPoints(Points.liveScore);
+
+            //also add the live score points to the XP earned across the level as a whole
+            //configData.levelProgressXP += Points.liveScore*multiplier;
 
             scoreText.text = Points.totalScore.ToString();
 

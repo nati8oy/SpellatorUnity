@@ -9,6 +9,7 @@ public class GameEvents : MonoBehaviour
     public static Action LoadInitiated;
     public static Action TutorialItemInitiated;
     public static Action WordLengthCheckInitiated;
+    public static Action LevelUp;
 
     public static void OnSaveInitiated()
     {
@@ -28,6 +29,11 @@ public class GameEvents : MonoBehaviour
     public static void OnWordLengthCheckInitiated()
     {
         WordLengthCheckInitiated?.Invoke();
+    }
+
+    public static void OnLevelUpInitiated()
+    {
+        LevelUp?.Invoke();
     }
 }
 

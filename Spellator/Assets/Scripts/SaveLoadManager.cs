@@ -242,6 +242,7 @@ public class SaveLoadManager : MonoBehaviour
         configData.longestWord = "";
         configData.totalGoldAmount = 0;
         configData.totalWordsMade = 0;
+       
         /*
         
         //configData.skinsPurchased.Clear();
