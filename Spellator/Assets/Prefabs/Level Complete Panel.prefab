@@ -10475,7 +10475,6 @@ MonoBehaviour:
   tutorial: {fileID: 11400000, guid: b9c4a75af295045f09685de1d4b7d544, type: 2}
   tipText: {fileID: 5264254713004314756}
   totalLevelXP: 0
-  localLevelProgressXP: 0
   currentLevel: 0
   mainCamera: {fileID: 0}
   totalGoldAmount: {fileID: 4106853808824660262}

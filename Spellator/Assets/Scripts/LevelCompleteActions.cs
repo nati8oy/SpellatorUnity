@@ -18,10 +18,12 @@ public class LevelCompleteActions : MonoBehaviour
     public Transform goldMovePoint;
     public TutorialSO tutorial;
     public TextMeshProUGUI tipText;
+    //public int totalLevelXP;
     public int totalLevelXP;
-    public int localLevelProgressXP;
     public int currentLevel;
     public Camera mainCamera;
+
+    public bool levelIncrease;
 
     public TextMeshProUGUI totalGoldAmount;
 
@@ -87,10 +89,10 @@ public class LevelCompleteActions : MonoBehaviour
         //localLevelProgressXP = configData.levelProgressXP + Points.totalScore;
 
 
-        localLevelProgressXP = configData.levelProgressXP + Points.totalScore;
+        totalLevelXP = configData.levelProgressXP + Points.totalScore;
         Debug.Log("Current XP: " + configData.levelProgressXP + " XP earned: " + Points.totalScore);
 
-        totalLevelXP = configData.levelProgressXP;
+        //totalLevelXP = configData.levelProgressXP;
         //grab the reward value from the SO
         StartCoroutine(LevelCompleteCheck(levelData.reward));
         StartCoroutine(CountUpWords());
@@ -106,14 +108,16 @@ public class LevelCompleteActions : MonoBehaviour
 
         //set the slider to be the value of level XP from the SO
         //progressSlider.value = configData.levelProgressXP;
-        progressSlider.value = localLevelProgressXP - Points.totalScore;
+        progressSlider.value = totalLevelXP - Points.totalScore;
 
         //set the levelProgressXP straight away so that it's saved
-        configData.levelProgressXP = localLevelProgressXP;
+        configData.levelProgressXP = totalLevelXP;
 
         //set the display of the level tally
         //nextLevelTally.text = progressSlider.value.ToString() + " / " + progressSlider.maxValue.ToString();
 
+        //save the game
+        GameEvents.OnSaveInitiated();
     }
 
     //coroutine to count down the star reward for each level
@@ -129,18 +133,6 @@ public class LevelCompleteActions : MonoBehaviour
             goldCoinObject = ObjectPooler.SharedInstance.GetPooledObject("Gold");
             if (goldCoinObject != null)
             {
-                /*
-                //set the start position var for the star being loaded
-                var startPosY = goldMovePoint.position.y;
-                var coinStartX = goldMovePoint.position.x;
-                var coinStartY = goldMovePoint.position.y;
-
-
-                goldCoinObject.transform.position.y = startPosY;
-                */
-
-
-
 
                 //parent it to the rewardText game object so that it's visible as a UI element
                 goldCoinObject.transform.SetParent(coinStartPos.transform);
@@ -183,16 +175,16 @@ public class LevelCompleteActions : MonoBehaviour
         }
 
         //progress slider code
-        while ((progressSlider.value != (localLevelProgressXP)) &&(progressSlider.value<progressSlider.maxValue))
+        while ((progressSlider.value != (totalLevelXP)) &&(progressSlider.value<progressSlider.maxValue))
         {
             progressSlider.value += 2f;
-            localLevelProgressXP += 1;
+            totalLevelXP += 1;
             
 
             AudioManager.Instance.PlayAudio(audioManager.sfxTilePops[4]);
 
             //add to the overall level XP 
-            totalLevelXP += 1;
+            //totalLevelXP += 1;
 
             nextLevelTally.text = progressSlider.value.ToString() + " / " + progressSlider.maxValue.ToString();
            // Debug.Log("progress: " + progressSlider.value);
@@ -200,7 +192,12 @@ public class LevelCompleteActions : MonoBehaviour
 
         }
         Points.totalScore = 0;
-        
+
+        //check to see if a level has been increased at all
+        if (levelIncrease) {
+
+        }
+
         yield return null;
 
     }
@@ -241,8 +238,10 @@ public class LevelCompleteActions : MonoBehaviour
     public void DisplayLevelUp()
     {
         AudioManager.Instance.PlayAudio(audioManager.sfxGeneral[5]);
+        levelIncrease = true;
 
         Debug.Log("level up!");
+        
         GameEvents.LevelUp -= DisplayLevelUp;
 
     }
