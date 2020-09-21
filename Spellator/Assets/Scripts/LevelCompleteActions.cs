@@ -207,6 +207,8 @@ public class LevelCompleteActions : MonoBehaviour
         if (configData.levelProgressXP <= configData.levelXP[0])
         {
             Debug.Log("Current Level XP: " + currentLevel);
+            currentLevel = configData.levelXP[0];
+            progressSlider.maxValue = configData.levelXP[0];
         }
 
 
