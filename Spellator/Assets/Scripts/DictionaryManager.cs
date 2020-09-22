@@ -29,6 +29,8 @@ public class DictionaryManager : MonoBehaviour
 
     public ConfigSO configData;
 
+    public RectTransform dottedLineClip;
+
 
     [Space()]
     [Header("Word Related Variables")]
@@ -407,6 +409,10 @@ public class DictionaryManager : MonoBehaviour
     public void CheckAndDeleteTiles()
     {
 
+        //check the dotted line clip
+        CheckDottedLine();
+
+
         deleteTileBool = false;
 
         if (tutorial.tutorialOn)
@@ -517,16 +523,21 @@ public class DictionaryManager : MonoBehaviour
             //add the word to the overall list of words being made
 
             //check if the multiplier is going to be broken with a 3 letter word. If so, play the sound.
-            if ((multiplier >= 3) && (WordBeingMade.Length <= 3))
+            if ((Points.multiplier >= 3) && (WordBeingMade.Length <= 3))
             {
                 
 
                 if (AudioManager.Instance)
                 {
                     AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxGeneral[7]);
+                    AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxGeneral[1]);
                 }
 
+                //reset multiplier
                 Points.multiplier = 1;
+
+                //check dotted line animation
+                CheckDottedLine();
 
 
             }
@@ -536,20 +547,6 @@ public class DictionaryManager : MonoBehaviour
             {
                 Points.multiplier += 1;
 
-
-                /*
-                multiplierClip = ObjectPooler.SharedInstance.GetPooledObject("Multiplier");
-
-
-                if (multiplierClip != null)
-                {
-                    multiplierClip.transform.SetParent(HUD);
-                    multiplierClip.transform.position = new Vector3(106, 760);
-                    multiplierClip.SetActive(true);
-                    //available = false;
-
-                }
-                */
 
                 //add the streak clip
                 streakClip = ObjectPooler.SharedInstance.GetPooledObject("Streak");
@@ -565,31 +562,6 @@ public class DictionaryManager : MonoBehaviour
 
                 // particleLifetime = Random.Range(0.25 * Points.multiplier, 0.3 * Points.multiplier);
                 particleSizes = Random.Range(10* Points.multiplier,15*Points.multiplier);
-
-
-                /*
-                //show the lightening clip
-                lighteningClip = ObjectPooler.SharedInstance.GetPooledObject("Lightening");
-
-
-                
-                if (lighteningClip != null)
-                {
-                    lighteningClip.transform.SetParent(pointsScreen.transform);
-                    lighteningClip.transform.position = new Vector3(Screen.width/2, pointsScreen.transform.position.y);
-
-                    
-                    lighteningClip.SetActive(true);
-
-                    //available = false;
-
-                }
-                */
-
-               // levelCompleteClip.transform.position = 
-               // levelCompleteClip.transform.SetParent(mainCanvas.transform);
-
-
 
             }
 
@@ -615,6 +587,8 @@ public class DictionaryManager : MonoBehaviour
                 Points.multiplier = 1;
                 maximumParticles = 5;
                 multiplierText.text = "";
+                //set the dotted line outline animation to false
+                dottedLineClip.GetComponent<Animator>().SetBool("StreakActive", false);
             }
 
 
@@ -1207,6 +1181,22 @@ public class DictionaryManager : MonoBehaviour
 
     }
 
+    public void CheckDottedLine()
+    {
+        //set the dotted line to flash if the streak/multiplier is higher than 3
+        //otherwise, turn it off
+        if (Points.multiplier >= 3)
+        {
+            //Debug.Log("multiplier maintained");
+            dottedLineClip.GetComponent<Animator>().SetBool("StreakActive", true);
+        }
+        else
+        {
+            //Debug.Log("multiplier broken");
+            dottedLineClip.GetComponent<Animator>().SetBool("StreakActive", false);
+        }
+
+    }
 
 
 

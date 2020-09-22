@@ -9190,6 +9190,7 @@ GameObject:
   - component: {fileID: 1151121276}
   - component: {fileID: 1151121278}
   - component: {fileID: 1151121277}
+  - component: {fileID: 1151121279}
   m_Layer: 5
   m_Name: Dotted Line
   m_TagString: Untagged
@@ -9252,6 +9253,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1151121275}
   m_CullTransparentMesh: 0
+--- !u!95 &1151121279
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151121275}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 04c29b4aff653466d91da2d14a9660c5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1168335041
 GameObject:
   m_ObjectHideFlags: 0
@@ -14772,7 +14792,7 @@ PrefabInstance:
     - target: {fileID: 8367778212622502161, guid: aae49f9c275be46489035101b44b566d,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8813983386240386665, guid: aae49f9c275be46489035101b44b566d,
         type: 3}
@@ -19811,27 +19831,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1345451751}
     m_Modifications:
-    - target: {fileID: 2904155802591893000, guid: 61d6c656db3e843af82e2dfd6061037e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -144
-      objectReference: {fileID: 0}
-    - target: {fileID: 5290442043544360730, guid: 61d6c656db3e843af82e2dfd6061037e,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5290442043544360730, guid: 61d6c656db3e843af82e2dfd6061037e,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5290442043882451296, guid: 61d6c656db3e843af82e2dfd6061037e,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: ed2d8275cff5c4f5aa58fcfb08ff1980,
-        type: 3}
     - target: {fileID: 5290442043882451298, guid: 61d6c656db3e843af82e2dfd6061037e,
         type: 3}
       propertyPath: m_Name
@@ -19946,51 +19945,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5290442043882451299, guid: 61d6c656db3e843af82e2dfd6061037e,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5290442043882451299, guid: 61d6c656db3e843af82e2dfd6061037e,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5290442043882451299, guid: 61d6c656db3e843af82e2dfd6061037e,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5290442044483783877, guid: 61d6c656db3e843af82e2dfd6061037e,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5290442044483783877, guid: 61d6c656db3e843af82e2dfd6061037e,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5660389624770642578, guid: 61d6c656db3e843af82e2dfd6061037e,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: d63457c9828d84a56876f4979cc54f45, type: 3}
-    - target: {fileID: 5660389624770642578, guid: 61d6c656db3e843af82e2dfd6061037e,
-        type: 3}
-      propertyPath: m_Volume
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8325765304093654854, guid: 61d6c656db3e843af82e2dfd6061037e,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8325765304093654854, guid: 61d6c656db3e843af82e2dfd6061037e,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61d6c656db3e843af82e2dfd6061037e, type: 3}
@@ -20299,6 +20253,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 87f9af19399d249068769bd3553e5227,
         type: 2}
+    - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
+        type: 3}
+      propertyPath: dottedLineClip
+      value: 
+      objectReference: {fileID: 1151121276}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc08af2b56d9c45b3af66e59305a1835, type: 3}
 --- !u!1001 &6664626739288876831

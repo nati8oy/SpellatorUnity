@@ -495,6 +495,8 @@ public class Tile : MonoBehaviour
 
             //reset the multiplier
             Points.multiplier = 1;
+            //reset the animation on the dotted tile
+            DictionaryManager.Instance.CheckDottedLine();
 
             //play the lost multiplier sound
             AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxGeneral[7]);
