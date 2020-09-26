@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d23270e7bddd44b24a4942b11c044c6f, type: 3}
   m_Name: Voodoo Skin
   m_EditorClassIdentifier: 
-  tileTextColour: {r: 1, g: 1, b: 1, a: 1}
-  tileDisabledColour: {r: 0.4716981, g: 0.4716981, b: 0.4716981, a: 0.11372549}
+  tileTextColour: {r: 1, g: 1, b: 1, a: 0.70980394}
+  tileDisabledColour: {r: 1, g: 1, b: 1, a: 0.43137255}
   doubleLetterColour: {r: 1, g: 0.41960785, b: 0.33333334, a: 1}
   correctWordTextColour: {r: 0.8679245, g: 0.7891459, b: 0.39711642, a: 1}
   tripleLetterColour: {r: 0.14231041, g: 0.68848, b: 0.735849, a: 1}
@@ -22,5 +22,5 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6d3c6dbd6bcd34cfe9fa03664df3d31f, type: 3}
   - {fileID: 21300000, guid: fa94c7b586d194c68946804c57d4c15c, type: 3}
   - {fileID: 21300000, guid: 56607d371ad734b1a8ee70f2c5f9f3fc, type: 3}
-  - {fileID: 21300000, guid: 56607d371ad734b1a8ee70f2c5f9f3fc, type: 3}
-  - {fileID: 21300000, guid: 715c8bc05dc384b41b978e12cdecc29a, type: 3}
+  - {fileID: 21300000, guid: 472583d86a18645f4a6d9ae7f5712804, type: 3}
+  - {fileID: 21300000, guid: f3b28dfd4d29740b0ac13ecf6a456ee7, type: 3}

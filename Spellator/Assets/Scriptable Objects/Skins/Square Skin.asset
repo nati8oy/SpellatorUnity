@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d23270e7bddd44b24a4942b11c044c6f, type: 3}
+  m_Name: Square Skin
+  m_EditorClassIdentifier: 
+  tileTextColour: {r: 0.28235295, g: 0.14509805, b: 0.07058824, a: 1}
+  tileDisabledColour: {r: 0.28235295, g: 0.14509805, b: 0.07058824, a: 0.45490196}
+  doubleLetterColour: {r: 1, g: 0, b: 0.49148178, a: 1}
+  correctWordTextColour: {r: 1, g: 1, b: 1, a: 1}
+  tripleLetterColour: {r: 1, g: 0.8818743, b: 0, a: 1}
+  tileAgeSprites:
+  - {fileID: 21300000, guid: b62ab74acda2843debe17dcf9f6fecba, type: 3}
+  - {fileID: 21300000, guid: 9866635d7353a48408a8aec67f94470c, type: 3}
+  - {fileID: 21300000, guid: 0f55ffc692caa47c9b1107d8a9b12010, type: 3}
+  - {fileID: 21300000, guid: e9426a5484930450d9d2d462c74bc1fe, type: 3}
+  - {fileID: 21300000, guid: c01a86534eef246f38fca703b5718112, type: 3}
+  - {fileID: 21300000, guid: f3b28dfd4d29740b0ac13ecf6a456ee7, type: 3}

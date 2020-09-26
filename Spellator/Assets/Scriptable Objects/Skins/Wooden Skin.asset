@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d23270e7bddd44b24a4942b11c044c6f, type: 3}
   m_Name: Wooden Skin
   m_EditorClassIdentifier: 
-  tileTextColour: {r: 1, g: 1, b: 1, a: 1}
-  tileDisabledColour: {r: 1, g: 1, b: 1, a: 0.4745098}
+  tileTextColour: {r: 0.2627451, g: 0.1764706, b: 0.078431375, a: 1}
+  tileDisabledColour: {r: 0.2627451, g: 0.1764706, b: 0.078431375, a: 0.4745098}
   doubleLetterColour: {r: 0.31510323, g: 0.9150943, b: 0.73765016, a: 1}
   correctWordTextColour: {r: 1, g: 1, b: 1, a: 1}
   tripleLetterColour: {r: 0.972549, g: 0.34901962, b: 0.34901962, a: 1}
@@ -23,4 +23,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 70ee905c8ca7d4860b7f4146bd60bfe0, type: 3}
   - {fileID: 21300000, guid: 42bfe4524c8fd4075a2e944d7ed603de, type: 3}
   - {fileID: 21300000, guid: 15f94d12867ea441c9784bf37123a4e1, type: 3}
-  - {fileID: 21300000, guid: 715c8bc05dc384b41b978e12cdecc29a, type: 3}
+  - {fileID: 21300000, guid: f3b28dfd4d29740b0ac13ecf6a456ee7, type: 3}

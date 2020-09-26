@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Default Skin
   m_EditorClassIdentifier: 
   tileTextColour: {r: 0, g: 0, b: 0, a: 1}
-  tileDisabledColour: {r: 0, g: 0, b: 0, a: 0.43137255}
+  tileDisabledColour: {r: 0, g: 0, b: 0, a: 0.25490198}
   doubleLetterColour: {r: 0.31510323, g: 0.9150943, b: 0.73765016, a: 1}
   correctWordTextColour: {r: 1, g: 1, b: 1, a: 0}
   tripleLetterColour: {r: 0.972549, g: 0.34901962, b: 0.34901962, a: 1}
