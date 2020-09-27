@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Voodoo Skin
   m_EditorClassIdentifier: 
   tileTextColour: {r: 1, g: 1, b: 1, a: 0.70980394}
-  tileDisabledColour: {r: 1, g: 1, b: 1, a: 0.43137255}
+  tileDisabledColour: {r: 1, g: 1, b: 1, a: 0}
   doubleLetterColour: {r: 1, g: 0.41960785, b: 0.33333334, a: 1}
   correctWordTextColour: {r: 0.8679245, g: 0.7891459, b: 0.39711642, a: 1}
   tripleLetterColour: {r: 0.14231041, g: 0.68848, b: 0.735849, a: 1}
@@ -23,4 +23,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: fa94c7b586d194c68946804c57d4c15c, type: 3}
   - {fileID: 21300000, guid: 56607d371ad734b1a8ee70f2c5f9f3fc, type: 3}
   - {fileID: 21300000, guid: 472583d86a18645f4a6d9ae7f5712804, type: 3}
-  - {fileID: 21300000, guid: f3b28dfd4d29740b0ac13ecf6a456ee7, type: 3}
+  - {fileID: 21300000, guid: 14e08f92863724d389a3252237271ed7, type: 3}
