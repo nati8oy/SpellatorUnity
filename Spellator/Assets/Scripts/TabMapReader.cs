@@ -22,7 +22,7 @@ public class TabMapReader : MonoBehaviour
     public Image statsTabIcon;
     public Image achievementTabIcon;
     public Image shopTabIcon;
-    public Image cogIcon;
+    public Image settingsIcon;
 
 
     public GameObject mainCamera;
@@ -35,6 +35,7 @@ public class TabMapReader : MonoBehaviour
 
         //set the icons to the right colours on start up
         statsTabIcon.color = activeTabColour;
+        settingsIcon.color = inactiveTabColour;
         achievementTabIcon.color = inactiveTabColour;
         shopTabIcon.color = inactiveTabColour;
 
@@ -78,7 +79,7 @@ public class TabMapReader : MonoBehaviour
                 statsTabIcon.color = activeTabColour;
                 achievementTabIcon.color = inactiveTabColour;
                 shopTabIcon.color = inactiveTabColour;
-                cogIcon.color = inactiveTabColour;
+                settingsIcon.color = inactiveTabColour;
                 //iTween.MoveTo(mainCamera, iTween.Hash("x", 960, "time", 1f));
 
 
@@ -96,7 +97,7 @@ public class TabMapReader : MonoBehaviour
                 statsTabIcon.color = inactiveTabColour;
                 achievementTabIcon.color = activeTabColour;
                 shopTabIcon.color = inactiveTabColour;
-                cogIcon.color = inactiveTabColour;
+                settingsIcon.color = inactiveTabColour;
                 break;
             case "shop":
                 //Debug.Log("settings");
@@ -110,7 +111,22 @@ public class TabMapReader : MonoBehaviour
                 statsTabIcon.color = inactiveTabColour;
                 achievementTabIcon.color = inactiveTabColour;
                 shopTabIcon.color = activeTabColour;
-                cogIcon.color = inactiveTabColour;
+                settingsIcon.color = inactiveTabColour;
+                break;
+
+            case "settings":
+                //Debug.Log("settings");
+                goldObject.SetActive(true);
+
+                tab1.SetActive(false);
+                tab2.SetActive(false);
+                tab3.SetActive(true);
+                tab4.SetActive(false);
+
+                statsTabIcon.color = inactiveTabColour;
+                achievementTabIcon.color = inactiveTabColour;
+                shopTabIcon.color = inactiveTabColour;
+                settingsIcon.color = activeTabColour;
                 break;
         }
 
