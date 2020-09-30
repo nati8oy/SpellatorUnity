@@ -5657,6 +5657,7 @@ MonoBehaviour:
   animator: {fileID: 8052626522917010101}
   twinkleParticles: {fileID: 8414099629685575350}
   selectedTilesArray: []
+  configSO: {fileID: 11400000, guid: 87f9af19399d249068769bd3553e5227, type: 2}
   specialChance: 0
   canAge: 1
   explosionClip: {fileID: 0}

@@ -24,7 +24,7 @@ public class LevelManager : MonoBehaviour
         length, ending, containing, starting, points, tiles, tileCount
     }
 
-    public LevelRuleType levelRuleType; 
+    public LevelRuleType levelRuleType;
 
     public static int currentLevel;
     public List<int> allLevels = new List<int>();
@@ -86,7 +86,7 @@ public class LevelManager : MonoBehaviour
     public AudioClip bgMusic;
 
 
-  
+
 
     //set up singleton
     void Awake()
@@ -135,11 +135,11 @@ public class LevelManager : MonoBehaviour
 
 
         //currentRackTileTypes = GameObject.FindGameObjectsWithTag("Tile");
-       // Debug.Log(currentRackTileTypes.Count);
+        // Debug.Log(currentRackTileTypes.Count);
         //checks the level type and then applies a theme
         LevelThemeManager();
 
-   
+
 
         //set up the levels via the function below
         SetLevels();
@@ -169,8 +169,8 @@ public class LevelManager : MonoBehaviour
                 tileBag = new TileBag(55, 40);
                 bgMusic = audioObject.musicBackgroundMusic[5];
                 break;
-                //this is the limited version of the game with a st number of tiles.
-                //this constructor adds the tile number as the last one here
+            //this is the limited version of the game with a st number of tiles.
+            //this constructor adds the tile number as the last one here
             case LevelRuleType.tileCount:
                 bgMusic = audioObject.musicBackgroundMusic[0];
                 tileBag = new TileBag(true, 55, 40, 100);
@@ -206,11 +206,11 @@ public class LevelManager : MonoBehaviour
     public void LevelThemeManager()
     {
         // bgImage.sprite = levelTheme.bgImage[Random.Range(0,2)];
-        
 
 
-        
-        
+
+
+
 
 
     }
@@ -268,7 +268,7 @@ public class LevelManager : MonoBehaviour
                 levelDetails.reward = medReward;
 
                 break;
-        
+
             case 5:
                 //use 40 tiles
                 levelRuleType = LevelRuleType.tiles;
@@ -315,10 +315,10 @@ public class LevelManager : MonoBehaviour
                 bgImage.sprite = levelTheme.bgImage[2];
                 levelDetails.reward = highReward;
                 break;
-           
+
             case 11:
                 // make 2 words worth 20XP
-                 levelRuleType = LevelRuleType.points;
+                levelRuleType = LevelRuleType.points;
                 ConstructLevelParams("points", 2, 0, 20);
                 bgImage.sprite = levelTheme.bgImage[2];
                 levelDetails.reward = medReward;
@@ -340,7 +340,7 @@ public class LevelManager : MonoBehaviour
                 bgImage.sprite = levelTheme.bgImage[2];
                 levelDetails.reward = medReward;
                 break;
-         
+
             case 14:
                 //make 4 x words starting with "letter"
                 levelRuleType = LevelRuleType.starting;
@@ -402,7 +402,7 @@ public class LevelManager : MonoBehaviour
         //set the currentRack array to be the tile 
         currentRack = GameObject.FindGameObjectsWithTag("Tile");
 
-//        Debug.Log("Coroutine started");
+        //        Debug.Log("Coroutine started");
         //        Debug.Log("current rack contains " + currentRack.Length + " tiles");
 
 
@@ -418,12 +418,12 @@ public class LevelManager : MonoBehaviour
             {
                 currentRack[0].GetComponent<Tile>().letter.text = difficulty.focusLetter;
                 //currentRack[0].GetComponent<Tile>().spawnedTile.points = TileBag.pointsDictionary[currentRack[0].GetComponent<Tile>().spawnedTile.letter];
-               // currentRack[0].GetComponent<Tile>().spawnedTile.points = difficulty.focusLetterPoints;
+                // currentRack[0].GetComponent<Tile>().spawnedTile.points = difficulty.focusLetterPoints;
                 //currentRack[0].GetComponent<Tile>().spawnedTile.points = TileBag.pointsDictionary[difficulty.focusLetter];
 
             }
         }
-         
+
 
         yield return null;
 
@@ -466,7 +466,7 @@ public class LevelManager : MonoBehaviour
         {
 
             case "tiles":
-                levelDescription = "Make words using " + firstCondition.ToString() + " tiles in total"; 
+                levelDescription = "Make words using " + firstCondition.ToString() + " tiles in total";
                 break;
 
             case "length":
@@ -481,7 +481,7 @@ public class LevelManager : MonoBehaviour
 
                 levelDescription = "Make " + firstCondition.ToString() + " words ending in " + letterCondition;
                 difficulty.focusLetter = letterCondition;
-               // difficulty.focusLetterPoints = TileBag.pointsDictionary[letterCondition];
+                // difficulty.focusLetterPoints = TileBag.pointsDictionary[letterCondition];
 
                 break;
 
@@ -492,7 +492,7 @@ public class LevelManager : MonoBehaviour
 
                 levelDescription = "Make " + firstCondition.ToString() + " words containing " + letterCondition;
                 difficulty.focusLetter = letterCondition;
-               // difficulty.focusLetterPoints = TileBag.pointsDictionary[letterCondition];
+                // difficulty.focusLetterPoints = TileBag.pointsDictionary[letterCondition];
 
                 break;
 
@@ -510,22 +510,22 @@ public class LevelManager : MonoBehaviour
 
                 //set the amount of points required to finish this level
                 pointsThreshold = pointsRequired;
-               // Debug.Log(levelDescription = "Make " + firstCondition.ToString() + " words worth " + pointsRequired + " points or more");
+                // Debug.Log(levelDescription = "Make " + firstCondition.ToString() + " words worth " + pointsRequired + " points or more");
 
-                levelDescription = "Make " + firstCondition.ToString() + " words worth " + pointsRequired + " points or more" ;
+                levelDescription = "Make " + firstCondition.ToString() + " words worth " + pointsRequired + " points or more";
 
                 break;
             case "tileCount":
                 levelDescription = "Score as many points as you can with " + firstCondition.ToString() + " tiles";
                 break;
-                
+
 
         }
 
 
         //set the level type for the Inumerator so that it can use the string and make sure there is a letter of that type on the rack
-       // GetTilesOnRack(levelType);
-        
+        // GetTilesOnRack(levelType);
+
 
 
 
@@ -539,7 +539,7 @@ public class LevelManager : MonoBehaviour
 
             case "tiles":
 
-                foreach(char letter in wordToCheck)
+                foreach (char letter in wordToCheck)
                 {
                     //Debug.Log("1 point added");
                     if (firstCondition > 0)
@@ -557,7 +557,7 @@ public class LevelManager : MonoBehaviour
 
 
             case "length":
-                  //Debug.Log(firstCondition + " words remaining!");
+                //Debug.Log(firstCondition + " words remaining!");
 
                 if (wordToCheck.Length == secondCondition)
                 {
@@ -591,7 +591,7 @@ public class LevelManager : MonoBehaviour
 
                     //gets the start letter of the next word from the most recent word
                     lastLetter = endingCharacters[i];
-                     //Debug.Log("Last letter: "+lastLetter);
+                    //Debug.Log("Last letter: "+lastLetter);
 
                 }
 
@@ -660,7 +660,7 @@ public class LevelManager : MonoBehaviour
                     }
 
 
-                     //Debug.Log("ending rule matched! " + firstCondition + " words remaining");
+                    //Debug.Log("ending rule matched! " + firstCondition + " words remaining");
                 }
 
                 break;
@@ -679,7 +679,7 @@ public class LevelManager : MonoBehaviour
 
             case "tileCount":
 
-                Debug.Log("tile count mode");
+                //                Debug.Log("tile count mode");
 
                 foreach (char letter in wordToCheck)
                 {
@@ -704,7 +704,7 @@ public class LevelManager : MonoBehaviour
 
 
         //if the first condition is met (how many words required) then the level is complete
-        if(firstCondition==0)
+        if (firstCondition == 0)
         {
             GameManager.Instance.StartCoroutine(GameManager.Instance.LevelComplete());
             //GameManager.Instance.LevelComplete();
@@ -722,4 +722,26 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+
+    //additional function for limited mode
+    public void ReduceTileCountOnTileDrop()
+    {
+        // Debug.Log("tile dropped");
+        if (firstCondition > 0)
+        {
+
+            firstCondition -= 1;
+
+        }
+        levelDescription = firstCondition.ToString() + " tiles left to play";
+
+        if (firstCondition == 0)
+        {
+            GameManager.Instance.StartCoroutine(GameManager.Instance.LevelComplete());
+            //GameManager.Instance.LevelComplete();
+            levelDetails.levelComplete = true;
+            //Debug.Log("Level has been completed");
+        }
+
+    }
 }

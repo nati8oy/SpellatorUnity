@@ -791,6 +791,10 @@ public class Tile : MonoBehaviour
         {
             //heart system
             healthHandler.UpdateUIItem("remove heart");
+        } else
+        {
+            //this function just reduces the number of tiles remaining even when tiles drop off. Not just when tiles are used to make words.
+            LevelManager.Instance.ReduceTileCountOnTileDrop();
         }
 
         //decreases the health meter by the amount of the points on this tile

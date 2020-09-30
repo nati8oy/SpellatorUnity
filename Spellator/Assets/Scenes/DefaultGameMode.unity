@@ -9368,7 +9368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelDetails: {fileID: 11400000, guid: da09913161474424f878bba5ba2d1f98, type: 2}
-  gameConfig: {fileID: 0}
+  configSO: {fileID: 11400000, guid: 87f9af19399d249068769bd3553e5227, type: 2}
   levelDescriptionText: {fileID: 1736780741}
   randomLevelSelection: 
   currentRack: []

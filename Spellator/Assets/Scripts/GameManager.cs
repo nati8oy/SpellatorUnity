@@ -280,6 +280,13 @@ public class GameManager : MonoBehaviour
         }     */
     }
 
+    //function for setting the game mode
+    public void SetGameMode(string gameMode)
+    {
+        configData.gameMode = gameMode;
+        Debug.Log("game mode set to " + gameMode);
+    }
+
 
     public void GameOverMethod()
     {

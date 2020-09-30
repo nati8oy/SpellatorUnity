@@ -15,6 +15,7 @@ public class GameConfig : MonoBehaviour
     public  List<string> uniqueWordsList;
     public string currentTileSkin;
 
+
     public List<int> highScores = new List<int>();
 
     public string longestWord;
