@@ -21,6 +21,8 @@ public class Tile : MonoBehaviour
     public ParticleSystem twinkleParticles;
 
     public GameObject[] selectedTilesArray;
+
+    public ConfigSO configSO;
     // public ParticleSystem glowParticles;
 
     public int specialChance;
@@ -598,7 +600,7 @@ public class Tile : MonoBehaviour
         {
             gameObject.tag = "Tile";
 
-            Debug.Log("the position in the word is: " + positionInWord);
+//            Debug.Log("the position in the word is: " + positionInWord);
 
             selectedTilesArray = GameObject.FindGameObjectsWithTag("TileSelected");
 
@@ -784,9 +786,12 @@ public class Tile : MonoBehaviour
     public void SetTileInactive()
     {
 
-
-        //heart system
-        healthHandler.UpdateUIItem("remove heart");
+        //check if the game mode is set to limited (100 tile) mode. If it isn't then use the hearts. If it is then don't use the hearts.
+        if(configSO.gameMode!="limited mode")
+        {
+            //heart system
+            healthHandler.UpdateUIItem("remove heart");
+        }
 
         //decreases the health meter by the amount of the points on this tile
 
@@ -917,7 +922,7 @@ public class Tile : MonoBehaviour
         foreach (GameObject tile in selectedTilesArray)
         {
             DictionaryManager.Instance.CreateWord(tile.GetComponent<Tile>().letter.text);
-            Debug.Log("cleared and reset word is: " + DictionaryManager.Instance.WordBeingMade);
+//            Debug.Log("cleared and reset word is: " + DictionaryManager.Instance.WordBeingMade);
         }
 
         //check if the word is valid still after all of the above has happened
@@ -934,7 +939,7 @@ public class Tile : MonoBehaviour
         {
             nextTileSpot = GameObject.Find("Primary Tile").transform.position;
             yield return new WaitForSeconds(0.2f);
-            Debug.Log("Coroutine run");
+          //  Debug.Log("Coroutine run");
         }
       
        

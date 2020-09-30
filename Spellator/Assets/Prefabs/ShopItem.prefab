@@ -111,7 +111,6 @@ MonoBehaviour:
   buttonText: {fileID: 2114674255411870363}
   coin: {fileID: 6093142182247945959}
   price: {fileID: 8180588180559733675}
-  productPurchased: 0
 --- !u!223 &8610289142952527915
 Canvas:
   m_ObjectHideFlags: 0
@@ -272,11 +271,12 @@ MonoBehaviour:
   m_text: Wood
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1a473cbc432f34370b6b3ef1676a97a5, type: 2}
-  m_sharedMaterial: {fileID: 21340382691566880, guid: 1a473cbc432f34370b6b3ef1676a97a5,
-    type: 2}
-  m_fontSharedMaterials: []
+  m_sharedMaterial: {fileID: 0}
+  m_fontSharedMaterials:
+  - {fileID: 0}
   m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
+  m_fontMaterials:
+  - {fileID: 0}
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
@@ -497,6 +497,7 @@ GameObject:
   - component: {fileID: 2978170470618319907}
   - component: {fileID: 5906472976702802259}
   - component: {fileID: 7979250324296042052}
+  - component: {fileID: 2287622668284723530}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -628,6 +629,66 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2287622668284723530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6508425278632363198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -745406591, guid: 220224b43fc464c28bc0e8de8f54a432, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Trigger:
+    m_IsTriggerExpanded: 1
+    m_Type: 1
+    m_LifecycleEvent: 0
+    m_ApplyRules: 0
+    m_Rules:
+      m_Rules: []
+    m_TriggerBool: 0
+    m_InitTime: 5
+    m_RepeatTime: 5
+    m_Repetitions: 0
+    repetitionCount: 0
+  m_EventPayload:
+    m_IsEventExpanded: 1
+    m_StandardEventType: CustomEvent
+    m_Parameters:
+      m_Parameters:
+      - m_RequirementType: 0
+        m_GroupID: 
+        m_Tooltip: 
+        m_Name: Button Press
+        m_Value:
+          m_EditingCustomValue: 0
+          m_PopupIndex: 0
+          m_CustomValue: 
+          m_FixedType: 0
+          m_EnumType: 
+          m_EnumTypeIsCustomizable: 0
+          m_CanDisable: 0
+          m_PropertyType: 2
+          m_ValueType: System.Int32
+          m_Value: 
+          m_Target:
+            m_Target: {fileID: 3934782021397155838}
+            m_Path: skinID
+            m_ValidTypeNames:
+            - System.Int32
+            - System.Boolean
+            - System.Decimal
+            - System.Double
+            - System.Single
+            - System.Int64
+            - System.Int16
+            - System.String
+            - enum
+            m_Type: System.Int32
+            m_EnumType: 
+    m_Name: Tile Skin Bought
 --- !u!1 &8102235865466370523
 GameObject:
   m_ObjectHideFlags: 0
@@ -773,11 +834,12 @@ MonoBehaviour:
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1a473cbc432f34370b6b3ef1676a97a5, type: 2}
-  m_sharedMaterial: {fileID: 21340382691566880, guid: 1a473cbc432f34370b6b3ef1676a97a5,
-    type: 2}
-  m_fontSharedMaterials: []
+  m_sharedMaterial: {fileID: 0}
+  m_fontSharedMaterials:
+  - {fileID: 0}
   m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
+  m_fontMaterials:
+  - {fileID: 0}
   m_fontColor32:
     serializedVersion: 2
     rgba: 4279881461

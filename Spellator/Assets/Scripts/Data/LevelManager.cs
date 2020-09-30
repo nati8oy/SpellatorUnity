@@ -11,7 +11,7 @@ public class LevelManager : MonoBehaviour
 
     public LevelClass levelSetup;
     public LevelManagerSO levelDetails;
-    public GameConfig gameConfig;
+    public ConfigSO configSO;
     public TextMeshProUGUI levelDescriptionText;
     public string randomLevelSelection;
 
@@ -226,12 +226,19 @@ public class LevelManager : MonoBehaviour
                 levelRuleType = LevelRuleType.containing;
                 ConstructLevelParams("containing", 3, 2, 0);
                 break;
-                */
+               
                 //use 10 tiles
                 levelRuleType = LevelRuleType.tiles;
                 ConstructLevelParams("tiles", 10, 0, 0);
                 bgImage.sprite = levelTheme.bgImage[0];
                 levelDetails.reward = lowReward;
+                 */
+
+                //use 100 tiles
+                levelRuleType = LevelRuleType.tileCount;
+                ConstructLevelParams("tileCount", 100, 0, 0);
+                bgImage.sprite = levelTheme.bgImage[2];
+                levelDetails.reward = highReward;
 
                 break;
 
@@ -508,6 +515,10 @@ public class LevelManager : MonoBehaviour
                 levelDescription = "Make " + firstCondition.ToString() + " words worth " + pointsRequired + " points or more" ;
 
                 break;
+            case "tileCount":
+                levelDescription = "Score as many points as you can with " + firstCondition.ToString() + " tiles";
+                break;
+                
 
         }
 
@@ -528,7 +539,6 @@ public class LevelManager : MonoBehaviour
 
             case "tiles":
 
-                 
                 foreach(char letter in wordToCheck)
                 {
                     //Debug.Log("1 point added");
@@ -666,6 +676,29 @@ public class LevelManager : MonoBehaviour
 
                 }
                 break;
+
+            case "tileCount":
+
+                Debug.Log("tile count mode");
+
+                foreach (char letter in wordToCheck)
+                {
+                    //Debug.Log("1 point added");
+                    if (firstCondition > 0)
+                    {
+
+                        firstCondition -= 1;
+
+                    }
+                }
+
+                levelDescription = firstCondition.ToString() + " tiles remaining";
+
+
+                break;
+
+
+
         }
 
 

@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemPrice: 45
   itemName: Voodoo
-  itemImage: {fileID: 21300000, guid: f6c2f3b9e2b734789a57880c06840e2c, type: 3}
+  itemImage: {fileID: 21300000, guid: c5f0830cb53954b69b51ba0c3080a66f, type: 3}
   skinID: 
   skinIDNumber: 1

@@ -33,7 +33,7 @@ public class ShopItem : MonoBehaviour
     public GameObject price;
 
 
-    public bool productPurchased;
+
 
 
     //Adds all of the content to the shop that is required for each of the tile types (shop items)

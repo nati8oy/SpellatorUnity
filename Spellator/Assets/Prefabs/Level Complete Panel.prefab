@@ -10477,6 +10477,7 @@ MonoBehaviour:
   totalLevelXP: 0
   currentLevel: 0
   mainCamera: {fileID: 0}
+  levelIncrease: 0
   totalGoldAmount: {fileID: 4106853808824660262}
   coinStartPos: {fileID: 1315621773735238657}
   coinEndPos: {fileID: 7490767522001540381}
@@ -15621,7 +15622,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 4749762410392313771}
   m_HandleRect: {fileID: 0}

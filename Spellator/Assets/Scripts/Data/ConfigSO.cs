@@ -22,6 +22,9 @@ public class ConfigSO : ScriptableObject
     public int levelProgressXP;
     public int[] levelXP;
     public List<int> listOfWordLengths;
+
+    //game mode
+    public string gameMode;
    
 
     public List<int> skinsPurchased = new List<int>();
