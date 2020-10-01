@@ -733,7 +733,7 @@ public class LevelManager : MonoBehaviour
             firstCondition -= 1;
 
         }
-        levelDescription = firstCondition.ToString() + " tiles left to play";
+        levelDescription = firstCondition.ToString() + " tiles remaining";
 
         if (firstCondition == 0)
         {
