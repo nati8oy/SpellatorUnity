@@ -296,6 +296,17 @@ public class DictionaryManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //this checks if 
+        if (configData.gameMode == "limited mode")
+        {
+            //configData.currentBagSequence.Clear();
+          Debug.Log("no. of tiles in bag: " + configData.currentBagSequence.Count);
+            foreach(string tileValue in TileBag.bag)
+            {
+                configData.currentBagSequence.Add(tileValue);
+            }
+        }
+
         /*
         //choose the first rack of letters randomly and then assess them
         for (int i = 0; i < 9; i++)

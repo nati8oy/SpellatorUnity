@@ -10,6 +10,8 @@ public class MainMenu : MonoBehaviour
     private Scene scene;
     public ConfigSO configData;
 
+    public GameObject modeSelectPanel;
+
     // Update is called once per frame
     void Update()
     {
@@ -20,4 +22,18 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("DefaultGameMode", LoadSceneMode.Single);
     }
+
+
+    public void DisplayGameModePanel(string onOff)
+    {
+        if (onOff == "show")
+        {
+            modeSelectPanel.SetActive(true);
+        } else
+        {
+            modeSelectPanel.SetActive(false);
+        }            
+    }
+
+
 }

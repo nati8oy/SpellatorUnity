@@ -71,6 +71,7 @@ public class TileBag
 
         }
 
+       
         SetupBag();
 
     }
@@ -129,13 +130,14 @@ public class TileBag
 //            Debug.Log("rare consonant added: " + rareConsonantLetter);
         }
 
+
         /*
         for (int k = 0; k < rareConsonantCount; k++)
         {
             bag.Add(rareConsonants[Random.Range(0, rareConsonants.Count)]);
         }*/
 
-//        Debug.Log("Bag total: " + bag.Count);
+        //        Debug.Log("Bag total: " + bag.Count);
     }
 
 }

@@ -7114,6 +7114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPos: {fileID: 0}
+  configData: {fileID: 11400000, guid: 87f9af19399d249068769bd3553e5227, type: 2}
 --- !u!114 &615734818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8415,6 +8416,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPos: {fileID: 0}
+  configData: {fileID: 11400000, guid: 87f9af19399d249068769bd3553e5227, type: 2}
 --- !u!114 &892545337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8744,6 +8746,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPos: {fileID: 0}
+  configData: {fileID: 11400000, guid: 87f9af19399d249068769bd3553e5227, type: 2}
 --- !u!114 &972909797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9053,6 +9056,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPos: {fileID: 0}
+  configData: {fileID: 11400000, guid: 87f9af19399d249068769bd3553e5227, type: 2}
 --- !u!114 &1069076700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14986,6 +14990,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPos: {fileID: 0}
+  configData: {fileID: 11400000, guid: 87f9af19399d249068769bd3553e5227, type: 2}
 --- !u!222 &1310124870
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15436,6 +15441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPos: {fileID: 0}
+  configData: {fileID: 11400000, guid: 87f9af19399d249068769bd3553e5227, type: 2}
 --- !u!114 &1361137020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15977,6 +15983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPos: {fileID: 0}
+  configData: {fileID: 11400000, guid: 87f9af19399d249068769bd3553e5227, type: 2}
 --- !u!114 &1595087530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17635,6 +17642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPos: {fileID: 0}
+  configData: {fileID: 11400000, guid: 87f9af19399d249068769bd3553e5227, type: 2}
 --- !u!114 &1902959361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17964,6 +17972,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPos: {fileID: 0}
+  configData: {fileID: 11400000, guid: 87f9af19399d249068769bd3553e5227, type: 2}
 --- !u!114 &2009304974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18051,6 +18060,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPos: {fileID: 0}
+  configData: {fileID: 11400000, guid: 87f9af19399d249068769bd3553e5227, type: 2}
 --- !u!114 &2042894550
 MonoBehaviour:
   m_ObjectHideFlags: 0

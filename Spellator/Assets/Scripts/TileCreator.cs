@@ -7,6 +7,7 @@ public class TileCreator : MonoBehaviour
     private GameObject newTile;
     public Transform startPos;
     private TileSpawnerClass tileSpawner;
+   // public ConfigSO configData;
 
     private GameObject smokeParticles;
 
@@ -39,6 +40,7 @@ public class TileCreator : MonoBehaviour
     public void RefillTiles()
     {
 
+
         //Remember that the object pooler uses TAGS not names of objects to set them active, etc. here.
         newTile = ObjectPooler.SharedInstance.GetPooledObject("Tile");
 
@@ -51,6 +53,8 @@ public class TileCreator : MonoBehaviour
             //available = false;
 
         }
+
+
         //Debug.Log(LevelManager.Instance._levelComplete);
         //don't add the particles if the level is complete
         if(LevelManager.Instance._levelComplete != true)

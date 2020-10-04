@@ -48,6 +48,8 @@ public class GameManager : MonoBehaviour
     public GameObject[] remainingTiles;
 
 
+
+
     [Header("Scriptable objects")]
     public TileBagSO currentBag;
     public LevelManagerSO levelDetails;
@@ -172,7 +174,10 @@ public class GameManager : MonoBehaviour
     void Start()
     {
 
-     
+
+
+        
+
 
         //AdController.Instance.RunInterstitial();
         //turn tutorial on/off
@@ -332,6 +337,7 @@ public class GameManager : MonoBehaviour
 
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
+
 
     public void PauseGame()
     {

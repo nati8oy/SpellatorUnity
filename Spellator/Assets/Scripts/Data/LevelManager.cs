@@ -173,7 +173,14 @@ public class LevelManager : MonoBehaviour
             //this constructor adds the tile number as the last one here
             case LevelRuleType.tileCount:
                 bgMusic = audioObject.musicBackgroundMusic[0];
-                tileBag = new TileBag(true, 55, 40, 100);
+
+                //only create a new bag if the current one is null
+                if(TileBag.bag.Count!=100)
+                {
+                    TileBag.bag.Clear();
+                    tileBag = new TileBag(true, 55, 40, 100);
+                }
+                
                 break;
         }
 

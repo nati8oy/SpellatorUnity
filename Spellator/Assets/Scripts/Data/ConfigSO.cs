@@ -23,6 +23,10 @@ public class ConfigSO : ScriptableObject
     public int[] levelXP;
     public List<int> listOfWordLengths;
 
+    //the sequence of letters in the current bag. Used for 100 tile mode.
+    public List<string> currentBagSequence;
+    public int currentTile;
+
     //game mode
     public string gameMode;
    

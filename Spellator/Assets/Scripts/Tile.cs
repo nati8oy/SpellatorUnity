@@ -25,7 +25,7 @@ public class Tile : MonoBehaviour
     public ConfigSO configSO;
     // public ParticleSystem glowParticles;
 
-    public int specialChance;
+    //public int specialChance;
 
     //sets whether or not the tile can age
     public bool canAge = true;
@@ -307,6 +307,7 @@ public class Tile : MonoBehaviour
     private void OnEnable()
     {
 
+
         //choose a random number
         randomHeartSpawnChance = Random.Range(0, 1);
 
@@ -334,6 +335,8 @@ public class Tile : MonoBehaviour
 
         //this is the code that chooses the random value from the curve.
         //The curve can be adjusted in the inspector
+
+        /*
         float CurveWeightedRandom(AnimationCurve curve)
         {
             //multiply the float that is returned by 100
@@ -344,7 +347,7 @@ public class Tile : MonoBehaviour
         //CurveWeightedRandom(mainAnimationCurve);
 
         specialChance = Mathf.CeilToInt(CurveWeightedRandom(mainAnimationCurve));
-
+        */
         //        Debug.Log("curve number: " + Mathf.CeilToInt(CurveWeightedRandom(mainAnimationCurve)));
 
         //        Debug.Log("<color=red>curve weighted random</color> " + CurveWeightedRandom(GameManager.Instance.GetComponent<CreateNewBag>().mainAnimationCurve));
@@ -383,8 +386,17 @@ public class Tile : MonoBehaviour
             //get the spawned letter by grabbing the value from the animation curve (which has been multiplied by the length of the bag
             //then converted to a whole number via Mathf.CeilToInt
 
-            // spawnedTile.letter = TileBag.bag[Mathf.CeilToInt(CurveWeightedRandom(GameManager.Instance.GetComponent<CreateNewBag>().mainAnimationCurve))];
 
+            /*
+            // spawnedTile.letter = TileBag.bag[Mathf.CeilToInt(CurveWeightedRandom(GameManager.Instance.GetComponent<CreateNewBag>().mainAnimationCurve))];
+            if(configSO.gameMode=="limited mode")
+            {
+                spawnedTile.letter = configSO.currentBagSequence[configSO.currentTile];
+                spawnedTile.points = currentBag.letterDictionary[spawnedTile.letter];
+                configSO.currentTile -= 1;
+                Debug.Log("current tile selected: " + configSO.currentTile);
+            }
+            */
 
             spawnedTile.letter = TileBag.bag[Random.Range(0, TileBag.bag.Count)];
 
@@ -945,8 +957,13 @@ public class Tile : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
           //  Debug.Log("Coroutine run");
         }
-      
        
+    }
+
+    private IEnumerator ChooseNextLetterDelay()
+    {
+        yield return new WaitForSeconds(Random.Range(0.01f,0.09f));
+        Debug.Log("next letter chosen");
     }
 
 }
