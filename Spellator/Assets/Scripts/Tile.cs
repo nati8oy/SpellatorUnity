@@ -2,11 +2,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using DG.Tweening;
 
 public class Tile : MonoBehaviour
 {
 
     public Image tileBGImage;
+    
 
     private PlayerHealth healthHandler;
 
@@ -282,21 +284,26 @@ public class Tile : MonoBehaviour
             //check if a word has been made before this
             if (DictionaryManager.Instance.chainFlag)
             {
+                //transform.DOMove(new Vector3((nextTileSpot.x) + (tileOffset * positionInWord) - tileOffset, nextTileSpot.y), 1);
+
                 iTween.MoveUpdate(gameObject, new Vector3((nextTileSpot.x) + (tileOffset * positionInWord) - tileOffset, nextTileSpot.y), 1);
                // gameObject.transform.position = new Vector3((nextTileSpot.x) + (tileOffset * positionInWord) - tileOffset, nextTileSpot.y);
             }
             else
             {
+                //transform.DOMove(new Vector3((nextTileSpot.x) + (tileOffset * positionInWord), nextTileSpot.y), 1);
+
                 iTween.MoveUpdate(gameObject, new Vector3((nextTileSpot.x) + (tileOffset * positionInWord), nextTileSpot.y), 1);
 
-               //gameObject.transform.position = new Vector3((nextTileSpot.x) + (tileOffset * positionInWord), nextTileSpot.y);
+                //gameObject.transform.position = new Vector3((nextTileSpot.x) + (tileOffset * positionInWord), nextTileSpot.y);
             }
 
         }
 
         else if (CompareTag("PrimaryTile"))
         {
-            iTween.MoveUpdate(gameObject, new Vector3(nextTileSpot.x, nextTileSpot.y), 1);
+            //transform.DOMove(new Vector3(nextTileSpot.x, nextTileSpot.y), 1);
+           iTween.MoveUpdate(gameObject, new Vector3(nextTileSpot.x, nextTileSpot.y), 1);
 
         }
 
@@ -587,8 +594,11 @@ public class Tile : MonoBehaviour
             //use the chainFlag to see if there's an active primary tile
 
             //iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x) + (tileOffset * DictionaryManager.Instance.WordBeingMade.Length)- tileOffset, "y", nextTileSpot.y, "time", 0.5f, "easetype", "easeInOut", "oncomplete", "CheckWordBeingSpelled"));
-            iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x) + (tileOffset * DictionaryManager.Instance.WordBeingMade.Length) - tileOffset, "y", nextTileSpot.y, "time", 0.5f, "easetype", "easeInOut", "oncomplete", "CheckWordBeingSpelled"));
+           // iTween.MoveTo(gameObject, iTween.Hash("x", (nextTileSpot.x) + (tileOffset * DictionaryManager.Instance.WordBeingMade.Length) - tileOffset, "y", nextTileSpot.y, "time", 0.5f, "easetype", "easeInOut", "oncomplete", "CheckWordBeingSpelled"));
 
+            transform.DOMove(new Vector3((nextTileSpot.x) + (tileOffset * DictionaryManager.Instance.WordBeingMade.Length) - tileOffset, nextTileSpot.y),0.5f).OnComplete(CheckWordBeingSpelled);
+
+//            transform.DOMove(new Vector3(2,3,4), 1);
 
             //sets the next free position to the TileManager.Instance.selectedTiles length
 
@@ -837,6 +847,8 @@ public class Tile : MonoBehaviour
         //AudioManager.Instance.PlayAudio(smashSounds[Random.Range(0,smashSounds.Length)]);
 
         gameObject.SetActive(false);
+
+
         //set the tile holder to refill its tiles AFTER this object has been set to inactive
         gameObject.transform.parent.GetComponent<TileCreator>().RefillTiles();
 
@@ -915,6 +927,8 @@ public class Tile : MonoBehaviour
         //then run the Coroutine from the tile game object. Phew!
 
         iTween.MoveTo(gameObject, new Vector3(getStartPos.startPos.position.x, getStartPos.startPos.position.y, 0), 0.5f);
+
+
         //iTween.MoveTo(gameObject, iTween.Hash("x", TileManager.Instance.NextFreePos.position.x, "y", TileManager.Instance.NextFreePos.position.y, "time",0.5f, "easeType", "EaseOutQuint"));
 
 

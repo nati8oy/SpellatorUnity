@@ -215,32 +215,16 @@ public class LevelManager : MonoBehaviour
         // bgImage.sprite = levelTheme.bgImage[Random.Range(0,2)];
 
 
-
-
-
-
-
     }
 
 
     public void SetLevels()
     {
-        switch (levelDetails.currentLevel)
-        {
-            case 1:
-                /*
-                //make 2 x words containing "letter"
-                levelRuleType = LevelRuleType.containing;
-                ConstructLevelParams("containing", 3, 2, 0);
-                break;
-               
-                //use 10 tiles
-                levelRuleType = LevelRuleType.tiles;
-                ConstructLevelParams("tiles", 10, 0, 0);
-                bgImage.sprite = levelTheme.bgImage[0];
-                levelDetails.reward = lowReward;
-                 */
 
+        //use the SO to change the mode via the switch statements below
+        switch (configSO.gameMode)
+        {
+            case "limited mode":
                 //use 100 tiles
                 levelRuleType = LevelRuleType.tileCount;
                 ConstructLevelParams("tileCount", 100, 0, 0);
@@ -249,154 +233,180 @@ public class LevelManager : MonoBehaviour
 
                 break;
 
-            case 2:
-                //use 25 tiles
-                levelRuleType = LevelRuleType.tiles;
-                ConstructLevelParams("tiles", 25, 0, 0);
-                bgImage.sprite = levelTheme.bgImage[0];
-                levelDetails.reward = lowReward;
+            case "default":
+
+                //nested switch statement used to change levels within the default/rules game mode
+                switch (levelDetails.currentLevel)
+                {
+                    case 1:
+
+                        /*
+                        //make 2 x words containing "letter"
+                        levelRuleType = LevelRuleType.containing;
+                        ConstructLevelParams("containing", 3, 2, 0);
+                        break;
+                        */
+
+                        //use 10 tiles
+                        levelRuleType = LevelRuleType.tiles;
+                        ConstructLevelParams("tiles", 10, 0, 0);
+                        bgImage.sprite = levelTheme.bgImage[0];
+                        levelDetails.reward = lowReward;
+        
+
+                        break;
+
+                    case 2:
+                        //use 25 tiles
+                        levelRuleType = LevelRuleType.tiles;
+                        ConstructLevelParams("tiles", 25, 0, 0);
+                        bgImage.sprite = levelTheme.bgImage[0];
+                        levelDetails.reward = lowReward;
+
+                        break;
+
+                    case 3:
+                        //make 10 x 3 letter words
+                        levelRuleType = LevelRuleType.length;
+                        ConstructLevelParams("length", 10, 3, 0);
+                        bgImage.sprite = levelTheme.bgImage[0];
+                        levelDetails.reward = lowReward;
+
+                        break;
+
+                    case 4:
+                        //make 4 x 4 letter words
+                        levelRuleType = LevelRuleType.length;
+                        ConstructLevelParams("length", 3, 4, 0);
+                        bgImage.sprite = levelTheme.bgImage[0];
+                        levelDetails.reward = medReward;
+
+                        break;
+
+                    case 5:
+                        //use 40 tiles
+                        levelRuleType = LevelRuleType.tiles;
+                        ConstructLevelParams("tiles", 40, 0, 0);
+                        bgImage.sprite = levelTheme.bgImage[1];
+                        levelDetails.reward = medReward;
+
+                        break;
+                    case 6:
+                        //use 60 tiles
+                        levelRuleType = LevelRuleType.tiles;
+                        ConstructLevelParams("tiles", 60, 0, 0);
+                        bgImage.sprite = levelTheme.bgImage[1];
+                        levelDetails.reward = medReward;
+                        break;
+
+                    case 7:
+                        //make 2 x words starting with "letter"
+                        levelRuleType = LevelRuleType.starting;
+                        ConstructLevelParams("starting", 3, 2, 0);
+                        bgImage.sprite = levelTheme.bgImage[1];
+                        levelDetails.reward = lowReward;
+                        break;
+                    case 8:
+                        //make 2 words worth 10XP 
+                        levelRuleType = LevelRuleType.points;
+                        ConstructLevelParams("points", 2, 0, 10);
+                        bgImage.sprite = levelTheme.bgImage[1];
+                        levelDetails.reward = medReward;
+                        break;
+
+                    case 9:
+                        //make 5 x 4 letter words
+                        levelRuleType = LevelRuleType.length;
+                        ConstructLevelParams("length", 5, 4, 0);
+                        bgImage.sprite = levelTheme.bgImage[1];
+                        levelDetails.reward = highReward;
+                        break;
+
+                    case 10:
+                        //make 2 x 5 letter words
+                        levelRuleType = LevelRuleType.length;
+                        ConstructLevelParams("length", 2, 5, 0);
+                        bgImage.sprite = levelTheme.bgImage[2];
+                        levelDetails.reward = highReward;
+                        break;
+
+                    case 11:
+                        // make 2 words worth 20XP
+                        levelRuleType = LevelRuleType.points;
+                        ConstructLevelParams("points", 2, 0, 20);
+                        bgImage.sprite = levelTheme.bgImage[2];
+                        levelDetails.reward = medReward;
+                        break;
+
+                    case 12:
+                        //make 2 x 6 letter words
+                        levelRuleType = LevelRuleType.length;
+                        ConstructLevelParams("length", 2, 6, 0);
+                        bgImage.sprite = levelTheme.bgImage[2];
+                        levelDetails.reward = highReward;
+
+                        break;
+
+                    case 13:
+                        //make 2 x words containing "letter"
+                        levelRuleType = LevelRuleType.containing;
+                        ConstructLevelParams("containing", 3, 2, 0);
+                        bgImage.sprite = levelTheme.bgImage[2];
+                        levelDetails.reward = medReward;
+                        break;
+
+                    case 14:
+                        //make 4 x words starting with "letter"
+                        levelRuleType = LevelRuleType.starting;
+                        ConstructLevelParams("starting", 3, 4, 0);
+                        bgImage.sprite = levelTheme.bgImage[2];
+                        levelDetails.reward = highReward;
+                        break;
+
+                    case 15:
+                        //use 75 tiles
+                        levelRuleType = LevelRuleType.tiles;
+                        ConstructLevelParams("tiles", 75, 0, 0);
+                        bgImage.sprite = levelTheme.bgImage[3];
+                        levelDetails.reward = highReward;
+                        break;
+                    case 16:
+                        //use 60 tiles
+                        levelRuleType = LevelRuleType.tiles;
+                        ConstructLevelParams("tiles", 75, 0, 0);
+                        bgImage.sprite = levelTheme.bgImage[3];
+                        levelDetails.reward = highReward;
+                        break;
+
+                    case 17:
+                        //make 3 x 5 letter words
+                        levelRuleType = LevelRuleType.length;
+                        ConstructLevelParams("length", 3, 5, 0);
+                        bgImage.sprite = levelTheme.bgImage[3];
+                        levelDetails.reward = highReward;
+                        break;
+
+                    case 18:
+                        //make 3 x 6 letter words
+                        levelRuleType = LevelRuleType.length;
+                        ConstructLevelParams("length", 3, 6, 0);
+                        bgImage.sprite = levelTheme.bgImage[3];
+                        levelDetails.reward = superHighReward;
+                        break;
+                    case 19:
+                        //make 1 x 7 letter words
+                        levelRuleType = LevelRuleType.length;
+                        ConstructLevelParams("length", 1, 7, 0);
+                        bgImage.sprite = levelTheme.bgImage[3];
+                        levelDetails.reward = superHighReward;
+                        break;
+
+                }
 
                 break;
-
-            case 3:
-                //make 10 x 3 letter words
-                levelRuleType = LevelRuleType.length;
-                ConstructLevelParams("length", 10, 3, 0);
-                bgImage.sprite = levelTheme.bgImage[0];
-                levelDetails.reward = lowReward;
-
-                break;
-
-            case 4:
-                //make 4 x 4 letter words
-                levelRuleType = LevelRuleType.length;
-                ConstructLevelParams("length", 3, 4, 0);
-                bgImage.sprite = levelTheme.bgImage[0];
-                levelDetails.reward = medReward;
-
-                break;
-
-            case 5:
-                //use 40 tiles
-                levelRuleType = LevelRuleType.tiles;
-                ConstructLevelParams("tiles", 40, 0, 0);
-                bgImage.sprite = levelTheme.bgImage[1];
-                levelDetails.reward = medReward;
-
-                break;
-            case 6:
-                //use 60 tiles
-                levelRuleType = LevelRuleType.tiles;
-                ConstructLevelParams("tiles", 60, 0, 0);
-                bgImage.sprite = levelTheme.bgImage[1];
-                levelDetails.reward = medReward;
-                break;
-
-            case 7:
-                //make 2 x words starting with "letter"
-                levelRuleType = LevelRuleType.starting;
-                ConstructLevelParams("starting", 3, 2, 0);
-                bgImage.sprite = levelTheme.bgImage[1];
-                levelDetails.reward = lowReward;
-                break;
-            case 8:
-                //make 2 words worth 10XP 
-                levelRuleType = LevelRuleType.points;
-                ConstructLevelParams("points", 2, 0, 10);
-                bgImage.sprite = levelTheme.bgImage[1];
-                levelDetails.reward = medReward;
-                break;
-
-            case 9:
-                //make 5 x 4 letter words
-                levelRuleType = LevelRuleType.length;
-                ConstructLevelParams("length", 5, 4, 0);
-                bgImage.sprite = levelTheme.bgImage[1];
-                levelDetails.reward = highReward;
-                break;
-
-            case 10:
-                //make 2 x 5 letter words
-                levelRuleType = LevelRuleType.length;
-                ConstructLevelParams("length", 2, 5, 0);
-                bgImage.sprite = levelTheme.bgImage[2];
-                levelDetails.reward = highReward;
-                break;
-
-            case 11:
-                // make 2 words worth 20XP
-                levelRuleType = LevelRuleType.points;
-                ConstructLevelParams("points", 2, 0, 20);
-                bgImage.sprite = levelTheme.bgImage[2];
-                levelDetails.reward = medReward;
-                break;
-
-            case 12:
-                //make 2 x 6 letter words
-                levelRuleType = LevelRuleType.length;
-                ConstructLevelParams("length", 2, 6, 0);
-                bgImage.sprite = levelTheme.bgImage[2];
-                levelDetails.reward = highReward;
-
-                break;
-
-            case 13:
-                //make 2 x words containing "letter"
-                levelRuleType = LevelRuleType.containing;
-                ConstructLevelParams("containing", 3, 2, 0);
-                bgImage.sprite = levelTheme.bgImage[2];
-                levelDetails.reward = medReward;
-                break;
-
-            case 14:
-                //make 4 x words starting with "letter"
-                levelRuleType = LevelRuleType.starting;
-                ConstructLevelParams("starting", 3, 4, 0);
-                bgImage.sprite = levelTheme.bgImage[2];
-                levelDetails.reward = highReward;
-                break;
-
-            case 15:
-                //use 75 tiles
-                levelRuleType = LevelRuleType.tiles;
-                ConstructLevelParams("tiles", 75, 0, 0);
-                bgImage.sprite = levelTheme.bgImage[3];
-                levelDetails.reward = highReward;
-                break;
-            case 16:
-                //use 60 tiles
-                levelRuleType = LevelRuleType.tiles;
-                ConstructLevelParams("tiles", 75, 0, 0);
-                bgImage.sprite = levelTheme.bgImage[3];
-                levelDetails.reward = highReward;
-                break;
-
-            case 17:
-                //make 3 x 5 letter words
-                levelRuleType = LevelRuleType.length;
-                ConstructLevelParams("length", 3, 5, 0);
-                bgImage.sprite = levelTheme.bgImage[3];
-                levelDetails.reward = highReward;
-                break;
-
-            case 18:
-                //make 3 x 6 letter words
-                levelRuleType = LevelRuleType.length;
-                ConstructLevelParams("length", 3, 6, 0);
-                bgImage.sprite = levelTheme.bgImage[3];
-                levelDetails.reward = superHighReward;
-                break;
-            case 19:
-                //make 1 x 7 letter words
-                levelRuleType = LevelRuleType.length;
-                ConstructLevelParams("length", 1, 7, 0);
-                bgImage.sprite = levelTheme.bgImage[3];
-                levelDetails.reward = superHighReward;
-                break;
-
-
-
         }
+
+        
 
     }
 

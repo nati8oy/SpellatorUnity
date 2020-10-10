@@ -289,7 +289,14 @@ public class GameManager : MonoBehaviour
     public void SetGameMode(string gameMode)
     {
         configData.gameMode = gameMode;
-        Debug.Log("game mode set to " + gameMode);
+//        Debug.Log("game mode set to " + gameMode);
+
+        switch (gameMode)
+        {
+            case "default":
+
+                break;
+        }
     }
 
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using DG.Tweening;
 //using EZCameraShake;
 
 public class DictionaryManager : MonoBehaviour
@@ -250,8 +251,7 @@ public class DictionaryManager : MonoBehaviour
             // iTween.MoveBy(currentPrimary, iTween.Hash("y", 125, "easetype", "EaseInQuad", "time", 0.3f, "oncomplete", "RemoveTileOnComplete"));
             iTween.MoveTo(currentPrimary, iTween.Hash("y", scoreObject.transform.position.y, "x", scoreObject.transform.position.x, "easetype", "EaseInQuad", "time", 0.3f, "oncomplete", "RemoveTileOnComplete"));
 
-
-
+           // currentPrimary.transform.DOMoveX()
         }
 
         //move the last tile of the word to the primary tile spot
@@ -279,9 +279,15 @@ public class DictionaryManager : MonoBehaviour
             iTween.MoveTo(selectedTilesArray[i], iTween.Hash("y", scoreObject.transform.position.y, "x", scoreObject.transform.position.x, "easetype", "easeOutSine", "time", 0.5f, "delay", (0.1f) * (i + 1), "oncomplete", "RemoveTileOnComplete"));;
 
 
+            /*
+            selectedTilesArray[i].transform.DOMove(new Vector3(scoreObject.transform.position.x, scoreObject.transform.position.y, 1), Random.Range(0.2f, 0.5f))
+                .SetDelay(0.1f*(i+1)
+                .OnComplete(selectedTilesArray[i].GetComponent<Tile>().RemoveTileOnComplete));
+            */
+
             //iTween.RotateBy(selectedTilesArray[i], iTween.Hash("amount", 1, "time", 1f, "delay", (0.1f) * (i + 1)));
 
-             iTween.PunchRotation(selectedTilesArray[i], new Vector3(0, 0,60), 2);
+            iTween.PunchRotation(selectedTilesArray[i], new Vector3(0, 0,60), 2);
 
         }
 
@@ -299,7 +305,7 @@ public class DictionaryManager : MonoBehaviour
         //this checks if 
         if (configData.gameMode == "limited mode")
         {
-            //configData.currentBagSequence.Clear();
+            configData.currentBagSequence.Clear();
           Debug.Log("no. of tiles in bag: " + configData.currentBagSequence.Count);
             foreach(string tileValue in TileBag.bag)
             {
@@ -502,7 +508,9 @@ public class DictionaryManager : MonoBehaviour
         ReduceAge();
 
         //move the primary tile back to its starting position
-        iTween.MoveTo(PrimaryTile, iTween.Hash("x", primaryPosX, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
+       // iTween.MoveTo(PrimaryTile, iTween.Hash("x", primaryPosX, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
+
+        PrimaryTile.transform.DOMoveX(primaryPosX,0.4f).SetDelay(0.1f);
 
         //hide the icon that indicates that a word is correct
         lightbulb.SetActive(false);
@@ -848,7 +856,9 @@ public class DictionaryManager : MonoBehaviour
         GameManager.Instance.ShakeCamera(0, 40, 0.5f);
 
         //move the primary tile back to its starting position
-        iTween.MoveTo(PrimaryTile, iTween.Hash("x", primaryPosX, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
+       //iTween.MoveTo(PrimaryTile, iTween.Hash("x", primaryPosX, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
+
+        PrimaryTile.transform.DOMoveX(primaryPosX, 0.4f, snapping: true);
 
         //reset the scores
         Points.resetScores();
@@ -917,7 +927,17 @@ public class DictionaryManager : MonoBehaviour
                 //then run the Coroutine from the tile game object. Phew!
 
                 //iTween.MoveTo(tile, new Vector3(getStartPos.startPos.position.x, getStartPos.startPos.position.y, 0), 0.5f);
-                iTween.MoveTo(tile, iTween.Hash("x", getStartPos.startPos.position.x, "y", getStartPos.startPos.position.y, "easetype", "EaseOutCirc", "time", 0.4f));; ;
+
+                //tile.transform.DOMove(new Vector3(1, 1));
+
+               
+
+
+
+                tile.transform.DOMove(new Vector3(getStartPos.startPos.position.x, getStartPos.startPos.position.y,1), Random.Range(0.2f,0.5f));
+
+
+                //iTween.MoveTo(tile, iTween.Hash("x", getStartPos.startPos.position.x, "y", getStartPos.startPos.position.y, "easetype", "EaseOutCirc", "time", 0.4f));; ;
 
                 ///AudioManager.Instance.PlayAudio(AudioManager.Instance.sfxTilePops[8]);
 
@@ -1081,44 +1101,56 @@ public class DictionaryManager : MonoBehaviour
 
         if (wordBeingMade.Length == 0)
         {
-            iTween.MoveTo(PrimaryTile, iTween.Hash("x", 0, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
+
+           PrimaryTile.transform.DOMoveX(0, 0.4f, snapping: true);
+
+           // iTween.MoveTo(PrimaryTile, iTween.Hash("x", 0, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
         }
 
         if (wordBeingMade.Length == 1)
         {
-            iTween.MoveTo(PrimaryTile, iTween.Hash("x", 100, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
+            PrimaryTile.transform.DOMoveX(100, 0.4f, snapping: true);
+
+            //iTween.MoveTo(PrimaryTile, iTween.Hash("x", 100, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
         }
         if (wordBeingMade.Length == 2)
         {
-            iTween.MoveTo(PrimaryTile, iTween.Hash("x", 100, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
+            PrimaryTile.transform.DOMoveX(100, 0.4f, snapping: true);
+            // iTween.MoveTo(PrimaryTile, iTween.Hash("x", 100, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
         }
         if (wordBeingMade.Length == 3)
         {
-            iTween.MoveTo(PrimaryTile, iTween.Hash("x", 100, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
+            PrimaryTile.transform.DOMoveX(100, 0.4f, snapping: true);
+            //iTween.MoveTo(PrimaryTile, iTween.Hash("x", 100, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
         }
         if (wordBeingMade.Length == 4)
         {
-            iTween.MoveTo(PrimaryTile, iTween.Hash("x", -50, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
+            PrimaryTile.transform.DOMoveX(-50, 0.4f, snapping: true);
+            // iTween.MoveTo(PrimaryTile, iTween.Hash("x", -50, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
         }
 
         if (wordBeingMade.Length == 5)
         {
-            iTween.MoveTo(PrimaryTile, iTween.Hash("x", -150, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
+            PrimaryTile.transform.DOMoveX(-150, 0.4f, snapping: true);
+            //iTween.MoveTo(PrimaryTile, iTween.Hash("x", -150, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
         }
 
         if (wordBeingMade.Length == 6)
         {
-            iTween.MoveTo(PrimaryTile, iTween.Hash("x", -200, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
+            PrimaryTile.transform.DOMoveX(-200, 0.4f, snapping: true);
+            //iTween.MoveTo(PrimaryTile, iTween.Hash("x", -200, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
         }
 
         if (wordBeingMade.Length == 8)
         {
-            iTween.MoveTo(PrimaryTile, iTween.Hash("x", -450, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
+            PrimaryTile.transform.DOMoveX(-450, 0.4f, snapping: true);
+            //iTween.MoveTo(PrimaryTile, iTween.Hash("x", -450, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
         }
 
         if (wordBeingMade.Length == 10)
         {
-            iTween.MoveTo(PrimaryTile, iTween.Hash("x", -600, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
+            PrimaryTile.transform.DOMoveX(-600, 0.4f, snapping: true);
+            //iTween.MoveTo(PrimaryTile, iTween.Hash("x", -600, "easetype", "EaseInOutCirc", "delay", 0.1, "time", 0.4f));
         }
 
 
