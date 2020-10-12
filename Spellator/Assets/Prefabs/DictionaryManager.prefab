@@ -47,35 +47,60 @@ MonoBehaviour:
   playerWordsMade: []
   wordData: {fileID: 11400000, guid: 87f9af19399d249068769bd3553e5227, type: 2}
   levelManager: {fileID: 11400000, guid: da09913161474424f878bba5ba2d1f98, type: 2}
+  lightbulbParticles: {fileID: 0}
+  tutorial: {fileID: 0}
+  HUD: {fileID: 0}
+  lighteningClip: {fileID: 0}
+  pointsScreen: {fileID: 0}
+  configData: {fileID: 0}
+  dottedLineClip: {fileID: 0}
+  waypoints:
+  - {x: 0, y: 1200, z: -4}
+  - {x: 100, y: -300, z: -220}
+  - {x: 0, y: -300, z: -140}
+  - {x: -200, y: -800, z: -400}
+  - {x: 300, y: 100, z: -100}
+  - {x: 0, y: 0, z: -4}
   totalWordsPlayed: 0
   longestWord: 
+  multiplierClip: {fileID: 0}
   encouragementMessages: {fileID: 11400000, guid: 250a7d87c3cfc44a296c52447dfafc90,
     type: 2}
   starTotalText: {fileID: 0}
-  healthParticles: {fileID: 0}
   dictionaryTxtFile: {fileID: 4900000, guid: 7c382be831dd04dd5832d2f7e1219647, type: 3}
   newCorrectWordParticle: {fileID: 0}
   pointParticles: {fileID: 0}
   maximumParticles: 5
   particleSizes: 0
   particleLifetime: 0
-  correctIcon: {fileID: 0}
+  lightbulb: {fileID: 0}
   allAudioClips:
   - {fileID: 8300000, guid: a5992ba9e416945ceb9a5f6384a97f7f, type: 3}
   - {fileID: 0}
   - {fileID: 8300000, guid: fd99d07e81ffd474bba1f756298fcc07, type: 3}
   - {fileID: 8300000, guid: a2f9acc43f6a643aeb38807bd06707b9, type: 3}
   - {fileID: 8300000, guid: 540952593469a45aa92dc621bc4f09a7, type: 3}
+  healthBar: {fileID: 0}
   messageParentObject: {fileID: 0}
   messageObject: {fileID: 0}
   multiplierText: {fileID: 0}
   pointsText: {fileID: 2125873791564837, guid: 7df6b5e4520404da49b7b76268cf0055, type: 3}
   sendButton: {fileID: 0}
-  PrimaryTile: {fileID: 0}
+  deleteButton: {fileID: 0}
+  deleteButtonImage: {fileID: 0}
+  shakeButtonImage: {fileID: 0}
+  deleteTileBool: 0
   scoreText: {fileID: 0}
   selectedTilesArray: []
   allTilesArray: []
   chainFlag: 0
+  currentRackTileTypes: []
+  currentRackVowelCount: 0
+  currentRackConsonantCount: 0
+  tileValueRatio: 0
+  firstRackLetters: []
+  tileObjects: []
+  streakClip: {fileID: 0}
 --- !u!82 &6933660798222369127
 AudioSource:
   m_ObjectHideFlags: 0

@@ -32,6 +32,8 @@ public class DictionaryManager : MonoBehaviour
 
     public RectTransform dottedLineClip;
 
+    public Vector3[] waypoints;
+
 
     [Space()]
     [Header("Word Related Variables")]
@@ -439,8 +441,11 @@ public class DictionaryManager : MonoBehaviour
         }
 
 
+
+        //plays the points screen animation
         pointsScreen.GetComponent<Animator>().SetBool("playPulse",true);
 
+        pointsScreen.transform.DOLocalPath(waypoints, 3, PathType.CatmullRom, PathMode.Ignore, resolution: 10, gizmoColor: Color.red);
 
         //ShowMessage();
         //update the number of words played overall - not the unique words

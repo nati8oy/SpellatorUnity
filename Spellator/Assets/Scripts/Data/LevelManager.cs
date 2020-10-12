@@ -228,7 +228,7 @@ public class LevelManager : MonoBehaviour
                 //use 100 tiles
                 levelRuleType = LevelRuleType.tileCount;
                 ConstructLevelParams("tileCount", 100, 0, 0);
-                bgImage.sprite = levelTheme.bgImage[2];
+                bgImage.sprite = levelTheme.bgImage[1];
                 levelDetails.reward = highReward;
 
                 break;
