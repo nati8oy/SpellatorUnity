@@ -23,7 +23,7 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("DefaultGameMode", LoadSceneMode.Single);
     }
 
-
+    //shows the game mode selection panel
     public void DisplayGameModePanel(string onOff)
     {
         if (onOff == "show")

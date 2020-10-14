@@ -9070,12 +9070,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1062769405}
   m_CullTransparentMesh: 0
---- !u!1 &1065890925 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1069913531486590420, guid: 882b0aef0538b4444bc87e98e0f9c884,
-    type: 3}
-  m_PrefabInstance: {fileID: 1069913530925081017}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1069076697
 GameObject:
   m_ObjectHideFlags: 0
@@ -20230,14 +20224,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
         type: 3}
-      propertyPath: starTotalText
-      value: 
+      propertyPath: waypoints.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
         type: 3}
-      propertyPath: correctIcon
+      propertyPath: lightbulbParticles
       value: 
-      objectReference: {fileID: 1065890925}
+      objectReference: {fileID: 344528778}
+    - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
+        type: 3}
+      propertyPath: HUD
+      value: 
+      objectReference: {fileID: 540659897}
+    - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
+        type: 3}
+      propertyPath: pointsScreen
+      value: 
+      objectReference: {fileID: 1294464077}
+    - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
+        type: 3}
+      propertyPath: dottedLineClip
+      value: 
+      objectReference: {fileID: 1151121276}
+    - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
+        type: 3}
+      propertyPath: lightbulb
+      value: 
+      objectReference: {fileID: 381665199}
     - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
         type: 3}
       propertyPath: messageParentObject
@@ -20260,9 +20274,9 @@ PrefabInstance:
       objectReference: {fileID: 184758118}
     - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
         type: 3}
-      propertyPath: PrimaryTile
+      propertyPath: deleteButton
       value: 
-      objectReference: {fileID: 722859413}
+      objectReference: {fileID: 363417290}
     - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
         type: 3}
       propertyPath: scoreText
@@ -20270,68 +20284,29 @@ PrefabInstance:
       objectReference: {fileID: 1277850937}
     - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
         type: 3}
-      propertyPath: tutorial
-      value: 
-      objectReference: {fileID: 11400000, guid: b9c4a75af295045f09685de1d4b7d544,
-        type: 2}
+      propertyPath: waypoints.Array.data[1].x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
         type: 3}
-      propertyPath: lightbulbParticles
-      value: 
-      objectReference: {fileID: 344528778}
+      propertyPath: waypoints.Array.data[0].y
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
         type: 3}
-      propertyPath: HUD
-      value: 
-      objectReference: {fileID: 540659897}
+      propertyPath: waypoints.Array.data[1].z
+      value: -4
+      objectReference: {fileID: 0}
     - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
         type: 3}
-      propertyPath: pointsScreen
-      value: 
-      objectReference: {fileID: 1294464077}
+      propertyPath: waypoints.Array.data[2].y
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
         type: 3}
-      propertyPath: pointScreenSprite
-      value: 
-      objectReference: {fileID: 1600885005}
-    - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
-        type: 3}
-      propertyPath: LiveScorePosition
-      value: 
-      objectReference: {fileID: 359124591}
-    - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
-        type: 3}
-      propertyPath: lightbulb
-      value: 
-      objectReference: {fileID: 381665199}
-    - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
-        type: 3}
-      propertyPath: deleteButton
-      value: 
-      objectReference: {fileID: 363417290}
-    - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
-        type: 3}
-      propertyPath: shakeButtonImage
-      value: 
-      objectReference: {fileID: 21300000, guid: f959c4fd6920b4becb38d1740f0fc84a,
-        type: 3}
-    - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
-        type: 3}
-      propertyPath: deleteButtonImage
-      value: 
-      objectReference: {fileID: 21300000, guid: e5414fda01fce462f917b1dae3df6875,
-        type: 3}
-    - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
-        type: 3}
-      propertyPath: configData
-      value: 
-      objectReference: {fileID: 11400000, guid: 87f9af19399d249068769bd3553e5227,
-        type: 2}
-    - target: {fileID: 6609693015226162855, guid: cc08af2b56d9c45b3af66e59305a1835,
-        type: 3}
-      propertyPath: dottedLineClip
-      value: 
-      objectReference: {fileID: 1151121276}
+      propertyPath: waypoints.Array.data[2].z
+      value: -4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc08af2b56d9c45b3af66e59305a1835, type: 3}
 --- !u!1001 &6664626739288876831
